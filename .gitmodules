@@ -1,0 +1,3 @@
+[submodule "dreamzero"]
+	path = dreamzero
+	url = https://github.com/versatile-ai/dreamzero.git
