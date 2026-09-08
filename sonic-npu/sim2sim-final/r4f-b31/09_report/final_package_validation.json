@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "1. 18 N5-R2 trace/manifest exist": {
+      "pass": true,
+      "detail": "18 pairs"
+    },
+    "2. manifest 18 rows relative full hash": {
+      "pass": true,
+      "detail": "18 rows ok"
+    },
+    "3. elbow/hip G6 pass": {
+      "pass": true,
+      "detail": "both pass"
+    },
+    "4. elbow/hip gate validity true all_pass true": {
+      "pass": true,
+      "detail": "both valid"
+    },
+    "5. no duplicate G6/gate": {
+      "pass": true,
+      "detail": "['elbow_G6.json', 'elbow_gates.json', 'hip_G6.json', 'hip_gates.json']"
+    },
+    "6. report markdown links exist": {
+      "pass": true,
+      "detail": "7 links"
+    },
+    "7. SONIC ledger": {
+      "pass": true,
+      "detail": "no banned, all unavailable correctly"
+    },
+    "8. video_visibility + media_manifest": {
+      "pass": true,
+      "detail": "pass and hashes ok"
+    },
+    "9. README": {
+      "pass": true,
+      "detail": "contains required phrases, no old 187"
+    },
+    "10. root SHA LF and full": {
+      "pass": true,
+      "detail": "LF, 212 payload, all full 64, all verified"
+    }
+  },
+  "all_pass": true,
+  "work_dir": "E:\\sim2sim-week-2026-08-26\\feedback\\B31_20260831\\work\\staging_B1_Lab10s_N5R2_B31"
+}

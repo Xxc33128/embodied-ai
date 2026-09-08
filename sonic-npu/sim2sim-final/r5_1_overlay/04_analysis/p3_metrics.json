@@ -1,0 +1,308 @@
+{
+  "conditions": {
+    "isaac_d00_10s": {
+      "trace": "03_runs/isaac_d00_10s_reference/policy_trace.npz",
+      "trace_sha256": "be64b024e206b0221d17a6135e3d2e5a75ab583db98e827d98c6c965dcb2e79d",
+      "cycles": 500,
+      "survival_cycles": 500,
+      "survival_time_s": 10.0,
+      "fall_reason": null,
+      "reset_observed": false,
+      "reset_evidence": "independent_trace_counters_and_summary"
+    },
+    "isaac_d20_10s_r2": {
+      "trace": "03_runs/isaac_d20_10s_r2/policy_trace.npz",
+      "trace_sha256": "d4714acc68caa669fdb27c30c5ee608238a57e455276b2e93076432d8f5920c3",
+      "cycles": 500,
+      "survival_cycles": 500,
+      "survival_time_s": 10.0,
+      "fall_reason": null,
+      "reset_observed": false,
+      "reset_evidence": "independent_trace_counters_and_summary"
+    },
+    "mj_elbow_d00_10s": {
+      "trace": "03_runs/mj_elbow_d00_10s_reference/policy_trace.npz",
+      "trace_sha256": "ba9276f78b24759612441ec939ac0aefb287de6a2d9877d99224904e76474a84",
+      "cycles": 500,
+      "survival_cycles": 500,
+      "survival_time_s": 10.0,
+      "fall_reason": null,
+      "reset_observed": false,
+      "reset_evidence": "independent_trace_counters_and_summary"
+    },
+    "mj_elbow_d20_10s": {
+      "trace": "03_runs/mj_elbow_d20_10s/policy_trace.npz",
+      "trace_sha256": "df965d24dc47f38036de61d5563e6dfc754702ed308dbd23d7f14a7f0156ec09",
+      "cycles": 500,
+      "survival_cycles": 500,
+      "survival_time_s": 10.0,
+      "fall_reason": null,
+      "reset_observed": false,
+      "reset_evidence": "independent_trace_counters_and_summary"
+    }
+  },
+  "groups": {
+    "LEGS": {
+      "indices": [
+        0,
+        3,
+        6,
+        9,
+        13,
+        17,
+        1,
+        4,
+        7,
+        10,
+        14,
+        18
+      ],
+      "size": 12,
+      "names": [
+        "left_hip_roll_joint",
+        "left_hip_yaw_joint",
+        "left_hip_pitch_joint",
+        "left_knee_joint",
+        "left_ankle_pitch_joint",
+        "left_ankle_roll_joint",
+        "right_hip_roll_joint",
+        "right_hip_yaw_joint",
+        "right_hip_pitch_joint",
+        "right_knee_joint",
+        "right_ankle_pitch_joint",
+        "right_ankle_roll_joint"
+      ]
+    },
+    "WAIST": {
+      "indices": [
+        2,
+        5,
+        8
+      ],
+      "size": 3,
+      "names": [
+        "waist_yaw_joint",
+        "waist_roll_joint",
+        "waist_pitch_joint"
+      ]
+    },
+    "ARMS": {
+      "indices": [
+        11,
+        15,
+        19,
+        21,
+        23,
+        25,
+        27,
+        12,
+        16,
+        20,
+        22,
+        24,
+        26,
+        28
+      ],
+      "size": 14,
+      "names": [
+        "left_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "left_arm_yaw_joint",
+        "left_elbow_pitch_joint",
+        "left_elbow_yaw_joint",
+        "left_wrist_pitch_joint",
+        "left_wrist_roll_joint",
+        "right_shoulder_pitch_joint",
+        "right_shoulder_roll_joint",
+        "right_arm_yaw_joint",
+        "right_elbow_pitch_joint",
+        "right_elbow_yaw_joint",
+        "right_wrist_pitch_joint",
+        "right_wrist_roll_joint"
+      ]
+    }
+  },
+  "units": {
+    "q": "rad",
+    "position": "m",
+    "orientation": "rad (geodesic 2*acos|dot|)",
+    "torque": "N*m",
+    "linear_velocity": "m/s",
+    "angular_velocity": "rad/s",
+    "saturation_fraction": "1",
+    "action_variation": "policy_action_unit",
+    "survival_cycles": "cycle",
+    "survival_time": "s"
+  },
+  "engine_within_D20_vs_D00": {
+    "isaac": {
+      "q_sensitivity": 0.0309288007449112,
+      "q_des_sensitivity": 0.03323449619051384,
+      "body_position_world_sensitivity": 0.026945817838908294,
+      "body_position_pelvis_relative_sensitivity": 0.00963465986601198,
+      "body_orientation_sensitivity": 0.052105985816668414,
+      "requested_tracking_rms_D00": 0.13135344086068668,
+      "requested_tracking_rms_D20": 0.1452884594065452,
+      "effective_tracking_rms_D20": 0.13001133083849367,
+      "group_LEGS_q_sensitivity": 0.03408827565730556,
+      "group_WAIST_q_sensitivity": 0.012869240330870207,
+      "group_ARMS_q_sensitivity": 0.030822246444609822,
+      "root_height_sensitivity": 0.0064958609212486295,
+      "root_xy_drift_sensitivity": 0.03184076055897321,
+      "root_roll_sensitivity": 0.011005700237146953,
+      "root_pitch_sensitivity": 0.009606688524497158,
+      "body_linear_vel_sensitivity": 0.09431149435291374,
+      "body_angular_vel_sensitivity": 0.32110489344419724,
+      "action_variation_D00": 0.13020209317526252,
+      "action_variation_D20": 0.13245713687960675,
+      "q_des_variation_D00": 0.03205513234369043,
+      "q_des_variation_D20": 0.032513725282350345
+    },
+    "mujoco": {
+      "q_sensitivity": 0.0480234300791761,
+      "q_des_sensitivity": 0.04930117441833117,
+      "body_position_world_sensitivity": 0.051532977154420366,
+      "body_position_pelvis_relative_sensitivity": 0.017088989060957172,
+      "body_orientation_sensitivity": 0.10453344791976843,
+      "requested_tracking_rms_D00": 0.12230060215303411,
+      "requested_tracking_rms_D20": 0.13971209688419337,
+      "effective_tracking_rms_D20": 0.12306221906021904,
+      "group_LEGS_q_sensitivity": 0.05733899583585279,
+      "group_WAIST_q_sensitivity": 0.019397596774337382,
+      "group_ARMS_q_sensitivity": 0.043341929267733746,
+      "root_height_sensitivity": 0.008845791542178991,
+      "root_xy_drift_sensitivity": 0.06035277027478811,
+      "root_roll_sensitivity": 0.016084608695627844,
+      "root_pitch_sensitivity": 0.014021332121819633,
+      "body_linear_vel_sensitivity": 0.12965299804344985,
+      "body_angular_vel_sensitivity": 0.4343774172975474,
+      "action_variation_D00": 0.13952574484115782,
+      "action_variation_D20": 0.1428839788473849,
+      "q_des_variation_D00": 0.03337905117207074,
+      "q_des_variation_D20": 0.03424445251027043
+    }
+  },
+  "cross_engine_isaac_vs_mujoco": {
+    "q_gap": {
+      "D00": 0.05594598353334103,
+      "D20": 0.06732448673236527
+    },
+    "body_position_world_gap": {
+      "D00": 0.10460968468025249,
+      "D20": 0.0747091755363785
+    },
+    "body_position_pelvis_relative_gap": {
+      "D00": 0.01739965531603739,
+      "D20": 0.023316975472924432
+    },
+    "body_orientation_gap": {
+      "D00": 0.10437381167704847,
+      "D20": 0.15057458377653157
+    },
+    "pelvis_position_gap": {
+      "D00": 0.10329188135914814,
+      "D20": 0.07036705003293392
+    },
+    "pelvis_orientation_gap": {
+      "D00": 0.040750575761390045,
+      "D20": 0.08481560501615977
+    },
+    "anchor_position_gap": {
+      "pelvis": {
+        "D00": 0.10329188135914814,
+        "D20": 0.07036705003293392
+      },
+      "left_ankle_roll_link": {
+        "D00": 0.10555821928879612,
+        "D20": 0.09040808070774918
+      },
+      "right_ankle_roll_link": {
+        "D00": 0.11123533987527384,
+        "D20": 0.07335482334179791
+      },
+      "left_wrist_roll_link": {
+        "D00": 0.10224152170559501,
+        "D20": 0.07790537547809995
+      },
+      "right_wrist_roll_link": {
+        "D00": 0.10042864903274983,
+        "D20": 0.07254311317429875
+      }
+    },
+    "anchor_orientation_gap": {
+      "pelvis": {
+        "D00": 0.040750575761390045,
+        "D20": 0.08481560501615977
+      },
+      "left_ankle_roll_link": {
+        "D00": 0.09691112969724167,
+        "D20": 0.15058634243291213
+      },
+      "right_ankle_roll_link": {
+        "D00": 0.10701402527703884,
+        "D20": 0.21993258059123577
+      },
+      "left_wrist_roll_link": {
+        "D00": 0.12689346923682113,
+        "D20": 0.1622416134671349
+      },
+      "right_wrist_roll_link": {
+        "D00": 0.1517830715232708,
+        "D20": 0.16881081450693025
+      }
+    },
+    "body_linear_vel_gap": {
+      "D00": 0.1384279313675293,
+      "D20": 0.14309643566507252
+    },
+    "body_angular_vel_gap": {
+      "D00": 0.436387806532114,
+      "D20": 0.43974802834266496
+    }
+  },
+  "task_tracking_per_condition": {
+    "isaac_d00_10s": {
+      "requested_tracking_rms_vs_q": 0.13135344086068668,
+      "diagnostic_unaligned_body_position_world_error_vs_motion_rms": 0.10401740689167467,
+      "diagnostic_unaligned_body_position_pelvis_relative_error_vs_motion_rms": 0.030202709022115342,
+      "diagnostic_unaligned_pelvis_height_mean_actual": 0.9722915887832642,
+      "diagnostic_unaligned_body_orientation_error_vs_motion_rms": 0.12941751784103964
+    },
+    "isaac_d20_10s_r2": {
+      "requested_tracking_rms_vs_q": 0.1452884594065452,
+      "diagnostic_unaligned_body_position_world_error_vs_motion_rms": 0.09392777173935274,
+      "diagnostic_unaligned_body_position_pelvis_relative_error_vs_motion_rms": 0.03193613629386663,
+      "diagnostic_unaligned_pelvis_height_mean_actual": 0.9719284772872925,
+      "diagnostic_unaligned_body_orientation_error_vs_motion_rms": 0.14283166235113842
+    },
+    "mj_elbow_d00_10s": {
+      "requested_tracking_rms_vs_q": 0.12230060215303411,
+      "diagnostic_unaligned_body_position_world_error_vs_motion_rms": 0.39555328682267527,
+      "diagnostic_unaligned_body_position_pelvis_relative_error_vs_motion_rms": 0.3800031752352223,
+      "diagnostic_unaligned_pelvis_height_mean_actual": 0.9677668809890747,
+      "diagnostic_unaligned_body_orientation_error_vs_motion_rms": 0.7677744216463209
+    },
+    "mj_elbow_d20_10s": {
+      "requested_tracking_rms_vs_q": 0.13971209688419337,
+      "diagnostic_unaligned_body_position_world_error_vs_motion_rms": 0.3955601800123467,
+      "diagnostic_unaligned_body_position_pelvis_relative_error_vs_motion_rms": 0.37993251061003613,
+      "diagnostic_unaligned_pelvis_height_mean_actual": 0.9687860012054443,
+      "diagnostic_unaligned_body_orientation_error_vs_motion_rms": 0.7740483533911897
+    }
+  },
+  "task_tracking_note": "diagnostic only: MJ reference body_pos_w uses motion/COM-frame semantics and unaligned world frame; raw MJ-vs-motion body error is NOT comparable to Isaac without the P0/P1 anchor-alignment algorithm; excluded from conclusions (robot-vs-robot metrics above are the report basis)",
+  "mujoco_torque": {
+    "isaac_torque": "UNAVAILABLE",
+    "applied_torque_rms_D00": 18.219720020879315,
+    "applied_torque_peak_D00": 188.46307373046875,
+    "raw_pd_torque_rms_D00": 18.360258293271638,
+    "torque_saturation_fraction_D00": 0.5802068965517241,
+    "qfrc_actuator_rms_D00": 18.219720020879315,
+    "applied_torque_rms_D20": 18.83347706030665,
+    "applied_torque_peak_D20": 187.00912475585938,
+    "raw_pd_torque_rms_D20": 19.101222051008946,
+    "torque_saturation_fraction_D20": 0.5728275862068966,
+    "qfrc_actuator_rms_D20": 18.83347706030665
+  },
+  "scope": "dance_9 / seed 42 / 10 s / gain 1.0 / current policy-motion-canonical-model / explicit position-target FIFO / 0 ms vs 20 ms"
+}

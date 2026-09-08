@@ -1,0 +1,6 @@
+metric,ratio_mujoco_over_isaac,isaac_value,mujoco_value,isaac_unit,mujoco_unit,aggregation
+q_sensitivity,1.5527,0.030929,0.048023,rad,rad,D20-vs-D00 trajectory sensitivity
+q_des_sensitivity,1.4834,0.033234,0.049301,rad,rad,D20-vs-D00 trajectory sensitivity
+body_position_world_sensitivity,1.9125,0.026946,0.051533,m,m,D20-vs-D00 trajectory sensitivity
+body_position_pelvis_relative_sensitivity,1.7737,0.009635,0.017089,m,m,D20-vs-D00 trajectory sensitivity
+body_orientation_sensitivity,2.0062,0.052106,0.104533,rad,rad,D20-vs-D00 trajectory sensitivity

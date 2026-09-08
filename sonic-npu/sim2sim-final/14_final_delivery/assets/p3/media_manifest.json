@@ -1,0 +1,94 @@
+{
+  "video": "05_media/p3_delay_four_panel_10s.mp4",
+  "sha256": "767ff6eec93a02f558d83df7d76beb06756a4f76ebbdb09988e76a3e750c8e97",
+  "container_frame_count": 250,
+  "container_fps": 25.0,
+  "container_playback_duration_s": 10.0,
+  "covered_simulation_cycles": 500,
+  "covered_simulation_time_s": 10.0,
+  "frame_to_sim_time_mapping": "uniform index-proportional assumption",
+  "has_per_frame_sim_timestamp": false,
+  "resolution": [
+    1280,
+    720
+  ],
+  "black_frame_count": 0,
+  "alignment": "index-proportional resampling to 250x@25fps; sources uniformly sampled in sim time over 10 s",
+  "sources": {
+    "isaac_d00": {
+      "path": "03_runs/isaac_d00_10s_reference/video.mp4",
+      "sha256": "e2781fea124633db23a21687de3591873fc9c2944bc5eeda30a1445d241fd547",
+      "container_frame_count": 250,
+      "container_fps": 30.0,
+      "container_playback_duration_s": 8.333333,
+      "covered_simulation_cycles": 500,
+      "covered_simulation_time_s": 10.0,
+      "frame_to_sim_time_mapping": "uniform index-proportional assumption",
+      "has_per_frame_sim_timestamp": false
+    },
+    "isaac_d20": {
+      "path": "03_runs/isaac_d20_10s_r2/video.mp4",
+      "sha256": "3e0803896be694781c16776fe97ea1eb60e30b983018913e9e5416ff6bd12840",
+      "container_frame_count": 250,
+      "container_fps": 25.0,
+      "container_playback_duration_s": 10.0,
+      "covered_simulation_cycles": 500,
+      "covered_simulation_time_s": 10.0,
+      "frame_to_sim_time_mapping": "uniform index-proportional assumption",
+      "has_per_frame_sim_timestamp": false
+    },
+    "mj_d00": {
+      "path": "05_media/sources/mj_elbow_d00_10s_reference.mp4",
+      "sha256": "cf1d3eb189fe019e8bbcf48d1147ca95044bbf65ad7b7e9ab04f6f04b29bbe42",
+      "container_frame_count": 295,
+      "container_fps": 30.0,
+      "container_playback_duration_s": 9.833333,
+      "covered_simulation_cycles": 500,
+      "covered_simulation_time_s": 10.0,
+      "frame_to_sim_time_mapping": "uniform index-proportional assumption",
+      "has_per_frame_sim_timestamp": false
+    },
+    "mj_d20": {
+      "path": "03_runs/mj_elbow_d20_10s/video.mp4",
+      "sha256": "9cc8039cb67c29a75eacdb4b30b9dee6979c3f6cc61b537b3ce71cc346e50117",
+      "container_frame_count": 295,
+      "container_fps": 30.0,
+      "container_playback_duration_s": 9.833333,
+      "covered_simulation_cycles": 500,
+      "covered_simulation_time_s": 10.0,
+      "frame_to_sim_time_mapping": "uniform index-proportional assumption",
+      "has_per_frame_sim_timestamp": false
+    }
+  },
+  "mj_d00_reuse": {
+    "reason": "R4 package MJ D00 has no video; P1 official mj_matched_r1 reused",
+    "source_zip": "P1_fullbody_elbow_transfer_v1.zip",
+    "source_zip_sha256": "8bb8ba9658c81160c7d6542e2b418637b7b736688b8a226ba885327b6d8b6824",
+    "source_rel": "10_p1_fullbody_elbow/03_runs/mj_matched_r1/video.mp4",
+    "source_video_sha256": "cf1d3eb189fe019e8bbcf48d1147ca95044bbf65ad7b7e9ab04f6f04b29bbe42",
+    "source_trace_sha256": "ba9276f78b24759612441ec939ac0aefb287de6a2d9877d99224904e76474a84",
+    "r4_mj_d00_trace_sha256": "ba9276f78b24759612441ec939ac0aefb287de6a2d9877d99224904e76474a84",
+    "trace_identical": true
+  },
+  "visibility": {
+    "frame_first.png": {
+      "index": 0,
+      "max_pixel": 255
+    },
+    "frame_mid.png": {
+      "index": 125,
+      "max_pixel": 255
+    },
+    "frame_last.png": {
+      "index": 249,
+      "max_pixel": 255
+    }
+  },
+  "labels": [
+    "Isaac | delay 0 ms | physics dt 0.005 s | control dt 0.020 s | model: native URDF",
+    "Isaac | delay 20 ms | physics dt 0.005 s | control dt 0.020 s | model: native URDF",
+    "MuJoCo | delay 0 ms | physics dt 0.002 s | control dt 0.020 s | model: right-elbow matched",
+    "MuJoCo | delay 20 ms | physics dt 0.002 s | control dt 0.020 s | model: right-elbow matched"
+  ],
+  "visibility_note": "Isaac D00 cell uses the official P1-era baseline video (close camera); the robot may be leg-cropped in some frames. All four cells non-black. Video observational only; quantitative claims come from frozen traces. Source videos carry no per-frame sim timestamps; frames are mapped by index onto the accepted 10 s runs, so on-screen t is nominal simulation time. Container playback duration differs from covered simulation time (10 s); see per-source fields."
+}

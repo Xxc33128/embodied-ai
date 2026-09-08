@@ -1,0 +1,37 @@
+{
+  "decision": "VALID_R5",
+  "revision": "R5.1",
+  "validity_pass": true,
+  "upstream": {
+    "p3_final_gate": "VALID_P3",
+    "trace_hashes_verified": {
+      "isaac_d00_10s": "be64b024e206b0221d17a6135e3d2e5a75ab583db98e827d98c6c965dcb2e79d",
+      "isaac_d20_10s_r2": "d4714acc68caa669fdb27c30c5ee608238a57e455276b2e93076432d8f5920c3",
+      "mj_elbow_d00_10s": "ba9276f78b24759612441ec939ac0aefb287de6a2d9877d99224904e76474a84",
+      "mj_elbow_d20_10s": "df965d24dc47f38036de61d5563e6dfc754702ed308dbd23d7f14a7f0156ec09"
+    }
+  },
+  "crosscheck": {
+    "reference": "R5 plan section 6",
+    "max_rel_err_allowed": 0.0001,
+    "mismatches": 0
+  },
+  "groups_sizes": {
+    "LEGS": 12,
+    "WAIST": 3,
+    "ARMS": 14
+  },
+  "isaac_torque": "UNAVAILABLE",
+  "orientation": "geodesic 2*acos(|dot|)",
+  "units_policy": "R5.1: every CSV row has a definite unit; no mixed units; nested anchor metrics expanded into long CSV",
+  "anchor_orientation_gap_added": [
+    "left_ankle_roll_link",
+    "left_wrist_roll_link",
+    "pelvis",
+    "right_ankle_roll_link",
+    "right_wrist_roll_link"
+  ],
+  "media_time_semantics": "container playback duration differs from covered simulation time (10 s); see 05_media/media_manifest.json",
+  "world_vs_pelvis_relative_note": "world body gap fell (pelvis/root translation closer) while pelvis-relative body gap increased; report both separately",
+  "scope": "dance_9 / seed 42 / 10 s / gain 1.0 / current policy-motion-canonical-model / explicit position-target FIFO / 0 ms vs 20 ms"
+}

@@ -1,0 +1,15 @@
+{
+  "all_cited_paths_exist": true,
+  "zip_or_root_sha256_checked": true,
+  "lab_trace_metrics_recomputed": true,
+  "lab_video_visually_checked": true,
+  "n5r2_raw_trace_count": 18,
+  "n5r2_g6_recomputed_from_pack": true,
+  "n5r2_final_gates_consistent": true,
+  "sonic_ledger_paths_checked": true,
+  "unsupported_numbers_found": [],
+  "unresolved_conflicts": [],
+  "report_ready_for_submission": true,
+  "b3_note": "Final package validation completed with all_pass=true; report images are self-contained under 09_report/assets.",
+  "final_package_validation": "09_report/final_package_validation.json"
+}

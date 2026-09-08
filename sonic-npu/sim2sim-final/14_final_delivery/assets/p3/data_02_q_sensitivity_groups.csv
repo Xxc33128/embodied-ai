@@ -1,0 +1,5 @@
+group,isaac,mujoco,unit,n_joints,aggregation
+all29,0.030929,0.048023,rad,29,RMS over cycles x joints
+LEGS12,0.034088,0.057339,rad,12,RMS over cycles x joints
+WAIST3,0.012869,0.019398,rad,3,RMS over cycles x joints
+ARMS14,0.030822,0.043342,rad,14,RMS over cycles x joints

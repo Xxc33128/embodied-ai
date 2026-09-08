@@ -1,0 +1,4 @@
+metric,D00,D20,change_pct,unit,aggregation,coordinate_frame
+body_position_world_gap,0.104610,0.074709,-28.58,m,RMS over 500x14x3,world
+body_position_pelvis_relative_gap,0.017400,0.023317,34.01,m,RMS over 500x14x3,pelvis-translated
+pelvis_position_gap,0.103292,0.070367,-31.88,m,RMS over 500x3,world

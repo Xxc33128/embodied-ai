@@ -1,0 +1,59 @@
+control_dt: 0.02
+
+
+rl_model:
+    motion_path: "policy/dance_9/dance_9.npz"
+    policy_path: "policy/dance_9/motion_anchor_obs_model_23500.onnx"
+    type: "mimic"
+    observations:
+        curr_motion_data:
+            dim: 58
+            history_length: 5
+        motion_anchor_ori_b:
+            dim: 6
+            history_length: 5
+        base_ang_vel:
+            dim: 3
+            history_length: 5
+        qpos_rel:
+            dim: 29
+            history_length: 5
+        qvel:
+            dim: 29
+            history_length: 5
+        action:
+            dim: 29
+            history_length: 5
+
+
+
+robot:
+    name: "era_l7"
+    sim2sim:
+        xml_path: "l7_29dof_neck_fixed/l7_29dof_neck_fixed.xml"
+        joint_sequence: ["left_hip_roll_joint", "left_hip_yaw_joint", "left_hip_pitch_joint", "left_knee_joint", "left_ankle_pitch_joint", "left_ankle_roll_joint",
+            "right_hip_roll_joint", "right_hip_yaw_joint", "right_hip_pitch_joint","right_knee_joint","right_ankle_pitch_joint","right_ankle_roll_joint",
+            "waist_yaw_joint","waist_roll_joint","waist_pitch_joint",
+            "left_shoulder_pitch_joint", "left_shoulder_roll_joint", "left_arm_yaw_joint", "left_elbow_pitch_joint", "left_elbow_yaw_joint", "left_wrist_pitch_joint", "left_wrist_roll_joint",
+            "right_shoulder_pitch_joint","right_shoulder_roll_joint", "right_arm_yaw_joint","right_elbow_pitch_joint","right_elbow_yaw_joint","right_wrist_pitch_joint","right_wrist_roll_joint"]
+
+    real:
+        joint_sequence: ["left_shoulder_pitch_joint", "left_shoulder_roll_joint", "left_arm_yaw_joint", "left_elbow_pitch_joint", "left_elbow_yaw_joint", "left_wrist_pitch_joint", "left_wrist_roll_joint",
+                        "neck_yaw_joint", "neck_pitch_joint",
+                        "right_shoulder_pitch_joint", "right_shoulder_roll_joint", "right_arm_yaw_joint", "right_elbow_pitch_joint", "right_elbow_yaw_joint", "right_wrist_pitch_joint", "right_wrist_roll_joint",
+                        "waist_pitch_joint", "waist_roll_joint", "waist_yaw_joint",
+                        "left_hip_roll_joint", "left_hip_yaw_joint", "left_hip_pitch_joint", "left_knee_joint", "left_ankle_pitch_joint", "left_ankle_roll_joint",
+                        "right_hip_roll_joint", "right_hip_yaw_joint", "right_hip_pitch_joint", "right_knee_joint", "right_ankle_pitch_joint", "right_ankle_roll_joint"]
+
+        init_Kp: [150.0, 150.0, 120.0, 90.0, 90.0, 90.0, 90.0,  # left arm joints
+                  90.0, 90.0,                                   # neck joints
+                  150.0, 150.0, 120.0, 90.0, 90.0, 90.0, 90.0,  # right arm joints
+                  750.0, 750.0, 750.0,                          # waist joints
+                  1500.0, 1500.0, 2000.0, 2000.0, 800.0, 800.0, # left leg joints
+                  1500.0, 1500.0, 2000.0, 2000.0, 800.0, 800.0] # right leg joints
+        init_Kd: [3.0, 2.0, 0.8, 2.0, 2.0, 2.0, 2.0,  # left arm joints
+                  2.0, 2.0,                           # neck joints
+                  3.0, 2.0, 0.8, 2.0, 2.0, 2.0, 2.0,  # right arm joints
+                  6.0, 6.0, 6.0,                      # waist joints
+                  10.0, 10.0, 10.0, 10.0, 10.0, 10.0, # left leg joints
+                  10.0, 10.0, 10.0, 10.0, 10.0, 10.0] # right leg joints

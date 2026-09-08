@@ -1,0 +1,176 @@
+{
+  "validity": {
+    "checks": {
+      "input_hash": true,
+      "asset": true,
+      "config": true,
+      "runtime": true,
+      "repeat": true,
+      "time": true,
+      "joint": true,
+      "shape": true,
+      "nan": true
+    },
+    "details": {
+      "input_hash": "all PASS",
+      "asset": "pass",
+      "config": "ok",
+      "runtime": "ok",
+      "repeat": "pass",
+      "time": "pass",
+      "joint": "pass",
+      "shape": "pass",
+      "nan": "pass"
+    },
+    "pass": true
+  },
+  "arm_group_effect": {
+    "E13_elbow": [
+      0.04489237689510327,
+      0.04489237689510327,
+      0.04489237689510327
+    ],
+    "E13_arm": [
+      0.04714021969681908,
+      0.04714021969681908,
+      0.04714021969681908
+    ],
+    "rel_improvements": [
+      -0.05007181524311313,
+      -0.05007181524311313,
+      -0.05007181524311313
+    ],
+    "abs_improvements": [
+      -0.0022478428017158117,
+      -0.0022478428017158117,
+      -0.0022478428017158117
+    ],
+    "mean_rel": -0.05007181524311313,
+    "mean_abs": -0.0022478428017158117,
+    "direction_consistent": false,
+    "per_repeat_pass": [
+      false,
+      false,
+      false
+    ],
+    "n_improved_joints": 5,
+    "median_improvement": -0.0012236833628228028,
+    "mean_per_joint": [
+      -0.0002500717837497918,
+      -0.006303974022437271,
+      -0.006135142425205367,
+      0.0012660148422286716,
+      -0.0023318827283656494,
+      0.003341418213940517,
+      -0.00788725295573911,
+      0.007750645194138081,
+      -0.0012236833628228028,
+      -0.012310764865043802,
+      0.006960363376405217,
+      -0.02010283966366054,
+      0.008005213758006124
+    ],
+    "pass": false
+  },
+  "right_elbow_preservation": {
+    "elbow_elbow": [
+      0.050675358673981805,
+      0.050675358673981805,
+      0.050675358673981805
+    ],
+    "elbow_arm": [
+      0.051167797404001375,
+      0.051167797404001375,
+      0.051167797404001375
+    ],
+    "pass": true
+  },
+  "system_guard": {
+    "per_repeat": [
+      {
+        "repeat": 1,
+        "fall_guard": true,
+        "height_inc": 0.0014330297517294909,
+        "height_thresh": 0.002,
+        "height_guard": true,
+        "roll_inc": 0.001864609642293005,
+        "roll_thresh": 0.005,
+        "roll_guard": true,
+        "pitch_inc": 0.001036939993779653,
+        "pitch_thresh": 0.005,
+        "pitch_guard": true,
+        "joint_inc": 0.008446944340412661,
+        "joint_thresh": 0.004655109534062003,
+        "joint_guard": false,
+        "body_inc": -0.005023116341046699,
+        "body_thresh": 0.01046096846803242,
+        "body_guard": true,
+        "anchor_inc": -0.006175260010874484,
+        "anchor_thresh": 0.010329188137852519,
+        "anchor_guard": true,
+        "body_q_inc": 0.022883385695618194,
+        "body_q_thresh": 0.010437381167704847,
+        "body_q_guard": false,
+        "overall": false
+      },
+      {
+        "repeat": 2,
+        "fall_guard": true,
+        "height_inc": 0.0014330297517294909,
+        "height_thresh": 0.002,
+        "height_guard": true,
+        "roll_inc": 0.001864609642293005,
+        "roll_thresh": 0.005,
+        "roll_guard": true,
+        "pitch_inc": 0.001036939993779653,
+        "pitch_thresh": 0.005,
+        "pitch_guard": true,
+        "joint_inc": 0.008446944340412661,
+        "joint_thresh": 0.004655109534062003,
+        "joint_guard": false,
+        "body_inc": -0.005023116341046699,
+        "body_thresh": 0.01046096846803242,
+        "body_guard": true,
+        "anchor_inc": -0.006175260010874484,
+        "anchor_thresh": 0.010329188137852519,
+        "anchor_guard": true,
+        "body_q_inc": 0.022883385695618194,
+        "body_q_thresh": 0.010437381167704847,
+        "body_q_guard": false,
+        "overall": false
+      },
+      {
+        "repeat": 3,
+        "fall_guard": true,
+        "height_inc": 0.0014330297517294909,
+        "height_thresh": 0.002,
+        "height_guard": true,
+        "roll_inc": 0.001864609642293005,
+        "roll_thresh": 0.005,
+        "roll_guard": true,
+        "pitch_inc": 0.001036939993779653,
+        "pitch_thresh": 0.005,
+        "pitch_guard": true,
+        "joint_inc": 0.008446944340412661,
+        "joint_thresh": 0.004655109534062003,
+        "joint_guard": false,
+        "body_inc": -0.005023116341046699,
+        "body_thresh": 0.01046096846803242,
+        "body_guard": true,
+        "anchor_inc": -0.006175260010874484,
+        "anchor_thresh": 0.010329188137852519,
+        "anchor_guard": true,
+        "body_q_inc": 0.022883385695618194,
+        "body_q_thresh": 0.010437381167704847,
+        "body_q_guard": false,
+        "overall": false
+      }
+    ],
+    "pass": false
+  },
+  "decision": "NO_INCREMENTAL_ARM_GROUP_EFFECT",
+  "validity_pass": true,
+  "arm_group_effect_pass": false,
+  "right_elbow_preservation_pass": true,
+  "system_guard_pass": false
+}

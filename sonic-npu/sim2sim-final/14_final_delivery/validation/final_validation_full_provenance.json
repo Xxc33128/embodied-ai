@@ -1,0 +1,10 @@
+{
+  "mode": "full-provenance",
+  "decision": "VALID_FINAL_DELIVERY",
+  "errors": [],
+  "notes": [
+    "SHA256_FULL_TREE.txt verified (108 entries)",
+    "full-provenance: all required source ZIPs present and hash-matched"
+  ],
+  "index_rows": 10
+}

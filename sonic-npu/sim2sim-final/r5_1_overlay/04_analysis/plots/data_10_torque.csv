@@ -1,0 +1,6 @@
+metric,D00,D20,unit,aggregation
+applied_torque_rms,18.219720,18.833477,N*m,RMS over 500x29
+raw_pd_torque_rms,18.360258,19.101222,N*m,RMS over 500x29
+qfrc_actuator_rms,18.219720,18.833477,N*m,RMS over 500x29
+applied_torque_peak,188.463074,187.009125,N*m,max abs
+torque_saturation_fraction,0.580207,0.572828,1,mean(|raw|>|applied|+1e-6)

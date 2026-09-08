@@ -1,0 +1,15 @@
+metric,value,unit,note
+Isaac q_des-q RMSE,0.13135,rad,full 29 joints 10s 500 cycles
+MuJoCo q_des-q RMSE,0.12367,rad,full 29 joints 10s 500 cycles
+Isaac-MuJoCo q RMSE (same time),0.06233,rad,10s simultaneous
+Isaac-MuJoCo q_des RMSE (same time),0.05467,rad,10s simultaneous
+Isaac-MuJoCo root height RMSE,0.00860,m,10s simultaneous
+Isaac-MuJoCo root roll RMSE,0.01364,rad,10s simultaneous
+Isaac-MuJoCo root pitch RMSE,0.02006,rad,10s simultaneous
+Isaac root z range,0.91584-1.00622,m,10s min-max
+MuJoCo root z range,0.90814-1.00429,m,10s min-max
+Isaac 10s failure,0,,fall=false predicate anchor_z 0.4 anchor_ori 0.8 ee_z 0.4
+MuJoCo 10s failure,0,,fall=false same predicate
+Isaac cycles,500,,control 0.02 *500 =10s no NaN/Inf
+MuJoCo cycles,500,,control 0.02 *500 =10s no NaN/Inf
+Determinism 5s vs 10s prefix max diff,0.0,,obs/action/q_des/q/dq/root_pos/root_quat max diff 0 across 250 cycles
