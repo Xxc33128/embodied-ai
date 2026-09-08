@@ -2,22 +2,31 @@
 
 个人工作日志/总结仓库（fork 自 versatile-ai/embodied-ai，本人维护分支：Xxc33128/embodied-ai）。
 
-## 项目索引
+## sonic-npu/ — SONIC（GR00T WholeBodyControl）→ 昇腾 NPU 迁移研究
 
-### sonic-npu/ — SONIC（GR00T WholeBodyControl）→ 昇腾 NPU 迁移研究
+实习期主要工作，**按周时间线组织**：每周一个目录，readme 讲本周故事，旁边是原始文档。
 
-实习期主要工作：原版训练体系解析、zhangqin 分支 NPU 适配现状审计、MuJoCo Warp 全量迁移 B 路线可行性研究，以及三项目 Sim2Sim 实验链。
+| 周 | 日期 | 主题 | 一句话结论 |
+|---|---|---|---|
+| [W33](sonic-npu/weeks/2026-W33_0810-0816_环境搭建与Isaac排坑/) | 8/10–16 | 环境搭建与 Isaac 排坑 | 双引擎环境跑通；scenedb 崩溃定位到驱动版本 |
+| [W34](sonic-npu/weeks/2026-W34_0817-0823_Phase7接口门禁与跨引擎审计/) | 8/17–23 | Phase7 接口门禁与跨引擎审计 | Interface gate PASS 14/14；物理对齐预注册路线确定 |
+| [W35](sonic-npu/weeks/2026-W35_0824-0830_环境收口与Sim2Sim审查链启动/) | 8/24–30 | 环境收口 + Sim2Sim 审查链启动 | 右肘 armature 不一致确立为分叉首要因素：隔离 MAE ↓74.8% |
+| [W36](sonic-npu/weeks/2026-W36_0831-0906_科学验收收口与主报告定稿/) | 8/31–9/6 | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
+| [W37](sonic-npu/weeks/2026-W37_0907-0913_修订与归档/) | 9/7–13 | 修订与归档 | ② v1.7 补数值；工作成果整理入本仓库 |
 
-**推荐阅读顺序**（同一条决策链：懂原版 → 盘现状 → 评新路）：
+## 成果区（不按周拆分）
 
-1. `sonic-npu/SONIC原版训练体系深度解析.md`（② 基准知识，v1.7）
-2. `sonic-npu/SONIC_NPU适配深度报告_zhangqin分支.md`（③ 现状审计，v1.4）
-3. `sonic-npu/MuJoCo_Warp架构与昇腾NPU全量迁移B路线报告.md`（① 前瞻决策，v1.4）
+- [`sonic-npu/reports/`](sonic-npu/reports/) — 三份主报告现行版（② 原版解析 v1.7 / ③ 分支审计 v1.4 / ① B 路线 v1.4）+ `00_总览.md` 导航。**推荐阅读顺序：② → ③ → ①**（懂原版 → 盘现状 → 评新路）。
+- [`sonic-npu/lectures/`](sonic-npu/lectures/) — 讲解提纲 + 三份讲稿（版本对应表在内）。
+- [`sonic-npu/sim2sim-final/`](sonic-npu/sim2sim-final/) — Sim2Sim 最终交付报告子集（最终版报告、claim 矩阵、validation、指标图、代码快照）。
+- [`sonic-npu/packages/`](sonic-npu/packages/) — 9 个实验反馈包（Git LFS）+ SHA256SUMS。
+- [`sonic-npu/notes/`](sonic-npu/notes/)、[`sonic-npu/survey/`](sonic-npu/survey/)、[`sonic-npu/handover/`](sonic-npu/handover/) — 迁移实证笔记、技术综述、交接类文档。
+- [`sonic-npu/MANIFEST.md`](sonic-npu/MANIFEST.md) — 完整内容索引 + 未上传大文件（1.75GB final zip 等）的 SHA256 与保存位置。
 
-导航入口：`sonic-npu/00_总览.md`；完整内容索引与大文件校验和：`sonic-npu/MANIFEST.md`。
+## 收录规则
 
-其他子目录：`lectures/`（讲解材料）、`survey/`（技术综述）、`worklog/`（里程碑工作文档）、`env-docs/`（环境/周报）、`sim2sim-final/`（实验交付报告子集）、`notes/`（迁移实证笔记）、`packages/`（实验反馈包，Git LFS）。
+周目录只收录**结论/报告/预注册类**文档（审查裁决、验收结论、调研结论、根因归档、实验计划）；执行指令与交接类不入时间线（交接文档在 `handover/`，工具类仅在周 readme 留索引行）。
 
 ## 历史
 
-- 原 DreamZero NPU 训练交付物（final_report.html、eval 对比图、code 子模块）已于 2026-09-08 清理：报告仍保留在本仓库 git 历史（`git show b62887c:dreamzero/final_report.html` 可找回）；代码改动在独立仓库 zhangqin200182/dreamzero，不受影响。
+- 原 DreamZero NPU 训练交付物已于 2026-09-08 清理：报告保留在本仓库 git 历史（`git show b62887c:dreamzero/final_report.html` 可找回）；代码改动在独立仓库 zhangqin200182/dreamzero。
