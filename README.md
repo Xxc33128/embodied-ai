@@ -1,13 +1,8 @@
-# Embodied AI Projects
+# Embodied AI — 工作记录区
 
-## DreamZero — NPU 训练报告 & Full vs Action-Only 对比分析
+个人工作日志/总结仓库（fork 自 versatile-ai/embodied-ai，本人维护分支：Xxc33128/embodied-ai）。
 
-- final_report.html — 3000 步完整训练+评测报告（自包含 HTML）
-- eval_enhanced_comparison.html — 增强版 Full/AO/GT 同轴对比图
-- base.py — Fix 7: resume 时真正加载 LoRA 适配器
-- droid_16gpu.sh — 修复: 添加 $@ 透传 Hydra CLI override
-
-核心发现:
-- AO-Full gap 恒定 ~20-30 MSE，不随训练缩小
-- Full 和 AO 预测曲线走势一致（同一权重），AO = Full + 常量偏置
-- 视频去噪价值是场景依赖的：简单轨迹 AO≈Full，复杂轨迹需 Full
+- 按日期或主题建子目录存放工作记录（SONIC→昇腾 NPU 迁移等）。
+- 原 DreamZero NPU 训练交付物（final_report.html、eval 对比图、code 子模块）已于 2026-09-08 清理：
+  - 报告仍保留在本仓库 git 历史（`git show b62887c:dreamzero/final_report.html` 可找回）；
+  - 代码改动在独立仓库 zhangqin200182/dreamzero，不受影响。
