@@ -1,4 +1,4 @@
-# 2026-W34（8/17–23）：Phase7 接口门禁与跨引擎审计
+# 2026/8/17–8/23：Phase7 接口门禁与跨引擎审计
 
 ## 本周目标
 
@@ -22,4 +22,4 @@
 
 ## 遗留 → 下周
 
-5 commit 未 push、PAT 待撤销（后于 W35 收口为 12 commit）；Isaac benchmark CLI 挂起成为唯一主线卡点 → W35 环境收口。
+5 commit 未 push、PAT 待撤销（后于 8/24 收口为 12 commit）；Isaac benchmark CLI 挂起成为唯一主线卡点 → 下周（8/24–30）环境收口。

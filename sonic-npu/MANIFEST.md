@@ -6,16 +6,16 @@
 
 | 路径 | 内容 | 说明 |
 |---|---|---|
-| `weeks/` | **周时间线主轴**：每周一目录（W33–W37），readme 为周摘要 + 该周结论/报告/预注册类文档 | 收录规则与周索引见 `weeks/README.md`；执行清单类不上传、周 readme 留索引行 |
+| `weeks/` | **周时间线主轴**：每周一目录（8/10–9/13 共五周），readme 为周摘要 + 该周结论/报告/预注册类文档 | 收录规则与周索引见 `weeks/README.md`；执行清单类不上传、周 readme 留索引行 |
 | `reports/` | 报告套件（同目录互链） | 00_总览 + ② 原版解析 v1.7 / ③ 分支审计 v1.4 / ① B 路线 v1.4 + ② 的配图 |
 | `lectures/` | 讲解提纲 + 3 份讲稿 | 版本对应关系见 `lectures/README.md` |
 | `survey/` | SONIC 与具身智能技术综述 | 2026-08-20 知识底稿，独立成篇 |
-| `handover/` | 交接类文档（不入时间线） | 交接文档-Isaac环境搭建（历史快照，被 W35 排障复盘取代） |
+| `handover/` | 交接类文档（不入时间线） | 交接文档-Isaac环境搭建（历史快照，被 8/24 排障复盘取代） |
 | `sim2sim-final/` | 最终交付报告子集 | 14_final_delivery（最终版报告+claim矩阵+validation）、report_v2（可读版）、r5_1_overlay（P3 指标）、code_snapshot、r4f-b31（B3.1 包报告） |
 | `notes/` | mujoco_npu_migration_notes.md | A 路线实证记录（原为 GR00T-WholeBodyControl 仓库 untracked 文件，此为备份副本） |
 | `packages/` | 9 个实验反馈 zip（Git LFS） | 清单见下，校验和见 `packages/SHA256SUMS.txt` |
 
-**脱敏说明**：`weeks/W35/环境配置排障复盘` 副本已删除泄露 PAT 断片（原件仍含，仅本地保存）；含 PAT 断片的 `Phase7-进度总结` 未上传。
+**脱敏说明**：`weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/环境配置排障复盘` 副本已删除泄露 PAT 断片（原件仍含，仅本地保存）；含 PAT 断片的 `Phase7-进度总结` 未上传。
 
 ## packages/ 清单（9 个 zip，Git LFS 存储）
 
