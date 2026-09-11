@@ -12,11 +12,11 @@
 | [8/17–8/23](sonic-npu/weeks/2026_0817-0823_Phase7接口门禁与跨引擎审计/) | Phase7 接口门禁与跨引擎审计 | Interface gate PASS 14/14；物理对齐预注册路线确定 |
 | [8/24–8/30](sonic-npu/weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/) | 环境收口 + Sim2Sim 审查链启动 | 右肘 armature 不一致确立为分叉首要因素：隔离 MAE ↓74.8% |
 | [8/31–9/6](sonic-npu/weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
-| [9/7–9/13](sonic-npu/weeks/2026_0907-0913_修订与归档/) | 修订与归档 | ② v1.7 补数值；工作成果整理入本仓库 |
+| [9/7–9/13](sonic-npu/weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
 
 ## 成果区（不按周拆分）
 
-- [`sonic-npu/reports/`](sonic-npu/reports/) — 三份主报告现行版（② 原版解析 v1.7 / ③ 分支审计 v1.4 / ① B 路线 v1.4）+ `00_总览.md` 导航。**推荐阅读顺序：② → ③ → ①**（懂原版 → 盘现状 → 评新路）。
+- [`sonic-npu/reports/`](sonic-npu/reports/) — 三份主报告现行版（② 原版解析 v1.8 / ③ 分支审计 v1.4 / ① B 路线 v1.5）+ `00_总览.md` 导航。**推荐阅读顺序：② → ③ → ①**（懂原版 → 盘现状 → 评新路）。
 - [`sonic-npu/lectures/`](sonic-npu/lectures/) — 讲解提纲 + 三份讲稿（版本对应表在内）。
 - [`sonic-npu/sim2sim-final/`](sonic-npu/sim2sim-final/) — Sim2Sim 最终交付报告子集（最终版报告、claim 矩阵、validation、指标图、代码快照）。
 - [`sonic-npu/packages/`](sonic-npu/packages/) — 9 个实验反馈包（Git LFS）+ SHA256SUMS。

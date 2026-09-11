@@ -1,838 +1,1078 @@
-# MJWarp 物理核心子集迁移昇腾可行性研究与 PoC 路线
+# MuJoCo Warp 架构与昇腾 NPU 迁移：从原理到 B 路线验证
 
-> **版本**: v1.4 — 2026-09-03（历史版本变更见文末修订记录；v1.4 含编辑性修订与两项后补：①源码实证升级——锚点 `7e4afee` 已克隆并完成六维统计，基线数字与全部摘录升级为 E1；②IMPLICITFAST 必查项结案——代码已实现、README 口径滞后，详见 §11.1/修订记录）
-> **基准（锁定，已实证 E1）**: `google-deepmind/mujoco_warp` main@`7e4afee`（全量哈希 `7e4afee815a3…`，2026-09-02 提交，版本号 3.12.0，Warp 依赖 `warp-lang>=1.15`——2026-09-03 克隆实测），`MuJoCo` 版本以该 commit 的 pyproject 为准，昇腾侧以§19完整CANN矩阵为准
-> **关联文档**: [A路线笔记] `GR00T-WholeBodyControl/docs/mujoco_npu_migration_notes.md` · [精度分析] `GR00T-WBC-alignment/docs/mujoco-vs-isaac-precision-analysis.md` · [SONIC原版解析] `SONIC原版训练体系深度解析.md` · [zhangqin分支审计] `SONIC_NPU适配深度报告_zhangqin分支.md` · 官方文档 `mujoco.readthedocs.io/en/latest/mjwarp/index.html`（正文引用一律用方括号缩写）
-> **作者**: 架构组 · 适用对象: 需决策/执行“物理仿真 GPU → 昇腾 NPU”移植的架构师与一线工程师
-> **证据等级**: E1 源码行号实证 · E2 配置实证 · E3 文档/逻辑推断 · E4 外审转述未复核（详见《00_总览》）
-> **口径说明**: 上游基线已在锁定 commit 实测：`_src` 非测试 52,843 行、296 处 `@wp.kernel`（E1；外审值 5.28 万/296 与之吻合；定义数≠运行时launch数，launch 数仍需 event trace 区分）——该数字是**仓库总量**，不等同G1子集与PoC重写量（见执行摘要三行拆分）。凡标“估计/待核实/外审值待复核/E4”处不得直接用于立项承诺。
+> **版本：v1.5 · 2026-09-09**。本版重构阅读顺序、架构图、源码讲解和表格，并修正源码核对中发现的语义错误。历史变更见文末。
 >
-> **术语表**: SoA=Structure-of-Arrays（结构体数组转列存）；SPMD=单程序多数据；UB=Unified Buffer（昇腾向量核片上缓冲）；Cube/Vector/Scalar=昇腾AI Core三类计算单元（矩阵/向量/标量）；GE=Graph Engine（昇腾图编译器）；HCCL=华为集合通信库（对标NCCL）；`nworld/nconmax/njmax/nvmax`=并行世界数/每world接触上限/约束上限/激活DoF上限。
+> **研究基线：** `google-deepmind/mujoco_warp@7e4afee815a35cd931119129d49937137a96bb67`。下文简称 `7e4afee`；本地源码已核对。该版本的 `pyproject.toml` 声明 `mujoco-warp==3.12.0`、`mujoco>=3.12.0`、`warp-lang>=1.15`。依赖下限不等于实验中实际安装的版本，运行环境仍须在 P0 锁定。（E1）
+>
+> **本文回答：** MJWarp 为什么适合大批量物理仿真；将 G1 所需的物理功能搬到昇腾 NPU，要重做哪些部分；应该用什么实验决定是否继续投入。文中的 B 路线以 **G1 功能子集**为范围，完整上游功能的迁移尚无工作量承诺。
 
----
+## 阅读导航
 
-## 目录
+第一次阅读，建议沿着“结论 → 上游怎么工作 → NPU 要改什么 → 怎样验收”读。已有背景的读者可以直接跳到相应部分：
 
-**Part I · 上游架构解析（§2–§10）**
+- **判断是否值得做：** [§1 执行摘要](#s1)、[§11 目标与边界](#s11)、[§14 技术路径](#s14)、[§20 决策结论](#s20)。
+- **理解架构与源码：** [§2 生态定位](#s2)、[§3 分层架构](#s3)、[§4 数据结构](#s4)、[§5 编译与调度](#s5)、[§6 一步物理计算](#s6)、[§7 并行机制](#s7)。
+- **开展迁移设计：** [§8 内存与调优](#s8)、[§9 一致性边界](#s9)、[§10 硬件差异](#s10)、[§12 模块分工](#s12)、[§13 难点源码](#s13)、[§15 NPU 原型架构](#s15)。
+- **安排实验与交付：** [§16 P0–P7](#s16)、[§17 验证方法](#s17)、[§18 风险处置](#s18)、[§19 资源与里程碑](#s19)。
+- **查接口与依据：** [附录 A](#appendix-a)、[附录 B](#appendix-b)、[附录 C](#appendix-c)。
 
-- [1. 执行摘要](#1-执行摘要)
-- [2. 生态定位：经典 MuJoCo / MJX-JAX / MJWarp](#2-生态定位经典-mujoco--mjx-jax--mjwarp)
-- [3. MJWarp 总体分层架构](#3-mjwarp-总体分层架构)
-- [4. 核心数据结构重构：Model/Data 的 SoA 化设计](#4-核心数据结构重构modeldata-的-soa-化设计)
-- [5. 编译与执行流水线](#5-编译与执行流水线)
-- [6. 前向动力学流水线详解（顺序以event_trace为准）](#6-前向动力学流水线详解顺序以event_trace为准)
-- [7. 大批量并行的实现机制：五大原理与定量分析](#7-大批量并行的实现机制五大原理与定量分析)
-- [8. 性能与可扩展性设计](#8-性能与可扩展性设计)
-- [9. 与经典 MuJoCo 的不一致（Sim2Real 风险）](#9-与经典-mujoco-的不一致sim2real-风险)
-- [10. 昇腾 NPU vs NVIDIA GPU：硬件与软件栈对比](#10-昇腾-npu-vs-nvidia-gpu硬件与软件栈对比)
+为保持与另外两份主报告的引用兼容，本版保留 §1–§20 编号，在章节内部调整组织方式。
 
-**Part II · 迁移方案（§11–§20）**
+### 证据与术语怎么读
 
-- [11. B 路线总览：核心子集上 NPU（B/B′）](#11-b-路线总览核心子集上-npubb)
-- [12. 逐模块迁移难度矩阵（功能逻辑切分，非文件结构）](#12-逐模块迁移难度矩阵功能逻辑切分非文件结构)
-- [13. 六大关键技术挑战（B 路线特有）](#13-六大关键技术挑战b-路线特有)
-- [14. 技术路径对比（B 路线内部 B1/B2/B3 + 备选D）](#14-技术路径对比b-路线内部-b1b2b3--备选d)
-- [15. 推荐方案详细设计（B1 原型）](#15-推荐方案详细设计b1-原型)
-- [16. 工作分解 WBS（B1 裁剪版）](#16-工作分解-wbsb1-裁剪版)
-- [17. 验证与对齐](#17-验证与对齐)
-- [18. 风险与缓解](#18-风险与缓解)
-- [19. 资源与时间表](#19-资源与时间表)
-- [20. 结论与务实路径](#20-结论与务实路径)
+本文的源码结论标 **E1**，配置事实标 **E2**，文档说明、设计建议和推断标 **E3**，未经日志或代码复核的转述标 **E4**。E4 不用于立项承诺。定义以 [《00_总览》](/Users/xerxes3/Documents/huawei实习/00_总览.md) §3 为准。
 
-**附录**
+只需先记住三个词：**world** 是一份独立仿真环境；**kernel** 是设备上执行的并行计算函数；**launch** 是调用一次 kernel。同一个 kernel 可在一步仿真中多次调用，因此“有多少个 kernel 定义”不能回答“一步要调度多少次”。训练侧的 `world_size` 表示 DDP 进程数，与这里的 world 不同。
 
-- [附录 A: 核心 API 与字段清单](#附录-a-核心-api-与字段清单)
-- [附录 B: 参考资料](#附录-b-参考资料)
-- [附录 C: 背景α表](#附录-c-背景α表mujocophysx非mjwarp–npu门禁)
+正文使用的关联文档简称如下。观测字段拆分、SHM 搬运实现和 A 路线审计细节保留在各自权威文档中：
 
----
-
-## 1. 执行摘要
-
-| 维度 | 结论 |
+| 简称 | 文档与用途 |
 |---|---|
-| **A 路线（现状基线，推荐先跑通）** | CPU 经典 MuJoCo 采样 + NPU `torch_npu` 训练；据 [A路线笔记] §1 记载已跑通 11000 iter / 单 NPU 1024 env（E4，运行 commit 与日志待附） |
-| **B 路线（本报告，子集 PoC）** | 将 `mujoco_warp` 物理核心子集迁移至昇腾 NPU，`nworld` 量级纯 NPU 闭环、obs/action 不经 CPU |
-| **核心矛盾** | `Warp = SIMT + CUDA + 显式线程 + 共享内存 + 原子操作`；昇腾 `Da Vinci = Cube/Vector/Scalar 异构 + 显式搬运（Global/L1/L0/UB）+ 算子图`。编程模型不兼容，无法“换编译开关” |
-| **定量** | 尚无同机基准，本报告不给倍数结论；阈值由 P0 benchmark 后确定（§8/§11/§17） |
-| **推荐** | 先保 A 路线交付；B/B′ 是否立项待 P0 benchmark 后确定，优先用 B3 做 PoC，并辅以 Ascend C 难点 kernel spike 作门禁（§14/§20） |
+| [原版解析] | [SONIC 原版训练体系深度解析](/Users/xerxes3/Documents/huawei实习/SONIC原版训练体系深度解析.md)：理解原版训练与动作语义 |
+| [分支审计] | [zhangqin 分支审计](/Users/xerxes3/Documents/huawei实习/SONIC_NPU适配深度报告_zhangqin分支.md)：核对 A 路线实现和已知差异 |
+| [A路线笔记] | [NPU 迁移笔记](/Users/xerxes3/Documents/huawei实习/GR00T-WholeBodyControl/docs/mujoco_npu_migration_notes.md)：查实验背景 |
+| [精度分析] | [MuJoCo 与 Isaac 精度分析](/Users/xerxes3/Documents/huawei实习/GR00T-WBC-alignment/docs/mujoco-vs-isaac-precision-analysis.md)：查跨引擎对齐背景 |
 
-B 路线规模的三个口径（不可混用）：
+<a id="s1"></a>
+## 1. 执行摘要：先用 A 路线推进业务，再用实验判断 B 路线
 
-- **上游物理源码总量**：外审值 `_src` 非测试约 5.28 万行 / 约 296 kernel 定义（kernel：GPU 并行函数；launch：单次 kernel 调度发射，定义数≠运行时 launch 数；main@`7e4afee`，E4 待 P0 复核）。
-- **G1 运行时涉及模块**：待 event_trace（`mjwarp-testspeed --event_trace` 输出的逐 kernel 运行时事件序列）与调用闭包统计。
-- **本 PoC（Proof of Concept，概念验证原型）需要重写规模**：待定（P0 后给出）。
+**当前建议是维持 A 路线交付，把 B 路线作为有退出条件的研究原型。** A 路线在 CPU 上运行经典 MuJoCo，在 NPU 上训练策略；B 路线希望让物理计算与策略训练都在 NPU 上完成。这样有机会减少每步跨设备交换数据的成本，但收益大小必须实测。（E3，决策建议；A 路线实现依据见 [分支审计] §3.3）
 
-> A 路线“无需改物理引擎”指不改引擎源码；其 MDP 语义非等价清单（jm/jh、PD 参数、观测噪声缺失等）见 [zhangqin分支审计] §2。11000 iter ≈ 原版 100k iter 目标的 11%（[SONIC原版解析] §5）。
+B 路线最难的工作是重新组织物理计算。MJWarp 使用 Warp 编写，线程索引、并行写入、片上内存和调度机制围绕 NVIDIA GPU 设计。昇腾需要按目标芯片重新安排计算块、数据搬运和同步。因此，“把训练张量改放到 NPU”并不能完成物理引擎迁移。（E1：§5、§13 源码；E3：迁移判断）
 
----
+建议先做 P0，确认 G1 实际调用哪些功能、时间花在哪里、容量要留多大。随后用 **B3 框架重写原型**验证设备内闭环，同时用 **Ascend C 难点算子实验**验证 B1 最困难的碰撞与求解路径。两类实验回答不同的问题，结果共同用于后续决策。（E3，详见 §14）
 
-# Part I · 上游架构解析（§2–§10）
+### 已知什么，还缺什么
 
-## 2. 生态定位：经典 MuJoCo / MJX-JAX / MJWarp
+**已知的静态规模：** 锁定版本的 `_src` 非测试 Python 文件共 **34 个、52,843 行、296 处 `@wp.kernel`**；测试文件另计 **25,829 行**。这里的“行”包含注释与空行；装饰器出现次数也不等于工厂生成的所有特化实例数。（E1，§16.1 给出统计口径）
 
-三者共享模型语义，但不共享代码实现（[A路线笔记] §3）：三者同以 MJCF（MuJoCo 的 XML 场景描述格式）或 MjSpec（MuJoCo 的 Python 建模接口）为前端；经典 MuJoCo 是 C 实现的刚体动力学仿真引擎，MJX（MuJoCo XLA）与 MJWarp（MuJoCo Warp）分别是基于 JAX 与 Warp 的后端重写。下图回答"同一份模型描述经哪条链路编译/重写、落到哪类硬件"：
+**尚缺的运行证据：** G1 的实际调用子集、每步 launch 次数、热点分布，以及 NPU 上的正确性和性能。这些决定 PoC 重写规模，不能从仓库总行数按比例折算。（E3，待 P0）
 
-```text
-MJCF XML / MjSpec (Python)
-      │
-      ├─► mjModel (经典, CPU, float64, 指针+变长) ──► mj_step()  C 10万行
-      │
-      ├─► mjx.Model (JAX, pytrees, float32) ──► jax.jit/vmap ──► XLA ──► GPU/TPU
-      │
-      └─► mjw.Model (Warp, SoA + batch, float32) ──► Warp JIT ──► PTX ──► NVIDIA GPU
-```
+**A 路线的进度边界：** “11000 iter / 单 NPU 1024 env”来自既有笔记转述，确切运行 commit 与日志仍待补齐，保留 E4。该进度也不能证明 A 路线已与原版训练语义等价；差异见 [分支审计] §2。
 
-**图的读法**：顶部 MJCF XML / MjSpec 是统一前端（模型场景的描述格式与建模接口）；其下三条分支即三套互不共享代码的后端——左支经典 MuJoCo（C 实现，CPU，float64，指针+变长的 AoS 布局，`mj_step()` 约 10 万行）；中支 MJX（JAX，pytrees，float32，经 `jax.jit/vmap` 由 XLA 编译到 GPU/TPU）；右支 MJWarp（Warp，SoA + batch，float32，经 Warp JIT 编译为 PTX 落 NVIDIA GPU）。所有箭头均为"模型描述 → 编译/重写 → 目标硬件"的同一流向，无其他语义。阅读主线：自上而下逐支读两级标注（实现语言与数据布局 → 编译链与目标硬件），再横向对照三支在精度与硬件上的分野；后续 §4 的 SoA 重构即发生在右支。图内缩写：AoS=Array-of-Structures（结构体数组行存）；pytrees=JAX 的嵌套树状数据容器；jit=即时编译；vmap=向量化批映射；XLA=JAX 底层的线性代数编译器；PTX=NVIDIA 虚拟指令集中间表示；SoA=Structure-of-Arrays（列存）。
-
-| 特性 | 经典 `mujoco` | `mjx` (MJX-JAX) | `mjwarp` (MJWarp/Warp) |
-|---|---|---|---|
-| 实现语言 | C | Python/JAX | Python/Warp |
-| 数据布局 | `AoS` + 指针 + 变长 | `pytrees` 固定 shape | `SoA` + 固定 shape `mujoco_warp/_src/types.py` |
-| 并行原语 | `mujoco.rollout` 多线程 | `jax.vmap / pmap` | `nworld` batch 维，`wp.tid()` |
-| 目标硬件 | CPU（延迟最优） | GPU/TPU（XLA） | NVIDIA GPU（快速仿真；支持 CPU 用于开发调试） |
-| 浮点 | `float64` | `float32` | `float32` |
-| 可微 | 否 | 是（XLA 自动微分） | 否（Issue #500 跟踪中） |
-| 吞吐（趋势，非承诺） | CPU多线程，随核数线性 | GPU/TPU批量显著高于CPU | 复杂场景扩展性好于mjx（估计，待实测） |
-| 官方建议 | 低延迟/实时控制 `mjwarp/index.html#low-latency` | TPU/可微 | 大批量 + PyTorch `mjwarp/index.html#when-to-use` |
-
-> **关键认知**：`mjwarp.step` 是 `mj_step` 的**重实现**，不是把 `mj_step` 编译到 GPU——对应图中右支独立成链、不经左支（[A路线笔记] §6.1“同一物理目标的三套实现”）。精确吞吐需同XML同`nworld`实测，禁止引用本表做立项承诺。
-
-### 2.1 适用场景（官方 when-to-use 定义）
-
-官方给出三类适用场景（`mjwarp/index.html#when-to-use-mjwarp`）：
-
-- **高吞吐**：RL（强化学习）需要海量 `env_steps/s`，可容忍 `host↔device` 搬运瓶颈时，`mjwarp` 在复杂场景（多 geom、高自由度 DoF）比 `mjx` 扩展性更好。
-- **低延迟**：单步延迟 `mjwarp > mujoco`，MPC（模型预测控制）/ 遥操作仍用经典。
-- **复杂场景**：支持 `sleeping islands` + `compact solver`，单链 >60 DoF 仍是瓶颈，正在优化中。
+本文不承诺加速倍数或固定人周。立项需要回答的是：在满足同一组物理与训练验收标准后，B 路线能否取得足以覆盖开发和维护成本的收益。（E3）
 
 ---
 
-## 3. MJWarp 总体分层架构
+## 第一部分：MJWarp 如何完成大批量物理仿真
 
-下图回答“RL 训练中的一步仿真从应用落到硬件经过哪几层、GPU→NPU 的断层具体断在哪”：
+<a id="s2"></a>
+## 2. 生态定位：同一份模型，三种执行实现
+
+MuJoCo 的 XML 模型称为 **MJCF**，它描述刚体、关节、执行器、几何体和物理参数。经典 MuJoCo、MJX-JAX、MJWarp 都围绕这套模型语义工作，但物理计算由不同实现承担。读图时，先看公共模型输入，再看各分支的执行后端。（E3；[MJWarp 官方说明](https://mujoco.readthedocs.io/en/latest/mjwarp/index.html#when-to-use-mjwarp)）
 
 ```mermaid
 flowchart TB
-    subgraph APP["Layer 5 · 应用层"]
-        RL["RL 训练循环（Brax / MJX API / newton / mjlab / Playground）<br/>obs / reward / reset / 域随机化"]
-    end
-    subgraph API["Layer 4 · MJWarp API 层（mujoco_warp/_src）"]
-        STEP["mjw.step / forward / sensor / ray / render"]
-        MD["Model（只读参数，put_model 一次性 H2D）<br/>Data（可变状态，make_data 固化容量）"]
-    end
-    subgraph SCHED["Layer 3 · 调度层"]
-        WPR["Warp Runtime：@wp.kernel 逐 kernel JIT launch"]
-        GPH["CUDA Graph 捕获/重放 launch 序列（非 fusion）<br/>Multi-GPU ScopedDevice"]
-    end
-    subgraph KER["Layer 2 · 算子层（约 296 kernel 定义，E4 待复核）"]
-        K["kinematics → collision（broad+narrow） → efc → solver → integrate → sensor/sleep<br/>SoA + 稀疏 Jacobian + Batched fields"]
-    end
-    subgraph HW["Layer 1 · 硬件层"]
-        GPU["NVIDIA GPU<br/>SM · SIMT warp32 · SharedMem · Atomics · HBM"]
-        NPU["昇腾 NPU（B 路线目标）<br/>AI Core: Cube/Vector/Scalar · UB 显式搬运 · GE 图"]
-    end
-    RL -->|"import mujoco_warp as mjw"| STEP
-    STEP --> MD
-    STEP --> WPR
-    WPR --> GPH
-    GPH --> K
-    K --> GPU
-    GPU -.->|"B 路线断层：SIMT→Cube/Vector 异构 · 隐式 coalesced→显式 UB tiling · 原子→规约/预分区 · CUDA Graph→GE 图"| NPU
+    XML["MJCF / MjSpec<br/>描述机器人与场景"]
+    MODEL["经典 MuJoCo 编译模型<br/>MjModel"]
+    XML --> MODEL
+    MODEL --> C["经典 MuJoCo<br/>C 物理实现"]
+    MODEL --> J["MJX-JAX<br/>JAX 数组与批量计算"]
+    MODEL --> W["MJWarp<br/>Warp 数组与并行函数"]
+    C --> CPU["CPU<br/>mj_step"]
+    J --> XLA["JAX / XLA<br/>CPU、GPU 或 TPU"]
+    W --> GPU["Warp 编译与执行<br/>NVIDIA GPU"]
 ```
 
-**图的读法**：五层自上而下——Layer 5 应用层：RL 训练循环（Brax / newton / mjlab / Playground 为 MJX 生态的四个上层框架），产出 obs / reward / reset 与域随机化；Layer 4 API 层：`mjw.step` 等入口，持有 Model（只读参数，`put_model` 一次性 H2D）与 Data（可变状态，`make_data` 固化容量）两类数据对象；Layer 3 调度层：Warp Runtime 逐 kernel JIT 发射，CUDA Graph 捕获/重放 launch 序列（非 fusion），Multi-GPU 由 ScopedDevice 管理；Layer 2 算子层：约 296 个 kernel 定义（E4 待复核），按 kinematics→collision→efc→solver→integrate→sensor/sleep 流水线组织；Layer 1 硬件层：左 NVIDIA GPU，右昇腾 NPU（B 路线目标）。实线箭头是调用/数据的向下流向：应用调 API → API 依赖 Model/Data 并走调度 → 调度发射 kernel → kernel 落硬件；**GPU→NPU 虚线不是数据流，是迁移断层标注**，其上四个短语即四条断裂点（SIMT→异构计算单元、隐式合并访问→显式 UB tiling、原子操作→规约/预分区、CUDA Graph→GE 图），展开见 §13.1（编程模型与原子改写）、§13.2（UB tiling）、§13.6 与 §15（图机制与后端选型）。阅读主线：自上而下走一遍实线主链，最后落在虚线——虚线上的四个词即 B 路线要填的沟壑。图内缩写：RL=强化学习；SM=Streaming Multiprocessor（GPU 流式多处理器）；SIMT=单指令多线程，warp32=32 线程锁步束；SharedMem=片上共享内存；Atomics=原子操作；HBM=高带宽显存；UB=Unified Buffer（昇腾向量核片上缓冲）；GE=Graph Engine（昇腾图编译器）；efc=MuJoCo 约束数据前缀；broad+narrow=碰撞粗筛+精算。
+MJWarp 的 `put_model` 会把经典模型转换为设备侧 `Model`，后续由自己的 `step` 实现推进状态。JAX 生态也可通过 MJX 接入 Warp；图中三条分支表示物理实现的区别，不表示上层接口互相隔绝。（E1：`io.py`、`forward.py`；E3：锁定版本 README “Integrating MuJoCo Warp”）
 
-源码规模基线（2026-09-03 在锁定 commit 实测，E1）：`_src` 非测试 **34 文件共 52,843 行、296 处 `@wp.kernel`**，测试另计 25,829 行（定义数≠运行时 launch 数）。六维统计中①–⑤已完成、⑥（event_trace）需 GPU 环境，明细见 §16.1。
+| 实现 | 计算表达方式 | 与本文的关系 |
+|---|---|---|
+| 经典 MuJoCo | CPU 上的物理程序 | A 路线的物理后端 |
+| MJX-JAX | JAX 数组运算与编译 | B3 重写时参考的算法表达 |
+| MJWarp | Warp 并行函数与设备数组 | B1 研究和对齐的源码基线 |
 
-> **v1.4 锚点实证（E1，2026-09-03 克隆）**：github 直连恢复后按锁定 commit `7e4afee` 检出并完成六维统计——非测试 **52,843 行 / 296 kernels / 34 文件**，与外审值（5.28 万 / 296）吻合，基线从 E4 升级为 E1。文件清单实证：外审提示的 `smooth.py` / `collision_driver.py` / `collision_convex.py` / `island.py` / `sleep.py` / `block_cholesky.py` 全部存在，另有 `collision_gjk.py`（GJK/EPA 独立成文件）、`collision_primitive.py`+`collision_primitive_core.py`、`constraint.py`(178KB，最大)、`solver.py`、`types.py`、`io.py`、`forward.py`、`set_const.py`。**摘录口径已对齐锚点**：本报告全部源码摘录（§4/§5/§13/附录 A）已逐块在 `7e4afee` 复核——`_add_geom_pair`、`solve` 分发、`block_cholesky` 工厂、types 声明、`step1/step2`、`make_data` 签名与此前 PyPI 3.12.0 wheel 版逐字一致（仅行号漂移，已按锚点修正）；唯一实质差异为 GJK 收敛判据（§13.4 已换锚点版）。旧版 `kinematics.py / integrator.py / flex.py` 文件结构推断已作废（见修订记录）。本地留存：`./mujoco_warp/`（锚点检出）与 `./mujoco_warp-3.12.0-src/`（wheel 旁证，内容差约两周演进：types/forward/gjk/io 有改动，collision_driver/block_cholesky 零差异）。
+### 2.1 为什么强化学习会关注 MJWarp
 
----
+机器人控制关心“一步多久完成”，训练采样还关心“单位时间总共得到多少步”。前者是**延迟**，后者是**吞吐**。例如同时推进 4096 个 world，即使一批计算的延迟高于 CPU 上一个 world 的延迟，总采样量仍可能更大。（E3，说明性例子）
 
-## 4. 核心数据结构重构：Model/Data 的 SoA 化设计
+MJWarp 面向大批量采样；经典 MuJoCo 仍适合低延迟控制。具体场景中的速度排序需要相同模型、相同数值设置和明确的批量规模才能比较。上游也支持 CPU 开发调试，但高吞吐目标是 NVIDIA GPU。（E3：[官方适用场景](https://mujoco.readthedocs.io/en/latest/mjwarp/index.html#when-to-use-mjwarp)；E1：锁定版本 README）
 
-### 4.1 从 AoS 指针到 SoA 固定 Shape：四条重构原则
+<a id="s3"></a>
+## 3. 分层架构：训练循环、物理引擎和执行后端各负责什么
 
-经典 `mjModel` 是 C 结构体含指针与变长数组（§2 图左支标注的“AoS + 指针 + 变长”）。MJWarp做法是**运行时预分配、容量固定、shape稳定**（非“编译时定长”）：`make_data`时按`nworld/nconmax/njmax`固化容量，后续shape不变，重构三原则：
+读这一节时，先区分**训练环境**与**物理引擎**。物理引擎更新位置、速度、接触和传感器等状态；训练环境还要把状态整理成观测，计算奖励，处理终止与重置。把 `step` 搬到 NPU，只完成了闭环中的一个环节。（E3，架构划分）
 
-**1. SoA（Structure-of-Arrays）**
-
-经典：`struct Body { vec3 pos; quat quat; } body[nbody]`
-Warp：
-
-```python
-body_pos: wp.array2d[vec3f]  # 逻辑shape (nworld, nbody)，每个元素本身是vec3
-body_quat: wp.array2d[quatf] # 逻辑shape (nworld, nbody)，每个元素本身是quat
-body_mass: wp.array2d[float32]
-# ... 200+ 字段全拆列，合并访问（coalesced）
+```mermaid
+flowchart TB
+    subgraph APP["训练应用"]
+        TRAIN["策略推理与 PPO 更新<br/>环境观测、奖励和重置"]
+    end
+    subgraph PHYS["MJWarp 物理引擎"]
+        API["Python API<br/>step / forward"]
+        COMPUTE["物理计算函数<br/>运动学与碰撞<br/>约束、求解与积分"]
+        API -->|"组织计算"| COMPUTE
+    end
+    subgraph BACKEND["NVIDIA 执行后端"]
+        RUNTIME["Warp Runtime<br/>编译与 kernel 调度"]
+        DEVICE["NVIDIA GPU"]
+        RUNTIME -->|"执行"| DEVICE
+    end
+    DATA["Model / Data<br/>设备参数与状态数组"]
+    TRAIN -->|"调用物理接口"| API
+    COMPUTE <-->|"读取参数、更新状态"| DATA
+    COMPUTE -->|"提交并行计算"| RUNTIME
 ```
 
-真实声明语法（`types.py`，E1）——batch 维写作 `"*"`，world 维显式命名：
+图中向下的主线表示调用与执行层次，旁侧数组框表示物理计算读写的数据。环境也会消费这些状态；完整训练反馈另在 §11 画出，避免在分层图中叠加所有往返箭头。环境职责划分为 E3；`Model/Data`、`step/forward` 与 Warp 调度关系为 E1（§4–§6）。CUDA Graph 是执行后端的调度选项，§5 单独解释。
+
+对 B 路线而言，需要处理三层接口：训练环境怎样读取 NPU 状态；物理函数怎样用 NPU 张量表达；并行函数怎样在昇腾上执行。只替换最下方设备名称，不会自动补齐这些接口。（E3）
+
+### 源码阅读入口
+
+下面只列阅读入口。一个功能可能横跨多个文件，真正需要迁移的函数集合仍取决于 G1 运行路径。（文件存在性 E1，功能归组为源码导航）
+
+| 想理解的内容 | 从哪个文件开始 |
+|---|---|
+| 参数、状态、容量 | `types.py`、`io.py` |
+| 一步仿真的组织顺序 | `forward.py` |
+| 运动学、惯量等基础计算 | `smooth.py` |
+| 碰撞候选与几何求交 | `collision_driver.py`、`collision_primitive.py`、`collision_convex.py`、`collision_gjk.py` |
+| 约束与数值求解 | `constraint.py`、`solver.py`、`block_cholesky.py` |
+| 休眠与活跃自由度 | `sleep.py`、`island.py` |
+
+文件均位于 [本地 `mujoco_warp/_src`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src)。独立的 `mujoco_warp-3.12.0-src/` 是另一份源码快照，本文行号不指向它。
+
+<a id="s4"></a>
+## 4. 数据结构：一份模型参数，多份独立状态
+
+### 4.1 先分清 Model 与 Data，再理解 SoA
+
+**Model** 保存机器人和场景的参数，例如连杆质量、关节轴和几何尺寸。**Data** 保存仿真过程中的状态，例如 `qpos`（广义位置）、`qvel`（广义速度）和 `qacc`（广义加速度）。同一模型可以同时生成许多份状态，从而模拟许多独立 world。（E1：`types.py`、`io.py:1592`）
+
+下面保留最能说明布局的四行声明。它们来自两个类，省略了其余字段；中文注释为本文添加。
+
+**源码节选（E1）：** [`types.py:1600`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/types.py:1600)、[`types.py:2295`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/types.py:2295)。
 
 ```python
-# 【源码摘录】types.py（main@`7e4afee`，声明位于 :1600/:2295；"→"注释为本报告所加）
-# Model 侧（只读参数）：
-body_pos:  array("*", "nbody", wp.vec3)    # → 首维 "*" = 可 batch 化的模型参数（§4.1 原理2：域随机化）
-body_quat: array("*", "nbody", wp.quat)
-key_qpos:  array("nkey", "nq", float)
-# Data 侧（可变状态）：
-qpos: array("nworld", "nq", float)        # → 首维固定为 nworld：每个 env 一份完整状态
+# Model：不同物理参数分别放在自己的数组里。
+body_pos: array("*", "nbody", wp.vec3)   # 连杆相对父连杆的位置
+body_quat: array("*", "nbody", wp.quat)  # 连杆相对父连杆的姿态
+
+# Data：每个 world 都有一份独立的位置和速度。
+qpos: array("nworld", "nq", float)
 qvel: array("nworld", "nv", float)
 ```
 
-**2. Batch 前导维**
+这段代码说明了两个维度。沿着**字段**看，位置、姿态、速度分开存储，这就是 SoA（Structure of Arrays，按字段组织数组）的思路。沿着 **world** 看，`qpos[w]` 是第 `w` 个环境的完整广义位置，`qvel[w]` 是它的完整广义速度。
 
-几乎所有可变字段加 `[*]` batch 维 `mujoco_warp/mjwarp/api.html#Model`。默认 `batch=1` 广播到所有 world，可通过 `batch_sizes` 做域随机化（domain randomization：训练中随机化质量/摩擦等物理参数以提升策略鲁棒性）`mjwarp/index.html#batched-model-fields`：
+这种布局便于并行处理同一字段，也便于以数组形式搬运数据。不过，SoA 本身不保证访问一定连续；实际效率还取决于线程索引、数组步长和访问顺序。经典 MuJoCo 也有大量分字段数组与指针，不能把两者的全部差异简化成“经典都是 AoS，Warp 才有数组”。（E3，布局解释）
 
-```python
-m = mjw.put_model(mjm, batch_sizes={"dof_damping": 4096})
-m.dof_damping.assign(np.array([[0.1], [0.2], ...], dtype=float))
-# 访存语义: field[worldid % field.shape[0]]
-```
+### 4.2 星号维度：共享参数与域随机化如何共存
 
-**3. 稀疏化**
+上面的 `"*"` 表示可批量化的模型字段。某字段只有一份参数时，所有 world 共用；有多份时，各 world 按索引选取。这与 `Data` 的 `nworld` 维不同：状态必须区分环境，参数可以共享。（E1）
 
-`efc`（MuJoCo 约束数据统一前缀）相关的 Jacobian（雅可比矩阵：约束方向对各广义坐标的偏导）字段——`efc.J`、`flexedge_J`、`ten_J`、`actuator_moment`——仅存非零 + `colind`。稀疏化后 `efc.J` 从稠密 `njmax×nv` 的 408 MB 降到 84 MB（-4×，`mjwarp/index.html#memory` 末尾）。
-
-**4. 静态容量预分配**
-
-`nworld, nconmax / naconmax, njmax, nccdmax / naccdmax, nvmax` 在 `make_data` 时固化，超限 → `Data.overflow` bitmask `mjwarp/index.html#overflow-detection`。无 `malloc`，无变长。（注：`contact_sensor_max_match` 是 `Option` 属性而非 `make_data` 参数，官方签名见附录 A。）
-
-| 字段类 | 示例 | Shape | batch 语义 |
-|---|---|---|---|
-| 标量 | `nq / nv / nbody` | `int` | 全局 |
-| 每 body | `body_mass` | `(1, nbody) → (nworld, nbody)` | `worldid % batch` |
-| 每 dof / 每 qpos | `dof_damping` 为 `(1, nv)`；`qpos0` 为 `(1, nq)`（含四元数关节时 nq≠nv） | `(1, nv)` / `(1, nq)` | 同上 |
-| 每 geom | `geom_pos / geom_size` | `(1, ngeom, 3)` | 同上 |
-| 每 sensor | `sensordata` | `(nworld, nsensordata)` | 每 world |
-
-### 4.2 Model vs Data 职责
-
-Model 与 Data 即 §3 图中 Layer 4 的两个同名节点，职责相反：
-
-- **Model**：只读参数（来自 XML 编译），建图后常驻 GPU，`put_model` 一次性 H2D（host 到 device 的单向搬运）。
-- **Data**：可变状态 `qpos / qvel / qacc / xpos / contact / efc / qfrc_*`，每 world 独立，`make_data` 分配所有 batch buffer + solver workspace。支持 `wp.copy(d.qvel, ...)` 初始化。
-
-异构 mesh 需手写 per-world `geom_dataid / geom_size / body_mass / ...` 共 11 字段循环赋值 `mjwarp/index.html#per-world-meshes`（文档给出 3 页示例代码）。
-
-### 4.3 与 `mujoco.mjx` 的本质区别
-
-- `mjx` 用 `jax.Array` + `vmap` 语义，依赖 `XLA` 编译整图（§2 图中支；JAX：Google 的可微分、可 JIT 编译的 Python 数值计算框架；XLA：Accelerated Linear Algebra，JAX 底层的线性代数编译器）。
-- `mjwarp` 用 `warp.array` + 显式 `worldid = wp.tid()` 索引，依赖 `Warp JIT` 逐 kernel 编译（§2 图右支）。
-
-后者对 PyTorch 更友好，但与 XLA 不互通，这直接决定 NPU 两条路径的难度分野（见§14）。
-
----
-
-## 5. 编译与执行流水线
-
-### 5.1 Warp DSL → CUDA
-
-Warp 是 NVIDIA 的 Python 嵌入式 DSL（领域专用语言），把 Python 写的 kernel 即时编译（JIT）为 CUDA：
+**源码节选（E1）：** [`smooth.py:110`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/smooth.py:110)。这是运动学函数内部的两行。
 
 ```python
-# 【源码摘录】collision_driver.py:338-373 _add_geom_pair（main@`7e4afee`；"→"注释为本报告所加）
-# —— collision → contact 的原子预约写入：§13.1 迁移最痛的机制，真实形态如下
-@wp.func
-def _add_geom_pair(
-  geom_type: wp.array[int],            # → SoA：几何类型列（Model，只读）
-  nxn_pairid: wp.array[wp.vec2i],
-  naconmax_in: int,                    # → 固定容量：make_data 时固化（§4.1 原理4）
-  geom1: int, geom2: int,
-  worldid: int, nxnid: int,
-  ncollision_out: wp.array[int],       # → 计数器（Data，可变）
-  collision_pair_out: wp.array[wp.vec2i],
-  collision_pairid_out: wp.array[wp.vec2i],
-  collision_worldid_out: wp.array[int],
-):
-  pairid = wp.atomic_add(ncollision_out, 0, 1)   # → 原子预约写入位：谁先到谁占坑，顺序不定但无竞争
-  if pairid >= naconmax_in:                       # → 容量检查：超限直接丢弃（overflow 语义，§8.1）
-    return
-  type1 = geom_type[geom1]; type2 = geom_type[geom2]
-  if type1 > type2:
-    pair = wp.vec2i(geom2, geom1)                 # → 规范化排序：保证 (g1,g2) 与 (g2,g1) 写出一致
-  else:
-    pair = wp.vec2i(geom1, geom2)
-  collision_pair_out[pairid] = pair               # → 写 SoA 列：同字段跨 pair 连续存放 → coalesced（§7 原理4）
-  collision_pairid_out[pairid] = nxn_pairid[nxnid]
-  collision_worldid_out[pairid] = worldid
+# 用 world 编号选择参数批次，再取对应连杆的数据。
+xpos = body_pos[worldid % body_pos.shape[0], bodyid]
+xquat = body_quat[worldid % body_quat.shape[0], bodyid]
 ```
 
-对比要点：world/pair 坐标、SoA 列写、原子预约、容量截断——§7 五大原理中四项在这一段同框。tid 线性解码在其调用方（broadphase/narrowphase driver kernel，即碰撞粗筛/精算阶段：粗筛先用包围盒排除大部分不相交对，窄相对候选对精确求交）中完成；NPU 侧如何改写它见 §13.1。
+假设 `body_pos.shape[0] == 1`，任何 world 对 1 取余都得到 0，因此共用第 0 份参数；若首维为 2，world 0、2、4 使用第 0 份，world 1、3、5 使用第 1 份。这个例子解释了源码索引规则，不是建议使用的训练配置。（E3，示例）
 
-`wp.launch(kernel, dim=nworld * npair)` 的编译流程：`Python AST → CUDA C → PTX → cubin`（PTX：NVIDIA 虚拟指令集中间表示；cubin：具体架构的 GPU 机器码二进制），产物缓存到 `~/.cache/warp`。首次 `mjw.step` 编译，后续复用。注意：`kinematics` 类阶段不写 `ncon`，不要以其举例原子。
+域随机化可以据此为不同环境配置不同质量、阻尼或摩擦。NPU 迁移时需要保留这套索引语义；不能为了统一张量形状，悄悄把不同环境的参数变成同一份。（E3，设计要求）
 
-### 5.2 step() 的图调度
+### 4.3 容量：接触共享池与逐 world 约束上限不是一回事
 
-`mjw.step(m, d)` 不是单 kernel，而是多个kernel launch按序组成（具体launch数以`--event_trace`为准；kernel**定义数**≠运行时launch数）。
+**源码依据（E1）：** [`io.py:1608`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/io.py:1608) 的参数说明，以及 `:1648` 的总容量计算。
 
-```
-kinematics → tendon/actuator → collision(broad+narrow) → make_constraint(efc) → solver → integrate → sensor/sleep
-```
+| 参数 | 准确含义 |
+|---|---|
+| `nworld` | 同时模拟的独立环境数 |
+| `nconmax` | 按每 world 估算接触池容量的分配参数 |
+| `naconmax` | 所有 world 共享的接触总容量；显式指定时覆盖前项 |
+| `njmax` | 每个 world 的约束行硬上限 |
+| `njmax_nnz` | 稀疏约束 Jacobian 的非零元容量参数 |
+| `nccdmax / naccdmax` | 凸体碰撞工作容量的每 world 分配参数 / 总容量 |
+| `nvmax` | 每个 world 压缩后的活跃自由度容量 |
+
+例如，4 个 world 配置 `nconmax=8`，在未显式指定 `naconmax` 时，总接触容量为 32。某一个 world 可以有 10 个接触，只要整个共享池不超限；但某个 world 的约束行数不能超过它的 `njmax`。这直接影响 §13.1 中“按 world 预分区”的候选方案：固定分成四块后，容量语义可能已经改变。（E1：分配语义；E3：例子与迁移影响）
+
+`make_data` 在运行时分配主要容量，之后数组 shape 保持稳定。稳定 shape 有利于调度和内存规划，但不代表所有临时空间都已预分配；例如 `implicit()` 内仍有 `wp.empty` 工作数组。（E1：`forward.py:595–625`）
+
+超限信息由 `Data.overflow` 的 bitmask 表达，即一个整数中的不同位代表不同类型问题。迁移时要分别处理接触、约束、稀疏非零元、EPA 缓冲和迭代上限等状态。（E1：`types.py:152–168`）
+
+### 4.4 稀疏存储：只保存真正参与约束的项
+
+接触约束描述“哪些自由度会影响这个接触方向”。对应矩阵称为 **Jacobian**。一个接触通常只与部分自由度有关，因此没有必要总把大量零值存成完整矩阵。MJWarp 的相关结构包含数值、列索引和行信息，用于表达稀疏关系。（E1：`types.py` 的约束字段与 `solver.py` 稀疏访问路径）
+
+对 NPU 而言，少存数据有利于降低全局内存占用，但索引读取和不规则访问也有成本。应先记录 G1 实际稀疏程度，再决定保留稀疏格式、局部转稠密，还是采用混合方法。（E3）
+
+<a id="s5"></a>
+## 5. 编译与调度：一次 step 为什么会调用很多 kernel
+
+### 5.1 Python 负责组织，并行函数负责设备计算
+
+MJWarp 的 Python 文件中既有普通调度函数，也有 Warp 装饰的设备函数。`@wp.kernel` 表示可发射的并行入口；`@wp.func` 是供设备代码调用的函数。它们看起来都像 Python，但不能据此认为替换 Python 张量设备就能完成移植。（E1：`forward.py`、`collision_driver.py`；E3：迁移解释）
+
+下面的代码来自力计算的 kernel，省略签名和休眠分支，展示它怎样同时处理多个 world 与自由度。
+
+**源码节选（E1）：** [`forward.py:1314`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/forward.py:1314)、`:1323–1328`。
 
 ```python
-# 【源码摘录】forward.py:1412-1462（main@`7e4afee`；"→"注释为本报告所加）
+worldid, dofid = wp.tid()  # 当前并行任务负责哪个 world、哪个自由度
+
+# 汇总这个自由度上的非约束力。
+qfrc_smooth_out[worldid, dofid] = (
+    qfrc_passive_in[worldid, dofid]    # 被动力
+    - qfrc_bias_in[worldid, dofid]    # 扣除动力学偏置项
+    + qfrc_actuator_in[worldid, dofid] # 执行器力
+    + qfrc_applied_in[worldid, dofid]  # 外加广义力
+)
+```
+
+这段计算对每个 `(worldid, dofid)` 都做同样的加减法。它容易理解，也说明了 GPU 并行程序的常见形式：**先确定自己负责哪个元素，再对那个元素计算**。调用方以 `dim=(d.nworld, m.nv)` 发射任务（`forward.py:1343–1345`）。
+
+NPU 可以让一个计算核处理一批这样的元素，但批次大小、读写缓冲和执行同步需要重新设计。算术关系可保留，任务组织方式需要改写。（E3）
+
+### 5.2 step 的主干：先算加速度，再推进时间
+
+**源码节选（E1）：** [`forward.py:1412`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/forward.py:1412)。保留完整积分器分发，省略装饰器与文档字符串。
+
+```python
 def step(m: Model, d: Data):
-  """Advance simulation."""
-  forward(m, d)                                   # → forward = 完整前向动力学（下面 step1/step2 的单段版）
-  if m.opt.integrator == IntegratorType.EULER:
-    euler(m, d)
-  elif m.opt.integrator == IntegratorType.RK4:
-    rungekutta4(m, d)
-  elif m.opt.integrator in (IntegratorType.IMPLICITFAST, IntegratorType.IMPLICIT):
-    implicit(m, d)                                # → 锁定基线已实现 implicit（forward.py:595，§11.1 已核）
-  else:
-    raise NotImplementedError(f"integrator {m.opt.integrator} not implemented.")
+    forward(m, d)  # 根据当前状态、控制和接触，计算动力学结果
 
-@event_scope
-def step1(m: Model, d: Data):
-  """Advance simulation in two phases: before input is set by user."""
-  fwd_position(m, d); d.sensordata.zero_(); sensor.sensor_pos(m, d)
-  _energy_pos(m, d)
-  fwd_velocity(m, d); sensor.sensor_vel(m, d)
-  _energy_vel(m, d)
-  if not (m.opt.disableflags & DisableBit.ACTUATION):
-    if m.callback.control:
-      m.callback.control(m, d)                    # → 用户控制回调的插入点：图捕获时 ctrl 在两段之间写入
-
-@event_scope
-def step2(m: Model, d: Data):
-  """Advance simulation in two phases: after input is set by user."""
-  fwd_actuation(m, d); fwd_acceleration(m, d)
-  solver.solve(m, d)                              # → 求解器分发（真实多路径见 §13.3）
-  sensor.sensor_acc(m, d)
-  if m.opt.integrator in (IntegratorType.IMPLICITFAST, IntegratorType.IMPLICIT):
-    implicit(m, d)
-  else:
-    euler(m, d)                                   # → note: RK4 defaults to Euler（源码原注）
+    if m.opt.integrator == IntegratorType.EULER:
+        euler(m, d)  # 用 Euler 路径推进状态
+    elif m.opt.integrator == IntegratorType.RK4:
+        rungekutta4(m, d)
+    elif m.opt.integrator in (IntegratorType.IMPLICITFAST, IntegratorType.IMPLICIT):
+        implicit(m, d)  # 锁定版本已有对应实现
+    else:
+        raise NotImplementedError(f"integrator {m.opt.integrator} not implemented.")
 ```
 
-`step1/step2` 的两段式切分专为图捕获设计：action 写入点固定在两段之间，RL 循环可以只捕获一次 `step2`（或整体）并在段间注入 `ctrl`，这是 `mjwarp/index.html#graph-capture` 与 §7 原理3 的源码依据。
+`forward` 内部还会调用位置计算、速度计算、执行器计算和求解器，因此这里的一个函数调用会展开成许多 kernel launch。积分器根据这些结果把状态推进到下一个时间点；RK4 等路径还可能包含额外计算，不能用一条简单流水线代表所有配置。（E1，§6 展开）
 
-Warp 提供两种执行模式 `mjwarp/index.html#graph-capture`：
+代码也明确证明 `IMPLICITFAST` 存在分发路径。具体实现和 README 的限定说明见 §11.1。
 
-- **Eager**：每步逐个 `launch` 到同一stream，stream内异步顺序执行（非每kernel间`synchronize`）；开销主要在launch本身。
-- **GraphCapture（推荐）**：`ScopedCapture`捕获launch序列为CUDA Graph（即 §3 图 Layer 3 的 CUDA Graph 节点；NVIDIA 的 kernel 序列录制-重放机制，一次提交整段 launch 以摊薄调度开销），后续`capture_launch`重放该序列。**这是launch序列的捕获/重放，不是kernel fusion（不合成一个大kernel）**，加速来自省去重复launch开销：
+### 5.3 CUDA Graph：把调度序列记录下来反复执行
+
+如果每一步都由 Python 逐个提交许多小 kernel，提交本身会占用时间。CUDA Graph 可以先记录这一串操作，再整体重放，减少重复提交开销。（E3：[官方 Graph Capture 说明](https://mujoco.readthedocs.io/en/latest/mjwarp/index.html#graph-capture)）
+
+```mermaid
+flowchart TB
+    subgraph PREP["准备阶段"]
+        INIT["分配并初始化<br/>Model / Data"]
+        CAP["捕获一次 step<br/>记录调度与依赖"]
+        INIT --> CAP
+    end
+    subgraph LOOP["重复执行阶段"]
+        CTRL["更新设备上的 ctrl"]
+        REPLAY["重放 CUDA Graph"]
+        STATE["读取更新后的状态<br/>构建下一步输入"]
+        CTRL --> REPLAY --> STATE
+        STATE -->|"下一步"| CTRL
+    end
+    CAP -->|"图已就绪，进入循环"| CTRL
+```
+
+下面是 API 用法示意；假设 `m/d` 已创建，所需初始化和预热已完成，省略策略与观测代码。
 
 ```python
-with wp.ScopedCapture() as cap:
-    mjw.step(m, d)
-wp.capture_launch(cap.graph)  # 重放已捕获的launch序列
+with wp.ScopedCapture() as capture:
+    mjw.step(m, d)                 # 记录这次 step 的设备操作
+
+wp.capture_launch(capture.graph)   # 后续可重复提交这张图
 ```
 
-RL 循环中每步仅 `capture_launch`，无需重复编译。NPU侧是否有等价机制需按§15后端选型验证，不默认存在。
+图重放保持多个操作之间的依赖，**并不等于把所有 kernel 融合成一个大 kernel**。NPU 原型也需要减少调度开销，但 GE、TorchAir 或直接算子调用能否满足本任务的控制流与内存要求，要通过 §15 的后端实验确认。（E3）
 
-### 5.3 多 GPU：ScopedDevice 独立上下文与手动分发
+另有 `step1/step2` 两段式接口，允许在位置、速度相关计算之后设置控制，再继续执行器计算和积分。源码没有证明它们“专为图捕获设计”；而且 `step2` 对 RK4 配置回落到 Euler，不能把两段调用直接视为任意积分器下 `step` 的等价替代。（E1：`forward.py:1427–1458`）
 
-`wp.ScopedDevice(device)` 每卡独立 `Model / Data / graph`，手动 `capture_launch` 分发，无自动 `pmap` `mjwarp/index.html#multi-gpu`。
+### 5.4 设备内闭环还需要环境适配
 
-### 5.4 CPU-GPU 每步零同步（除 overflow 周期检查）：吞吐优势的来源
+GPU 上的状态数组可通过 Warp 与 PyTorch 的互操作供策略侧使用，但 SONIC 的完整观测并不等于 `d.qpos`。历史状态、参考动作、奖励、终止与重置都需要对应实现。字段与动作定义见 [原版解析] §2、§4。（E3，集成要求）
 
-`Data` 全在 HBM（高带宽显存），`obs = d.qpos` 是 `wp.array` 可通过 Warp互操作（`dlpack` / `__cuda_array_interface__` / `wp.to_torch`，具体以Warp版本为准）零拷贝给 `torch`（CUDA），`action → d.ctrl` 也是设备直写。`mujoco.rollout` 的 `host↔device` 搬运瓶颈被消除，这正是吞吐优势的来源。若 NPU 退化为每步 `NPU→CPU→NPU` 搬运，优势清零（[A路线笔记] §9.7）。
+B 路线的目标是让热循环中的 action、状态和训练数据留在 NPU。周期日志、诊断与保存模型仍可与 CPU 交互。若某个物理步骤回退 CPU，其同步开销应归入 B′ 实测，不能直接断言全部收益归零。（E3）
 
----
+多 GPU 场景可以使用 `ScopedDevice` 分别管理各卡的状态与调度。物理 world 之间通常可独立分配；策略多卡训练的梯度通信属于训练层职责。（E3，架构说明）
 
-## 6. 前向动力学流水线详解（顺序以event_trace为准）
+<a id="s6"></a>
+## 6. 一步物理计算：从当前姿态走到下一时刻
 
-> 以下为基于官方文档的逻辑顺序，真实kernel切分与顺序需 `mjwarp-testspeed --event_trace` 核对。`Sleep`（休眠：低速/静止的树被标记后跳过其求解）与 `island`（独立运动岛：互不接触、可独立求解的刚体连通子集）贯穿 `broadphase` 与 `solver`（非独立尾阶段），`compact` 是solver变体。
+下面以 `forward` 的主调用关系解释计算顺序。它是函数层级图；具体 kernel 数量、重复次数和耗时由 event trace 补充。（E1：`forward.py:1384–1423`）
 
-| 阶段 | Warp kernel(s)（示意） | 计算内容 | 并行度 | 备注 |
-|---|---|---|---|---|
-| **1. Kinematics** | `kinematics`, `com_pos` | `xpos/xquat/xmat` 前向运动学，`crb` 复合刚体惯量，`qfrc_bias`（重力+科氏+离心） | `nworld × nbody` | 树状并行，`nv>60` 有发散 |
-| **2. Tendon / Transmission / Actuator** | `tendon`, `actuator` | 肌腱长度/传动比，`actuator_moment` 稀疏装配 | `nworld × ntendon` | 稀疏 Jacobian |
-| **3. Collision Broadphase** | `broadphase` | AABB / SAP 粗筛 `ngeom² → candidate`（受sleep过滤） | `nworld × ngeom` | `nconmax` 直接决定内存 |
-| **4. Collision Narrowphase** | 以P0 trace为准 | 三条路径分开（不合写）：MuJoCo C为经典CPU碰撞实现；MJX-JAX为branchless SAT等路径；MJWarp为primitive + GJK/EPA。具体pair以`computation#contact`表+源码trace为准 | `nworld × npair` | `CCD vs primitive`，`mjwarp/index.html#memory`：`PLANE<>MESH` 4 vs 3 |
-| **5. Flex** | `flex` | 软体 / 布料（experimental，一期可裁） | `nworld × nflex` | 非人形刚体必需 |
-| **6. Make Constraint (efc)** | `make_efc` | 将 contact / limit / equality / tendon转为 `efc_J, efc_pos, efc_margin, solref/solimp` | `nworld × nefc` | `njmax` 硬截断 |
-| **7. Solver Setup** | `solver_setup`（sparse/dense/compact多路径，G1走哪条以trace为准） | 按实际路径组装约束矩阵并做分解准备 | `nworld` tile | Cube是否值得用待G1 trace后定（见§13.3） |
-| **8. Solver Iterate** | `solver_iter (Newton)` | 迭代 `iterations / ls_iterations`，EarlyExit `mjwarp/index.html#solver-iterations` | `nworld × njmax` | 收敛后跳出，参数敏感度低于mjx；收敛率纳入§17验收 |
-| **9. Integrate** | `integrate (Euler)` | `qvel += qacc·dt; qpos += qvel·dt` | `nworld × nv` | `IMPLICITFAST` 代码已实现（§11.1 注），README 口径滞后 |
-| **10. Sensor** | `sensor` | `qpos / qvel / force / touch` | `nworld × nsensor` | `contact_sensor_max_match` |
-| **11. Sleep更新** | `sleep` | 更新island动/静状态，供下一步broadphase/solver跳过 | `nworld × ntree` | 非尾阶段，贯穿循环 |
+```mermaid
+flowchart TB
+    INPUT["当前 qpos / qvel / ctrl"]
+    POS["位置相关计算<br/>运动学与惯量<br/>碰撞与约束"]
+    VEL["速度相关计算<br/>速度、偏置与被动力"]
+    ACT["控制回调与执行器计算<br/>得到执行器力"]
+    ACC["计算无约束加速度<br/>qacc_smooth"]
+    SOLVE["约束求解<br/>加入接触等约束的影响"]
+    INT["积分器<br/>推进 qpos / qvel"]
+    INPUT --> POS --> VEL --> ACT --> ACC --> SOLVE --> INT
+    POS -.-> SP["位置传感器"]
+    VEL -.-> SV["速度传感器"]
+    SOLVE -.-> SA["加速度传感器"]
+```
 
-> 表内术语：primitive 碰撞指解析几何体（平面/球/胶囊等）间的闭式求交；CCD（Continuous Collision Detection，连续碰撞检测）弥补离散步长下的高速穿透；粗筛 broadphase 常用 AABB（轴对齐包围盒）/ SAP（sweep and prune，扫掠剪枝）；求解器 Newton（牛顿法，利用二阶 Hessian 近似迭代）与 CG（共轭梯度法）可用，PGS（Projected Gauss-Seidel，投影高斯-赛德尔迭代）暂不支持（§11.1）；EarlyExit 指迭代收敛后提前退出剩余循环；IMPLICITFAST（MuJoCo 的隐式积分器，对阻尼等项做隐式处理以放宽步长）暂不支持（版本注记见 §11.1）。
+实线表示主计算顺序，虚线表示对应阶段的传感器计算。图中的控制回调在配置后执行；外部也可在调用前写入 `ctrl`。这里的关键顺序是：**碰撞与约束准备位于位置阶段，执行器力计算随后发生**，不能把所有阶段按名字任意串排。
 
-**Compact Solver**（紧凑求解器，solver变体非独立阶段，`mjwarp/index.html#large-scenes`）：对 >100 DoF场景（如Aloha 136DoF），先算active岛（island 压缩）→ `compact nvmax=64` → 固定tile `Cholesky`（切洛茨基分解：对称正定矩阵的三角分解）→ `scatter`（散写回原 DoF 位置），避免发散。官方稀疏示例：`efc.J`稠密408MB→稀疏84MB（2048 worlds, njmax=384）。
+### 6.1 先确定身体在哪里，再找接触
 
-**开销**：全阶段 `Other memory`（CCD + Jacobian workspace）常超 `Model/Data` 本身，`mjwarp-testspeed --memory` 可观测。内存估算见§8公式。
+运动学从关节状态计算连杆的世界坐标位置与姿态。碰撞粗筛（broadphase）排除明显不相交的几何对；精算（narrowphase）再为候选对计算接触。约束装配把接触、关节限位和等式条件整理为求解器能处理的形式。（E1：`forward.py:632–693` 及对应调用；E3：物理解释）
 
----
+**源码节选（E1）：** [`forward.py:660`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/forward.py:660)、`:668–684`。仅展示未启用 sleep 时的碰撞分支；用注释标出省略内容。
 
-## 7. 大批量并行的实现机制：五大原理与定量分析
+```python
+fwd_kinematics(m, d)                 # 计算连杆等对象的位置与姿态
+# ……中间还有惯量相关计算……
 
-| 原理 | 实现 | 定量（趋势，待实测） | NPU 映射难度 |
-|---|---|---|---|
-| **1. 环境独立 SPMD** | `tid解码为(world,pair/body)`，无 world 间通信 | world数越多并行度越高，仅受SM/显存限 | NPU 非 SIMT，需改数据并行模型 |
-| **2. 固定容量 + 稳定 shape** | `nconmax × njmax × nvmax` 由 `make_data` 运行时固化（非编译期定长） | shape 稳定利于寄存器/内存规划；但控制流仍有动态行为（overflow、EarlyExit、迭代收敛差异），不能说“无动态分支” | NPU 也需静态容量，但 tiling 更敏感 |
-| **3. 图捕获 + 重放** | 多launch捕获为1 graph重放（非fusion） | launch开销显著降低（待`event_trace`实测，不给百分比） | Ascend `Graph Mode` 是否等价待§15验证，算子需注册 |
-| **4. 合并访问（SoA + coalesced）** | `body_pos[world, body]` 连续 | 带宽利用显著高于经典AoS（待`ncu`实测，禁止引用绝对%） | NPU 需显式 `UB` tiling，非自动 |
-| **5. 设备常驻零拷贝** | `Model/Data` 常驻 HBM，PyTorch 经互操作 | `host↔device` 0 次/步 vs 经典每步搬运（趋势） | NPU 若走 `CPU SHM` 则每步 2 次搬运（[A路线笔记] §9.7） |
+if m.opt.run_collision_detection:
+    # ……省略 sleep 分支；以下是非 sleep 路径……
+    collision_driver.collision(m, d) # 找候选几何对并生成接触
 
-> 同模型单环境：`mjwarp` 单步延迟通常劣于经典（graph + launch开销）`mjwarp/index.html#low-latency`。批量后 `env_steps/s` 才反超，具体倍数以实测为准。
+constraint.make_constraint(m, d)     # 把接触、限位等组织成约束
+```
 
----
+这段代码把碰撞与求解之间的关系说清楚：接触数据先产生，约束矩阵后装配，求解器随后才使用它们。NPU 迁移若只让碰撞输出形状正确，却改变接触内容或容量截断方式，后续求解仍会受到影响。（E3）
 
-## 8. 性能与可扩展性设计
+### 6.2 从力算出加速度，再处理约束
 
-### 8.1 调优要点
+速度阶段计算速度相关量；执行器阶段将控制输入转换为力；加速度阶段汇总非约束力，求出 `qacc_smooth`。约束求解再加入接触等条件的作用，得到用于积分的结果。可以把前者理解成“暂不考虑接触约束时会怎样运动”，后者负责使运动满足约束。（E1：`forward.py:1334–1408`；E3：解释）
 
-- **Memory 线性因子**：`multiccd > ccd > primitive`，`ccd_iterations`，`mesh verts/faces/edges` `mjwarp/index.html#memory`。
-- **Solver EarlyExit**：Newton 收敛后跳出，故 `iterations` 对 `mjwarp` 影响小于 `mjx` `mjwarp/index.html#solver-iterations`。
-- **Sleeping**：`sleep_tolerance` 调大更快休眠，`tree_asleep` 初始化 `mjwarp/index.html#large-scenes`。
-- **Overflow 三件套** `mjwarp/index.html#overflow-detection`：`warn_overflow` 开 `printf` 会串行化（慢），`d.overflow.numpy()` 是 device-to-host（D2H）同步，RL 中应周期性而非每步检查。
-- **Batched DR**：每字段可异 batch，模取数 `field[world % batch]` 实现无需逐步H2D更新（非“零成本”：取模与额外带宽仍有开销，P0需实测）。
-- **nconmax / njmax / nccdmax / nvmax调优**：`mjwarp-testspeed --measure_alloc --overflow_behavior=error --memory` 迭代试错 `mjwarp/index.html#batch-sizes`。`nccdmax/naccdmax` 可小于`nconmax/naconmax`以省CCD内存。
+求解器可能采用普通路径或 compact 路径，并根据数据结构使用稀疏计算。compact 会把当前活跃自由度集中处理，再映射回原状态，相关源码见 §13.3。
 
-### 8.2 内存估算（HBM 初筛 + per-kernel UB 模型）
+### 6.3 积分、传感器与休眠的边界
 
-HBM容量初筛（系数待实测校准，仅用于判断nworld/nconmax/njmax是否放得下，不推导UB tile数）：
+积分器推进时间；传感器按位置、速度、加速度类别插入相应阶段。浮基机器人包含四元数，姿态积分不能直接套用“每个 `qpos` 元素都加上 `qvel × dt`”的公式。（E1：`forward.py` 积分路径；E3：接口解释）
+
+sleep（休眠）与 island（独立运动子系统）会影响碰撞筛选、活跃自由度和求解范围。它们贯穿计算过程；启用 sleep 时，位置阶段还可能进行第二次碰撞处理来响应新唤醒的物体，不能把 sleep 简画成一步结束后的独立开关。（E1：`forward.py:662–692`、`:1387–1390`）
+
+<a id="s7"></a>
+## 7. 大批量为何可能更快：五个机制共同作用
+
+以下是基于源码组织方式的性能解释（E3），每项的收益都需要 P0 测量。
+
+1. **同时推进多个 world。** 多个独立环境提供更多可并行任务。批量增加到一定程度后，还会受到内存、调度和算子效率限制，吞吐不会无限线性增长。
+2. **稳定的主要数组容量。** 固定 shape 方便复用缓冲与调度图。接触数量、收敛步数和休眠状态仍会变化，因此控制流仍有动态行为。
+3. **复用调度图。** 反复执行相似操作时，可减少重复提交开销。实际受益大小取决于 kernel 是否足够小、数量是否足够多。
+4. **按字段组织数组。** 相邻任务若访问连续数据，能提高带宽利用率。布局与索引要一起看，不能仅凭 SoA 名称推导速度。
+5. **让热循环数据留在设备上。** 物理与策略能直接共享设备数据时，可减少跨 CPU 边界的交换。A 路线每步两向搬运的源码分析统一见 [分支审计] §3.3。
+
+这些机制说明了 B 路线值得研究的原因，也解释了为什么评估必须包含端到端训练：物理 kernel 加速后，观测构建、策略推理或同步仍可能成为新的瓶颈。（E3）
+
+<a id="s8"></a>
+## 8. 内存与调优：先保证放得下，再讨论跑得快
+
+### 8.1 先用容量和收敛信息定位问题
+
+调优应从能解释行为的量开始：接触峰值、约束峰值、求解迭代分布、各类 overflow，以及每个阶段的时间。仅看到总吞吐下降，无法判断是容量过大、迭代变多，还是调度和搬运占比上升。（E3，实验建议）
+
+可优先观察四件事：
+
+- **容量是否过大或不足。** 过大会占用更多内存，不足则丢失接触或约束。以峰值和压力场景确定余量，不能只取平均值。
+- **求解器是否正常收敛。** 降低迭代上限可能减少时间，也可能降低物理质量。应同时记录残差、未收敛比例和轨迹统计。
+- **复杂碰撞是否放大临时空间。** 凸体碰撞、multiccd 和 mesh 数据会引入额外工作区，需要与主要状态数组分开统计。
+- **诊断是否扰动性能。** 设备日志和读取到 CPU 的检查会产生开销。验证阶段及时暴露错误，性能阶段记录诊断频率并单独核算。
+
+前两项对应 `make_data`、求解器与 `OverflowType` 的源码行为（E1）；调优顺序及余量选择为 E3。上游测试工具提供 `--memory`、`--measure_alloc` 和 `--overflow_behavior`，可用于采集这些信息（E1：`testspeed.py`）。
+
+### 8.2 HBM：所有环境和工作区总共占多少内存
+
+HBM 是设备上的大容量全局内存。它要容纳模型、所有 world 的状态、接触、约束，以及执行中的临时工作区。下面是预算模型，变量中的字节系数必须通过实际数组或内存报告填入。（E3，估算式）
 
 ```text
-mem_contact ≈ nworld * nconmax * sizeof(Contact)   # 实测以--memory为准
-mem_efc     ≈ nworld * njmax * (sizeof(efc_row) + 稀疏按nnz)
-mem_ccd     ≈ nworld * nccdmax * ccd_workspace(ccd_iterations, mesh复杂度)
-total ≈ mem_contact + mem_efc + mem_ccd + Model常驻
+接触池内存 ≈ naconmax × 单条接触记录字节数
+约束内存   ≈ nworld ×（njmax × 每行基础字节数 + 稀疏存储字节数）
+凸体工作区 ≈ naccdmax × 单项工作区字节数
+峰值内存   ≈ 模型 + 状态 + 接触池 + 约束 + 同时存活的临时工作区
 ```
 
-per-kernel UB live-set模型（live-set：单个 kernel 执行期间同时存活的输入/输出/临时数据集合；替代“total/UB=tile数”粗糙算法）：对每个kernel分别计算同时存活的输入 + 输出 + 临时张量 + 队列深度 + 双缓冲 + 对齐，再推导该kernel的tile切分（tiling：按片上缓冲容量把数据切成固定小块）与是否需要double buffer（双缓冲：读写两块轮流，用计算掩盖搬运延迟）。P0需输出humanoid/G1两档 `--memory` 实数，并对G1子集的top-k kernel逐个建live-set表。
+这里使用总接触容量 `naconmax`，避免误把共享接触池当成每 world 独立分区。临时工作区还可能受迭代上限、mesh 复杂度和求解路径影响；最终判断以峰值测量为准。（E1：容量语义见 §4.3；E3：预算方法）
 
-复现命令：
+### 8.3 UB：一个计算块执行时，哪些数据必须同时在片上
 
-```bash
-mjwarp-testspeed benchmarks/humanoid/humanoid.xml --memory --measure_alloc --overflow_behavior=error --event_trace
-mjwarp-testspeed benchmarks/unitree_g1/scene_flat.xml --memory --measure_alloc  # 旧路径 unitree_g1_flat.xml 已作废，勿用
+UB（Unified Buffer）是昇腾向量计算使用的片上缓冲。HBM 够用，并不表示单个算子的输入和临时量能一次装进 UB。此时需要 **tiling**：把大批数据切成小块，逐块搬入、计算、写回。（E3：[Ascend C 开发说明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/82RC1/opdevg/Ascendcopdevg/atlas_ascendc_10_0001.html)）
+
+应对每个热点 kernel 单独列出其 **live-set**，即某个时刻必须同时保留的数据：
+
+```text
+单 tile 片上需求
+  = 同时存活的输入
+  + 输出
+  + 临时计算结果
+  + 队列与对齐开销
+  + 双缓冲增加的存储（若启用）
 ```
 
----
+例如速度更新同时需要旧速度、加速度与结果缓冲；结果能否覆盖旧速度，取决于依赖和算子实现。双缓冲可以让搬运与计算交叠，但也会增加片上占用。需要先列清这些存活关系，再选 tile 大小。（E3，设计例子）
 
-## 9. 与经典 MuJoCo 的不一致（Sim2Real 风险）
+**不能用“全部仿真内存 ÷ UB 容量”推算 tile 数。** 两者的作用域不同：前者覆盖整套仿真，后者服务于一个算子的局部计算。P0 应为 G1 的主要热点逐个给出输入、输出、临时空间和候选 tile，而不是只报一个总内存数。（E3）
 
-**同 XML 不保证同轨迹**（[A路线笔记] §6）——这是 Sim2Real（仿真训练的策略迁移到真机的落差）层面的核心风险：
+<a id="s9"></a>
+## 9. 一致性边界：同一份 XML，为什么仍可能走出不同轨迹
 
-- `float64 vs float32` 舍入累积。
-- 碰撞算法不同：MuJoCo C为经典CPU实现；MJX-JAX为branchless SAT等路径；MJWarp为primitive + GJK/EPA（三者分开，P0以源码trace为准）。
-- 求解器 `warm-start`（热启动：以上一步解为迭代初值）/ 分解阈值 / 接触容量细节不同。
-- GPU 原子归约非确定性。
+同一份模型定义有助于保持参数一致，但不同物理实现可能在精度、碰撞点生成、求解初值、迭代停止和并行规约顺序上有差异。接触场景会将微小差异传递到后续状态，长轨迹逐渐分离并不罕见。（E3，背景依据见 [A路线笔记] §6）
 
-浮基人形 `per-step drift α`（α：每步轨迹漂移量，m/步，衡量长时程仿真精度）背景见附录C（经典 MuJoCo vs Isaac PhysX，非mjwarp，不作MJWarp–NPU门禁）。这决定 B 路线验证**不能逐位比对**，只能统计一致。
+应按比较层次分别要求：
 
-| 比较层次 | 一致性预期 |
+| 比较对象 | 应检查的内容 |
 |---|---|
-| MJCF/XML 参数及主要物理语义 | 大部分一致 |
-| 相同状态和 action 下的单步结果 | 通常接近，但不保证逐位相同 |
-| 长时间 rollout 轨迹 | 不保证一致，接触密集任务尤其易分离 |
+| 模型与配置 | 自由度、执行器、坐标系、步长和接触参数是否对应 |
+| 固定输入的一步计算 | 位置、加速度、接触集合等是否落在约定容差内 |
+| 短期 rollout | 误差增长、接触和运动统计是否稳定 |
+| 训练任务 | 多种子下的任务指标、稳定性与资源成本 |
 
----
+这里仍然需要严格的单步数值检查。长轨迹难以逐位一致，不能成为跳过单步误差、接触漏检或 overflow 的理由。具体判据见 §17。（E3，验证原则）
 
-## 10. 昇腾 NPU vs NVIDIA GPU：硬件与软件栈对比
+[精度分析] 中的 **α drift** 是经典 MuJoCo 与 Isaac PhysX 的对齐背景，参考数值保留在附录 C。它没有验证 MJWarp 与 NPU 的误差，不能直接拿来规定本项目的通过阈值。（E3，证据适用范围）
 
-| 维度 | NVIDIA GPU（Warp 目标） | 昇腾 NPU（以 §19 矩阵锁定 SoC 为准） |
+<a id="s10"></a>
+## 10. GPU 与昇腾的差异：迁移主要改在哪里
+
+两类硬件都能执行并行计算，但任务划分与存储组织不同。对本项目，最有用的比较是“现有代码依赖什么、目标实现需要重新确定什么”。下表是设计层面对照（E3）；具体能力以 §19 锁定的 SoC 与 CANN 版本为准。
+
+| 设计问题 | Warp / NVIDIA GPU | 昇腾迁移需要确认 |
 |---|---|---|
-| **计算单元** | SM（每SM CUDA Core数随架构而异）SIMT warp32 | `AI Core: Cube + Vector + Scalar` 异构（具体规格以CANN为准） |
-| **执行模型** | 线程束 `tid / blockDim`，`__syncthreads`，`atomicAdd` | Ascend C官方有SPMD术语与产品相关原子操作（见Ascend C编程术语/Atomic API）；与CUDA不是一一对应，能力/数据类型/性能**需按目标SoC验证**，不可直译`wp.tid()/atomic/syncthreads` |
-| **内存** | HBM + SharedMem + Register | HBM + L2 + L1 + L0 + UB 显式搬运（大小待核实，P0以`msprof`+手册为准） |
-| **编程** | CUDA C / Warp Python JIT | Ascend C / 图模式（GE/TorchAir）；TBE/AKG与JAX-on-Ascend在本次检索的官方稳定方案中尚未确认，P0按§19矩阵复核后再定选型 |
-| **编译** | `nvcc / ptx`, Warp JIT cache | `Ascend C编译器 + CANN GE图编译`，AOT 为主 |
-| **通信** | `NCCL` | `HCCL`，多进程建议`spawn/forkserver`且worker不import NPU（[A路线笔记] §9.9） |
-| **生态** | Warp, PyTorch CUDA, JAX | `torch_npu, MindSpore, CANN`（JAX-on-Ascend在本次检索中尚未确认，见§14 B3，P0复核） |
-| **精度偏好** | `float32` 通吃 | `Cube`偏低精度，`Vector`跑`float32`；具体以SoC手册为准，默认按Vector fp32规划 |
+| 谁处理哪些元素 | 用线程索引组织任务 | 每核处理范围与 tile 大小 |
+| 数据如何进入计算单元 | 线程访存、缓存和共享内存 | 数据搬运、局部缓冲和同步 |
+| 多任务如何共同写入 | 原子操作等并行机制 | 对应原子能力或重排算法 |
+| 大量小操作如何提交 | Warp launch / CUDA Graph | 算子直调或图执行的实际开销 |
 
-> 一句话：GPU 是“同 kernel 跑多 world”（SIMT：单指令多线程，线程束锁步执行），NPU 是“算子切 tile 搬运计算”。昇腾侧能力按 SoC 验证、不作绝对判断；NPU kernel 调试手段以 CANN（华为昇腾异构计算架构，含编译器/运行时/算子库）/ msprof（昇腾性能剖析工具）为准；TBE/AKG（昇腾两种算子开发/自动生成工具链：Tensor Boost Engine 与 Auto Kernel Generator）选型待 P0 复核（§14 B2）。
+**计算单元的选择。** 昇腾的 Cube、Vector、Scalar 分别面向矩阵、向量和标量计算。物理计算含有矩阵运算，也含有索引、分支和迭代；不能看到 Cholesky 就认定整个求解器适合 Cube。初始原型建议先验证 fp32 正确性，再对适合的局部算子比较不同实现。（E3；机制背景见 [Ascend C 简介](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/82RC1/opdevg/Ascendcopdevg/atlas_ascendc_10_0001.html)）
+
+**并发能力的选择。** 不应写“昇腾没有 SPMD 或原子操作”。需要列出目标芯片上支持的数据类型、操作和性能，再决定保留原子预约还是改成规约与扫描。§13.1 给出具体碰撞例子。（E3，待目标环境核验）
+
+**工具链的选择。** Ascend C 负责自定义算子实现；`torch_npu`、TorchAir、GE、ACL 在集成与执行中承担不同角色，并非所有程序都必须依次经过的一条链。P0/P1 应比较可用组合，记录实际编译、运行和 profiling 结果。（E3，选型要求）
+
+训练多卡通信的 HCCL 与物理 world 的任务分配也需分开考虑。进程启动与 NPU 初始化的已知问题统一引用 [分支审计] §1.1 的 F-4，不在本报告重复展开。（E3，集成建议）
 
 ---
 
-# Part II · 迁移方案（§11–§20）
+## 第二部分：把迁移目标变成可验证的方案
 
-## 11. B 路线总览：核心子集上 NPU
+<a id="s11"></a>
+## 11. B 路线的目标与边界
 
-**当前基线（A 路线现状，与 [zhangqin分支审计] 互链）**：A 路线即该分支审计的“CPU MuJoCo × NPU”主路径——每步经 SHM（shared memory，跨进程共享内存）边界发生 NPU→CPU action 与 CPU→NPU obs 两次搬运（其 §3.3，非 zero-copy），并存在六项 MDP 语义非等价与 fork 安全问题（其 §1.1/§2）。**B 路线要消除的正是这两类问题**：物理常驻 NPU 消除搬运，子集重写统一语义口径。下图回答“A/B 两路线每步数据各走什么路径、差别在哪”：
+A 路线的物理运行在 CPU，策略训练在 NPU；B 路线希望把物理和环境热循环一起放到 NPU。两者的主要数据流如下。A 路线事实依据见 [分支审计] §3.3；B 路线是目标设计（E3）。
 
 ```mermaid
 flowchart LR
-    subgraph AR["A 路线 · 现状（[zhangqin分支审计] 已实证）"]
-        direction LR
-        AMJ["经典 MuJoCo<br/>CPU 多进程 worker"] <-->|"SHM 每步 2 次搬运"| ANPU["torch_npu 训练<br/>NPU"]
+    subgraph A["A 路线：跨 CPU / NPU 的训练闭环"]
+        direction TB
+        AP["NPU<br/>策略推理与更新"]
+        AE["CPU<br/>经典 MuJoCo<br/>环境侧逻辑"]
+        AP -->|"action：NPU → CPU"| AE
+        AE -->|"观测等：CPU → NPU"| AP
     end
-    subgraph BR["B 路线 · 目标（本报告）"]
-        direction LR
-        BNPU["物理 G1 子集常驻 NPU<br/>B1: Ascend C 重写 / B3: 重写 mjx 子集"] --> RL2["RL 训练<br/>同卡零搬运闭环"]
+    subgraph B["B 路线：目标为 NPU 内部闭环"]
+        direction TB
+        BP["NPU<br/>策略推理与更新"]
+        BE["NPU<br/>观测、奖励、重置"]
+        BM["NPU<br/>G1 物理子集"]
+        BP -->|"action"| BM
+        BM -->|"新状态"| BE
+        BE -->|"观测与训练样本"| BP
     end
-    AMJ -. "消除搬运瓶颈 + 统一语义口径" .-> BNPU
+    A ~~~ B
 ```
 
-**图的读法**：左框 A 路线（现状，[zhangqin分支审计] 已实证）：经典 MuJoCo 以 CPU 多进程 worker 运行，torch_npu 训练在 NPU，双向实线箭头表示每步经 SHM 边界往返两次搬运（NPU→CPU 送 action、CPU→NPU 回 obs）——吞吐与 MDP 语义两类问题的共同来源。右框 B 路线（目标，本报告）：物理 G1 子集常驻 NPU（B1=Ascend C 逐 kernel 重写，B3=框架重写 mjx 子集，见 §14），与 RL 训练构成同卡闭环，实线箭头是设备内数据流，不经 CPU。两框之间的虚线**不是数据流**，是“A 到 B 的演进目标”关系，其标注即 B 路线的两条立项理由。阅读主线：先看左框双向箭头（现状每步 2 次搬运），再看右框单向闭环（目标零搬运），最后读虚线=两框之间要跨的差距。图内缩写：SHM=shared memory（跨进程共享内存）；torch_npu=华为官方 PyTorch 昇腾适配插件；G1=Unitree G1 人形机器人基准场景；RL=强化学习；B1/B3=B 路线内部两条技术路径（§14）。
+物理常驻 NPU 可以消除热路径上的这类跨设备交换，**但不会自动修复动作、奖励或接触参数的语义差异**。语义对齐仍需独立的模型与环境验证任务。（E3）
 
-**定义**：产出 `mujoco_ascend` 子集（对标 `mujoco_warp` main@`7e4afee` 的G1实际子集，非全量），提供语义兼容的 `step / Model / Data / put_model / make_data`，`nworld` 量级纯NPU内闭环，`obs / action` 不经 CPU（即图中右框 BNPU→RL2 的同卡闭环）。注意：不是`import`零改——`wp.array`类型层需适配，仅保持函数/字段语义一致。
+### B 与 B′：是否允许物理回退 CPU
 
-**B vs B′**（二者均为图中右框的常驻形态，差别在是否允许 CPU 回退）：
+**B：纯 NPU 物理闭环。** 已纳入范围的物理步骤均在 NPU 上完成；如果运行中必须把物理计算回退到 CPU，就未满足 B 的通过条件。CPU 负责初始化、主机调度和周期记录不属于物理 fallback。（E3，项目定义）
 
-- **B：纯NPU**：全程无CPU fallback；出现CPU回退即PoC失败，用于验证可行性上限。
-- **B′：NPU主路径 + CPU fallback（如CCD/mesh）**：允许回退，但必须单独计算每次同步的H2D/D2H量、延迟与吞吐损失，§16 P4/P6分别立项。
+**B′：NPU 主路径加 CPU 回退。** 允许某些难点物理计算回退，但必须记录触发频率、每次 H2D/D2H 字节数、同步延迟与总吞吐影响。B′ 需要单独验收，不能沿用 B 的“纯设备内闭环”结论。（E3，项目定义）
 
-**非目标**：不做单环境低延迟优化，不做渲染/ray/BVH（bounding volume hierarchy，层次包围盒加速结构；独立项目）。
+```mermaid
+flowchart LR
+    MAIN["NPU 物理主路径"]
+    CPU["CPU fallback<br/>仅 B′ 允许"]
+    NEXT["NPU 后续计算"]
+    MAIN -->|"常规路径"| NEXT
+    MAIN -->|"难点输入与状态"| CPU
+    CPU -->|"结果回传并同步"| NEXT
+```
 
-**成功标准**（维度列表；**度量口径统一见 §17**，≥3 seeds）：性能（冷启动编译 / 稳态 `env_steps/s` / step 延迟 P50/P95，纯仿真与端到端 PPO（近端策略优化，主流 RL 策略梯度算法）分计）· 资源（HBM/workspace/CPU/功耗）· 正确性（overflow/NaN/收敛率）· 物理一致（接触集合匹配 + 短 rollout 统计一致，非逐位）· 统计（≥3 seeds + 置信区间）。G1 场景以 `benchmarks/unitree_g1/scene_flat.xml` 为准（旧路径 `unitree_g1_flat.xml` 已作废）。
+### 本轮要交付的范围
 
-### 11.1 裁剪范围：Feature Parity（来源 README#compatibility）
+目标是一个 G1 所需的物理子集，以及能够接入训练环境的 `step / Model / Data / put_model / make_data` 语义接口。数组类型和调用适配可能变化，因此并不保证现有 Warp 程序原样 import 即可运行。（E3）
 
-| 特性 | mjwarp 状态 | B1 影响 |
+当前不包含渲染、ray 查询、完整柔性体功能和单环境低延迟优化。地形、mesh、SDF 是否属于必需项，应由最终选定的业务 XML 和运行 trace 决定；实际用到的功能不能仅因困难而静默删除。（E3）
+
+### 11.1 功能裁剪前，先读准确的支持边界
+
+**积分器：代码与 README 说的是不同粒度。** 锁定版本的 `step` 和 `step2` 都包含 `IMPLICITFAST/IMPLICIT` 分发，`implicit()` 也有实现。README 的原文限定为 **“`IMPLICITFAST` midpoint integrator feature”** 不支持，不能将其扩大为整个 `IMPLICITFAST` 不支持，也不应简单解释为 README 落后。（E1：`README.md` “MuJoCo API Compatibility”；`forward.py:595–628, 1412–1458`）
+
+进一步看 `implicit()`：`IMPLICIT` 分支使用导数与 LU 路径；后面的分支另行处理相应隐式更新。旧版把前一个分支的全部调用链当成 `IMPLICITFAST` 的实现，应予纠正。P0 需要按业务实际积分器配置测试，不预设“必须改 Euler”。（E1：分支结构；E3：实验要求）
+
+其他功能在锁定版本 README 中的状态如下（E1）：
+
+| 功能 | 锁定版本说明 | 本项目处理 |
 |---|---|---|
-| Integrator `IMPLICITFAST` | README#compatibility 仍标 not supported，但**锁定基线代码已实现**（E1，2026-09-03 核）：`implicit()` 完整路径在 `forward.py:595`（`deriv_smooth_vel → map_m2d → deriv_rne_vel → factor_solve_lu`），`step()/step2()` 于 `:1420/:1454` 分发 `IMPLICITFAST/IMPLICIT`——代码先行于官方支持矩阵，宜按"已实现、未列入官方支持"对待 | B1 裁剪时无须按"必须改 Euler"规划；但 α 影响仍需 §17 实测闭环（官方未背书，验证责任在我方） |
-| Solver `PGS` / `noslip` | 不支持 | 只能用 Newton/CG，XML 需对齐 |
-| Actuator/Sensor `PLUGIN` | 不支持 | 自定义执行器需重写 |
-| Flex | experimental | 一期裁剪 |
-| 可微（Warp autodiff） | 不支持（#500） | B 路线不做可微 |
+| PGS / noslip | 未支持 | 检查模型是否依赖 |
+| 执行器、传感器 PLUGIN | 未支持 | 若业务使用，单独实现或调整范围 |
+| Flex | 实验性支持 | 一期按刚体任务裁剪 |
+| Warp 可微物理接口 | 尚未提供 | 不列入 B 路线验收 |
 
----
+这些是固定版本的说明；未来升级应重新核验。G1 子集的最终支持清单必须同时附上配置和对应测试。（E3）
 
-## 12. 逐模块迁移难度矩阵（功能逻辑切分，非文件结构）
+<a id="s12"></a>
+## 12. 模块迁移：先建立依赖，再处理风险最高的部分
 
-> 本表按功能逻辑（运动学/碰撞/约束/求解）切分，不等同§3文件结构；文件映射待P0 `ls`后补。难度星级仅作定性参考（1–5 星，5 最难）；**人周与分项行数估计已撤销**（旧值作废防误引，见修订记录），待 P0 六维统计 + G1 trace 后重估。
+原版的难度星级不足以说明先做什么。本节改为按工程角色分组：哪些是后续工作的前提，哪些直接决定路线可行性，哪些需要由场景决定。以下为设计判断（E3），文件入口已在 §3 核验（E1）。
 
-| 模块 | GPU 语义依赖 | NPU 难度 | 原因 |
-|---|---|---|---|
-| **types / io** | `wp.array` batch 定义 | ★★ | 需定义 `Ascend Model/Data` + `batch %` 取模逻辑 |
-| **kinematics / crb / bias** | `tid解码为body`，树并行发散 | ★★★ | NPU 需把 `nbody` tiling + 串行树遍历改 `Vector` |
-| **collision broadphase** | AABB 并行扫 | ★★★ | SAP/AABB 适合 Vector，但需重写排序 |
-| **collision primitive** | `atomic_add` 写 contact | ★★★★ | pair种类多分支，`plane/mesh`特殊，原子需改预分区+规约 + 溢出位 |
-| **collision convex (GJK/EPA，以trace为准)** | 迭代 + 片上缓冲 | ★★★★★ | GJK/EPA迭代发散，需按SoC重做UB live-set（见§8.2），`multiccd`内存另估 |
-| **constraint / efc（含tendon/equality）** | 稀疏装填 | ★★★ | 稀疏 `J` 需格式转换 `CSR` tiling |
-| **solver Newton + Cholesky（sparse/dense/compact多路径，P0按G1 trace拆）** | `tile Cholesky` + EarlyExit | ★★★★★ | 禁止直接推导Cube/Vector；先trace定G1实际路径，再定tiling（见§13.3） |
-| **compact solver / sleep** | island 压缩 + scatter | ★★★★ | `sleep` 逻辑需全局reduce，compact的 `gather/scatter` 搬运重 |
-| **integrator / sensor** | `tid=nv/nworld` | ★★ | 简单向量 |
-| **flex / sdf** | experimental | ★★★★★ | 一期裁剪（注：hfield为地形刚需，不随flex裁） |
-| **render / ray / BVH** | Warp BVH | ★★★★★ | 与物理解耦，单独项目，不计入B1 |
-| **调度 / graph / multi-NPU** | CUDA Graph / ScopedDevice | ★★★★ | 需对接 `GE Graph + HCCL`（§3 图 Layer 3 调度层的 NPU 侧替换），`fork`坑；物理本身无需跨卡通信，仅RL需HCCL |
+### 12.1 基础骨架：types、io 与简单状态更新
 
-> 表内术语：flex（MuJoCo 的软体/布料可弯曲体模拟，实验特性）；sdf（signed distance field，有符号距离场碰撞表示）；hfield（height field，高度场地形，机器人场景刚需，故不随 flex 裁剪）；CSR（Compressed Sparse Row，行压缩稀疏存储格式）。
+先定义 NPU 侧 Model/Data，明确字段、批量索引、容量与错误状态。随后接入状态初始化和最简单的更新算子。这部分为所有模块提供共同数据约定。
 
-三种规模口径（互不可换算，防混用）：
+积分与传感器可作为早期接口验证对象，但仍要覆盖浮基四元数、所选积分器和实际传感器类型，不能笼统归为几行向量加法。产出应包括字段映射和单元级数值对照。
 
-- **仓库总量**：外审基线 `_src` 非测试约 5.28 万行 / 约 296 kernel 定义（E4，待复核）。
-- **本表分项**：旧行数估计已撤销（原分项合计约 7300 行，与仓库总量口径不同，勿相加或对比）。
-- **G1 子集**：待 P0 trace 后单独给出——**原型工作量以这一口径为准**。
+### 12.2 常规物理：运动学、粗筛与约束装配
 
-> 难度对标 [A路线笔记] §3 与 [精度分析] §4.1，基线以 main@`7e4afee` 复核为准。
+运动学需要处理机器人树结构；碰撞粗筛需要生成候选集合；约束装配需要保留稀疏数值与索引的对应关系。这些模块的输入输出比较明确，适合按层建立测试。
 
----
+优先验证顺序是：位置姿态正确 → 候选与接触集合正确 → 约束行正确。不要等完整训练跑起来以后再定位前面的偏差。
 
-## 13. 六大关键技术挑战（B 路线特有）
+### 12.3 最高风险：凸体碰撞与求解器
 
-### 13.1 编程模型断层
+凸体碰撞的 GJK/EPA 包含数据依赖循环、局部几何结构和工作区；求解器包含不同表示、分解方式和停止条件。两者的可行性不能由运动学成功推导。
 
-Warp 编程模型的核心原语是 `@wp.kernel + wp.tid() + wp.atomicAdd + wp.syncthreads`。昇腾并非“无SPMD/atomic”，而是**能力、数据类型与性能不与CUDA一一对应，需按目标SoC验证**（Ascend C编程术语SPMD、Atomic API）——即 §3 图 GPU→NPU 虚线断层标注的“原子→规约/预分区”一语。最痛的仍是 `collision → contact` 的 `atomic_add` 预约写入：GPU靠原子保序，NPU侧需按SoC原子能力改“规约+前缀和”或“每world预分区写”，否则 `overflow` 语义对不上 `mjwarp/index.html#overflow-detection`。P0需列出目标SoC的原子操作支持矩阵。
+P0 应从真实 G1 热点中挑选代表性函数，尽早做 Ascend C spike。实验要能暴露最坏接触场景和高迭代样本，不能只测试平均情况下的一次成功调用。源码分析见 §13。
+
+### 12.4 条件功能：休眠、地形和复杂几何
+
+sleep 与 compact 会改变活跃集合和计算范围；高度场 hfield、mesh、SDF 是否必需取决于场景。按业务模型逐项决定保留、后移或显式不支持，并记录裁剪会改变哪些测试条件。
+
+渲染、ray、BVH 的独立功能不计入当前 PoC。调度和多卡集成另有 P1/P6 任务；物理 world 分配与训练 HCCL 通信分别测试。
+
+**工作量口径：** 仓库静态总量见 §1，G1 函数闭包由 P0 输出，实际重写工作量还受复用程度与算法改写影响。三者应分别列明。（E3）
+
+<a id="s13"></a>
+## 13. 关键难点的源码讲解
+
+本节每段只展示支撑当前论点的代码。标“源码节选”的语句来自锁定版本，中文注释和省略标记为本文添加；标“设计伪代码”的部分是候选方案，不能直接编译运行。
+
+### 13.1 并行写入：原子预约保证唯一槽位，不保证排序
+
+碰撞粗筛会并行产生许多候选几何对，它们需要写进同一个数组。先看现有实现如何领取写入位置。
+
+**源码节选（E1）：** [`collision_driver.py:356`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/collision_driver.py:356)、`:369–371`。省略函数签名及几何类型排序。
 
 ```python
-# 【示意代码】collision → contact 写入的迁移形态（①为 §5.1 真实源码的抽象，②③为 NPU 候选设计）
+pairid = wp.atomic_add(ncollision_out, 0, 1)  # 加一，并取得加之前的计数
 
-# ① GPU / Warp（真实形态见 §5.1 _add_geom_pair）：原子预约——谁先到谁占坑，写入顺序不定但无竞争
-pairid = wp.atomic_add(ncollision_out, 0, 1)
-if pairid >= naconmax_in: return               # → 超限丢弃（overflow 语义）
+if pairid >= naconmax_in:
+    return                                 # 槽位超出容量，不写入数组
 
-# ② NPU 候选A：每 world 预分区——写入区间由 world 静态切好，去掉跨 world 原子
-base = world * m.nconmax_per_world             # → 分区边界在编译/建图期已知（与固定容量天然契合）
-local = pair_id % m.nconmax_per_world          # → 分区内冲突仍需解决：pair 间二次规约或串行化
-d.contact_pos[base + local, ...] = pos
-
-# ③ NPU 候选B：两段式（先计数后写入）——前缀和定偏移，彻底无竞争
-count  = block_reduce(is_contact)              # → 阶段1：每个 tile 内规约出本 tile 接触数
-offset = prefix_sum(count)                     # → 阶段2：跨 tile 前缀和，得各 tile 的写入起点
-d.contact_pos[offset + rank_in_tile, ...] = pos  # → 阶段3：各写各的区间
-
-# overflow 语义对齐：②③都必须在计数阶段同时比对 nconmax 并置位，
-# 否则 §8.1 的 overflow bitmask 单测与 mjwarp 语义对不上（RL 静默错的来源）。
+# ……此处按几何类型整理 geom1/geom2，得到 pair……
+collision_pair_out[pairid] = pair           # 保存候选几何对
+collision_pairid_out[pairid] = nxn_pairid[nxnid]
+collision_worldid_out[pairid] = worldid      # 记录该候选属于哪个 world
 ```
 
-### 13.2 显式内存搬运与 Tiling（Global→UB→Compute→Global）
+假设计数器当前为 7，两个任务同时到达原子加法，它们会分别领到 7 和 8，不会同时写第 7 个槽位。但谁领到 7 没有固定顺序。因此后续对照应匹配集合，而不能要求候选数组顺序逐项相同。（E3，对源码行为的解释）
 
-GPU `global load` 自动 coalesced（合并访问：相邻线程访问连续地址，硬件合并为少数宽内存事务）。Ascend 需手写 `DataCopy Global→UB (CopyIn) → Compute → CopyOut`，UB大小以CANN手册与§19矩阵为准。tile切分按§8.2的per-kernel live-set模型逐kernel计算（不直接用全局total/UB），超限则 `loop tiling + double buffer`。
+还要分清对象：这里写入的是 **collision candidate 几何对**，不是最终接触点。计数已经增加后，超限任务才返回；这几行也没有直接设置全部 overflow 位。迁移需检查计数、丢弃、后续诊断的完整链路，不能把一个 `return` 当作完整溢出实现。（E1：所示源码；E3：迁移要求）
 
-最小Ascend C骨架（示意，非可编译）：
+**NPU 候选：计数后分配连续区间。** 每个 tile 先统计有效项，跨 tile 做前缀和，最后按各自区间写出。以下为设计伪代码（E3）：
+
+```python
+valid = detect_candidates(tile)                 # 每个候选是否有效
+local_rank = exclusive_scan(valid)              # 有效项在本 tile 内的唯一编号
+tile_count = sum(valid)
+tile_base = exclusive_scan(all_tile_counts)[tile_id]  # 本 tile 的全局起点
+
+slot = tile_base + local_rank                   # 所有有效项获得不重叠槽位
+write_where(valid & (slot < capacity), slot, candidate)
+record_overflow_if(total_candidates > capacity) # 具体标志映射按上游核对
+```
+
+前缀和可以理解为“先知道前面各组占了多少位置”。它能避免并发任务抢同一槽位，但增加扫描、临时存储和阶段同步，是否更快必须测量。
+
+另一种候选是按 world 预分区。它会改变 §4.3 的共享池弹性，还需要解决同一 world 内的并发写入。**用 `pair_id % capacity` 当槽位会发生碰撞覆盖**，因此本版删除该示例。预分区若改变容量语义，必须明确声明并验证。（E3）
+
+### 13.2 数据搬运：把输入、临时量和同步一起设计
+
+以速度更新为例，一个 tile 至少需要旧速度和加速度。原版示例只展示搬入速度，容易让读者误以为其余输入天然已在片上。下面补齐完整的数据依赖。（E3，设计伪代码；函数名仅表达步骤）
 
 ```cpp
-// 每个核处理一批world的integrate：CopyIn→Vector计算→CopyOut + double buffer
-for (tile = 0; tile < nTiles; ++tile) {
-  DataCopy(ub_qvel, gm_qvel[tile], len);   // CopyIn
-  PipeBarrier<PIPE_MTE2_V>();
-  Axpy(ub_qvel, ub_qacc, dt, len);          // Vector
-  PipeBarrier<PIPE_V_MTE3>();
-  DataCopy(gm_qvel[tile], ub_qvel, len);   // CopyOut
+for (int tile = 0; tile < tile_count; ++tile) {
+    CopyIn(velocity_tile, velocity_global, tile); // 搬入旧速度
+    CopyIn(accel_tile, accel_global, tile);       // 搬入对应加速度
+    WaitForInputs();                             // 确认输入可用于计算
+
+    velocity_tile += dt * accel_tile;            // 概念向量运算
+
+    WaitForCompute();                            // 确认结果可写回
+    CopyOut(velocity_global, velocity_tile, tile);
+    WaitBeforeReuse();                           // 复用缓冲前完成所需同步
 }
 ```
 
-### 13.3 求解器多路径未定：先 trace 定路径，再定 Cube/Vector 划分
+这段示意强调的是“搬入 → 计算 → 写回”的依赖。实际 Ascend C 实现还需指定 API、对齐、队列和流水同步。它没有实现双缓冲，也没有包含姿态积分；这些应在各自测试中补齐。
 
-不可直接按稠密 `A=J·M⁻¹·Jᵀ+R` 推导 Cube/Vector 划分（旧版该推导已作废，见修订记录）。MJWarp同时存在sparse/dense/compact等多路径，P0必须先对G1场景（`benchmarks/unitree_g1/scene_flat.xml`）做源码+event trace，确定实际走哪条，再谈Cube是否值得用。默认：先按Vector fp32保精度打通，Cube仅作对照实验并输出`迭代数 vs α vs 吞吐`三维表。
+tile 太大可能装不进 UB，太小则增加调度和搬运次数。应按 §8.3 的 live-set 选择几个候选大小，在同一输入和精度下比较。（E3）
 
-多路径的源码实证（main@`7e4afee`，E1）：
+### 13.3 求解器：先确认路径，再决定如何使用矩阵单元
+
+MJWarp 的 `solve` 入口直接表明求解并非只有一种路径。
+
+**源码节选（E1）：** [`solver.py:3680`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/solver.py:3680)。保留入口分支，省略类型注解和原文注释。
 
 ```python
-# 【源码摘录】solver.py:3680 solve（main@`7e4afee`，节选；"→"注释为本报告所加）——真实分发逻辑
-def solve(m: types.Model, d: types.Data):
-  if m.opt.enableflags & types.EnableBit.SLEEP:     # → 路径1：SLEEP 开启时走 compact 求解
-    island.update_active_dofs(m, d)                 # → 先重建 active-DOF 映射（island 压缩）
-    solve_compact(m, d)
-    if m.ntree > 1:
-      island.compute_island_mapping(m, d)
-    return
-  if d.njmax == 0 or m.nv == 0:                     # → 路径2：无约束 → 直接取 smooth 加速度
-    wp.copy(d.qacc, d.qacc_smooth)
-    d.solver_niter.fill_(0)
-  else:                                              # → 路径3：完整求解（sparse/dense 由 context 定）
-    ctx = _create_solver_context(m, d)
-    _solve(m, d, ctx)
+def solve(m, d):
+    if m.opt.enableflags & types.EnableBit.SLEEP:
+        island.update_active_dofs(m, d)    # 重建活跃自由度映射
+        solve_compact(m, d)                # 按压缩后的集合求解
+        if m.ntree > 1:
+            island.compute_island_mapping(m, d)
+        return
+
+    if d.njmax == 0 or m.nv == 0:          # 容量为零或没有自由度
+        wp.copy(d.qacc, d.qacc_smooth)
+        d.solver_niter.fill_(0)
+    else:
+        ctx = _create_solver_context(m, d) # 建立求解上下文
+        _solve(m, d, ctx)
 ```
 
+这里首先按 sleep 配置选择 compact 路径，其次检查容量或自由度是否为零，最后进入普通求解。注意 `d.njmax == 0` 检查的是**分配容量**，不是“本步没有检测到接触”；后者还涉及实际约束数量。（E1）
+
+普通路径内部还根据 `m.is_sparse` 等条件选择计算方式。例如 `_solve` 发射 `_solve_init_dof(warmstart, m.is_sparse)`（`solver.py:3700–3704`）。这就是 P0 必须同时记录配置和 trace 的原因：仅凭“G1 有多少自由度”推不出完整执行路径。（E1；E3：实验含义）
+
+**再看一个分块计算片段。** 以下来自分块 Cholesky 工厂内部，展示两个局部矩阵块如何更新目标块。
+
+**源码节选（E1）：** [`block_cholesky.py:67`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/block_cholesky.py:67)。
+
 ```python
-# 【源码摘录】block_cholesky.py:45-46 —— 按块大小静态特化的 kernel 工厂（E1）
-def create_blocked_cholesky_factorize_solve_func(block_size: int, matrix_size_static: int):
-  @wp.func
-  ...
-# → block_size 在生成期固化为常量：这正是"NPU 侧 UB tiling"的天然对应物——
-#   Ascend C 同样需要把 tile 尺寸静态编入算子；P0 比选时可把该工厂当作 Cube/Vector
-#   划分的参数化试验台（对 block_size 扫描 = 对 tiling 策略扫描）。
+for j in range(0, k, block_size):       # 逐个使用前面已完成的矩阵块
+    U_block = wp.tile_load(
+        U, shape=(block_size, block_size), offset=(j, k),
+        storage="shared", bounds_check=False, aligned=True
+    )
+    wp.tile_matmul(
+        wp.tile_transpose(U_block), U_block, A_kk_tile, alpha=-1.0
+    )                                 # 从目标块扣除 U_block 的乘积贡献
 ```
 
-### 13.4 分支发散与提前退出：GJK/EPA 迭代的固定化改写
+Cholesky 把合适的对称正定矩阵分解为三角因子，以便求解线性系统。此处已经按块加载和计算，但 GPU 的 shared memory 与 NPU 的局部存储并非可直接互换。块大小还影响占用、对齐、精度和性能。（E3）
 
-`collision GJK/EPA` 迭代次数和 `Newton` 收敛步数每 world 不同，GPU 用 `EarlyExit` + `warp divergence`（分支发散：同线程束内线程走不同分支时串行执行）掩盖。NPU侧分支发散代价需按SoC实测，最佳改“固定迭代 + predication”，但影响背景α（见附录C）。需在P5做`固定迭代数 vs α vs 吞吐`表。
+因此应先验证 fp32 基线，再对真实热点比较 Vector、Cube 或混合方案。报告中应同时给出误差、收敛、内存和时间；只报告矩阵乘法速度不足以评价整个求解器。（E3）
+
+### 13.4 GJK/EPA：难点是数据依赖迭代与几何工作区
+
+GJK 用于凸体之间的距离或相交判断；发生相交时，EPA 可进一步估计穿透信息。这里源码中的 `ccd()` 文档字符串明确写的是 **convex collision detection**。本文的 CCD 指这条凸体碰撞路径，不能据此声称它完成了时间连续的高速防穿透检测。（E1：`collision_gjk.py:2580–2605`）
+
+先看 GJK 循环开头的一个退出条件。
+
+**源码节选（E1）：** [`collision_gjk.py:685`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/collision_gjk.py:685)。
 
 ```python
-# 【源码摘录】collision_gjk.py:685 起（main@`7e4afee`；"→"注释为本报告所加）
-# —— GJK 主循环：固定容量 for + 数据依赖早退，即"发散迭代"的真实形态
-for _ in range(gjk_iterations):                       # → 上限固定（容量式循环）
+for _ in range(gjk_iterations):       # 本次求交最多迭代这么多轮
     if xnorm < min_norm or wp.abs(xnorm_prev - xnorm) < MINVAL:
-        break                                          # → 收敛即 break（范数足够小或停滞）：不同 world 到达
-                                                       #   此处步数不同——SIMT 下由 warp divergence 掩盖；
-                                                       #   NPU 上需改 predication 或固定迭代（本节讨论）
-    # compute the support point with direction tuning
-    sp1, sp2 = _gjk_support(geom1, geom2, geomtype1, geomtype2,
-                            x_k, xnorm, simplex, n, is_discrete)   # → 增量维护 simplex
-    ...
+        break                        # 距离尺度足够小，或变化已经停滞
+
+    sp1, sp2 = _gjk_support(
+        geom1, geom2, geomtype1, geomtype2,
+        x_k, xnorm, simplex, n, is_discrete
+    )                                # 沿当前方向寻找新的支撑点
+    # ……更新几何结构，并检查后续退出条件……
 ```
 
-（注：早先 PyPI 3.12.0 wheel 版此处为 Frank-Wolfe 对偶间隙判据，锚点版已改为范数停滞判据——两周内的实现演进，佐证"收敛判据仍在活跃改动"，迁移时应以锚点为准并预留判据替换空间。EPA 同构：`epa_iterations` 上限 + horizon 增量维护，见同文件后文。）
+不同几何对可能在不同轮数满足条件。如果批量执行时总让所有任务运行到最大轮数，简单样本会做许多无用计算；如果按各自条件退出，又要处理活跃任务的管理和局部状态。这是 NPU spike 要测的问题。（E3）
 
-### 13.5 固定容量的二次约束：UB tile 与 Cube 对齐的叠加
+锁定代码的后文还保留 Frank–Wolfe 对偶间隙退出判据（`collision_gjk.py:702–705`），所以不能把循环开头解释成“已经替换了原有全部收敛判据”。GPU 的分支发散同样会影响效率，也不能写成由硬件免费“掩盖”。（E1：判据；E3：执行解释）
 
-两层定界叠加：`mjwarp` 的 `nconmax / njmax` 已让用户调参难 `mjwarp/index.html#batch-sizes`，NPU 再加 `UB tile` 和 `Cube对齐`，`nworld=8192` 时 HBM/`Other memory`（见§8.2）需重估，NPU上更难预估，P0必须输出两档实数。
+NPU 可比较固定上限加 active mask、任务压缩等候选方法。active mask 表示已收敛项停止更新；它能表达状态冻结，但是否减少实际计算取决于实现。改变最大迭代次数或停止条件后，要重新检查接触误差与求解健康。（E3）
 
-### 13.6 生态与工具链
+### 13.5 两层容量：全局池够用，局部几何工作区仍可能超限
 
-`Warp` 有 `kernel_analyzer`, `event_trace`, `cache`。Ascend 链 `Ascend C → CANN → GE → torch_npu`（torch_npu：华为官方的 PyTorch 昇腾适配插件）调试以`msprof`为准，NPU侧`printf`/日志能力**按SoC/版本验证**（不默认“无”）。`overflow` 排查效率预期低于Warp（[精度分析] §4.1量级）。无`pip install`体验，CANN/固件/驱动强绑定，需锁§19完整矩阵（见§18）。
+接触总池 `naconmax`、逐 world 约束上限 `njmax` 解决的是全局容量；GJK/EPA 的局部结构、tile 缓冲和对齐解决的是单次计算的容量。两层都需要压力测试。（E1：容量字段与 `OverflowType`；E3：验证要求）
 
----
+缩小 tile 通常应先作为实现选项评估。若最后不得不缩减可支持接触数、复杂几何或活跃自由度，需把它列为功能范围变化，不能用更小的物理问题来宣称同配置加速。（E3）
 
-## 14. 技术路径对比（B 路线内部 B1/B2/B3 + 备选D）
+### 13.6 调试与复现：每个阶段都要留下可定位证据
 
-| 路径 | 做法 | 优点 | 缺点 | 适合 |
-|---|---|---|---|---|
-| **B1: Ascend C重写G1子集** | 按P0 trace的G1子集逐kernel重写，自管 `Model/Data` | 性能天花板，可精控 tiling | 工作量待P0重估，需精通DaVinci，`rebase`成本高 | 追求极限吞吐，团队有昇腾专家 |
-| **B2: Ascend C自定义算子 + GE 图** | 把 `step` 拆成图算子（以G1 trace子集为准），用 `GE` 编排，内部用Ascend C实现（TBE/AKG选型待P0按§19矩阵确认） | 复用图优化（算子融合、内存复用），与 `torch_npu` 图模式一致 | 图捕获粒度粗，迭代图难表达，图编译慢 | 投入待P0分解，已用 `MindSpore/torch_npu`者优先评估 |
-| **B3: MindSpore/torch_npu重写mjx子集（推荐PoC）** | 不移植Warp，用`MindSpore`或`torch_npu`重写`mjx`核心子集（函数清单与工期待PoC分解；不走`JAX→XLA→昇腾`，JAX-on-Ascend在本次检索中尚未确认） | 绕过Warp的CUDA语义，与图模式更配 | 仍是重写（非桥接），功能子集待trace确认；`Playground`需适配 | 快速验证图模式可行性与统计一致性的场景（范围与工期待PoC分解） |
-| **备选D: 换PhysX（ovphysx）** | 用`ovphysx`（PhysX 5 Python绑定）替代MuJoCo物理，见[精度分析] §4.2（注：[zhangqin分支审计] §4 记有 CPU PhysX SDK 直连实验代码，与本路线 ovphysx GPU 方案非同一物，可作对照起点） | 与Isaac同引擎，有望缩小引擎差异；工作量待评估 | pre-release，MJCF→USD转换，社区少，**无“α清零”实验结论** | 若目标是精度对齐Isaac而非必须MuJoCo语义，纳入二选一 |
+上游提供 event trace 和 kernel 分析工具；NPU 侧应建立对应 profiling 记录，至少能区分算子计算、调度与数据搬运。具体采用的 `msprof` 参数和日志能力按目标环境核验。（E1：上游 README；E3：NPU 实验要求）
 
-> B3本质是“换前端重写”，不是“桥接”。**门禁边界**：B3 走框架图模式（自动 tiling/内存规划），触不到 B1 的自认最大风险——手写 Ascend C 的 GJK/EPA 发散迭代与原子改写（§13.1/§13.4）。因此“B3 通”不能推出“B1 可行”，仅 B3 失败具有否决力。建议在 B3 之外增加**难点 kernel spike**（spike：针对性技术验证，手写最小但最难的算子来验证可行性）：按 P0 trace 选 1–2 个最难 kernel（GJK/EPA 或原子密集的 narrowphase）用 Ascend C 手写验证 live-set 与发散可行性，作为 B1 的对口门禁。若 B3 PoC（humanoid 1k world 闭环 + α 统计）不达标，不投 B1。备选 D（ovphysx，PhysX 5 的 Python GPU 绑定）与 B 互斥，立项前二选一。
+当接触不对时，应能回到“哪个输入、哪个候选、哪个容量或迭代标志”；当吞吐下降时，应能定位“哪个阶段、哪次同步”。这些诊断能力应进入 P0/P1 基础设施，避免只在完整 PPO 训练中排错。（E3）
 
----
+<a id="s14"></a>
+## 14. 技术路径：四个选项分别验证什么
 
-## 15. 推荐方案详细设计（B1 原型）
+本节是方案建议（E3），尚无 NPU 基准支持性能或工期承诺。先用一个简表定位，再分别说明代价。
 
-下图回答“B1 原型从 PyTorch RL 到昇腾硬件分几层落位、各层选型依归在哪”，即 §11 图右框 B1 支路的展开：
+| 路径 | 主要改什么 | 首先要验证的问题 |
+|---|---|---|
+| B1 | 用 Ascend C 重写 MJWarp 所需子集 | 最难物理算子能否高质量运行 |
+| B2 | 自定义算子加图执行编排 | 调度收益是否覆盖图适配成本 |
+| B3 | 用 NPU 框架重写 MJX 算法子集 | 设备内物理与训练闭环能否成立 |
+| 备选 D | 改用 PhysX 相关实现 | 是否更符合跨引擎对齐目标 |
 
-```text
-                     PyTorch RL（策略 / PPO）
-                         │  torch_npu（版本见§19矩阵）
-                ┌─────────▼─────────┐
-                │  mjw_ascend API   │  语义兼容mjwarp子集（概念接口，非定案）
-                │  step / forward / sensor │
-                └─────────┬─────────┘  （render/ray另立项）
-                          │  后端二选一（P0先比选，不默认GE）
-        ┌─────────────────▼──────────────────┐
-        │  G1子集 Kernels（数以P0 trace为准）│
-        │  kinematics │ collision │ efc      │
-        │  solver(路径待定) │ integrate │ sleep │
-        └─────────────────┬──────────────────┘
-                          │  HCCL仅用于RL多卡（物理无需跨卡）
-        ┌─────────────────▼──────────────────┐
-        │  昇腾 AI Core + HBM / 片上缓冲（SoC见§19） │
-        └──────────────────────────────────┘
+### B1：直接控制物理内核的实现
+
+B1 以锁定 MJWarp 的行为为参考，用 Ascend C 实现 G1 实际需要的函数，自己维护 Model/Data 和工作区。它提供较细的控制能力，适合对热点做针对性优化，但碰撞、求解、容量和同步都需要工程团队承担。
+
+B1 的先决证据是难点算子 spike：选 1–2 个真实路径中最有代表性的难点，用完整输入和压力样本验证误差、迭代、片上存储和时间。结果不足时，不应把完整重写的投入视为已经获准。（E3）
+
+### B2：在自定义算子之外，再选择图执行方式
+
+B2 的核心问题是调度。它仍可能使用 B1 编写的 Ascend C 算子，再由 GE、TorchAir 或相应集成方式组织执行。因此 B1 与 B2 有重叠：前者偏重**算子如何实现**，后者偏重**多个算子如何执行**。
+
+需要比较直接调用与图模式的编译时间、稳态提交开销、动态控制流支持和内存复用。图优化收益是实验目标，不能提前写成必然发生的融合或加速。（E3）
+
+### B3：用框架算子先建立物理闭环
+
+B3 参考 MJX 的算法表达，用 MindSpore 或 `torch_npu` 可用运算重写选定子集。它仍是物理算法重写，需要逐项处理碰撞、约束、积分和环境接口；本文未建立可直接复用的 JAX 到 Ascend 桥接基线。（E3，候选方案）
+
+B3 可帮助检查：NPU 张量能否串起整个流程，数值结果是否满足要求，训练侧能否消费这些状态。但它没有直接验证手写 Ascend C 的 GJK/EPA、原子替代和 UB 布局，因此成功不能替代 B1 spike。
+
+反过来，B3 失败也不构成“B1 在技术上不可能”的证明。本文采用的是保守的**投入策略**：若框架原型尚不达标，暂停扩大投入，先判断是物理算法问题、框架限制还是实现缺陷。（E3，决策规则）
+
+### 备选 D：改变物理后端，需要重新定义目标
+
+既有 [精度分析] §4.2 提到 `ovphysx` 等 PhysX 方案，可作为更接近 Isaac 物理体系的候选。本文未验证其当前功能、部署条件和迁移成本，不能承诺“α 清零”或“物理可运行在昇腾”。（E3，待评估）
+
+如果首要目标变成缩小与 Isaac 的差异，应单独比较 D 与 MuJoCo 方案；如果要求物理常驻 NPU，D 必须先证明符合该硬件要求。已有 CPU PhysX SDK 实验也不能直接代表 GPU 绑定方案。
+
+### 建议的决策顺序
+
+下图表示项目投入规则（E3）。“通过”均指满足预先登记的正确性、性能和资源标准，而非仅能完成一次运行。
+
+```mermaid
+flowchart TB
+    P0["P0<br/>锁定模型与基线<br/>定位真实热点"]
+    B3["B3 原型<br/>验证物理与训练闭环"]
+    SPIKE["Ascend C spike<br/>验证难点算子"]
+    REVIEW["合并评审<br/>数值、性能与资源<br/>开发和维护成本"]
+    B1["证据满足目标<br/>推进 B1<br/>比选 B2 调度"]
+    HOLD["证据不足<br/>保留 A，定位失败原因"]
+    ALT["若调整目标<br/>单独评估 B′ 或 D"]
+    P0 --> B3
+    P0 --> SPIKE
+    B3 --> REVIEW
+    SPIKE --> REVIEW
+    REVIEW -->|"满足预设标准"| B1
+    REVIEW -->|"尚不满足"| HOLD
+    HOLD --> ALT
 ```
 
-**图的读法**：四层自上而下——顶层 PyTorch RL（策略/PPO）：训练循环，即 §3 图 Layer 5 的 NPU 侧对应物；第二层 mjw_ascend API：语义兼容 mjwarp 子集的概念接口（step / forward / sensor；render/ray 另立项），对标 §3 图 Layer 4；第三层 G1 子集 Kernels：kinematics / collision / efc / solver / integrate / sleep 六类（各阶段计算内容见 §6 流水线表），对标 §3 图 Layer 2；底层昇腾 AI Core + HBM / 片上缓冲，对标 §3 图 Layer 1。竖直箭头是调用与数据自上而下的流向；框内与箭头旁的括注不是数据流，是选型/范围依归（torch_npu 版本见 §19 矩阵、后端二选一 P0 先比选、HCCL 仅用于 RL 多卡）。阅读主线：自上而下走主链，再读三处括注——分别落到 §16 的 P0/P1 任务与 §19 环境矩阵。图内缩写：PPO=近端策略优化；GE=Graph Engine（昇腾图编译器）；HCCL=华为集合通信库（对标 NCCL；物理本身无需跨卡通信，仅 RL 多卡用）；HBM=高带宽显存；SoC=System on Chip（片上系统，型号锁定见 §19 矩阵）。
+<a id="s15"></a>
+## 15. NPU 原型架构：同时设计物理层与训练接口
 
-后端选型即图中“后端二选一”括注的展开（候选，非定案，P0先比选）：Ascend C直调 / torch_npu自定义算子 / TorchAir（PyTorch 整图下沉方案）/ GE图 / ACL Runtime（Ascend Computing Language，昇腾计算语言及其运行时）。报告正文此前的`mjw.scoped_capture()/capture_launch()`仅为**概念接口示意**，不是已验证API：
+以下是 B1 原型的目标架构（E3），图中接口与模块名表示职责划分，不是已经存在的软件包。后端直调和图执行属于待比选项。
+
+```mermaid
+flowchart TB
+    HOST["CPU 管理<br/>模型加载与周期诊断"]
+    subgraph NPU["NPU 训练与物理实现栈"]
+        TRAIN["策略与环境适配<br/>PPO、观测、奖励与重置"]
+        API["子集物理接口<br/>step / forward"]
+        DATA["NPU Model / Data<br/>参数、状态与工作区"]
+        DISPATCH["执行后端<br/>算子直调 / 图执行"]
+        KERNEL["G1 物理算子<br/>运动学与碰撞<br/>约束、求解与积分"]
+        HW["昇腾计算单元<br/>Vector / Cube / Scalar"]
+        TRAIN -->|"action 与物理调用"| API
+        API -->|"组织操作"| DISPATCH
+        DISPATCH -->|"提交算子"| KERNEL
+        KERNEL -->|"执行"| HW
+        API <-->|"访问状态与缓冲"| DATA
+    end
+    HOST -.->|"初始化与管理"| DATA
+```
+
+这张图按实现层次向下阅读：训练应用调用子集接口，接口经后端提交物理算子，算子在昇腾计算单元执行。旁侧 Model/Data 由接口管理、供物理与环境逻辑读写；训练反馈的数据流见 §11。CPU 可负责初始化、主机调度和周期记录，B 的要求是物理热路径不依赖 CPU 计算回退或每步状态往返。（E3）
+
+### 15.1 数据层与接口层
+
+每个已纳入范围的字段都要记录形状、数据类型、设备归属与读写时机。与 Warp 互操作的方式不应直接假定在 NPU 上同样可用；需要明确策略张量与物理状态之间是共享存储、设备内复制还是格式转换。（E3）
+
+下面是接口设计示意，`world_count`、`contact_budget` 和 `constraint_budget` 来自 P0 的测量；模块尚未实现。
 
 ```python
-# 概念示意（非定案API，后端待P0比选）
-import mujoco_ascend as mjw  # 语义对标mujoco_warp子集
-m = mjw.put_model(mjm)
-d = mjw.make_data(mjm, nworld=4096, nconmax=8, njmax=128)
-mjw.step(m, d)  # 后端实现可能是算子直调或整图，具体见P0结论
+import mujoco_ascend as mjw  # 概念模块：名称与 API 仍待实现
+
+m = mjw.put_model(mjm)      # 转换模型参数
+d = mjw.make_data(
+    mjm,
+    nworld=world_count,
+    nconmax=contact_budget,
+    njmax=constraint_budget,
+)
+mjw.step(m, d)              # 将物理状态推进一步
 ```
 
-数据层（图中第二层 mjw_ascend API 的数据面）：`Model/Data` 字段与 `mjwarp/api.html` 逐一对应，但 `wp.array` 改NPU侧tensor（fp32主）。
+这个例子只规定职责，不预设 graph capture API。特别是 `nconmax` 必须保留 §4.3 的容量含义，`step` 必须使用选定的积分器和控制语义。（E3）
 
-关键设计抉择（均落在图中第三层 G1 子集 Kernels）：
+### 15.2 后端选型
 
-- **Solver**：先trace定sparse/dense/compact路径，再定Cube/Vector（见§13.3）。
-- **Collision 原子**：按SoC原子能力改“预分区 + 规约”，`overflow` bitmask单测对齐。
-- **Tiling**：按§8.3预算；CUDA Graph（捕获/重放launch）与GE/TorchAir图语义不同，迭代需展开或改定迭代。
+先实现最短可测路径，再用相同输入比较两种执行组织：直接调用自定义算子，以及可用的图执行方案。比较时至少记录首次编译、重复执行时间、重编译条件、workspace 峰值和同步点。（E3）
 
----
+需要使用 Cube 的算子、需要压缩活跃任务的循环、需要 CPU fallback 的函数，都应在此列成明确清单。HCCL 只在训练多卡确有通信需求时接入；物理 world 的独立分配单独实现和测试。（E3）
 
-## 16. 工作分解 WBS（B1 裁剪版）
+<a id="s16"></a>
+## 16. 工作分解：每个阶段用什么证据退出
 
-（WBS：Work Breakdown Structure，工作分解结构。范围：primitive + solver，hfield 保留，无 flex/render。里程碑 M1–M3 定义见 §19。）
+以下为 B1 子集原型的工作分解（E3）。阶段编号保留 P0–P7，工期和人数投入须在 P0 后重估。当前静态核验已完成；GPU trace 和 NPU 实验尚未完成。
 
-| 阶段 | 任务 | 产出（退出标准） | 依赖 | 里程碑 | 人周 |
-|---|---|---|---|---|---|
-| **P0: 探针（重做）** | 锁定main@`7e4afee`做§16.1六维统计；G1用`benchmarks/unitree_g1/scene_flat.xml`跑`--memory --measure_alloc --event_trace`；`msprof`+完整CANN矩阵（见§19） | `P0基线报告`（含kernel定义/launch/G1子集/版本矩阵） | — | — | 待重估 |
-| **P1: 骨架+后端比选** | 定义`ascend.types` + `put_model/make_data/overflow`；比选Ascend C直调/torch_npu算子/TorchAir/GE/ACL | 后端选型结论 + overflow单测过 | P0 | — | 待重估 |
-| **P2: 运动学** | `kinematics / com / crb / qfrc_bias` | [A路线笔记] §8一致性 | P1 | M1 | 待重估 |
-| **P3: 碰撞-primitive+hfield** | `broadphase + primitive/hfield`，按SoC原子改写 | `ncon/contact`集合比对过（非下标逐位） | P2 | M2 | 待重估 |
-| **P4-B: 碰撞-CCD纯NPU** | `mesh/sdf GJK/EPA`纯NPU | B路径：无回退闭环，失败即PoC失败 | P3 | — | 待重估 |
-| **P4-B′: CCD回退** | NPU主路径 + CPU fallback | B′路径：量化每次同步量/延迟/吞吐损失 | P3 | — | 待重估 |
-| **P5: 约束+求解** | `make_efc + solver`（路径由trace定）+ 定迭代灵敏度 | `iterations vs α vs 吞吐`表 | P2,P3，P4可选 | M3 | 待重估 |
-| **P6: 闭环** | `integrate / sensor / sleep` + 选定后端 + 多卡 | `step`闭环达§11/§17 | P5 | M3 | 待重估 |
-| **P7: 验证** | §17全量验收 | 一致性矩阵 + 3 seeds CI | P6 | M3 | 待重估 |
-| **总计** |  |  |  |  | **待P0后重估** |
+| 阶段 | 本阶段交付 | 退出时必须拿到的证据 |
+|---|---|---|
+| P0 | 模型、版本与运行基线 | 功能闭包、热点、容量和可复现配置 |
+| P1 | 数据骨架与后端选择 | 字段映射、模型加载和容量测试 |
+| P2 | 运动学与基础动力学 | 分层数值对照通过 |
+| P3 | 场景所需基础碰撞 | 接触集合与约束输入对照通过 |
+| P4-B / P4-B′ | 复杂碰撞方案 | 纯 NPU 结果 / 回退成本报告 |
+| P5 | 约束与求解器 | 误差、收敛和性能对照 |
+| P6 | 环境与训练闭环 | 端到端数据流、性能和资源记录 |
+| P7 | 完整验收 | 多种子结果、压力样本与失败清单 |
 
-### 16.1 P0 执行清单（六维统计 + 目录核验）
+### 16.1 P0：完成静态核验，补齐运行证据
 
-> **进度（2026-09-03）**：①行数 52,843 ✓ ②kernel 定义 296 ✓ ③测试分离 25,829 行 ✓ ④Warp 依赖 `warp-lang>=1.15` ✓ ⑤目录清单已核（见 §3）✓——以上在锁定 commit `7e4afee` 本地完成（E1）；⑥`event_trace` 需 GPU 环境，待 P0 在 NPU/GPU 机上执行；G1 子集与 per-kernel launch 数由此产出。
+P0 有六个基础统计维度：生产文件行数、kernel 定义、测试规模、依赖声明、目录结构、运行时 trace。前五项已在 `7e4afee` 核验；第六项需要 GPU 环境。本版复核的静态结果仍为 **34 个非测试 Python 文件、52,843 行、296 处 kernel 装饰器**，另有 **30 个测试文件、25,829 行**。（E1）
+
+下面的静态命令在 `mujoco_warp/` 仓库根目录执行。先确认提交号，再统计；总行数采用 `wc -l` 口径，包含空行和注释。
 
 ```bash
-git checkout 7e4afee
-cloc mujoco_warp/_src --exclude-dir=__pycache__          # 1.生产代码行数
-rg -c "@wp.kernel" mujoco_warp/_src                      # 2.kernel定义数
-rg -l "test" mujoco_warp/_src | xargs wc -l              # 3.测试代码分离
-grep -A2 "warp" pyproject.toml                           # 4.Warp依赖版本（勿默认1.8）
-ls mujoco_warp/_src                                      # 5.源码目录/工厂生成kernel
-mjwarp-testspeed benchmarks/unitree_g1/scene_flat.xml --event_trace  # 6.运行时launch数+G1子集
-# 5′.目录核验：将 ls 输出粘贴至 §3 占位处，替换外审转述的文件集中清单
+git rev-parse HEAD  # 应为 7e4afee815a35cd931119129d49937137a96bb67
+
+# 非测试 Python 文件的总行数；同时可看到逐文件规模。
+rg --files mujoco_warp/_src -g '*.py' -g '!*_test.py' | sort | xargs wc -l
+
+# @wp.kernel 的静态出现次数，不代表运行时 launch 次数。
+rg --count-matches '@wp\.kernel' mujoco_warp/_src -g '*.py' -g '!*_test.py' |
+  awk -F: '{total += $NF} END {print total}'
+
+# 测试文件单独统计；依赖下限与实际安装版本分别记录。
+rg --files mujoco_warp/_src -g '*_test.py' | sort | xargs wc -l
+rg -n 'version|mujoco>=|warp-lang>=' pyproject.toml
+rg --files mujoco_warp/_src -g '*.py' | sort
 ```
 
----
+在已配置的远程 GPU 环境中，再执行运行时采集。以下为命令模板，`--nworld 1024` 是待试的批量点，不代表已经测得的最佳值；按容量结果增加其他批量点。（E3，实验方案；参数入口 E1：`testspeed.py`）
 
-## 17. 验证与对齐
+```bash
+# 先查锁定环境的命令参数，确认 trace 与容量选项。
+uv run mjwarp-testspeed --help
 
-复用[A路线笔记] §8分层，阈值P0后校准，≥3 seeds + 置信区间（注：背景α表已移附录C，不作MJWarp–NPU门禁）：
+# 采集 G1 的运行路径、内存与容量信息。
+uv run mjwarp-testspeed benchmarks/unitree_g1/scene_flat.xml \
+  --nworld 1024 --memory --measure_alloc \
+  --overflow_behavior=error --event_trace
 
-1. **静态**：`forward kinematics` `xpos`误差。
-2. **单步**：固定`qpos/qvel/ctrl`下`qacc`与**接触集合**（位置/法向/穿透容差内集合比对，非数组下标逐位）对比，上报`mean/std` + `max_abs` + 相对误差分位数 + 失败样本比例（仅mean/std不足）。
-3. **短rollout**：分布/统计回归（10/100步；背景α方法见附录C，不直接作门禁）。
-4. **求解器健康**：NaN率、solver收敛率/迭代数分布、`overflow` bitmask。
-5. **性能**：冷启动编译时间、稳态`env_steps/s`、step延迟P50/P95；**纯仿真与端到端PPO分开统计**；HBM/workspace/CPU占用与功耗。
-6. **业务**：G1（`benchmarks/unitree_g1/scene_flat.xml`）行为统计，非单一“存活±10%”。
+# humanoid 作为补充场景，不替代 G1 业务验收。
+uv run mjwarp-testspeed benchmarks/humanoid/humanoid.xml \
+  --nworld 1024 --memory --measure_alloc \
+  --overflow_behavior=error --event_trace
+```
 
-> 不做长轨迹逐位比对（[A路线笔记] §6，接触密集必分叉）。
+带详细诊断的运行用于定位；正式性能测量应控制诊断和 trace 开销，分别保存配置。P0 的运行证据应补齐：
 
-**工具链**：`mjwarp-testspeed --measure_alloc --overflow_behavior=error --memory --event_trace`；NPU侧`msprof`；`overflow`周期检查（`d.overflow.numpy()`为D2H，避免每步D2H同步）。
+1. **实际功能范围。** 从 trace、配置和调用关系整理 G1 使用的函数与特化路径；覆盖重置、接触切换和压力场景，避免单条正常轨迹漏掉必要分支。
+2. **时间与内存。** 记录 launch 数、各阶段耗时、容量峰值和热点工作区；为 NPU spike 建 live-set。
+3. **对照条件。** 区分 MJWarp GPU 的算法基线与 A 路线的业务性能基线，保存各自硬件、模型和配置。
+4. **投入门槛。** 在扩大实现前登记误差、吞吐、资源和维护目标；难点 spike 按 §14 单独报告。
 
-> **业务模型对齐缺口**：`benchmarks/unitree_g1/scene_flat.xml`（mjwarp 基准）与 SONIC 业务模型 `g1_29dof_v17.xml`（29 DoF，见 [zhangqin分支审计] §2）非同一 XML——PoC 达标 ≠ 业务可用。需在 P1 前增加“业务模型加载对齐”任务（MJCF 转换、DoF/执行器/接触参数核对）。**进展注记（2026-09-03）**：A 路线分支已产出 `g1_29dof_v18_isaac_aligned.xml`（7-capsule 足部 + 4.4mm margin 的 Isaac 接触对齐模型，`feature/mujoco-npu-experiments@9d43e46`）——对齐路径已在推进，P0 时应以 v18 为基线核对。
+以上为 E3 实验要求。P0 不应止于打印仓库行数。
 
----
+### 16.2 P1：把业务模型对齐放在实现之前
 
-## 18. 风险与缓解
+上游 `benchmarks/unitree_g1/scene_flat.xml` 与 SONIC 的 G1 业务模型不是同一份 XML。P1 开始前需要冻结两个基准：一个用于复现上游，一个用于业务验收。（E3，既有报告记录）
 
-| 风险（触发条件） | 概率 | 影响 | 缓解（预案分支） |
-|---|---|---|---|
-| `UB` tiling致`njmax/nconmax`需砍半（§8.3超预算） | 高 | 吞吐显著降 | B走子集裁剪，B′才允许CPU回退并量化同步成本（`nccdmax<nconmax`） |
-| solver路径选错/Cube误用（未trace先定） | 高 | 精度/吞吐双输 | P0先trace定sparse/dense/compact，再定Cube/Vector |
-| `atomic改规约`后`overflow`语义不一致 | 中 | RL静默错 | `Data.overflow` bitmask单测 + 接触集合比对 |
-| 版本矩阵未锁（CANN/固件/驱动/Toolkit/ops/PyTorch/torch_npu/SoC） | 高 | 不可复现/rebase | P0锁定§19完整矩阵，不写“8.x” |
-| 无`event_trace`等效，性能黑盒 | 高 | 调优慢 | P0先建`msprof`基线，每阶段`bench`卡点 |
-| `fork`继承`HCCL`致多卡崩溃 | 中 | 多卡不可用 | 改`spawn/forkserver`，worker不import NPU |
-| 上游mjwarp周级更新致分叉 | 高 | 长期维护贵 | 锁main@`7e4afee`，季度rebase；B3/D可降低维护面 |
-| `GJK/EPA/CCD` 发散迭代在 NPU 上性能崩塌（§13.4；§20 自评“大概率在 P4 阻塞”） | 高 | B 路线核心受阻 | 难点 kernel spike 前置（§14 门禁边界）；B′ CPU 回退并量化损失；固定迭代 + predication 实验 |
-| fp32 舍入/统计一致性不达 §17 门禁（接触密集场景） | 中 | Sim2Real 风险 | 接触集合比对 + 短 rollout 统计回归；α 背景表仅作参照（附录 C） |
-| B3 PoC 失败，或 B3 达标但难点 kernel spike 失败 | 中 | 路线空转 | 预设决策树：B3 败→保 A；spike 败→B′ 或备选 D 二选一（§14） |
+既有报告提及 A 路线的 `g1_29dof_v18_isaac_aligned.xml`，本轮未重新验证其运行效果；P0 应检查当前目标文件和 commit，再决定业务基线。需要核对自由度、执行器顺序、坐标系、接触参数、控制步长和积分器。先过上游模型测试，不等于已经过 SONIC 业务测试。（E3）
 
----
+### 16.3 P2–P5：按数据依赖接入物理模块
 
-## 19. 资源与时间表
+P2 建立运动学和基础动力学；P3 加入基础碰撞及业务必需的地形；P5 接入约束与求解器。每层先固定输入，与基线比输出，通过后再接下一层。（E3）
 
-- **人力**：1×架构（通 Warp 与 DaVinci——昇腾 AI Core 的架构名）+ 2×Ascend C + 1×验证/RL（双技能难招，需预留缓冲）。工期待P0重估，此处不给周数承诺。
-- **环境矩阵（P0锁定，缺一不可）**：SoC型号/规格、驱动、固件、CANN Toolkit版本、ops版本、PyTorch版本、`torch_npu`版本、Python版本、mjwarp基线commit（`7e4afee`）、对比用GPU型号与驱动。不写“8.x/CANN 8.x”笼统号。
-- **里程碑（含退出标准，时间待P0重估）**：
-  - `M1` P2运动学：xpos/单关节达§17。
-  - `M2` primitive+hfield闭环：接触集合比对过。
-  - `M3` solver闭环 + §11/§17全量验收 + α与收敛率表。
+P4 专门处理凸体碰撞等复杂功能。B 分支要求纯 NPU，B′ 分支记录回退成本。如果目标 XML 使用这类碰撞，P4 就是完整闭环的依赖；若经核验场景完全不使用，可在支持清单中明确排除。难点 spike 仍应前置，避免最后才发现路线不可行。（E3）
 
----
+### 16.4 P6–P7：从物理 step 走到训练闭环
 
-## 20. 结论与务实路径
+P6 接入观测、奖励、终止、重置、积分器和实际传感器；训练多卡作为单卡闭环之后的增量任务。P7 按 §17 做多种子和压力场景验收，交付可重复运行的配置、结果和已知限制。（E3）
 
-`mjwarp` 的批量能力是**体系化设计**（SoA / 容量固定shape稳定 / 图捕获重放 / 零拷贝）的结果，非单点优化。B路线是**子集重写**（基线外审值5.28万行/296定义，G1子集待trace），工作量对标[精度分析] §4.1改`MuJoCo C`源码，但生态更差。若无昇腾内核组，强行B1大概率在`P4（CCD/GJK）`阻塞。
+<a id="s17"></a>
+## 17. 验证方法：正确性、性能和业务结果分别测
 
-**务实路径**：
+验证对象首先是**锁定 MJWarp 与 NPU 实现之间的差异**；业务层再与选定的 SONIC/A 路线基线比较。两组对照目的不同，需要分别记录。（E3）
 
-1. 立即用 **A 路线**交付业务（`经典MuJoCo CPU + torch_npu`，[A路线笔记] §9已验证）。
-2. B路线以 **B3（用 MindSpore——华为自研深度学习框架——或 torch_npu 重写 mjx 子集，范围与工期待PoC分解）** 做PoC，回答闭环与统计一致性是否成立（不走JAX桥接）；**同步做难点 kernel Ascend C spike**（1–2 个最难 kernel，见§14门禁边界）——B3 成功不能替代 spike，B1 的最大风险只有 spike 能回答。
-3. B3 与 spike 均通过再投 B1，否则保 A 路线；若目标是精度对齐 Isaac，将备选 D 纳入二选一（不预设结论）。
+### 17.1 静态与单步：先把误差定位到模块
 
----
+固定 `qpos/qvel/ctrl`、模型和随机种子，逐层对照运动学位置、姿态、加速度、接触与约束。报告 `max_abs`、均值与标准差、相对误差分位数、失败比例。接近零的参考值需约定相对误差分母，避免指标失真。（E3）
 
-## 附录 A: 核心 API 与字段清单
+接触按集合匹配：依据 world、几何对、位置、法向和距离等信息，在约定容差内匹配，并分别报告漏检、额外接触和几何误差。由于并发写入顺序可能不同，不能只按数组下标比较。（E1：§13.1；E3：验证方法）
 
-**API** `mujoco_warp/mjwarp/api.html`：
+容量测试要专门覆盖接触共享池、每 world 约束、稀疏非零元与复杂碰撞工作区。超限后的计数和错误标志也是接口行为的一部分。
 
-| 类别 | 函数/类型 |
+### 17.2 短 rollout：看误差如何增长
+
+在 10 步、100 步等固定窗口内比较运动、接触和误差分布，同时记录 NaN、未收敛比例、迭代数与 overflow。窗口长度是实验设计参数，应覆盖稳定站立、运动切换和接触密集情况。（E3）
+
+不要求长轨迹逐位一致，但必须解释何时开始偏离、偏离是否超出预设范围。改变 GJK、EPA 或 solver 的迭代上限后，应重新执行这些对照。
+
+### 17.3 性能：把纯物理与端到端训练分开
+
+| 测量层次 | 必须记录 |
 |---|---|
-| 调度 | `step(m,d)`, `forward(m,d)`, `capture_launch(graph)` |
-| 数据 | `Model`, `Data`, `Option`, `Statistic`, `OverflowType` |
-| IO | `put_model(mjm) → Model`, `make_data(mjm, nworld, nconmax, nccdmax, njmax, njmax_nnz, naconmax, naccdmax, nvmax)`（真实签名 `io.py:1592` @`7e4afee`，E1——比官方文档摘要多一个稀疏非零元上限 `njmax_nnz`；`contact_sensor_max_match` 为 `Option` 属性，非本函数参数）, `put_data(mjm, mjd)`, `reset_data(m,d)` |
-| 渲染 | `create_render_context`, `refit_bvh`, `render`, `get_rgb/get_depth`, `ray/rays` |
-| 诊断 | `Data.overflow`, `mjwarp-testspeed` |
+| 冷启动 | 编译、初始化与首次运行时间 |
+| 稳态纯仿真 | `env_steps/s`、step 延迟 P50/P95 |
+| 端到端 PPO | 完整迭代时间及各阶段占比 |
+| 资源 | 峰值 HBM、workspace、CPU 占用与功耗 |
+| B′ 回退 | 次数、字节量、同步时间和吞吐损失 |
 
-**Model 核心字段**（200+，`mjwarp/api.html#Model`）：
+性能测试必须写清 warm-up、同步计时方式、步数、批量、诊断频率和重复次数。纯物理的加速不能替代端到端收益，CPU fallback 的时间也不能从统计中删去。（E3）
 
-`nq/nv/nu/nbody/njnt/ntree/ngeom/nsite/ncam/nflex/nmesh/npair/neq ...`
-`qpos0, body_pos/quat/mass/inertia, jnt_type/axis/range, dof_armature/damping, geom_type/size/pos/quat/friction/solref/solimp, flex_*, mesh_*`
+### 17.4 业务验收：上游 G1 通过之后，再测 SONIC
 
-**Data 核心字段**（150+）：
+在冻结的业务模型上评估跟踪质量、稳定性、任务成功与训练行为。至少 3 个随机种子，并报告统计汇总与置信区间；该种子数是最低实验要求，不意味着已足以证明所有结论。（E3）
 
-`qpos/qvel/qacc, xpos/xquat/xmat, contact (ncon, pos, frame, dist), efc (J, pos, aref), qfrc_*, sensordata, overflow, tree_asleep`
+最终阈值由 P0 根据基线和业务目标预先登记。附录 C 的 α 值仅解释跨引擎背景，不直接进入本项目通过条件。
 
-> 建议以 G1 场景（`benchmarks/unitree_g1/scene_flat.xml`）trace 出的实际子集为切面先实现，再扩展。
+<a id="s18"></a>
+## 18. 风险处置：出现什么现象，就检查什么
+
+以下按可观察信号组织预案（E3）。旧版未经测量的“高/中概率”已撤下，避免给人精确定量的印象。
+
+**复杂碰撞耗时或工作区失控。** 如果 mesh/GJK/EPA 在压力输入下迭代激增、容量溢出或成为绝对热点，先检查停止条件、局部结构和 tile。继续满足纯 NPU 目标需有 spike 证据；转 B′ 时重新评估同步成本。
+
+**求解器很快，但误差或未收敛比例变差。** 先检查是否改变了稀疏路径、精度、停止条件或有效约束集合。恢复已验证基线后逐项替换，再决定是否使用 Cube 或固定迭代。
+
+**容量优化后接触变少。** 检查共享池是否被改为固定分区、槽位是否覆盖、计数是否被截断，以及 overflow 是否仍可见。接触数量变化不能只当作性能优化成果。
+
+**单卡可用，多卡或进程模式失败。** 将训练通信、NPU 初始化和 CPU worker 启动分别诊断；既有 fork 风险见 [分支审计] F-4。物理独立 world 本身不要求跨卡通信。
+
+**测不到真实热点，或换环境就复现不了。** 在继续优化前补齐 profiling 与版本矩阵。锁定代码不等于锁定实际算子库、驱动和固件。
+
+**B3 与 spike 的结论不一致。** 分别分析框架限制和内核实现问题。暂停扩大投入可作为项目策略，但不能把一类原型的失败扩大为另一条路径的技术证明。
+
+**上游演进导致长期维护增加。** 记录移植子集与上游接口差异，按计划评估升级；每次升级重新跑数值与容量回归。升级周期根据团队资源决定，不作固定季度承诺。
+
+<a id="s19"></a>
+## 19. 资源与里程碑：先锁环境，再估工期
+
+本节为资源建议（E3）。可按架构与算法、Ascend C 实现、数值验证、RL 集成四类职责安排人员。原计划的“1 名架构 + 2 名内核开发 + 1 名验证/RL”可作配置草案，实际需求由 P0 的功能闭包和 spike 结果决定。
+
+### 环境必须记录到可重建
+
+将字段分成三组，每组保存精确版本或提交号：
+
+- **硬件与底层：** NPU SoC 型号、卡数、驱动、固件、CANN Toolkit、算子包版本；CPU、内存及用于对照的 GPU 型号与驱动。
+- **框架与工具：** Python、PyTorch、`torch_npu`；若使用 MindSpore、TorchAir、GE/ACL 相关组件，记录对应版本与编译选项；保存 profiling 工具版本。
+- **实验输入：** MJWarp commit、MuJoCo/Warp 实际安装版本、模型文件哈希、resolved 配置、随机种子、启动命令。
+
+环境中不适用的组件标明“不使用”。避免只写“CANN 8.x”或把依赖最低版本当作运行版本。（E3）
+
+### 三个交付里程碑
+
+| 里程碑 | 对应阶段 | 通过条件 |
+|---|---|---|
+| M1 基础计算 | P2 | 运动学与基础动力学数值检查通过 |
+| M2 碰撞输出 | P3，必要时含 P4 | 目标场景接触集合及容量行为通过 |
+| M3 完整闭环 | P5–P7 | 求解、环境、训练与资源验收通过 |
+
+“通过”按 §17 的预登记阈值判定。P0 后再为里程碑排期；当前文档不提供固定周数承诺。（E3）
+
+<a id="s20"></a>
+## 20. 决策结论：用两类实验逐步缩小不确定性
+
+MJWarp 的高吞吐来自并行环境、数组布局、容量管理、调度复用和设备内数据流共同作用。迁移时需要保留物理含义，再围绕 NPU 重做执行方式。（E1：本文源码关系；E3：架构结论）
+
+近期行动仍是维持 A 路线业务推进，补齐其运行证据，同时开展 P0。P0 应交付 G1 实际功能范围、运行热点、内存容量和固定环境，使 B 路线从概念变成可测量的子集。（E3）
+
+随后分别开展 B3 闭环原型与 Ascend C 难点 spike。前者回答集成和算法表达是否成立，后者回答 B1 的关键硬件实现是否成立。符合正确性、端到端收益和资源目标后，再扩大到 B1；B2 的调度选择通过同输入实验确定。（E3）
+
+若证据尚不足，保留 A 并定位问题；若允许 CPU 回退或更换引擎，则按 B′ 或 D 的目标另行评估。任何路线的继续投入，都应能够对应到具体测试结果和明确的功能边界。（E3）
 
 ---
 
-## 附录 B: 参考资料
+<a id="appendix-a"></a>
+## 附录 A：查接口时，先看哪些字段
 
-1. `mujoco.readthedocs.io/en/latest/mjwarp/index.html` — MuJoCo Warp 官方文档（Throughput / Graph Capture / Memory / Overflow / Sleeping / Compact Solver）。
-2. `mujoco.readthedocs.io/en/latest/mjwarp/api.html` — `Model/Data/Option` 全字段定义。
-3. `github.com/google-deepmind/mujoco_warp` — README、Benchmarks、Feature Parity。
-4. `nvidia.github.io/warp/` — Warp DSL、Graph API、Interoperability（JAX/PyTorch）。
-5. [A路线笔记] `GR00T-WholeBodyControl/docs/mujoco_npu_migration_notes.md` — 经典 MuJoCo + 昇腾 NPU 已验证链路（A 路线）。
-6. [精度分析] `GR00T-WBC-alignment/docs/mujoco-vs-isaac-precision-analysis.md` — `α drift` 定量、改 C++ 源码工作量类比。
-7. `Ascend C` / `CANN GE` / `torch_npu` 官方文档 — SPMD术语、Atomic API、tiling、HCCL（能力按SoC验证）。
-8. 外审基线：`mujoco_warp` main@`7e4afee`（P0复核：`cloc`/`rg @wp.kernel`/`pyproject`/`--event_trace`）。
+### 核心接口
 
-## 附录 C: 背景α表（MuJoCo–PhysX，非MJWarp–NPU门禁）
+`step(m, d)` 推进时间，`forward(m, d)` 计算当前状态下的动力学量。两者区别见 §5。`put_model` 转换模型，`make_data` 分配状态，`put_data` 导入已有状态，`reset_data` 用于重置。（E1：锁定源码 API）
 
-> 自 §9 移入（见修订记录）。来源 [精度分析] §3.1，为**经典 MuJoCo vs Isaac PhysX**，mjwarp 的 α 待 P0 实测，不可直接作为 MJWarp–NPU 门禁，仅作背景参考。
+`make_data` 的完整参数名以 [`io.py:1592`](/Users/xerxes3/Documents/huawei实习/mujoco_warp/mujoco_warp/_src/io.py:1592) 为准：
 
-| | α (m/步) | ref PD 存活 | 备注 |
-|---|---|---|---|
-| Isaac Sim 目标 | <0.002 | 100+ | 完整motion tracking |
-| 经典MuJoCo Euler | ~0.013 | 21 | 基线 |
-| 经典MuJoCo implicitfast | ~0.011 | 25 | 参数改善 |
+```python
+# 接口签名简写：省略类型注解，保留参数名和默认值。
+make_data(
+    mjm, nworld=1,
+    nconmax=None, nccdmax=None,
+    njmax=None, njmax_nnz=None,
+    naconmax=None, naccdmax=None, nvmax=None,
+)
+```
+
+`contact_sensor_maxmatch` 属于 Option，不是上面函数的参数（`types.py:938`）。旧稿的 `contact_sensor_max_match` 拼写与锁定源码不符。图执行示例中的 `wp.capture_launch` 属于 Warp 调度 API，不应混写为已实现的 NPU 接口。（E1）
+
+### 常用数据
+
+| 要查看的信息 | 主要字段 |
+|---|---|
+| 模型规模 | `nq / nv / nu / nbody / ngeom` |
+| 连杆与关节参数 | `body_* / jnt_* / dof_*` |
+| 几何与接触参数 | `geom_*` |
+| 当前状态 | `qpos / qvel / qacc` |
+| 世界坐标变换 | `xpos / xquat / xmat` |
+| 接触记录 | `contact.dist / pos / frame / geom / worldid` |
+| 求解与诊断 | `efc / qfrc_* / solver_niter / overflow` |
+
+字段依据为 `types.py`（E1）。完整支持范围由业务模型和 P0 trace 决定，本表仅用于定位。
+
+<a id="appendix-b"></a>
+## 附录 B：参考资料与源码引用规则
+
+**源码锚点。** 本文所有 MJWarp 行号均指 [`7e4afee815a35cd931119129d49937137a96bb67`](https://github.com/google-deepmind/mujoco_warp/tree/7e4afee815a35cd931119129d49937137a96bb67)。正文的本地链接便于阅读，未来仓库切换版本时须回到该 commit 复核。（E1）
+
+**官方资料。** 网页用于解释机制（E3），固定版本支持状态优先读锁定源码与 README：
+
+- [MJWarp 官方文档](https://mujoco.readthedocs.io/en/latest/mjwarp/index.html)：吞吐、图捕获、容量、内存和休眠。
+- [MJWarp API](https://mujoco.readthedocs.io/en/latest/mjwarp/api.html)：接口与字段查询。
+- [锁定版本 README](https://github.com/google-deepmind/mujoco_warp/blob/7e4afee815a35cd931119129d49937137a96bb67/README.md)：支持边界、工具入口和集成关系。
+- [NVIDIA Warp 文档](https://nvidia.github.io/warp/)：并行函数、数组、图与互操作。
+- [Ascend C 开发说明](https://www.hiascend.com/document/detail/zh/CANNCommunityEdition/82RC1/opdevg/Ascendcopdevg/atlas_ascendc_10_0001.html)：用于理解算子开发机制；此链接的文档版本不代表已经选定项目 CANN 版本。
+
+**工作区依据。** [原版解析]、[分支审计]、[A路线笔记]、[精度分析] 的完整链接见文首。A 路线 SHM 的代码细节、SONIC 观测字段与动作语义仍以这些权威章节为准。
+
+<a id="appendix-c"></a>
+## 附录 C：α 背景值的适用范围
+
+下表保留 [精度分析] §3.1 的既有文档记录（E3）。比较的是**经典 MuJoCo 与 Isaac PhysX**，本轮没有重新运行实验；不能作为 MJWarp–NPU 验收阈值，也不能用来推导 NPU 的误差。
+
+| 对照项 | α（米/步） | ref PD 存活步数 |
+|---|---:|---:|
+| Isaac Sim 目标 | < 0.002 | 100+ |
+| 经典 MuJoCo / Euler | 约 0.013 | 21 |
+| 经典 MuJoCo / implicitfast | 约 0.011 | 25 |
+
+ref PD 指用参考运动作为 PD 跟踪目标。原文 §2.3、§3.1 将存活记录按步数表达，并使用踝位置误差阈值 `ANK=0.2 m`；α 用于描述每步踝位置跟踪偏差。表中仅保留其已有背景记录，MJWarp–NPU 的误差需要按 §17 固定输入、比较对象与统计方法后重新测量。（E3）
 
 ---
 
 ## 修订记录
 
-| 版本 | 日期 | 变更 | 受影响章节 |
-|---|---|---|---|
-| v1.0 | — | 初稿（定位“全量迁移 B 路线”；“约 8000 行 / 30+ kernels”基线，后作废） | 全文 |
-| v1.1 | — | 全量方案细化；“32 人周”工期、“图捕获 +10~30% 收益”、“NPU 无 SPMD/atomic/printf”、“solver 单一稠密假设”、“humanoid 30% 子集”、旧基准路径 `unitree_g1_flat.xml` 等断言——**均于后续版本作废，防误引** | §7/§10/§12/§16/§17/附录 A |
-| v1.2 | — | 第一轮外审：拆 B/B′；重写 §5.2/§13.1/§13.3；§19 要求完整 CANN 矩阵；`kinematics.py / integrator.py / flex.py` 文件结构旧推断作废 | §5/§11/§13/§19/§3 |
-| v1.3 | 2026-09-03 | 第二轮外审：删执行摘要无证据数字；总量/子集/重写量三口径拆分；§17 重写（补分位数/失败样本比例）；α 表移附录 C；UB 改 per-kernel live-set 模型；D2H 说明修正 | 执行摘要/§8/§9/§17/附录 C |
-| v1.4 | 2026-09-03 | 对抗性审查修订：A 路线证据降级（删“1 人 2 周可复现”无出处数字，11000 iter 标 E4）并补 MDP 非等价/进度互链；修正 `make_data` 签名与 `contact_sensor_max_match` 归属、“NVIDIA GPU only”、§7“编译时定界/无动态分支”、`qpos0` shape、§3 路径记法；§18 补 3 项缺席风险（GJK/EPA 崩塌、fp32 一致性、B3/spike 失败路径）；B3 门禁补“难点 kernel spike”（§14/§20）；§8.1 Feature Parity 移入 §11.1；§12 撤销星级外的人周/行数列、新增三口径说明；P0 命令归拢 §16.1；§16 增里程碑映射列；附录重排为 A/B/C；目录与标题同步、Part I/II 分部；新增 §3 分层架构图与 §11 路线图；关联文档缩写化并互链报告 2/3；版本痕迹收敛至本表；标题去旧名括号。**后补**：获取官方 `mujoco-warp==3.12.0` wheel（github 直连不可达，经清华 pypi 镜像），§3 规模基线实测升级（52,521 行/300 kernels，与外审值吻合）、文件清单实证；§4/§5/§13 换入真实源码摘录（SoA 声明、`_add_geom_pair` 原子预约、`step/step1/step2` 调度、`solve` 多路径分发、`block_cholesky` kernel 工厂）；§11.1 加 IMPLICITFAST 版本注记（3.12.0 已实现 `implicit()`，锁定基线待查）；附录 A `make_data` 签名按源码修正（补 `njmax_nnz`）。**锚点克隆收口（同日）**：github 直连恢复后克隆仓库并检出 `7e4afee`（2026-09-02 提交，版本号 3.12.0，Warp 依赖 `warp-lang>=1.15`），基线数字升级为 E1 实测（52,843 行/296 kernels/34 非测试文件）；全部源码摘录逐块在锚点复核并修正行号，GJK 摘录换锚点版收敛判据；§11.1 IMPLICITFAST 必查项结案（代码已实现、README 口径滞后）；§16.1 标记①–⑤完成 | 全文 |
+### v1.5 · 2026-09-09：可读性重构与源码语义校正
 
----
+正文改为原理解释、短源码节选、代码整体含义、迁移影响的阅读顺序；保留跨报告使用的章节编号。将 ASCII 图和过载框图改成 Mermaid，补齐反馈路径、CPU fallback、NPU 环境适配与决策流程。将多列长表拆为短表和主题小节，集中历史说明。
 
-*下一步：按 §16.1 P0 六维统计 + G1 trace + 后端比选 + §19 矩阵锁定 + per-kernel live-set + 难点 kernel spike，发 v1.5。*
+源码复核统一了已完成的静态统计口径，并修正以下内容：
 
+- `nconmax` 是共享接触池的分配参数，`njmax` 才是逐 world 的约束硬上限。
+- `_add_geom_pair` 写候选几何对；原子预约不保证稳定顺序，函数内部返回也不代表完成所有 overflow 处理。
+- 删除取模领取槽位会覆盖数据的示例，NPU 搬运伪代码补齐输入和同步关系。
+- 准确区分 `IMPLICITFAST` 实现、`IMPLICIT` 分支以及 README 对 midpoint feature 的限定。
+- 按 `forward` 源码重排阶段，纠正 sleep 仅在末尾、两段 step 专为图捕获、所有临时内存均已预分配等表述。
+- 按 `ccd()` 源码解释凸体碰撞；说明 GJK 多个退出判据并存。
+- 移除“迁移硬件自动修复语义”“回退使收益必然归零”“B3 失败证明 B1 不可行”等过度推断。
+
+本次完成文档、源码引用和图形检查；GPU event trace、NPU 正确性、性能和工期仍待 P0 实验。
+
+### v1.4 · 2026-09-03：锁定源码基线
+
+完成 `7e4afee` 本地检出，静态规模核验为 52,843 行、296 处 kernel 装饰器、34 个非测试文件；测试为 25,829 行。源码引用由此前 wheel 旁证切换至锁定 commit。A 路线 11000 iter 记录保留 E4，完善 B/B′、spike、环境矩阵与验收边界。本版中对部分源码的解释已在 v1.5 纠正。
+
+### v1.3 · 2026-09-03：收敛证据与验收口径
+
+拆分仓库总量、G1 子集、PoC 重写量；撤销无证据性能数字；补充误差分位数和失败比例；α 背景表移至附录；UB 改用 per-kernel live-set 估算。
+
+### v1.0–v1.2 · 历史稿
+
+最初按全量迁移组织方案，后经审查改为子集 PoC，加入 B/B′ 分支并修正求解与调度认识。早期“约 8000 行 / 30+ kernels”“32 人周”“图捕获固定百分比收益”“昇腾无 SPMD/atomic/printf”、单一稠密求解器假设，以及不存在的文件结构推断均已作废，不得继续引用。
