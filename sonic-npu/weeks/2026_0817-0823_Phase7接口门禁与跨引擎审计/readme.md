@@ -14,10 +14,10 @@
 
 **跨引擎审计关键数字**（进度总结提炼）：双引擎参数审计 30/29/29 一致、colliders 0 vs 40、Equal 615 / Diff 830 / Missing 729。
 
-## 未收录文档（存本地工作区）
+## 过程文档（备份于 [../../archive/](../../archive/)）
 
-- `Phase7-进度总结-2026-08-20.md` — 中期进度，同日被完成报告取代（且含待撤销 PAT 断片，不入公开仓）。
-- `Phase7-Windows执行清单-2026-08-20.md` — 给 Win 端机器的逐步操作指令；验收阈值已被完成报告固化。
+- [Phase7-进度总结](../../archive/Phase7-进度总结-2026-08-20.md) — 中期进度，同日被完成报告取代（副本已删 PAT 断片）。
+- [Phase7-Windows执行清单](../../archive/Phase7-Windows执行清单-2026-08-20.md) — 给 Win 端机器的逐步操作指令；验收阈值已被完成报告固化。
 - `artifacts/cross_engine/`（run1、phase8_smoke、windows baseline）— 跨引擎 trace 原始数据，本地保存。
 
 ## 遗留 → 下周

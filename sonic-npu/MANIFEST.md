@@ -11,11 +11,12 @@
 | `lectures/` | 讲解提纲 + 3 份讲稿 | 版本对应关系见 `lectures/README.md` |
 | `survey/` | SONIC 与具身智能技术综述 | 2026-08-20 知识底稿，独立成篇 |
 | `handover/` | 交接类文档（不入时间线） | 交接文档-Isaac环境搭建（历史快照，被 8/24 排障复盘取代） |
+| `archive/` | 过程文档备份区（执行清单/工具类，2026-09-11 由本地迁入） | 清单见 `archive/README.md`；结论均已收录于各周文档 |
 | `sim2sim-final/` | 最终交付报告子集 | 14_final_delivery（最终版报告+claim矩阵+validation）、report_v2（可读版）、r5_1_overlay（P3 指标）、code_snapshot、r4f-b31（B3.1 包报告） |
 | `notes/` | mujoco_npu_migration_notes.md | A 路线实证记录（原为 GR00T-WholeBodyControl 仓库 untracked 文件，此为备份副本） |
 | `packages/` | 9 个实验反馈 zip（Git LFS） | 清单见下，校验和见 `packages/SHA256SUMS.txt` |
 
-**脱敏说明**：`weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/环境配置排障复盘` 副本已删除泄露 PAT 断片（原件仍含，仅本地保存）；含 PAT 断片的 `Phase7-进度总结` 未上传。
+**脱敏说明**：排障复盘与 `archive/Phase7-进度总结` 的副本均已删除泄露 PAT 断片；`weeks/2026_0907-0913_调研与归档/远程NPU接入` 为脱敏版（隐去 IP/姓名/节点归属），含真实信息的原件仅存本地。
 
 ## packages/ 清单（9 个 zip，Git LFS 存储）
 
@@ -31,15 +32,15 @@
 | P3_R5_metrics_media_v1.zip | 9MB | R5 指标与媒体（VALID_R5） |
 | R4F_B1_Lab10s_N5R2_B31_20260831.zip | 70MB | B3.1 最终状态包（elbow MAE 降 74.7696%） |
 
-## 有意未上传的大文件（仅存本地 Mac 工作区）
+## 本地清理记录（2026-09-11）
 
-| 文件 | 大小 | SHA256 | 不传原因 |
-|---|---|---|---|
-| Sim2Sim_week_final_R5_1_R6_R7_v1.zip | 1.75GB | `befe09ed7d32140a91027c32482183ba38edd5d30fa498c427af7dfc8cb45cee` | 超 GitHub 单文件 100MB 硬限与免费 LFS 配额；其报告子集已拆出至 `sim2sim-final/` |
-| R4F_B1_Lab10s_N5R2_B31_20260831 2.zip | 70MB | 与官方 sha256 不符 | 重复下载件（哈希不匹配官方 `.sha256`），正品已上传 |
-| full_output_archive/（解包） | 1.7GB | — | 原始数据（历代反馈包/视频/npz），zip 层面已由 packages/ 覆盖关键节点 |
-| _archive/2026-08-sim2sim-review-history/ | 17MB | — | 被取代的中间审查轮产物 |
-| artifacts/ + artifacts.7z | 20MB/8.3MB | — | 跨引擎对齐阶段原始 trace（7z 为目录的重复压缩副本） |
+**已删除**（先验证后删）：
+- 11 个实验 zip：9 个与 `packages/` LFS 内容逐字节一致（SHA256SUMS 复核）、`R4F_..._20260831 2.zip`（哈希不符的重复下载件）、`Sim2Sim_week_final_R5_1_R6_R7_v1.zip`（1.75GB，与其解包目录内容一致；SHA256 `befe09ed7d32140a91027c32482183ba38edd5d30fa498c427af7dfc8cb45cee` 留作历史校验值）
+- `R4F_B1_Lab10s_N5R2_B31_20260831/` 解包目录（LFS 包 + `sim2sim-final/r4f-b31/` 报告子集已覆盖）
+- `_archive/2026-08-sim2sim-review-history/`（被取代的中间审查轮产物，结论已收录于周文档）
+- `artifacts.7z`（`artifacts/` 目录的重复压缩件）、6 个过程文档原件（已入 `archive/`）
+
+**仍存本地**：`Sim2Sim_week_final_R5_1_R6_R7_v1/`（1.7GB 解包目录；`full_output_archive/` 为唯一未上传的原始数据）、`artifacts/`（20MB 跨引擎 trace）、`backup_20260903/`（主报告旧快照）。
 
 ## 同步说明
 
