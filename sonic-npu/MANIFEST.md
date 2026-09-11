@@ -9,7 +9,7 @@
 | `weeks/` | **周时间线主轴**：每周一目录（8/10–9/13 共五周，9/7–9/13 周含 VLA/WAM 调研与远程 NPU 接入文档），readme 为周摘要 + 该周结论/报告/预注册类文档 | 收录规则与周索引见 `weeks/README.md`；执行清单类不上传、周 readme 留索引行 |
 | `reports/` | 报告套件（同目录互链） | 00_总览 + ② 原版解析 v1.8 / ③ 分支审计 v1.4 / ① B 路线 v1.5 + ② 的配图 |
 | `lectures/` | 讲解提纲 + 3 份讲稿 | 版本对应关系见 `lectures/README.md` |
-| `survey/` | SONIC 与具身智能技术综述 | 2026-08-20 知识底稿，独立成篇 |
+| `survey/` | 知识底稿：技术综述（8/20）、SONIC 论文精读（8/14）、Humanoid-Gym / Humanoid-Lab 代码解析（9/4） | 自 Obsidian 笔记库迁入（2026-09-11） |
 | `handover/` | 交接类文档（不入时间线） | 交接文档-Isaac环境搭建（历史快照，被 8/24 排障复盘取代） |
 | `archive/` | 过程文档备份区（执行清单/工具类，2026-09-11 由本地迁入） | 清单见 `archive/README.md`；结论均已收录于各周文档 |
 | `sim2sim-final/` | 最终交付报告子集 | 14_final_delivery（最终版报告+claim矩阵+validation）、report_v2（可读版）、r5_1_overlay（P3 指标）、code_snapshot、r4f-b31（B3.1 包报告） |
