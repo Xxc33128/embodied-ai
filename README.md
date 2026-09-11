@@ -20,7 +20,7 @@
 - [`sonic-npu/lectures/`](sonic-npu/lectures/) — 讲解提纲 + 三份讲稿（版本对应表在内）。
 - [`sonic-npu/sim2sim-final/`](sonic-npu/sim2sim-final/) — Sim2Sim 最终交付报告子集（最终版报告、claim 矩阵、validation、指标图、代码快照）。
 - [`sonic-npu/packages/`](sonic-npu/packages/) — 9 个实验反馈包（Git LFS）+ SHA256SUMS。
-- [`sonic-npu/notes/`](sonic-npu/notes/)、[`sonic-npu/survey/`](sonic-npu/survey/)、[`sonic-npu/handover/`](sonic-npu/handover/) — 迁移实证笔记、技术综述、交接类文档。
+- [`sonic-npu/notes/`](sonic-npu/notes/)、[`sonic-npu/survey/`](sonic-npu/survey/)、[`sonic-npu/handover/`](sonic-npu/handover/) — 迁移实证笔记、知识底稿（综述/SONIC 论文精读/代码解析）、交接类文档。
 - [`sonic-npu/MANIFEST.md`](sonic-npu/MANIFEST.md) — 完整内容索引 + 未上传大文件（1.75GB final zip 等）的 SHA256 与保存位置。
 
 ## 收录规则
