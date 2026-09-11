@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "物理智能模型架构全景：LLM · VLA · 世界模型 · WAM",
+    "locale": "zh-CN",
+    "output": "2026-09-08-物理智能模型架构全景.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "vla-path",
+        "label": "VLA 主线",
+        "focus": [
+          "data",
+          "llm",
+          "vlm",
+          "act",
+          "robot"
+        ],
+        "note": "文本预训练 → VLM 语义骨干（System 2）→ 动作专家高频控制（System 1），2022–2025 主线"
+      },
+      {
+        "id": "worldmodel-routes",
+        "label": "世界模型三路线",
+        "focus": [
+          "data",
+          "wvideo",
+          "wjepa",
+          "wrl",
+          "sim"
+        ],
+        "note": "视频生成（DiT）/ JEPA 隐空间 / RL 想象训练，加上仿真与合成数据底座"
+      },
+      {
+        "id": "wam-fusion",
+        "label": "WAM 融合",
+        "focus": [
+          "wvideo",
+          "act",
+          "wam",
+          "robot"
+        ],
+        "note": "视频扩散骨干 + VLA 双系统专家在 MoT 中联合预测未来状态与动作"
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "data",
+      "type": "database",
+      "label": "互联网规模数据",
+      "sublabel": "文本 · 视频 · 真机演示",
+      "pos": [
+        40,
+        340
+      ],
+      "size": [
+        150,
+        84
+      ]
+    },
+    {
+      "id": "llm",
+      "type": "backend",
+      "label": "LLM",
+      "sublabel": "自回归 · next-token",
+      "pos": [
+        320,
+        60
+      ],
+      "size": [
+        180,
+        70
+      ]
+    },
+    {
+      "id": "wvideo",
+      "type": "cloud",
+      "label": "视频世界模型",
+      "sublabel": "DiT 扩散 · Genie 3 / Cosmos",
+      "pos": [
+        320,
+        240
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "wjepa",
+      "type": "cloud",
+      "label": "隐空间世界模型",
+      "sublabel": "JEPA 表征预测（V-JEPA 2）",
+      "pos": [
+        320,
+        410
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "wrl",
+      "type": "cloud",
+      "label": "RL 内部模型",
+      "sublabel": "想象训练 · DreamerV3",
+      "pos": [
+        320,
+        570
+      ],
+      "size": [
+        180,
+        76
+      ]
+    },
+    {
+      "id": "vlm",
+      "type": "backend",
+      "label": "VLM 语义骨干",
+      "sublabel": "System 2 · Eagle-2/Qwen3-VL",
+      "pos": [
+        610,
+        60
+      ],
+      "size": [
+        190,
+        76
+      ]
+    },
+    {
+      "id": "act",
+      "type": "frontend",
+      "label": "动作专家",
+      "sublabel": "System 1 · flow matching",
+      "pos": [
+        610,
+        240
+      ],
+      "size": [
+        190,
+        76
+      ]
+    },
+    {
+      "id": "wam",
+      "type": "backend",
+      "label": "WAM 世界动作模型",
+      "sublabel": "MoT 联合预测（DreamZero 14B）",
+      "tag": "GR00T N2 · 2026",
+      "pos": [
+        940,
+        370
+      ],
+      "size": [
+        200,
+        92
+      ]
+    },
+    {
+      "id": "robot",
+      "type": "external",
+      "label": "机器人本体",
+      "sublabel": "感知-行动闭环 · 不可逆",
+      "pos": [
+        1170,
+        220
+      ],
+      "size": [
+        160,
+        84
+      ]
+    },
+    {
+      "id": "sim",
+      "type": "database",
+      "label": "仿真与合成数据",
+      "sublabel": "Isaac Lab 3.0 / GR00T-Dreams",
+      "pos": [
+        940,
+        570
+      ],
+      "size": [
+        190,
+        74
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "text-pretrain",
+      "from": "data",
+      "to": "llm",
+      "label": "文本预训练",
+      "fromSide": "top",
+      "toSide": "left",
+      "labelAt": [
+        200,
+        81
+      ]
+    },
+    {
+      "id": "video-pretrain",
+      "from": "data",
+      "to": "wvideo",
+      "label": "无标注视频",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        285,
+        360
+      ]
+    },
+    {
+      "id": "jepa-pretrain",
+      "from": "data",
+      "to": "wjepa",
+      "label": "百万小时视频",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        280,
+        470
+      ]
+    },
+    {
+      "id": "llm-to-vlm",
+      "from": "llm",
+      "to": "vlm",
+      "label": "多模态扩展"
+    },
+    {
+      "id": "vlm-to-act",
+      "from": "vlm",
+      "to": "act",
+      "label": "语义目标 · 低频",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        735,
+        188
+      ]
+    },
+    {
+      "id": "act-to-robot",
+      "from": "act",
+      "to": "robot",
+      "label": "动作块 50–200Hz",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "wvideo-to-wam",
+      "from": "wvideo",
+      "to": "wam",
+      "label": "视频扩散骨干",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "act-to-wam",
+      "from": "act",
+      "to": "wam",
+      "label": "VLA 双系统专家",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "wam-to-robot",
+      "from": "wam",
+      "to": "robot",
+      "label": "状态+动作联合 · ~7Hz",
+      "variant": "emphasis",
+      "fromSide": "right",
+      "toSide": "left",
+      "labelAt": [
+        1215,
+        460
+      ]
+    },
+    {
+      "id": "robot-to-sim",
+      "from": "robot",
+      "to": "sim",
+      "label": "真机数据回流",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "labelAt": [
+        1100,
+        515
+      ]
+    },
+    {
+      "id": "sim-to-wrl",
+      "from": "sim",
+      "to": "wrl",
+      "label": "环境交互",
+      "fromSide": "left",
+      "toSide": "right"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "VLA 主线（2022–2025）",
+      "items": [
+        "RT-1 → RT-2 → OpenVLA → π0 → GR00T N1",
+        "双系统：VLM 慢思考 + 动作专家高频控制；主流 2B–7B"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "世界模型路线",
+      "items": [
+        "视频生成：Genie 3（24FPS）/ Cosmos 3（16B–64B）",
+        "隐空间：V-JEPA 2（~1B，百万小时视频，零样本控制 Franka）",
+        "RL：DreamerV3（Nature 2025）· TD-MPC2"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "WAM 融合范式（2026）",
+      "items": [
+        "DreamZero 14B：视频+动作联合生成，7Hz 闭环",
+        "GR00T N2 采用 WAM 架构（GTC 2026）",
+        "GR00T-Dreams：开发周期 3 个月 → 36 小时"
+      ]
+    }
+  ]
+}
