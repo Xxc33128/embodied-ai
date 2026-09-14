@@ -16,10 +16,11 @@
 |---|---|---|
 | 9/14 | [复现启动与agent链路验证](2026-09-14-复现启动与agent链路验证.md) | 环境就绪（harness 0.58.0 与 RoboCurve 同版）；mock LLM 服务器零成本跑通 agent 全链路（3 trials，含预算耗尽路径）；agent policy 参数源码定位；Kaggle 侦察/安装 notebook 成稿 |
 | 9/14 | [Motus2调研](2026-09-14-Motus2调研.md) | 生数×清华自进化世界模型（v1 直系续作）：一模型三接口（policy/simulator/evaluator）+ 失败数据监督路由 + DiffusionNFT MBRL；13 万小时 egocentric 数据与 scaling law；真机 84%、MBRL+规划 65→75%、触觉 +12.5pt；**开源仅 README，复现为时过早**；v1.1 增补 v1 源码级解剖（§3，E1 锚点 f771216）与两代机制对差（§2.4） |
+| 9/14 | [LingBot-VA调研](2026-09-14-LingBot-VA调研.md) | 蚂蚁灵波 AR 视频-动作世界模型：v1 **代码+权重全开**（Apache-2.0）→ 源码级审计（单序列掩码布局、槽位式 KV cache、半程去噪、attn_mode 坑；released=共享骨干 vs 论文双流版待核）；RoboTwin 92.9/91.6、LIBERO 98.5、真机全面超 π0.5；v2.0（MoE-13B-A1.9B、225Hz）论文公开但**未放码** |
 
 ## 按日结论
 
-- **9/14（一）**：Phase 0 完成 + Phase 1a 完成。①harness 版本对齐（0.58.0）；②mock 全链路 2/3 成功、第 3 个复现 20 次调用预算耗尽（E1）；③isaacsim 插件动作空间为 `joint_pos`——与 RoboCurve eef `move_to` 的协议差异已定位（E1）；④阻塞项：智谱 key / OpenAI key / Kaggle notebook 执行。**⑤（调研）Motus2 文献级调研成稿**：三接口世界模型 + MBRL 自进化闭环，数字均为厂商真机口径（E3），代码未放；可作 ① 报告附录 C 案例。
+- **9/14（一）**：Phase 0 完成 + Phase 1a 完成。①harness 版本对齐（0.58.0）；②mock 全链路 2/3 成功、第 3 个复现 20 次调用预算耗尽（E1）；③isaacsim 插件动作空间为 `joint_pos`——与 RoboCurve eef `move_to` 的协议差异已定位（E1）；④阻塞项：智谱 key / OpenAI key / Kaggle notebook 执行。**⑤（调研）Motus2 文献级调研成稿**：三接口世界模型 + MBRL 自进化闭环，数字均为厂商真机口径（E3），代码未放；可作 ① 报告附录 C 案例。**⑥（调研）LingBot-VA 源码级审计成稿**：v1 代码+权重+数据全开（本工作区锚点 `vla_wam_framework_src/LingBot-VA`），单序列因果掩码、槽位式 KV cache、半程去噪等已定位到行；v2.0 论文公开、代码未放。
 
 ## 过程文档/工具索引
 
