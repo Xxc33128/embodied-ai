@@ -15,8 +15,8 @@
 | 日期 | 文档 | 结论 |
 |---|---|---|
 | 9/14 | [复现启动与agent链路验证](2026-09-14-复现启动与agent链路验证.md) | 环境就绪（harness 0.58.0 与 RoboCurve 同版）；mock LLM 服务器零成本跑通 agent 全链路（3 trials，含预算耗尽路径）；agent policy 参数源码定位；Kaggle 侦察/安装 notebook 成稿 |
-| 9/14 | [Motus2调研](2026-09-14-Motus2调研.md) | 生数×清华自进化世界模型（v1 直系续作）：一模型三接口（policy/simulator/evaluator）+ 失败数据监督路由 + DiffusionNFT MBRL；13 万小时 egocentric 数据与 scaling law；真机 84%、MBRL+规划 65→75%、触觉 +12.5pt；**开源仅 README，复现为时过早**；v1.1 增补 v1 源码级解剖（§3，E1 锚点 f771216）与两代机制对差（§2.4） |
-| 9/14 | [LingBot-VA调研](2026-09-14-LingBot-VA调研.md) | 蚂蚁灵波 AR 视频-动作世界模型：v1 **代码+权重全开**（Apache-2.0）→ 源码级审计（单序列掩码布局、槽位式 KV cache、半程去噪、attn_mode 坑；released=共享骨干 vs 论文双流版待核）；RoboTwin 92.9/91.6、LIBERO 98.5、真机全面超 π0.5；v2.0（MoE-13B-A1.9B、225Hz）论文公开但**未放码** |
+| 9/14 | [Motus2调研](2026-09-14-Motus2调研.md) | 生数×清华自进化世界模型（v1 直系续作）：一模型三接口（policy/simulator/evaluator）+ 失败数据监督路由 + DiffusionNFT MBRL；13 万小时 egocentric 数据与 scaling law；真机 84%、MBRL+规划 65→75%、触觉 +12.5pt；**开源仅 README，复现为时过早**；v1.1 增补 v1 源码级解剖（§3，E1 锚点 f771216）与两代机制对差（§2.4）；v1.2 文风修订（humanizer-zh） |
+| 9/14 | [LingBot-VA调研](2026-09-14-LingBot-VA调研.md) | 蚂蚁灵波 AR 视频-动作世界模型：v1 **代码+权重全开**（Apache-2.0）→ 源码级审计（单序列掩码布局、槽位式 KV cache、半程去噪、attn_mode 坑；released=共享骨干 vs 论文双流版待核）；RoboTwin 92.9/91.6、LIBERO 98.5、真机全面超 π0.5；v2.0（MoE-13B-A1.9B、225Hz）论文公开但**未放码**；v1.1 文风修订（humanizer-zh） |
 
 ## 按日结论
 
