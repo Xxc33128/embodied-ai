@@ -1,7 +1,7 @@
 # LingBot-VA 调研：自回归视频-动作世界模型（蚂蚁灵波 Robbyant）
 
-> **版本：v1.1｜2026-09-14**
-> 修订记录：v1.1 做了一轮文风修订（按 humanizer-zh 去掉破折号堆砌、三段式排比、粗体滥用和空话连接词），事实、数字、引用与 E 级标注没有任何改动。
+> **版本：v1.2｜2026-09-14**
+> 修订记录：v1.2 做文风校准，把 v1.1 中偏口语的表达调回工作文档口径，可读性改动（断句、去套话、少破折号）保留；v1.1 为 humanizer-zh 文风修订。事实、数字、引用与 E 级标注从未改动。
 >
 > 材料：论文 [arXiv:2601.21998v2](https://arxiv.org/abs/2601.21998)（Causal World Modeling for Robot Control，RSS 2026）、开源代码 `Robbyant/lingbot-va` @ `7c6ffa9`（Apache-2.0，本地锚点 `vla_wam_framework_src/LingBot-VA`，2026-09-14 clone）、权重与数据集（HF `robbyant/lingbot-va-*`）、LingBot-VA 2.0 论文 [arXiv:2607.08639v2](https://arxiv.org/abs/2607.08639)（仓库内 `LingBot_VA2_paper.pdf`，代码未开源）、媒体发布通稿（E4，只作背景）。
 >
@@ -12,8 +12,8 @@
 1. 蚂蚁集团具身智能公司灵波科技（Robbyant）的"世界-动作模型"（World-Action Model, WAM）。v1 在 2026-01-29 随"灵波开源周"发布，代码、权重、数据全开，论文进了 RSS 2026；v2.0 在 2026-07-09 发布，论文公开但代码权重未放（2026-09-14 检索）。（E3·一手）
 2. 内核是自回归（AR）扩散的视频-动作世界模型：视频 latent 与动作 token 交错成单一序列，chunk 间严格因果、chunk 内并行去噪；动作由逆动力学（IDM）从预测的视觉转移里解码；KV cache 保存记忆，每个 chunk 回灌真实观测形成闭环。（E3·一手 + E1）
 3. 工程上有三件事值得记。Noisy History Augmentation 在训练时以 50% 概率把历史噪声到 s∈[0.5,1]，换来推理时的半程去噪（Euler 3 步到 s≈0.6），省掉近一半算力；异步推理把预测和执行并行；FDM 重锚定用当前观测做一次前向动力学想象，把 naive 异步的幻觉漂移拉回来（消融 74.3% 对 92.9%）。（E1/E3）
-4. RoboTwin 2.0 拿到 92.9%（Easy）和 91.6%（Hard），50 任务平均；长程（Horizon=3）增益最明显，比次优分别高 8.2 和 9.1 个点。LIBERO 平均 98.5%。真机六任务（30–50 demos 微调）的成功率全面高于 π0.5。（E3·一手）
-5. 代码审计的要点（E1）：released 版是共享骨干，单个 30 层 3072 维 transformer，动作经 `action_embedder` 注入；论文描述的"双流非对称专家（视频 3072、动作 768、+350M、总 5.3B）"是尚未发布的 separated 版本，README 明说 "stay tuned"。另外有两个部署坑：训练必须 `attn_mode="flex"`、推理必须 `"torch"/"flashattn"`，手改 `transformer/config.json`；released 评测客户端走的是同步流程，论文的 async/FDM 不在开源脚本里。
+4. RoboTwin 2.0 取得 92.9%（Easy）和 91.6%（Hard），50 任务平均；长程（Horizon=3）增益最明显，比次优分别高 8.2 和 9.1 个点。LIBERO 平均 98.5%。真机六任务（30–50 demos 微调）的成功率全面高于 π0.5。（E3·一手）
+5. 代码审计的要点（E1）：released 版是共享骨干，单个 30 层 3072 维 transformer，动作经 `action_embedder` 注入；论文描述的"双流非对称专家（视频 3072、动作 768、+350M、总 5.3B）"是尚未发布的 separated 版本，README 明说 "stay tuned"。另外有两处部署注意事项：训练必须用 `attn_mode="flex"`、推理必须用 `"torch"/"flashattn"`，需手动修改 `transformer/config.json`；released 评测客户端为同步流程，论文的 async/FDM 不在开源脚本里。
 
 ---
 
@@ -137,11 +137,11 @@ flowchart TB
 1. 视频段走 Euler 加 flow scheduler，`update_cache=1` 只在最后一步（把预测 latent 提交进 cache）；CFG 系数 5（`:513-516`）；`video_exec_step≥0` 可截断去噪步数。
 2. 动作段以生成的动作 latent 为条件解码动作 chunk，CFG 系数 1（即关闭，`:552-555`）；无效动作通道清零（`:563`）。
 
-配置口径（E2）：RoboTwin 用 `num_inference_steps=25` 视频 / `action_num_inference_steps=50` 动作，LIBERO 为 20/50；论文对外报告的是 Euler 3 步视频（积分到 s=0.6）加 10 步动作。两处不一致，配置像是上限、论文像收敛后的实测口径，记待核。
+配置口径（E2）：RoboTwin 用 `num_inference_steps=25` 视频 / `action_num_inference_steps=50` 动作，LIBERO 为 20/50；论文对外报告的是 Euler 3 步视频（积分到 s=0.6）加 10 步动作。两处不一致，配置应为上限、论文应为其收敛后的实测口径，列入待核。
 
-已发布的评测客户端是同步流程（`evaluation/robotwin/eval_polict_client_openpi.py:558-608`）：预测一整段，在环境里逐步执行并采集关键帧，再 `compute_kv_cache=True` 回灌真值。论文里的异步加 FDM 重锚定管线没有随评测脚本发布，这是论文口径（E3）与代码口径（E1）的差异，记待核。
+已发布的评测客户端是同步流程（`evaluation/robotwin/eval_polict_client_openpi.py:558-608`）：预测一整段，在环境里逐步执行并采集关键帧，再 `compute_kv_cache=True` 回灌真值。论文里的异步加 FDM 重锚定管线没有随评测脚本发布，这是论文口径（E3）与代码口径（E1）的差异，列入待核。
 
-### 3.6 部署工程与已知坑
+### 3.6 部署工程与已知问题
 
 - 推理显存：单卡 RoboTwin 约 24GB（VAE/text_encoder offload），i2va 约 18GB（README，E3）。
 - `attn_mode` 必须手动切换（README §98-109）：训练用 `"flex"`（掩码必需），推理用 `"torch"/"flashattn"`；这个参数读的是权重目录里 `transformer/config.json`，不切换会直接报错。
@@ -190,7 +190,7 @@ LIBERO（3 seeds × 500 trials）：Spatial 98.5 / Object 99.6 / Goal 97.2 / Lon
 | π0.5 (PS/SR) | 73.0/70.0 | 74.0/50.0 | 79.2/30.0 | 73.0/25.0 | 62.9/30.0 | 30.0/30.0 |
 | LingBot-VA (PS/SR) | 97.0/75.0 | 82.5/70.0 | 85.8/40.0 | 84.5/65.0 | 48.8/35.0 | 76.7/70.0 |
 
-SR 六项全面领先；PS 除了 Fold Clothes（48.8 对 62.9）之外领先。论文正文称两指标全面领先，表中这一项对不上，记待核。
+SR 六项全面领先；PS 除了 Fold Clothes（48.8 对 62.9）之外领先。论文正文称两指标全面领先，表中该项不一致，列入待核。
 
 消融（RoboTwin Easy）：FDM 异步 90.4，naive 异步 74.3，同步基线 92.9。异步基本追平同步但快 2 倍；WAN 直接微调只有 80.6，这就是预训练的价值。
 
