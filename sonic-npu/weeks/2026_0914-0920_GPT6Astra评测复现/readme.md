@@ -20,6 +20,7 @@
 
 ## 按日结论
 
+- **9/15（二）**：MuJoCo bowl 环境两代迭代。①v2 浮动执行器版：腕载裁剪相机/yaw 维/执行噪声/reset 随机化全部落地，确定性+噪声回归 10/10+10/10（E1）；②保真度审计成文（10 项差距矩阵 + 5 条机制发现）；③v3 Panda 关节臂版（Menagerie CAD 模型 + DLS IK + 腱驱动夹爪改造）：**交接点状态 = 确定性回归抓取 6/10、入碗 3/10**，失败三分类（闭合挤出/搬运蠕变/释放落沿）与已试路线记录在 gpt6astra-repro/AGENTS.md，待下一人接手。
 - **9/14（一）**：Phase 0 完成 + Phase 1a 完成。①harness 版本对齐（0.58.0）；②mock 全链路 2/3 成功、第 3 个复现 20 次调用预算耗尽（E1）；③isaacsim 插件动作空间为 `joint_pos`——与 RoboCurve eef `move_to` 的协议差异已定位（E1）；④阻塞项：智谱 key / OpenAI key / Kaggle notebook 执行。**⑤（调研）Motus2 文献级调研成稿**：三接口世界模型 + MBRL 自进化闭环，数字均为厂商真机口径（E3），代码未放；可作 ① 报告附录 C 案例。**⑥（调研）LingBot-VA 源码级审计成稿**：v1 代码+权重+数据全开（本工作区锚点 `vla_wam_framework_src/LingBot-VA`），单序列因果掩码、槽位式 KV cache、半程去噪等已定位到行；v2.0 论文公开、代码未放。
 
 ## 过程文档/工具索引
