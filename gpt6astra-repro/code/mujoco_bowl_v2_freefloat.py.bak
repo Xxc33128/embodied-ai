@@ -1,0 +1,512 @@
+"""MuJoCo "bowl task" embodiment：抓红块放碗里（RoboCurve bowl 任务的仿真复刻）。
+
+协议对齐 RoboCurve 真机形态（差距与对齐清单见保真度审计文档）：
+  - 动作空间 eef_abs_pose（x,y,z,yaw,gripper）→ LLM 工具面为 move_to（含旋转）
+  - 框架侧把绝对位姿按 max_step 安全插值（工具层钳制 + 本体伺服双层限速）
+  - 观测 = 本体状态（eef/gripper/yaw，无物体位姿）+ 三相机帧（顶/侧/腕载）
+    → 腕载相机随 eef 平移与 yaw 旋转，对齐原评测"顶+双腕"中的腕视角色
+  - 阶段评分 0-4（远/近/抓起/碗上方/入碗）进 info，对照 RoboCurve 评分口径
+  - 可配置执行噪声（位置/yaw 高斯扰动）与 reset 随机化（eef home、方块位姿）
+
+物理：eef 为动态刚体（freejoint），由 weld 等式约束跟随 mocap 目标位姿；
+手指开合改写 geom 局部坐标。eef 必须是动态体——mocap 静态几何的接触
+约束不含几何体自身速度，法向挤压有效但切向摩擦无法带动物体（实测）。
+碗 = 四壁内倾漏斗（碰撞）+ 半透明圆柱视觉件（无碰撞）。
+"""
+
+from __future__ import annotations
+
+import numpy as np
+
+from inspect_robots.spaces import ActionSemantics, Box, CameraSpec, ObservationSpace
+from inspect_robots.types import Observation, StepResult
+
+_IMG_H, _IMG_W = 240, 320
+
+# 场景常量（世界系原点 = 桌面中心，+z 向上）
+_BOWL_XY = np.array([0.2, 0.0])
+_BOWL_R = 0.055          # 漏斗底部内半宽（成功判定半径基准）
+_CUBE_HALF = 0.02        # 红方块半边长
+_EEF_HOME = np.array([0.0, 0.0, 0.28])
+_GAP_OPEN, _GAP_CLOSED = 0.045, 0.018   # 指内侧半间距
+_POS_LIM = np.array([0.38, 0.30, 0.40]) # x,y,z 单侧界限（桌面 0.8×0.6）
+_EEF_Z_FLOOR = 0.07      # 手指底 = z-0.068 ≥ 0.002，不穿桌
+_MAX_POS_STEP = 0.04      # 每控制步平移上限（m）
+_MAX_YAW_STEP = 0.35      # 每控制步 yaw 上限（rad）
+_MAX_GRIP_STEP = 1.0      # 夹爪一步全闭（半闭提升会掉物，实测）
+_SUBSTEPS = 50            # 物理子步（dt=0.002 → 控制周期 0.1s）
+_TOP_FOVY_DEG = 45.0      # MjvCamera 自由相机默认 fovy
+_WRIST_WIN = (0.20, 0.15) # 腕视裁剪窗口（米）：宽×高
+
+# 四壁漏斗（碗）：薄壁内倾 20°——方块落在沿上会滑入，杜绝搁浅
+_TRAY_HALF = 0.055
+_WALL_T = 0.004
+_WALL_H = 0.035
+_WALL_TILT = 20.0
+
+
+def _walls_xml() -> str:
+    tilt = np.radians(_WALL_TILT)
+    out = ""
+    for i, (px, py, sx, sy, eu) in enumerate([
+        (_BOWL_XY[0], _BOWL_XY[1] + _TRAY_HALF + _WALL_T, _TRAY_HALF + _WALL_T, _WALL_T, f"-{_WALL_TILT} 0 0"),
+        (_BOWL_XY[0], _BOWL_XY[1] - _TRAY_HALF - _WALL_T, _TRAY_HALF + _WALL_T, _WALL_T, f"{_WALL_TILT} 0 0"),
+        (_BOWL_XY[0] - _TRAY_HALF - _WALL_T, _BOWL_XY[1], _WALL_T, _TRAY_HALF, f"0 -{_WALL_TILT} 0"),
+        (_BOWL_XY[0] + _TRAY_HALF + _WALL_T, _BOWL_XY[1], _WALL_T, _TRAY_HALF, f"0 {_WALL_TILT} 0"),
+    ]):
+        # 长边补偿倾角投影，壁面在桌面上的覆盖不变
+        sx_p = sx / np.cos(tilt) if sx > sy else sx
+        sy_p = sy / np.cos(tilt) if sy > sx else sy
+        out += f"""
+    <body name="bowl_wall_{i}" pos="{px:.4f} {py:.4f} {_WALL_H / 2:.4f}" euler="{eu}">
+      <geom type="box" size="{sx_p:.4f} {sy_p:.4f} {_WALL_H / 2:.4f}" rgba="0.35 0.4 0.5 1"
+            friction="1.0 0.003 0.0002"/>
+    </body>"""
+    return out
+
+
+_XML = f"""
+<mujoco model="bowl-task">
+  <option timestep="0.002"/>
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.6 0.6 0.6"/>
+    <global offwidth="1280" offheight="960"/>
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.6 0.7 0.9" rgb2="0.25 0.3 0.45" width="32" height="32"/>
+    <material name="table" rgba="0.55 0.5 0.45 1"/>
+  </asset>
+  <worldbody>
+    <light pos="0.1 0 1.2" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+    <geom name="floor" type="plane" size="2 2 0.1" rgba="0.5 0.55 0.6 1"/>
+    <geom name="table" type="box" pos="0 0 -0.025" size="0.4 0.3 0.025" material="table"/>
+
+    <body name="cube" pos="-0.1 0 0.021">
+      <freejoint name="cube_joint"/>
+      <geom name="cube_geom" type="box" size="{_CUBE_HALF} {_CUBE_HALF} {_CUBE_HALF}"
+            rgba="0.85 0.08 0.08 1" friction="1.6 0.003 0.0002"/>
+    </body>
+{_walls_xml()}
+    <geom name="bowl_visual" type="cylinder" pos="{_BOWL_XY[0]} {_BOWL_XY[1]} 0.024"
+          size="0.062 0.024" rgba="0.3 0.45 0.65 0.3" contype="0" conaffinity="0" group="3"/>
+
+    <body name="eef_target" mocap="true" pos="0 0 0.28">
+      <geom type="box" size="0.002 0.002 0.002" rgba="0 0 0 0" contype="0" conaffinity="0"/>
+    </body>
+    <body name="eef" pos="0 0 0.28">
+      <freejoint name="eef_joint"/>
+      <inertial mass="1.5" pos="0 0 0" diaginertia="0.015 0.015 0.015"/>
+      <geom name="palm" type="box" size="0.006 0.045 0.004" rgba="0.25 0.25 0.28 0.55"
+            friction="1.2 0.003 0.0002"/>
+      <geom name="finger_l" type="box" size="0.004 0.008 0.032" pos="0 0.053 -0.036"
+            rgba="0.2 0.2 0.22 1" friction="1.4 0.005 0.0003"/>
+      <geom name="finger_r" type="box" size="0.004 0.008 0.032" pos="0 -0.053 -0.036"
+            rgba="0.2 0.2 0.22 1" friction="1.4 0.005 0.0003"/>
+      <camera name="wrist_cam" pos="0 0 0.008" euler="180 0 0" fovy="65"/>
+    </body>
+  </worldbody>
+  <equality>
+    <weld name="eef_weld" body1="eef" body2="eef_target" solref="0.01 1"/>
+  </equality>
+</mujoco>
+"""
+
+
+def _yaw_to_quat(yaw: float) -> np.ndarray:
+    """yaw（绕 z，rad）→ wxyz 四元数。"""
+    c, s = np.cos(yaw / 2), np.sin(yaw / 2)
+    return np.array([c, 0.0, 0.0, s])
+
+
+def _quat_yaw(q: np.ndarray) -> float:
+    """wxyz 四元数 → yaw（仅绕 z 分量）。"""
+    w, x, y, z = q / np.linalg.norm(q)
+    return float(np.arctan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z)))
+
+
+def _wrap(a: float) -> float:
+    """角差归一到 (-pi, pi]。"""
+    return float((a + np.pi) % (2 * np.pi) - np.pi)
+
+
+class MuJoCoBowlEmbodiment:
+    """抓红块放碗里的 MuJoCo 仿真本体（eef_abs_pose + yaw，move_to 工具面）。
+
+    参数
+    ----
+    execution_noise:
+        每控制步目标的高斯执行噪声 σ，(x/y m, z m, yaw rad)。默认 (0.0015,
+        0.001, 0.017)≈真机毫米级残差；传全 0 关闭（确定性回归测试用）。
+    """
+
+    def __init__(self, *, img_h: int = _IMG_H, img_w: int = _IMG_W,
+                 execution_noise: tuple[float, float, float] = (0.0015, 0.001, 0.017)):
+        import mujoco  # 惰性导入，保持与插件一致的风格
+
+        from inspect_robots import StateField, StateSpec
+        from inspect_robots.embodiment import (
+            AUTO_RESET,
+            PRIVILEGED_SUCCESS,
+            RENDERABLE,
+            RESETTABLE,
+            SEEDABLE,
+            EmbodimentInfo,
+        )
+
+        self._mj = mujoco
+        self._model = mujoco.MjModel.from_xml_string(_XML)
+        self._data = mujoco.MjData(self._model)
+        self._mocap_id = self._model.body("eef_target").mocapid[0]
+        self._eef_bid = self._model.body("eef").id
+        self._eef_jnt = self._model.joint("eef_joint").id
+        self._eef_qadr = self._model.jnt_qposadr[self._eef_jnt]
+        self._fl = self._model.geom("finger_l").id
+        self._fr = self._model.geom("finger_r").id
+        self._cube_bid = self._model.body("cube").id
+        self._wrist_cam_id = self._model.cam("wrist_cam").id
+        self._img_h, self._img_w = img_h, img_w
+        self._renderers: dict[str, "mujoco.Renderer"] = {}
+        self._top_hr = None  # 腕视裁剪用的高清俯视渲染器（4x，自标定时创建）
+        self._noise = np.asarray(execution_noise, dtype=np.float64)
+        self._rng = np.random.RandomState(0)
+
+        self.info = EmbodimentInfo(
+            name="mujoco-bowl",
+            action_space=Box(
+                shape=(5,),
+                low=np.array([-_POS_LIM[0], -_POS_LIM[1], _EEF_Z_FLOOR, -np.pi, 0.0]),
+                high=np.array([_POS_LIM[0], _POS_LIM[1], _POS_LIM[2], np.pi, 1.0]),
+                semantics=ActionSemantics(
+                    control_mode="eef_abs_pose",
+                    rotation_repr="none",  # yaw 作为普通连续维（可按维安全插值）
+                    gripper="continuous",
+                    frame="base",
+                    dim_labels=("x", "y", "z", "yaw", "gripper"),
+                    max_step=(_MAX_POS_STEP,) * 3 + (_MAX_YAW_STEP, _MAX_GRIP_STEP),
+                ),
+            ),
+            observation_space=ObservationSpace(
+                cameras=(
+                    CameraSpec(name="top", height=img_h, width=img_w, channels=3),
+                    CameraSpec(name="side", height=img_h, width=img_w, channels=3),
+                    CameraSpec(name="wrist", height=img_h, width=img_w, channels=3),
+                ),
+                state=StateSpec(fields=(
+                    StateField("eef_pos", (3,), "m"),
+                    StateField("eef_quat", (4,), "unit_quat"),
+                    StateField("eef_yaw", (1,), "rad"),
+                    StateField("gripper", (1,), "normalized"),
+                )),
+            ),
+            control_hz=10.0,
+            is_simulated=True,
+            capabilities=frozenset(
+                {SEEDABLE, RESETTABLE, AUTO_RESET, PRIVILEGED_SUCCESS, RENDERABLE}
+            ),
+            docs=(
+                "Tabletop pick-and-place. World/base frame: origin at table center, "
+                "+x toward the bowl (which sits at roughly x=+0.20, y=0), +z up. "
+                "The red 4cm cube starts somewhere in x<0 with a small random yaw. "
+                "Top camera: world +x points right and world +y points up in the image. "
+                "The wrist camera looks straight down along the gripper axis and follows "
+                "the gripper. Gripper: two fingers close along the gripper y axis "
+                "(gripper 0=closed, 1=open); the gripper always points straight down; "
+                "yaw rotates the gripper about the vertical axis. The two fingers reach "
+                "from 0.4cm to 6.8cm below the eef origin, so to grasp the cube hover at "
+                "z about 0.08-0.10 directly above it with gripper open, verify in the "
+                "wrist view that the cube sits centered between the fingers, then set "
+                "gripper 0 to close, lift to z 0.15+, translate over the bowl, keep "
+                "gripper 0 while carrying, hover over the bowl center (x about +0.20, "
+                "y about 0) at z 0.10-0.12, then set gripper 1 to release; the bowl "
+                "walls are funneled inward so a near-miss drop still slides in. "
+                "Success: cube resting inside the bowl."
+            ),
+        )
+        self._instruction: str | None = None
+        self._grip = 1.0
+        self._calibrate_top()
+
+    def _calibrate_top(self) -> None:
+        """运行时自标定高清俯视的像素映射：方块摆到已知位置量质心。
+
+        px(x) = a·x + b（图像列），py(y) = c·y + d（图像行，+y 向上 → c<0）。
+        对 fovy/宽高比的实际取值免疫（本版 MjvCamera 无 fovy 属性，
+        自由相机默认视场与标称 45° 不符，实测约 53°）。
+        """
+        import mujoco
+
+        if self._top_hr is None:
+            self._top_hr = mujoco.Renderer(self._model, height=_IMG_H * 4, width=_IMG_W * 4)
+        vcam = mujoco.MjvCamera()
+        vcam.lookat[:] = [0.0, 0.0, 0.0]
+        vcam.distance = 0.95
+        vcam.azimuth = 90.0
+        vcam.elevation = -90.0
+
+        def centroid(x: float, y: float) -> tuple[float, float]:
+            self._data.qpos[:] = 0.0
+            self._data.qpos[:7] = [x, y, _CUBE_HALF + 0.001, 1, 0, 0, 0]
+            self._mj.mj_forward(self._model, self._data)
+            self._top_hr.update_scene(self._data, camera=vcam)
+            hi = self._top_hr.render()
+            m = hi[..., 0].astype(int) - hi[..., 1] > 40
+            rs, cs = np.where(m)
+            return float(cs.mean()), float(rs.mean())
+
+        # 5 点仿射拟合（含交叉项，消除残余 ~1cm 偏移）
+        probes = [(-0.12, -0.06), (0.12, -0.06), (-0.12, 0.06), (0.12, 0.06), (0.0, 0.0)]
+        A = np.array([[x, y, 1.0] for x, y in probes])
+        cxs, cys = zip(*(centroid(x, y) for x, y in probes))
+        col_fit, *_ = np.linalg.lstsq(A, np.array(cxs), rcond=None)
+        row_fit, *_ = np.linalg.lstsq(A, np.array(cys), rcond=None)
+        self._cal_col, self._cal_row = col_fit, row_fit  # [a, b, c]: col = a·x + b·y + c
+        self._mj.mj_resetData(self._model, self._data)
+
+    # ------------------------------------------------------------------ #
+    def reset(self, scene, *, seed: int | None = None) -> Observation:
+        rng = np.random.RandomState(seed if seed is not None else 0)
+        self._rng = np.random.RandomState((seed or 0) + 777)  # 执行噪声流与场景种子解耦
+        mujoco = self._mj
+        mujoco.mj_resetData(self._model, self._data)
+
+        # 方块位置 + 小角度姿态随机
+        cube_x = rng.uniform(-0.18, -0.02)
+        cube_y = rng.uniform(-0.10, 0.10)
+        cube_yaw = rng.uniform(-np.pi / 18, np.pi / 18)  # ±10°
+        q = _yaw_to_quat(cube_yaw)
+        self._data.qpos[:7] = np.concatenate([[cube_x, cube_y, _CUBE_HALF + 0.001], q])
+
+        # eef home 加噪（真机复位残差）
+        home = _EEF_HOME + np.array([rng.normal(0, 0.008), rng.normal(0, 0.008), 0.0])
+        home_q = _yaw_to_quat(rng.uniform(-0.1, 0.1))
+        self._data.qpos[self._eef_qadr:self._eef_qadr + 7] = np.concatenate([home, home_q])
+        self._data.mocap_pos[self._mocap_id] = home
+        self._data.mocap_quat[self._mocap_id] = home_q
+
+        self._instruction = scene.instruction
+        self._grip = 1.0
+        self._set_fingers()
+        mujoco.mj_forward(self._model, self._data)
+        return self._observe()
+
+    def step(self, action) -> StepResult:
+        mujoco = self._mj
+        target = np.clip(np.asarray(action.data, dtype=np.float64),
+                         self.info.action_space.low, self.info.action_space.high)
+
+        cur_pos = self._data.mocap_pos[self._mocap_id].copy()
+        cur_quat = np.array(self._data.mocap_quat[self._mocap_id], dtype=np.float64)
+        cur_quat /= np.linalg.norm(cur_quat)
+        cur_yaw = _quat_yaw(cur_quat)
+
+        pos_delta = np.clip(target[:3] - cur_pos, -_MAX_POS_STEP, _MAX_POS_STEP)
+        yaw_delta = float(np.clip(_wrap(float(target[3]) - cur_yaw), -_MAX_YAW_STEP, _MAX_YAW_STEP))
+        grip_start = self._grip
+        grip_end = float(np.clip(
+            grip_start + np.clip(target[4] - grip_start, -_MAX_GRIP_STEP, _MAX_GRIP_STEP), 0.0, 1.0))
+
+        # 执行噪声（真机毫米级残差模型；回归测试可置 0）
+        pos_delta[:2] += self._rng.normal(0.0, self._noise[0], 2)
+        pos_delta[2] += self._rng.normal(0.0, self._noise[1])
+        yaw_delta += float(self._rng.normal(0.0, self._noise[2]))
+
+        new_pos = np.clip(cur_pos + pos_delta,
+                          [self.info.action_space.low[0], self.info.action_space.low[1], _EEF_Z_FLOOR],
+                          [self.info.action_space.high[0], self.info.action_space.high[1], _POS_LIM[2]])
+        new_quat = _yaw_to_quat(cur_yaw + yaw_delta)
+
+        # mocap 目标在物理子步间连续插值；动态 eef 由 weld 约束跟随。
+        # 离散跳变会让接触瞬间断裂、摩擦抓取失效（实测）。
+        for k in range(_SUBSTEPS):
+            a = (k + 1) / _SUBSTEPS
+            self._data.mocap_pos[self._mocap_id] = cur_pos + a * (new_pos - cur_pos)
+            q = cur_quat + a * (new_quat - cur_quat)
+            self._data.mocap_quat[self._mocap_id] = q / np.linalg.norm(q)
+            self._grip = grip_start + a * (grip_end - grip_start)
+            self._set_fingers()
+            mujoco.mj_step(self._model, self._data)
+        self._grip = grip_end
+
+        cube = self._cube_pos()
+        in_bowl = float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1])) < _BOWL_R - 0.008
+        resting = cube[2] < _CUBE_HALF + 0.006
+        off_table = abs(cube[0]) > 0.42 or abs(cube[1]) > 0.32 or cube[2] < -0.1
+        success = bool(in_bowl and resting)
+        phase = self._phase(cube)
+
+        terminated = success or off_table
+        reason = "success" if success else ("out_of_bounds" if off_table else None)
+        reward = -float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1]))
+        return StepResult(
+            observation=self._observe(),
+            reward=reward,
+            terminated=terminated,
+            termination_reason=reason,
+            truncated=False,
+            info={"success": success, "phase": phase, "cube_pos": cube.tolist()},
+        )
+
+    def close(self) -> None:
+        for r in self._renderers.values():
+            r.close()
+        self._renderers.clear()
+        if self._top_hr is not None:
+            self._top_hr.close()
+            self._top_hr = None
+
+    # ------------------------------------------------------------------ #
+    def _cube_pos(self) -> np.ndarray:
+        return np.array(self._data.xpos[self._cube_bid], dtype=np.float64)
+
+    def _eef_pos(self) -> np.ndarray:
+        return np.array(self._data.xpos[self._eef_bid], dtype=np.float64)
+
+    def _eef_quat(self) -> np.ndarray:
+        return np.array(self._data.xquat[self._eef_bid], dtype=np.float64)
+
+    def _set_fingers(self) -> None:
+        gap = _GAP_CLOSED + self._grip * (_GAP_OPEN - _GAP_CLOSED)
+        for gid, sign in ((self._fl, 1.0), (self._fr, -1.0)):
+            lp = self._model.geom_pos[gid].copy()
+            lp[1] = sign * (gap + 0.008)
+            self._model.geom_pos[gid] = lp
+
+    def _phase(self, cube: np.ndarray) -> int:
+        eef = self._eef_pos()
+        d_xy = float(np.hypot(*(cube[:2] - eef[:2])))
+        d_bowl = float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1]))
+        carried = d_xy < 0.06 and cube[2] > _CUBE_HALF + 0.01
+        if d_bowl < _BOWL_R - 0.008 and cube[2] < _CUBE_HALF + 0.006:
+            return 4
+        if carried and d_bowl < 0.08:
+            return 3
+        if carried or cube[2] > _CUBE_HALF + 0.015:
+            return 2
+        if d_xy < 0.08:
+            return 1
+        return 0
+
+    def _render(self, cam: str) -> np.ndarray:
+        # 用 MjvCamera 运行时配置渲染：本版 MuJoCo 的 XML xyaxes 相机在此
+        # macOS 离屏路径下只渲染天空（实测），自由相机参数则完全正常。
+        # 腕载相机：朝向随 eef 平移 + yaw 旋转（真腕视的随动语义）。
+        mujoco = self._mj
+        if cam not in self._renderers:
+            self._renderers[cam] = mujoco.Renderer(self._model, height=self._img_h, width=self._img_w)
+        if cam == "wrist":
+            # 腕载近景 = 高清俯视在 eef 处的裁剪。不走相机路径：本版 MuJoCo 在
+            # macOS 离屏下 XML 相机（xyaxes/euler/FIXED 引用）只渲染天空，自由
+            # 相机小距离行为也不可靠（实测）；裁剪方案数学确定、随动由坐标保证。
+            # 覆盖窗口 _WRIST_WIN（米），世界对齐（+x 图像右、+y 图像上）。
+            if self._top_hr is None:
+                self._top_hr = mujoco.Renderer(self._model, height=_IMG_H * 4, width=_IMG_W * 4)
+            vcam = mujoco.MjvCamera()
+            vcam.lookat[:] = [0.0, 0.0, 0.0]
+            vcam.distance = 0.95
+            vcam.azimuth = 90.0
+            vcam.elevation = -90.0
+            self._top_hr.update_scene(self._data, camera=vcam)
+            hi = self._top_hr.render()
+            h4, w4 = hi.shape[:2]
+            # 像素映射用 __init__ 仿射标定（见 _calibrate_top）
+            eef = self._eef_pos()
+            cx = int(round(self._cal_col[0] * eef[0] + self._cal_col[1] * eef[1] + self._cal_col[2]))
+            cy = int(round(self._cal_row[0] * eef[0] + self._cal_row[1] * eef[1] + self._cal_row[2]))
+            m_per_px = 1.0 / max(abs(self._cal_col[0]), abs(self._cal_row[1]))
+            half_w = int(round(_WRIST_WIN[0] / 2 / m_per_px))
+            half_h = int(round(_WRIST_WIN[1] / 2 / m_per_px))
+            x0 = int(np.clip(cx - half_w, 0, w4 - 2 * half_w))
+            y0 = int(np.clip(cy - half_h, 0, h4 - 2 * half_h))
+            crop = hi[y0:y0 + 2 * half_h, x0:x0 + 2 * half_w]
+            from PIL import Image
+            return np.asarray(Image.fromarray(crop).resize((self._img_w, self._img_h),
+                                                           Image.BILINEAR))
+        vcam = mujoco.MjvCamera()
+        if cam == "top":      # 俯视全桌：+x 图像右，+y 图像上
+            vcam.lookat[:] = [0.0, 0.0, 0.0]
+            vcam.distance = 0.95
+            vcam.azimuth = 90.0
+            vcam.elevation = -90.0
+        else:                 # side：斜侧全桌
+            vcam.lookat[:] = [0.05, 0.0, 0.03]
+            vcam.distance = 1.0
+            vcam.azimuth = -130.0
+            vcam.elevation = -25.0
+        r = self._renderers[cam]
+        r.update_scene(self._data, camera=vcam)
+        return r.render()
+
+    def _observe(self) -> Observation:
+        q = self._eef_quat()
+        return Observation(
+            images={c: self._render(c) for c in ("top", "side", "wrist")},
+            state={
+                "eef_pos": self._eef_pos(),
+                "eef_quat": q,
+                "eef_yaw": np.array([_quat_yaw(q)], dtype=np.float64),
+                "gripper": np.array([self._grip], dtype=np.float64),
+            },
+            instruction=self._instruction,
+        )
+
+
+# ---------------------------------------------------------------------- #
+def scripted_solve(emb: MuJoCoBowlEmbodiment, seed: int) -> dict:
+    """特权脚本化抓放（物理回归测试用，非 LLM）：返回该 seed 的结果字典。"""
+    from inspect_robots.scene import Scene
+    from inspect_robots.types import Action
+
+    emb.reset(Scene(id=f"reg-{seed}", instruction="pick the red cube into the bowl",
+                    init_seed=seed), seed=seed)
+    cube = np.array(emb._cube_pos())
+
+    def go(x, y, z, grip=None, n=6):
+        res = None
+        for _ in range(n):
+            res = emb.step(Action(data=np.array([x, y, z, 0.0,
+                                                 grip if grip is not None else emb._grip])))
+        return res
+
+    go(cube[0], cube[1], cube[2] + 0.10, grip=1.0, n=6)   # 方块上方，张开
+    go(cube[0], cube[1], cube[2] + 0.055, n=4)            # 下降到指包住方块
+    go(cube[0], cube[1], cube[2] + 0.055, grip=0.0, n=3)  # 闭合
+    go(cube[0], cube[1], cube[2] + 0.18, n=5)             # 提起
+    held = emb._cube_pos()[2] > 0.05                       # 提升后方块高度=抓取质量
+    res = go(_BOWL_XY[0], _BOWL_XY[1], 0.20, n=8)         # 移到碗上方（保持闭合）
+    res = go(_BOWL_XY[0], _BOWL_XY[1], 0.16, grip=1.0, n=4)  # 张开释放
+    for _ in range(12):                                     # 等待落定（漏斗滑入）
+        res = emb.step(Action(data=np.array([_BOWL_XY[0], _BOWL_XY[1], 0.18, 0.0, 1.0])))
+        if res.terminated:
+            break
+    return {"seed": seed, "held": bool(held), "success": bool(res.info["success"]),
+            "phase": res.info["phase"], "reason": res.termination_reason,
+            "cube": np.round(emb._cube_pos(), 3).tolist()}
+
+
+if __name__ == "__main__":
+    # 物理回归测试：默认 10 seeds 带执行噪声；--deterministic 关噪声。
+    import sys
+
+    from inspect_robots.scene import Scene  # noqa: F401（scripted_solve 内使用）
+
+    noise = (0.0, 0.0, 0.0) if "--deterministic" in sys.argv else (0.0015, 0.001, 0.017)
+    n_seeds = 10
+    results = [scripted_solve(MuJoCoBowlEmbodiment(execution_noise=noise), 1000 + i)
+               for i in range(n_seeds)]
+    ok = sum(r["success"] for r in results)
+    held = sum(r["held"] for r in results)
+    print(f"execution_noise={noise}")
+    print(f"grasp held: {held}/{n_seeds}   bowl success: {ok}/{n_seeds}")
+    for r in results:
+        print(f"  seed={r['seed']} held={r['held']} success={r['success']} "
+              f"phase={r['phase']} reason={r['reason']} cube={r['cube']}")
+
+    # 三视角渲染抽样存档
+    from PIL import Image
+
+    emb = MuJoCoBowlEmbodiment(execution_noise=noise)
+    obs = emb.reset(Scene(id="render", instruction="render check", init_seed=1000))
+    for c in ("top", "side", "wrist"):
+        Image.fromarray(obs.images[c]).save(f"render_check_{c}.png")
+    emb.close()
+    print("renders saved: render_check_{top,side,wrist}.png")

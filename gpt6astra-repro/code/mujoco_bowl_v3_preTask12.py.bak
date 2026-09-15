@@ -1,0 +1,600 @@
+"""MuJoCo "bowl task" embodiment v3：Franka Panda 关节臂版。
+
+协议对齐 RoboCurve 真机形态（差距与对齐清单见保真度审计文档）：
+  - 动作空间 eef_abs_pose（x,y,z,yaw,gripper）→ LLM 工具面为 move_to（含旋转）
+  - 框架侧把绝对位姿按 max_step 安全插值 + 机器人侧 IK 解关节角：
+    与 RoboCurve 完全同构（模型只见末端位姿，机器人侧负责运动学）
+  - 观测 = 本体状态（eef/gripper/yaw，无物体位姿）+ 三相机帧（顶/侧/腕载）
+  - 阶段评分 0-4（远/近/抓起/碗上方/入碗）进 info
+  - 可配置执行噪声（位置/yaw 高斯扰动）与 reset 随机化（方块位姿/姿态）
+
+本体：MuJoCo Menagerie 的 Franka Panda（7 关节位置伺服 + 腱驱动双指），
+底座安装在工作区后侧。IK = 阻尼最小二乘（xyz + yaw 四维误差）+ 关节限位
+钳制 + 零空间回中（趋向 home 姿态）；每物理子步解算，warm start。
+腕载视角 = 高清俯视在 eef 处的裁剪（像素映射 5 点仿射自标定）。
+"""
+
+from __future__ import annotations
+
+import os
+import re
+
+import numpy as np
+
+from inspect_robots.spaces import ActionSemantics, Box, CameraSpec, ObservationSpace
+from inspect_robots.types import Observation, StepResult
+
+_IMG_H, _IMG_W = 240, 320
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_PANDA_DIR = os.path.join(_HERE, "mujoco_menagerie", "franka_emika_panda")
+
+# 场景常量（世界系原点 = 桌面中心，+z 向上）
+_BOWL_XY = np.array([0.2, 0.0])
+_BOWL_R = 0.055          # 漏斗底部内半宽（成功判定半径基准）
+_CUBE_HALF = 0.02        # 红方块半边长
+_EEF_HOME = np.array([-0.05, 0.0, 0.28])   # eef 悬停复位位（桌面上方 28cm）
+_EEF_Z_FLOOR = 0.03      # TCP 下限（指尖≈TCP-0.01，不穿桌）
+_POS_LIM = np.array([0.38, 0.30, 0.40])
+_MAX_POS_STEP = 0.04      # 每控制步平移上限（m）
+_MAX_YAW_STEP = 0.35      # 每控制步 yaw 上限（rad）
+_SUBSTEPS = 50            # 物理子步（dt=0.002 → 控制周期 0.1s）
+_TOP_FOVY_DEG = 45.0
+_WRIST_WIN = (0.20, 0.15) # 腕视裁剪窗口（米）
+
+# Panda 安装位：工作区后左角（桌面上），远离方块区与碗
+_PANDA_BASE_XY = (-0.30, -0.24)
+# Panda home 关节角（"ready" 姿态：指向工作区上方）
+_Q_HOME = np.array([0.0, -0.45, 0.0, -2.1, 0.0, 1.9, 0.785])
+# 标定/躲让姿态：臂向后折叠，不遮挡桌面中央
+_Q_STOW = np.array([0.0, 0.8, 0.0, -1.2, 0.0, 1.5, 0.79])
+# 夹爪腱控制（Menagerie 映射：ctrl 0-255 ↔ 指总开距 0-0.08m）
+
+
+def _grip_ctrl(g: float) -> float:
+    """gripper 0(闭)→1(开) 映射到腱 ctrl。闭合目标总间隙 0.026（方块 0.04，
+    每侧 7mm 挤压量）——位置伺服的挤压深度即抓持法向力来源。"""
+    return (0.026 + g * (0.076 - 0.026)) / 0.08 * 255
+
+
+_TRAY_HALF = 0.055
+_WALL_T = 0.004
+_WALL_H = 0.035
+_WALL_TILT = 20.0
+
+
+def _walls_xml() -> str:
+    tilt = np.radians(_WALL_TILT)
+    out = ""
+    for i, (px, py, sx, sy, eu) in enumerate([
+        (_BOWL_XY[0], _BOWL_XY[1] + _TRAY_HALF + _WALL_T, _TRAY_HALF + _WALL_T, _WALL_T, f"-{_WALL_TILT} 0 0"),
+        (_BOWL_XY[0], _BOWL_XY[1] - _TRAY_HALF - _WALL_T, _TRAY_HALF + _WALL_T, _WALL_T, f"{_WALL_TILT} 0 0"),
+        (_BOWL_XY[0] - _TRAY_HALF - _WALL_T, _BOWL_XY[1], _WALL_T, _TRAY_HALF, f"0 -{_WALL_TILT} 0"),
+        (_BOWL_XY[0] + _TRAY_HALF + _WALL_T, _BOWL_XY[1], _WALL_T, _TRAY_HALF, f"0 {_WALL_TILT} 0"),
+    ]):
+        sx_p = sx / np.cos(tilt) if sx > sy else sx
+        sy_p = sy / np.cos(tilt) if sy > sx else sy
+        out += f"""
+    <body name="bowl_wall_{i}" pos="{px:.4f} {py:.4f} {_WALL_H / 2:.4f}" euler="{eu}">
+      <geom type="box" size="{sx_p:.4f} {sy_p:.4f} {_WALL_H / 2:.4f}" rgba="0.35 0.4 0.5 1"
+            friction="1.0 0.003 0.0002"/>
+    </body>"""
+    return out
+
+
+def _panda_sections() -> tuple[str, str, str, str]:
+    """读 Menagerie panda.xml，返回 (defaults, meshes, worldbody 内容, actuators)。
+
+    meshdir 改绝对路径；worldbody 的 link0 链包进安装底座；hand 上加 TCP site。
+    """
+    xml = open(os.path.join(_PANDA_DIR, "panda.xml")).read()
+    assets = os.path.join(_PANDA_DIR, "assets")
+    xml = xml.replace('meshdir="assets"', f'meshdir="{assets}"')
+
+    defaults = re.search(r"<default>(.*)</default>", xml, re.S).group(1)  # 取内层（嵌套无名 default 不合法）
+    # 主指垫加大加高 + 全部指垫高摩擦。真 Franka 指垫为 ~5cm 高摩擦橡胶面；
+    # Menagerage 仅给 8.5mm 指尖 tile——提升 1.5cm 即越过方块顶、接触几何性
+    # 消失（实测抓持必脱）。
+    defaults = defaults.replace(
+        '<geom type="box" size="0.0085 0.004 0.0085" pos="0 0.0055 0.0445"/>',
+        '<geom type="box" size="0.0085 0.004 0.022" pos="0 0.0055 0.040"/>')
+    for i in range(1, 6):
+        defaults = re.sub(
+            rf'(class="fingertip_pad_collision_{i}">\s*<geom[^/>]*)/>',
+            rf'\1 friction="2.0 0.008 0.0004"/>',
+            defaults)
+    meshes = re.search(r"<asset>(.*)</asset>", xml, re.S).group(1)
+    tendon = re.search(r"<tendon>(.*)</tendon>", xml, re.S).group(1)
+    wb = re.search(r"<worldbody>(.*)</worldbody>", xml, re.S).group(1)
+    acts = re.search(r"<actuator>(.*)</actuator>", xml, re.S).group(1)
+    # 夹爪伺服调硬：出厂 kp=100 N/m 过软（实测挤压力仅 0.7N，摩擦容量≈方块自重，
+    # 抓持必掉）。真 Franka 夹爪是力控的（持续夹持力 ~70N），此处按保守力位混合
+    # 调至 kp=800/kv=28，最大挤压力仍被 forcerange ±100N 约束。
+    acts = acts.replace('gainprm="0.01568627451 0 0" biasprm="0 -100 -10"',
+                        'gainprm="0.12549019608 0 0" biasprm="0 -800 -28"')
+
+    # TCP site：加在 hand body 内（指尖之间）
+    wb = wb.replace(
+        '<body name="hand" pos="0 0 0.107" quat="0.9238795 0 0 -0.3826834">',
+        '<body name="hand" pos="0 0 0.107" quat="0.9238795 0 0 -0.3826834">\n'
+        '                    <site name="eef_site" pos="0 0 0.1" size="0.004" rgba="1 0.8 0.1 0.6"/>',
+        1,
+    )
+    bx, by = _PANDA_BASE_XY
+    wb = f"""
+    <body name="panda_base" pos="{bx} {by} 0">
+{wb}
+    </body>"""
+    return defaults, meshes, wb, acts, tendon
+
+
+_D, _M, _W, _A, _T = _panda_sections()
+_PANDA_ASSETS = os.path.join(_PANDA_DIR, "assets")
+
+_XML = f"""
+<mujoco model="bowl-task-panda">
+  <compiler angle="radian" autolimits="true" meshdir="{os.path.join(_PANDA_DIR, 'assets')}"/>
+  <option timestep="0.002" integrator="implicitfast" impratio="25"/>
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.6 0.6 0.6"/>
+  </visual>
+  <asset>
+{_M}
+    <texture type="skybox" builtin="gradient" rgb1="0.6 0.7 0.9" rgb2="0.25 0.3 0.45" width="32" height="32"/>
+    <material name="table" rgba="0.55 0.5 0.45 1"/>
+  </asset>
+  <default>
+{_D}
+  </default>
+  <worldbody>
+    <light pos="0.1 0 1.2" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
+    <geom name="floor" type="plane" size="2 2 0.1" rgba="0.5 0.55 0.6 1"/>
+    <geom name="table" type="box" pos="0 0 -0.025" size="0.4 0.3 0.025" material="table"/>
+
+    <body name="cube" pos="-0.1 0 0.021">
+      <freejoint name="cube_joint"/>
+      <geom name="cube_geom" type="box" size="{_CUBE_HALF} {_CUBE_HALF} {_CUBE_HALF}"
+            rgba="0.85 0.08 0.08 1" friction="1.6 0.003 0.0002"/>
+    </body>
+{_walls_xml()}
+    <geom name="bowl_visual" type="cylinder" pos="{_BOWL_XY[0]} {_BOWL_XY[1]} 0.024"
+          size="0.062 0.024" rgba="0.3 0.45 0.65 0.3" contype="0" conaffinity="0" group="3"/>
+{_W}
+  </worldbody>
+  <tendon>
+{_T}
+  </tendon>
+  <actuator>
+{_A}
+  </actuator>
+</mujoco>
+"""
+
+
+# 参考工具姿态：site x=(1,0,0), y=(0,-1,0), z=(0,0,-1)（列向量）
+_R_REF = np.array([[1.0, 0.0, 0.0],
+                   [0.0, -1.0, 0.0],
+                   [0.0, 0.0, -1.0]])
+
+
+def _rot_z(yaw: float) -> np.ndarray:
+    c, s = np.cos(yaw), np.sin(yaw)
+    return np.array([[c, -s, 0.0], [s, c, 0.0], [0.0, 0.0, 1.0]])
+
+
+def _quat_mul(a: np.ndarray, b: np.ndarray) -> np.ndarray:
+    w1, x1, y1, z1 = a
+    w2, x2, y2, z2 = b
+    return np.array([w1*w2 - x1*x2 - y1*y2 - z1*z2,
+                     w1*x2 + x1*w2 + y1*z2 - z1*y2,
+                     w1*y2 - x1*z2 + y1*w2 + z1*x2,
+                     w1*z2 + x1*y2 - y1*x2 + z1*w2])
+
+
+def _orient_error(r_cur: np.ndarray, yaw_t: float) -> np.ndarray:
+    """当前姿态 → 目标姿态（Rz(yaw)·R_ref）的轴角误差（世界系，rad）。"""
+    q_t = np.empty(4)
+    m = (_rot_z(yaw_t) @ _R_REF).flatten()
+    from mujoco import mju_mat2Quat
+    mju_mat2Quat(q_t, m)
+    q_c = np.empty(4)
+    mju_mat2Quat(q_c, r_cur.flatten())
+    q_c_conj = q_c * np.array([1.0, -1.0, -1.0, -1.0])
+    q_e = _quat_mul(q_t, q_c_conj)
+    if q_e[0] < 0:
+        q_e = -q_e
+    v_norm = np.linalg.norm(q_e[1:])
+    if v_norm < 1e-9:
+        return np.zeros(3)
+    theta = 2.0 * np.arctan2(v_norm, q_e[0])
+    return q_e[1:] / v_norm * theta
+
+
+def _yaw_to_quat(yaw: float) -> np.ndarray:
+    c, s = np.cos(yaw / 2), np.sin(yaw / 2)
+    return np.array([c, 0.0, 0.0, s])
+
+
+def _wrap(a: float) -> float:
+    return float((a + np.pi) % (2 * np.pi) - np.pi)
+
+
+class MuJoCoBowlEmbodiment:
+    """抓红块放碗里的 MuJoCo 仿真本体（Panda 关节臂 + eef_abs_pose + 机器人侧 IK）。
+
+    参数
+    ----
+    execution_noise:
+        每控制步 eef 目标的高斯执行噪声 σ，(x/y m, z m, yaw rad)；默认
+        (0.0015, 0.001, 0.017)；传全 0 关闭（确定性回归测试用）。
+    """
+
+    def __init__(self, *, img_h: int = _IMG_H, img_w: int = _IMG_W,
+                 execution_noise: tuple[float, float, float] = (0.0015, 0.001, 0.017)):
+        import mujoco  # 惰性导入，保持与插件一致的风格
+
+        from inspect_robots import StateField, StateSpec
+        from inspect_robots.embodiment import (
+            AUTO_RESET,
+            PRIVILEGED_SUCCESS,
+            RENDERABLE,
+            RESETTABLE,
+            SEEDABLE,
+            EmbodimentInfo,
+        )
+
+        self._mj = mujoco
+        self._model = mujoco.MjModel.from_xml_string(_XML)
+        self._data = mujoco.MjData(self._model)
+
+        # Panda 关节/执行器索引
+        self._jids = [self._model.joint(f"joint{i}").id for i in range(1, 8)]
+        self._qadr = np.array([self._model.jnt_qposadr[j] for j in self._jids])
+        self._dadr = np.array([self._model.jnt_dofadr[j] for j in self._jids])
+        self._act_arm = [self._model.actuator(f"actuator{i}").id for i in range(1, 8)]
+        self._act_grip = self._model.actuator("actuator8").id
+        self._ctrl_lo = self._model.actuator_ctrlrange[np.array(self._act_arm), 0]
+        self._ctrl_hi = self._model.actuator_ctrlrange[np.array(self._act_arm), 1]
+        self._site = self._model.site("eef_site").id
+        self._cube_bid = self._model.body("cube").id
+        self._cube_qadr = self._model.jnt_qposadr[self._model.joint("cube_joint").id]
+        self._img_h, self._img_w = img_h, img_w
+        self._renderers: dict[str, "mujoco.Renderer"] = {}
+        self._noise = np.asarray(execution_noise, dtype=np.float64)
+        self._rng = np.random.RandomState(0)
+
+        self.info = EmbodimentInfo(
+            name="mujoco-bowl",
+            action_space=Box(
+                shape=(5,),
+                low=np.array([-_POS_LIM[0], -_POS_LIM[1], _EEF_Z_FLOOR, -np.pi, 0.0]),
+                high=np.array([_POS_LIM[0], _POS_LIM[1], _POS_LIM[2], np.pi, 1.0]),
+                semantics=ActionSemantics(
+                    control_mode="eef_abs_pose",
+                    rotation_repr="none",  # yaw 作为普通连续维（可按维安全插值）
+                    gripper="continuous",
+                    frame="base",
+                    dim_labels=("x", "y", "z", "yaw", "gripper"),
+                    max_step=(_MAX_POS_STEP,) * 3 + (_MAX_YAW_STEP, 1.0),
+                ),
+            ),
+            observation_space=ObservationSpace(
+                cameras=(
+                    CameraSpec(name="top", height=img_h, width=img_w, channels=3),
+                    CameraSpec(name="side", height=img_h, width=img_w, channels=3),
+                    CameraSpec(name="wrist", height=img_h, width=img_w, channels=3),
+                ),
+                state=StateSpec(fields=(
+                    StateField("eef_pos", (3,), "m"),
+                    StateField("eef_quat", (4,), "unit_quat"),
+                    StateField("eef_yaw", (1,), "rad"),
+                    StateField("gripper", (1,), "normalized"),
+                )),
+            ),
+            control_hz=10.0,
+            is_simulated=True,
+            capabilities=frozenset(
+                {SEEDABLE, RESETTABLE, AUTO_RESET, PRIVILEGED_SUCCESS, RENDERABLE}
+            ),
+            docs=(
+                "Tabletop pick-and-place with a Franka Panda arm mounted at the back-left "
+                "corner of the table. World/base frame: origin at table center, +x toward "
+                "the bowl (which sits at roughly x=+0.20, y=0), +z up. The red 4cm cube "
+                "starts somewhere in x<0 with a small random yaw. Top camera: world +x "
+                "The overview (top) camera shows the whole table from an elevated front angle "
+                "(the arm itself is visible at the back-left). The wrist camera is a "
+                "close view looking straight down between the open fingers, following "
+                "the gripper; in it, world +x points right and +y points up. Gripper: two fingers close "
+                "along the gripper y axis (gripper 0=closed, 1=open); the gripper points "
+                "straight down; yaw rotates it about the vertical axis. To grasp the cube "
+                "hover at z about 0.08-0.10 directly above it with gripper open, verify in "
+                "the wrist view that the cube sits centered between the fingers, then set "
+                "gripper 0 to close, lift to z 0.15+, translate over the bowl, keep gripper "
+                "0 while carrying, hover over the bowl center at z 0.10-0.12, then set "
+                "gripper 1 to release; the bowl walls are funneled inward so a near-miss "
+                "drop still slides in. Avoid the arm base area (back-left corner). "
+                "Success: cube resting inside the bowl."
+            ),
+        )
+        self._instruction: str | None = None
+        self._grip = 1.0
+        # 用 IK 从种子姿态解出有效 home（TCP 悬停工作区中央上方 28cm）
+        self._q_home_eff = self._ik_static(np.array(_EEF_HOME), 0.0, _Q_HOME, iters=300)
+
+    # ------------------------------------------------------------------ #
+    def reset(self, scene, *, seed: int | None = None) -> Observation:
+        rng = np.random.RandomState(seed if seed is not None else 0)
+        self._rng = np.random.RandomState((seed or 0) + 777)
+        mujoco = self._mj
+        mujoco.mj_resetData(self._model, self._data)
+
+        # 方块位置 + 小角度姿态随机
+        cube_x = rng.uniform(-0.18, -0.02)
+        cube_y = rng.uniform(-0.10, 0.10)
+        q = _yaw_to_quat(rng.uniform(-np.pi / 18, np.pi / 18))
+        self._data.qpos[self._cube_qadr:self._cube_qadr + 7] = np.concatenate(
+            [[cube_x, cube_y, _CUBE_HALF + 0.001], q])
+
+        # 臂回 home；夹爪张开；伺服稳定
+        self._data.qpos[self._qadr] = self._q_home_eff
+        self._data.ctrl[self._act_arm] = self._q_home_eff
+        self._data.ctrl[self._act_grip] = _grip_ctrl(1.0)
+        self._grip = 1.0
+        for _ in range(400):
+            mujoco.mj_step(self._model, self._data)
+
+        self._instruction = scene.instruction
+        return self._observe()
+
+    def step(self, action) -> StepResult:
+        mujoco = self._mj
+        target = np.clip(np.asarray(action.data, dtype=np.float64),
+                         self.info.action_space.low, self.info.action_space.high)
+
+        cur_pos = self._site_pos().copy()
+        cur_yaw = self._site_yaw()
+
+        pos_delta = np.clip(target[:3] - cur_pos, -_MAX_POS_STEP, _MAX_POS_STEP)
+        yaw_delta = float(np.clip(_wrap(float(target[3]) - cur_yaw), -_MAX_YAW_STEP, _MAX_YAW_STEP))
+        grip_start = self._grip
+        grip_end = float(np.clip(target[4], 0.0, 1.0))
+
+        # 执行噪声（eef 目标侧，IK 之前的真机残差模型）
+        pos_delta[:2] += self._rng.normal(0.0, self._noise[0], 2)
+        pos_delta[2] += self._rng.normal(0.0, self._noise[1])
+        yaw_delta += float(self._rng.normal(0.0, self._noise[2]))
+
+        new_pos = np.clip(cur_pos + pos_delta,
+                          [self.info.action_space.low[0], self.info.action_space.low[1], _EEF_Z_FLOOR],
+                          [self.info.action_space.high[0], self.info.action_space.high[1], _POS_LIM[2]])
+
+        # 子步间连续插值 eef 目标；每子步 IK 解关节目标交给位置伺服
+        for k in range(_SUBSTEPS):
+            a = (k + 1) / _SUBSTEPS
+            tgt_pos = cur_pos + a * (new_pos - cur_pos)
+            self._grip = grip_start + a * (grip_end - grip_start)
+            self._data.ctrl[self._act_grip] = _grip_ctrl(self._grip)
+            self._solve_ik(tgt_pos, cur_yaw + a * yaw_delta)
+            mujoco.mj_step(self._model, self._data)
+        self._grip = grip_end
+
+        cube = self._cube_pos()
+        in_bowl = float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1])) < _BOWL_R - 0.008
+        resting = cube[2] < _CUBE_HALF + 0.006
+        off_table = abs(cube[0]) > 0.42 or abs(cube[1]) > 0.32 or cube[2] < -0.1
+        success = bool(in_bowl and resting)
+        phase = self._phase(cube)
+
+        terminated = success or off_table
+        reason = "success" if success else ("out_of_bounds" if off_table else None)
+        reward = -float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1]))
+        return StepResult(
+            observation=self._observe(),
+            reward=reward,
+            terminated=terminated,
+            termination_reason=reason,
+            truncated=False,
+            info={"success": success, "phase": phase, "cube_pos": cube.tolist()},
+        )
+
+    def close(self) -> None:
+        for r in self._renderers.values():
+            r.close()
+        self._renderers.clear()
+
+    # ------------------------------------------------------------------ #
+    def _site_pos(self) -> np.ndarray:
+        return np.array(self._data.site_xpos[self._site], dtype=np.float64)
+
+    def _site_quat(self) -> np.ndarray:
+        q = np.empty(4)
+        self._mj.mju_mat2Quat(q, self._data.site_xmat[self._site])
+        return q
+
+    def _site_yaw(self) -> float:
+        m = self._data.site_xmat[self._site].reshape(3, 3)
+        return float(np.arctan2(m[1, 0], m[0, 0]))
+
+    def _ik_static(self, tgt_pos: np.ndarray, tgt_yaw: float, q_seed: np.ndarray,
+                   iters: int = 100, damping: float = 0.02) -> np.ndarray:
+        """纯运动学 IK（不动力学），返回解关节角——用于求 home 姿态。"""
+        mujoco = self._mj
+        jacp = np.zeros((3, self._model.nv))
+        jacr = np.zeros((3, self._model.nv))
+        cols = self._dadr
+        q = np.asarray(q_seed, dtype=np.float64).copy()
+        for _ in range(iters):
+            self._data.qpos[self._qadr] = q
+            mujoco.mj_kinematics(self._model, self._data)
+            mujoco.mj_comPos(self._model, self._data)
+            mujoco.mj_jacSite(self._model, self._data, jacp, jacr, self._site)
+            J = np.vstack([jacp[:, cols], jacr[:, cols]])
+            err = np.concatenate([
+                tgt_pos - self._data.site_xpos[self._site],
+                _orient_error(self._data.site_xmat[self._site].reshape(3, 3), tgt_yaw) * 0.5,
+            ])
+            if np.linalg.norm(err) < 1e-5:
+                break
+            dq = J.T @ np.linalg.solve(J @ J.T + damping**2 * np.eye(6), err)
+            q = np.clip(q + dq, self._ctrl_lo, self._ctrl_hi)
+        return q
+
+    def _solve_ik(self, tgt_pos: np.ndarray, tgt_yaw: float, iters: int = 3,
+                  damping: float = 0.05, null_gain: float = 0.02) -> None:
+        """DLS IK（xyz+yaw 四维误差）+ 关节限位钳制 + 零空间回中。
+
+        直接写 qpos 为 IK 解（运动学层），同时把解设为位置伺服目标——
+        伺服动力学在 mj_step 中产生跟踪滞后与接触柔顺，即真实执行层。
+        """
+        mujoco = self._mj
+        jacp = np.zeros((3, self._model.nv))
+        jacr = np.zeros((3, self._model.nv))
+        cols = self._dadr
+
+        # 关键：只在候选 q 上评估雅可比；结束时恢复真实 qpos、只把解写入
+        # 位置伺服目标。直接写 qpos 会造成运动学传送（qvel≈0），接触摩擦
+        # 无法带动物体（与 mocap 直驱同一陷阱，实测）。
+        q_actual = self._data.qpos[self._qadr].copy()
+        q = q_actual.copy()
+        for _ in range(iters):
+            self._data.qpos[self._qadr] = q
+            mujoco.mj_kinematics(self._model, self._data)
+            mujoco.mj_comPos(self._model, self._data)
+            mujoco.mj_jacSite(self._model, self._data, jacp, jacr, self._site)
+            J = np.vstack([jacp[:, cols], jacr[:, cols]])
+            err = np.concatenate([
+                tgt_pos - self._data.site_xpos[self._site],
+                _orient_error(self._data.site_xmat[self._site].reshape(3, 3), tgt_yaw) * 0.5,
+            ])
+            if np.linalg.norm(err) < 1e-5:
+                break
+            Jt = J.T
+            JJt = J @ Jt + damping**2 * np.eye(6)
+            dq = Jt @ np.linalg.solve(JJt, err)
+            Jpinv = Jt @ np.linalg.inv(JJt)
+            dq = dq + (np.eye(7) - Jpinv @ J) @ (null_gain * (self._q_home_eff - q))
+            q = np.clip(q + dq, self._ctrl_lo, self._ctrl_hi)
+        self._data.qpos[self._qadr] = q_actual  # 恢复真实状态
+        self._data.ctrl[self._act_arm] = q      # 伺服目标=IK 解
+
+    def _cube_pos(self) -> np.ndarray:
+        return np.array(self._data.xpos[self._cube_bid], dtype=np.float64)
+
+    def _phase(self, cube: np.ndarray) -> int:
+        eef = self._site_pos()
+        d_xy = float(np.hypot(*(cube[:2] - eef[:2])))
+        d_bowl = float(np.hypot(cube[0] - _BOWL_XY[0], cube[1] - _BOWL_XY[1]))
+        carried = d_xy < 0.06 and cube[2] > _CUBE_HALF + 0.01
+        if d_bowl < _BOWL_R - 0.008 and cube[2] < _CUBE_HALF + 0.006:
+            return 4
+        if carried and d_bowl < 0.08:
+            return 3
+        if carried or cube[2] > _CUBE_HALF + 0.015:
+            return 2
+        if d_xy < 0.08:
+            return 1
+        return 0
+
+    # ------------------------------------------------------------------ #
+
+    def _render(self, cam: str) -> np.ndarray:
+        # 全部走自由相机（本版 MuJoCo 的 XML/FIXED 相机在 macOS 离屏下只渲染
+        # 天空，实测）。俯视被机械臂自身遮挡 → 全局视角用前侧斜视；腕视 =
+        # 指间 TCP+0.02 向下看（穿过张开的指间，真腕载相机位形）。
+        mujoco = self._mj
+        vcam = mujoco.MjvCamera()
+        if cam == "wrist":  # 指间俯视近景：世界对齐（+x 图像右、+y 图像上）
+            tcp = self._site_pos()
+            vcam.lookat[:] = tcp + np.array([0.0, 0.0, -0.14])
+            vcam.distance = 0.16
+            vcam.azimuth = 90.0
+            vcam.elevation = -90.0
+        elif cam == "top":  # 全局斜视（避开臂的自遮挡）
+            vcam.lookat[:] = [0.0, 0.0, 0.02]
+            vcam.distance = 1.25
+            vcam.azimuth = -45.0
+            vcam.elevation = -55.0
+        else:               # side：另一侧斜视，与 top 互补
+            vcam.lookat[:] = [0.05, 0.0, 0.03]
+            vcam.distance = 1.0
+            vcam.azimuth = -130.0
+            vcam.elevation = -25.0
+        if cam not in self._renderers:
+            self._renderers[cam] = mujoco.Renderer(self._model, height=self._img_h, width=self._img_w)
+        self._renderers[cam].update_scene(self._data, camera=vcam)
+        return self._renderers[cam].render()
+
+    def _observe(self) -> Observation:
+        q = self._site_quat()
+        return Observation(
+            images={c: self._render(c) for c in ("top", "side", "wrist")},
+            state={
+                "eef_pos": self._site_pos(),
+                "eef_quat": q,
+                "eef_yaw": np.array([self._site_yaw()], dtype=np.float64),
+                "gripper": np.array([self._grip], dtype=np.float64),
+            },
+            instruction=self._instruction,
+        )
+
+
+# ---------------------------------------------------------------------- #
+def scripted_solve(emb: MuJoCoBowlEmbodiment, seed: int) -> dict:
+    """特权脚本化抓放（物理回归测试用，非 LLM）：返回该 seed 的结果字典。"""
+    from inspect_robots.scene import Scene
+    from inspect_robots.types import Action
+
+    emb.reset(Scene(id=f"reg-{seed}", instruction="pick the red cube into the bowl",
+                    init_seed=seed), seed=seed)
+    cube = np.array(emb._cube_pos())
+
+    cube_yaw = float(np.arctan2(2*(emb._data.qpos[emb._cube_qadr+6]),
+                                1 - 2*(emb._data.qpos[emb._cube_qadr+6]**2)))  # 特权：方块朝向
+    # 从四元数取 yaw（w,x,y,z；绕 z 分量）
+    qw, qx, qy, qz = emb._data.qpos[emb._cube_qadr+3:emb._cube_qadr+7]
+    cube_yaw = float(np.arctan2(2*(qw*qz + qx*qy), 1 - 2*(qy*qy + qz*qz)))
+
+    def go(x, y, z, grip=None, yaw=0.0, n=6, tol=0.008):
+        """到位判定 + 沉降等待：伺服有物理跟踪滞后，等 TCP 收敛再进行下一步。"""
+        res = None
+        tgt = np.array([x, y, z])
+        for _ in range(n):
+            res = emb.step(Action(data=np.array([x, y, z, yaw,
+                                                 grip if grip is not None else emb._grip])))
+        for _ in range(24):  # 沉降
+            res = emb.step(Action(data=np.array([x, y, z, yaw,
+                                                 grip if grip is not None else emb._grip])))
+            if np.linalg.norm(emb._site_pos() - tgt) < tol:
+                break
+        return res
+
+    go(cube[0], cube[1], cube[2] + 0.12, grip=1.0)
+    go(cube[0], cube[1], cube[2] + 0.018, yaw=cube_yaw)   # 对齐方块朝向下探
+    go(cube[0], cube[1], cube[2] + 0.018, grip=0.0, yaw=cube_yaw)
+    go(cube[0], cube[1], cube[2] + 0.18, n=5)
+    held = emb._cube_pos()[2] > 0.05
+    res = go(_BOWL_XY[0], _BOWL_XY[1], 0.20, n=8)
+    res = go(_BOWL_XY[0], _BOWL_XY[1], 0.16, grip=1.0, n=4)
+    for _ in range(12):
+        res = emb.step(Action(data=np.array([_BOWL_XY[0], _BOWL_XY[1], 0.18, 0.0, 1.0])))
+        if res.terminated:
+            break
+    return {"seed": seed, "held": bool(held), "success": bool(res.info["success"]),
+            "phase": res.info["phase"], "reason": res.termination_reason,
+            "cube": np.round(emb._cube_pos(), 3).tolist(),
+            "eef": np.round(emb._site_pos(), 3).tolist()}
+
+
+if __name__ == "__main__":
+    import sys
+
+    noise = (0.0, 0.0, 0.0) if "--deterministic" in sys.argv else (0.0015, 0.001, 0.017)
+    n_seeds = int(os.environ.get("REG_SEEDS", "10"))
+    results = [scripted_solve(MuJoCoBowlEmbodiment(execution_noise=noise), 1000 + i)
+               for i in range(n_seeds)]
+    ok = sum(r["success"] for r in results)
+    held = sum(r["held"] for r in results)
+    print(f"execution_noise={noise}")
+    print(f"grasp held: {held}/{n_seeds}   bowl success: {ok}/{n_seeds}")
+    for r in results:
+        print(f"  seed={r['seed']} held={r['held']} success={r['success']} "
+              f"phase={r['phase']} reason={r['reason']} cube={r['cube']} eef={r['eef']}")
