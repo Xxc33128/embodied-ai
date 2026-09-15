@@ -1,1 +1,0 @@
-{"status": "success", "metrics": {"success_at_end": 0.0, "episode_length": 547.0}, "calls": 19, "physics_steps": 547, "frames": 548, "wall_seconds": 1821.1881651878357, "trial_index": 13, "source": "qwen3.8-flash persistent trial subagent via LLMAgentPolicy transport", "usage_tokens": null, "cost": null, "termination_reasons": ["give_up"]}
