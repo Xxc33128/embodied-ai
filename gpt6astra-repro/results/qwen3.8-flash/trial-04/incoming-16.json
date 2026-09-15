@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.159, \"y\": 0.009, \"z\": 1.02, \"gripper\": 0}, \"note\": \"Grasp confirmed: the block rose with the hand (side view red blob now at row 135 vs 163 on the table) and is held at 5.1 cm pad opening. Carrying it toward the bowl centre, estimated at x=+0.159, y=+0.009 from the fixed-view calibration, keeping the closed latch to hold the block and buy control steps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

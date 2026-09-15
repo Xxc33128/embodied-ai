@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.082, \"y\": -0.015, \"z\": 0.8}, \"note\": \"Hand at (-0.097,-0.010,0.922), fingertips about 0.89 m, i.e. ~5 cm above the block top. In the side view the block sits ~10 px right of the fingers and in the front view ~12 px right, so the block is a couple of centimetres off toward +x. Drifting slightly toward it while continuing to descend to the lowest legal target to get the most steps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

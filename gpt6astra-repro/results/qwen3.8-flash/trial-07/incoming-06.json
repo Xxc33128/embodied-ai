@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.045, \"y\": 0.02, \"z\": 0.94, \"yaw\": 1.57}, \"note\": \"Side view puts the block ~15 mm forward (+x) of the fingertips and the wrist view no longer shows it, so it is nearly under the hand. Step counts scale with the largest per-dimension delta (position ~35 mm/step, gripper ~0.012/step), so I use a yaw flip at safe height to buy steps and centre the fingers at x=0.045, y=0.02.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

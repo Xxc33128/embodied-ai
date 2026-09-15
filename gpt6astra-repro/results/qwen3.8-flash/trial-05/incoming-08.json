@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": 0.112, \"z\": 0.855, \"gripper\": 0.45}, \"note\": \"Last chunk only ran 1 step because the commanded delta was tiny, so I use an intermediate gripper target (0.45 keeps the latch on open) to get a long chunk. I will slide ~1.5cm forward in x and down to z=0.855 so the open fingers straddle the block top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

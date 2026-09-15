@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.105, \"y\": 0.006, \"z\": 0.8, \"gripper\": 0}, \"note\": \"Hand is above the block at (0.105,0.006,0.921) with fingers wide (0.984) and the wrist view shows the block edge-on centred between the two pads, y now matched. I drive straight down onto it with the close command latched so the long chunk sinks the pads past the block sides and clamps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

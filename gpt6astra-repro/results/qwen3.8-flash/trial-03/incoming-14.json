@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.104, \"y\": 0.005, \"z\": 0.82, \"gripper\": 0}, \"note\": \"Release landed the block on the table just short of the bowl: side and front views show it at x=0.104 directly under the now-open hand (0.984), with the bowl mouth still 4-7 cm further forward. I drop straight back onto the block and re-latch the close command so the long chunk sinks the pads around it and clamps again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

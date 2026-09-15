@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.09, \"y\": -0.16, \"z\": 0.8, \"gripper\": 1}, \"note\": \"Front view: block still ~15 px left (+x) of the fingertips; side view: ~25 px right (-y). Fingertips about 4 cm above the table. Driving along the line through the grasp point (x+0.012,y-0.075,z0.855), aiming past it so the short chunk covers most of the remaining offset.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

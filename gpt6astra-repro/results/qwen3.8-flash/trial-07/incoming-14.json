@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.03, \"y\": 0.05, \"z\": 0.95, \"yaw\": -3.14}, \"note\": \"Yaw only reached 0.56 in 9 steps and the eef drifted to y=0.092, so the block is almost certainly still on the table. Continuing to lift toward z=0.95 with the yaw driven to the -3.14 end (12 steps) so the side/front views will finally show unambiguously whether the block travels with the hand.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

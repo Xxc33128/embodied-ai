@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.128, \"y\": 0.07, \"z\": 0.92}, \"note\": \"Comparing the wrist frames across my last 6 mm x / 7 mm y motion shows wrist image-right = world +y and image-up = world -x, so the red block (right and below the image centre) is at about x=-0.128, y=0.07, and the blue bowl lies further out in -x. I will hover directly above the block at z=0.92 with jaws (along y) straddling it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

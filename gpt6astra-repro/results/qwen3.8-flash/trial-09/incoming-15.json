@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.06, \"y\": 0.013, \"z\": 0.89, \"gripper\": 0}, \"note\": \"Wrist frame at z=0.8915: the block top face is now level with the pad inner edges and sits ~13 mm toward the left pad, so nudge +y 14 mm and latch closed. This is the height I wanted - pads straddling the upper 15 mm of the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"y\": 0.07, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Side view (base on right, so image-right is -x) puts the red block about 25 px beyond the current eef x=-0.111 and the front view puts it right of centre (+y); estimating block near (-0.16,+0.07). Hovering above it at z=0.95 and fully opening the gripper.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

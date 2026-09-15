@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.15, \"y\": 0.09, \"z\": 0.95, \"gripper\": 1.0}, \"note\": \"Front and side views show the red block on the table roughly below and slightly right of the current high end-effector, with the blue bowl farther toward the near-right of the table. I will open the gripper and move to a hover point above where I estimate the block is, to check alignment in the wrist camera.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

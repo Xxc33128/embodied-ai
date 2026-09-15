@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": -0.02, \"z\": 0.92}, \"note\": \"The previous 6 cm command only produced 2 control steps (~4 mm of travel), so the arm lags far behind the target. In both fixed views the red block sits almost directly under the hand (front: 7 px right, side: 10 px left) while the bowl is off to the side. Descending above the block area to 0.92 m with a larger command to see how many steps the tool layer actually executes.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

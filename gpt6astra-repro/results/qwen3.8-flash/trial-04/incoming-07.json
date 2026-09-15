@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.066, \"y\": 0.038, \"z\": 0.93, \"gripper\": 0.5}, \"note\": \"Side view gives block centre x=-0.066 (fingertip 4 px right of it) and the wrist pad centres put the block about 2 cm to the +y side, so I shift x/y onto the block and start descending to z=0.93, keeping the intermediate gripper target as extra control steps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

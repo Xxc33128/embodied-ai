@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.117, \"y\": 0.111, \"z\": 0.86, \"gripper\": 0.7}, \"note\": \"The block is centred in the wrist view, so x and y look aligned and only the descent is left. Each call only yields a few control steps, so I add an intermediate gripper target (0.7 still latches open) to lengthen the chunk and let the arm actually settle down onto the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

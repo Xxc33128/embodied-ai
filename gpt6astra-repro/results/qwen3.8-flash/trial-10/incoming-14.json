@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.035, \"y\": -0.023, \"z\": 0.872, \"gripper\": 0}, \"note\": \"Side view now puts my fingertips ~20 px PAST the block in +x and the block has dropped out of the bottom of the wrist frame, so the block centre is about (-0.03,-0.02) and my pads only reach ~3 cm ahead of the site. I back off 4 cm in x, keep the aligned y and closing height, and close again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": -0.03, \"z\": 0.87, \"gripper\": 1}, \"note\": \"Wrist view: the red block sits inside the open finger span at the bottom centre, so xy looks roughly right, but the previous descent was cut short after 3 steps (only 12 mm made). Re-issuing the descent toward z=0.87 to get the fingers level with the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

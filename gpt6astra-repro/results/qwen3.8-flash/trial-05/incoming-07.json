@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": 0.112, \"z\": 0.86, \"gripper\": 1.0}, \"note\": \"Side view shows the fingertips just above the block top, and the block sits a bit forward (+x) of the hand by roughly 1.5cm; wrist view says y is aligned. I will creep forward in x and down to z=0.86 so the open fingers straddle the block, using the gripper-open command to lengthen the chunk.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

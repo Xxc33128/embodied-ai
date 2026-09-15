@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.043, \"y\": 0.019, \"z\": 0.855, \"gripper\": 0}, \"note\": \"The block is now centred in the jaw gap in the wrist view (block pixel centre 105 vs gap centre 110), so the y alignment is finally right. I hold x/y, sink to z=0.855 and close the jaws around it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

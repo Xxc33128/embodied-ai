@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.06, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Front and side views show the red block roughly below and slightly to the +x/+y side of my current eef (-0.105,-0.009,1.003), with the blue bowl nearer the camera and to the block side. I will move to a hover above my estimated block position and open the gripper fully before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

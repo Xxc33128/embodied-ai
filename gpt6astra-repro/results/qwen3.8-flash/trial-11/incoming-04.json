@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.051, \"y\": 0.06, \"z\": 0.92, \"gripper\": 1.0}, \"note\": \"Wrist view: red block still 46 px below the finger gap centre, i.e. about +0.025 m in y from the hand; it is already centred between the jaws. Commands keep truncating to a few steps, so I overshoot the y target to 0.06 and drop z to 0.92.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

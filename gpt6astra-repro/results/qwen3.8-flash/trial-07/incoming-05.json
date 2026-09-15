@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.05, \"y\": 0.02, \"z\": 0.87, \"yaw\": 0.2}, \"note\": \"Motion length looks capped by the number of interpolated steps (~35 mm/step), so short targets end after 1-3 steps and the arm never arrives. Commanding a block-over move (x 0.05, y 0.02, z 0.87) plus a yaw change to see whether a larger non-positional delta buys more steps, and to check the side view alignment.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

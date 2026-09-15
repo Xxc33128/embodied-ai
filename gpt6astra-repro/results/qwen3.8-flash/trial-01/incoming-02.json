@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1465, \"y\": 0.113, \"z\": 0.96, \"gripper\": 1}, \"note\": \"Wrist view shows the block near image centre and the bowl at the top edge, but the wrist image axes are not yet calibrated. Making a pure +y lateral move of 0.057 m at constant height to measure how the block shifts in the wrist view and in the fixed views.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

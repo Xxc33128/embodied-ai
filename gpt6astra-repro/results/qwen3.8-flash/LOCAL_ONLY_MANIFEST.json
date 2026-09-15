@@ -1,0 +1,61 @@
+{
+  "note": "\u5927\u4ef6\u53ea\u7559\u5b9e\u9a8c\u673a\uff1b\u516c\u5f00 results/qwen3.8-flash/ \u8bb0\u5f55\u805a\u5408 SHA256\uff0c\u5220\u6539\u53ef\u68c0",
+  "regenerate": {
+    "frames": "python3 audit_standard_trials.py <batch-dir>",
+    "blind_review": "python3 prepare_blind_review.py <batch-dir>",
+    "outgoing_requests": "\u4e0d\u53ef\u91cd\u5efa\uff1a\u9010\u6b21\u5b9e\u9645\u53d1\u7ed9\u6a21\u578b\u7684\u539f\u56fe\u4e0e\u6587\u672c\u5386\u53f2"
+  },
+  "per_decision_batch": "\u975e\u6b63\u5f0f\u53e3\u5f84\uff0c\u4e0d\u8ba1\u5165\u6210\u7ee9\uff0c\u89c1\u5176 OFF_SPEC_NOTE.md",
+  "roots": {
+    "persistent_batch_modeA": {
+      "path": "logs-qwen3.8flash-subagent20-20260915-1545",
+      "groups": {
+        "outgoing_requests_with_base64_images": {
+          "files": 378,
+          "mib": 141.6,
+          "aggregate_sha256": "efde3a7859a17216cc20196edecc6c549796c4a6854dc0dc38cab56935db68c8"
+        },
+        "model_visible_frames_exported": {
+          "files": 1154,
+          "mib": 51.6,
+          "aggregate_sha256": "379e1c4257df9470b05cad7df722933e6e7879f4afe12db65eee7d3dbb668c08"
+        },
+        "harness_wire_blobs": {
+          "files": 1131,
+          "mib": 51.2,
+          "aggregate_sha256": "554c07bf82723fe0977d96c720deba7d26ce142e2acc093e2763aa4218e57602"
+        },
+        "blind_review_packets": {
+          "files": 1098,
+          "mib": 183.7,
+          "aggregate_sha256": "b6e4c074fd375c6c5335e2d6c4fcedb22341dce70c7ff6d558fdc186928673e7"
+        },
+        "aborted_attempts": {
+          "files": 1247,
+          "mib": 65.8,
+          "aggregate_sha256": "d5df8e672f710796236a3e56f2727c2869c5db085193bdedab3cfa96e48adf38"
+        }
+      }
+    },
+    "per_decision_batch_offspec": {
+      "path": "logs-qwen3.8flash-perdecision8-20260915-1917",
+      "groups": {
+        "outgoing_requests_with_base64_images": {
+          "files": 24,
+          "mib": 8.2,
+          "aggregate_sha256": "41c1c2e7683caba934d661137f0c18327dd46a7d037660bd3e97b53d18f3deac"
+        },
+        "harness_wire_blobs": {
+          "files": 60,
+          "mib": 2.7,
+          "aggregate_sha256": "435fe380a793d102f32600e37933b116a859c8e73877f2497f321b2727173a6b"
+        },
+        "offspec_trial_attempts": {
+          "files": 197,
+          "mib": 12.4,
+          "aggregate_sha256": "ed5f6a003958b2fc9c8325e3a6b8680aaf804e8f972ea9e6af4ac27b3855fc5b"
+        }
+      }
+    }
+  }
+}

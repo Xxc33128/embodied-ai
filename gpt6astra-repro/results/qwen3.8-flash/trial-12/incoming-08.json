@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": -0.12, \"z\": 0.8}, \"note\": \"Measured (-0.026,-0.025,0.904). Side view: the fingertips are only ~1.5 cm above the block top and still ~1-1.5 cm on the +y side of it; the wrist view shows the block between the open jaws but touching the right finger. One more short creep in -y and down so the jaws straddle the block before I close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

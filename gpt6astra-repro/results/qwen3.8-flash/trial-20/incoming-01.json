@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.15, \"y\": -0.02, \"z\": 0.95, \"gripper\": 1.0}, \"note\": \"Front and side views show the red block on the table between the robot base and the blue bowl, roughly under the current hand; the wrist view shows the block a few cm ahead of the open-ish gripper (measured 0.52). I will hover above the estimated block position and latch the gripper fully open to get a clean top-down view for alignment.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

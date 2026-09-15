@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.125, \"y\": 0.25, \"z\": 0.95}, \"note\": \"My wrist-camera calibration says the block is on the +y side of the hand, so I will slide in +y at hover height. This also serves as a large-motion calibration: the fixed camera in which the hand shifts sideways tells me which world axis that camera shows horizontally.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

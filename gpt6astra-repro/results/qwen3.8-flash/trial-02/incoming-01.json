@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.02, \"y\": 0.07, \"z\": 0.98, \"gripper\": 1.0}, \"note\": \"Front and side views show the red block on the table between the arm and the blue bowl; from the fixed front view I estimate the block near x=0.02, y=0.07. I will hover above that point and fully open the gripper, then re-check alignment in the wrist view.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

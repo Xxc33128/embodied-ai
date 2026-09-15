@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.047, \"y\": 0.046, \"z\": 1.007}, \"note\": \"Calibration move: shift the hand +0.06 m in x and +0.06 m in y at the same height so the horizontal shifts of the gripper in the front and side views reveal how world x/y map to image axes; the red block is near the middle of the table and the blue bowl is in front of it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

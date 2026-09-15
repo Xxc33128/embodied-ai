@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.048, \"y\": 0.056, \"z\": 0.852, \"gripper\": 1.0}, \"note\": \"Block slipped out on the lift (gripper back to 0.028) and is still on the table, now about 1 cm in +x and 0.7 cm in -y of my pads. Re-open, shift onto it and sink to the same fingertip height that gave a 0.30 squeeze reading.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

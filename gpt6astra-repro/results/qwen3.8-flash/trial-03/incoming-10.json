@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.07, \"y\": 0.006, \"z\": 0.94, \"gripper\": 0}, \"note\": \"Block is clearly held between the pads (wrist view shows it clamped at the fingertips, opening steady at 0.505) and hand is lifted to (-0.011,0.006,0.965). Side view puts the bowl centre about 8 cm further forward, near x=+0.07 at the same y. I carry the block over the bowl mouth and keep the close command latched so the chunk stays long.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

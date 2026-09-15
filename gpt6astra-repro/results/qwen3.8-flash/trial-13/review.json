@@ -1,0 +1,21 @@
+{
+  "stage_max": 4,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": true,
+  "pass1_stage": 4,
+  "pass2_stage": 4,
+  "evidence_final_frame": {
+    "step": 163,
+    "cube_bottom_z": 0.7898,
+    "speed_m_s": 0.087,
+    "distance_to_bowl_axis_m": 0.0091,
+    "grasped": false,
+    "env_success": 1.0,
+    "table_top_z": 0.8
+  },
+  "basis": "grasp ~100, held lift 130-159, over the opening 152-160, release at 160, block seated inside the bowl at 163 with the gripper open and retracted",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "boundary_pending": false
+}

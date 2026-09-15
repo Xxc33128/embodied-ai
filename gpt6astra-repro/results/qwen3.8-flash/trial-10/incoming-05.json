@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.1, \"y\": 0.2, \"z\": 0.8}, \"note\": \"Wrist view at step 49 shows the red block out to the right of the finger gap and roughly over the right finger, so the hand is still left of and behind the block. Each call only advances a couple of centimetres, so I am commanding well past the block (x +0.10, y +0.20) and down to the z limit to get real descent progress, then I will re-localise from the wrist camera.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

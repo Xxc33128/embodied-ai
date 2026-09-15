@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.042, \"y\": -0.03, \"z\": 0.865, \"gripper\": 0.75}, \"note\": \"Parallax calibration: moving the hand +10 mm in y slid the block ~7 px left in the wrist view, so wrist-image right is +y and the block is about 25 mm on the -y side of the finger gap. I shift y to -0.030, nudge x slightly to -0.042 and drop to z=0.865 so the pads straddle the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

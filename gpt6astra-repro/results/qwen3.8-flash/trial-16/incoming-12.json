@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.042, \"y\": 0.033, \"z\": 0.9, \"gripper\": 0.65}, \"note\": \"Decisive parallax: moving the hand 59 mm in -y slid the whole scene ~38 px to the LEFT, so wrist-image left is +y and the block has been on my +y side all along. I raise to z=0.90 and step +y by 116 mm to bring the block into the open jaw gap, keeping the jaws latched open via the dead band.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

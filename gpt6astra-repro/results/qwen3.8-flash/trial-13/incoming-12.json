@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.028, \"y\": -0.044, \"z\": 0.8, \"gripper\": 0}, \"note\": \"Block is centred between the pads and its top face is level with them; the fixed views still show the block at exactly the same pixel position, so nothing has been knocked yet. Closing the gripper while driving z to the table limit so the pads slide down the block sides as they clamp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

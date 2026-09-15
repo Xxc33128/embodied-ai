@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.02, \"z\": 0.95}, \"note\": \"After the +x move the block slid lower in the wrist view (now between the fingers, slightly left) and is still on the base side of the gripper in the side view, so +x is the right direction. Front view shows the block almost on the arm centreline, so y needs no big change. Creep further +x and descend to 0.95 for a closer look.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

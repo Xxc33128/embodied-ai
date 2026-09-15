@@ -1,0 +1,21 @@
+{
+  "stage_max": 3,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": true,
+  "pass1_stage": 3,
+  "pass2_stage": 3,
+  "evidence_final_frame": {
+    "step": 684,
+    "cube_bottom_z": 0.8497,
+    "speed_m_s": 0.018,
+    "distance_to_bowl_axis_m": 0.0584,
+    "grasped": true,
+    "env_success": 0.0,
+    "table_top_z": 0.8
+  },
+  "basis": "contact 621, grasp 623, lift from ~646, held over the bowl mouth 675-684; still grasped at the final step, no release, so not 4",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "boundary_pending": false
+}

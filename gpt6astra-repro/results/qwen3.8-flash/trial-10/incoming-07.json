@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.17, \"y\": -0.08, \"z\": 0.86}, \"note\": \"Reconciling all three views: the block is now behind and to the right of the hand in the wrist view (it has left the frame at the bottom), the side view puts it ~25 px toward -y of my fingertips and the front view ~17 px toward +x. Best estimate of the block centre is (0.05, 0.06). Fingertips are already level with the block top, so I command well past that point to actually close the lateral gap, with a small extra descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

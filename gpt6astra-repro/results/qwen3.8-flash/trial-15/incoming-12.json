@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.07, \"y\": 0.113, \"z\": 0.885, \"gripper\": 0}, \"note\": \"Wrist view now puts the block inside the span of my two jaws along the jaw axis, only a little beyond the fingertips, so I close again and let the 80 control steps of closing also sink the hand 15mm deeper so the jaws run down the block sides rather than past its top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

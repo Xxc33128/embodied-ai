@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0104, \"y\": -0.0459, \"z\": 0.8347, \"gripper\": 0.0}, \"note\": \"Wrist view at eef z=0.835: a red sliver of the block top shows exactly in the middle of the pad gap, between my two pads and low, so this time the jaws are straddling the block at its lower half and centred in y. Holding position and closing the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

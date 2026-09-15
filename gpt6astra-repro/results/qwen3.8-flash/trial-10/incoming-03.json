@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.049, \"y\": 0.19, \"z\": 1.013}, \"note\": \"Measured eef (-0.049,0.042,1.013), gripper open. The previous +x-only move barely shifted the wrist view, so the wrist camera axis is not aligned with x. I will now translate +0.15 m in y only, at the same height, as a clean axis test: the fixed cameras and the wrist view will show which image axes correspond to y.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

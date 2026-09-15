@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.06, \"y\": 0.012, \"z\": 0.96}, \"note\": \"Motion per call is being truncated to a few millimetres, so I use this call as a decisive direction test as well as a step towards the block: if +x is away from the arm base, the hand should move in the side view towards the block (currently the hand projects ~27 px on the base side of the block). Front view confirms hand and block share the same lateral (y) position, so I keep y=0.012.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

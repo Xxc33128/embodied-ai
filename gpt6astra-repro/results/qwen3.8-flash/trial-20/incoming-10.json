@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.104, \"y\": -0.032, \"z\": 0.905, \"gripper\": 0.5}, \"note\": \"Wrist view now puts the block almost centred: only ~16 mm in -y and ~11 mm in -x of the finger gap (block 47 px wide = 40 mm, so scale ~0.85 mm/px). I will close that residual and drop to z=0.905 so the fingertips sit at the block mid-height, keeping the gripper open with the intermediate latch value.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

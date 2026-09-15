@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0, \"z\": 0.85}, \"note\": \"Measured is now x=-0.084, z=0.900; side view still puts the block ~2 cm farther from the base (+x) than my fingers, which are already about at block-top height. Each call only achieves ~20% of the commanded distance, so I command x=0.0 and z=0.85 to actually creep about 2 cm in +x and 1 cm down.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

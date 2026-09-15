@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.12, \"y\": -0.015, \"z\": 0.86, \"gripper\": 0.66}, \"note\": \"Wrist view shows the blue bowl immediately ahead and the held red block right at its near rim, so I am over the target. Carrying the block forward into the bowl opening and lowering to z=0.86 while the gripper command ramps just past the 0.65 open-latch threshold, so the jaws release at the end of the chunk, inside the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

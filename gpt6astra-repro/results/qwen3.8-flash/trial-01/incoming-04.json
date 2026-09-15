@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.185, \"y\": -0.02, \"z\": 0.93, \"gripper\": 1}, \"note\": \"Fixed side view (base at right, so image-right is -x) puts the block about 25 px right of the fingers, i.e. ~4.5 cm further -x than measured eef x=-0.138; front view puts it slightly left of the hand. A call with no z change only runs 2-3 control steps and the arm lags, so I add a small descent to get enough steps to travel. Hovering at (-0.185,-0.02,0.93).\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

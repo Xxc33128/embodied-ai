@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": -0.016, \"z\": 0.93, \"gripper\": 1}, \"note\": \"Gripper is now fully open (measured 0.99) and hovering at z=0.999. In the wrist view the red block sits just right of centre and slightly toward the +x side relative to the hand axis, so I shift x from -0.115 to -0.10 and descend to 0.93 to keep aligning above the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

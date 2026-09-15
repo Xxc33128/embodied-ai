@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.095, \"y\": -0.13, \"z\": 0.8, \"gripper\": 1}, \"note\": \"Calibrating from the two fixed views: side view (horizontal = +y to the left) puts the block at y about -0.07, front view (horizontal = +x to the left) puts it at x about +0.02, so I am ~5 cm off in +x and ~4 cm in -y. Chunks are short, so I aim past the block along that line to get a longer motion toward it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

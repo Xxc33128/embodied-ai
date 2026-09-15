@@ -1,0 +1,21 @@
+{
+  "stage_max": 4,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": true,
+  "pass1_stage": 4,
+  "pass2_stage": 4,
+  "evidence_final_frame": {
+    "step": 713,
+    "cube_bottom_z": 0.7932,
+    "speed_m_s": 0.05,
+    "distance_to_bowl_axis_m": 0.0102,
+    "grasped": false,
+    "env_success": 1.0,
+    "table_top_z": 0.8
+  },
+  "basis": "held lift from ~543, above the opening while held 660-709, gripper opens at 710, block at rest inside the bowl by 713 (bottom z 0.793 < table 0.80, 10 mm from bowl axis)",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "boundary_pending": false
+}

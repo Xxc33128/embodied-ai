@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.13, \"y\": -0.15}, \"note\": \"Re-read of the front view shows the red block has always been at image x=106, left of the hand, not right: with the hand at y=-0.019 imaging at 107, the block is at y about -0.023, so my earlier +y travel overshot it. Pull the hand back in -y and nudge x to -0.13 to sit over the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

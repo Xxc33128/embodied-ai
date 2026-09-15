@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.01, \"y\": 0.03, \"z\": 0.85}, \"note\": \"Close-range wrist view now shows the block large and sitting just above the open finger gap but about 1 cm to the image-left (+y world) and still slightly ahead in x; side view agrees the block is a bit forward of the blades. I nudge forward, left-to-right in world +y and down so the open fingers straddle the block at pad height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

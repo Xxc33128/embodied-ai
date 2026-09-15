@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.061, \"y\": 0.044, \"z\": 0.9, \"gripper\": 0.5}, \"note\": \"Side view shows the fingertips already directly above the block in x (107 vs 108 px) but the wrist view still has the block ~9 px left of the pad gap centre, i.e. about +12 mm in y. Shifting y onto the block and descending to z=0.90.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.06, \"y\": 0.0, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Side view shows the robot base at right and the red block between the base and the blue bowl, so the block is forward of the gripper at x about -0.06 with y near 0 (front view has block and bowl both centered laterally). Moving to a hover above the estimated block position and opening the gripper.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

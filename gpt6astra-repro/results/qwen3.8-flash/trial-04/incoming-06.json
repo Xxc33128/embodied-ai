@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.063, \"y\": 0.02, \"z\": 0.99, \"gripper\": 0.5}, \"note\": \"Earlier chunks only lasted 2-3 control steps because the position waypoints are consumed fast, so I add an intermediate gripper target (which the latched binary gripper should ignore) to give the arm enough control steps to actually arrive over the block at x=-0.063.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

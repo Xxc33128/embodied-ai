@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.035, \"y\": -0.028, \"z\": 0.8, \"gripper\": 1}, \"note\": \"Wrist view now shows the block gone below the bottom edge between the two fingertips, i.e. the hand is nearly over it. Motion chunks are short, so I aim the descent target at the table floor z=0.80 to get the longest possible downward chunk and will stop when the fingers are level with the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

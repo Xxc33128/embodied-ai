@@ -1,0 +1,223 @@
+{
+  "experiment_id": "qwen38flash-standard20-20260915-1545",
+  "created_local": "2026-09-15T15:45+08:00",
+  "model": "qwen3.8-flash-subagent",
+  "model_snapshot": "qwen-token-plan-cn/qwen3.8-flash (pi subagent harness; provider snapshot id not exposed)",
+  "access_mode": "one persistent clean subagent per trial; explicit requests plus its own trial memory; wire keeps only the latest 2 observations but an already-seen image cannot be forgotten; disclosed deviation from strict API equivalence, same group definition as GPT/GLM/DeepSeek persistent batches",
+  "decision_worker": {
+    "harness": "pi coding agent dynamic-workflows subagent tool",
+    "agent_definition": ".pi/agents/bowl-policy.md (project-local)",
+    "agent_model": "qwen-token-plan-cn/qwen3.8-flash",
+    "agent_tools": [
+      "read",
+      "bash"
+    ],
+    "agent_thinking": "medium (set by parent harness front-end; not a provider effort knob)",
+    "parent_session_id": "01a0a404-743b-72ba-aa52-cd9655432a51",
+    "dispatch_prompt": "dispatch-prompt-template.txt (neutral read/submit procedure only, rendered per trial to prompt-trial-NN.txt)",
+    "clean_room": "subagent is told it has no repo/project knowledge and must not read project files, source code, private logs, or other trials; it only runs subagent_mailbox.py and views the request images"
+  },
+  "effort": "medium requested in wire payload; provider-side effort control not exposed; pi-side thinking level fixed at medium",
+  "protocol": {
+    "id": "robosuite-bowl-paired20-v1",
+    "version": "1.0",
+    "status_used": "specified_not_executed (SOP 2026-09-15)",
+    "standard_dir": "standard/",
+    "standard_copied_from": "/Users/xerxes3/Documents/huawei实习/embodied-ai/sonic-npu/weeks/2026_0914-0920_GPT6Astra评测复现/bowl-eval-v1",
+    "prompt_sha256": {
+      "system": "c73f2cd3a5656a6d06c7dc457ccbb4f21c86b8f1704f61fe3a80f2b72fdbca64",
+      "embodiment": "d63100b8f0bd013d15b8ca99c3b6ee48bb8b85aaa8dd732200e1afed76b43c5d",
+      "task": "42a68914b23d97b69852d5ddac9a49498ba96e7ae12ba6fc8e7fbfbadea031f6"
+    },
+    "prompt_and_source_hashes_verified_by_runner": true
+  },
+  "budget": {
+    "max_llm_calls": 20,
+    "max_steps": 900,
+    "control_hz": 20,
+    "max_speed_frac": 0.25,
+    "image_horizon": 2,
+    "extra_settle_steps": 0
+  },
+  "scene_bank": {
+    "copied_from": "/Users/xerxes3/Documents/huawei实习/gpt6astra-repro/logs-persistent-subagent20-20260915-113640/initializations",
+    "recursive_diff_vs_source": "identical",
+    "aggregate_sha256": "7ac039f84485d037556025d0f3f410e6317f8246cb3799bd186fe077d5354f43",
+    "aggregate_method": "cd initializations && find . -type f ( -name '*.json' -o -name '*.png' ) | sort | xargs shasum -a 256 | shasum -a 256",
+    "per_trial_match_check": "runner compares full snapshot dict before the first model call and aborts on mismatch",
+    "sharing_rationale": "same 20 frozen initializations shared across models per SOP section 1"
+  },
+  "runner": {
+    "file": "run_subagent_trials_qwen.py",
+    "sha256": "edff5d10155d6672b4b26377dd7e1ccafd1995be26c544ca6984293db451df4d",
+    "base": "run_subagent_trials.py",
+    "base_sha256": "26a27e9238e0ae55af91177bab64a47db85dd56dc7edd3aaea27383201935e0a",
+    "delta": "decision-model identity labels only",
+    "preflight_smoke": "run_subagent_trials_qwen.py --smoke passed 2026-09-15 15:47 (dev seed 1099, give_up transport smoke, video+logs written to /tmp/qwen-smoke-priv)",
+    "versions_used_during_batch": [
+      {
+        "sha256": "edff5d10155d6672b4b26377dd7e1ccafd1995be26c544ca6984293db451df4d",
+        "window": "15:47-19:31",
+        "used_by": "R1 trial-01..05 and R2 trial-06..12 launches (standard dir still at sonic-npu/weeks/...)"
+      },
+      {
+        "sha256": "247b84983dfdfbb1bf4597b4acacf095ab967affefef5c44138d43351abeed35",
+        "window": "19:31-19:43",
+        "used_by": "R3 first launches (adds BOWL_EVAL_STANDARD/repo-root fallback after the relocation)"
+      },
+      {
+        "sha256": "5fa57b52fbab60eb9514f822bc0cdd4a3b11624047dfa79fd334517cffae137c",
+        "window": "from 19:42:53",
+        "used_by": "R3 trial-14..20 launches; a parallel session applied the same standard-dir fix workspace-wide (all five runners, same timestamp). Only the candidate list differs; protocol bytes unchanged."
+      }
+    ],
+    "protocol_constant_despite_runner_edits": "load_standard() verifies prompt SHA256, assembled system SHA256 and the three environment-source SHA256 on every single load, and every trial additionally compared its initialization against the frozen bank; so all 20 attempts demonstrably ran on identical protocol bytes (E2)."
+  },
+  "environment_versions": {
+    "inspect-robots": "0.58.0",
+    "inspect-robots-agent": "0.26.0",
+    "robosuite": "1.5.2",
+    "robosuite-models": "1.0.0",
+    "mujoco": "3.3.0",
+    "numpy": "1.26.4",
+    "venv": ".venv-robosuite",
+    "host": "macOS / 10 cores / 16GB"
+  },
+  "separation": {
+    "gpt_batch_untouched": true,
+    "glm_batch_untouched": true,
+    "deepseek_batch_untouched": true,
+    "note": "qwen3.8-flash results written only under this directory; public (model-visible) requests in /tmp/bowl-qwen38flash-20260915-1545; no existing logs*/ directory modified"
+  },
+  "recording": {
+    "per_control_step": "video.mp4 20fps simulation clock, 672x224 front|side|wrist, first frame = reset observation, last frame = terminal observation",
+    "endpoint_images": "initial-{front,side,wrist}.png, final-{front,side,wrist}.png",
+    "model_visible_frames": "frames/call-NN-<camera>.png extracted losslessly from the exact wire requests by audit_standard_trials.py",
+    "requests_responses": "outgoing-NN.json / incoming-NN.json plus public request-NN.json and exported original PNG images",
+    "physics_trace_private": "physics.jsonl (cube pose, grasp/contact, bowl xy, action, step)",
+    "harness_log": "harness/*.json",
+    "credentials_in_logs": false
+  },
+  "status": "completed_2026-09-15",
+  "valid_attempts_at_1730": {
+    "count": 7,
+    "seeds": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2006,
+      2007
+    ],
+    "single_persistent_worker": [
+      "trial-03 (19 calls, give_up; finished 16:35 before any pause)",
+      "trial-05 (20 calls, give_up; finished 16:35:38 before the first 429 at ~16:37)",
+      "trial-08 (18 calls, give_up; finished 17:03 before the second 429 at ~17:11)"
+    ],
+    "worker_restart_after_quota_pause": [
+      "trial-01 (20 calls, give_up; worker replaced at call 17)",
+      "trial-02 (20 calls, give_up; worker replaced at call 15)",
+      "trial-04 (19 calls, harness termination=success with success_at_end=1.0 - the only in-bowl result so far; worker replaced at call 17, so the final approach/placement was executed by the replacement worker)",
+      "trial-07 (20 calls, give_up; worker replaced at call 1)"
+    ]
+  },
+  "trial_order": "seed 2000..2019, index 0..19; requests start in seed order, completion order depends on runtime",
+  "scheduling": {
+    "mode": "R2 rolling pool at 2 slots (user decision 2026-09-15 17:28 after two provider 429 quota pauses); earlier windows: fixed 5-trial wave 1 (aborted by the mode switch) and 5-slot dynamic pool 16:03-17:11",
+    "provider_quota": "429 insufficient_quota 'Allocated quota exceeded' from qwen-token-plan-cn (Alibaba Cloud Model Studio token plan) at ~16:37 and ~17:11; the 5-slot persistent pool sustained ~1.2M tokens/min (70.76M tokens before it was stopped). Not a pi concurrency limit; not CPU (82.8% idle)",
+    "run_a_stopped": "bowl-qwen-dynamic20-mu2dyo2m-k79cko (5 slots, indices 0..19, stopped 17:31)",
+    "run_b_active": "bowl-qwen-r2-pool2-mu2h4xrf-2qhfe0 (2 slots, 13 seeds: trial-06 and trial-09..20, i.e. seeds 2005, 2008..2019; trial-06/09..11 are re-runs of seeds whose first attempt was contaminated by the quota pauses)",
+    "r2_launcher": {
+      "file": "launch_trial_r2.sh",
+      "sha256": "3097121a2156e7a73916a18e8b3449fa31c41ac28775bfae887255dd0ecf28c0",
+      "why": "infrastructure only: runner, frozen bank, prompt template, prompts, budgets and physics are all identical to launch_trial.sh",
+      "hardening": [
+        "refuses to start when the attempt dir already exists (ATTEMPT_DIR_EXISTS, exit 4) - removes the FileExistsError failure mode seen on resume",
+        "public mailbox root /tmp/bowl-qwen38flash-r2-20260915-1730/<trial> instead of the 5-slot root, so a stale mailbox from the previous window can never be mistaken for a new runner's READY (this is what silently attached a second policy worker to trial-06/07 during the 17:11 auto-resume)"
+      ],
+      "preflight": "zsh -n syntax check, rendered-prompt path equality check, and run_subagent_trials_qwen.py --smoke all passed at 17:33 before the pool started"
+    },
+    "orchestrator": "pi workflow run bowl_qwen_r2_pool2; per trial two agent() calls: (1) infrastructure launcher (.pi/agents/bowl-launcher.md, tools=bash only, sha256 05b16ebf425c8dcfed914e0e6caa83f4f85400e4a9a9ec3de6e7e5b3cb9b1d6a) runs launch_trial_r2.sh <index> and waits for the first canonical request, (2) policy worker (.pi/agents/bowl-policy.md, tools=read+bash, model qwen-token-plan-cn/qwen3.8-flash, thinking=medium, sha256 a8dea3c156430909a50a1657551a89e2ea28cf0a949d4cbe3ad9246a7c72931a) drives the whole trial through subagent_mailbox.py",
+    "launcher_is_not_a_decision_maker": "the launcher agent never sees a policy request and never chooses a robot action; all robot decisions come from the qwen3.8-flash policy worker",
+    "retries": "agent retries disabled (0); an agent failure leaves the runner to error out and the whole trial is re-run from the same frozen initialization as a new attempt per SOP section 8",
+    "per_agent_timeout_ms": 10800000
+  },
+  "wave1_abort": {
+    "reason": "user asked to switch from fixed 5-trial waves to the dynamic rolling pool; the 5 in-flight attempts were killed at call ~2 with no model result",
+    "preserved_in": "attempts-aborted-wave1-1552/ (private dirs, public request dirs, rendered prompts, runner stdout/stderr)",
+    "counted_as_model_result": false,
+    "re_run": "trials 1-5 re-run from the same frozen initializations under the dynamic scheduler"
+  },
+  "duplicate_pool_abort": {
+    "reason": "operator error: a second overlapping dynamic run (indices 5..19) was started 30 s before it was stopped; its runners had already created attempt dirs for trial-06..10 with zero model decisions and no policy worker attached",
+    "killed": "orphan runners for trial-06..10 (indices 5..9) at 16:05; wave-1-style cleanup so the authoritative run can recreate them",
+    "preserved_in": "attempts-aborted-duplicate-launch-1603/ (private dirs, public request dirs, rendered prompts, runner stdout/stderr)",
+    "decisions_made_by_model": 0,
+    "counted_as_model_result": false,
+    "authoritative_run": "bowl-qwen-dynamic20-mu2dyo2m-k79cko (indices 0..19, 5 rolling slots)"
+  },
+  "concurrency": "5 concurrent trials in this batch; the DeepSeek batch of another model is also running on this machine; physics paused during inference; wall_seconds not serial-comparable (disclosed)",
+  "usage_note": "model API usage null; subagent account token usage recorded separately in report.md if obtainable",
+  "results_final": {
+    "valid_attempts": "20/20",
+    "recording_checks": "20/20 PASS",
+    "reviewed_stage4": 4,
+    "reviewed_stage_hist": {
+      "0": 6,
+      "1": 8,
+      "2": 1,
+      "3": 1,
+      "4": 4
+    },
+    "avg_max_stage": 1.45,
+    "mean_calls": 18.9,
+    "mean_steps": 675,
+    "terminations": {
+      "give_up": 15,
+      "success": 4,
+      "max_steps": 1
+    },
+    "groups": {
+      "persistent_single_worker_12_rows": {
+        "stage4": 3,
+        "rate": "3/12",
+        "avg_stage": 1.75
+      },
+      "worker_restart_after_429_pause_8_rows": {
+        "stage4": 1,
+        "rate": "1/8",
+        "avg_stage": 1.0
+      }
+    },
+    "successes": [
+      {
+        "trial": "trial-04",
+        "seed": 2003,
+        "group": "worker-restart"
+      },
+      {
+        "trial": "trial-13",
+        "seed": 2012,
+        "group": "persistent"
+      },
+      {
+        "trial": "trial-17",
+        "seed": 2016,
+        "group": "persistent"
+      },
+      {
+        "trial": "trial-19",
+        "seed": 2018,
+        "group": "persistent",
+        "boundary": "second reviewer read 3 from frames only; packet trajectory shows rest inside the bowl at 0.040 m/s -> kept 4, strict_frame_only_stage=3"
+      }
+    ],
+    "blind_review": {
+      "pass1": "5 reviewers x 4 clips (qwen3.8-max subagents, identity and notes hidden), 530k tokens",
+      "pass2_boundary": "3 reviewers x 2 clips, 207k tokens",
+      "review_json_per_trial": true
+    }
+  },
+  "artifacts_committed_to_repo": "../../embodied-ai/gpt6astra-repro/results/qwen3.8-flash/ (52 MB: reports, CSVs, per-trial result/review/physics/video, standard/, initializations/, source/ snapshot); large regenerable sets stay local and are digest-bound by LOCAL_ONLY_MANIFEST.json"
+}

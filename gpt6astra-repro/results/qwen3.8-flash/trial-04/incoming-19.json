@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.1548, \"y\": 0.0096, \"z\": 0.884, \"gripper\": 1}, \"note\": \"Block is hanging inside the bowl mouth, centred in the pad gap (wrist view) just above the bowl interior (side view). Holding the same Cartesian target and latching the gripper open so the block is released into the bowl and settles while the remaining steps play out.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

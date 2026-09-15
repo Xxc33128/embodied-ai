@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.018, \"y\": -0.043, \"z\": 1.1}, \"note\": \"Gripper measurement stopped at 0.52 (not 0) and the wrist view now shows the two pads 87 px apart with the block hidden below them - the block appears clamped. Lifting straight up to clear the table and confirm the block comes with the hand.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

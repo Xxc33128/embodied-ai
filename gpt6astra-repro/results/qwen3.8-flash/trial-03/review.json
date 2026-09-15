@@ -1,0 +1,21 @@
+{
+  "stage_max": 2,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": true,
+  "pass1_stage": 2,
+  "pass2_stage": 2,
+  "evidence_final_frame": {
+    "step": 621,
+    "cube_bottom_z": 0.7998,
+    "speed_m_s": 0.0,
+    "distance_to_bowl_axis_m": 0.0995,
+    "grasped": false,
+    "env_success": 0.0,
+    "table_top_z": 0.8
+  },
+  "basis": "held and lifted to bottom z 0.925 (steps 160-320) but at closest held approach 300-320 the block is wholly outside the bowl silhouette; released at 321 and rests on the table beside the bowl",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "boundary_pending": false
+}

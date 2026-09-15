@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"gripper\": 0.5}, \"note\": \"Fixed-view triangulation puts the base at negative x and the block further out in +x than my gripper, so I make a clean single-axis +x move of 5 cm (y and z unchanged) to test that: the block should slide toward the wrist-image centre. The intermediate 0.5 gripper target is in the latch-hold band so the already-open fingers stay open while the tool layer spends many control steps on the move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

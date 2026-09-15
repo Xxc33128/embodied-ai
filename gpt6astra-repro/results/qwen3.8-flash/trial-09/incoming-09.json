@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.3, \"z\": 0.97}, \"note\": \"Wrist view now shows the blue bowl directly under the hand, so the +x run overshot the block (which is on the other side). Lift the pads clear of the block and sweep back in -x with a far setpoint to buy steps, watching for the red block to re-enter the wrist frame from the top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0645, \"y\": 0.0845, \"z\": 0.955}, \"note\": \"Last command only produced 2 control steps so I am still at (-0.0645,0.0441,0.955). I will make a clean +4cm pure-y move at the same height and use the resulting shift of the static block in the front/side/wrist images to calibrate each camera axis before committing to a grasp point.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

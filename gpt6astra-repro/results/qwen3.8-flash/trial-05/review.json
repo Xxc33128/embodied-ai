@@ -1,0 +1,21 @@
+{
+  "stage_max": 1,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": false,
+  "pass1_stage": 1,
+  "pass2_stage": null,
+  "evidence_final_frame": {
+    "step": 820,
+    "cube_bottom_z": 0.7998,
+    "speed_m_s": 0.0,
+    "distance_to_bowl_axis_m": 0.2156,
+    "grasped": false,
+    "env_success": 0.0,
+    "table_top_z": 0.8
+  },
+  "basis": "fingers on block 191-650 but it stays on the table top through step 820",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "boundary_pending": false
+}

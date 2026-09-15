@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.103, \"y\": 0.012, \"z\": 0.93, \"gripper\": 1.0}, \"note\": \"Red block sits on the table only a few cm from my hand (wrist view shows it near image center, large), blue bowl farther off to one side. I will keep xy and descend to z=0.93 with the gripper open to get a closer, more calibrated view of the block relative to the fingers.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
