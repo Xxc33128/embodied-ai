@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0975, \"gripper\": 1}, \"note\": \"Hand hovers ~19 cm above the table with the red block almost centered in the wrist view, slightly below center, and the blue bowl beyond it. I move +3 cm in x (and latch the gripper open) as a small probe: comparing the wrist image shift tells me which world direction the image axes correspond to so I can center the block for a clean grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0509, \"y\": 0.0057, \"z\": 0.9988, \"yaw\": 0, \"gripper\": 1}, \"note\": \"Calibration probe: I see the red block and blue bowl on the table below the gripper; I move the end-effector +6cm in x while opening the gripper, to learn how the wrist view shifts with world motion.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

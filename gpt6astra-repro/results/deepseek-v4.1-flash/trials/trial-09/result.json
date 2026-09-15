@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "metrics": {
+    "success_at_end": 1.0,
+    "episode_length": 602.0
+  },
+  "calls": 15,
+  "physics_steps": 602,
+  "frames": 603,
+  "wall_seconds": 1860.678452014923,
+  "trial_index": 8,
+  "source": "deepseek-v4.1-flash persistent trial subagent via LLMAgentPolicy transport",
+  "usage_tokens": null,
+  "cost": null,
+  "termination_reasons": [
+    "success"
+  ]
+}

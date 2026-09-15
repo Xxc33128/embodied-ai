@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0363, \"y\": 0.0052, \"z\": 0.8404, \"yaw\": 0.0867, \"gripper\": 0}, \"note\": \"The open pads now flank the block at its mid-height (pad bottoms below the block top) and the front view shows the block centered under the gripper. Closing the gripper to grasp; a measured opening stalling above zero indicates the block is held.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

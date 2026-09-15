@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.172, \"y\": -0.01, \"z\": 0.95, \"yaw\": 1.2}, \"note\": \"The block is held securely (opening 0.5549) and now 2.5 cm off the table. I carry it toward the point above the bowl (~27 cm in +x), lifting a little higher and adding a wrist rotation, which previously granted long interpolations.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.06, \"gripper\": 1}, \"note\": \"I see the red cube and blue bowl on the table below the gripper (cube below-left of the bowl in the wrist view). I am moving the gripper a known 4.5 cm in +x at constant height to calibrate the wrist-image-to-world mapping, and opening the gripper in preparation for grasping.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

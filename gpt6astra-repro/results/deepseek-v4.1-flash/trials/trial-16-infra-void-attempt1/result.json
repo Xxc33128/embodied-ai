@@ -1,0 +1,15 @@
+{
+  "status": "error",
+  "metrics": {},
+  "calls": 4,
+  "physics_steps": 44,
+  "frames": 45,
+  "wall_seconds": 2137.9520950317383,
+  "trial_index": 15,
+  "source": "deepseek-v4.1-flash persistent trial subagent via LLMAgentPolicy transport",
+  "usage_tokens": null,
+  "cost": null,
+  "termination_reasons": [
+    null
+  ]
+}

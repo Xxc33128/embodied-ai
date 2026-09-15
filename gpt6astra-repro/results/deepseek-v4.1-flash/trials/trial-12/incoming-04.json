@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.133, \"y\": -0.06, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Wrist calibration done: world +x is image up and world +y is image left, about 570 px per meter. The red block is roughly 8 cm in -x and 8 cm in -y from the tool, so I translate diagonally over it and lower to z=0.92 with the gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

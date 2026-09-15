@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.07, \"y\": -0.06, \"z\": 0.885, \"gripper\": 1}, \"note\": \"x=-0.0773 y=-0.0409 z=0.9143 and the block is nearly centered between the fingertips in the wrist view. About 1.9 cm -y and 2.9 cm -z remain; continuing the same open-gripper pull.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

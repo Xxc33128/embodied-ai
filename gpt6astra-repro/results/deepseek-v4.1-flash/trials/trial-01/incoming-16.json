@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.056, \"y\": 0.005, \"z\": 0.9, \"yaw\": 0.404, \"gripper\": 0}, \"note\": \"The block is held but the closed-latch window is only a few steps, so each call moves barely a centimeter. I add a yaw target (which uses the same interpolation budget) to extend the window while translating toward the bowl, and will yaw back next call so the block is not twisted cumulatively.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

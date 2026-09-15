@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0615, \"y\": 0.0238, \"z\": 0.9939, \"yaw\": 0.0818, \"gripper\": 1}, \"note\": \"After moving +x the red block got larger and shifted lower in the wrist view, so +x heads toward the block; it stays centered horizontally (y alignment looks good). I move another ~3.5 cm in +x at the same height to close the remaining gap before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

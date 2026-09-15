@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": 0.016, \"z\": 0.835, \"gripper\": 0}, \"note\": \"Wrist-calibration math puts the block at x~-0.02, y~0.015 (my tool has been ~15 mm past it in +x, which is why the pads kept closing just beside the block). I move to the corrected pose while descending to z=0.835 and close in the same extended call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

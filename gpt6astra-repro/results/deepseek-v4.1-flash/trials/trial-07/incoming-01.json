@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0926, \"y\": 0.0293, \"gripper\": 1}, \"note\": \"All three views show the red block on the table with the blue bowl behind it; in the wrist view the block sits just left of frame center. I nudge the hand +0.03m in x and +0.03m in y at the same height to measure how wrist-image pixel motion maps to world xy, and open the gripper ready for grasping.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

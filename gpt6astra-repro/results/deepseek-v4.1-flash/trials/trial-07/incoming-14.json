@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.148, \"z\": 0.95, \"yaw\": -0.46}, \"note\": \"The wrist view now shows the two finger pads tight against the block on both sides and the gripper reads an intermediate opening (0.21), consistent with holding the block between the fingers. In the fixed views the bowl lies roughly 20cm toward the far side of the table, so I lift the block clear of the table and carry it toward the bowl, using the yaw change to drive the motion.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

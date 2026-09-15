@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.15, \"y\": 0.022, \"z\": 0.93}, \"note\": \"Pure x/y moves only execute ~5 mm (too few interpolation steps), so I bundle the lateral correction with a 3 cm z descent: x toward the block line, a known +15 mm y step to identify the image axes, and z down to 0.93 which stays ~9 cm above the block top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

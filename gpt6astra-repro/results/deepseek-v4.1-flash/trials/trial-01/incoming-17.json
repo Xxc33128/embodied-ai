@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.058, \"y\": 0.005, \"z\": 0.875, \"yaw\": -0.95, \"gripper\": 0}, \"note\": \"The block is still pinched (measured 0.030, above the empty 0.016). Yaw needs a large delta to buy execution steps, so I command a big negative yaw swing together with the translation toward the bowl, keeping the squeeze latched and aiming to gain several centimeters of travel this call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

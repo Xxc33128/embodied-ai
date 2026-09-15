@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1973, \"y\": -0.08, \"z\": 0.8, \"gripper\": 0}, \"note\": \"Last call: the block sits ~1cm to the image-left of the jaw centering line and my earlier -y moves shifted it left, so I nudge +y while descending to the table and closing, for a final grasp attempt at the block base.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

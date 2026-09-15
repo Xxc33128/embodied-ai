@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.093, \"y\": 0.058, \"z\": 0.87, \"gripper\": 1}, \"note\": \"The fingers closed on air (measured fully closed) and the wrist view shows the block still ahead of the closed pads, about 2-3 cm forward in x. I re-open the fingers (long window) and shift the gripper forward and slightly +y while rising clear of the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

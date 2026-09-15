@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.098, \"y\": -0.06, \"z\": 0.838, \"gripper\": 1}, \"note\": \"Wrist and side views show the closed fingers sitting about 2 cm behind and slightly above the block. I open the gripper and move slightly forward and 2.4 cm lower so the pads straddle the block at mid-height for one final grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

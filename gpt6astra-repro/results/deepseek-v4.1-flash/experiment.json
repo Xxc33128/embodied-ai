@@ -1,0 +1,38 @@
+{
+  "experiment_id": "deepseekv4.1-standard20-20260915-1435",
+  "model": "deepseek-v4.1-flash-subagent",
+  "model_snapshot": "unknown; opencode-go subagent backend not independently verifiable (parent harness self-reports opencode-go/deepseek-v4.1-flash)",
+  "access_mode": "one persistent clean subagent per trial; explicit requests plus its own trial memory; wire keeps only the latest 2 observations but an already-seen image cannot be forgotten; disclosed deviation from strict API equivalence, same group definition as GPT/GLM persistent batches",
+  "effort": "medium requested in wire; backend effort control not exposed",
+  "protocol": {
+    "id": "robosuite-bowl-paired20-v1",
+    "version": "1.0",
+    "standard_dir": "standard/"
+  },
+  "budget": {
+    "max_llm_calls": 20,
+    "max_steps": 900,
+    "max_speed_frac": 0.25,
+    "image_horizon": 2
+  },
+  "scene_bank": {
+    "copied_from": "/Users/xerxes3/Documents/huawei实习/gpt6astra-repro/logs-persistent-subagent20-20260915-113640/initializations",
+    "recursive_diff_vs_source": "identical",
+    "aggregate_sha256": "febb080b5b99918ba1e5f6865d73426986c48a0d999116d9c98d9bd0c0ec7e1a",
+    "sharing_rationale": "same 20 frozen initializations shared across models per SOP section 1"
+  },
+  "runner": {
+    "file": "run_subagent_trials_deepseek.py",
+    "sha256": "2e19e9fefe22262cc91969e7986f7e9189be081e8546cbf6fc5f3b7998256613",
+    "base": "run_subagent_trials.py",
+    "base_sha256": "26a27e9238e0ae55af91177bab64a47db85dd56dc7edd3aaea27383201935e0a",
+    "delta": "decision-model identity labels only"
+  },
+  "separation": {
+    "gpt_batch_untouched": true,
+    "glm_batch_untouched": true,
+    "note": "DeepSeek results saved only under this directory per user instruction"
+  },
+  "status": "initialized",
+  "trial_order": "seed 2000..2019 serial, index 0..19"
+}

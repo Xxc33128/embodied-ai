@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.136, \"y\": -0.026, \"z\": 0.849, \"gripper\": 0}, \"note\": \"The wrist view shows the block still about 3 cm beyond the finger tips toward the wrist side, and the closed fingers keep meeting in air. I will sweep the closing jaws to that position (about 3 cm toward -x and slightly -y) so the block ends between the pads.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
