@@ -8,15 +8,15 @@
 
 | 周次 | 主题 | 一句话结论 |
 |---|---|---|---|
-| [8/10–8/16](sonic-npu/weeks/2026_0810-0816_环境搭建与Isaac排坑/) | 环境搭建与 Isaac 排坑 | 双引擎环境跑通；scenedb 崩溃定位到驱动版本 |
-| [8/17–8/23](sonic-npu/weeks/2026_0817-0823_Phase7接口门禁与跨引擎审计/) | Phase7 接口门禁与跨引擎审计 | Interface gate PASS 14/14；物理对齐预注册路线确定 |
-| [8/24–8/30](sonic-npu/weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/) | 环境收口 + Sim2Sim 审查链启动 | 右肘 armature 不一致确立为分叉首要因素：隔离 MAE ↓74.8% |
-| [8/31–9/6](sonic-npu/weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
-| [9/7–9/13](sonic-npu/weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
+| [8/10–8/16](weeks/2026_0810-0816_环境搭建与Isaac排坑/) | 环境搭建与 Isaac 排坑 | 双引擎环境跑通；scenedb 崩溃定位到驱动版本 |
+| [8/17–8/23](weeks/2026_0817-0823_Phase7接口门禁与跨引擎审计/) | Phase7 接口门禁与跨引擎审计 | Interface gate PASS 14/14；物理对齐预注册路线确定 |
+| [8/24–8/30](weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/) | 环境收口 + Sim2Sim 审查链启动 | 右肘 armature 不一致确立为分叉首要因素：隔离 MAE ↓74.8% |
+| [8/31–9/6](weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
+| [9/7–9/13](weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
 
 ## GPT-6 Astra 评测复现（9/14 起，独立于 sonic-npu）
 
-- [`2026_0914-0920_GPT6Astra评测复现/`](2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
+- [`weeks/2026_0914-0920_GPT6Astra评测复现/`](weeks/2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
 - [`gpt6astra-repro/`](gpt6astra-repro/) — 上项代码与结果镜像：脚本全量 + 各批次精简结果（GLM/DeepSeek/Qwen 20-trial 等），图像大块未上传，取舍见其 README。
 
 ## 成果区（不按周拆分）

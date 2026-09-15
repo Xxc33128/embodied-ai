@@ -14,7 +14,7 @@
 
 > **2026-09-15 最新独立复核**：robosuite 底层脚本入碗10/10、现有契约8/8均复测通过，但尚未打通模型闭环。适配器夹爪公式反向、yaw把xyzw误读为wxyz、碗壁group0被默认渲染隐藏，均已独立实测；本轮未修生产代码。后续先处理这些接口问题，详情见周目录 `2026-09-15-robosuite适配器独立复核.md`。下文“闭环打通”等状态须依此限定。
 
-> **2026-09-14 原始来源更正**：后续复现范围以 `../embodied-ai/2026_0914-0920_GPT6Astra评测复现/2026-09-14-原始评测复核与复现范围.md` 为准。原报告概要写 0.58.0，但抽查 5 次 Astra bowl transcript 均写 0.57.1、wire=responses、max_steps=900，且观测含 joint_eff。不能再声称协议/版本/观测已 100% 对齐。Panda 与自研 IK/夹爪控制器是本地实现选择，不是原评测必要前置；用户明确无截止时间，旧 Day3 规则不再有效。保留现有版本及历史实验，不自动升级或降级。
+> **2026-09-14 原始来源更正**：后续复现范围以 `../embodied-ai/weeks/2026_0914-0920_GPT6Astra评测复现/2026-09-14-原始评测复核与复现范围.md` 为准。原报告概要写 0.58.0，但抽查 5 次 Astra bowl transcript 均写 0.57.1、wire=responses、max_steps=900，且观测含 joint_eff。不能再声称协议/版本/观测已 100% 对齐。Panda 与自研 IK/夹爪控制器是本地实现选择，不是原评测必要前置；用户明确无截止时间，旧 Day3 规则不再有效。保留现有版本及历史实验，不自动升级或降级。
 
 复现 **OpenAI × RoboCurve「GPT-6 Astra on robot arms」** 评测（<https://openai.robocurve.org/gpt-6-astra/>）的**技术协议**：用开源 harness `inspect-robots` + LLM agent policy（`move_*` 工具调用 / 回合制 ≤20 次 LLM 调用 / 限速护栏 / transcript+wire 留痕），在仿真 embodiment 上跑 pick-place 任务 20 trials。
 
@@ -192,5 +192,5 @@ Isaac 默认 state 字段 = `joint_pos / joint_vel / eef_pos / eef_quat / grippe
 
 ## 与周报的分工
 
-- 结论、指标表、对照分析 → `../embodied-ai/2026_0914-0920_GPT6Astra评测复现/`（`readme.md` 周目标 + `2026-09-14-复现启动与agent链路验证.md` 当日全文）。**新结论必须回写那里，本文件只是操作手册。**
+- 结论、指标表、对照分析 → `../embodied-ai/weeks/2026_0914-0920_GPT6Astra评测复现/`（`readme.md` 周目标 + `2026-09-14-复现启动与agent链路验证.md` 当日全文）。**新结论必须回写那里，本文件只是操作手册。**
 - 上游源码锚点 clone（只读参考，勿改）→ `../inspect-robots/`（remote `robocurve/inspect-robots`）；插件在 `plugins/inspect-robots-{agent,isaacsim}/`，其自带 `CLAUDE.md` 在该仓库内为准。
