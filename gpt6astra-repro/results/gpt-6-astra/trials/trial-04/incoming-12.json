@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.19, \"y\": 0.0, \"z\": 0.95, \"gripper\": 0}, \"note\": \"The block remains held and is approaching the bowl, but the side view shows it short of the bowl center. I continue horizontally over the opening.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

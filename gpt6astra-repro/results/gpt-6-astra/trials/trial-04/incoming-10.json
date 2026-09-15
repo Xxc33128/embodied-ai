@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.98, \"gripper\": 0}, \"note\": \"The gripper stopped at an intermediate opening with red visible between its tips. I lift vertically again to verify that the block follows the hand.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

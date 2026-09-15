@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": 0.07, \"z\": 0.91, \"gripper\": 1}, \"note\": \"The x motion shifted the block downward in the wrist view and brought the side-view hand near its horizontal position. I shift toward the block laterally and descend partway with the jaws open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

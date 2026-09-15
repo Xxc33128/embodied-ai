@@ -1,0 +1,85 @@
+{
+  "experiment_id": "logs-persistent-subagent20-20260915-113640",
+  "status": "running",
+  "model_requested": "gpt-6-astra",
+  "effort_requested": "medium",
+  "trials_planned": 20,
+  "scene_seeds": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019
+  ],
+  "protocol": "standard/protocol.json",
+  "source_sha256": {
+    "run_subagent_trials.py": "26a27e9238e0ae55af91177bab64a47db85dd56dc7edd3aaea27383201935e0a",
+    "subagent_mailbox.py": "2e0702ea59eb982bc635f71a147302a9e8066648340b16b4b8bd022a5e5e054c",
+    "robosuite_bowl.py": "9560c7becbf9a10ea924810282651f50ec1cd32f5eba7bfe38c24719c982187a",
+    "robosuite_bowl_env.py": "619b32143a02c5d526d33009d5ccdb7e29e344afbb5dea88f311fa85b7b543a6",
+    "robosuite_bowl_asset.xml": "570edb5ad223e537685962bf715f5209db5790ffad0103b56f8eb791f1fbef4a",
+    "audit_standard_trials.py": "7a5b35a89170de43c28bc1423993ac7e82ba48c68c3551a488f33ec0e603ce8b"
+  },
+  "execution_override": {
+    "authority": "User explicitly requests one new subagent per complete trial; not per decision.",
+    "fork_turns": "none",
+    "agent_lifetime": "one entire trial",
+    "within_trial_memory": "retained, including previously viewed images",
+    "cross_trial_memory": false,
+    "operator_feedback": false,
+    "max_policy_decisions": 20,
+    "max_physics_steps": 900,
+    "wire_image_horizon": 2
+  },
+  "schedule": "serial",
+  "bank_provenance": "/Users/xerxes3/Documents/huawei实习/gpt6astra-repro/logs-standard-subagent20-20260915-112007/initializations",
+  "runtime_caveat": "Persistent subagent retains older images and internal context beyond the wire request. Report as its own access-mode group; not strict standalone API equivalence. Decision budget counts policy responses, not internal Codex read/view tool calls.",
+  "usage_tokens": null,
+  "cost": null,
+  "video_storage": {
+    "layout": "front | side | wrist",
+    "regions_x": [
+      0,
+      224,
+      448,
+      672
+    ],
+    "frame_size": [
+      672,
+      224
+    ],
+    "fps": 20,
+    "clock": "simulation; inference paused",
+    "encoding": "H.264 CRF20; model images retained as lossless PNGs"
+  },
+  "created_at": "2026-09-15T11:36:40.250136+08:00",
+  "resume_at": "2026-09-15T16:35:45.579056+08:00",
+  "infrastructure_retries": [
+    {
+      "classification": "infrastructure_interruption",
+      "included_in_scores": false,
+      "reason": "Policy/manager usage-limit interruption; pending decision 14 never answered; relay timed out after 1800 seconds; process exited.",
+      "responses_executed": 13,
+      "requests_started": 14,
+      "retry_path": "trial-02-attempt-02",
+      "same_frozen_scene_seed": 2001,
+      "timestamp": "2026-09-15T16:35:45.579056+08:00"
+    }
+  ],
+  "dispatch_management": "root directly manages policy agents from trial04 onward; no intermediary manager"
+}

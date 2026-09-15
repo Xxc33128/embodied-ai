@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.018, \"z\": 0.805, \"gripper\": 1}, \"note\": \"The block stayed on the table during the lift, so the first grasp missed. I reopen and return lower, with a small correction toward the block seen in the side view.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

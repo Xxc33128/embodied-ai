@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 1.03, \"gripper\": 0}, \"note\": \"The red block is between the closed fingertips and the measured opening remains above zero. I lift vertically to check whether it is securely grasped.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

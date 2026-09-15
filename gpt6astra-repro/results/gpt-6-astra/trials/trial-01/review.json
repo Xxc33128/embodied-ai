@@ -1,0 +1,12 @@
+{
+  "stage_max": 3,
+  "stage_upper_bound": 4,
+  "success_confirmed": null,
+  "boundary_pending": true,
+  "reviewer": "two independent blind reviewers",
+  "reason": "Grasp, lift, carry, release and entry into bowl confirmed; recording ends during first landing rebound. Final placement state remains a 3/4 boundary. This is not evidence of model failure.",
+  "review_sources": [
+    "review-first.json",
+    "review-second.json"
+  ]
+}

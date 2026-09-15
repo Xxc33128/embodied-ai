@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.17, \"y\": -0.008, \"z\": 0.99, \"gripper\": 0}, \"note\": \"The red block has lifted clear of the table with the gripper. I carry it toward the blue bowl while keeping it above the rim.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

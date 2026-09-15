@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.9, \"y\": 0.055, \"gripper\": 1}, \"note\": \"The previous call advanced only two control steps and the hand remains high. I am continuing the downward and sideways approach with the gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

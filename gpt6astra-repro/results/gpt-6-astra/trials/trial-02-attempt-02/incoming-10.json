@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.17, \"y\": 0, \"z\": 0.91, \"gripper\": 0}, \"note\": \"The held block is close to the bowl center but remains slightly behind it. I am finishing the horizontal alignment and lowering toward the bowl opening.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

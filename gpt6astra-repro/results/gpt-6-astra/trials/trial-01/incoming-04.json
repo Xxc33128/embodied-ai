@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.055, \"z\": 0.95, \"gripper\": 0}, \"note\": \"The block remains below the hand and slightly to the side. I am aligning above it at a safe height and closing the empty gripper before the final open approach.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

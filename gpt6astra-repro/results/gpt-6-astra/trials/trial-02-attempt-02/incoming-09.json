@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.17, \"y\": 0, \"z\": 1.02, \"gripper\": 0}, \"note\": \"The red block has lifted clear of the table and remains between the fingers. I am carrying it forward and sideways toward the center of the blue bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

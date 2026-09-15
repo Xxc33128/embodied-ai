@@ -7,7 +7,7 @@
 | [`glm-5.3-flash/`](glm-5.3-flash/) | glm-subagent（GLM-5.3-Flash） | 完成 + 已盲评 | 0/20 | 0/20 | stage 分布 0×11，1×6，2×2，3×1（最高 stage3） |
 | [`deepseek-v4.1-flash/`](deepseek-v4.1-flash/) | deepseek-v4.1-flash-subagent | 完成 + 已盲评 | 1/20 | 1/20 | stage 分布 0×14，1×3，2×1，3×1，4×1；22 attempts（2 次基础设施无效已整 trial 重跑） |
 | qwen3.8-flash | qwen3.8-flash-subagent | **进行中** | — | — | 批次未终止，完成后另次同步 |
-| gpt-6-astra | — | 未完成 | — | — | 仅 trial-01 有效，中断现场本机保留 |
+| [`gpt-6-astra/`](gpt-6-astra/) | GPT-6 Astra / medium | **按用户决定以 5 条收口** | 5/5 | 已评 2/5：均 stage_max=3（上界 4，边界待定） | trial-02 经基础设施重跑；trial-06 收口时在跑未计入 |
 
 ## 读结果的顺序建议
 

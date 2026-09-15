@@ -15,7 +15,8 @@ gpt6astra-repro/
     ├── README.md        ← 各模型批次索引与状态
     ├── glm-5.3-flash/   ← 完成 + 已盲评（20 trials）
     ├── deepseek-v4.1-flash/ ← 完成 + 已盲评（20 trials）
-    └── <model>/
+    ├── gpt-6-astra/         ← 已按 5 条收口（env_success 5/5）
+└── <model>/
         ├── README.md      ← 本批次结论摘要
         ├── summary.csv    ← 逐 trial：seed / stage / 成败 / 步数 / 调用数 / 终止原因
         ├── report.md      ← 批次报告（GLM 批次有）
@@ -71,7 +72,7 @@ python3 -m venv .venv-robosuite && .venv-robosuite/bin/pip install \
 | glm-5.3-flash | 20 | 0/20 | 0/20 | 0×11，1×6，2×2，3×1 | 完成，已盲评 |
 | deepseek-v4.1-flash | 20（22 attempts） | 1/20 | 1/20 | 0×14，1×3，2×1，3×1，4×1 | 完成，已盲评 |
 | qwen3.8-flash | — | — | — | — | **批次进行中，完成后另次同步** |
-| gpt-6-astra | — | — | — | — | 未完成（仅 trial-01 有效；中断现场本机保留） |
+| gpt-6-astra | 5（按用户决定收口） | 5/5 | 已评 2 条均 stage 3（上界 4，边界待定） | 盲评未收口 | 收口；trial-06 在跑未计入 |
 
 所有模型盲评成功率均远低于 Astra 真机的 19/20；结合 stage 分布（多数 trial 卡在抓取前段），差距主要来自抓持物理与视觉闭环，属预期内的仿真—真机差距。结论与逐日记录见周报目录 [`../weeks/2026_0914-0920_GPT6Astra评测复现/`](../weeks/2026_0914-0920_GPT6Astra评测复现/)。
 

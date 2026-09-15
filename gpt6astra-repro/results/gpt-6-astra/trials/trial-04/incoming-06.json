@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.065, \"y\": 0.045, \"z\": 0.822, \"yaw\": 0.25, \"gripper\": 0}, \"note\": \"The block remains under the approaching hand, with the fingertips nearly at its height. I finish aligning and lower to the block center while closing the gripper to grasp it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 1}, \"note\": \"Both fixed views show the held block above the bowl, and the wrist view places it inside the rim boundaries. I open the gripper to release it into the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

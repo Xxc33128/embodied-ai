@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.035, \"y\": 0.017, \"z\": 0.82, \"yaw\": 0.2, \"gripper\": 1}, \"note\": \"The hand is still several centimeters above the red block. I continue down and shift slightly toward its center in the wrist view.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

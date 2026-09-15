@@ -1,0 +1,11 @@
+{
+  "frozen_runtime_source_matches": {
+    "run_subagent_trials.py": true,
+    "subagent_mailbox.py": true,
+    "robosuite_bowl.py": true,
+    "robosuite_bowl_env.py": true,
+    "robosuite_bowl_asset.xml": true
+  },
+  "dispatches_checked": 4,
+  "neutral_prompt_consistent_except_path": true
+}

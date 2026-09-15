@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.035, \"y\": -0.015, \"z\": 0.845, \"gripper\": 1}, \"note\": \"The open hand is almost directly above the red block in both fixed views. I descend toward grasp height with a small horizontal correction.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 1}, \"note\": \"Both fixed views place the held block over the bowl interior, just above its rim. I am opening the fingers while holding the hand position to release it into the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

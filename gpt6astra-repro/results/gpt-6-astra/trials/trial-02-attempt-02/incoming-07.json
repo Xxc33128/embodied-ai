@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "gpt-6-astra-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.06, \"z\": 0.825, \"gripper\": 0}, \"note\": \"The block is centered between the open fingers, with the fingers just above its sides. I am lowering slightly and closing to grasp it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
