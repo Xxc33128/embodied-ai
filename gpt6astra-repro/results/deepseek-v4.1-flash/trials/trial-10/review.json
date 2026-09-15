@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact=false for all 59 steps and the cube never moves; the gripper only descends to ~15 cm above the block with jaws still open (eef z 0.9688, measured_gripper 0.997 at step 59, |eef-cube| 0.164 m), as also seen in sheet-01, so approach never became contact.",
+  "reviewers": "blind-pass1-B",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

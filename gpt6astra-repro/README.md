@@ -14,7 +14,7 @@ gpt6astra-repro/
 └── results/
     ├── README.md        ← 各模型批次索引与状态
     ├── glm-5.3-flash/   ← 完成 + 已盲评（20 trials）
-    ├── deepseek-v4.1-flash/ ← 完成、盲评未跑（22 attempts）
+    ├── deepseek-v4.1-flash/ ← 完成 + 已盲评（20 trials）
     └── <model>/
         ├── README.md      ← 本批次结论摘要
         ├── summary.csv    ← 逐 trial：seed / stage / 成败 / 步数 / 调用数 / 终止原因
@@ -69,7 +69,7 @@ python3 -m venv .venv-robosuite && .venv-robosuite/bin/pip install \
 | 模型 | trials | env_success | 盲评 stage=4 | stage 分布 | 状态 |
 |---|---|---|---|---|---|
 | glm-5.3-flash | 20 | 0/20 | 0/20 | 0×11，1×6，2×2，3×1 | 完成，已盲评 |
-| deepseek-v4.1-flash | 22 attempts | 1/22 | —（盲评未跑） | — | 完成 |
+| deepseek-v4.1-flash | 20（22 attempts） | 1/20 | 1/20 | 0×14，1×3，2×1，3×1，4×1 | 完成，已盲评 |
 | qwen3.8-flash | — | — | — | — | **批次进行中，完成后另次同步** |
 | gpt-6-astra | — | — | — | — | 未完成（仅 trial-01 有效；中断现场本机保留） |
 

@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "No contact flag across all 900 steps; cube never moved (max displacement 0.0000 m, quaternion delta ~7e-17). Closest eef-cube approach was 7.1 cm (step 436) and wrist views show the gripper mostly over the bowl area - the cube was never reached or touched.",
+  "reviewers": "blind-pass1-C",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

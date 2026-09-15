@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "No contact flag in any of the 455 steps and the cube never moved (0.0000 m, quaternion delta ~1e-16). Zoomed side frames at steps 400 and 455 show the closed fingers a few mm from the cube's face without touching (closest eef-cube 6.5 cm) - approach only.",
+  "reviewers": "blind-pass1-C",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

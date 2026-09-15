@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "No contact flag across 900 steps; cube xy/quaternion exactly constant in trajectory and frames. Gripper remains open (measured_gripper 0.98) and hovers ~8.2cm from the block center at step 900.",
+  "reviewers": "blind-pass1-D",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

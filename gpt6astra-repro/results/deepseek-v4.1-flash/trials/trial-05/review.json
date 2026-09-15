@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact is false at every step of the 637-step clip and the block never moved; the eef never came within 12 cm of the block (closest ~0.121 m at step 610). No actual contact ever occurred.",
+  "reviewers": "blind-pass1-A",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

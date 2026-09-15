@@ -1,0 +1,9 @@
+{
+  "stage_max": 4,
+  "basis": "grasped=true steps 419-598 with cube_bottom_z lifted to 0.904 (step 505), and while held the block xy was within 3 cm of bowl_xy from step 514 (6-9 mm by steps 590-598); after the last grasp at step 598 the block fell and settled inside the bowl (final cube at 8 mm from bowl_xy, bottom_z ~0.795 at step 602), corroborated by frames 598-602 showing it nested in the blue bowl while the gripper opens above.",
+  "reviewers": "blind-pass1-B",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Grasped at step 419, lifted clear of the table (bottom-z up to 0.904 m), and from step 496 onward was held directly over the bowl opening (held-block xy distance to bowl center 0.006-0.009 m through step 598). It was released at ~599, and at the final step 602 it sits at the bowl bottom (r=0.008 m, bottom-z 0.795 m), confirmed by the wrist frame showing the red block resting inside the blue funnel."
+}

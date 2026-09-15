@@ -1,0 +1,9 @@
+{
+  "stage_max": 2,
+  "basis": "Contact flagged from step 307 and during 396-479 / 559-641; the cube was grasped and carried up (grasped=true, cube_bottom_z 0.799->0.902 at step 460, and ->0.864 at step 640, tracking the eef height), then released ~step 642 and fell back to the table. Closest cube-to-bowl-center distance while held was 0.19 m (step 641) and final rest was 0.19 m from bowl center, so it was never over or inside the bowl.",
+  "reviewers": "blind-pass1-C",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Two grasps lifted the block off the table (bottom-z up to 0.902 m at step 470; 0.886 m at step 630), but while held its xy never came closer than 0.190 m to bowl_xy, and after the releases (480, 642) it rests on the table at (-0.032,-0.024) at step 665. Grasped and lifted only; never over the bowl."
+}

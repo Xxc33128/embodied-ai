@@ -12,8 +12,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 1,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -29,8 +29,8 @@
     "image_references": 117,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 3,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -46,8 +46,8 @@
     "image_references": 99,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -63,8 +63,8 @@
     "image_references": 87,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -80,8 +80,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -97,8 +97,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -114,8 +114,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 1,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -131,8 +131,8 @@
     "image_references": 111,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -148,8 +148,8 @@
     "image_references": 87,
     "termination": "[\"success\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 4,
+    "reviewed_success": true,
     "review_boundary": false
   },
   {
@@ -165,8 +165,8 @@
     "image_references": 75,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -182,8 +182,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 2,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -199,8 +199,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -216,8 +216,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -233,8 +233,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -250,8 +250,8 @@
     "image_references": 87,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -267,8 +267,8 @@
     "image_references": 87,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 1,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -284,8 +284,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -301,8 +301,8 @@
     "image_references": 87,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -318,8 +318,8 @@
     "image_references": 99,
     "termination": "[\"max_steps\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   },
   {
@@ -335,8 +335,8 @@
     "image_references": 117,
     "termination": "[\"give_up\"]",
     "recording_checks": "PASS",
-    "reviewed_stage": "",
-    "reviewed_success": "",
+    "reviewed_stage": 0,
+    "reviewed_success": false,
     "review_boundary": false
   }
 ]

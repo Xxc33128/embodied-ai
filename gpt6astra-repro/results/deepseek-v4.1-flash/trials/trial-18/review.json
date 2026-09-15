@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "No contact flag in any of the 900 steps; cube xy and quaternion are exactly constant and the block never moves (frames agree). Gripper closes to 0.033 at step 900 while ~8.6cm from the block center, never reaching it.",
+  "reviewers": "blind-pass1-D",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

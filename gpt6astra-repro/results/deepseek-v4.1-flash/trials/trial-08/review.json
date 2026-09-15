@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact=false for all 775 steps and cube_pos/cube_quat remain exactly constant (bottom_z 0.7998 throughout), even though the jaws close to measured_gripper ~0.016 beside the block at steps 720-774; sheets 05-07 and frames 740/760 show the block upright and undisturbed next to, not between, the fingers.",
+  "reviewers": "blind-pass1-B",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

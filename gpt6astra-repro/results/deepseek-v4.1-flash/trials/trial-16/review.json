@@ -1,0 +1,9 @@
+{
+  "stage_max": 1,
+  "basis": "any_gripper_contact=true at steps 892,894,896-900 as the gripper closed; cube xy first deviated at step 892 and was nudged ~6.9mm/rotated by step 900 (frames 892-900 confirm fingers at the block). grasped stayed false and cube_bottom_z stayed ~0.80m, so the block was never lifted.",
+  "reviewers": "blind-pass1-D",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Only the final gripper closure contacts the block (contact flagged at steps 892-900) and nudges it ~8 mm, from (-0.062,0.000) to (-0.059,-0.007). grasped was never true and the block bottom-z stayed ~0.80 m, so nudge-level contact only."
+}
