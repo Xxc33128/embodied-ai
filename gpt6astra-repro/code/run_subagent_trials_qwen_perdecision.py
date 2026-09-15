@@ -1,7 +1,8 @@
-"""GLM-batch runner. Byte-identical protocol to run_subagent_trials.py; only the
-decision-model identity labels differ (glm-subagent). Prompts, budgets, recording,
-and frozen-bank checks are unchanged and still enforced against bowl-eval-v1."""
-"""Relay unchanged LLMAgentPolicy requests to a clean-room decision worker.
+"""Qwen per-decision batch runner. Byte-identical protocol to run_subagent_trials.py; only the
+decision-model identity labels differ (qwen3.8-flash-per-decision-subagent): one fresh
+clean-room worker per model call, each loaded only with the current canonical request. Prompts, budgets,
+recording, and frozen-bank checks are unchanged and still enforced against bowl-eval-v1.
+Relay unchanged LLMAgentPolicy requests to a clean-room decision worker.
 
 The real eval/agent/tool/action path is retained. No model decisions are generated
 here. Public mailbox exports only the outgoing model request; private observations,
@@ -18,11 +19,12 @@ import subprocess
 import time
 
 ROOT=Path(__file__).resolve().parent
+# The bowl-eval-v1 standard package lives in the embodied-ai repo and has been relocated more than
+# once (breaking hard-coded paths and killing new runners with FileNotFoundError). Resolve robustly:
+# explicit env var first, then a batch-local frozen copy next to this file, then both repo locations.
+# Protocol content is still hash-verified by load_standard() (prompt SHA256 + assembled system SHA256 +
+# environment source SHA256), so pointing at a byte-identical copy cannot silently change the protocol.
 def _find_standard():
-    # bowl-eval-v1 lives in the embodied-ai repo at weeks/2026_0914-0920_GPT6Astra评测复现/;
-    # it has been relocated more than once (breaking hard-coded paths at runner start), so resolve
-    # robustly: env override, then a batch-local frozen copy, then the repo location. load_standard()
-    # still hash-verifies prompt/system/environment, so a byte-identical copy cannot change the protocol.
     cands=([Path(os.environ['BOWL_EVAL_STANDARD'])] if os.environ.get('BOWL_EVAL_STANDARD') else [])
     cands+=[ROOT/'standard', ROOT.parent/'embodied-ai'/'weeks'/'2026_0914-0920_GPT6Astra评测复现'/'bowl-eval-v1']
     for c in cands:
@@ -100,7 +102,7 @@ def export_request(body, public, call):
 
 def chat_response(choice,call):
     return {'id':f'chatcmpl-subagent-{call}','object':'chat.completion',
-            'model':'glm-subagent',
+            'model':'qwen3.8-flash-per-decision-subagent',
             'choices':[{'index':0,'message':{'role':'assistant','content':None,
                 'tool_calls':[{'id':f'call-subagent-{call}','type':'function',
                   'function':{'name':choice['name'],'arguments':json.dumps(choice['arguments'],ensure_ascii=False)}}]},
@@ -213,20 +215,19 @@ def run_trial(args):
     try:
         scene_seed=1099 if args.smoke else 2000+args.index
         atomic_json(private/'manifest.json',{'protocol':protocol,'scene_seed':scene_seed,'trial_index':args.index,
-            'access_mode':'one persistent clean subagent per trial; explicit requests plus its own trial memory','no_extra_settle':True,
-            'decision_model':'glm-subagent','decision_model_snapshot':'unknown; coding-agent subagent backend not independently verifiable',
-            'effort_effect':'medium requested in wire; subagent backend effort control not exposed'})
-        task=Task(name='robosuite-bowl-glm-subagent',scenes=[Scene(id=f'seed-{scene_seed}',
+            'access_mode':'one fresh clean-room worker per model call; each worker sees only the current canonical request (full text history plus the latest 2 observations) and has no memory of earlier decision steps; SOP 3.4 strict API-equivalent subagent variant','no_extra_settle':True,
+            'decision_model':'qwen3.8-flash-per-decision-subagent','decision_model_snapshot':'qwen-token-plan-cn/qwen3.8-flash; pi workflow agent, thinking=medium set by parent harness front-end (not a provider snapshot id)','effort_effect':'medium requested in wire and pi-side thinking level set to medium; provider-side effort control not exposed'})
+        task=Task(name='robosuite-bowl-qwen38flash-perdecision',scenes=[Scene(id=f'seed-{scene_seed}',
             instruction=task_text,init_seed=scene_seed)],
             scorer=[success_at_end(),episode_length()],max_steps=900,epochs=Epochs(count=1,reducer='mean'))
-        policy=StandardPolicy(model='glm-subagent',base_url='http://subagent-relay.invalid/v1',
+        policy=StandardPolicy(model='qwen3.8-flash-per-decision-subagent',base_url='http://subagent-relay.invalid/v1',
             api_key_env='SUBAGENT_UNUSED_KEY',env={},transport=relay,wire='chat',
             max_llm_calls=20,max_speed_frac=.25,effort='medium',images='always',image_horizon=2,depth='render')
         (log,)=eval(task,policy,env,seed=0,log_dir=str(private/'harness'))
         outcome={'status':log.status,'metrics':dict(log.results.metrics),
                  'calls':relay.count,'physics_steps':env.steps,'frames':env.frames,
                  'wall_seconds':time.time()-started,'trial_index':args.index,
-                 'source':'glm persistent trial subagent via LLMAgentPolicy transport',
+                 'source':'qwen3.8-flash fresh per-decision subagent via LLMAgentPolicy transport',
                  'usage_tokens':None,'cost':None}
         # Read the serialized harness log for the authoritative termination reason.
         saved=next((private/'harness').glob('*.json'))

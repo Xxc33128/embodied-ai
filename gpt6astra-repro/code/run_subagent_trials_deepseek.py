@@ -12,12 +12,23 @@ import base64
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import time
 
 ROOT=Path(__file__).resolve().parent
-STANDARD=ROOT.parent/'embodied-ai'/'sonic-npu'/'weeks'/'2026_0914-0920_GPT6Astra评测复现'/'bowl-eval-v1'
+def _find_standard():
+    # bowl-eval-v1 lives in the embodied-ai repo at weeks/2026_0914-0920_GPT6Astra评测复现/;
+    # it has been relocated more than once (breaking hard-coded paths at runner start), so resolve
+    # robustly: env override, then a batch-local frozen copy, then the repo location. load_standard()
+    # still hash-verifies prompt/system/environment, so a byte-identical copy cannot change the protocol.
+    cands=([Path(os.environ['BOWL_EVAL_STANDARD'])] if os.environ.get('BOWL_EVAL_STANDARD') else [])
+    cands+=[ROOT/'standard', ROOT.parent/'embodied-ai'/'weeks'/'2026_0914-0920_GPT6Astra评测复现'/'bowl-eval-v1']
+    for c in cands:
+        if (c/'protocol.json').exists(): return c
+    raise FileNotFoundError('bowl-eval-v1 standard dir not found; checked: '+', '.join(str(c) for c in cands))
+STANDARD=_find_standard()
 
 def load_standard():
     p=json.loads((STANDARD/'protocol.json').read_text())
