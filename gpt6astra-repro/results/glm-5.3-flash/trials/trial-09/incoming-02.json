@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.025, \"z\": 0.9}, \"note\": \"Wrist view: red block is left and below image center, bowl up-left; my +x test move shifted objects left, so +x is wrist-left and +y is wrist-down. Block estimated near (-0.05, 0.025). Moving to hover 10 cm above that point to center the block before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

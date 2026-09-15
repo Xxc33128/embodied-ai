@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.027, \"y\": -0.039, \"z\": 0.85, \"gripper\": 0.65}, \"note\": \"Now at 0.97 height I move back to the proven grasp pose above the block at (-0.027,-0.039), descending to z=0.85; the approach stays high over the bowl rim and the open-latch 0.65 target keeps the jaws open while giving enough steps to track the full move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

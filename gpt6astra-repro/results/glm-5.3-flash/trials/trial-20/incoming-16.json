@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": -0.04, \"z\": 0.8, \"gripper\": 0}, \"note\": \"The fingertip plane has reached the block top and the block sits centered in the wrist view, so I am closing the gripper while continuing to lower slightly, letting the fingers wrap down around the upper half of the block for the grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

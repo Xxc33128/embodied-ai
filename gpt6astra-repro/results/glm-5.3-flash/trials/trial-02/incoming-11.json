@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.107, \"y\": 0.072, \"z\": 0.833}, \"note\": \"The wrist view shows the block fully between the open pads, center near (-0.105, +0.069), and the hand at z=0.892 with the block top about 47mm below. I push the descent on to z=0.833 so the pads engage the block upper half, then I will close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

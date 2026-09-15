@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The wrist camera now shows the red block directly between the open finger pads at grasp height. Closing the gripper to grasp it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0, \"y\": -0.1, \"z\": 0.94, \"gripper\": 0}, \"note\": \"Cross-camera estimates put the bowl center near (0.00, -0.10): the side views show it clearly toward -y and the wrist closing-axis shows only a small lateral offset. Repositioning the held block there at safe height z=0.94 before the release descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

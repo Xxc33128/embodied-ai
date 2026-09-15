@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"y\": 0.065, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Side view shows the block several cm further -x than the wrist suggested; the four missed closes bracketed x=-0.05..-0.15, so the block is near (-0.16, 0.065) and the jaws close along x. Reopening and hovering exactly there for one final centered close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

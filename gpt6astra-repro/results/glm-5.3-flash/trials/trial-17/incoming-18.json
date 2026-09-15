@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"With the pads rotated to yaw 0.64 the wrist view shows the block face-on between the fingers. Closing the gripper for a solid face grasp this time.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

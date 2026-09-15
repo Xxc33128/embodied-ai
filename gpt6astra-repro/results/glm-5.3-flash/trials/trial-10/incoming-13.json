@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": -0.06, \"z\": 0.9, \"gripper\": 1}, \"note\": \"The close at z=0.811 kicked the block: it shows tilted, leaning against the fingers in the wrist view, and the gripper read fully closed (0.016). Opening and lifting 9cm to free the block and re-assess its resting pose from above.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

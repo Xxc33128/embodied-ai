@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.012, \"y\": -0.014, \"z\": 0.9}, \"note\": \"Cross-referencing fixed front/side views with the wrist view shows the bowl centered ~10cm ahead of the hand, so the block lies about 7cm behind the current position near x=-0.012, y=-0.014. I retract slightly in x and hover 10cm above the block to verify alignment with the wrist camera before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

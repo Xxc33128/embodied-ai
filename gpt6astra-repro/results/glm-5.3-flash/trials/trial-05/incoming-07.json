@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.017, \"z\": 0.838, \"gripper\": 1}, \"note\": \"Descent continues (eef -0.055,-0.018,0.899), x error 3.3cm. Re-issuing the same grasp pose to keep the slow servo converging; gripper still open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

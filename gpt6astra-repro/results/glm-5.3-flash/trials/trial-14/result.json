@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "metrics": {
+    "success_at_end": 0.0,
+    "episode_length": 840.0
+  },
+  "calls": 17,
+  "physics_steps": 840,
+  "frames": 841,
+  "wall_seconds": 2510.6445741653442,
+  "trial_index": 13,
+  "source": "glm persistent trial subagent via LLMAgentPolicy transport",
+  "usage_tokens": null,
+  "cost": null,
+  "termination_reasons": [
+    "done"
+  ]
+}

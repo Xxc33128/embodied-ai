@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.04, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Wrist view shows the red block left-of-center and the blue bowl farther ahead; I estimate the block is near (-0.105, 0.04). Moving above that spot at z=0.95 while opening the gripper for the grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

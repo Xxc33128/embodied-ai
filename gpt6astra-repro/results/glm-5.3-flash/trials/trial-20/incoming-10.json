@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": -0.04, \"z\": 0.825}, \"note\": \"The wrist view still shows the red block near image center while the gripper descends, now at z=0.93 with the block only millimeters off center. Reissuing the same grasp target to continue descending toward z=0.825 with the gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

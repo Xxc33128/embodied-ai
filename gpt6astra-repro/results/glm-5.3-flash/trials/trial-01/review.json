@@ -1,0 +1,7 @@
+{
+  "stage_max": 0,
+  "basis": "No contact in all steps; gripper closed on air beside the block.",
+  "reviewers": "reviewer-A",
+  "second_review": false,
+  "blind": true
+}

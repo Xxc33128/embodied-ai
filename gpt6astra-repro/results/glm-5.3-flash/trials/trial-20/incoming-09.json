@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": -0.04, \"z\": 0.825}, \"note\": \"Hover trim stalled on the direction reversal, so I am starting the descent now toward the estimated block center (-0.105, -0.04) down to grasp height about 2.5 cm above the table, with the gripper still open. I will reissue this target to keep descending and check the wrist view before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

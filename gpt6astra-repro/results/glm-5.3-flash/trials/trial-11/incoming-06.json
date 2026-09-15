@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.014, \"z\": 0.9, \"gripper\": 0.65}, \"note\": \"Fixed front/side views confirm the block never moved; my wrist-camera pitch assumption was unreliable across postures. Consensus of all estimates puts the block near x=-0.02, y=-0.014. I reposition there at hover height using the 0.65 intermediate gripper target to extend the interpolation window, then inspect before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

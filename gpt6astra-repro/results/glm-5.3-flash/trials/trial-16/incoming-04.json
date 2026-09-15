@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.14, \"y\": -0.03, \"z\": 0.83, \"gripper\": 1}, \"note\": \"Wrist view shows the block slightly left of center while the arm settles onto the hover point; the block sits about 4.5 cm tall on the table, so I am descending with the gripper open to z=0.83 to straddle the block mid-height before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

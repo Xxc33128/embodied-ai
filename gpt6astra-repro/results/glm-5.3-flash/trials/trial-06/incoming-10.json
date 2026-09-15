@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.025, \"y\": -0.037, \"z\": 0.86}, \"note\": \"Hovering open over the block at z=0.897. Last vertical descents crawled near the folded-joint limit, so I descend along a slanted path with a small +x bias (the long fingers grip the block fine when offset along their length) targeting TCP z=0.86, which puts the fingertips mid-block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

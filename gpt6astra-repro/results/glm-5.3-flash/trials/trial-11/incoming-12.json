@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 1}, \"note\": \"The 0.34 target physically squeezed the jaws and the block slipped out, dropping back at its original spot (fixed views confirm it is at the same place, block center near x=-0.028, y=-0.035). I fully reopen the jaws first; the fixed views show the gripper is well clear of the block, so opening is safe.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

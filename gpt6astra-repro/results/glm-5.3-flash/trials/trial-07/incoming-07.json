@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.116, \"y\": 0.049, \"z\": 0.832}, \"note\": \"Side view shows the fingertips still just above and slightly -x/-y of the block; each call advances only a fraction of the commanded path, so I keep steering at the block mid-height and will chain this target before closing the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

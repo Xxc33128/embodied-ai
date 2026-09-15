@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.129, \"y\": 0.057, \"z\": 1.01}, \"note\": \"The block is converging toward the wrist-view center (now 13px left, 31px down), confirming it sits near (-0.129, +0.057). Still ~70mm lateral of the block and ~165mm above it, so I keep moving to the centered hover while starting a mild descent to z=1.01, which stays clear of the block top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.007, \"y\": -0.044, \"z\": 0.95, \"gripper\": 0}, \"note\": \"The block is firmly held between the fingers (gripper stalled at half travel instead of closing empty). The wrist view places the bowl opening ahead toward -y; moving to about (+0.007, -0.044) at z=0.95 to hover over the bowl before releasing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

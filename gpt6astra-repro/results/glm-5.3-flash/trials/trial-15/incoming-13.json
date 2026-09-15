@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"Hand is centered at (-0.008, 0.019) with pads at block mid-height (z=0.844) and fully open. Closing the gripper to grasp the block now.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

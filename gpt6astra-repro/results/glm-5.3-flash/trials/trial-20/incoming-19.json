@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.07, \"y\": -0.04, \"z\": 0.9}, \"note\": \"The wrist view shows the blue bowl rim just ahead toward image-top and the red block still resting on the closed fingers. I am gliding forward over the bowl interior while rising slightly, keeping the gripper closed so the block stays aboard for one more call, when I will open and drop it in.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

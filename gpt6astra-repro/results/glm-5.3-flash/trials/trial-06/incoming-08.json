@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The side view shows both fingers straddling the red block down to its lower half, with the block top visible between the pads in the wrist view. I close the gripper to grasp the block and will check the measured opening to confirm a successful grip.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

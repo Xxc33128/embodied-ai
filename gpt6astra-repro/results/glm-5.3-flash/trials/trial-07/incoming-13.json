@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The wrist view now shows the block sitting centered between the open fingertips, so I close the jaws without commanding any arm translation to avoid nudging it again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

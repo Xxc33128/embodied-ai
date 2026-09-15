@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.028, \"y\": 0.005, \"z\": 0.806, \"gripper\": 0.5}, \"note\": \"Front view shows the block directly below the gripper in x (front camera tracks -x), and the side view (horizontal = -y) shows it ~2.5 cm to the right, i.e. at lower y: block estimated at (-0.028, 0.005). Descending with fingers latched open to grasp height, keeping the wrist high enough on the way to avoid sweeping the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

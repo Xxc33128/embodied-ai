@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": -0.02, \"z\": 0.82}, \"note\": \"The wrist view shows the red block just ahead-right of the fingertips and both fixed views put the gripper nearly over it, so the block center is about 1cm +x and 1cm -y from my current pose. I center over it and descend to mid-block height (z=0.82) with the gripper open to prepare the grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

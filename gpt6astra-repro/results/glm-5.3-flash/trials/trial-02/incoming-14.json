@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.078, \"y\": 0.068, \"z\": 0.868, \"gripper\": 1}, \"note\": \"Regrasp needed: the jaws closed on air - the side view shows the block still on the table about 25-35mm further +x than the fingertips (the tilted wrist camera made its image center a misleading aim point). I reopen the gripper and shift +x by ~30mm to (-0.078, +0.068) at the same low height so the open pads straddle the block for a second closing attempt.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

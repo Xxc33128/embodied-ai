@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.98, \"yaw\": 0.3}, \"note\": \"The jaws stalled at 0.109 (versus 0.016 closing empty), confirming the ~3cm block is gripped, and the wrist view shows it held between the fingers. I lift straight up to 0.98 to clear the bowl rim; I add a small yaw change since a closing/opening gripper is what extends the interpolation window, and I am testing whether yaw does the same so I can use it for the transfer move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

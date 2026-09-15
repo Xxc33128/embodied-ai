@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"y\": 0.012, \"z\": 0.82, \"gripper\": 1}, \"note\": \"Continuing the same descent pulse: measured z is 0.908 and the block top is near 0.845, so I re-issue x=-0.16, y=0.012, z=0.82 with the gripper open to bring the fingers down beside the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

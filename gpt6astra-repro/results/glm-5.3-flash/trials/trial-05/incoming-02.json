@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": -0.018, \"z\": 0.9}, \"note\": \"Wrist view still shows the red block to the image-left, but my x estimate is inconsistent between views. I am making a pure +x calibration shift (3.7cm) with a small descent so the block pixel shift reveals the wrist camera axis mapping and scale.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

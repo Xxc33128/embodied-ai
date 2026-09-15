@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.805, \"gripper\": 0.5}, \"note\": \"The wrist view shows the block cleanly straddled between the fingers, but the fingertip plane at z=0.831 is at the block top. Descending ~2.5 cm more so the pads grip mid-block; z undershoot and any gentle contact will settle it at a safe grasp depth.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

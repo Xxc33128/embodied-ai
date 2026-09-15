@@ -1,0 +1,1162 @@
+{
+  "error": null,
+  "eval": {
+    "created": "2026-09-15T04:51:21.039693+00:00",
+    "embodiment": "robosuite-bowl",
+    "embodiment_info": {
+      "capabilities": [
+        "auto_reset",
+        "privileged_success",
+        "renderable",
+        "resettable",
+        "seedable"
+      ],
+      "control_hz": 20.0,
+      "is_simulated": true
+    },
+    "git_commit": null,
+    "inspect_robots_version": "0.58.0",
+    "max_seconds": null,
+    "max_steps": 900,
+    "policy": "agent",
+    "policy_config": {
+      "action_horizon": 1,
+      "api_key_env": "SUBAGENT_UNUSED_KEY",
+      "base_url": "http://subagent-relay.invalid/v1",
+      "depth": "render",
+      "effort": "medium",
+      "image_horizon": 2,
+      "images": "always",
+      "max_llm_calls": 20,
+      "max_output_tokens": null,
+      "max_speed_frac": 0.25,
+      "model": "glm-subagent",
+      "pre_check": null,
+      "prior_learnings": null,
+      "prior_learnings_sha256": null,
+      "replan_interval": null,
+      "speed": null,
+      "temperature": null,
+      "transcript_echo": false,
+      "wire": "chat",
+      "wire_capture": true
+    },
+    "seed": 0,
+    "task": "robosuite-bowl-glm-subagent"
+  },
+  "results": {
+    "errored_trials": 0,
+    "metrics": {
+      "episode_length": 900.0,
+      "success_at_end": 0.0
+    },
+    "total_scenes": 1,
+    "total_trials": 1
+  },
+  "samples": [
+    {
+      "epochs": [
+        {
+          "episode_length": 900.0,
+          "success_at_end": 0.0
+        }
+      ],
+      "error": null,
+      "instruction": "Pick up the red block from the table and place it inside the blue bowl.",
+      "judgement_sources": [
+        null
+      ],
+      "operator_judgements": [
+        null
+      ],
+      "operator_messages": [
+        []
+      ],
+      "operator_notes": [
+        null
+      ],
+      "policy_transcripts": [
+        [
+          {
+            "content": "You control a simulated robot through the provided tools. Use the current camera images, the measured robot state, and the history of this trial to complete the user's task.\n\nRespond with exactly one tool call per turn. Every movement call must include a brief note describing what you observe and why you choose that movement. Check the next observation before deciding your next action. A commanded target is not a measurement of the position reached.\n\nYou have at most 20 model calls for this trial, including tool errors and any done or give_up call. The trial also has a separate limit of 900 robot control steps. Call done when you judge the task complete, or give_up when you judge that you cannot complete it within the remaining budget.\n\nUse only the supplied task, robot documentation, tools, and observations. Do not request outside assistance, access source code or hidden simulator state, or use information from other trials. No feedback or learned notes from previous trials are available.\n\nRobot documentation:\nRobot: one Franka Panda arm with a parallel-jaw gripper in a tabletop simulation. The table surface is at world z=0.80 m. World +z points upward. All position targets and measured end-effector positions use the same world frame.\n\nThe move_to tool accepts absolute x, y, z, yaw, and gripper targets. Position units are meters and yaw units are radians. Valid bounds are x in [-0.30, 0.35], y in [-0.30, 0.30], z in [0.80, 1.30], and yaw in [-pi, pi]. The gripper is oriented approximately downward; yaw is its controllable rotation about world +z. Pitch and roll are not exposed as action dimensions.\n\nGripper commands are binary: use 0 to close and 1 to open. The reported gripper value is the measured opening normalized from 0 to 1, so holding an object may produce an intermediate measurement. In the adapter, targets below 0.35 latch closed, targets above 0.65 latch open, and intermediate targets retain the previous command. Intermediate commanded openings are not supported. Dimensions omitted from move_to are filled from the measured end-effector state by the tool layer.\n\nThe tool layer interpolates targets under its shared motion limits. The robot may not reach a target before the next observation; use the measured state and images to determine what happened. No additional settling motion is inserted after a tool call.\n\nState fields: eef_pos is the measured end-effector position; eef_quat uses (w,x,y,z); eef_yaw is in radians; gripper is measured normalized opening; eef_state is [x,y,z,yaw,gripper]. joint_pos and joint_vel describe the seven arm joints in radians and radians per second. joint_eff contains arm actuator torques in N m, including controller compensation; it is not a fingertip contact sensor.\n\nCameras: front and side are fixed views; wrist moves with the hand. All are 224x224 RGB images with the top row at the top of the view. The wrist view can rotate as the hand rotates. No fixed mapping from image directions to world x/y is assumed. Each request includes the current three views and retains images from at most the two most recent observations.",
+            "role": "system"
+          },
+          {
+            "content": "Goal: Pick up the red block from the table and place it inside the blue bowl.",
+            "role": "user"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1226, -0.0007, 0.9868]\nstate[eef_quat]: [-0.0004, 0.9994, -0.0236, 0.0239]\nstate[eef_yaw]: [-0.0473]\nstate[gripper]: [0.5208]\nstate[eef_state]: x=-0.1226 y=-0.0007 z=0.9868 yaw=-0.0473 gripper=0.5208\nstate[joint_pos]: [0.0275, 0.2393, -0.0244, -2.6242, 0.0229, 2.9113, 0.8149]\nstate[joint_vel]: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]\nstate[joint_eff]: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 0):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 0):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 0):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.14, \"y\": 0.03, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Wrist view shows the red block slightly below-left of center with the blue bowl farther toward the top of the frame; I open the gripper and hover above my block estimate to refine alignment.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-1",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 39 steps (1.9s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-1"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1345, 0.0227, 0.9341]\nstate[eef_quat]: [-0.0018, 0.9995, -0.0248, 0.0174]\nstate[eef_yaw]: [-0.0497]\nstate[gripper]: [0.9916]\nstate[eef_state]: x=-0.1345 y=0.0227 z=0.9341 yaw=-0.0497 gripper=0.9916\nstate[joint_pos]: [0.0529, 0.399, 0.001, -2.6106, 0.0051, 3.0445, 0.8843]\nstate[joint_vel]: [0.039, 0.1472, 0.0087, 0.0533, -0.0224, 0.1004, 0.1047]\nstate[joint_eff]: [0.165, -26.1847, -0.37, 10.0768, -0.1226, 2.3712, 0.1818]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 39):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 39):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 39):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.128, \"y\": 0.045, \"z\": 0.86}, \"note\": \"The block now sits left of center and slightly above center in the wrist view, so it is a bit +y and +x of the current hover point; I shift to center it and descend to a pre-grasp hover for a clearer alignment check.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-2",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 2 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-2"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1333, 0.0251, 0.9256]\nstate[eef_quat]: [-0.0018, 0.9996, -0.0244, 0.0158]\nstate[eef_yaw]: [-0.0489]\nstate[gripper]: [0.9923]\nstate[eef_state]: x=-0.1333 y=0.0251 z=0.9256 yaw=-0.0489 gripper=0.9923\nstate[joint_pos]: [0.0568, 0.4301, 0.0019, -2.5957, 0.0018, 3.0575, 0.8913]\nstate[joint_vel]: [0.0429, 0.4533, 0.0233, 0.2298, -0.0472, 0.174, 0.0375]\nstate[joint_eff]: [0.7882, -24.5223, 0.0425, 9.3937, -0.5142, 3.2601, -0.2188]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 41):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 41):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 41):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.128, \"y\": 0.045, \"z\": 0.86}, \"note\": \"The last motion stopped after only 2 control steps and the state shows z=0.926, far short of the 0.86 hover target with the block still left of center in the wrist view; I re-issue the same target to finish the descent.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-3",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 2 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-3"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1318, 0.028, 0.9153]\nstate[eef_quat]: [-0.002, 0.9996, -0.0226, 0.0151]\nstate[eef_yaw]: [-0.0453]\nstate[gripper]: [0.993]\nstate[eef_state]: x=-0.1318 y=0.028 z=0.9153 yaw=-0.0453 gripper=0.993\nstate[joint_pos]: [0.0612, 0.4669, 0.0032, -2.5781, -0.0019, 3.0754, 0.8971]\nstate[joint_vel]: [0.0472, 0.4066, 0.0079, 0.21, -0.0153, 0.19, 0.106]\nstate[joint_eff]: [0.3427, -27.8132, -0.4725, 9.2738, 0.4594, 2.5978, 0.8288]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 43):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 43):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 43):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.128, \"y\": 0.045, \"z\": 0.815}, \"note\": \"Motions are advancing only about 1cm per call, so I keep commanding the grasp approach point centered over the block; the wrist view still shows the block left of center so I hold the small +x/+y offset while descending.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-4",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 3 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-4"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1291, 0.0312, 0.8978]\nstate[eef_quat]: [-0.0019, 0.9996, -0.0227, 0.0138]\nstate[eef_yaw]: [-0.0455]\nstate[gripper]: [0.9938]\nstate[eef_state]: x=-0.1291 y=0.0312 z=0.8978 yaw=-0.0455 gripper=0.9938\nstate[joint_pos]: [0.068, 0.5291, 0.0027, -2.5463, -0.0052, 3.1031, 0.9068]\nstate[joint_vel]: [0.046, 0.5663, -0.0014, 0.299, -0.0309, 0.2193, 0.0179]\nstate[joint_eff]: [-0.1626, -29.0054, -0.3894, 7.9969, -0.0061, 3.242, -0.1314]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 46):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 46):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 46):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.126, \"y\": 0.048, \"z\": 0.84}, \"note\": \"Descending further; the wrist view still shows the block a touch left of center so I keep a small +y correction while lowering toward the pre-grasp height above the block.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-5",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 2 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-5"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1289, 0.0336, 0.8872]\nstate[eef_quat]: [-0.0021, 0.9997, -0.0216, 0.0139]\nstate[eef_yaw]: [-0.0433]\nstate[gripper]: [0.9944]\nstate[eef_state]: x=-0.1289 y=0.0336 z=0.8872 yaw=-0.0433 gripper=0.9944\nstate[joint_pos]: [0.0728, 0.5648, 0.003, -2.5311, -0.0065, 3.1242, 0.911]\nstate[joint_vel]: [0.0529, 0.3483, 0.0034, 0.1526, -0.0114, 0.2022, 0.0351]\nstate[joint_eff]: [0.4876, -29.8408, -0.2056, 8.5076, -0.1205, 2.3616, -0.0862]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 48):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 48):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 48):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.114, \"y\": 0.047, \"z\": 0.828}, \"note\": \"Front and side views show the gripper still ~1-2cm -x and -y of the red block; I aim the descent directly at the block mid-height so the pads straddle it, expecting to chain this target over the next few calls.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-6",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 2 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-6"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.128, 0.0362, 0.8781]\nstate[eef_quat]: [-0.0024, 0.9997, -0.0198, 0.015]\nstate[eef_yaw]: [-0.0398]\nstate[gripper]: [0.9948]\nstate[eef_state]: x=-0.128 y=0.0362 z=0.8781 yaw=-0.0398 gripper=0.9948\nstate[joint_pos]: [0.0784, 0.5966, 0.003, -2.5159, -0.0074, 3.1429, 0.9137]\nstate[joint_vel]: [0.0562, 0.398, -0.0033, 0.2367, -0.0075, 0.1743, 0.0117]\nstate[joint_eff]: [-0.2131, -27.6828, -0.4847, 9.0773, 0.035, 2.2288, -0.0879]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 50):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 50):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 50):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.116, \"y\": 0.049, \"z\": 0.832}, \"note\": \"Side view shows the fingertips still just above and slightly -x/-y of the block; each call advances only a fraction of the commanded path, so I keep steering at the block mid-height and will chain this target before closing the jaws.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-7",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 2 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-7"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1262, 0.038, 0.8699]\nstate[eef_quat]: [-0.0024, 0.9997, -0.0202, 0.0164]\nstate[eef_yaw]: [-0.0405]\nstate[gripper]: [0.9953]\nstate[eef_state]: x=-0.1262 y=0.038 z=0.8699 yaw=-0.0405 gripper=0.9953\nstate[joint_pos]: [0.0833, 0.6258, 0.0021, -2.4992, -0.0062, 3.1582, 0.9175]\nstate[joint_vel]: [0.0481, 0.2844, -0.0025, 0.1731, 0.021, 0.1315, 0.0493]\nstate[joint_eff]: [0.0495, -31.6123, -0.0863, 7.6555, 0.2045, 2.0671, 0.1271]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 52):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 52):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 52):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.121, \"y\": 0.054, \"z\": 0.845}, \"note\": \"Wrist view shows the block still about 1.5cm to the +y side of the jaw axis with fingertips now near block-top height; I shift the final descent target onto the block center at eef z=0.845 so the pads will span the block mid.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-8",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 1 steps (0.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-8"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1256, 0.0392, 0.8664]\nstate[eef_quat]: [-0.0026, 0.9996, -0.0208, 0.0168]\nstate[eef_yaw]: [-0.0417]\nstate[gripper]: [0.9955]\nstate[eef_state]: x=-0.1256 y=0.0392 z=0.8664 yaw=-0.0417 gripper=0.9955\nstate[joint_pos]: [0.0859, 0.6381, 0.0023, -2.4922, -0.005, 3.1643, 0.9203]\nstate[joint_vel]: [0.0528, 0.2096, 0.0039, 0.1125, 0.0237, 0.1148, 0.0569]\nstate[joint_eff]: [0.5246, -35.816, -0.0705, 6.1554, 0.1311, 2.1603, 0.1346]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 53):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 53):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 53):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.12, \"y\": 0.054, \"z\": 0.842, \"gripper\": 0}, \"note\": \"Fingertips are just above the block with about 2cm of descent left; I command the final 2cm onto the block center together with the jaw close so the pads squeeze the block mid as the arm settles.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-9",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 80 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-9"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1203, 0.052, 0.8448]\nstate[eef_quat]: [-0.0026, 0.9996, -0.0203, 0.017]\nstate[eef_yaw]: [-0.0407]\nstate[gripper]: [0.0162]\nstate[eef_state]: x=-0.1203 y=0.052 z=0.8448 yaw=-0.0407 gripper=0.0162\nstate[joint_pos]: [0.1194, 0.7134, 0.0018, -2.4381, 0.0189, 3.1859, 0.9283]\nstate[joint_vel]: [0.0069, 0.0219, 0.0113, 0.0271, 0.0, 0.0004, 0.0058]\nstate[joint_eff]: [0.8347, -30.9065, 0.2192, 7.4509, -0.0078, 2.2504, 0.1533]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 133):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 133):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 133):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.104, \"y\": 0.053, \"z\": 0.848, \"gripper\": 1}, \"note\": \"The jaws closed empty and pushed the block about 2cm to +x; the front view now shows the block just ahead of the gripper at the same height in y, so I reopen the jaws and lower straight down around its corrected position.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-10",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-10"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1069, 0.0511, 0.8471]\nstate[eef_quat]: [-0.0031, 0.9995, -0.0192, 0.0242]\nstate[eef_yaw]: [-0.0386]\nstate[gripper]: [0.9838]\nstate[eef_state]: x=-0.1069 y=0.0511 z=0.8471 yaw=-0.0386 gripper=0.9838\nstate[joint_pos]: [0.1154, 0.7177, 0.0001, -2.409, 0.0157, 3.1754, 0.9242]\nstate[joint_vel]: [0.0052, -0.0059, 0.0133, 0.0002, 0.0063, 0.0006, 0.0283]\nstate[joint_eff]: [0.8384, -32.8526, -0.0009, 7.526, 0.2617, 2.3215, 0.4814]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 212):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 212):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 212):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.058, \"z\": 0.842, \"gripper\": 0}, \"note\": \"The open jaws now sit right at the block with only a small +y bias left in the wrist view; I nudge 5mm deeper and close the jaws here so the pads squeeze the block.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-11",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-11"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.1047, 0.0593, 0.8426]\nstate[eef_quat]: [-0.0044, 0.9995, -0.0189, 0.0243]\nstate[eef_yaw]: [-0.038]\nstate[gripper]: [0.0162]\nstate[eef_state]: x=-0.1047 y=0.0593 z=0.8426 yaw=-0.038 gripper=0.0162\nstate[joint_pos]: [0.1287, 0.7345, 0.0029, -2.3923, 0.0143, 3.1763, 0.94]\nstate[joint_vel]: [0.0037, 0.0188, -0.0064, 0.0268, -0.0081, -0.0005, -0.0147]\nstate[joint_eff]: [-0.504, -32.1576, -0.1997, 7.5526, -0.1851, 2.186, -0.3048]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 291):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 291):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 291):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.082, \"y\": 0.052, \"z\": 0.843, \"gripper\": 1}, \"note\": \"Second close also missed and nudged the block another 2cm forward, so it now sits about 2cm ahead of the jaw axis; with the jaws open I slide forward so the block threads between the fingers, keeping y near its alignment.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-12",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-12"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0842, 0.0531, 0.8425]\nstate[eef_quat]: [-0.0042, 0.9993, -0.0178, 0.0335]\nstate[eef_yaw]: [-0.0359]\nstate[gripper]: [0.9838]\nstate[eef_state]: x=-0.0842 y=0.0531 z=0.8425 yaw=-0.0359 gripper=0.9838\nstate[joint_pos]: [0.1134, 0.7529, -0.0003, -2.3405, 0.0102, 3.1609, 0.9246]\nstate[joint_vel]: [-0.0092, 0.0139, -0.01, 0.0263, 0.0107, -0.0082, 0.0121]\nstate[joint_eff]: [-0.8784, -33.3057, -0.1337, 7.8789, 0.6017, 2.2208, 0.5686]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 370):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 370):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 370):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The wrist view now shows the block sitting centered between the open fingertips, so I close the jaws without commanding any arm translation to avoid nudging it again.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-13",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-13"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0845, 0.052, 0.843]\nstate[eef_quat]: [-0.0045, 0.9993, -0.017, 0.0335]\nstate[eef_yaw]: [-0.0343]\nstate[gripper]: [0.0237]\nstate[eef_state]: x=-0.0845 y=0.052 z=0.843 yaw=-0.0343 gripper=0.0237\nstate[joint_pos]: [0.1093, 0.7509, 0.001, -2.3426, 0.0088, 3.1612, 0.9211]\nstate[joint_vel]: [-0.0007, 0.0188, -0.0079, 0.0191, 0.004, 0.0, 0.0029]\nstate[joint_eff]: [-0.3591, -33.2618, 0.2468, 9.0727, 0.1268, 2.6371, 0.0968]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 449):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 449):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 449):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"z\": 0.833, \"gripper\": 1}, \"note\": \"The block flipped up and is leaning on the jaws because the pads caught only its top edge; I reopen the jaws and drop 1cm so the pads will wrap the block mid-height on the next attempt.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-14",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-14"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0841, 0.0519, 0.8346]\nstate[eef_quat]: [-0.0041, 0.9994, -0.017, 0.0315]\nstate[eef_yaw]: [-0.0342]\nstate[gripper]: [0.9838]\nstate[eef_state]: x=-0.0841 y=0.0519 z=0.8346 yaw=-0.0342 gripper=0.9838\nstate[joint_pos]: [0.1099, 0.777, 0.0005, -2.325, 0.0103, 3.1655, 0.9197]\nstate[joint_vel]: [-0.008, 0.0171, 0.0008, 0.0197, -0.0038, 0.0, -0.0256]\nstate[joint_eff]: [-0.0396, -33.5344, 0.2674, 7.9609, 0.0824, 2.3179, 0.1114]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 528):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 528):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 528):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The tilted block sits between the open fingertips and the pads now hang at its mid-height after the 1cm drop, so I close the jaws straight onto it with no arm translation.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-15",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-15"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0849, 0.0514, 0.8338]\nstate[eef_quat]: [-0.0043, 0.9994, -0.0174, 0.0308]\nstate[eef_yaw]: [-0.0351]\nstate[gripper]: [0.0209]\nstate[eef_state]: x=-0.0849 y=0.0514 z=0.8338 yaw=-0.0351 gripper=0.0209\nstate[joint_pos]: [0.1081, 0.7783, 0.0015, -2.3258, 0.0117, 3.1663, 0.9182]\nstate[joint_vel]: [0.0062, 0.0001, 0.0003, 0.0021, 0.001, 0.0002, 0.0133]\nstate[joint_eff]: [0.6116, -33.1223, 0.6764, 8.268, -0.0013, 2.3738, 0.1328]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 607):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 607):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 607):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": -0.058, \"y\": 0.052, \"z\": 0.833, \"gripper\": 1}, \"note\": \"Four closes have all found the block sitting about 2-3cm further forward than aimed, so I shift the open-jaw axis 2.5cm forward onto the block center while keeping the y alignment, then will close in place.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-16",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-16"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0626, 0.0511, 0.8325]\nstate[eef_quat]: [-0.0048, 0.9991, -0.0175, 0.0385]\nstate[eef_yaw]: [-0.0354]\nstate[gripper]: [0.9838]\nstate[eef_state]: x=-0.0626 y=0.0511 z=0.8325 yaw=-0.0354 gripper=0.9838\nstate[joint_pos]: [0.1035, 0.8032, 0.0004, -2.2613, 0.0087, 3.1422, 0.9159]\nstate[joint_vel]: [0.0063, -0.0041, -0.0, 0.0269, -0.0068, -0.018, 0.0039]\nstate[joint_eff]: [0.0334, -35.5261, -0.1914, 8.3334, -0.3468, 2.1328, -0.3607]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 686):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 686):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 686):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The tilted block is now sitting right between the open fingertips at the bowl rim with the bowl interior visible just ahead, so I close the jaws with no translation to trap it.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-17",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-17"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0623, 0.0518, 0.8324]\nstate[eef_quat]: [-0.005, 0.9991, -0.0182, 0.0379]\nstate[eef_yaw]: [-0.0369]\nstate[gripper]: [0.5248]\nstate[eef_state]: x=-0.0623 y=0.0518 z=0.8324 yaw=-0.0369 gripper=0.5248\nstate[joint_pos]: [0.1036, 0.8037, 0.0008, -2.2593, 0.0054, 3.1395, 0.9211]\nstate[joint_vel]: [-0.0003, -0.0032, -0.0012, -0.0002, -0.0066, -0.0019, -0.0142]\nstate[joint_eff]: [-0.1099, -34.229, -0.0604, 8.963, -0.3705, 2.4189, -0.4744]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 765):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 765):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 765):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"z\": 0.93, \"gripper\": 0}, \"note\": \"The jaws hold the block at 0.52 measured opening; I lift straight up to 0.93 to clear the bowl rim before translating over the bowl interior.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-18",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 42 steps (2.1s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-18"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0623, 0.051, 0.909]\nstate[eef_quat]: [-0.0057, 0.9988, -0.0188, 0.0444]\nstate[eef_yaw]: [-0.0382]\nstate[gripper]: [0.5278]\nstate[eef_state]: x=-0.0623 y=0.051 z=0.909 yaw=-0.0382 gripper=0.5278\nstate[joint_pos]: [0.0985, 0.5744, 0.0024, -2.3774, -0.0059, 3.0412, 0.9298]\nstate[joint_vel]: [-0.0118, -0.1289, 0.0032, -0.0498, -0.0009, -0.0815, 0.0253]\nstate[joint_eff]: [0.12, -29.3541, 0.0685, 10.8074, 0.1138, 2.4577, 0.4777]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 807):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 807):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 807):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": 0.01, \"y\": 0.052, \"z\": 0.89, \"gripper\": 1}, \"note\": \"Holding the block at 0.91m height; I translate over the bowl center while opening the jaws so the block drops inside the bowl, staying above rim height along the way.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-19",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 38 steps (1.9s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-19"
+          },
+          {
+            "content": [
+              {
+                "text": "Current observation.\nInstruction: Pick up the red block from the table and place it inside the blue bowl.\nstate[eef_pos]: [-0.0072, 0.0506, 0.8942]\nstate[eef_quat]: [-0.006, 0.9985, -0.0202, 0.0513]\nstate[eef_yaw]: [-0.0412]\nstate[gripper]: [0.9839]\nstate[eef_state]: x=-0.0072 y=0.0506 z=0.8942 yaw=-0.0412 gripper=0.9839\nstate[joint_pos]: [0.0833, 0.6916, 0.0055, -2.181, -0.0154, 2.9759, 0.9288]\nstate[joint_vel]: [-0.0072, 0.0851, -0.003, 0.1394, -0.0068, -0.0501, -0.0225]\nstate[joint_eff]: [-0.7666, -35.2247, -0.119, 11.2341, -0.0938, 2.1657, -0.4486]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'front' (step 845):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'side' (step 845):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              },
+              {
+                "text": "camera 'wrist' (step 845):",
+                "type": "text"
+              },
+              {
+                "text": "[image omitted: streamed camera frame]",
+                "type": "text"
+              }
+            ],
+            "role": "user"
+          },
+          {
+            "content": null,
+            "role": "assistant",
+            "tool_calls": [
+              {
+                "function": {
+                  "arguments": "{\"targets\": {\"x\": 0.035, \"y\": 0.052, \"z\": 0.838, \"gripper\": 0}, \"note\": \"The block dropped just short and sits on the table at the bowls near edge; with one action left I lower onto it, close, and push forward so it tips over the rim into the bowl.\"}",
+                  "name": "move_to"
+                },
+                "id": "call-subagent-20",
+                "type": "function"
+              }
+            ]
+          },
+          {
+            "content": "executing move_to over 79 steps (4.0s)",
+            "role": "tool",
+            "tool_call_id": "call-subagent-20"
+          }
+        ]
+      ],
+      "reduced": {
+        "episode_length": 900.0,
+        "success_at_end": 0.0
+      },
+      "scene_id": "seed-2006",
+      "scene_metadata": {},
+      "status": "success",
+      "termination_reasons": [
+        "max_steps"
+      ],
+      "trial_metadata": [
+        {
+          "actions": "actions/20260915_045121_512f57f2/seed-2006-e0.jsonl",
+          "llm_usage": {
+            "llm_calls": 20
+          },
+          "transcript": "transcripts/20260915_045121_512f57f2/seed-2006-e0.jsonl",
+          "wire_capture": "wire/20260915_045121_512f57f2/seed-2006-e0/calls.jsonl"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "completed_at": "2026-09-15T05:19:26.993110+00:00",
+    "duration_s": 1686.0190609589918,
+    "frames_dir": null,
+    "mean_inference_latency_s": null,
+    "started_at": "2026-09-15T04:51:21.045310+00:00",
+    "total_steps": 900
+  },
+  "status": "success",
+  "version": 1
+}

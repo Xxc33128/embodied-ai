@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.07, \"y\": -0.02, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Front and side views show the red block right of the blue bowl; wrist view puts it slightly left-forward of the current hover. Moving with gripper open to hover above my estimated block position (-0.07,-0.02) at z=0.92 to refine alignment.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

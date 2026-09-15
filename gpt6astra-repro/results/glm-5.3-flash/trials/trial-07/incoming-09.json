@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.12, \"y\": 0.054, \"z\": 0.842, \"gripper\": 0}, \"note\": \"Fingertips are just above the block with about 2cm of descent left; I command the final 2cm onto the block center together with the jaw close so the pads squeeze the block mid as the arm settles.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

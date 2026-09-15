@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.115, \"y\": 0.11, \"z\": 0.86}, \"note\": \"Wrist view still shows the block ~27px left of center; each +y move shifts it right, so the block is near y=0.10, x between -0.08 and -0.16. Commanding the grasp-height hover at (-0.115, 0.11, 0.86); the servo converges gradually so I will verify with the wrist view before closing the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

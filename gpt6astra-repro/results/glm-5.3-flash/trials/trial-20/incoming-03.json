@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.05}, \"note\": \"The previous -y move was cut short after only 3 mm, so the wrist view barely changed and the block is still right of image center. I am reissuing the same -0.05 y target to complete the calibration move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

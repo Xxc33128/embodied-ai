@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.118, \"y\": 0.002, \"z\": 0.818, \"gripper\": 1}, \"note\": \"Second close also read 0.016, so both grip spots were outside the pads: combining the fixed views, the block sits about 3cm forward of my last spot near y=0, roughly x=-0.12. Re-opening while shifting to (-0.118, 0.002) and holding z=0.818 at block mid-height for the next close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

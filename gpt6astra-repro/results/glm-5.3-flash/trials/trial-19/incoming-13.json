@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0875, \"y\": 0.02, \"z\": 0.88, \"yaw\": 0.6, \"gripper\": 1}, \"note\": \"The wrist view shows the block pressed against the outer face of the closed jaw: the fingertip point sits ~2cm behind the block in +x because the wrist camera is offset toward the forearm. Shifting the aim +2cm in x, reopening the jaws, and testing a yaw offset that I can use later to extend motion chunks while carrying the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

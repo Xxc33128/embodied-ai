@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.833, \"gripper\": 1}, \"note\": \"The block flipped up and is leaning on the jaws because the pads caught only its top edge; I reopen the jaws and drop 1cm so the pads will wrap the block mid-height on the next attempt.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

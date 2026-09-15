@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.159, \"y\": 0.013, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Wrist view shows the block slightly left and below center, so I am shifting to about x=-0.159, y=+0.013 and stopping at z=0.92 to re-check alignment from a lower altitude before the final grasp descent. Gripper stays open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

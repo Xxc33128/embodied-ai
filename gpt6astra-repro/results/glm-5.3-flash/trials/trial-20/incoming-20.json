@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.06, \"y\": -0.04, \"z\": 0.93, \"gripper\": 1}, \"note\": \"The bowl interior fills the top of the wrist view, so the closed gripper with the red block on it is right at the rim. This is my final action: I open the gripper while gliding further over the bowl center and rising slightly, releasing the block into the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

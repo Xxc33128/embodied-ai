@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.085, \"y\": 0.098, \"z\": 0.83, \"gripper\": 1}, \"note\": \"The block sits between the open fingers in the wrist view; I am about two centimeters short in the approach direction and about five centimeters above grasp height, so I continue the same crawl and will close the gripper once the gap is under about one centimeter.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

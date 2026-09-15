@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.11, \"y\": -0.05, \"z\": 0.804, \"gripper\": 0}, \"note\": \"Combining the rest of the descent with the close: the arm travels ~8cm while the fingers only need to close 50mm, so the pads arrive low and wide first, then close around the block body at z=0.804. Safe to re-issue if the motion window is short.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

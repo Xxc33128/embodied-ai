@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.113, \"y\": 0.06, \"z\": 0.91}, \"note\": \"Wrist view still shows the block left of center; my move of +0.03 in y shifted it right, so image-right is world -y. The block sits near (-0.113, 0.06). Moving over it and descending to z=0.91 to prepare the grasp, gripper stays open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The hand is about 1.3cm short of the block center and within capture tolerance laterally; control steps are too scarce to refine further, so I am closing the gripper in place to attempt the grasp, keeping the position fixed by omitting x/y/z.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

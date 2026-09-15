@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.11, \"y\": 0.07, \"z\": 0.86}, \"note\": \"Wrist view: block is now only ~20px left of center and the bowl sits right of center, confirming image-right is -y. The block is nearer y=0.07, so I retarget to (-0.11, 0.07, 0.86) to center the jaw over the block without overshooting.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

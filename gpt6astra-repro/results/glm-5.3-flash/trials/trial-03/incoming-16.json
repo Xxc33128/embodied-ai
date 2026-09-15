@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.065, \"y\": 0.002, \"z\": 0.8895, \"gripper\": 1}, \"note\": \"The block is lowered to just above the bowl floor inside the bowl (TCP 0.8895). Opening the gripper to release it into the bowl; the fingers will retract clear of the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

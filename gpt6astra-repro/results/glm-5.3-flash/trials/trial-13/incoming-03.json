@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.054}, \"note\": \"The previous horizontal probe was cut off after 2 steps: the hand only advanced 3 mm and the wrist view is unchanged. I re-issue the +5 cm x shift at constant height to complete the camera calibration.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

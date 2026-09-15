@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.178, \"y\": 0.0, \"z\": 0.815, \"gripper\": 1}, \"note\": \"The wrist view keeps the block nearly centered between the open pads while the arm sinks (measured z=0.910 and falling); I command a slightly deeper target so the pads reach down past the block mid-height despite the settling lag, then close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

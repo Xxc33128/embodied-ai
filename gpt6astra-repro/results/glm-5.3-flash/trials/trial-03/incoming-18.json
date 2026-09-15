@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0661, \"y\": 0.0024, \"z\": 0.872, \"gripper\": 1}, \"note\": \"Views suggest the released block is inside the bowl opening but may be leaning on the inner wall. Pressing straight down with the open pads (no lateral push) to seat it lower into the bowl; the pads will simply rest on the block if it is already settled.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

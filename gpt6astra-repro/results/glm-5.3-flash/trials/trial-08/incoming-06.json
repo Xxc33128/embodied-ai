@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": 0.048, \"z\": 0.815, \"gripper\": 0.5}, \"note\": \"Wrist view shows the block ~7 mm right-down of center, so I am shifting to about (-0.100, 0.048) and descending to z=0.815 to straddle the block with the fingers. Gripper 0.5 keeps the open latch while stretching the interpolation so the servo converges over the 9 cm descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

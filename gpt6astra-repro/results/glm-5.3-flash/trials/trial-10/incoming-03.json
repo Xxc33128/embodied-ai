@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.13, \"y\": -0.05, \"z\": 0.95}, \"note\": \"The arm was still mid-motion (only 6 steps elapsed, eef at (0.059,-0.009)); front view confirms the red block on the table right of the bowl. Re-issuing the same hover target above the block estimate to converge.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

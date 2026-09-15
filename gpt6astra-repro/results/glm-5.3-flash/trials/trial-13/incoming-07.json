@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.222, \"y\": 0.014, \"z\": 0.895, \"gripper\": 1}, \"note\": \"Wrist view confirms the block lies just ahead of the closed jaws, matching the forward-axis model. I pair the jaw reopening with the final descent so the hand arrives just above the block with the jaws fully open, ready to close on it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": -0.058, \"z\": 0.872, \"gripper\": 1}, \"note\": \"Fingers are closed so commanding open both unlocks the full step budget and physically clears the block: the jaws widen faster than the 1.9cm slide, so the pads retreat off the block face without pushing it. I slide to center over the block (x=-0.040, y=-0.058) ending with open fingers straddling it at mid-height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

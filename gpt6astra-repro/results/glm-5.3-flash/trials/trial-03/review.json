@@ -1,0 +1,7 @@
+{
+  "stage_max": 3,
+  "basis": "Grasped step 269, lifted ~7cm, carried to 0.085m from bowl axis while held; release dipped below table level (over mouth) but block bounced outward and rests on table 0.104m from bowl axis. Second independent review confirmed stage 3 (final rest against outer wall, bottom_z 0.7998=table, hdist 0.1038m).",
+  "reviewers": "reviewer-A",
+  "second_review": true,
+  "blind": true
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.06, \"y\": -0.02, \"z\": 0.9575}, \"note\": \"The wrist view still shows the block a bit left and above center, so it sits about 2 cm toward +x and +y from the current hover. Gliding back along that direction to center the open gripper over the block before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

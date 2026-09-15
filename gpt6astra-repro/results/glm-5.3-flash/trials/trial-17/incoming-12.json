@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"The fingers are now at block mid-height (z=0.818) after shifting 1-1.5cm toward the block from the failed grasp spot; the block itself never moved. Closing the gripper; if the measured opening settles mid-range I am holding the block, if it goes near zero I missed again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

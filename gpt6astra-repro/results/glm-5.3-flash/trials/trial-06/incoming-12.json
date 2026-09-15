@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0, \"y\": -0.036, \"z\": 0.905, \"gripper\": 1}, \"note\": \"Arm-only moves keep getting cut to 1-5 steps while moves that include a gripper target run to completion, so I now attach the gripper-open target (already latched open) to every command. Moving out laterally to unfold the arm above block height before gliding down onto the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.095, \"y\": -0.058, \"z\": 0.95}, \"note\": \"With the block now large in the wrist view and using its pixel size for scale, I estimate it at (-0.095,-0.06). Retargeting the hover point to sit directly above the block before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

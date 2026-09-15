@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": 0.055}, \"note\": \"Front camera puts the block slightly right of my gripper, suggesting a small +y offset, while wrist-view fits disagreed on the sign. Probing with a pure 2cm +y shift at safe altitude: the block displacement in the next wrist view will confirm the direction and scale before I descend to grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

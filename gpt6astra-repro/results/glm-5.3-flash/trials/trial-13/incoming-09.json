@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.258, \"y\": -0.038, \"z\": 0.875, \"gripper\": 1}, \"note\": \"Re-derive from all views: wrist-forward maps to world -y (base behind table at +y), so my earlier x-traverses were sideways and the block never receded. The block is ~5.5 cm ahead (-y) of the hand at similar x. I open the jaws while moving forward and descending to grasp height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

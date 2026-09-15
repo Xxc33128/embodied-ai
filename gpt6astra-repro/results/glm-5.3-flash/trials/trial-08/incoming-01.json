@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.09, \"y\": 0.06, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Front and side views show the red block between the robot base and the blue bowl; the wrist view places the block a few cm ahead of the gripper. I estimate the block near (-0.09, 0.06). Opening the gripper and hovering 15 cm above the block to align before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

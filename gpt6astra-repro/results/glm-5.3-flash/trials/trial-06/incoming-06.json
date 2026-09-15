@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.032, \"y\": -0.02, \"z\": 0.805}, \"note\": \"z=0.892 and the descent increments are getting small, likely a joint limit approaching on this straight-down path. The fingertips are near the block top, so I push the target lower (z=0.805) to get the pads alongside the 4cm block body before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

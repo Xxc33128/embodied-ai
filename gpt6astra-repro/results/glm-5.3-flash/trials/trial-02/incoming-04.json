@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.129, \"y\": 0.057, \"z\": 1.03}, \"note\": \"Wrist view still shows the block left-and-below center (16px, 37px), matching block at (-0.129, +0.057); the hand must center laterally first because the open jaw pad would clip the block if I descended now. Holding z near 1.03, I recommand the full lateral target over the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

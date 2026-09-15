@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.262, \"y\": 0.016, \"z\": 0.93, \"gripper\": 0}, \"note\": \"Wrist view: the block is still several cm ahead of the jaws near the image top, so it sits closer to the table edge. I advance forward at safe height while closing the jaws on air, staging the open-jaw descent for the next move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

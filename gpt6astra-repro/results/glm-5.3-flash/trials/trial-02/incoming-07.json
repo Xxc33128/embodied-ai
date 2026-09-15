@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.12, \"y\": 0.063, \"z\": 0.86}, \"note\": \"At closer range the block reads about 27mm further +y and slightly less -x than my earlier triangulation, so I bias the target to (-0.120, +0.063). I descend to z=0.86, about 15mm above the block top, to get a same-depth view of block versus jaw pads before the final lowering.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

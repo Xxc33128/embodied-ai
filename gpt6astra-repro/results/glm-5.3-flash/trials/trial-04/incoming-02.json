@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": 0.047}, \"note\": \"Wrist view shows the red block below-left of the fingertip midpoint; parallax so far suggests image-right is world +x but the vertical image axis sign is unclear. Making a pure +y probe at fixed x/z so the block shift in the wrist image calibrates that axis.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

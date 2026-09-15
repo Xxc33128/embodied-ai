@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0995, \"y\": 0.0388, \"z\": 0.9034}, \"note\": \"Executing a ~6mm diagonal settle toward the block so each tiny completed move both creeps to the grasp pose and decays joint velocity toward rest, preserving the chance that a from-rest lunge recovers the full interpolation budget.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

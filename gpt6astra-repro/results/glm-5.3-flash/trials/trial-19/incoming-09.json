@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1026, \"y\": 0.0261, \"z\": 0.868, \"gripper\": 0}, \"note\": \"Fingertips are at block-top level with the jaws open and centered. I combine the last 2cm descent with the close command: the arm settles at 0.868 (pads at block mid-height) while the jaws travel closed around the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"Fingers are now open straddling the block with pads at lower-mid block height (wedging contact geometry). Closing the gripper - if the measured opening lands mid-range I am holding the block and will carry it to the bowl with my last move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

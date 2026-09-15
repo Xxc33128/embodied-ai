@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.108, \"y\": -0.04, \"z\": 0.88}, \"note\": \"The grasp missed: the gripper read fully closed, and the wrist view shows the red block resting on top of the closed fingers, leaning slightly. I will lift gently straight up to carry the block on the closed gripper toward the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

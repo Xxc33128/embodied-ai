@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.065, \"z\": 0.95, \"gripper\": 1}, \"note\": \"The open stalled after 2 steps with the pads still low; the TCP has risen to 0.8335. Re-commanding the open with a higher z=0.95 target, exactly like the recovery that worked before, to free the pads and get behind the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

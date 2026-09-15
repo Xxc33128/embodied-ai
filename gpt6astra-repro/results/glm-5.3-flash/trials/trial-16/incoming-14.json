@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.178, \"y\": 0.0, \"z\": 0.83, \"gripper\": 1}, \"note\": \"Wrist view still shows the block up-left of the axis, agreeing with the side/front views that the block center is near (-0.178, 0.0). Descending open-handed straight onto that point so the pads straddle the block down to its mid-height, then I will close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

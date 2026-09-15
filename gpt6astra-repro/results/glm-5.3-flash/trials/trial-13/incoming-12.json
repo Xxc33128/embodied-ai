@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.02, \"z\": 0.875, \"gripper\": 0}, \"note\": \"Retreat done, jaws open at 7 cm behind the block. I now approach forward while the jaws close; they finish closing long before the block, leaving a clean 3-4 cm standoff at grasp height for the final straddling approach.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

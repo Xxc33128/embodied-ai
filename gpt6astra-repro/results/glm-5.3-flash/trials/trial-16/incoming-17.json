@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.176, \"y\": 0.004, \"z\": 0.9, \"gripper\": 1}, \"note\": \"The close-while-descend shoved the block out along the pads and it now sits at table height beside the closed fingers, its top near camera level. I rise well above it while reopening so the pads can swing clear, and center over its last position for one final grasp attempt.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

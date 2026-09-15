@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"Holding the straddle position near y=0.12 and closing: if the block center is within about 3.5cm of this line the pads will squeeze and re-center it. The measured opening will tell - an intermediate value around 0.5 means the block is held, near 0 means another miss.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.075, \"y\": -0.012, \"z\": 0.98, \"gripper\": 0.5}, \"note\": \"The jaws stalled at 0.086, confirming a firm grip on the block. With my last decision I carry it up and over to above the bowl center at (0.075,-0.012), staying high enough for the block to clear the rim; the 0.5 target is in the intermediate band so the grip is retained while funding the interpolation steps for the full carry.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

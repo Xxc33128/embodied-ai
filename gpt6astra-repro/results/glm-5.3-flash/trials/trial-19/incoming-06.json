@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.102, \"y\": 0.0265, \"z\": 0.828, \"gripper\": 1}, \"note\": \"Block has stayed centered on the jaw gap through the descent, so x/y are on target. Committing to the grasp height: fingertips to block mid-height (z=0.828) with jaws held open, then I will close in the next call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

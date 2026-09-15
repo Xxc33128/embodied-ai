@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.047, \"y\": 0.024, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Front view shows the block right of the bowl while my grasp closed empty near the bowl rim: the block actually sits near (+0.047,+0.024) after my earlier descents nudged it. Reopening the gripper and flying over the corrected position; the 80-step gripper servo lets the arm fully converge.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

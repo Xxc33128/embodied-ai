@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.107, \"y\": 0.072, \"z\": 0.83}, \"note\": \"Fixed-camera views show the gripper arriving at the block; my y readings scatter a few mm so I aim the final descent at their midpoint (-0.107, +0.072). Continuing down to z=0.83 to straddle the block upper half; the open jaws slide clear of its footprint on the way.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

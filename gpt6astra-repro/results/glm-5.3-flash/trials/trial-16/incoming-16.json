@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.178, \"y\": 0.0, \"z\": 0.815, \"gripper\": 0}, \"note\": \"The wrist view shows the block centered between the still-open pads as the arm sinks (measured z=0.893); I now close while descending, so the pads sweep onto the block faces as they pass its upper half and finish the squeeze around it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.12, \"y\": 0.055, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Second close also ended in air (0.016) with the block still beyond the fingers, so the fingertip line sits about under the frame and the block is nearer (-0.12, 0.055). Reopening and hovering exactly over that spot; next call descends and closes with the pad line crossing the block center.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

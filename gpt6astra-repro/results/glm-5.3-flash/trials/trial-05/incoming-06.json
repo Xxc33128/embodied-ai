@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.017, \"z\": 0.838, \"gripper\": 1}, \"note\": \"Servo converging (eef -0.061,-0.019,0.910), still ~4cm off in x. Re-issuing the grasp pose slightly deeper (z=0.838) to keep the descent going; fingers stay open while straddling the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

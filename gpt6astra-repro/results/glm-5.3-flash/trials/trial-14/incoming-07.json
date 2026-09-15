@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0442, \"y\": 0.0264, \"z\": 0.8, \"gripper\": 0}, \"note\": \"The block is now nearly directly under the TCP - it is hidden only because the pads occlude it - while the bowl sits clearly off to one side in the wrist view. I close-descend straight down, commanding the table-level floor so the servo lag lands the pads at the block mid-height instead of stopping on its top edge.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

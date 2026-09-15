@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.005, \"y\": 0.062, \"z\": 0.813}, \"note\": \"Side view confirms the gripper is still above the block with the block resting on the table; hand at z=0.893. The descent advances only a couple cm per call, so I repeat the low target to keep lowering until the fingers surround the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

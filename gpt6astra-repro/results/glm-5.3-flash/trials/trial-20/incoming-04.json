@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": -0.095, \"z\": 0.9}, \"note\": \"Calibration across all three cameras: wrist image-up is world +x and image-right is world -y, putting the red block near x=-0.075, y=-0.10. I am moving to hover 5 cm above the block with the gripper open, then I will fine-tune using the wrist view.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

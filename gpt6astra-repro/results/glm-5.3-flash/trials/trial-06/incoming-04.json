@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": -0.02, \"z\": 0.82}, \"note\": \"Continuing the descent: z reached 0.936 and the lateral offset is nearly closed (x=-0.031 on target, y still drifting toward -0.02). Re-issuing the same target to keep lowering toward mid-block height, gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

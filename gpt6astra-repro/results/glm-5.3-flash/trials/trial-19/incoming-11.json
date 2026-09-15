@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.104, \"y\": 0.022, \"z\": 0.905, \"yaw\": 0.0, \"gripper\": 1}, \"note\": \"Wrist view shows the block only a few mm off the jaw axis, so the first close must have caught the top edge and let it slip out. I reopen the jaws, square the yaw to 0, and hover at 0.905 directly over the block, ready to close lower next call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

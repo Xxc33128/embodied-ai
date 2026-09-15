@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.015, \"y\": -0.014, \"z\": 0.9}, \"note\": \"Short moves only advance a few mm because the interpolation runs few steps; larger joint-space moves track better. My cross-checked estimate places the block at x=-0.015, y=-0.014, so I retract 7cm in x at hover height, then use the wrist view to fine-align.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

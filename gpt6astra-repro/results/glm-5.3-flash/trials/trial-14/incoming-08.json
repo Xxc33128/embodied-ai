@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.054, \"z\": 0.9}, \"note\": \"Both empty closes were ~3 cm short on the side-image-right axis, which the shoulder-pan coupling says is +y. I reopen - an 80-step fuse that fully converges the servo - while shifting 2.8 cm to y=0.054 to hover exactly over the corrected block spot and confirm the sign before the grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

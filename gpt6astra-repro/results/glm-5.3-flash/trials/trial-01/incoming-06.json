@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.11, \"y\": 0.07, \"z\": 0.855}, \"note\": \"Wrist view: block now nearly centered horizontally (10px left). Fixed views show the gripper just above the block. Descending to z=0.855 so the pads straddle the block mid-height; will verify alignment in the wrist view before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

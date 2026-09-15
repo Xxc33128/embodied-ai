@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.03, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Cross-referencing both fixed cameras the block sits near x=-0.077, y=+0.03 and the bowl near x=+0.09, y=+0.08, so my last closes were 3 cm past it on x. I reopen - an 80-step fuse - while repositioning 3 cm behind the block on the bowl-opposite side, ready to close-drag it straight toward the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

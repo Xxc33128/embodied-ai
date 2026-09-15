@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 0}, \"note\": \"Pads are now aligned near block-body height at z~0.842 with the fingers open; the fixed views place the red block at the edge of the capture box. Closing here: if the measured opening stops around 0.3-0.5 the block is held, otherwise it sits just outside.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

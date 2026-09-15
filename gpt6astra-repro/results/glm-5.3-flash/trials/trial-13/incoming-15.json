@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.19, \"z\": 0.86, \"gripper\": 1}, \"note\": \"The jaws closed on air, so the block is still several cm forward beyond the blind spot. I sweep forward with fully opening jaws - wide enough to pass over the block without touching it - to range past its position, then will rake the pads backward while closing to trap it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

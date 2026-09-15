@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.82, \"gripper\": 0.5}, \"note\": \"Cross-checking front, side, and wrist views shows the block is already centered under the gripper; the wrist-image offset was mostly the camera mounting projection. Fingertips at z=0.8385 are near the block top, so I am descending to z=0.82 to grip mid-block. Gripper 0.5 holds the open latch and stretches the interpolation for servo convergence.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

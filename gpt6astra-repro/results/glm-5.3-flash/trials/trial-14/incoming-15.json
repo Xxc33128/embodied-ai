@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.07, \"y\": 0.08, \"z\": 0.83, \"gripper\": 0}, \"note\": \"Final push: closing jaws at table-clear height and driving the axis to x=+0.07 so the block riding ahead of the jaw face gets plowed about 18 cm across the table into the bowl mouth, whose center my view geometry puts near x=+0.01 to +0.05, y=+0.09.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

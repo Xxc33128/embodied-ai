@@ -1,0 +1,7 @@
+{
+  "stage_max": 0,
+  "basis": "Zero contact steps; closes in mid-air near block; static through step 900.",
+  "reviewers": "reviewer-C",
+  "second_review": false,
+  "blind": true
+}

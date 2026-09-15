@@ -1,0 +1,48 @@
+{
+  "experiment_id": "glm-standard20-20260915-120407",
+  "model": "glm-subagent",
+  "model_snapshot": "unknown; coding-agent subagent backend not independently verifiable (parent harness self-reports builtin:bigmodel/GLM-5.3-Flash)",
+  "access_mode": "one persistent clean subagent per trial; explicit requests plus its own trial memory; disclosed deviation from strict API equivalence, same group definition as GPT persistent batch",
+  "effort": "medium requested in wire; backend effort control not exposed",
+  "protocol": {
+    "id": "robosuite-bowl-paired20-v1",
+    "version": "1.0",
+    "standard_dir": "standard/"
+  },
+  "budget": {
+    "max_llm_calls": 20,
+    "max_steps": 900,
+    "max_speed_frac": 0.25,
+    "image_horizon": 2
+  },
+  "scene_bank": {
+    "copied_from": "/Users/xerxes3/Documents/huawei实习/gpt6astra-repro/logs-persistent-subagent20-20260915-113640/initializations",
+    "recursive_diff_vs_source": "identical",
+    "aggregate_sha256": "50565a9e7bb064b7b22a126a192aa77812595cc85f9dd234ec7d7a1c2931ca7f",
+    "sharing_rationale": "same 20 frozen initializations shared across models per SOP section 1"
+  },
+  "runner": {
+    "file": "run_subagent_trials_glm.py",
+    "sha256": "056185dcb1e97b8e8457ed9087b920717aa2cd4adffd0b6adca4911466ca8da7",
+    "base": "run_subagent_trials.py",
+    "base_sha256": "26a27e9238e0ae55af91177bab64a47db85dd56dc7edd3aaea27383201935e0a",
+    "delta": "decision-model identity labels only"
+  },
+  "separation": {
+    "gpt_batch_untouched": true,
+    "gpt_trial02_freeze": "gpt-trial02-freeze-20260915-1153/",
+    "note": "GLM results saved only under this glm batch directory per user instruction"
+  },
+  "status": "completed_2026-09-15",
+  "trial_order": "seed 2000..2019 serial, index 0..19",
+  "concurrency": "max 6 concurrent trials; physics paused during inference; wall_seconds not serial-comparable (disclosed)",
+  "blind_review": {
+    "packets": 20,
+    "reviewers": 4,
+    "second_review_boundary": [
+      "trial-03"
+    ],
+    "mapping": "blind-review-map.json"
+  },
+  "usage_note": "model API usage null; per-trial coding-agent subagent usage in subagent-usage.csv/.json (harness counter, not API usage)"
+}

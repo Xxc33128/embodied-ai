@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.12, \"y\": 0.0, \"z\": 0.885}, \"note\": \"Wrist view shows the bowl large at top (so wrist-up is +x) and the block at bottom center between the pads, meaning it sits slightly behind my current +x position with y near zero. Moving over the estimated block at (-0.12, 0.0) and down to z=0.885 to get a close wrist view before the final descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

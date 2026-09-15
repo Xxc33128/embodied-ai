@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.02, \"y\": -0.015, \"z\": 1.01, \"gripper\": 1}, \"note\": \"Front and side views show the blue bowl near table center with the red block just beside it; the wrist view shows the block offset ahead-right of my fingertips. I open the gripper and hover over my triangulated estimate of the block (x=-0.02, y=-0.015) to verify its exact position before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.09, \"y\": 0.0, \"z\": 1.0}, \"note\": \"Still holding the block, mid-transfer at (-0.073,-0.041,0.891) after a short motion window. Re-issuing the same target above the bowl at (0.09, 0.0, 1.0) to finish the crossing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

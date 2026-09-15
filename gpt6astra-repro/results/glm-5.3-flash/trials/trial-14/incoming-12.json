@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": 0.065, \"z\": 0.82, \"gripper\": 0}, \"note\": \"The wrist view pins the block just beyond my right jaw pad about 4 cm ahead toward the bowl. This close sweeps the jaws over it and, with the target set 4 cm past it toward the bowl, pinches the block around mid-fuse and drag-carries it, at pad height z=0.82 clear of the table.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

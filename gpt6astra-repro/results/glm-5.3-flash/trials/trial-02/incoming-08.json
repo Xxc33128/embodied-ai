@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.109, \"y\": 0.064, \"z\": 0.83}, \"note\": \"The close-range wrist frame puts the block center about 16mm +y of the jaw centerline and 13mm -x of the hand, i.e. block near (-0.109, 0.064); the open jaws clear its footprint once I shift +y. Descending on a straight line to z=0.83 so the pads close on the upper half of the 45mm block without hitting the table.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.065, \"y\": 0.055, \"z\": 0.85, \"gripper\": 0}, \"note\": \"Side view shows my closed gripper landed between the bowl and the block: measuring block-to-bowl offsets directly gives the block near (+0.065,+0.055). Descending and closing there; this is my final grasp attempt within budget.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

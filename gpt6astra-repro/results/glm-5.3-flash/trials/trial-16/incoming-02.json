@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.14, \"y\": -0.03, \"z\": 0.87, \"gripper\": 1}, \"note\": \"Wrist view shows the block left of and below image center; my +x test move shifted it left in the image, so image-right is +x and image-up is +y. I am shifting hover to roughly the block center and descending to 7 cm above the table for a closer alignment check.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

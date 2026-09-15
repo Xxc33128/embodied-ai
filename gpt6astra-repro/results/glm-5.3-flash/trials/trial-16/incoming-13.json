@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.172, \"y\": -0.008, \"z\": 0.93, \"gripper\": 1}, \"note\": \"Retrying the grasp at the corrected block position: the block never moved when the pads closed, so it lies beyond them near x=-0.17, y=-0.01. I rise steeply to 0.93 while opening, so the swinging pads pass well above the block top before I re-descend around it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

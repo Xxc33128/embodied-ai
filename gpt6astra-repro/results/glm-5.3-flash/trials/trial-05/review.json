@@ -1,0 +1,7 @@
+{
+  "stage_max": 0,
+  "basis": "Gripper moved toward bowl; block untouched.",
+  "reviewers": "reviewer-A",
+  "second_review": false,
+  "blind": true
+}

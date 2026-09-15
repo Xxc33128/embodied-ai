@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.855, \"gripper\": 0.5}, \"note\": \"Wrist rotated to 1.55 rad with jaws straddling the block in the well-measured x direction; pads hover clear beside its faces. Descending vertically to block mid-height - the pads slide down alongside the block faces, which cannot tip or push it - and keeping the jaws open with an intermediate gripper value while the arm settles.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

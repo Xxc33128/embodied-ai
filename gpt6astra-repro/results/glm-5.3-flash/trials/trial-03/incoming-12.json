@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": 0.002, \"z\": 0.838, \"gripper\": 0}, \"note\": \"Wrist view confirms the block is between the open pads, though tilted and leaning a bit left. Closing the gripper while easing down a few millimeters so the pads grip the lower body of the block; the squeeze should also steady the tilt.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

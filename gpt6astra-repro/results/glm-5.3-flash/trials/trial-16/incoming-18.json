@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.178, \"y\": 0.008, \"z\": 0.822, \"gripper\": 0}, \"note\": \"Wrist view now has the block horizontally centered between the open pads and the side view shows the hand right above it, so the final attempt is a combined descend-and-close onto the block, finishing the squeeze at its upper half.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

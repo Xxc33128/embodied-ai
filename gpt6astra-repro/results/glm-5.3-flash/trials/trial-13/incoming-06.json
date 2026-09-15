@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.21, \"y\": 0.015, \"z\": 0.95, \"gripper\": 0}, \"note\": \"The arm only travels while the gripper has a large commanded change (step count follows the gripper delta), so I pair motions with jaw toggles. Closing the jaws up high on air while traversing forward to hover above the red block; the jaws finish closing well above the table.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

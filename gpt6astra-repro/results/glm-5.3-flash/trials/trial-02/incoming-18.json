@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.028, \"y\": 0.072, \"z\": 0.864, \"gripper\": 1}, \"note\": \"Third close also caught air: the wrist view shows the closed tips still ~10mm short of the block near face and the side view about 20mm, so my earlier shifts kept undershooting. Final regrasp attempt: reopen and jump +30mm to x=-0.028 at the same low height, then I will close on what should now be the block mid-section.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

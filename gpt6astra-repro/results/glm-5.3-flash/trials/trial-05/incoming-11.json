@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.006, \"y\": 0.002, \"z\": 0.91}, \"note\": \"Holding the rise-and-shift waypoint (z=0.91) so the jaw pads clear the block top while the gripper slides over the corrected center; the +x pad is currently just above the block and must not clip it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

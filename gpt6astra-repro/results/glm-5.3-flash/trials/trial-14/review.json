@@ -1,0 +1,7 @@
+{
+  "stage_max": 0,
+  "basis": "Zero contact steps; close approach beside block then retract.",
+  "reviewers": "reviewer-C",
+  "second_review": false,
+  "blind": true
+}

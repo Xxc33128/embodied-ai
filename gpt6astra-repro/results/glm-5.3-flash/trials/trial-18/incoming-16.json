@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.08, \"y\": 0.17, \"z\": 0.92, \"yaw\": 1.57, \"gripper\": 1}, \"note\": \"Fifth miss: the closing sweep proves the block center sits beyond y=0.16, while its x is reliably -0.08 in every side view. So I rotate the wrist 90 degrees - jaws will close along the well-known x axis, making the y uncertainty irrelevant. Rising above block-top first so the opening and rotation sweeps pass over it, then hovering with jaws straddling the block in x.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

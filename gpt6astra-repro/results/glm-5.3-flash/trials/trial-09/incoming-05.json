@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.032, \"z\": 0.807, \"gripper\": 0.5}, \"note\": \"Wrist view at z=0.879 shows the red block centered between the open fingers in x but ~1 cm further in +y (image-down), so I nudge y to 0.032 and descend to fingertip height ~0.807 to enclose the block. The intermediate gripper value latches open and gives a long settling motion.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

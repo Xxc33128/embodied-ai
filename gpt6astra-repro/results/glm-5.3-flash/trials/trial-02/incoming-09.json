@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.112, \"y\": 0.065, \"z\": 0.83}, \"note\": \"The block now spans well above the pads in the wrist view, centered near (-0.112, +0.065) with the jaws still open and clear of its footprint. I continue the same straight descent to z=0.83 so the pads straddle the block upper half before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

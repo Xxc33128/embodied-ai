@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.035, \"y\": 0.052, \"z\": 0.838, \"gripper\": 0}, \"note\": \"The block dropped just short and sits on the table at the bowls near edge; with one action left I lower onto it, close, and push forward so it tips over the rim into the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

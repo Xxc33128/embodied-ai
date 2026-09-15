@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.05, \"y\": 0.0, \"z\": 1.08}, \"note\": \"From the start hover I see the blue bowl near the table center and the red block next to it. I will move the hand forward and up to a vantage point; comparing the wrist view before and after this known displacement calibrates the wrist camera axes so I can localize the block precisely.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
