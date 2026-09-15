@@ -1,9 +1,9 @@
-# deepseek-v4.1-flash — 标准批次结果（20 trials）
+# deepseek-v4.1-flash — 标准批次结果（20 trials + 2 基础设施重试 attempt）
 
-- decision_model（manifest 标签）：`deepseek-v4.1-flash-subagent`；scene seeds 与其它模型共享同一冻结初态库（`experiment.json` / `initializations/`）
-- **env_success：1/20；盲评 stage=4：1/20**；盲评 stage 分布：`{0:14, 1:3, 2:1, 3:1, 4:1}`（平均最高阶段 0.60；20/20 已盲评，7 个边界样本经第二轮独立盲评确认一致）
-- 唯一成功 trial-09（seed 2008）：抓取 → 举升 → 碗心上方 6–9mm → 释放 → 静置于碗内（r≈8mm）；trial-02 止步 stage 3（持物经过碗口上方时块心距碗心 4.4cm，属边界，两轮盲评均判 3；释放后落碗外 10cm）
-- 执行 22 attempts：trial-07 与 trial-16 首次因基础设施错误（子 agent TLS 证书失效）无效，原 attempt 保留于 `trial-XX-infra-void-attempt1/`，按 SOP 整 trial 重跑后采用 attempt 2（见 `infrastructure-attempts.json`）
-- 逐 trial 明细见 `summary.csv`；视频在 `trials/trial-NN/video.mp4`（三相机渲染）
-- 每步轨迹与指令：`trials/trial-NN/harness/`（transcripts / actions / wire calls.jsonl）与 `incoming-*.json`（模型逐轮决策）
-- 盲评依据：`trials/trial-NN/review.json`；匿名材料与两轮评审原始输出在 `blind-review/`
+- decision_model（manifest 标签）：`deepseek-v4.1-flash-subagent`；与其它模型共享同一冻结初态库（`experiment.json` / `initializations/`）
+- 盲评（20/20 已评）：**stage=4 成功率 1/20**（trial-09）；stage 分布 `{'0': 14, '1': 3, '2': 1, '3': 1, '4': 1}`
+- env_success 与盲评 stage=4 **完全一致**（均仅 trial-09），无假阳/假阴分歧
+- trial-02（stage=3）为边界样本，经第二轮独立评审确认一致；见 `summary.csv` 的 `reviewed_stage` / `review_boundary` 列
+- trial-07 / trial-16 各有 1 个基础设施失败 attempt（`trial-*-infra-void-attempt1`，0 次决策），已从同一冻结初态整 trial 重跑，不计成绩
+- 盲评依据：`blind-review/<clip>/evidence.json` + `blind-review-map.json`（评审为 deepseek-v4.1-flash 子 agent，对模型身份/顺序/notes/自动分盲；复核口径见 `RUN_STATUS.md`）
+- 逐 trial 明细：`summary.csv`（权威表，含 `reviewed_stage` / `recording_checks`）；视频在 `trials/trial-NN/video.mp4`；每步轨迹与指令在 `trials/trial-NN/harness/` 与 `incoming-*.json`
