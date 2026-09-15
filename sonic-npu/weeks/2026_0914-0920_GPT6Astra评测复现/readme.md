@@ -34,6 +34,7 @@
 - [Task3–4 独立复核](2026-09-14-Task34独立复核-诊断缺陷与因果边界.md)：实际接触面、IK可达性反例、接触参数混合、CSV错位及失败阶段复核；修正Task3/4 v1.0因果结论的适用范围。
 - [v3 核查与 20 trials 执行规划](2026-09-14-v3核查与20trials执行规划.md)：当前源码复测、接口/模型组装问题与分阶段验收；本轮用户明确无截止时间，旧 Day3 降级安排不作为新计划硬约束。
 - 工作目录（本机，非本仓库）：`gpt6astra-repro/`（venv、脚本、Kaggle notebook 源）
+- 代码与结果镜像（本仓库根目录）：[`gpt6astra-repro/`](../../../gpt6astra-repro/)（脚本全量 + 各批次精简结果，图像大块未上传，取舍见其 README）
 - inspect-robots 源码 clone（工作区根目录）：`inspect-robots/`
 - RoboCurve 评测页：<https://openai.robocurve.org/gpt-6-astra/>
 - 框架文档：<https://docs.inspectrobots.org/>
