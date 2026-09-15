@@ -14,6 +14,11 @@
 | [8/31–9/6](sonic-npu/weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
 | [9/7–9/13](sonic-npu/weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
 
+## GPT-6 Astra 评测复现（9/14 起，独立于 sonic-npu）
+
+- [`2026_0914-0920_GPT6Astra评测复现/`](2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
+- [`gpt6astra-repro/`](gpt6astra-repro/) — 上项代码与结果镜像：脚本全量 + 各批次精简结果（GLM/DeepSeek/Qwen 20-trial 等），图像大块未上传，取舍见其 README。
+
 ## 成果区（不按周拆分）
 
 - [`sonic-npu/reports/`](sonic-npu/reports/) — 三份主报告现行版（② 原版解析 v1.8 / ③ 分支审计 v1.4 / ① B 路线 v1.5）+ `00_总览.md` 导航。**推荐阅读顺序：② → ③ → ①**（懂原版 → 盘现状 → 评新路）。
