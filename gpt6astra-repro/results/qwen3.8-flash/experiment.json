@@ -15,9 +15,11 @@
     "agent_thinking": "medium (set by parent harness front-end; not a provider effort knob)",
     "parent_session_id": "01a0a404-743b-72ba-aa52-cd9655432a51",
     "dispatch_prompt": "dispatch-prompt-template.txt (neutral read/submit procedure only, rendered per trial to prompt-trial-NN.txt)",
-    "clean_room": "subagent is told it has no repo/project knowledge and must not read project files, source code, private logs, or other trials; it only runs subagent_mailbox.py and views the request images"
+    "clean_room": "subagent is told it has no repo/project knowledge and must not read project files, source code, private logs, or other trials; it only runs subagent_mailbox.py and views the request images",
+    "agent_thinking_actual": "xhigh（更正 23:0x：frontmatter 的 thinking:medium 被 workflow agentType 忽略；实际档取自 settings.modelThinkingLevels[\"qwen-token-plan-cn/qwen3.8-flash\"]=\"xhigh\"，经 clampThinkingLevel 后真实下发。证据链见 THINKING_LEVEL_CORRECTION.md）",
+    "agent_thinking_declared_in_frontmatter": "medium（无效字段）"
   },
-  "effort": "medium requested in wire payload; provider-side effort control not exposed; pi-side thinking level fixed at medium",
+  "effort": "medium 写在 wire 载荷里（转接层不消费）；父 harness 侧真实推理档 = xhigh（每模型设置），SOP section 4 的 medium 未满足 —— 本批为 xhigh 档成绩",
   "protocol": {
     "id": "robosuite-bowl-paired20-v1",
     "version": "1.0",
@@ -219,5 +221,6 @@
       "review_json_per_trial": true
     }
   },
-  "artifacts_committed_to_repo": "../../embodied-ai/gpt6astra-repro/results/qwen3.8-flash/ (52 MB: reports, CSVs, per-trial result/review/physics/video, standard/, initializations/, source/ snapshot); large regenerable sets stay local and are digest-bound by LOCAL_ONLY_MANIFEST.json"
+  "artifacts_committed_to_repo": "../../embodied-ai/gpt6astra-repro/results/qwen3.8-flash/ (52 MB: reports, CSVs, per-trial result/review/physics/video, standard/, initializations/, source/ snapshot); large regenerable sets stay local and are digest-bound by LOCAL_ONLY_MANIFEST.json",
+  "correction_file": "THINKING_LEVEL_CORRECTION.md"
 }

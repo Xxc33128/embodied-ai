@@ -102,3 +102,7 @@
 - 产物：`report.md`、`summary.csv`、`paired-by-seed.csv`（与 glm/deepseek 同 seed 对照）、`recording-audit.json`、`index.html`、逐行 `trial-NN/review.json`。
 - 结果镜像入公开仓：`embodied-ai/gpt6astra-repro/results/qwen3.8-flash/`（52 MB）；大件（发给模型的原图请求 142 MB、导出帧 52 MB、wire blob 51 MB、盲评包 184 MB、中止 attempt 66 MB）留本机，聚合 SHA256 见 `LOCAL_ONLY_MANIFEST.json`。
 - **重要留痕：批次期间 runner 被并行会话改过。** 19:42:53 五个 runner（含 base/glm/deepseek）被统一打上 standard 目录修复 → `run_subagent_trials_qwen.py` 在我这批里先后有三个哈希：`edff5d10…`（15:47–19:31）、`247b8498…`（19:31–19:43）、`5fa57b52…`（19:43 之后，trial-14..20 用它起）。差异只在 standard 目录候选列表，**协议字节没变**：每次加载都校 prompt/system/assembled-system + 环境源码 SHA256，且每 trial 还逐字段比对冻结初始化库 —— 20 行同协议有实证（E2）。
+
+## 更正（23:0x）：策略 worker 实际推理档 = xhigh，不是 medium
+
+frontmatter `thinking: medium` 在 workflow 的 agentType 解析里不被绑定（registry 只绑 tools/disallowedTools/model/body），实际档落到 `settings.json` 的 `modelThinkingLevels["qwen-token-plan-cn/qwen3.8-flash"]="xhigh"` 并被 `clampThinkingLevel` 放行 → **本批是 xhigh 档成绩**；SOP §4 的 medium 未满足。完整代码链（文件:行）见 `THINKING_LEVEL_CORRECTION.md`。原先各处的 medium 表述保持原样留痕。
