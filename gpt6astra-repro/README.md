@@ -74,7 +74,8 @@ python3 -m venv .venv-robosuite && .venv-robosuite/bin/pip install \
 | qwen3.8-flash | 20 | 4/20 | 4/20 | 0×6，1×8，2×1，3×1，4×4 | 完成，已盲评 |
 | gpt-6-astra | 5（按用户决定收口） | 5/5 | **5/5\*（独立物理复核）** | —（独立裁定全部 stage 4） | 收口；trial-06 在跑未计入 |
 
-GLM / DeepSeek / Qwen 三个完整批次盲评成功率（0/20、1/20、4/20）远低于 Astra 真机的 19/20，stage 分布显示瓶颈集中在抓持建立（stage 1–2），属预期内的仿真—真机差距。GPT 批次自动判据 5/5、独立物理复核支持 5/5 达 stage 4（唯一打通全链路的模型），但样本量仅 5、接入为已披露的 persistent-subagent 变体，只作观测性结论（置信下限约 48%）。\n\* GPT 批次正式盲评仅 trial-01/02 出分（均 stage_max=3、边界待定——盲评口径与"成功即终止"协议存在结构性冲突）；2026-09-16 独立评审基于 `physics.jsonl` 逐条复核裁决 5/5 达 stage 4，全文见 [`results/gpt-6-astra/independent-review.md`](results/gpt-6-astra/independent-review.md)。结论与逐日记录见周报目录 [`../weeks/2026_0914-0920_GPT6Astra评测复现/`](../weeks/2026_0914-0920_GPT6Astra评测复现/)。
+GLM / DeepSeek / Qwen 三个完整批次盲评成功率（0/20、1/20、4/20）远低于 Astra 真机的 19/20，stage 分布显示瓶颈集中在抓持建立（stage 1–2），属预期内的仿真—真机差距。GPT 批次自动判据 5/5、独立物理复核支持 5/5 达 stage 4（唯一打通全链路的模型），但样本量仅 5、接入为已披露的 persistent-subagent 变体，只作观测性结论（置信下限约 48%）。
+\* GPT 批次正式盲评仅 trial-01/02 出分（均 stage_max=3、边界待定——盲评口径与"成功即终止"协议存在结构性冲突）；2026-09-16 独立评审基于 `physics.jsonl` 逐条复核裁决 5/5 达 stage 4，全文见 [`results/gpt-6-astra/independent-review.md`](results/gpt-6-astra/independent-review.md)。结论与逐日记录见周报目录 [`../weeks/2026_0914-0920_GPT6Astra评测复现/`](../weeks/2026_0914-0920_GPT6Astra评测复现/)。
 
 ## 未上传内容（本机全量保留）
 
