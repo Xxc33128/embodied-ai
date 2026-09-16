@@ -28,7 +28,8 @@
 - 场景 bank：复制自 logs-persistent-subagent20-20260915-113640/initializations，逐文件 diff 一致（aggregate sha256 见 experiment.json）；每 trial 首步前精确匹配检查全部通过
 - 并发：先 5 路（trial-01..05 波次），后续 15 路补满（用户要求保持 5+ 在跑）；墙钟受机器负载影响，不代表串行时长
 - 基础设施重试：trial-07、trial-16 首次 attempt 因子 agent TLS 证书错误无效（见 dispatch.jsonl `attempt_void`），原 attempt 目录保留（`trial-XX-infra-void-attempt1/`），按 SOP 以同一初态同一配置整 trial 重跑，采用 attempt 2
-- 用量：批次日志内 usage_tokens/cost 按规程填 null（子 agent 接入无 API usage 字段）；coding-tool 侧实际记账见 `usage-tool-side.json`（policy 22 会话合计 155.9M tokens、opencode 参考成本 ~$3.05；含 cache read 148.0M）
+- 用量：批次日志内 usage_tokens/cost 按规程填 null（子 agent 接入无 API usage 字段）。coding-tool 侧记账两份：`subagent-usage.csv/json`（20 个有效 trial 会话，口径对齐 GLM 批次；合计 155.5M tokens，单 trial 2.6–15.2M）与 `usage-tool-side.json`（全量原始：含 2 次无效 attempt、盲评 5 会话 18.8M、编排会话 10.4M；policy 22 会话合计 155.9M，其中 cache read 148.0M；opencode 记录参考成本 ~$3.05）
+- 时间：单 trial 墙钟 1188–4334s（均值 2450s；361 次决策等待均值 135s、最长 1198s；仿真时长合计 715s）；逐项见 summary.csv、call-XX-started|ended.json（决策等待秒数）与 physics.jsonl（每控制步 wall_s）
 
 ## 记录产物（SOP §7）
 
