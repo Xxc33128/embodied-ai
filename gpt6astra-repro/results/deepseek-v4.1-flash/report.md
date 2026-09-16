@@ -35,6 +35,7 @@
 - 模型 API usage/cost：null（子 agent 接入无 API usage 字段，按协议不伪造、不填 0）。
 - 编码工具侧子 agent token 消耗（含读图与邮箱协议开销，**不可与 API usage 互比**）：20 个有效 trial 合计 **155.5M** tokens，均值 7.78M/trial（2.63M–15.22M；最高 trial-07 为 15.2M）。逐 trial（tokens / 工具调用数 / 运行时长 / agent id）见 `subagent-usage.csv` 与 `subagent-usage.json`；含两次无效 attempt、盲评与编排会话的全量口径另见 `usage-tool-side.json`（合计约 185M）。
 - 时间：单 trial 墙钟 1188–4334s（均值 2450s；并发执行，不可作串行比较）；361 次决策等待均值 135s；仿真时长合计 715s。逐项见 `summary.csv`、`call-XX-started|ended.json`、`physics.jsonl`。
+- 时间去向（20 trial 合计）：**99.2% 在等模型决策**（其中约 100% 是 LLM 往返时延：每次决策平均 2.57 次往返、单次中位 34.7s），物理执行仅 0.7%（~23 ms/控制步）；逐 trial 分解与瓶颈分析见 `timing-analysis.md`，机器可读表 `timing-breakdown.csv`。
 
 ## 与其它批次的关系
 
