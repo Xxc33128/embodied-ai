@@ -15,7 +15,7 @@ gpt6astra-repro/
     ├── README.md        ← 各模型批次索引与状态
     ├── glm-5.3-flash/   ← 完成 + 已盲评（20 trials）
     ├── deepseek-v4.1-flash/ ← 完成 + 已盲评（20 trials）
-    ├── gpt-6-astra/         ← 已按 5 条收口（env_success 5/5）
+    ├── gpt-6-astra/         ← 已按 5 条收口（env_success 5/5，独立复核 5/5 stage4）
 └── <model>/
         ├── README.md      ← 本批次结论摘要
         ├── summary.csv    ← 逐 trial：seed / stage / 成败 / 步数 / 调用数 / 终止原因
@@ -72,9 +72,9 @@ python3 -m venv .venv-robosuite && .venv-robosuite/bin/pip install \
 | glm-5.3-flash | 20 | 0/20 | 0/20 | 0×11，1×6，2×2，3×1 | 完成，已盲评 |
 | deepseek-v4.1-flash | 20（22 attempts） | 1/20 | 1/20 | 0×14，1×3，2×1，3×1，4×1 | 完成，已盲评 |
 | qwen3.8-flash | 20 | 4/20 | 4/20 | 0×6，1×8，2×1，3×1，4×4 | 完成，已盲评 |
-| gpt-6-astra | 5（按用户决定收口） | 5/5 | 已评 2 条均 stage 3（上界 4，边界待定） | 盲评未收口 | 收口；trial-06 在跑未计入 |
+| gpt-6-astra | 5（按用户决定收口） | 5/5 | **5/5\*（独立物理复核）** | —（独立裁定全部 stage 4） | 收口；trial-06 在跑未计入 |
 
-所有模型盲评成功率均远低于 Astra 真机的 19/20；结合 stage 分布（多数 trial 卡在抓取前段），差距主要来自抓持物理与视觉闭环，属预期内的仿真—真机差距。结论与逐日记录见周报目录 [`../weeks/2026_0914-0920_GPT6Astra评测复现/`](../weeks/2026_0914-0920_GPT6Astra评测复现/)。
+GLM / DeepSeek / Qwen 三个完整批次盲评成功率（0/20、1/20、4/20）远低于 Astra 真机的 19/20，stage 分布显示瓶颈集中在抓持建立（stage 1–2），属预期内的仿真—真机差距。GPT 批次自动判据 5/5、独立物理复核支持 5/5 达 stage 4（唯一打通全链路的模型），但样本量仅 5、接入为已披露的 persistent-subagent 变体，只作观测性结论（置信下限约 48%）。\n\* GPT 批次正式盲评仅 trial-01/02 出分（均 stage_max=3、边界待定——盲评口径与"成功即终止"协议存在结构性冲突）；2026-09-16 独立评审基于 `physics.jsonl` 逐条复核裁决 5/5 达 stage 4，全文见 [`results/gpt-6-astra/independent-review.md`](results/gpt-6-astra/independent-review.md)。结论与逐日记录见周报目录 [`../weeks/2026_0914-0920_GPT6Astra评测复现/`](../weeks/2026_0914-0920_GPT6Astra评测复现/)。
 
 ## 未上传内容（本机全量保留）
 

@@ -7,7 +7,7 @@
 | [`glm-5.3-flash/`](glm-5.3-flash/) | glm-subagent（GLM-5.3-Flash） | 完成 + 已盲评 | 0/20 | 0/20 | stage 分布 0×11，1×6，2×2，3×1（最高 stage3） |
 | [`deepseek-v4.1-flash/`](deepseek-v4.1-flash/) | deepseek-v4.1-flash-subagent | 完成 + 已盲评 | 1/20 | 1/20 | stage 分布 0×14，1×3，2×1，3×1，4×1；22 attempts（2 次基础设施无效已整 trial 重跑） |
 | [`qwen3.8-flash/`](qwen3.8-flash/) | qwen3.8-flash-subagent | 完成 + 已盲评 | 4/20 | 4/20 | stage 0×6，1×8，2×1，3×1，4×4；平均最高阶段 1.45；trial-19 边界样本保守读法 3/20 |
-| [`gpt-6-astra/`](gpt-6-astra/) | GPT-6 Astra / medium | **5个有效trial阶段报告已完成，原20次未完成** | 5/5 | 已评2/5：均3–4边界待定 | 五个policy合计7,484,353 tokens；trial06已中断，不计成绩；[总结报告](../../weeks/2026_0914-0920_GPT6Astra评测复现/2026-09-16-GPT6-Astra五次任务总结与用量.md) |
+| [`gpt-6-astra/`](gpt-6-astra/) | GPT-6 Astra / medium | **5个有效trial阶段报告已完成，原20次未完成** | 5/5 | **独立物理复核 5/5 达 stage 4**（正式盲评仅 2 条出分、均 3–4 边界，口径冲突已裁决，见其 [independent-review.md](gpt-6-astra/independent-review.md)） | 五个policy合计7,484,353 tokens；trial06已中断，不计成绩；[总结报告](../../weeks/2026_0914-0920_GPT6Astra评测复现/2026-09-16-GPT6-Astra五次任务总结与用量.md) |
 
 ## 读结果的顺序建议
 
