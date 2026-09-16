@@ -1,0 +1,602 @@
+[
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-01/physics.jsonl",
+    "sha256": "916422b9c3c867d7cda2ba802f5139cff09dd84ac3c839451b19b56f252c84b2"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-01/result.json",
+    "sha256": "1f4ffbadc3c485714820e9e84f61c1bde004a7ac61dbf0dcb2d10aa3a9af244e"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-02/physics.jsonl",
+    "sha256": "465b910177eb36e4944a0e8c1f7748f7477840fce70842832fea508b52f03d9e"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-02/result.json",
+    "sha256": "33bbff91b98771591a234032af9d561e4f31e2588e95f259057dd45cb3af7e82"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-03/physics.jsonl",
+    "sha256": "78f9221d7dec83c064f51360f54fd632b2589c2e3dc2404c51c1066c4ed6fa22"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-03/result.json",
+    "sha256": "0c34233c89130f700f1052138cd8a10fa9662a3096c41407a43c67a81fb3a74f"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-04/physics.jsonl",
+    "sha256": "35b16179a17b2a643c22f343112bc286548a888b597925012bc090dc5d443ece"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-04/result.json",
+    "sha256": "52befeb23502c0afaf681aa2c208b425d04891e381a1ce31004508fd1da5eb9b"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-05/physics.jsonl",
+    "sha256": "de8c32b615af5959068871d2d7f1c239299ff2595e09f8c187288e8b3d353ddb"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-05/result.json",
+    "sha256": "656d7cf4a3c9c81b542a8599e0883ee4fd46011b89ce566608e621204d2c57d2"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-06/physics.jsonl",
+    "sha256": "474e64c20fcfddab76cff3ed0d7885968c670d1762cb8c37841340c1ef9152a9"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-06/result.json",
+    "sha256": "dc298da84a14db3fe278e675e799e724fc9ce46a41932ff26bd902a19c5a1e0a"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-07/physics.jsonl",
+    "sha256": "7c3b9d69a1171a78b4d120773ef1c98b6a75264ad4263add4760668f2b611478"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-07/result.json",
+    "sha256": "f2eb2f0d7f61b7259440479971eca851183b3038a3c327d0ec75df2d8253d471"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-08/physics.jsonl",
+    "sha256": "f677cfaab797bad1f9d2ca5b75fc97cf649f9159752305b6101cfce53d5bbcc5"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-08/result.json",
+    "sha256": "7c785c115c1ec1ff017f238d1ffe1a312bc241e170c8e59e8fc90c23e828a72d"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-09/physics.jsonl",
+    "sha256": "b7cc5bd33e1faeb0347093d21b546ca00068e3b5bcadd5fde7a3559f4d507de0"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-09/result.json",
+    "sha256": "dcd980a5634aeda4f279cfcd4d2c4638ae017188c64c7441b2ad4a8368a068ab"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-10/physics.jsonl",
+    "sha256": "aba347eac39a4d12d1418277853c98c8b1013bac5c7d7bd5edd48e5b7a524cf5"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-10/result.json",
+    "sha256": "69d246ee5526025c3479f1f1f900f4d3c08ac49873197efb686a0850c9f1fde8"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-11/physics.jsonl",
+    "sha256": "f328555b74d55e5d4dd45773350107a43d9af92c32b0dbf601503ee926dd89fb"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-11/result.json",
+    "sha256": "07c2b27f220e1af091ee49b978b46f787b8bdba4fe1ad60344df009c49621027"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-12/physics.jsonl",
+    "sha256": "e755a4d70938310cc22ad7ccd450f49fa2b97a15e5d0f51d0b19563a951ab2ff"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-12/result.json",
+    "sha256": "79a0ee53edf132a9d8a3c87be574b85776adfcb24c2232907ccc01b881571fa5"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-13/physics.jsonl",
+    "sha256": "9350a1e1d425c2acabdfac2053059cb7007b42bafe4549dd83e5194207b277d1"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-13/result.json",
+    "sha256": "d69cc703d75b5e5359dede405aa4398ed97487be19517fe08cb3fb26d1e0698d"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-14/physics.jsonl",
+    "sha256": "f2cf831c107ab51243cbd2a09f694a528444b220ffa9bc336b68ca25f51be282"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-14/result.json",
+    "sha256": "ab052292fb7a2e32815974d201f71f123fb59a8255499c79f23327d1feb44121"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-15/physics.jsonl",
+    "sha256": "5d682c0809cdeb35f419094b50ab37c8fbb8ecce09b17bd38b5abef411923f6f"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-15/result.json",
+    "sha256": "49f19afca6904dd4ed3491b9ad48c3af786f97f781a5638ee1ce1c218b31183c"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-16/physics.jsonl",
+    "sha256": "dd3224e71c8e9d18f8997a016ee8605bd715432835d5d2a65510f7783267dd00"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-16/result.json",
+    "sha256": "1a1d126eaf7663c4ee29a2bd245492d7128d4f0c81c43b8e729ce82e871594d7"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-17/physics.jsonl",
+    "sha256": "0effb93d04bcf65bdfadf1e15e32a351bbe3e364f8a8b986a14440f052190efe"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-17/result.json",
+    "sha256": "6232402b713b73fe16726f23c7719b96ed0d3e8da0f55c24525a2aee08865c7b"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-18/physics.jsonl",
+    "sha256": "6fc0fcd9b4a625acaba4f83a10ec9b68de9c315211608e5597fbc3f65359ecd6"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-18/result.json",
+    "sha256": "143e8cc722e78038de1d2ba660c3b359fd7c1227ec37d64c1fb05c3262a818f7"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-19/physics.jsonl",
+    "sha256": "74db05f0f20d3b2857fe4d4bebc24acb5b1b9efe04bb0b57e0633af0480e7138"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-19/result.json",
+    "sha256": "623cc8d1407445534a1621077181d4aebaf42eba3d5f1b5f00d98b010c6f88b4"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-20/physics.jsonl",
+    "sha256": "4bffc40b7e137033dc8a260fc881aabfb0f0763625ccc0511d69a5b503fb01a7"
+  },
+  {
+    "model": "glm-5.3-flash",
+    "file": "logs-glm-subagent20-20260915-120407/trial-20/result.json",
+    "sha256": "d0a08c0004fe93b6d9bbc6f30e228aa93f5725bd04e9358cba3c54fddbc8ec27"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-01/physics.jsonl",
+    "sha256": "7ed661665344cb5ebb0279bc73fdb009ecb1fb37551c9e21dfe67701fd70d10b"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-01/result.json",
+    "sha256": "5bd960d89d74a0a9a4082e7bb212dfbba0874de66465afe64ef837bf7fc614c6"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-02/physics.jsonl",
+    "sha256": "c6507c1d8ceaa1c14af9f353af12cf45f236be6fd0be34dd34f4c780a1350a15"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-02/result.json",
+    "sha256": "058e868c087315b102131627f257701f91fa0a82bb7209c978432ee0e3712dea"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-03/physics.jsonl",
+    "sha256": "7b68725c934d9e85ea249a444cc120280a6618c95f4cffc2af70a5e68e9ea603"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-03/result.json",
+    "sha256": "eec67fe9f98fdb9132841b32e4b40860ba343e77731298ac97a4fe12c7c1f725"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-04/physics.jsonl",
+    "sha256": "a7a9ca22146e7f1e20d22614502622e16fcc035c01fef7802db7cfebcef46cc8"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-04/result.json",
+    "sha256": "9dd7d91523c0979713dd33f412bc6e13629ea5bdc72af294fec40d851613ccaa"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-05/physics.jsonl",
+    "sha256": "1008f01c98d24687df307845842cb46486b13bb6bdb1d5518a9c149e23191c89"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-05/result.json",
+    "sha256": "41008826d98f7a6bb5e678f224d16351e1cd60589d10502b2cac99648bde59d1"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-06/physics.jsonl",
+    "sha256": "a0cdcca90a1e591510e7155dcc22b5446f4b33bb4f7e554a09a6475709a14a7a"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-06/result.json",
+    "sha256": "444775fb9f25d2aabe5e24634a1df3f5acc33ae63a9ffb009169dab90fac4a5a"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-07/physics.jsonl",
+    "sha256": "d37b2eb73864f5d26af5058e8923559e4bf0dbb536be35284445cbfc9bf97f9b"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-07/result.json",
+    "sha256": "e840b12daf94fd17e44688276ec37df5fae2b051f087fb8401ede8b6efa72fce"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-08/physics.jsonl",
+    "sha256": "138a57a73043e957c46878974eed063b1241192a06b32be7ca9ffeb957b11021"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-08/result.json",
+    "sha256": "7cacda056170be3c260ac8594982acbf52213e6adfbee7ecfc88a247c9ae6172"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-09/physics.jsonl",
+    "sha256": "db003a4e12618d2f12c289481582847aa1790598e7b6d4992e3154001df1c8e6"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-09/result.json",
+    "sha256": "7e2cdf0ec8d979abf49d51d2f0a8786545297543eeb9445286755c28e2fa078a"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-10/physics.jsonl",
+    "sha256": "197f3de3efd2711d70f187d0cc759a3d8b5565b83d4b7473f9783f08eca2c09d"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-10/result.json",
+    "sha256": "d3b20f5e48ea93369d553bf5e9719935a350a81104be9f5f3c7df7f92d61fbe0"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-11/physics.jsonl",
+    "sha256": "7ff14ffa6732d205d81ba081e584870dba826134e6fc22b6dd34fd75f32a86d1"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-11/result.json",
+    "sha256": "c9de1347525836ee91a1305a5df92aecbdb9f1317787424b434e1cb3cda2a55d"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-12/physics.jsonl",
+    "sha256": "3345b4de83e2f712387e59c2314c19537ec28e7d4a9bf11d1642a20b7afbc049"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-12/result.json",
+    "sha256": "b5387dd49aaa516b19e73e33ddb83e4a60acb66bad0a27566791337320280f45"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-13/physics.jsonl",
+    "sha256": "0bc17ce8977c538ee0e333897ec7cc89c032dc21b1ecc7cd37c369b2b1c73e8e"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-13/result.json",
+    "sha256": "84cc5f155ab2565f64253fca848bbd45efe3a4327e1eef7f416b47a24fa452be"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-14/physics.jsonl",
+    "sha256": "875533b31c0f56dca5eafd57ca7ece5a31bd8db69b7c976570770c98ee7927ba"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-14/result.json",
+    "sha256": "ad6b0adae46a010c7a92787d59a7fac1df630f5cf26cfc17185466d238884543"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-15/physics.jsonl",
+    "sha256": "72295d5ef8987fc2f080f7f1ad25f2d54158427c572f6c70ee411a301d37aed7"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-15/result.json",
+    "sha256": "645e9075003da7894de1f71dd665a9927034656b70b1b64780de2dcaa625a5b0"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-16/physics.jsonl",
+    "sha256": "caccd87a4436d359e51c501d5676c66f2e2df41a1889b8fafbef9df4d02cc818"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-16/result.json",
+    "sha256": "6a0cfca0f44833d95b0e9d406123a39a3aa79c2d53f3f9a4f78c68bc8395160a"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-17/physics.jsonl",
+    "sha256": "91ad75f6b288dee013d4d590a9771729bbb41d8089b141dd32190848bdeed381"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-17/result.json",
+    "sha256": "03db69f5842e19fc6c87b4e5d326e5ec841e32bce131f61aa24d6949efdbff7a"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-18/physics.jsonl",
+    "sha256": "f95635ded9027ab42911f13689ce9c2d436a561c8332c853d8c3d0b41823a893"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-18/result.json",
+    "sha256": "8135fbb02364317313654002c2cb2a11dfff5b85cef77c1b99030e9bd207e053"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-19/physics.jsonl",
+    "sha256": "c96d018beb34b9b31fda45de853b683c166cae02fb3c8449f76d132c0a21ac77"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-19/result.json",
+    "sha256": "8508aad0cae4b19e5a3db914158469b7c346f6d59546e6ef16f6d8915e7fbf42"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-20/physics.jsonl",
+    "sha256": "3af7244bcde9169a46d416093920138d2d1281b6cc0acf719be195be43e983a3"
+  },
+  {
+    "model": "deepseek-v4.1-flash",
+    "file": "logs-deepseekv4.1-subagent20-20260915-1435/trial-20/result.json",
+    "sha256": "f811c9d8330fffe4e12abc71a9519df6c4c4dbfab89107b1e38b38149fabf6b4"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-01/physics.jsonl",
+    "sha256": "14d9ffd7004dd216370f276ed3d3ff4d17b6c612c5017f72c931007a14f0795f"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-01/result.json",
+    "sha256": "37a6e0e517e7bea8e868be6ca61ca0c667d365bc986223ac4d6af0e8b3382e22"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-02/physics.jsonl",
+    "sha256": "58edd68d344675a2384e968032b54976e9375bcff8a596002bcb3dddbd15725b"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-02/result.json",
+    "sha256": "c416e75c7cdebad9e84e659d1791c89d1791ad08f95a2a06e464e380aaf17322"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-03/physics.jsonl",
+    "sha256": "8971a9f9bc816e33e1b74f08b97447a970be7bbf7738ac76d2baf3eab97127ce"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-03/result.json",
+    "sha256": "c6cb2ba5de11057235966eb38a97d6765d6952c272c58c6c5fd42d0746e8e305"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-04/physics.jsonl",
+    "sha256": "5910790a832ade08e601a1a94c14b7295cef833c04121e33d35ab165c1e5d4a3"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-04/result.json",
+    "sha256": "5e18b53b38b07e6bc8e0e4834de3ce84c6e8b9b63426796344fe344a6047eec7"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-05/physics.jsonl",
+    "sha256": "4f7fcb33a8d15b0bdf13c069a095cdafc757c75d6b289cf4f666353bfe195516"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-05/result.json",
+    "sha256": "81ae0274cd2c90f0c62cdec763ad9fdb35c1ad360ee103d57d6f85f4e3a943cf"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-06/physics.jsonl",
+    "sha256": "a5540ec6afda1778801731371f77fafa8084ff3f78a2fc3fea8d34c2a4651d2c"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-06/result.json",
+    "sha256": "32699486a42828287a7872a2ff1ed9eaef3a1b097c384f7d044ec03b27c8ec0f"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-07/physics.jsonl",
+    "sha256": "c788e8f75727f2cda39534b30af3ac2b7c0203123306667e41500793340b17ad"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-07/result.json",
+    "sha256": "cc016c4df570ba10ddaedbfbced01cc9cdb96ae8a3baa90689cadc1d4bfe0e19"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-08/physics.jsonl",
+    "sha256": "9c70549953981d0f0c5b18c126fbbe30ccd0c076119ef5506c85c2e160321e16"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-08/result.json",
+    "sha256": "44e37f9b82340d621dcfc20853c39a4799d4659a054cb55e47b2f9bb95da26ee"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-09/physics.jsonl",
+    "sha256": "512e678fe6bc9a7556663a13e0aeb178726cc798360fe93e4bae7fce845c5557"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-09/result.json",
+    "sha256": "c1bb9ef3ce9037694457b374484957ee1a85e4f7b158d7616764e63fee9864b4"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-10/physics.jsonl",
+    "sha256": "e53be50d8ed0c6cb3c4847b9b88b1046c64435fed1adbb3073d07753b81c196a"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-10/result.json",
+    "sha256": "f03f045e6085c8154add9cdaf1d91f6c9518b6775c5fc0c66eb107134740ef1a"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-11/physics.jsonl",
+    "sha256": "a16077a275cfacce219bd5ffef3668a9bbb2c2bb8e12c25d46721fd5708a405c"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-11/result.json",
+    "sha256": "4aea8c10a0b5871d1fcdb353b35c9097968e7fdb4ee6bcf5f3eb67671b4ff262"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-12/physics.jsonl",
+    "sha256": "eec0341eb4084638e883843b33b0f19b750f4a3104128fbd1051ad55db899524"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-12/result.json",
+    "sha256": "7cd8f2c3688a246db9485e31485c20dc39d47d5695d8bd5f669a5bf12646d484"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-13/physics.jsonl",
+    "sha256": "78482d59ddeb12eeaa6821c0532b4ea624959491d444adbca4ef84168d9f6612"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-13/result.json",
+    "sha256": "3f273bacaad2ba9e8b21985ae5c3aee9a9fb728b78d13982700925b601885b58"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-14/physics.jsonl",
+    "sha256": "044a808bf58f5d8fe2700c3bde025575dc5aa40638ad1314b6295a04b66d8681"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-14/result.json",
+    "sha256": "3b3d1d325d3e65c7646e9b146a34a6e9494161f9a8e028cd5e3b82f62a7123ba"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-15/physics.jsonl",
+    "sha256": "a1896b001b7bdebce6b153099057a82f0511f616180a3d0d39cc962e832d286c"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-15/result.json",
+    "sha256": "2d60bc1033bfe9653d11e26f7b7c29f196a34dae1e888e40e28d3548ee802e69"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-16/physics.jsonl",
+    "sha256": "13762e14b61f2ac0d74075161156c64a12d450963caf289fddad4a20ede89a2c"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-16/result.json",
+    "sha256": "e7f3b360122fff7db2bea6e5c342df157ff64c55f189160fe81e1424cdf853dc"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-17/physics.jsonl",
+    "sha256": "b45ff9fa66f1e3438d8b358248ed382a662e494eaaa167e58b3236886302a0bc"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-17/result.json",
+    "sha256": "728696f4e3b89a7d4db41d3815fe5b23091aa9b3943cf1318a38f031061cdfab"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-18/physics.jsonl",
+    "sha256": "f2e34d106818c53fda9f25a0712ff55ac6dd14a7944ffbc5f79ed181cbcfad99"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-18/result.json",
+    "sha256": "c0d76050659853cf01dd7dc7d691c61d2bca74ec157fb1a6a4c0a93a05e8088b"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-19/physics.jsonl",
+    "sha256": "7eb3cd7887a0db55dd37e769fc3cbb8b10e69e786d2aac196379696e0ad1b026"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-19/result.json",
+    "sha256": "69e784b82a4d2ffc604550acd84c4cc23428778ef267bc940ed55be84328212a"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-20/physics.jsonl",
+    "sha256": "0ef95d83a9b06425b1db4fef5cf534118ac355b69e72aded04257b588b73efb2"
+  },
+  {
+    "model": "qwen3.8-flash",
+    "file": "logs-qwen3.8flash-subagent20-20260915-1545/trial-20/result.json",
+    "sha256": "5aa149cbc7e81aa8294c488ed974aebc76ca6eef24a1a1e0645488bc8893fc2c"
+  }
+]

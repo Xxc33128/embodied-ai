@@ -1,0 +1,66 @@
+{
+  "step_limits": [
+    0.04,
+    0.04,
+    0.04,
+    0.35,
+    0.0125
+  ],
+  "cases": [
+    {
+      "measured_state": [
+        -0.1,
+        0.0,
+        0.95,
+        0.0,
+        0.99
+      ],
+      "targets": {
+        "x": 0.0
+      },
+      "chunk_steps": 3
+    },
+    {
+      "measured_state": [
+        -0.1,
+        0.0,
+        0.95,
+        0.0,
+        0.99
+      ],
+      "targets": {
+        "x": 0.0,
+        "gripper": 1
+      },
+      "chunk_steps": 3
+    },
+    {
+      "measured_state": [
+        -0.1,
+        0.0,
+        0.95,
+        0.0,
+        0.99
+      ],
+      "targets": {
+        "x": 0.0,
+        "gripper": 0.5
+      },
+      "chunk_steps": 40
+    },
+    {
+      "measured_state": [
+        -0.1,
+        0.0,
+        0.95,
+        0.0,
+        0.99
+      ],
+      "targets": {
+        "x": 0.0,
+        "gripper": 0
+      },
+      "chunk_steps": 80
+    }
+  ]
+}
