@@ -1,0 +1,26 @@
+[
+  {
+    "attempt_path": "trial-02",
+    "classification": "infrastructure_interruption",
+    "included_in_scores": false,
+    "requests_started": 14,
+    "responses_received": 13,
+    "physics_steps": 486,
+    "runner_wall_seconds": 2108.9688880443573,
+    "termination_reasons_as_recorded": [
+      null
+    ]
+  },
+  {
+    "attempt_path": "trial-06",
+    "classification": "infrastructure_interruption",
+    "included_in_scores": false,
+    "requests_started": 2,
+    "responses_received": 1,
+    "physics_steps": 39,
+    "runner_wall_seconds": 1851.36314702034,
+    "termination_reasons_as_recorded": [
+      null
+    ]
+  }
+]

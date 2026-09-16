@@ -1,0 +1,7 @@
+model,scope,n,env_successes,reported_review_successes,mean_policy_calls,mean_physics_steps,mean_wall_seconds
+GLM-5.3-Flash,shared_first5,5,0.0,0,18.6,471,2141.0699999999997
+GLM-5.3-Flash,full20,20,0.0,0,18.5,623.05,2178.5105
+DeepSeek-v4.1-flash,shared_first5,5,0.0,0,18.4,839.2,2868.414
+DeepSeek-v4.1-flash,full20,20,1.0,1,18.05,715.4,2450.178
+Qwen3.8-flash,shared_first5,5,1.0,1,19.6,718.2,2223.814
+Qwen3.8-flash,full20,20,4.0,4,18.9,675.3,2074.3515

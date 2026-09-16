@@ -1,0 +1,55 @@
+{
+  "report_date": "2026-09-16",
+  "raw_batch_directory": "logs-persistent-subagent20-20260915-113640",
+  "source_files": [
+    {
+      "file": "trial-01/result.json",
+      "sha256": "fbaaf14e28fd9058c2cf73a4d7409af0422f151ebd6adef90b8c68b3abb8b50d"
+    },
+    {
+      "file": "trial-02-attempt-02/result.json",
+      "sha256": "50a89a0018c9074dc40b8ed93faeef6e2c9e2a4f1e817cac4b04283e74fe1f74"
+    },
+    {
+      "file": "trial-03/result.json",
+      "sha256": "9ce76a404ad7024599a137c41c6067125790e30bc404ecab3883f6114d2e154f"
+    },
+    {
+      "file": "trial-04/result.json",
+      "sha256": "699d98b0907d1c924e087909645626895599c3e7ea118fdd85790c496207c9d6"
+    },
+    {
+      "file": "trial-05/result.json",
+      "sha256": "215d3190db0e75f23550f48166b5bb27f24a1f83ceed532aa3316133835309c0"
+    },
+    {
+      "file": "trial-02/result.json",
+      "sha256": "13bb75157fc7964e9dcfbc36a5e8d692aa122f8662d4e9e2ddc1d9b59878f412"
+    },
+    {
+      "file": "trial-06/result.json",
+      "sha256": "d16ec05ed5220aacfb515f5eb961652ddc3cf6251bde64a7be9a88456cecfd54"
+    },
+    {
+      "file": "decision-trace.csv",
+      "sha256": "11a9ffe5a9d8c1e475a48076d91f2d865867fb49eef5a0f8f86a89c44a147235"
+    },
+    {
+      "file": "model-comparison.csv",
+      "sha256": "2563a7d6fc8ec19dac799769c85b9667dc921153e313b2e3ce076ea5c8aa9b11"
+    },
+    {
+      "file": "paired-first5.csv",
+      "sha256": "f0e68fd0eb55f5926c22a3c01a563aea2f9cdb9f9315e61ca870280ad79adf08"
+    },
+    {
+      "file": "subagent-usage.csv",
+      "sha256": "740f10432895563d10139080cc26c651dafc07cabae6a6028d66042ee766fae1"
+    },
+    {
+      "file": "tokens-and-timing.csv",
+      "sha256": "7467a922b18bf3ec0215fbe81cfda5b3fc63339b0f7ffc72ae026617cdb5fc04"
+    }
+  ],
+  "codex_usage_sources": "See subagent-usage.json: numeric token_count events only, per-session file SHA256 and line number. Full session rollouts are not exported."
+}

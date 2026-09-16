@@ -1,0 +1,62 @@
+{
+  "completed_valid_trials": 5,
+  "auto_successes": 5.0,
+  "policy_decisions_total": 61,
+  "runner_wall_seconds_total": 1755.0184779167175,
+  "decision_wait_seconds_total": 1659.3715438842773,
+  "sim_seconds_total": 108.04999999999998,
+  "mean_policy_decisions": 12.2,
+  "mean_runner_wall_seconds": 351.00369558334353,
+  "mean_sim_seconds": 21.61,
+  "first_to_last_request_span_seconds": 36893.5702149868,
+  "usage_by_category": {
+    "interrupted_policy": {
+      "sessions": 2,
+      "input_tokens": 1900913,
+      "cached_input_tokens": 1806464,
+      "noncached_input_tokens": 94449,
+      "output_tokens": 6054,
+      "reasoning_output_tokens": 981,
+      "total_tokens": 1906967
+    },
+    "management": {
+      "sessions": 3,
+      "input_tokens": 3353643,
+      "cached_input_tokens": 3192576,
+      "noncached_input_tokens": 161067,
+      "output_tokens": 11652,
+      "reasoning_output_tokens": 216,
+      "total_tokens": 3365295
+    },
+    "review": {
+      "sessions": 3,
+      "input_tokens": 586075,
+      "cached_input_tokens": 542976,
+      "noncached_input_tokens": 43099,
+      "output_tokens": 4706,
+      "reasoning_output_tokens": 554,
+      "total_tokens": 590781
+    },
+    "superseded_per_decision": {
+      "sessions": 6,
+      "input_tokens": 577196,
+      "cached_input_tokens": 506240,
+      "noncached_input_tokens": 70956,
+      "output_tokens": 3436,
+      "reasoning_output_tokens": 790,
+      "total_tokens": 580632
+    },
+    "valid_policy": {
+      "sessions": 5,
+      "input_tokens": 7458922,
+      "cached_input_tokens": 7144576,
+      "noncached_input_tokens": 314346,
+      "output_tokens": 25431,
+      "reasoning_output_tokens": 3610,
+      "total_tokens": 7484353
+    }
+  },
+  "root_conversation_tokens_attributed": null,
+  "account_or_provider_cost_usd": null,
+  "notes": "Cache is a subset of input; reasoning token count is not added again to output. No private reasoning content exported. Main results include exactly five valid policy sessions; other categories are separate."
+}

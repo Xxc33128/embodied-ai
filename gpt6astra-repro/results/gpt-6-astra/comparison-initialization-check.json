@@ -1,0 +1,23 @@
+{
+  "GLM-5.3-Flash": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "DeepSeek-v4.1-flash": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "Qwen3.8-flash": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ]
+}
