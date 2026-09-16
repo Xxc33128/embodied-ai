@@ -101,3 +101,33 @@
 2. `launch_trial_r2.sh` 的 READY 判据仍靠轮询 `public/status.json`，未按 runner 所有权校验（本次靠"attempt 目录独占"避免双接）；下批应改成 pid 级隔离。
 3. 共享生成器 `audit_standard_trials.py` 的 index.html 表头仍写死上一批次的模型名，本批只修正了生成的 HTML 文件本身；应参数化到 `experiment.json`。
 4. 自动阶段判据（距离近似）与盲评在 trial-03 上不一致（3 vs 2）——主表只认盲评，自动值仅作候选指标（SOP §6 要求，本批已实证这条纪律有必要）。
+
+## 8. token 与时间记录（22:40 补充，逐 trial 表 = `tokens-and-timing.csv`）
+
+**时间：每个决策都单独记了时。** 来源 = runner 写的 `call-NN-started.json` / `call-ended.json`（含 `wall_time`、`wait_seconds`、当时刻的物理步号）与 `result.json`。
+
+| 项 | 数值 |
+|---|---|
+| 墙钟合计（20 trial 相加） | **11.5 h** |
+| 其中等模型决策 | **11.4 h = 99.1%**（逐行 98.6–99.6%） |
+| 物理推进耗时 | 388 s（13,506 控制步 × ≈20–24 ms，含每步录像写帧） |
+| 仿真时间合计 | 675 s（13,506 步 / 20Hz；单 trial 8.15–45.0 s） |
+| 单次决策等待 | 跨 trial 均值 72–140 s，全程最大 583 s |
+| runner 每决策硬超时 | 1800 s，**20 个 trial 一次都没触发** |
+| 推理期间仿真 | 暂停（审计断言 `call-started` 与 `call-ended` 的 `physics_steps` 相等，20/20 通过） |
+
+**token：有记账，但不是 API 账单。** 权威来源 = pi workflow journal 的 `tokenUsage`（父 harness 侧统计，含 cached 读取）。
+
+| 窗口/用途 | 并发 | tokens 合计 | 其中 cache 重发 | 新鲜 input+output |
+|---|---|---|---|---|
+| R1 16:03–17:31 | 5 槽 | 73.62M | 69.04M (93.8%) | 4.58M |
+| R2 17:33–19:16 | 2 槽 | 36.16M | 33.79M (93.4%) | 2.37M |
+| R3 19:32–21:53 | 2 槽 | 60.65M | 57.05M (94.1%) | 3.60M |
+| 盲评 pass1 + 边界 pass2 | 5 / 3 复核 agent | 12.00M | 11.26M | 0.73M |
+| 作废的 per-decision 尝试（不计成绩） | 4 槽 | 2.94M | 2.49M | 0.45M |
+| wave1 中止（改滚动池前） | 5 | 2.78M | 2.38M | 0.40M |
+| **合计** | — | **188.2M** | **≈94%** | **≈12.1M** |
+
+- 逐 trial 列在 `tokens-and-timing.csv`：13/20 行的 journal 条目非零（0.05M–9.85M，中位 1.2M，cache 占 93.1%）。**注意这些是下限**：凡中途换过 worker 的行，旧段条目在暂停-重放时被压成 0，只剩接续段的量；所以单 trial 成本以 run 级总量除以完成行数为准（**R3 实测 60.65M / 8 行 ≈ 7.6M tokens/行**）。
+- `api_usage` 与 `cost` 一律 **null**（SOP §7：子 agent 账号用量不得冒充 API usage，供应商账单侧无法按 trial 归因）；上表 token 是本机 harness 记账，不是发票数字。
+- 录像/图像侧的量：20/20 `video_frames == physics_steps+1`；模型可见图像引用合计 **2,208** 张，`frames/index.json` 逐文件 SHA256 可追到对应 wire 请求。
