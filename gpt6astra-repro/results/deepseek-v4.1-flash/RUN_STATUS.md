@@ -28,7 +28,7 @@
 - 场景 bank：复制自 logs-persistent-subagent20-20260915-113640/initializations，逐文件 diff 一致（aggregate sha256 见 experiment.json）；每 trial 首步前精确匹配检查全部通过
 - 并发：先 5 路（trial-01..05 波次），后续 15 路补满（用户要求保持 5+ 在跑）；墙钟受机器负载影响，不代表串行时长
 - 基础设施重试：trial-07、trial-16 首次 attempt 因子 agent TLS 证书错误无效（见 dispatch.jsonl `attempt_void`），原 attempt 目录保留（`trial-XX-infra-void-attempt1/`），按 SOP 以同一初态同一配置整 trial 重跑，采用 attempt 2
-- usage/cost：子 agent 用量不可得，null
+- 用量：批次日志内 usage_tokens/cost 按规程填 null（子 agent 接入无 API usage 字段）；coding-tool 侧实际记账见 `usage-tool-side.json`（policy 22 会话合计 155.9M tokens、opencode 参考成本 ~$3.05；含 cache read 148.0M）
 
 ## 记录产物（SOP §7）
 

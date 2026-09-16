@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "what": "coding-agent (opencode) usage counters for the 20 valid trial-execution subagents; trial-07/16 rows are attempt 2 (valid retry)",
+    "source": "local opencode session database aggregated read-only after the batch; recorded 2026-09-15",
+    "caveat": "subagent_tokens is the whole-worker session token counter (system prompt, image reads, mailbox turns, reasoning, cache reads); it is NOT a per-policy-call model-API usage breakdown and is not comparable to API usage fields, which remain null per protocol",
+    "total_tokens": 155501638,
+    "void_attempts": [
+      {
+        "trial": 7,
+        "attempt": 1,
+        "agent_id": "ses_f5bee3661ffeKGXiJufjOqmKqG",
+        "subagent_tokens": 48138,
+        "tool_uses": 4,
+        "agent_duration_min": 0.9,
+        "status": "infrastructure void (TLS certificate error); retried as attempt 2"
+      },
+      {
+        "trial": 16,
+        "attempt": 1,
+        "agent_id": "ses_f5bedfa54ffehgTGMfxmMsznFC",
+        "subagent_tokens": 381740,
+        "tool_uses": 15,
+        "agent_duration_min": 6.1,
+        "status": "infrastructure void (TLS certificate error); retried as attempt 2"
+      }
+    ]
+  },
+  "trials": [
+    {
+      "trial": 1,
+      "scene_seed": 2000,
+      "agent_id": "ses_f5c36fe6affe9yr3KSdRgW2VqX",
+      "subagent_tokens": 5986928,
+      "tool_uses": 64,
+      "agent_duration_min": 34.8,
+      "policy_calls": 20,
+      "physics_steps": 859,
+      "tokens_per_policy_call": 299346,
+      "stage_max": 1
+    },
+    {
+      "trial": 2,
+      "scene_seed": 2001,
+      "agent_id": "ses_f5c36f863ffetwHaxMdmUXAmke",
+      "subagent_tokens": 9387245,
+      "tool_uses": 89,
+      "agent_duration_min": 76.8,
+      "policy_calls": 20,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 469362,
+      "stage_max": 3
+    },
+    {
+      "trial": 3,
+      "scene_seed": 2002,
+      "agent_id": "ses_f5c36f001ffeTkNvzqv9ZVqByd",
+      "subagent_tokens": 5477880,
+      "tool_uses": 59,
+      "agent_duration_min": 37.4,
+      "policy_calls": 17,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 322228,
+      "stage_max": 0
+    },
+    {
+      "trial": 4,
+      "scene_seed": 2003,
+      "agent_id": "ses_f5c36e840ffeCJetwvTfnugZEo",
+      "subagent_tokens": 4270327,
+      "tool_uses": 58,
+      "agent_duration_min": 27.4,
+      "policy_calls": 15,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 284688,
+      "stage_max": 0
+    },
+    {
+      "trial": 5,
+      "scene_seed": 2004,
+      "agent_id": "ses_f5c36e249ffeK8iCYS4iyWc4pM",
+      "subagent_tokens": 8390788,
+      "tool_uses": 77,
+      "agent_duration_min": 69.3,
+      "policy_calls": 20,
+      "physics_steps": 637,
+      "tokens_per_policy_call": 419539,
+      "stage_max": 0
+    },
+    {
+      "trial": 6,
+      "scene_seed": 2005,
+      "agent_id": "ses_f5bee59eaffeoI5O9D1deKX2Io",
+      "subagent_tokens": 7144203,
+      "tool_uses": 80,
+      "agent_duration_min": 56.9,
+      "policy_calls": 20,
+      "physics_steps": 467,
+      "tokens_per_policy_call": 357210,
+      "stage_max": 0
+    },
+    {
+      "trial": 7,
+      "scene_seed": 2006,
+      "agent_id": "ses_f5bb94860ffephbsbmyTqzsNsz",
+      "subagent_tokens": 15219100,
+      "tool_uses": 84,
+      "agent_duration_min": 72.2,
+      "policy_calls": 20,
+      "physics_steps": 781,
+      "tokens_per_policy_call": 760955,
+      "stage_max": 1
+    },
+    {
+      "trial": 8,
+      "scene_seed": 2007,
+      "agent_id": "ses_f5bee2b71ffeqdAqWCqR4k6be1",
+      "subagent_tokens": 8055593,
+      "tool_uses": 76,
+      "agent_duration_min": 29.9,
+      "policy_calls": 19,
+      "physics_steps": 774,
+      "tokens_per_policy_call": 423979,
+      "stage_max": 0
+    },
+    {
+      "trial": 9,
+      "scene_seed": 2008,
+      "agent_id": "ses_f5bee234dffeG4lwJ8SyDpnc5K",
+      "subagent_tokens": 9048943,
+      "tool_uses": 78,
+      "agent_duration_min": 29.9,
+      "policy_calls": 15,
+      "physics_steps": 602,
+      "tokens_per_policy_call": 603263,
+      "stage_max": 4
+    },
+    {
+      "trial": 10,
+      "scene_seed": 2009,
+      "agent_id": "ses_f5bee1b2effenVEDivEjQOXKDs",
+      "subagent_tokens": 2631410,
+      "tool_uses": 39,
+      "agent_duration_min": 18.6,
+      "policy_calls": 13,
+      "physics_steps": 59,
+      "tokens_per_policy_call": 202416,
+      "stage_max": 0
+    },
+    {
+      "trial": 11,
+      "scene_seed": 2010,
+      "agent_id": "ses_f5bee129fffe5dzBrEkBe5pDks",
+      "subagent_tokens": 5554621,
+      "tool_uses": 83,
+      "agent_duration_min": 25.2,
+      "policy_calls": 20,
+      "physics_steps": 665,
+      "tokens_per_policy_call": 277731,
+      "stage_max": 2
+    },
+    {
+      "trial": 12,
+      "scene_seed": 2011,
+      "agent_id": "ses_f5bee0e38ffeymOzwiD9ASPfps",
+      "subagent_tokens": 12308086,
+      "tool_uses": 76,
+      "agent_duration_min": 34.3,
+      "policy_calls": 20,
+      "physics_steps": 463,
+      "tokens_per_policy_call": 615404,
+      "stage_max": 0
+    },
+    {
+      "trial": 13,
+      "scene_seed": 2012,
+      "agent_id": "ses_f5bee08c1ffeII7igfuLtqLVbf",
+      "subagent_tokens": 5155721,
+      "tool_uses": 62,
+      "agent_duration_min": 24.6,
+      "policy_calls": 20,
+      "physics_steps": 455,
+      "tokens_per_policy_call": 257786,
+      "stage_max": 0
+    },
+    {
+      "trial": 14,
+      "scene_seed": 2013,
+      "agent_id": "ses_f5bee03b1ffeZWzYK1F9MQ9qQ2",
+      "subagent_tokens": 7446405,
+      "tool_uses": 85,
+      "agent_duration_min": 35.6,
+      "policy_calls": 20,
+      "physics_steps": 609,
+      "tokens_per_policy_call": 372320,
+      "stage_max": 0
+    },
+    {
+      "trial": 15,
+      "scene_seed": 2014,
+      "agent_id": "ses_f5bedff65ffexeBHtH2FaFEkSq",
+      "subagent_tokens": 10235050,
+      "tool_uses": 78,
+      "agent_duration_min": 53.9,
+      "policy_calls": 15,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 682337,
+      "stage_max": 0
+    },
+    {
+      "trial": 16,
+      "scene_seed": 2015,
+      "agent_id": "ses_f5bb943faffe7lAiAKMb33NsVw",
+      "subagent_tokens": 5441299,
+      "tool_uses": 55,
+      "agent_duration_min": 27.9,
+      "policy_calls": 15,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 362753,
+      "stage_max": 1
+    },
+    {
+      "trial": 17,
+      "scene_seed": 2016,
+      "agent_id": "ses_f5bedf607ffeMAeRh7jl6Qhgau",
+      "subagent_tokens": 11813269,
+      "tool_uses": 77,
+      "agent_duration_min": 53.4,
+      "policy_calls": 20,
+      "physics_steps": 764,
+      "tokens_per_policy_call": 590663,
+      "stage_max": 0
+    },
+    {
+      "trial": 18,
+      "scene_seed": 2017,
+      "agent_id": "ses_f5bedf135ffe15pcGmreP8aBWR",
+      "subagent_tokens": 5074889,
+      "tool_uses": 63,
+      "agent_duration_min": 27.4,
+      "policy_calls": 15,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 338326,
+      "stage_max": 0
+    },
+    {
+      "trial": 19,
+      "scene_seed": 2018,
+      "agent_id": "ses_f5beded0bffe4omJvxCv6Taw3f",
+      "subagent_tokens": 5828609,
+      "tool_uses": 72,
+      "agent_duration_min": 29.1,
+      "policy_calls": 17,
+      "physics_steps": 900,
+      "tokens_per_policy_call": 342859,
+      "stage_max": 0
+    },
+    {
+      "trial": 20,
+      "scene_seed": 2019,
+      "agent_id": "ses_f5bede979ffem5blBWPrWUbdup",
+      "subagent_tokens": 11031272,
+      "tool_uses": 71,
+      "agent_duration_min": 51.7,
+      "policy_calls": 20,
+      "physics_steps": 873,
+      "tokens_per_policy_call": 551564,
+      "stage_max": 0
+    }
+  ]
+}
