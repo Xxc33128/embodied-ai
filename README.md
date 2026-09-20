@@ -18,6 +18,7 @@
 
 - [`weeks/2026_0914-0920_GPT6Astra评测复现/`](weeks/2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
 - [`gpt6astra-repro/`](gpt6astra-repro/) — 上项代码与结果镜像：脚本全量 + 各批次精简结果（GLM/DeepSeek/Qwen 20-trial 等），图像大块未上传，取舍见其 README。
+- [`gpt-as-policy-repro/`](gpt-as-policy-repro/) — GPT-as-Policy 复现工程（LIBERO-PRO 单线，π₀.₅ 学生 + GPT Direct/Hybrid 三方法 72 格面板）：全部代码 + 264 单测 + 验收证据（240/240 case 池、逐 case 冒烟、动作探针、集成证明）。入口 `docs/acceptance/environment-handover.md`；大文件与敏感项剔除说明见其 `GITHUB_UPLOAD_NOTE.md`。
 
 ## 成果区（不按周拆分）
 
