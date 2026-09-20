@@ -1,0 +1,56 @@
+{
+ "schema": "gap_repro.l2_action_probe.v2",
+ "pos_full": {
+  "cmd": 1.0,
+  "steps": 30,
+  "setpoint_step_mm_first5": [
+   49.999,
+   5.075,
+   9.265,
+   10.126,
+   10.565
+  ],
+  "setpoint_step_mm_last5": [
+   11.361,
+   11.124,
+   10.852,
+   10.542,
+   10.192
+  ],
+  "eef_step_mm_first5": [
+   4.433,
+   9.144,
+   10.084,
+   10.535,
+   10.909
+  ],
+  "eef_step_mm_last5": [
+   11.143,
+   10.874,
+   10.567,
+   10.221,
+   9.838
+  ],
+  "eef_total_mm": 339.81,
+  "setpoint_total_mm": 380.75
+ },
+ "rot_full": {
+  "cmd": 1.0,
+  "steps": 20,
+  "total_deg": 96.909,
+  "per_step_mean_deg": 4.8455
+ },
+ "axis_discrimination": {
+  "world_axis": [
+   0.5545,
+   0.396,
+   -0.0706
+  ],
+  "body_axis": [
+   0.6816,
+   0.058,
+   0.0355
+  ],
+  "closer_to_world_x": false
+ }
+}

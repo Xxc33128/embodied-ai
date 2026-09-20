@@ -1,0 +1,352 @@
+{
+ "active_scope": {
+  "benchmark": "LIBERO-PRO",
+  "decision_date": "2026-09-19",
+  "authority": "docs/superpowers/plans/2026-09-19-repro-next-execution.md",
+  "methods": [
+   "student_only",
+   "direct",
+   "hybrid"
+  ],
+  "out_of_scope": [
+   "RoboDojo benchmark implementation and evaluation",
+   "RoboLab audit, migration and evaluation"
+  ],
+  "shared_components": [
+   "results",
+   "transport",
+   "agent transport adapters"
+  ],
+  "note": "旧W包条目保留历史事实；仅LIBERO及其共享组件属于当前队列。旧T编号以单线L0–L6替代；四态不因范围变更自动提升。"
+ },
+ "schema": "gap_repro.status_matrix.v1",
+ "created": "2026-09-19",
+ "basis": "docs/acceptance/2026-09-19-current-state-audit.md（HEAD bf60127）+ T0–T3 修复",
+ "state_semantics": {
+  "implemented": "代码存在且接口成形",
+  "unit_verified": "有针对性单测且当前通过（预期失败/跳过不算）",
+  "target_integrated": "在目标机（gap-sim/gap-repro）实际跑通对应组件",
+  "formally_accepted": "冻结协议下按预注册口径验收通过"
+ },
+ "note": "四态独立，不得互相替代；audit F12：文档此前混用四层完成口径，本表为唯一权威进度口径",
+ "packages": [
+  {
+   "package": "W0",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": "partial",
+   "formally_accepted": true,
+   "evidence": "docs/acceptance/runtime.md",
+   "blockers": [
+    "目标机部分字段待补"
+   ]
+  },
+  {
+   "package": "W1",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "configs/upstream.lock.json、docs/acceptance/w1-*.json",
+   "blockers": []
+  },
+  {
+   "package": "W2",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "src/gap_repro/sim/robots.py、reference/kinematics_*、docs/acceptance/w2-robot-mapping.json",
+   "blockers": [
+    "MJCF 转换与 FK 目标机验收未做",
+    "与并行会话归属待协调"
+   ]
+  },
+  {
+   "package": "W3",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "src/gap_repro/sim/observations.py、tests/test_cameras.py（T4d：cam_head/cam_left_wrist/cam_right_wrist，HxWx4 uint8，非黑/稳定/随物体变化）",
+   "blockers": [
+    "腕部相机外参为 URDF link 帧占位，robot_config.yml 的 pos/ori 待目标机复核（CAMERA_MANIFEST 已记 diff）",
+    "目标机 osmesa 渲染验收未跑",
+    "衣物表示未做"
+   ]
+  },
+  {
+   "package": "W4",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "tests/test_substep_schedule.py、test_support_arm.py",
+   "blockers": [
+    "支持臂实体/原轨迹接线未做（query_support_arm_traj NotImplementedError）"
+   ]
+  },
+  {
+   "package": "W5",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": "partial",
+   "formally_accepted": false,
+   "evidence": "tests/test_environment_contract.py、test_task_contracts.py（3/10 任务判据）、test_scene_physics.py（T4：物体状态→评分同步）",
+   "blockers": [
+    "7 任务 run_reward NotImplementedError（T5）",
+    "衣物/支持臂未做（T5）"
+   ]
+  },
+  {
+   "package": "W6/W7",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": "partial",
+   "formally_accepted": false,
+   "evidence": "docs/acceptance/w6-*.json、w7-per-dim-acceptance.json（固定噪声诊断锚）",
+   "blockers": [
+    "原 JAX 随机流/真实输入数值验收缺失（audit F10）",
+    "不能据合成固定噪声宣称正式验收"
+   ]
+  },
+  {
+   "package": "W8",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "tests/test_transport_recovery.py（T2：重取先于陈旧检查、payload 绑定、poisoned 锁）",
+   "blockers": [
+    "进程内账本不冒充持久恢复（T7 落盘）"
+   ]
+  },
+  {
+   "package": "W9",
+   "implemented": false,
+   "unit_verified": false,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "agent/contract.py（契约层+黄金对等测试）",
+   "blockers": [
+    "传输 request/next_message 未实现",
+    "工具循环未实现",
+    "真实模型接入待用户提供"
+   ]
+  },
+  {
+   "package": "W10",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "tests/test_results_accounting.py（T1：冻结 panel 分母、缺失 case、敏感性口径、指纹配对）",
+   "blockers": [
+    "正式 runner 未接（T7）"
+   ]
+  },
+  {
+   "package": "W11",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "src/gap_repro/sim/scene.py（T4b：freejoint/质量摩擦/layout 姿态/manifest）、tests/test_scene_physics.py、docs/acceptance/w11-usd-transform-rebuild.json（T4a）",
+   "blockers": [
+    "非 dry-run runner 仍退出（T7）",
+    "campaign 仍 draft_unfrozen",
+    "50 case 资产闭包与碰撞代理核查未做完（T4 完整体）"
+   ]
+  },
+  {
+   "package": "W12",
+   "implemented": false,
+   "unit_verified": false,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "scripts/w12_robolab_audit.md（审计记录）",
+   "blockers": [
+    "输入/入口完整性审计未做（T12）"
+   ]
+  },
+  {
+   "package": "LP0",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "configs/libero_pro.lock.json",
+   "blockers": []
+  },
+  {
+   "package": "LP1",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "lp-a1-*-evidence.json、审查报告×2",
+   "blockers": []
+  },
+  {
+   "package": "LP2",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "lock lp2_conversion（811 张量逐位）",
+   "blockers": []
+  },
+  {
+   "package": "LP-A0",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "lp-a0-formal-evidence.json（限定口径：LIBERO 权重与输入域）",
+   "blockers": [
+    "不自动验收 RoboDojo 主线（audit F10）"
+   ]
+  },
+  {
+   "package": "LP-A1",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "lp-a1-fixture-drift-evidence.json、审查 PASS",
+   "blockers": [
+    "覆盖 goal/task0；24 条件格未覆盖（audit F08）"
+   ]
+  },
+  {
+   "package": "LP-A2",
+   "implemented": true,
+   "unit_verified": true,
+   "target_integrated": true,
+   "formally_accepted": true,
+   "evidence": "lp-a2-episodes/（6/6 双设备成功，pinned 门 PASS；限定 goal/task0 设备替换）",
+   "blockers": [
+    "同 F08 覆盖边界",
+    "正式三方法统计入口未接（T9）"
+   ]
+  },
+  {
+   "package": "LP3",
+   "implemented": "partial",
+   "unit_verified": true,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "agent/contract.py（黄金对等）",
+   "blockers": [
+    "传输/工具循环未实现（T8）",
+    "真实接入信息待用户"
+   ]
+  },
+  {
+   "package": "LP5",
+   "implemented": false,
+   "unit_verified": false,
+   "target_integrated": false,
+   "formally_accepted": false,
+   "evidence": "2026-09-19-LP5冻结提案.md（提案；audit F11 指出精度口径需 T10 重算）",
+   "blockers": [
+    "Wilson 精确反推未做",
+    "配对池未统一",
+    "待用户决策"
+   ]
+  }
+ ],
+ "l0_l1_progress": {
+  "date": "2026-09-19",
+  "L0": "版本栈/PRO commit/权重身份与 lock 全对账；编排拓扑决策（gap-sim 环境 / gap-repro 学生策略 / Mac agent）；共享统计/ACK 修复在库",
+  "L1": "条件→PRO 资产映射源码级裁决（Pos=_swap 位置互换、指令=benchmark 属性、init=pruned_init torch.load、每任务 50 初态）；HF 变体资产 394 文件下载+部署（symlink，SHA256SUMS 73 项对账全过）；case 池 manifest 240/240 complete（Env 生成 files=80 missing=0, vacuous=5）",
+  "open": [],
+  "evidence": "docs/acceptance/l0-l1-baseline-and-cases.md、docs/acceptance/l1-case-inventory.json",
+  "closed_2026_09_20": [
+   "Env 生成完成（ENV_GEN_DONE files=80 missing=0）",
+   "inventory 重估 240/240 gaps=0",
+   "逐 case 冒烟 240/240 OK（指纹/原生判据/init 50 全过）",
+   "指令双源分布证据（Ori 30/40 馈送≠BDDL，强化 Sem=Ori 裁决）"
+  ]
+ },
+ "l2_progress": {
+  "date": "2026-09-20",
+  "items": {
+   "libero_actions_contract": {
+    "implemented": true,
+    "unit_verified": true,
+    "target_integrated": false,
+    "evidence": "ad7c784 + P0-1 消解（对抗审查判定 FAIL → 修复）：探针 v2 实测满幅传递 0.011 m/单位/步（设定点被安全钳位，非 config output_max 0.05）、0.085 rad/单位/步；旋转系经探针 v3 决定性改判为世界系（命令 x 轴响应纯度 0.9975 vs 体系 0.674；v2 body-frame 判别因四元数公式错误作废，docs/acceptance/l2-action-probe-v3.json）；决策界 0.055 m / 0.425 rad（5×scale）；skill_text 同步。"
+   },
+   "libero_agent_contract_schema": {
+    "implemented": true,
+    "unit_verified": true,
+    "target_integrated": false,
+    "evidence": "dc26c3d（单臂 F08 双向锁定、assessment 逐字段对齐 upstream）"
+   },
+   "student_pipeline_policy": {
+    "implemented": true,
+    "unit_verified": true,
+    "target_integrated": "chunk-level",
+    "evidence": "b35d547（8维 state/max_steps 逐字钉定/正式噪声契约=noise None）；集成证明 docs/acceptance/lp5-integration-probe.json（CPU 真实推理全链路：观测→原子npz→服务器 internal 采样→chunk 校验→环境执行，absmax 1.0015 零裁剪实锤；全集闭环留 NPU/用户——CPU 213s/chunk 不具全集可行性）"
+   },
+   "policy_server_noise_optional": {
+    "implemented": true,
+    "unit_verified": true,
+    "target_integrated": true,
+    "evidence": "8ea0ea6（向后兼容；部署到 gap-repro 待 L3 前重启窗口）"
+   },
+   "dev_smoke_24_conditions": {
+    "implemented": false,
+    "blocker": "Env 生成完成 + 学生服务就绪"
+   }
+  },
+  "lp_a0_open_item": {
+   "item": "未解码动作/中间量对比（LP-A0 limitations[0]，validation.json comparisons[1]）",
+   "status": "explicitly_open",
+   "non_coverage_note": "LP-A2 的 0.0022 门与 6/6 成功均为解码后 7D 动作；不替代未解码声明",
+   "closure_path": "L6 预检：同 8 draw 三设备（jax/cpu/npu）未解码动作(32维)+编码器中间量对比，门槛沿用 LP-A0 per_draw_max_abs=0.03"
+  },
+  "review_2026_09_20": {
+   "verdict": "FAIL → 修复后待复核",
+   "p0": [
+    "P0-1 控制器缩放（已消解：probe v2 + 常数/界/skill_text 修正）"
+   ],
+   "p1_fixed": [
+    "P1-1 双重 wait20→wait10",
+    "P1-2 request_id 死握手（进白名单包）",
+    "P1-3 KeyError 逃逸（结构校验+捕获面）",
+    "P1-4 edit keep 死路（gripper_hold 语义）",
+    "P1-5 route B 事件泵不兼容（ingest_response，联调钉定包络）"
+   ],
+   "p2_fixed": [
+    "P2-1 Wilson worst-case 全 k 扫描（381→385）",
+    "P2-2 campaign 原子写",
+    "P2-3 陈旧响应清理",
+    "P2-4 CLI infra 落盘",
+    "P2-5 泵缺口（error 事件/threadId 校验/token 用量/audit_sink/contentItems 形状）",
+    "P2-6 skill 文本扩容+remaining_steps",
+    "P2-7 rotvec openpi 逐字端口（_quat2axisangle）",
+    "P2-8 桥记录候选身份"
+   ],
+   "p3": [
+    "assert→ContractError",
+    "student steps 切片未实现（登记差异）",
+    "method 字段一致",
+    "文档数字",
+    "freeze 生成端待 L5"
+   ],
+   "uncovered": [
+    "真仿真内 P0-1 复核已做（probe v2 即在真环境）",
+    "route A/B 真实协议联调需凭据",
+    "LP-A0 未解码动作开放项",
+    "L1 产物内容正确性归 L1 审查"
+   ]
+  }
+ },
+ "l1_review": {
+  "status": "PASS-with-reservations",
+  "fixes": "db8d15c（P1-1 渲染死检查/P1-2 init 措辞/P2-1/2/3/P3 全清）",
+  "core_facts_independently_verified": true
+ }
+}

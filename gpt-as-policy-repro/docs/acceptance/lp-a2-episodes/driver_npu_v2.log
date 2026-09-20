@@ -1,0 +1,7 @@
+[14:22:25] npu_server_ready
+[14:22:25] npu_paper_launched
+[14:27:25] npu_paper_done
+[14:27:25] npu_pinned_launched
+[14:30:26] npu_pinned_done
+[14:33:46] service_restored health={"ok": true, "device": "npu"}
+[14:33:46] NPU_ARM_ALL_DONE

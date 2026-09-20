@@ -1,0 +1,22 @@
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /opt/miniconda3/envs/libero_pro/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[info] Applying task order index 0 (permutation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) for benchmark 'libero_goal' (10 tasks).
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=0 rep=0 st=7013dce110c5 scene=5019f1863f84 same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0365}
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=0 rep=1 st=7013dce110c5 scene=2ad544668e94 same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0497}
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=0 rep=2 st=7013dce110c5 scene=c8163e3a076a same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0413}
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=1 rep=0 st=9fe5fae006f9 scene=a2778c079b36 same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0824}
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=1 rep=1 st=9fe5fae006f9 scene=f988ae89e9f3 same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0661}
+[Warning]: datasets path /workspace/repo/upstream/LIBERO-PRO/libero/libero/../datasets does not exist!
+init=1 rep=2 st=9fe5fae006f9 scene=c8673e36f82d same_render_mean={'agentview_image': 0.0019, 'robot0_eye_in_hand_image': 0.0932}
+PROBE_DONE movables_ok=True scene_drifts=True renderer_stable=True attribution=scene_resampling_dominates
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.

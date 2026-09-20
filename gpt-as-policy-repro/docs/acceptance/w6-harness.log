@@ -1,0 +1,58 @@
+internal action_dim=32 horizon=50
+building torch-cpu policy...
+torch_cpu: absmax=1.0276 sha=ecfd4da2716dd391
+building torch-npu policy...
+torch_npu: absmax=1.0275 sha=b0796424b2584adb
+building jax policy (original ckpt)...
+jax_original: absmax=1.0277 sha=347f8c2cec7215df
+Traceback (most recent call last):
+  File "/workspace/repo/scripts/w6_fixed_noise_harness.py", line 150, in <module>
+    main()
+  File "/workspace/repo/scripts/w6_fixed_noise_harness.py", line 130, in main
+    "sha": {k: sha(v) for k, v in out.items()},
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repo/scripts/w6_fixed_noise_harness.py", line 130, in <dictcomp>
+    "sha": {k: sha(v) for k, v in out.items()},
+               ^^^^^^^^^^^
+NameError: name 'hashlib_sha' is not defined
+[ERROR] 2026-09-18-02:57:53 (PID:21057, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+per_dim_mean_absdiff": [
+   0.0017274798972096584,
+   0.0034010440803769033,
+   0.0024845983315268773,
+   0.002755822425984826,
+   0.0026417744967810308,
+   0.005210368731598578,
+   0.0012589100343347436,
+   0.0028711954409558517,
+   0.002202264574097213,
+   0.001944520882230516,
+   0.003385846853113912,
+   0.004963339307935483,
+   0.007929233353374645,
+   0.0002432281586582752
+  ]
+ },
+ "jax_vs_torch_npu": {
+  "mean_absdiff": 0.0029929904267070955,
+  "max_absdiff": 0.01517932297300506,
+  "per_dim_mean_absdiff": [
+   0.0015059316843420833,
+   0.0025842774577861157,
+   0.0021093497634048354,
+   0.005975498512700601,
+   0.0022307928626843576,
+   0.007316024423824122,
+   0.0011725463432736393,
+   0.001326962014648727,
+   0.002624504250557144,
+   0.0019762221751361154,
+   0.0024158418129937953,
+   0.0036353666406027108,
+   0.006751502950590511,
+   0.00027704508135457663
+  ]
+ }
+}
+W6_VERIFY_SAVED
+VERDICT {"device_effect_within": true, "conversion_within": true}
