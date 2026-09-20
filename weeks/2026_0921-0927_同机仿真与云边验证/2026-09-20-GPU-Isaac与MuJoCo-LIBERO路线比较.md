@@ -1,7 +1,6 @@
-# GPU＋Isaac 与 MuJoCo＋LIBERO：两条路线怎么选
+# GPU＋Isaac 与 MuJoCo＋LIBERO：优势与局限
 
-> v1.1 · 2026-09-20  
-> 当前继续以 GPU＋Isaac 为主线，MuJoCo＋LIBERO 保留为候选。
+> v1.2 · 2026-09-20
 
 ## GPU＋Isaac：便于继续做现有双臂实验
 
@@ -19,11 +18,7 @@ NPU 服务器的 CPU 运行 MuJoCo 仿真，NPU 运行 π0.5；需要云端决�
 
 **不足是与当前双臂任务有差异。** 我们现有的 LIBERO 环境是单臂，机器人、动作接口和模型权重都与双臂方案不同，成绩不能直接比较。CPU 软件渲染也可能较慢，因此部署简化并不保证整轮运行更快。
 
-## 目前的取舍
-
-如果重点是改进现有双臂任务，继续用 GPU＋Isaac 更直接；如果重点是减少部署依赖、扩大任务测试，MuJoCo＋LIBERO 更有吸引力。
-
-目前先保留 GPU＋Isaac 主线，用 LIBERO 做补充测试，最终选择待定。还需区分：**MuJoCo 并不局限于单臂，单臂是当前 LIBERO 环境的配置。** 如果希望同机部署又保留双臂任务，可以进一步检查已有的 RoboDojo 双臂 MuJoCo 移植。
+MuJoCo 并不局限于单臂，单臂是当前 LIBERO 环境的配置。RoboDojo 分支也已有双臂 MuJoCo 移植。
 
 ---
 
