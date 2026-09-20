@@ -1,0 +1,378 @@
+{
+ "schema": "gap_repro.lp5_recompute.v2",
+ "date": "2026-09-20",
+ "method": "exact Wilson integer search (at-p), audit F11",
+ "pool_cap": 500,
+ "prior_source": "2026-09-19 提案文档论文锚定表；lock::pi05_table 缺失待补录（来源缺口）",
+ "cells": {
+  "libero_10·Env": {
+   "prior_p": 0.46,
+   "tier": "C",
+   "w": 0.07,
+   "n_exact_wilson": 196,
+   "n_wald_legacy": 195,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 19,
+    "remainder": 6
+   },
+   "npu_upper_chunks": 20384,
+   "env_hours_upper": 0.73
+  },
+  "libero_10·Obj": {
+   "prior_p": 0.92,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 100,
+   "n_wald_legacy": 58,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 10,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 10400,
+   "env_hours_upper": 0.37
+  },
+  "libero_10·Ori": {
+   "prior_p": 0.93,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 161,
+   "n_wald_legacy": 100,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 16,
+    "remainder": 1
+   },
+   "npu_upper_chunks": 16744,
+   "env_hours_upper": 0.6
+  },
+  "libero_10·Pos": {
+   "prior_p": 0.08,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 100,
+   "n_wald_legacy": 58,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 10,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 10400,
+   "env_hours_upper": 0.37
+  },
+  "libero_10·Sem": {
+   "prior_p": 0.93,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 161,
+   "n_wald_legacy": 100,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 16,
+    "remainder": 1
+   },
+   "npu_upper_chunks": 16744,
+   "env_hours_upper": 0.6
+  },
+  "libero_10·Task": {
+   "prior_p": 0.01,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 89,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": 0.0414,
+   "allocation": {
+    "per_task_floor": 8,
+    "remainder": 9
+   },
+   "npu_upper_chunks": 9256,
+   "env_hours_upper": 0.33
+  },
+  "libero_goal·Env": {
+   "prior_p": 0.46,
+   "tier": "C",
+   "w": 0.07,
+   "n_exact_wilson": 196,
+   "n_wald_legacy": 195,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 19,
+    "remainder": 6
+   },
+   "npu_upper_chunks": 11760,
+   "env_hours_upper": 0.42
+  },
+  "libero_goal·Obj": {
+   "prior_p": 0.97,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 70,
+   "n_wald_legacy": 23,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 7,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 4200,
+   "env_hours_upper": 0.15
+  },
+  "libero_goal·Ori": {
+   "prior_p": 0.97,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 110,
+   "n_wald_legacy": 45,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 11,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 6600,
+   "env_hours_upper": 0.23
+  },
+  "libero_goal·Pos": {
+   "prior_p": 0.38,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 195,
+   "n_wald_legacy": 185,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 19,
+    "remainder": 5
+   },
+   "npu_upper_chunks": 11700,
+   "env_hours_upper": 0.42
+  },
+  "libero_goal·Sem": {
+   "prior_p": 0.97,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 110,
+   "n_wald_legacy": 45,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 11,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 6600,
+   "env_hours_upper": 0.23
+  },
+  "libero_goal·Task": {
+   "prior_p": 0.0,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 73,
+   "n_wald_legacy": null,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": 0.05,
+   "allocation": {
+    "per_task_floor": 7,
+    "remainder": 3
+   },
+   "npu_upper_chunks": 4380,
+   "env_hours_upper": 0.16
+  },
+  "libero_object·Env": {
+   "prior_p": 0.73,
+   "tier": "C",
+   "w": 0.07,
+   "n_exact_wilson": 177,
+   "n_wald_legacy": 155,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 17,
+    "remainder": 7
+   },
+   "npu_upper_chunks": 9912,
+   "env_hours_upper": 0.35
+  },
+  "libero_object·Obj": {
+   "prior_p": 0.98,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 62,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 6,
+    "remainder": 2
+   },
+   "npu_upper_chunks": 3472,
+   "env_hours_upper": 0.12
+  },
+  "libero_object·Ori": {
+   "prior_p": 0.98,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 62,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 6,
+    "remainder": 2
+   },
+   "npu_upper_chunks": 3472,
+   "env_hours_upper": 0.12
+  },
+  "libero_object·Pos": {
+   "prior_p": 0.17,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 143,
+   "n_wald_legacy": 111,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 14,
+    "remainder": 3
+   },
+   "npu_upper_chunks": 8008,
+   "env_hours_upper": 0.29
+  },
+  "libero_object·Sem": {
+   "prior_p": 0.96,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 77,
+   "n_wald_legacy": 31,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 7,
+    "remainder": 7
+   },
+   "npu_upper_chunks": 4312,
+   "env_hours_upper": 0.15
+  },
+  "libero_object·Task": {
+   "prior_p": 0.01,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 89,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": 0.0414,
+   "allocation": {
+    "per_task_floor": 8,
+    "remainder": 9
+   },
+   "npu_upper_chunks": 4984,
+   "env_hours_upper": 0.18
+  },
+  "libero_spatial·Env": {
+   "prior_p": 0.46,
+   "tier": "C",
+   "w": 0.07,
+   "n_exact_wilson": 196,
+   "n_wald_legacy": 195,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 19,
+    "remainder": 6
+   },
+   "npu_upper_chunks": 8624,
+   "env_hours_upper": 0.31
+  },
+  "libero_spatial·Obj": {
+   "prior_p": 0.97,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 70,
+   "n_wald_legacy": 23,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 7,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 3080,
+   "env_hours_upper": 0.11
+  },
+  "libero_spatial·Ori": {
+   "prior_p": 0.98,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 62,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 6,
+    "remainder": 2
+   },
+   "npu_upper_chunks": 2728,
+   "env_hours_upper": 0.1
+  },
+  "libero_spatial·Pos": {
+   "prior_p": 0.2,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 155,
+   "n_wald_legacy": 126,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 15,
+    "remainder": 5
+   },
+   "npu_upper_chunks": 6820,
+   "env_hours_upper": 0.24
+  },
+  "libero_spatial·Sem": {
+   "prior_p": 0.97,
+   "tier": "B",
+   "w": 0.07,
+   "n_exact_wilson": 70,
+   "n_wald_legacy": 23,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": null,
+   "allocation": {
+    "per_task_floor": 7,
+    "remainder": 0
+   },
+   "npu_upper_chunks": 3080,
+   "env_hours_upper": 0.11
+  },
+  "libero_spatial·Task": {
+   "prior_p": 0.01,
+   "tier": "A",
+   "w": 0.05,
+   "n_exact_wilson": 89,
+   "n_wald_legacy": 16,
+   "feasible_within_pool": true,
+   "k0_upper_at_n": 0.0414,
+   "allocation": {
+    "per_task_floor": 8,
+    "remainder": 9
+   },
+   "npu_upper_chunks": 3916,
+   "env_hours_upper": 0.14
+  }
+ },
+ "wald_legacy_note": {},
+ "totals": {
+  "A": 882,
+  "B": 1166,
+  "C_at_0.07": 765,
+  "grand_A_B_C007": 2813,
+  "note": "超池格按 500 计入总量并标 infeasible；正式冻结须放宽 w 或声明截断精度",
+  "infeasible_cells": []
+ }
+}

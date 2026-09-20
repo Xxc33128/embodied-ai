@@ -1,0 +1,63 @@
+{
+ "schema": "gap_repro.lp_a2_validation.v1",
+ "created": "2026-09-19",
+ "scope": "LP-A2 闭环设备替换：同 init 配对 torch_cpu vs torch_npu 完整 episode（学生基线 pi05_libero_pt，LIBERO Goal task0）",
+ "preregistration_note": "阈值在本文件写入时冻结（任何闭环 episode 运行之前）。配对首块阈值继承 LP-A0（configs/validation.json）的带宽与推导，不因闭环结果调整。",
+ "design": {
+  "arms": [
+   {
+    "name": "paper_faithful",
+    "episodes": "init {0,1} × device {torch_cpu, torch_npu}，独立 reset（fixture 各自重采样，协议内在）",
+    "role": "部署现实配对：成功率相等性 + 翻转案例 + 发散轨迹；fixture 抖动作为记录协变量（fingerprint_full + fixture 位姿逐集入档）"
+   },
+   {
+    "name": "scene_pinned_ablation",
+    "episodes": "init 0 × device {torch_cpu, torch_npu}，set_init_state 后把 fixture 根 body 位姿钉到同一参考布局",
+    "role": "纯设备数值隔离（工程消融，非论文协议）——首块动作与官方客户端契约下逐步对比的唯一干净场景",
+    "deviation_note": "钉布局偏离论文协议（reset→set_init_state 不含 fixture 恢复），仅用于设备替换归因，不进论文可比口径"
+   }
+  ],
+  "client_protocol_pins": {
+   "source": "openpi main @ examples/libero/main.py（E1）",
+   "wait_steps": 10,
+   "replan_steps": 5,
+   "max_steps": 300,
+   "image": "agentview/wrist 各 [::-1,::-1] 旋转 180°（训练预处理对齐）；224 捕获下 resize_with_pad(224) 恒等",
+   "state_contract": "concat(robot0_eef_pos, axisangle(robot0_eef_quat), robot0_gripper_qpos) = 官方客户端 8 维（E1 L128-134；与训练数据 physical-intelligence/libero 转换同源）",
+   "prompt": "task.language（原生任务指令）",
+   "action": "infer()['actions'] 前 5 个按序执行（action_plan.popleft 语义）",
+   "done": "env.step 返回 done 即成功终止"
+  },
+  "deviations_from_official_client_erratum": "审查 P2-2（2026-09-19-LP-A2对抗性审查.md）补充登记的两处 E1 偏差：env 渲染 224（E1 为 256 渲染后 resize 224）、env seed 0（E1 为 7）。对设备配对无影响（两臂同管线），自本轮起登记",
+  "deviations_from_official_client": [
+   "传输：共享卷 npz 文件交换（非 websocket）——LP-A0 分容器架构沿用",
+   "噪声：每次 replan 显式注入 (10,32) 形状噪声数组（形状勘误见 noise_seed_rule），客户端按 (arm, init, replan_idx) 确定性播种，同一数组发两设备（官方客户端内部采样不注入）——配对方法学必需，LP-A0 噪声规则沿用",
+   "scene_pinned_ablation 臂：fixture 位姿钉扎（见上）"
+  ],
+  "noise_seed_rule": "seed = int(sha256(f'{arm}|{init}|{replan_idx}').hexdigest()[:8],16)（稳定哈希，不得用 Python hash()——字符串有进程级盐化）；np.random.default_rng(seed).standard_normal((10,32)).astype(np.float32)，同一数组发两设备。形状勘误：初版写 (10,7)，为对模型内部动作维的误记（pi05 内部动作维 32、输出解码 7，LP-A0 JAX 腿 noise.npz 形状即 (8,10,32)）；首次运行因形状错误即失败、无任何 episode 结果产生，勘误于此留痕，阈值与判定语义不变",
+  "lp_a0_state_semantics_caveat": "LP-A0 真实帧腿的 state 用了 joint_pos(7)+gripper[:1]（与官方客户端 eef 契约不同语义）——A0 等价性结论不受影响（两腿同输入同噪声比较的是设备/实现差异，非输入语义）；本文件登记为已知注记，闭环客户端自此按官方契约"
+ },
+ "thresholds": {
+  "scene_pinned_first_chunk": {
+   "per_replan_max_abs": 0.03,
+   "per_replan_mean_abs": 0.005,
+   "justification": "继承 configs/validation.json：bf16 cast 相对精度 ~3.9e-3 与 10 步 Euler 累积的绝对差带，4x 余量；同状态同噪声下两设备动作差应落此带"
+  },
+  "paper_faithful_arm": "n=2 无统计力，不设阈值：记录成功率相等性、逐 replan 块 sha、发散步（首个 ||Δexecuted||>0.1）、翻转案例，全部如实入档",
+  "fail_policy": "scene_pinned 首块超限 → 冻结记录并归因（闭环特异性 kernel/shape/精度），不得放宽；与 LP-A0 单次前向结果矛盾时优先复查闭环 shape/预处理链"
+ },
+ "covariates_per_episode": [
+  "fingerprint_full（episode 起点，movables+scene）",
+  "fixture 根 body 位姿逐集原始值（漂移协变量）",
+  "每次 replan 的完整动作块 (10,7)（输出动作维）与 sha256",
+  "逐 executed action、成功步、耗时"
+ ],
+ "ops": {
+  "npu_discipline": "NPU 臂用 ASCEND_RT_VISIBLE_DEVICES=1；跑前暂停 pi05 服务（卡0），跑完恢复并 health 验证（坑 C1：常驻进程与在线算子编译竞争）",
+  "order": "CPU 臂先行（不触服务）→ 暂停服务 → NPU 臂 → 恢复服务"
+ },
+ "evidence_required": [
+  "逐 episode npz/json（动作块、耗时、协变量）落 /workspace/data/lp_a2/ 并 vendored 摘要进 docs/acceptance/",
+  "compare 脚本对账输出（配对差值、发散步、成功率、翻转）"
+ ]
+}

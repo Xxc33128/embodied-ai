@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.13, pytest-8.3.5, pluggy-1.5.0 -- /opt/miniconda3/envs/libero_pro/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/repo
+plugins: hydra-core-1.2.0
+collecting ... collected 9 items
+
+tests/test_libero_session.py::test_bddl_resolved PASSED                  [ 11%]
+tests/test_libero_session.py::test_reset_movables_hard_gate PASSED       [ 22%]
+tests/test_libero_session.py::test_fingerprint_full_scene_sensitivity PASSED [ 33%]
+tests/test_libero_session.py::test_scene_digest_deterministic_within_episode PASSED [ 44%]
+tests/test_libero_session.py::test_fixture_drift_within_region_envelope PASSED [ 55%]
+tests/test_libero_session.py::test_same_state_double_render PASSED       [ 66%]
+tests/test_libero_session.py::test_pairing_init_states_differ PASSED     [ 77%]
+tests/test_libero_session.py::test_success_flag_available PASSED         [ 88%]
+tests/test_libero_session.py::test_fingerprint_keys_contract PASSED      [100%]
+
+======================== 9 passed in 162.98s (0:02:42) =========================

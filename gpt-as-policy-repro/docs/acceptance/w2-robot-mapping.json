@@ -1,0 +1,127 @@
+{
+ "date": "2026-09-17",
+ "source_e1": [
+  "upstream/RoboDojo/env/robot_manager/robot_config/x5.py:9-62",
+  "upstream/RoboDojo/env/robot_manager/control_manager.py:22-41",
+  "Assets/Robots/x5/robot_config.yml（闭包下载，内容哈希在 w1-asset-closure.json）",
+  "upstream/RoboDojo/env_cfg/robot/dual_x5.yml",
+  "Assets/Robots/x5/X5A.urdf"
+ ],
+ "verified_by": "tests/test_kinematics.py 6/6 + test_substep_schedule.py 13/13 + test_actuator_mapping（gap-repro 容器，mujoco 3.11.0，43/43 全绿，2026-09-17）",
+ "entries": [
+  [
+   "urdf",
+   "X5A.urdf → MjSpec.from_file 同一文件",
+   "等价",
+   "FK 门槛：零位/25 随机位/限位边缘 全部 <2mm/<0.01rad"
+  ],
+  [
+   "joint init",
+   "arm 0.0 / joint7,8=0.044 → qpos0 由 W5 reset 显式设置",
+   "等价（W2 测试显式置零对比）",
+   "zero pose test"
+  ],
+  [
+   "arm actuator stiffness=4400, damping=40",
+   "未映射执行器；W4 加 position actuator（kp/kv）",
+   "已实现",
+   "position 伺服 gainprm=kp, biasprm=[0,-kp,-kv]（test_actuator_mapping）"
+  ],
+  [
+   "gripper actuator stiffness=2300, damping=100",
+   "同上 W4",
+   "已实现（kp=2300 出自 x5.py E1；kv=100 为工程假设 E3——原文 gripper 执行器无 damping 字段，审查 Y3）",
+   "单执行器驱动 joint7 + 等式约束 mimic（test_actuator_mapping）"
+  ],
+  [
+   "effort_limit_sim=100",
+   "URDF limit effort=100 一致；执行器 forgerange 于 W4",
+   "已实现",
+   "forcerange ±100（test_actuator_mapping）"
+  ],
+  [
+   "velocity_limit_sim=5.0",
+   "MJCF position actuator 无速度限幅原语 → W4 执行层钳制",
+   "差异（记录）",
+   "W4"
+  ],
+  [
+   "armature=0.01 (arm joints)",
+   "dof_armature=0.01",
+   "等价（结构级）",
+   "test_armature_and_no_gravity"
+  ],
+  [
+   "rigid disable_gravity=True",
+   "机器人独立模型 mjDSBL_GRAVITY；组合场景改 per-body gravcomp",
+   "等价（模型级）",
+   "同上"
+  ],
+  [
+   "enabled_self_collisions=True",
+   "MuJoCo 默认启用，未关闭",
+   "待接触级验证（W5）",
+   "记录"
+  ],
+  [
+   "solver iter pos=8/vel=0",
+   "PhysX 参数不映射；MuJoCo solver 默认",
+   "非等价（引擎差异，计划 §3 已声明）",
+   "记录"
+  ],
+  [
+   "fix_root_link=True",
+   "URDF 根链接固定焊接 world",
+   "等价",
+   "test_dual_roots_composition"
+  ],
+  [
+   "dual roots left(-0.3,-0.45,0.765) right(0.3,-0.45,0.765) rot(0.707,0,0,0.707 xyzw)",
+   "frame attach + quat wxyz 转换",
+   "等价",
+   "同上（容差 1e-3/2e-3）"
+  ],
+  [
+   "ee_link=link6 base_link arm joint1-6 gripper joint7,8",
+   "命名一致（left_/right_ 前缀）",
+   "等价",
+   "全部 FK 测试"
+  ],
+  [
+   "gripper_scale=[-0.01,0.044] 0闭/1开",
+   "opening_to_joint 线性映射",
+   "等价",
+   "test_gripper_semantics（0→-0.01, 1→0.044, 0.5→0.017）"
+  ],
+  [
+   "gripper_move.mimic joint8=1.0*joint7+0",
+   "mjEQ_JOINT polycoef [0,1,0,0,0]",
+   "等价（结构级）",
+   "同上"
+  ],
+  [
+   "gripper_bias=0.145 / gripper_eps=0.2 渐进开合",
+   "控制层语义，未入运动学模型",
+   "已实现",
+   "sim/control.py apply_progressive_gripper（MetaControl 层，25Hz 目标级；W4 测试）"
+  ],
+  [
+   "URDF limit ±10 / velocity=1000",
+   "保守宽限位；实际软限位以原 soft_joint_pos_limits 为准（W4 对齐）",
+   "记录",
+   "W4"
+  ],
+  [
+   "delta_matrix/global_trans_matrix (curobo)",
+   "IK/规划层，W4",
+   "范围外",
+   "W4"
+  ]
+ ],
+ "open_items": [
+  "velocity_limit_sim=5.0 的执行层钳制（W5 接入子步调度时）",
+  "自碰撞接触验证（W5）",
+  "软限位对齐 soft_joint_pos_limits（W5）"
+ ],
+ "review_response": "2026-09-17 对抗性审查 R1-R7/Y1-Y5 已修复（tests 60/60）；R6 根四元数改 wxyz 直通；R7 渐进夹爪移至子步层"
+}

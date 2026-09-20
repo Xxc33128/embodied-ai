@@ -1,0 +1,238 @@
+{
+ "schema": "gap_repro.lp_a0_formal.v1",
+ "thresholds": {
+  "per_draw_max_abs": 0.03,
+  "per_draw_mean_abs": 0.005
+ },
+ "draws": [
+  {
+   "draw": 0,
+   "jax_vs_cpu": {
+    "max_abs": 0.006355166435241699,
+    "mean_abs": 0.002332362019348823
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.003901831805706024,
+    "mean_abs": 0.0008018523635525656
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.005275130271911621,
+    "mean_abs": 0.0017071369806736974
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999973823572339,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999868337380023
+  },
+  {
+   "draw": 1,
+   "jax_vs_cpu": {
+    "max_abs": 0.013465002179145813,
+    "mean_abs": 0.0029812308248697915
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.014065682888031006,
+    "mean_abs": 0.002834947791831967
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.008324205875396729,
+    "mean_abs": 0.0019416952339400139
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999488938425877,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999512726711159
+  },
+  {
+   "draw": 2,
+   "jax_vs_cpu": {
+    "max_abs": 0.004297882318496704,
+    "mean_abs": 0.001043449735984073
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.004938095808029175,
+    "mean_abs": 0.0008328989817528055
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.0064697265625,
+    "mean_abs": 0.0013049943688591677
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999953910423035,
+   "sign_agree_jax_cpu": 0.9857142857142858,
+   "cos_jax_cpu": 0.9999949368535085
+  },
+  {
+   "draw": 3,
+   "jax_vs_cpu": {
+    "max_abs": 0.004517167806625366,
+    "mean_abs": 0.0014697953252055284
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.013606607913970947,
+    "mean_abs": 0.0013788536573494119
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.011651501059532166,
+    "mean_abs": 0.0017289103815398578
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.999974802341683,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999921635020059
+  },
+  {
+   "draw": 4,
+   "jax_vs_cpu": {
+    "max_abs": 0.009357467293739319,
+    "mean_abs": 0.001727560328851853
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.005205720663070679,
+    "mean_abs": 0.0009609316675258534
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.005097717046737671,
+    "mean_abs": 0.0010149210425359862
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999939088010867,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999842840946314
+  },
+  {
+   "draw": 5,
+   "jax_vs_cpu": {
+    "max_abs": 0.0037004202604293823,
+    "mean_abs": 0.0010714932049657882
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.0028294920921325684,
+    "mean_abs": 0.0008391584760309862
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.005553193390369415,
+    "mean_abs": 0.0014257161333391976
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 0.9857142857142858,
+   "cos_npu_cpu": 0.9999965602904398,
+   "sign_agree_jax_cpu": 0.9857142857142858,
+   "cos_jax_cpu": 0.9999944824190756
+  },
+  {
+   "draw": 6,
+   "jax_vs_cpu": {
+    "max_abs": 0.0026894807815551758,
+    "mean_abs": 0.0008097526816917318
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.003550563007593155,
+    "mean_abs": 0.0006068600690923631
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.0033720731735229492,
+    "mean_abs": 0.0009746215954822088
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999976210602758,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999977698983058
+  },
+  {
+   "draw": 7,
+   "jax_vs_cpu": {
+    "max_abs": 0.00673249363899231,
+    "mean_abs": 0.0012533249732639108
+   },
+   "npu_vs_cpu": {
+    "max_abs": 0.004645898938179016,
+    "mean_abs": 0.0010713990378592695
+   },
+   "jax_vs_npu": {
+    "max_abs": 0.004551127552986145,
+    "mean_abs": 0.00143063770873206
+   },
+   "gate": true,
+   "sign_agree_npu_cpu": 1.0,
+   "cos_npu_cpu": 0.9999950670140321,
+   "sign_agree_jax_cpu": 1.0,
+   "cos_jax_cpu": 0.9999904967248475
+  }
+ ],
+ "passes": 8,
+ "total": 8,
+ "structural_checks": {
+  "status": "computed post-hoc (metric was preregistered; execution missed, fulfilled offline)",
+  "per_draw": [
+   {
+    "draw": 0,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999973823572339,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999868337380023
+   },
+   {
+    "draw": 1,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999488938425877,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999512726711159
+   },
+   {
+    "draw": 2,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999953910423035,
+    "sign_agree_jax_cpu": 0.9857142857142858,
+    "cos_jax_cpu": 0.9999949368535085
+   },
+   {
+    "draw": 3,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.999974802341683,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999921635020059
+   },
+   {
+    "draw": 4,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999939088010867,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999842840946314
+   },
+   {
+    "draw": 5,
+    "sign_agree_npu_cpu": 0.9857142857142858,
+    "cos_npu_cpu": 0.9999965602904398,
+    "sign_agree_jax_cpu": 0.9857142857142858,
+    "cos_jax_cpu": 0.9999944824190756
+   },
+   {
+    "draw": 6,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999976210602758,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999977698983058
+   },
+   {
+    "draw": 7,
+    "sign_agree_npu_cpu": 1.0,
+    "cos_npu_cpu": 0.9999950670140321,
+    "sign_agree_jax_cpu": 1.0,
+    "cos_jax_cpu": 0.9999904967248475
+   }
+  ],
+  "all_pass": true
+ },
+ "limitations": [
+  "未解码动作/中间量对比未兑现（validation.json comparisons[1]）——保留为开放项",
+  "observation sha256 未逐字记录（合成观测 rng(draw) 确定性可复现；真实帧由入库 frames.npz 固定）",
+  "checkpoint ID 以 lock lp2_conversion 的 model.safetensors md5=032ad466... 为准"
+ ]
+}
