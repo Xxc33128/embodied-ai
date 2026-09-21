@@ -1,0 +1,539 @@
+{
+  "kind": "synthetic_capacity_probe",
+  "cards": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "started_unix": 1789958969.619996,
+  "rounds": [
+    {
+      "round": 0,
+      "warmup": true,
+      "responses": [
+        {
+          "card": 6,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.693592002,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.68,
+            "actions_sha": "8f8f8645ad27d1a4",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 5,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.750499179,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.73,
+            "actions_sha": "615f61ba1922042d",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 7,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.779156619,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.76,
+            "actions_sha": "2a4caedf79e04f06",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 2,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.803277724,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.75,
+            "actions_sha": "094f9a4d048abcc7",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 0,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.917312438,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.88,
+            "actions_sha": "535f08f46c6d7843",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 4,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 9.923587418,
+          "meta": {
+            "device": "npu",
+            "infer_s": 9.87,
+            "actions_sha": "02cbb0f50ef1e831",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 1,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 10.050716124,
+          "meta": {
+            "device": "npu",
+            "infer_s": 10.02,
+            "actions_sha": "5e7ffb9bbaf3745e",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 3,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 10.34854292,
+          "meta": {
+            "device": "npu",
+            "infer_s": 10.31,
+            "actions_sha": "569842d442f75880",
+            "noise_mode": "internal"
+          }
+        }
+      ],
+      "batch_wall_s": 10.350000225
+    },
+    {
+      "round": 1,
+      "warmup": false,
+      "responses": [
+        {
+          "card": 4,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.517929212,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.5,
+            "actions_sha": "56b0aac05a93d432",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 6,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.519183296,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.48,
+            "actions_sha": "2b07a4a4831b78c5",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 0,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.541899567,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.53,
+            "actions_sha": "7d89bf4dc4f1fee0",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 5,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.54275667,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.5,
+            "actions_sha": "59f1a2e1d6892e2c",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 2,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.548907668,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.5,
+            "actions_sha": "6288bed8302cc8d2",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 1,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.576189414,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.53,
+            "actions_sha": "885dc497715e11be",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 7,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.577036716,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.56,
+            "actions_sha": "399e6e891ce5fc94",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 3,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.593452847,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.55,
+            "actions_sha": "ed516286da667f69",
+            "noise_mode": "internal"
+          }
+        }
+      ],
+      "batch_wall_s": 0.594621521
+    },
+    {
+      "round": 2,
+      "warmup": false,
+      "responses": [
+        {
+          "card": 4,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.518096723,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.5,
+            "actions_sha": "b018c6b5fe53f45f",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 6,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.535847598,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "952572c409de046a",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 5,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.542509999,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.5,
+            "actions_sha": "da9583d6e291701c",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 7,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.548716298,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "c6d0250704a5ccb3",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 0,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.555347409,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "68799ad5721ae76f",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 2,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.566667804,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "afeceee1c9e2f26e",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 1,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.572894623,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.55,
+            "actions_sha": "5af95baa845c45e7",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 3,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.609972719,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.57,
+            "actions_sha": "aaf797613a5bffba",
+            "noise_mode": "internal"
+          }
+        }
+      ],
+      "batch_wall_s": 0.611261893
+    },
+    {
+      "round": 3,
+      "warmup": false,
+      "responses": [
+        {
+          "card": 5,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.513697239,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.49,
+            "actions_sha": "b72df63dd97f8102",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 4,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.536860161,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.49,
+            "actions_sha": "de8780cb20a2db25",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 6,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.548846918,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.54,
+            "actions_sha": "38684470c0d17a26",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 0,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.555605709,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "becd0b71ecf46d89",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 2,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.561638838,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "62152f7e7b3c6396",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 7,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.56216699,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.53,
+            "actions_sha": "ce1572db2762f815",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 3,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.568255639,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.53,
+            "actions_sha": "0d15f0988ed73e07",
+            "noise_mode": "internal"
+          }
+        },
+        {
+          "card": 1,
+          "shape": [
+            10,
+            7
+          ],
+          "valid": true,
+          "client_roundtrip_s": 0.574246117,
+          "meta": {
+            "device": "npu",
+            "infer_s": 0.52,
+            "actions_sha": "70818347f69fd78f",
+            "noise_mode": "internal"
+          }
+        }
+      ],
+      "batch_wall_s": 0.57509926
+    }
+  ],
+  "status": "passed",
+  "server_sha256": "22a8bfc2e68257e07b09ad2cf079f29e8ad5947944b26204b41342a38b377e92",
+  "worker_pids": {
+    "0": 64131,
+    "1": 64132,
+    "2": 64133,
+    "3": 64134,
+    "4": 64135,
+    "5": 64136,
+    "6": 64137,
+    "7": 64138
+  },
+  "all_ready_unix": 1789959223.2948039,
+  "finished_unix": 1789959237.4209766,
+  "cleanup": "only probe-owned process groups terminated"
+}
