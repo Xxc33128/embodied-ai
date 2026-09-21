@@ -1,5 +1,7 @@
 # GPT-as-Policy 复现工程（MuJoCo / 昇腾迁移）
 
+> **2026-09-21 同环境复现入口：** [项目 Wiki](https://github.com/Xxc33128/embodied-ai/wiki) / [完整性检查](docs/wiki/Audit.md)。已补入昨天实际 runner、转换脚本和运行补丁；Mac 监听桥、镜像与资产仍需另外取得。下文旧阶段记录不代表完整交付。
+
 **当前执行范围（2026-09-19 用户确认）：仅 LIBERO-PRO。** 以[LIBERO-PRO 单线执行计划 v2.0](docs/superpowers/plans/2026-09-19-repro-next-execution.md)为当前执行入口。RoboDojo / RoboLab 退出后续范围，已有代码与证据保留；旧总计划仅作历史技术参考。
 
 ## 路径决策（对计划 §6.2 的一处偏离，已确认理由）

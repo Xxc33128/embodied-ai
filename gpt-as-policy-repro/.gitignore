@@ -5,3 +5,9 @@ __pycache__/
 *.pyc
 .DS_Store
 logs/
+
+# Local model access and experiment configuration
+configs/gpt_access.json
+*.local.json
+.env
+.env.*

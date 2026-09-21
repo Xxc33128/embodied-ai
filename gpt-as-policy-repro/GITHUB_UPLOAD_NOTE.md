@@ -1,3 +1,5 @@
+> **2026-09-21 更正：** 当前复现以 [Wiki](https://github.com/Xxc33128/embodied-ai/wiki) 为准。下面是历史上传记录，不是完整安装指南。`requirements-dev.txt` 只有测试依赖；`download_checkpoint.sh` 下载 RoboDojo 权重，不能用来恢复 LIBERO 权重。Mac 监听桥和 NPU 镜像还未随仓库交付。
+
 # 上传说明（2026-09-20）——在新电脑上恢复完整工程
 
 本文件夹 = 工程主仓 `GPT-as-Policy-repro`（本机路径）在 commit `4bb2b06` 的
@@ -41,7 +43,7 @@ python3 -c "import json; print(json.dumps(json.load(open('configs/upstream.lock.
 - π₀.₅ checkpoint：服务器 `/workspace/data/checkpoints/pi05_libero_pt`。
 - HF 资产（如需重建）：`zhouxueyang/LIBERO-Pro` 固定 revision，
   部署脚本 `scripts/deploy_libero_pro_assets.sh`。
-- `scripts/download_checkpoint.sh` 可重建 checkpoint 下载。
+- LIBERO 权重请按 Wiki Weights 页恢复；`scripts/download_checkpoint.sh` 仅用于 RoboDojo。
 
 ## 4. GPT 联调（新电脑上的登录用途）
 
