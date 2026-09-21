@@ -56,7 +56,7 @@ docker exec gap-sim touch /workspace/data/repro_colleague_001/GO
 }
 ```
 
-**目前仍缺 Mac 端监听桥的源代码和可核验启动命令。** 仅创建空 socket 文件无效，服务器端桥接也不会自动启动 Mac 模型。新使用者应先取得既有 Mac 监听桥与 SSH 转发配置，验证会话连接，再执行下面的命令；不能把这一步视为已随仓库交付。
+Mac 端现已补写 `tools/mac_bridge/listen.py`。先按 [Mac 监听程序](https://github.com/Xxc33128/embodied-ai/wiki/Mac-bridge) 启动监听、建立 SSH 转发并完成连接检查，再执行下面的命令。该程序已验证传输，尚未用它完成完整模型回合。
 
 ```bash
 # 在与 Student 相同的 gap-sim 环境中；每次使用新的 root

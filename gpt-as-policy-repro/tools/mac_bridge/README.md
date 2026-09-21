@@ -1,5 +1,6 @@
-# Mac 会话接入：服务器端桥
+# Mac 与服务器的连接
 
-stdio_socket.py 从服务器已有 Unix socket 转发 JSON-RPC 数据。本脚本不包含凭据，也不负责创建 Mac 模型会话或 SSH 转发。
+- `listen.py`：在 Mac 监听 Unix socket，每个连接启动独立 Codex app-server；本次新写。
+- `stdio_socket.py`：服务器端标准输入／输出与 Unix socket 之间转发；从原实验归档。
 
-截至 2026-09-21，只恢复了该服务器端文件；Mac 监听桥源代码仍缺。不要把此目录描述为完整 Mac 接入服务。使用步骤和配置示例见 docs/wiki/Experiments.md。
+[启动方法与 SSH 转发](../../docs/wiki/Mac-bridge.md)。两个脚本均不包含账号凭据。连接检查通过不等于模型实验通过。

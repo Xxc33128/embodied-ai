@@ -8,6 +8,8 @@
 
 LIBERO 原始权重来源：`gs://openpi-assets/checkpoints/pi05_libero`。完整性核查入口是 `scripts/verify_pi05_libero_crc32c.py`，既有记录见 `configs/libero_pro.lock.json`。本仓不包含大体积权重；相同环境优先复用已验证的副本。
 
+已有可通信的来源 NPU 时，推荐直接复制整个 `pi05_libero_pt` 目录到同事服务器，含 `assets`；无需重新转换。方法见 [服务器迁移](https://github.com/Xxc33128/embodied-ai/wiki/Transfer)。
+
 ## 转换脚本
 
 本轮归档 `vendor/openpi-converter/convert_jax_model_to_pytorch.py`，来源为 openpi 提交 `215abfb217dbac7d5f1273282331b9b1866c0479`。完整 openpi 及其依赖仍需安装，单独复制转换脚本不够。

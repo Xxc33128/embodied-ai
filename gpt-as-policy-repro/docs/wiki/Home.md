@@ -18,3 +18,8 @@ CPU 容器负责仿真和图像采集，NPU 容器负责 π0.5 推理；Direct �
 4. [[Mac 接入与实验运行|Experiments]]
 
 运行结果须区分环境检查、开发实验和正式评测。单次成功不代表整套任务验收通过。
+
+- [[在另一台 NPU 服务器复现|Transfer]]
+- [[Mac 监听程序|Mac-bridge]]
+
+- [[下载 LIBERO 仿真文件|Assets]]

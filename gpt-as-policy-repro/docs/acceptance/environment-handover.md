@@ -1,4 +1,4 @@
-> **2026-09-21 复现更正：** 此页保留旧部署记录。新同事请先看 [Wiki](https://github.com/Xxc33128/embodied-ai/wiki)；并非只缺 GPT 接入信息，Mac 监听桥、NPU 镜像及数据也需要核对。
+> **2026-09-21 复现更正：** 此页保留旧部署记录。新同事请先看 [Wiki](https://github.com/Xxc33128/embodied-ai/wiki)；并非只缺 GPT 接入信息，Mac 监听程序已补写，NPU 镜像及数据仍需按新指南核对。
 
 # 环境交付：LIBERO-PRO 单线（2026-09-20）
 

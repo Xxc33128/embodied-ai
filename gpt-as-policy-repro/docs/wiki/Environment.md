@@ -1,5 +1,7 @@
 # 环境与资产
 
+同事使用独立 NPU 服务器时，先看 [服务器迁移](https://github.com/Xxc33128/embodied-ai/wiki/Transfer)，其中给出了权重、场景和适配文件的复制与校验命令。
+
 ## 已有相同环境时
 
 先克隆代码；服务器中将 `gpt-as-policy-repro` 挂载为 `/workspace/repo`，数据目录挂载为 `/workspace/data`。不要把整个 embodied-ai 仓库直接挂到 `/workspace/repo`，否则 src、scripts 的路径会错。
@@ -41,17 +43,9 @@ python scripts/libero_env_smoke.py
 
 ## 场景资产
 
-已部署环境需要保留：
+获取方法见 [下载 LIBERO 仿真文件](https://github.com/Xxc33128/embodied-ai/wiki/Assets)：固定版本上游仓库提供基础资源，本项目 Release 提供补充任务、初态和已生成的 Env 文件。该页包含下载、SHA256 校验、部署和 config.yaml 配置命令。
 
-- `/workspace/repo/upstream/LIBERO-PRO`，含机器人及场景资源；
-- `/workspace/data/libero_pro_assets` 中的 BDDL 与初态文件；
-- `/workspace/data/libero_config/config.yaml`；
-- `/workspace/data/l1_case_inventory.json`；
-- 已生成的 Env 条件资产。
-
-`deploy_libero_pro_assets.sh` 只负责把已有资产接入环境，不会下载完整数据。来源与锁定信息见 `configs/libero_pro.lock.json`。Env 条件生成入口为 `l1_generate_env_condition.py`，已有相同数据时不必重新生成。
-
-现有清单覆盖 240 个任务—条件组合；环境基础检查不等于全部策略评测通过。Sem 输入与部分 Env 条件的已知限制见仓库 `docs/acceptance/l0-l1-baseline-and-cases.md`。
+现有清单覆盖 240 个任务—条件组合；基础检查不等于全部策略评测通过。Sem 与部分 Env 条件限制见 `docs/acceptance/l0-l1-baseline-and-cases.md`。
 
 
 [代码目录](https://github.com/Xxc33128/embodied-ai/tree/main/gpt-as-policy-repro/) · [Wiki 首页](https://github.com/Xxc33128/embodied-ai/wiki)
