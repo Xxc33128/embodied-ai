@@ -2,6 +2,8 @@
 
 当前主线已确定为 CPU MuJoCo／LIBERO＋NPU π0.5＋Mac 接入 GPT（2026-09-21 用户确认）。9月20日的路线待定记录保留为历史背景。
 
+- [GPT Token 与 Prefill／Decoder 规律分析](2026-09-22-GPT-Token与Prefill-Decoder规律分析.md)：拆解输入／输出 Token、缓存、TTFT 与可见输出生成时间，验证固定 JSON Schema 的长度规律，并分析 Hybrid 长输出对当前 decoder 和后续上下文的累积影响。
+
 - [GPT 决策表现与推理性能分析](2026-09-22-GPT决策表现与推理性能分析.md)：基于 LIBERO-10 task 0 / Ori / init 0 的逐轮数据，分析 GPT 的任务分解、闭环调整、Hybrid 审核证据边界及主要延迟来源，并给出精简输出、事件触发审核和短程控制优化的验证顺序。
 
 - [LIBERO-10 task 0 / Ori / init 0：逐轮决策实录](2026-09-22-LIBERO10-task0-Ori-init0-逐轮决策实录.md)：9 月 22 日重跑三路线，均原生成功；200 轮决策（其中 148 轮 GPT）、989 控制步。每轮输入输出、Token、TTFT、TPOT 估算及实际轨迹完整保存；约 71 MB 的单文件 HTML 可离线分享。协议改为每轮一份 JSON，详见记录。
