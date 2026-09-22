@@ -1,0 +1,57 @@
+{
+  "threshold_m": -0.14,
+  "predicate": "qpos < -0.14",
+  "results": {
+    "student": {
+      "wooden_cabinet_1_top_level": {
+        "start": 0.0,
+        "final": 0.0014003327096129916,
+        "minimum": 0.0
+      },
+      "wooden_cabinet_1_middle_level": {
+        "start": 0.0,
+        "final": -0.1599493683099615,
+        "minimum": -0.16140805245931245
+      },
+      "wooden_cabinet_1_bottom_level": {
+        "start": 0.0,
+        "final": 0.0,
+        "minimum": 0.0
+      }
+    },
+    "direct": {
+      "wooden_cabinet_1_top_level": {
+        "start": 0.0,
+        "final": 0.0014579011573801486,
+        "minimum": -0.01100967397190174
+      },
+      "wooden_cabinet_1_middle_level": {
+        "start": 0.0,
+        "final": 0.0016597501229086327,
+        "minimum": -0.02236653420233751
+      },
+      "wooden_cabinet_1_bottom_level": {
+        "start": 0.0,
+        "final": 0.0004270673042886122,
+        "minimum": 0.0
+      }
+    },
+    "hybrid": {
+      "wooden_cabinet_1_top_level": {
+        "start": 0.0,
+        "final": 0.0016194131290401697,
+        "minimum": 0.0
+      },
+      "wooden_cabinet_1_middle_level": {
+        "start": 0.0,
+        "final": -0.15978656175263523,
+        "minimum": -0.1609127441584679
+      },
+      "wooden_cabinet_1_bottom_level": {
+        "start": 0.0,
+        "final": 0.0,
+        "minimum": 0.0
+      }
+    }
+  }
+}

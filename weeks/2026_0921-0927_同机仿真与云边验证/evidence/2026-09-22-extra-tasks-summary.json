@@ -1,0 +1,149 @@
+[
+  {
+    "campaign": "decision_extra_20260922",
+    "episode": "libero_10-task9-direct",
+    "case": {
+      "campaign_id": "decision_extra_20260922",
+      "episode_id": "libero_10-task9-init0-direct",
+      "benchmark": "libero_10",
+      "condition": "Ori",
+      "task_index": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "init_index": 0,
+      "max_steps": 520,
+      "method": "gpt_only"
+    },
+    "status": "valid_failure",
+    "wall_seconds": 1848.500802553026,
+    "steps": 520,
+    "decisions": 105,
+    "modes": {
+      "eef": 105
+    },
+    "rejected": 0,
+    "restarted_streams": 0
+  },
+  {
+    "campaign": "decision_extra_20260922",
+    "episode": "libero_10-task9-student",
+    "case": {
+      "campaign_id": "decision_extra_20260922",
+      "episode_id": "libero_10-task9-init0-student",
+      "benchmark": "libero_10",
+      "condition": "Ori",
+      "task_index": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "init_index": 0,
+      "max_steps": 520,
+      "method": "student_only"
+    },
+    "status": "valid_success",
+    "wall_seconds": 262.3374229329638,
+    "steps": 348,
+    "decisions": 70,
+    "modes": {},
+    "rejected": 0,
+    "restarted_streams": 0
+  },
+  {
+    "campaign": "decision_extra_20260922",
+    "episode": "libero_goal_task-task0-direct",
+    "case": {
+      "campaign_id": "decision_extra_20260922",
+      "episode_id": "libero_goal_task-task0-init0-direct",
+      "benchmark": "libero_goal_task",
+      "condition": "Task",
+      "task_index": 0,
+      "task_name": "open_the_middle_drawer_of_the_cabinet",
+      "instruction": "open the bottom drawer of the cabinet",
+      "init_index": 0,
+      "max_steps": 300,
+      "method": "gpt_only"
+    },
+    "status": "valid_failure",
+    "wall_seconds": 1254.4006969418842,
+    "steps": 300,
+    "decisions": 64,
+    "modes": {
+      "eef": 64
+    },
+    "rejected": 2,
+    "restarted_streams": 0
+  },
+  {
+    "campaign": "decision_extra_20260922",
+    "episode": "libero_goal_task-task0-hybrid",
+    "case": {
+      "campaign_id": "decision_extra_20260922",
+      "episode_id": "libero_goal_task-task0-init0-hybrid",
+      "benchmark": "libero_goal_task",
+      "condition": "Task",
+      "task_index": 0,
+      "task_name": "open_the_middle_drawer_of_the_cabinet",
+      "instruction": "open the bottom drawer of the cabinet",
+      "init_index": 0,
+      "max_steps": 300,
+      "method": "pi05_plus_gpt"
+    },
+    "status": "valid_failure",
+    "wall_seconds": 1377.6175744389184,
+    "steps": 300,
+    "decisions": 60,
+    "modes": {
+      "student": 47,
+      "eef": 13
+    },
+    "rejected": 0,
+    "restarted_streams": 0
+  },
+  {
+    "campaign": "decision_extra_20260922",
+    "episode": "libero_goal_task-task0-student",
+    "case": {
+      "campaign_id": "decision_extra_20260922",
+      "episode_id": "libero_goal_task-task0-init0-student",
+      "benchmark": "libero_goal_task",
+      "condition": "Task",
+      "task_index": 0,
+      "task_name": "open_the_middle_drawer_of_the_cabinet",
+      "instruction": "open the bottom drawer of the cabinet",
+      "init_index": 0,
+      "max_steps": 300,
+      "method": "student_only"
+    },
+    "status": "valid_failure",
+    "wall_seconds": 296.0156224970706,
+    "steps": 300,
+    "decisions": 60,
+    "modes": {},
+    "rejected": 0,
+    "restarted_streams": 0
+  },
+  {
+    "campaign": "decision_extra_retry1_20260922",
+    "episode": "libero_10-task9-hybrid",
+    "case": {
+      "campaign_id": "decision_extra_retry1_20260922",
+      "episode_id": "libero_10-task9-init0-hybrid",
+      "benchmark": "libero_10",
+      "condition": "Ori",
+      "task_index": 9,
+      "task_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "init_index": 0,
+      "max_steps": 520,
+      "method": "pi05_plus_gpt"
+    },
+    "status": "valid_success",
+    "wall_seconds": 1026.6404009950347,
+    "steps": 251,
+    "decisions": 51,
+    "modes": {
+      "student": 51
+    },
+    "rejected": 0,
+    "restarted_streams": 0
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "output_item_id": "msg_07451c66c4ee2af3016ab2412d6a4c87d09846782d3e2af6b5",
+  "stream_restarted": true,
+  "usage": {
+    "totalTokens": 33886,
+    "inputTokens": 33548,
+    "cachedInputTokens": 14720,
+    "cacheWriteInputTokens": 0,
+    "outputTokens": 338,
+    "reasoningOutputTokens": 0
+  },
+  "ttft_client_s": 7.061314997,
+  "tpot_visible_estimate_s": 0.07895656137091989,
+  "abandoned_chunks": 31,
+  "valid_json": true
+}

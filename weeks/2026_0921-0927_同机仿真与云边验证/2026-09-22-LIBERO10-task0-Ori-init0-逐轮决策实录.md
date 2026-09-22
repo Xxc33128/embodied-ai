@@ -1,8 +1,8 @@
-# LIBERO-10 · task 0 · Ori · init 0：逐轮决策重新采集
+# LIBERO 三任务 · init 0：逐轮决策实录
 
-版本：v1.3 · 日期：2026-09-22
+版本：v1.4 · 日期：2026-09-22
 
-【E2／实验范围】Campaign `decision_v2_20260922`，仅重跑 **LIBERO-10 / task 0 / Ori / init 0** 的 Student、Direct GPT、Hybrid 三条路线。任务为 `put both the alphabet soup and the tomato sauce in the basket`：把字母汤罐和番茄酱罐都放进篮子。控制步预算 520；环境 seed 0；GPT 为 `gpt-6-astra / medium`。各回合只有一个样本；结果不构成总体成功率估计。
+【E2／首批实验范围】Campaign `decision_v2_20260922`，仅重跑 **LIBERO-10 / task 0 / Ori / init 0** 的 Student、Direct GPT、Hybrid 三条路线。任务为 `put both the alphabet soup and the tomato sauce in the basket`：把字母汤罐和番茄酱罐都放进篮子。控制步预算 520；环境 seed 0；GPT 为 `gpt-6-astra / medium`。各回合只有一个样本；结果不构成总体成功率估计。
 
 【E1／协议变更】运行代码 commit `167869b`。旧协议把整集放进一个长 turn，难以将用量更新拆到每次工具调用。本次采用 `one_json_turn_per_decision_v2`：主机提供当前两视角 RGB、proprio、任务及剩余步数；Hybrid 另带当轮 π 候选；GPT 每 turn 只返回一份符合 Schema 的 JSON，结束 turn 并收到用量后才执行；同一 thread 的历史轮次继续作为上下文。保留原来的动作边界和 Hybrid gate 检查。该接口、提示结构变化意味着不能将本轮耗时当作旧协议的直接替换数据。
 
@@ -40,7 +40,7 @@
 
 【E1／核验】`verification.json` 检查每轮图像与保存 PNG 哈希一致、每步动作被恰好一轮覆盖、关节及 qpos/qvel 齐全、Token 总量可加和、分片与 JSON 一致、时间分项求和、内嵌视频与 MP4 哈希一致、H.264/yuv420p 编码和帧数。页面脚本与所有轮次选择逻辑通过 Node DOM 检查；未进行真实浏览器渲染验收。
 
-单文件大小：71,259,823 bytes；SHA256：`009092f0353b98e917b7aee115b28ab323b9b09fc4ec1ddbddc50b139dffd9f0`。
+单文件大小：175,023,112 bytes；SHA256：`a11bf5a6d46b9464c5819ae2aceff8fb61483d25212672265e3a067820dffec2`。
 
 【现场实测／完整性】三路线 state、full 和 init 向量哈希一致；共 200 轮、989 个控制步，148 轮 GPT 均有输入／输出 Token、TTFT 和 TPOT 估算值，无被拒决策。4,129 个原始文件哈希全部通过，三段视频帧数分别为控制步数加初始帧；本轮两个 NPU worker 及本地桥接／隧道均已回收。
 
@@ -55,3 +55,32 @@
 【v1.2／阅读视图】每轮输入按任务与状态、机械臂观测、π 候选动作分段；输出按本轮决定、公开理由、任务进度、执行状态与意图、实际动作展示。中文标题及枚举说明用于辅助阅读，模型理由和证据保留英文原文；未执行的 edit／target 字段单独折叠。完整 JSON 提供缩进版及逐字原文，200 轮均通过输出一致性与切换逻辑检查。仅改变展示，不改变实验结果或模型输出。
 
 【E1／v1.3 时间图】每轮新增基于原始打点起止时间绘制的 SVG 墙钟时间图，按 π、GPT、环境执行、物理步进、渲染读回及保存观测等分行展示。支持完整一轮与动作执行阶段放大，标出 GPT 首个可见输出到达时刻；点击时间条可查看精确起止时间和耗时。父子打点的重叠表示包含关系，不能重复相加；极短打点显示至少 1 像素便于选择。原始打点表折叠保留。200 轮的两种视图及点击逻辑通过 Node 检查，未进行真实浏览器渲染验收。
+
+## 底层抽屉与微波炉追加回合（v1.4）
+
+【E2／范围】追加两个任务、各三条路线，均为 init 0、环境 seed 0、gpt-6-astra / medium、逐轮 JSON v2 协议。`libero_goal_task / task 0 / Task` 的实际指令为 `open the bottom drawer of the cabinet`，预算 300 步；原始任务文件名仍含 middle，但模型输入与 BDDL 目标均为底层抽屉。`libero_10 / task 9 / Ori` 的指令为 `put the yellow and white mug in the microwave and close it`，预算 520 步；这里没有使用 Pos 或 Env 扰动。
+
+【现场实测】新有效回合结果如下；单回合墙钟含回合初始化等开销，不等于逐决策时间轴之和。
+
+| 任务 | 路线 | 原生结果 | 控制步 | 决策轮数 | 回合墙钟 / s |
+|---|---|---|---:|---:|---:|
+| 杯子入微波炉并关门 / Ori | direct | 未成功 | 520 | 105 | 1848.501 |
+| 杯子入微波炉并关门 / Ori | hybrid | 成功 | 251 | 51 | 1026.640 |
+| 杯子入微波炉并关门 / Ori | student | 成功 | 348 | 70 | 262.337 |
+| 底层抽屉 / Task | direct | 未成功 | 300 | 64 | 1254.401 |
+| 底层抽屉 / Task | hybrid | 未成功 | 300 | 60 | 1377.618 |
+| 底层抽屉 / Task | student | 未成功 | 300 | 60 | 296.016 |
+
+【现场实测／纠错】底层抽屉 Hybrid 共 60 轮，47 轮 student、13 轮 eef 接管，仍未成功。离线关节核对显示纯 π 与 Hybrid 最终中层抽屉分别为 -0.159949 m、-0.159787 m，底层关节均为 0；底层打开判据为 qpos < -0.14 m。因此失败不是差一点达到阈值，而是没有打开要求的底层抽屉。Direct 同样没有打开底层，64 轮中有 2 轮被动作边界拒绝；零步拒绝轮保留输入输出、用量和等待耗时。
+
+【现场实测／边界】微波炉 Hybrid 的 51 轮全部放行 π，没有执行 edit/eef 接管。它的 251 步成功不能作为 GPT 纠错收益；纯 π 为 348 步成功，策略采样未固定 PRNG，不能把单次轨迹长短差异归因于审核。两个任务均尚未形成多初态成功率比较。
+
+【E1／追加记录】新增 410 轮、2,019 个控制步，其中 GPT 280 轮。与原三回合合并后共九回合、610 轮、3,008 个控制步、428 轮 GPT。继续保留完整输入双图与文字、结构化和原始输出、Token、TTFT、TPOT 估算、π 候选、关节与末端轨迹、实际墙钟 SVG 时间图及仿真时间轴。任务/路线选择器同时切换任务要求和视频，避免同名路线跨任务串片。
+
+【E1／基础设施留痕】初次启动被旧任务白名单拦截，六个零步启动记录留在 startup_failed_1。正式微波炉 Hybrid 首次运行在第 65 步因接口先废弃半段 JSON、再返回完整 JSON 而触发旧采集器的单输出检查，归为 infrastructure_incomplete；完整证据移至 infrastructure_attempts。修正采集器后从同一 init 0 独立补跑，使用唯一完成的 JSON 执行动作，废弃流片段单独保留；不改变提示、动作规则或成功判据。补跑属于 `decision_extra_retry1_20260922`，其余五回合属于 `decision_extra_20260922`。若有流重发，TTFT/TPOT 估算含等待，不能解释为服务端纯解码速度。
+
+【E1／版本与部署】新任务入口和多任务报告维护于 commit `11157eb`，采集器重发处理及报告审计维护于 `1416c0c`；运行目录基于前批冻结源码叠加修改，各回合 config.json 中的源文件 SHA256 为实际运行版本依据。首两条 Direct 的部署摘要曾继承父批次标签，deployment_correction.json 保留修正说明，实际 case、指令和源码哈希不受影响。此次新增 NPU worker 与本地连接器均已停止。
+
+【E2／追加证据】[六回合运行汇总](evidence/2026-09-22-extra-tasks-summary.json)。[抽屉关节分析](evidence/2026-09-22-drawer-joint-analysis.json)只读取已保存 qpos，不向模型提供物体真值；[真实流重发核验](evidence/2026-09-22-stream-restart-check.json)保留计数和时延结果。
+
+【E1／v1.4 最终核验】九回合 12,586 个原始文件 SHA256 全部通过；三任务各自三路线的 state、full、init_state_sha256 均配对一致。610 轮切换、真实时间图两种视图与点击逻辑、跨任务视频对应关系检查通过；428 轮 GPT 均有逐轮用量、TTFT 和 TPOT 估算。九段内嵌视频与原 MP4 哈希一致，H.264/yuv420p、帧数等于动作步数加初始帧。38 项采集相关测试通过，并用真实中断日志验证重发处理。未进行真实浏览器渲染验收。构建入口保留 report_sources.json，重新生成时自动包含追加批次。
