@@ -1,0 +1,55 @@
+{
+  "complete": true,
+  "checks": [
+    {
+      "method": "direct",
+      "status": "valid_success",
+      "decisions": 97,
+      "control_steps": 476,
+      "sha256_files_verified": 1929,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "477"
+      }
+    },
+    {
+      "method": "hybrid",
+      "status": "valid_success",
+      "decisions": 51,
+      "control_steps": 253,
+      "sha256_files_verified": 1088,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "254"
+      }
+    },
+    {
+      "method": "student",
+      "status": "valid_success",
+      "decisions": 52,
+      "control_steps": 260,
+      "sha256_files_verified": 1112,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "261"
+      }
+    }
+  ],
+  "ui": {
+    "method_count": 3,
+    "decision_selections": 200,
+    "script_syntax_and_dom_logic": "passed",
+    "browser_rendering": "not_performed"
+  },
+  "html_sha256": "de967df70aa23fc8ba52f85b28aa59542b5a888a3083c615cb548545514e2040",
+  "html_bytes": 71211696
+}

@@ -1,0 +1,80 @@
+{
+  "direct": {
+    "status": "valid_success",
+    "decisions": 97,
+    "accepted": 97,
+    "actions": 476,
+    "mean_cycle_s": 14.412947904381443,
+    "mean_parts_s": {
+      "\u03c0 inference + sync": 0.0,
+      "\u03c0 file transport / queue / serialization": 0.0,
+      "GPT turn round trip": 10.818999913948456,
+      "Physics mj_step": 0.05356392065979386,
+      "Render + pixel readback": 2.708752853319588,
+      "Other environment work": 0.23736281215463917,
+      "Save observations": 0.5321822939690722,
+      "Encode GPT input": 0.05337810285567008,
+      "Other host work": 0.00870800747422711
+    },
+    "input_tokens": 4051969,
+    "output_tokens": 15599,
+    "reasoning_tokens": 3533,
+    "mean_ttft_s": 7.339570247113402,
+    "mean_tpot_estimate_s": 0.025549448646841708,
+    "pi_calls": 0,
+    "pi_text_tokens": 0,
+    "pi_action_scalars": 0
+  },
+  "hybrid": {
+    "status": "valid_success",
+    "decisions": 51,
+    "accepted": 51,
+    "actions": 253,
+    "mean_cycle_s": 18.817678552941178,
+    "mean_parts_s": {
+      "\u03c0 inference + sync": 0.5300794351568628,
+      "\u03c0 file transport / queue / serialization": 0.0765326192745098,
+      "GPT turn round trip": 14.373509186450981,
+      "Physics mj_step": 0.04611847052941178,
+      "Render + pixel readback": 2.9382751625882366,
+      "Other environment work": 0.21939532831372535,
+      "Save observations": 0.5485730048235296,
+      "Encode GPT input": 0.0549951945882353,
+      "Other host work": 0.030200151215687126
+    },
+    "input_tokens": 2277230,
+    "output_tokens": 16924,
+    "reasoning_tokens": 0,
+    "mean_ttft_s": 4.454881512607843,
+    "mean_tpot_estimate_s": 0.029061799805091278,
+    "pi_calls": 51,
+    "pi_text_tokens": 714,
+    "pi_action_scalars": 3570
+  },
+  "student": {
+    "status": "valid_success",
+    "decisions": 52,
+    "accepted": 52,
+    "actions": 260,
+    "mean_cycle_s": 4.203093602153846,
+    "mean_parts_s": {
+      "\u03c0 inference + sync": 0.5451787566923078,
+      "\u03c0 file transport / queue / serialization": 0.06100999759615386,
+      "GPT turn round trip": 0.0,
+      "Physics mj_step": 0.051818991519230785,
+      "Render + pixel readback": 2.774480234711538,
+      "Other environment work": 0.21956637165384604,
+      "Save observations": 0.5287139784038462,
+      "Encode GPT input": 0.0,
+      "Other host work": 0.022325271576922913
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "reasoning_tokens": 0,
+    "mean_ttft_s": null,
+    "mean_tpot_estimate_s": null,
+    "pi_calls": 52,
+    "pi_text_tokens": 728,
+    "pi_action_scalars": 3640
+  }
+}
