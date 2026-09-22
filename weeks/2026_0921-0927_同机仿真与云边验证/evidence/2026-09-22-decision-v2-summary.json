@@ -21,6 +21,9 @@
     "reasoning_tokens": 3533,
     "mean_ttft_s": 7.339570247113402,
     "mean_tpot_estimate_s": 0.025549448646841708,
+    "mean_simulation_duration_s": 0.24536082474224136,
+    "total_simulation_duration_s": 23.79999999999741,
+    "mean_environment_execution_wall_s": 2.9996795861340204,
     "pi_calls": 0,
     "pi_text_tokens": 0,
     "pi_action_scalars": 0
@@ -47,6 +50,9 @@
     "reasoning_tokens": 0,
     "mean_ttft_s": 4.454881512607843,
     "mean_tpot_estimate_s": 0.029061799805091278,
+    "mean_simulation_duration_s": 0.2480392156862953,
+    "total_simulation_duration_s": 12.65000000000106,
+    "mean_environment_execution_wall_s": 3.2037889614313726,
     "pi_calls": 51,
     "pi_text_tokens": 714,
     "pi_action_scalars": 3570
@@ -73,6 +79,9 @@
     "reasoning_tokens": 0,
     "mean_ttft_s": null,
     "mean_tpot_estimate_s": null,
+    "mean_simulation_duration_s": 0.25000000000002265,
+    "total_simulation_duration_s": 13.000000000001178,
+    "mean_environment_execution_wall_s": 3.045865597884615,
     "pi_calls": 52,
     "pi_text_tokens": 728,
     "pi_action_scalars": 3640
