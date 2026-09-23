@@ -1,6 +1,6 @@
 # GPT-6 Sol bowl 五次与 Astra 同 seed 对照
 
-> v1.0 · 2026-09-23。**更正模型身份**：用户原意是让当前 Sol 做五次；本日先跑的 `logs-astra-five-20260923/` 实际派发了 GPT-6 Astra / medium，不能算 Sol 成绩。发现后保留 Astra 批次作为同 seed 参考，另以 GPT-6 Sol / medium 独立重跑五次。证据等级：E1=代码；E2=配置、原始日志、录像与审核；E3=解释。原始日志和录像只在本机 `gpt6astra-repro/`。
+> v1.1 · 2026-09-23。**更正模型身份**：用户原意是让当前 Sol 做五次；本日先跑的 `logs-astra-five-20260923/` 实际派发了 GPT-6 Astra / medium，不能算 Sol 成绩。发现后保留 Astra 批次作为同 seed 参考，另以 GPT-6 Sol / medium 独立重跑五次。随后用户要求的 Sol/ultra 五轮见[最高推理强度报告](2026-09-23-GPT6-Sol-ultra-bowl五次对照.md)。证据等级：E1=代码；E2=配置、原始日志、录像与审核；E3=解释。原始日志和录像只在本机 `gpt6astra-repro/`。
 
 ## 方法与模型身份
 
