@@ -2,6 +2,8 @@
 
 当前主线已确定为 CPU MuJoCo／LIBERO＋NPU π0.5＋Mac 接入 GPT（2026-09-21 用户确认）。9月20日的路线待定记录保留为历史背景。
 
+- [RPent 复现（npunew · GLM-5.3 · Object Swap 20 集）](2026-09-24-RPent复现-npunew-GLM5.3-ObjectSwap20集.md)：跨节点复现同事 aura-7 的 RPent 复现，18/20=90%（vs 上游 100%，Fisher p≈0.49 无显著差异），cache 命中率两边同为 90.4%；资产经共享 SFS 零迁移；新增 sam3 get_device_properties major=None 两个 shim 补丁（上游仓库缺口）；两败均为手工原语重试循环打满 max_turns，与上游失败前兆特征吻合。
+
 - [GPT-6 Sol 最高推理强度 bowl 五次](2026-09-23-GPT6-Sol-ultra-bowl五次对照.md)：Sol/ultra 同 seed 五轮自动入碗 3/5；harness 最高可用参数为 max，五轮记录审计 PASS，匿名录像三轮均在阶段 3–4 边界。
 - [GPT-6 Sol bowl 五次与 Astra 同 seed 对照](2026-09-23-GPT6-Sol-bowl五次与Astra同seed对照.md)：按用户纠正，Sol 重跑 seed 2005–2009，自动入碗 2/5，记录审计 5/5 PASS；审核阶段 1、1、3–4 待定、3–4 待定、2。
 - [GPT-6 Astra bowl 续测五次](2026-09-23-GPT6-Astra-bowl续测五次.md)：此前误按 Astra 派发的五轮，自动入碗 5/5；仅作为同 seed 参考，不能算 Sol 成绩。原始录像及轨迹留本机。
