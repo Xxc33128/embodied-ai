@@ -14,11 +14,17 @@
 | [8/31–9/6](weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
 | [9/7–9/13](weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
 
+（周时间线 9/14 起延续于下面两个章节，周目录均在仓库根 `weeks/`。）
+
 ## GPT-6 Astra 评测复现（9/14 起，独立于 sonic-npu）
 
 - [`weeks/2026_0914-0920_GPT6Astra评测复现/`](weeks/2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
 - [`gpt6astra-repro/`](gpt6astra-repro/) — 上项代码与结果镜像：脚本全量 + 各批次精简结果（GLM/DeepSeek/Qwen 20-trial 等），图像大块未上传，取舍见其 README。
 - [`gpt-as-policy-repro/`](gpt-as-policy-repro/) — GPT-as-Policy 复现工程（LIBERO-PRO 单线，π₀.₅ 学生 + GPT Direct/Hybrid 三方法 72 格面板）：全部代码 + 264 单测 + 验收证据（240/240 case 池、逐 case 冒烟、动作探针、集成证明）。入口 `docs/acceptance/environment-handover.md`；大文件与敏感项剔除说明见其 `GITHUB_UPLOAD_NOTE.md`。
+
+## 同机仿真与云边验证（9/21 起）
+
+- [`weeks/2026_0921-0927_同机仿真与云边验证/`](weeks/2026_0921-0927_同机仿真与云边验证/) — 新主线「CPU MuJoCo/LIBERO＋NPU π0.5＋Mac 接入 GPT」确定与首周执行：RPent 跨节点复现（Object Swap 18/20=90%，cache 命中率与上游一致）及 Flash Mode / libero_goal 补测、GPT-6 Sol/Astra 同 seed bowl 五次对照、Token 与 Prefill/Decoder 规律分析、init0 18 格全链路记录。周 readme 为总索引。
 
 ## 成果区（不按周拆分）
 
