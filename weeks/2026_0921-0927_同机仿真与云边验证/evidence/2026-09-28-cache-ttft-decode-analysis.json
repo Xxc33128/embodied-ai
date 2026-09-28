@@ -1,0 +1,69 @@
+{
+  "source_sha256": "dc12517c7e4a428aa11a8dba54d96bf396d9af4effe1a7791cf3a086ed83d039",
+  "scope": "descriptive within-episode statistics; no causal inference; floor(n/4) rounds at each end",
+  "episodes": [
+    {
+      "episode_id": "libero_10-task0-init0-hybrid",
+      "n": 51,
+      "first_floor_quarter": {
+        "n": 12,
+        "input_tokens_mean": 21494,
+        "cached_tokens_mean": 19040,
+        "uncached_tokens_mean": 2454,
+        "ttft_s_mean": 4.380589189166667,
+        "decode_client_s_mean": 9.572784351
+      },
+      "last_floor_quarter": {
+        "n": 12,
+        "input_tokens_mean": 67806.5,
+        "cached_tokens_mean": 66474.66666666667,
+        "uncached_tokens_mean": 1331.8333333333333,
+        "ttft_s_mean": 4.902049791166666,
+        "decode_client_s_mean": 9.609603778666667
+      },
+      "pearson_visible_tokens_decode": 0.8170849513631371
+    },
+    {
+      "episode_id": "libero_goal_task-task0-init0-hybrid",
+      "n": 60,
+      "first_floor_quarter": {
+        "n": 15,
+        "input_tokens_mean": 26267.533333333333,
+        "cached_tokens_mean": 23833.6,
+        "uncached_tokens_mean": 2433.9333333333334,
+        "ttft_s_mean": 9.184796304466667,
+        "decode_client_s_mean": 8.896092097133334
+      },
+      "last_floor_quarter": {
+        "n": 15,
+        "input_tokens_mean": 79521.53333333334,
+        "cached_tokens_mean": 78199.46666666666,
+        "uncached_tokens_mean": 1322.0666666666666,
+        "ttft_s_mean": 10.420233190733333,
+        "decode_client_s_mean": 9.317739935933334
+      },
+      "pearson_visible_tokens_decode": 0.74981789930784
+    },
+    {
+      "episode_id": "libero_10-task9-init0-hybrid",
+      "n": 51,
+      "first_floor_quarter": {
+        "n": 12,
+        "input_tokens_mean": 24516.25,
+        "cached_tokens_mean": 21792,
+        "uncached_tokens_mean": 2724.25,
+        "ttft_s_mean": 6.268899434333333,
+        "decode_client_s_mean": 9.470326350166667
+      },
+      "last_floor_quarter": {
+        "n": 12,
+        "input_tokens_mean": 71310.91666666667,
+        "cached_tokens_mean": 69973.33333333333,
+        "uncached_tokens_mean": 1337.5833333333333,
+        "ttft_s_mean": 6.387317286583333,
+        "decode_client_s_mean": 9.689842262833334
+      },
+      "pearson_visible_tokens_decode": 0.5603901635783983
+    }
+  ]
+}
