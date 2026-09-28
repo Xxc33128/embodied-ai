@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import json,base64,hashlib,statistics,re
+import json,base64,hashlib,statistics,re,math,collections
 from pathlib import Path
 import argparse
 parser=argparse.ArgumentParser(description='Build a standalone per-decision LIBERO report from recorded episodes')
@@ -13,6 +13,16 @@ def readlines(path):
 def uri(p,mime='image/png'):
  return 'data:'+mime+';base64,'+base64.b64encode(p.read_bytes()).decode()
 def duration(span):return (int(span['end_ns'])-int(span['start_ns']))/1e9
+
+def tracking_error(row):
+ target=row['response'].get('target')
+ if row['response']['mode']!='eef' or not target:return None
+ def errors(t):
+  q=t['eef_quaternion_xyzw'];q=[q[3],*q[:3]];v=target['quaternion_wxyz']
+  dot=abs(sum(a*b for a,b in zip(q,v)))/(math.sqrt(sum(a*a for a in q))*math.sqrt(sum(a*a for a in v)))
+  return math.sqrt(sum((a-b)**2 for a,b in zip(t['state'][:3],target['position']))),2*math.acos(min(1,dot))
+ first,last=row['trajectory'][0],row['trajectory'][-1];p0,r0=errors(first);p1,r1=errors(last)
+ return dict(position_initial_m=p0,position_final_m=p1,rotation_initial_rad=r0,rotation_final_rad=r1,target_gripper_closed=target['gripper_closed'],finger_initial=first['state'][6:],finger_final=last['state'][6:],executed=row['end']>row['start'])
 
 def build_episode(ep):
  events=readlines(ep/'events.jsonl');obs={e['step']:e for e in events if e.get('event')=='observation'}
@@ -85,12 +95,17 @@ def build_episode(ep):
    analysis={'predicted_steps':len(acts),'gpt_candidate_steps':len(candidate),'executed_steps':len(executed),'execution_matches_prefix':matches,'mode':r['response']['mode'],'candidate_translation_control_sum':[sum(row[i] for row in acts[:5]) for i in range(3)],'gripper_signs':['close' if row[6]>0 else 'open' if row[6]<0 else 'zero' for row in acts],'actual_eef_delta_m':[trajectory[-1]['state'][i]-trajectory[0]['state'][i] for i in range(3)]}
    pi_public={'request_id':rid,'actions':acts,'server':{k:v for k,v in server.items() if k not in ('host','pid')},'input':{k:v for k,v in q.items() if k in ('prompt','input_state','input_observation')},'input_images':[uri(ep/q['input_observation']['frames'][name]) for name in ('agentview','wrist')],'input_archive':q['input_archive'],'input_archive_data':uri(archive,'application/octet-stream'),'input_archive_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'analysis':analysis}
   out.append({'simulation_start_s':sim_start,'simulation_end_s':sim_end,'simulation_duration_s':sim_duration,'environment_execution_wall_s':env,'timeline':sorted(timeline,key=lambda x:x['start_s']),'id':r['decision_id'],'start':a,'end':b,'accepted':r['accepted'],'input':inp,'images':imgs,'after_images':[uri(ep/obs[b]['frames'][name]) for name in ('agentview','wrist')],'response':r['response'],'output_raw':m['text'] if m else None,'model':publicmodel,'outcome':r['outcome'],'trajectory':trajectory,'pi':pi_public,'parts':parts,'total_s':total,'turn_id':r.get('turn_id'),'cycle_start_ns':r['cycle_start_ns'],'cycle_end_ns':r['cycle_end_ns']})
+ for row in out:
+  row['response_source']='gpt' if row['model'] else 'host_summary'
+  row['tracking']=tracking_error(row)
  sums={k:sum(r['parts'][k] for r in out) for k in out[0]['parts']} if out else {}
  g=[r['model'] for r in out if r['model']]
  summary={'decisions':len(out),'accepted':sum(r['accepted'] for r in out),'actions':sum(r['end']-r['start'] for r in out),'mean_cycle_s':statistics.mean(r['total_s'] for r in out) if out else None,'mean_parts_s':{k:v/len(out) for k,v in sums.items()},'input_tokens':sum(m['usage']['inputTokens'] for m in g),'output_tokens':sum(m['usage']['outputTokens'] for m in g),'reasoning_tokens':sum(m['usage'].get('reasoningOutputTokens',0) for m in g),'mean_ttft_s':statistics.mean(m['ttft_client_s'] for m in g) if g else None,'mean_tpot_estimate_s':statistics.mean(m['tpot_visible_estimate_s'] for m in g if m['tpot_visible_estimate_s'] is not None) if g else None}
  summary.update(mean_simulation_duration_s=statistics.mean(x['simulation_duration_s'] for x in out),total_simulation_duration_s=sum(x['simulation_duration_s'] for x in out),mean_environment_execution_wall_s=statistics.mean(x['environment_execution_wall_s'] for x in out))
  summary.update(mean_gpt_request_s=statistics.mean(m['request_wall_s'] for m in g) if g else None,mean_gpt_decode_s=statistics.mean(m['decode_client_s'] for m in g) if g else None)
  summary.update(pi_calls=len(props), pi_text_tokens=sum((p.get('server_timing') or p['meta']).get('input_metrics',{}).get('text_tokens_valid',0) for p in props.values()), pi_action_scalars=70*len(props))
+ cycles=sorted(x['total_s'] for x in out);pos=(len(cycles)-1)*.95;low=int(pos)
+ summary.update(loop_total_s=sum(cycles),episode_wall_s=result.get('wall_seconds'),p95_cycle_s=cycles[low]+(cycles[min(low+1,len(cycles)-1)]-cycles[low])*(pos-low),max_cycle_s=max(cycles),gpt_calls=len(g),mode_counts=dict(collections.Counter(x['response']['mode'] for x in out)))
  if g:
   assert all(m['tpot_visible_estimate_s'] is not None for m in g)
   assert summary['input_tokens']==g[-1]['cumulative_usage']['inputTokens']
@@ -98,7 +113,7 @@ def build_episode(ep):
  assert summary['actions']==max(obs) if result['status']!='running' else True
  protocol=json.loads((ep/'decision_protocol.json').read_text()) if (ep/'decision_protocol.json').exists() else {'protocol':'student_5_step_replan'}
  video=ep/'video/actions.mp4'
- return {'source_campaign':ep.parent.parent.name,'source_episode':ep.name,'method':method,'case':cfg['case'],'status':result['status'],'result':result.get('record',{}).get('success'),'summary':summary,'decisions':out,'protocol':protocol,'video':uri(video,'video/mp4') if video.exists() else None,'source_commit':cfg['source'].get('git_commit'),'deployment':cfg.get('deployment',{}).get('campaign')}
+ return {'source_campaign':ep.parent.parent.name,'source_episode':ep.name,'method':method,'case':cfg['case'],'status':result['status'],'result':result.get('record',{}).get('success'),'summary':summary,'terminal_drawer_qpos':{'middle':out[-1]['trajectory'][-1]['sim_qpos'][38],'bottom':out[-1]['trajectory'][-1]['sim_qpos'][39]} if cfg['case']['benchmark']=='libero_goal_task' else None,'decisions':out,'protocol':protocol,'video':uri(video,'video/mp4') if video.exists() else None,'source_commit':cfg['source'].get('git_commit'),'deployment':cfg.get('deployment',{}).get('campaign')}
 
 sources=root/'report_sources.json'
 include=args.include or ([root/p for p in json.loads(sources.read_text())] if sources.exists() else [])
@@ -108,7 +123,16 @@ assert len({e['case']['episode_id'] for e in data['episodes']})==len(data['episo
 notes=root/'report_notes.json'
 if notes.exists():data['notes']=json.loads(notes.read_text())
 (root/'report_data.json').write_text(json.dumps(data,ensure_ascii=False),encoding='utf-8')
+# Keep report_data.json expanded for offline consumers; deduplicate only the HTML payload.
+assets={}
+def pack_images(value):
+ if isinstance(value,str) and value.startswith('data:image/'):
+  key=hashlib.sha256(value.encode()).hexdigest();assets[key]=value;return 'asset:'+key
+ if isinstance(value,list):return [pack_images(x) for x in value]
+ if isinstance(value,dict):return {k:pack_images(v) for k,v in value.items()}
+ return value
+packed=pack_images(data);packed['image_assets']=assets
 template=(Path(__file__).resolve().parent/'templates/libero_decision_report.html').read_text()
-(root/'index.html').write_text(template.replace('__REPORT_DATA__',json.dumps(data,ensure_ascii=False).replace('</','<\\/')),encoding='utf-8')
+(root/'index.html').write_text(template.replace('__REPORT_DATA__',json.dumps(packed,ensure_ascii=False).replace('</','<\\/')),encoding='utf-8')
 (root/'report_summary.json').write_text(json.dumps({e['case']['episode_id']:{'status':e['status'],**e['summary']} for e in data['episodes']},indent=2))
 print(json.dumps({'episodes':len(data['episodes']),'decisions':sum(len(e['decisions']) for e in data['episodes']),'html_bytes':(root/'index.html').stat().st_size}))
