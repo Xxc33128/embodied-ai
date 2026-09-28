@@ -3,7 +3,7 @@
 当前主线已确定为 CPU MuJoCo／LIBERO＋NPU π0.5＋Mac 接入 GPT（2026-09-21 用户确认）。9月20日的路线待定记录保留为历史背景。
 
 - [RPent 复现（npunew · GLM-5.3 · Object Swap 20 集）](2026-09-24-RPent复现-npunew-GLM5.3-ObjectSwap20集.md)：跨节点复现同事 aura-7 的 RPent 复现，18/20=90%（vs 上游 100%，Fisher p≈0.49 无显著差异），cache 命中率两边同为 90.4%；资产经共享 SFS 零迁移；新增 sam3 get_device_properties major=None 两个 shim 补丁（上游仓库缺口）；两败均为手工原语重试循环打满 max_turns，与上游失败前兆特征吻合。
-- [RPent 扩展：Flash Mode 与 libero_goal](2026-09-27-RPent扩展-FlashMode与libero_goal.md)：补齐上游两个未测项——libero_goal 16/20=80%（薄记忆条件下正对官方 GPT-5.5 档）；Flash Mode（Molmo2-8B@dev4，fp32 权重 37G）15/20=75%、0 LLM token；新发现：HF 数据集已无 libero/flash 目录（文档漂移，task_card 计划可替代）、GLM API 连接可无限挂死（httpx 无超时，建议 upstream 修复）；cache 命中三批次均 ≈90%。
+- [RPent 扩展：Flash Mode 与 libero_goal](2026-09-27-RPent扩展-FlashMode与libero_goal.md)：补齐上游两个未测项——libero_goal 16/20=80%（薄记忆条件下正对官方 GPT-5.5 档）；Flash Mode（Molmo2-8B@dev4，fp32 权重 37G）15/20=75%、0 LLM token；失败集重跑 5/6 翻盘（retry-once 口径 swap 100%/goal 95%，唯一系统性失败是 goal t0 开抽屉）；早停回测：纯阈值早停省 21.5% token 但误杀 5 个翻盘胜局，正确形态是前兆截断+重跑（3.4M token/胜）；新发现：HF 数据集已无 libero/flash 目录（文档漂移）、GLM API 连接可无限挂死（httpx 无超时，建议 upstream 修复）；cache 命中三批次均 ≈90%。
 
 - [GPT-6 Sol 最高推理强度 bowl 五次](2026-09-23-GPT6-Sol-ultra-bowl五次对照.md)：Sol/ultra 同 seed 五轮自动入碗 3/5；harness 最高可用参数为 max，五轮记录审计 PASS，匿名录像三轮均在阶段 3–4 边界。
 - [GPT-6 Sol bowl 五次与 Astra 同 seed 对照](2026-09-23-GPT6-Sol-bowl五次与Astra同seed对照.md)：按用户纠正，Sol 重跑 seed 2005–2009，自动入碗 2/5，记录审计 5/5 PASS；审核阶段 1、1、3–4 待定、3–4 待定、2。

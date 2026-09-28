@@ -82,15 +82,41 @@ t8_s1 于 12:38 由 pi0_pick 触发 terminated=true（任务已解出），但**
 - Molmo2-8B 仓库为 fp32（37G），文档未提示；带宽受限环境需按 37G 规划。
 - flash 与 goal 并行跑期间共享 VLA 服务（dev5），计时互相污染——goal 单集时长含争用期（t9 之前的集），成功率不受影响；报告用时数据标注此口径。
 
-## 5. 产物索引
+## 6. 失败集重跑与早停量化（2026-09-28 补充，GLM API 恢复后执行）
 
-- 本地：`rpent-repo/flash20-npunew/`（20 集视频+日志+recipe，2.7MB）、`rpent-repo/goal20-npunew/`（同款，7.8MB，含 t8_s1 重跑与 `analyze_goal_output.txt`）。
-- 节点：`/data/rpent2/logs/{flash_object_swap,eval_libero_goal}`、`/data/rpent2/analyze_goal.py`、`/data/rpent2/scripts-npunew/{flash20_final,eval20_goal,rerun_t8s1_goal,molmo_boot}.sh`、`/data/rpent2/patches/patch_molmo_npu.py`。
+### 6.1 失败集重跑：5/6 翻盘，唯一系统性失败是 goal t0 [E1]
+
+对三批的全部 6 个失败集各重跑一次（原败局保留为 `*_fail1`）：
+
+| 集 | 首跑 | 重跑 | 判定 |
+|---|---|---|---|
+| swap t2_s1 | ❌ 2818s/9.4M tok | ✅ 601s/1.3M | 随机失手 |
+| swap t3_s1 | ❌ 3840s/9.9M | ✅ 617s/1.1M | 随机失手 |
+| goal t0_s0 | ❌ 5160s | ❌ 1485s（三连败）| **系统性**（开抽屉） |
+| goal t0_s1 | ❌ 5430s/11.7M | ✅ 835s/1.4M | 随机失手（同任务可解） |
+| goal t5_s1 | ❌ 823s（快速失败）| ✅ 4795s/9.9M（苦战翻盘） | 随机失手 |
+| goal t9_s0 | ❌ 1637s | ✅ 476s/0.6M | 随机失手 |
+
+**Retry-once 有效战绩**：object_swap 18/20 → **20/20（100%）**；libero_goal 16/20 → **19/20（95%）**。唯一反复失败的是 goal t0 s0（开抽屉的特定布局）——三连败 + 同任务 t0_s1 重跑可解，说明是**任务×布局级别的硬骨头**而非全局短板。重跑经济性：**3.4M token/胜**（16.9M 换 5 胜），且失败集白烧的 45.0M token（0 胜）与之形成鲜明对照。
+
+### 6.2 早停回测：朴素阈值早停是坏交易 [E1]
+
+以前兆规则（单请求 ctx>140k ∨ 累计 decode>40k ∨ 请求数>45(swap)/55(goal)）回测全部 40 个 api 集：
+
+- **收益侧**：4 个带前兆的失败集可省 22.2M token = 全批次 103.6M 的 **21.5%**（t0_s1 高达 82%、swap t3_s1 71% 的燃烧发生在前兆之后）；快速失败集（goal t5_s1，24 请求即败）无前兆，规则按设计不触发。
+- **代价侧**：**5 个翻盘胜局会被误杀**（goal t2_s0/t2_s1/t3_s0/t5_s0 + swap t6_s0）——goal 成功率将从 80% 掉到 60%，swap 从 90% 掉到 85%。前兆的真实语义是"深度苦战中"而非"必败"：10 个 max_turns/近 max_turns 集中 6 个最终获胜。
+- **结论**：上游"早停可省约 2/3 无效 token"只算了收益侧；在我们的数据上，纯早停省 21.5% token 的代价是 -12.5pp 成功率，不可取。合理策略是**前兆截断 + 重跑一次**（6.1 的重跑成功率 5/6 支持此策略），其对翻盘集的额外重跑成本未测，留作后续。
+
+## 7. 产物索引（更新）
+
+- 本地：`rpent-repo/flash20-npunew/`（2.7MB）、`rpent-repo/goal20-npunew/`（7.8MB）、`rpent-repo/retry-npunew/`（11MB，含 `*_fail1` 原败局与重跑的视频/日志、`analyze_earlystop.py` 及其输出）。
+- 节点：`/data/rpent2/logs/{flash_object_swap,eval_libero_goal,eval_object_swap}`（败局存于 `*_fail1`）、`/data/rpent2/analyze_{goal,earlystop}.py`、`/data/rpent2/scripts-npunew/{flash20_final,eval20_goal,retry_failed,rerun_t8s1_goal,molmo_boot}.sh`、`/data/rpent2/patches/patch_molmo_npu.py`。
 - 服务现状：VLA@dev5:18803、SAM3@dev6:18802、Molmo@dev4:18801 常驻未停（停：`docker exec rpent-npu pkill -f 'pi05_vla_server|sam3_server|molmo_server'`）。
 
-## 6. 结论与后续
+## 8. 结论与后续
 
-1. **复现义务全部履行**：api（两套件）+ flash 三种模式在纯昇腾栈上均有 20 集数据，成功率 75-90% 区间，均落在官方同档大脑的合理带宽内。
-2. **GLM-5.3 档位结论稳固**：object_swap 90%、libero_goal 80%（薄记忆），与 GPT-5.5 持平、低于 Astra 的官方格局一致。
+1. **复现义务全部履行**：api（两套件）+ flash 三种模式在纯昇腾栈上均有 20 集数据；加上失败集重跑，**retry-once 口径 object_swap 100%、libero_goal 95%**——上游 20/20 的成绩在重跑口径下完全对齐（首跑 90%/80% 的差距就是采样方差 + goal t0 一个系统性硬骨头）。
+2. **GLM-5.3 档位结论稳固**：object_swap 90→100%、libero_goal 80→95%（薄记忆），与官方 GPT-5.5–Astra 档格局一致。
 3. **Flash 经济性在 NPU 成立**，但计划集质量是上限（t2 错位直接丢 10%）。
-4. 后续可选：回馈三份产出给上游/同事仓库（sam3 双 shim、molmo shim、flash 记忆路径文档漂移）；httpx 超时修复建议；若扩官方 100 集口径，建议先修 4.2 再跑长批。
+4. **早停的正确形态是前兆截断+重跑**，纯阈值早停得不偿失（§6.2）；重跑成本 3.4M token/胜。
+5. 后续可选：回馈四份产出给上游/同事仓库（sam3 双 shim、molmo shim、flash 记忆路径文档漂移、httpx 超时修复建议）；若扩官方 100 集口径，建议先修 4.2 并引入 §6.2 的截断+重跑策略再跑长批。
