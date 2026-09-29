@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.19 · 2026-09-30 · 已审定26集：22成功、4失败；t6/seed1的Sol遇上游容量异常，Astra继续；不是最终成绩报告。
+> v0.20 · 2026-09-30 · 已审定27集：23成功、4失败；Sol t6/seed1独立attempt-002恢复启动；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -187,3 +187,7 @@ t6/seed0两模型均正常finish success，环境terminated=true/truncated=false
 Sol attempt-001在读取记忆和初始view_env_state后收到明确serverOverloaded、will_retry=false；SDK failed且无正常finish。原生elapsed98.3s、SDK73.6s、17次工具调用，只有初始环境状态，terminated=false/truncated=false，未执行机器人动作，未产生成功recipe或视频。计基础设施异常，不计任务失败。[E2]
 
 实际Sol/medium和无个人skills已核验，周额度73%且允许使用，错误指向模型服务容量，不能等同额度耗尽。原异常及8份文件hash已保存到review-sol-t6-s1-overloaded-001.json；未批准新attempt。同对Astra继续运行，配对结束后再审查恢复，不替换模型，不覆盖原结果。[E2]
+
+Astra t6/seed1正常finish success，环境terminated=true/truncated=false、成功recipe存在，原生elapsed828.4s，录像530/530帧完整解码。实际Astra/medium、无个人skills已复核；累计27集：Astra13成功/14集、Sol10成功/13集。[E2]
+
+配对结束并停止后，冻结60资产/347记忆及Sol原attempt的8份文件hash全部一致；端口可用、官方额度复检允许使用（74%）。距容量错误超过12分钟，持锁审查仅批准Sol独立attempt-002，保存review-sol-t6-s1-retry-002.json；Astra已计分成功不重跑。此为一次恢复尝试，上游容量恢复尚未证实，再次异常须新审查。预检剩余93集/47组，持久调度使用scheduler-resume-005.log启动，保持原模型与medium及全部协议。[E2/E3]
