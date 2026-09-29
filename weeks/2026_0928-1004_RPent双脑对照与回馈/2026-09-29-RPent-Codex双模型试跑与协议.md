@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.27 · 2026-09-30 · 已审定38集：34成功、4失败；双线推进至t9/seed1；不是最终成绩报告。
+> v0.28 · 2026-09-30 · 已审定40集：36成功、4失败；Spatial Task完成，双线进入Spatial Swap；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -154,6 +154,7 @@ Spatial Task t2/seed0的attempt-002两模型均正常finish success，最终环�
 | Spatial Task / t8 / s0 | 成功 / 644.3s / 429 | 成功 / 635.1s / 410 | 60资产+347记忆hash一致 |
 | Spatial Task / t8 / s1 | 成功 / 520.0s / 331 | 成功 / 586.9s / 430 | 60资产+347记忆hash一致 |
 | Spatial Task / t9 / s0 | 成功 / 802.2s / 592 | 成功 / 736.2s / 525 | 60资产+347记忆hash一致 |
+| Spatial Task / t9 / s1 | 成功 / 1019.1s / 743 | 成功 / 1055.7s / 802 | 60资产+347记忆hash一致 |
 
 t3/seed0的Sol正常finish failure，11条环境状态均未terminated，最终truncated=false，录像591/591帧完整解码；计为正式任务失败，不重跑。两模型实际medium、无个人skills已在本对运行时复核。[E2]
 
@@ -222,3 +223,16 @@ t8/seed0两模型均正常finish success，环境terminated=true/truncated=false
 t8/seed1两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。累计36/120集：Astra17成功/18集、Sol15成功/18集，仅覆盖Spatial Task t0–t8。调度自动进入t9/seed0双线，周额度82%，仍允许使用。[E2]
 
 t9/seed0两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。累计38/120集：Astra18成功/19集、Sol16成功/19集；Spatial Task仍差最后一对，尚未完成整套验收。调度自动进入t9/seed1双线VLA加载，周额度83%，仍允许使用。[E2]
+
+## 19. Spatial Task整套验收
+
+最后一对t9/seed1两模型均正常finish success，环境terminated=true/truncated=false、成功recipe与全帧录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。账本核对每模型20个唯一身份（10任务×seed0/1），旧诊断集与基础设施attempt均不额外计分。[E2]
+
+| 模型（medium） | 成功/正式集 | Spatial Task成功率 | 正式失败身份 |
+|---|---|---|---|
+| GPT-6 Astra | 19/20 | 95% | t0/seed0 |
+| GPT-6 Sol | 17/20 | 85% | t0/seed0、t0/seed1（预算耗尽）、t3/seed0 |
+
+这仅是本批NPU/Codex medium、每任务2个初态的结果，不等同官方low或每任务10个初态的成绩。Sol成功后收尾异常的既有审定保留，详见前文；正常失败不重跑。[E2/E3]
+
+累计40/120集：36成功、4失败；Spatial Swap与Long Swap尚未完成。持久调度已自动进入Spatial Swap t0/seed0双线VLA加载，周额度85%，仍允许使用，保持双线。[E2]
