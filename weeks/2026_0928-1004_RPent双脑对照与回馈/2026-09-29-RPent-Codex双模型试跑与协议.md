@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.20 · 2026-09-30 · 已审定27集：23成功、4失败；Sol t6/seed1独立attempt-002恢复启动；不是最终成绩报告。
+> v0.21 · 2026-09-30 · 已审定28集：24成功、4失败；Sol恢复集通过验收，双线推进至t7/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -191,3 +191,7 @@ Sol attempt-001在读取记忆和初始view_env_state后收到明确serverOverlo
 Astra t6/seed1正常finish success，环境terminated=true/truncated=false、成功recipe存在，原生elapsed828.4s，录像530/530帧完整解码。实际Astra/medium、无个人skills已复核；累计27集：Astra13成功/14集、Sol10成功/13集。[E2]
 
 配对结束并停止后，冻结60资产/347记忆及Sol原attempt的8份文件hash全部一致；端口可用、官方额度复检允许使用（74%）。距容量错误超过12分钟，持锁审查仅批准Sol独立attempt-002，保存review-sol-t6-s1-retry-002.json；Astra已计分成功不重跑。此为一次恢复尝试，上游容量恢复尚未证实，再次异常须新审查。预检剩余93集/47组，持久调度使用scheduler-resume-005.log启动，保持原模型与medium及全部协议。[E2/E3]
+
+Sol t6/seed1 attempt-002正常finish success，环境terminated=true/truncated=false、成功recipe存在；原生elapsed822.0s，录像561/561帧完整解码。实际Sol/medium、无个人skills已复核，冻结60资产/347记忆及原attempt的8份文件hash均一致；保留容量异常attempt-001，该身份仅计一次。[E2]
+
+累计28/120集：Astra13成功/14集、Sol11成功/14集，仅覆盖Spatial Task t0–t6。调度自动恢复t7/seed0双线VLA加载，周额度75%，仍允许使用。[E2]
