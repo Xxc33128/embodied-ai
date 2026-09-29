@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.21 · 2026-09-30 · 已审定28集：24成功、4失败；Sol恢复集通过验收，双线推进至t7/seed0；不是最终成绩报告。
+> v0.22 · 2026-09-30 · 已审定30集：26成功、4失败；Sol t7/seed1启动前异常，端口预检修正待部署；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -195,3 +195,13 @@ Astra t6/seed1正常finish success，环境terminated=true/truncated=false、成
 Sol t6/seed1 attempt-002正常finish success，环境terminated=true/truncated=false、成功recipe存在；原生elapsed822.0s，录像561/561帧完整解码。实际Sol/medium、无个人skills已复核，冻结60资产/347记忆及原attempt的8份文件hash均一致；保留容量异常attempt-001，该身份仅计一次。[E2]
 
 累计28/120集：Astra13成功/14集、Sol11成功/14集，仅覆盖Spatial Task t0–t6。调度自动恢复t7/seed0双线VLA加载，周额度75%，仍允许使用。[E2]
+
+## 18. t7配对验收及端口预检修正
+
+t7/seed0两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整。Astra elapsed575.4s、331/331帧；Sol841.7s、538/538帧。实际模型/medium、无个人skills已复核，冻结60资产及347记忆hash一致。累计30/120集：Astra14成功/15集、Sol12成功/15集。[E2]
+
+下一对Sol t7/seed1再次在VLA启动前bind报Address already in use，未创建正式attempt，不计模型失败；Astra继续运行，原异常已保存独立review-sol-t7-s1-prelaunch-001.json，尚未批准重试。[E2]
+
+隔离Linux测试复现旧预检缺陷：主动关闭服务连接留下TIME_WAIT（TCP状态06），旧普通bind返回errno98，设置SO_REUSEADDR后成功；原生HTTP/Socket RPC服务均allow_reuse_address=True。候选修正仅让调度端口预检与原生服务一致，不使用SO_REUSEPORT，仍拒绝真实监听者，并保留后续PID归属验收。两次现场缺少错误瞬间的socket快照，TIME_WAIT作为具体事故原因仍属推断。[E1/E2/E3]
+
+新增TIME_WAIT可复用、真实监听者拒绝两项测试，本机与容器共22项通过；候选文件单独保存，运行中调度尚未替换，待本对结束后持锁部署与审查恢复。周额度76%，仍允许使用。[E2]
