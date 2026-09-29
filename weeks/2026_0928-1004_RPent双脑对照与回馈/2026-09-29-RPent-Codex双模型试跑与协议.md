@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.23 · 2026-09-30 · 已审定31集：27成功、4失败；端口预检修正已部署，Sol独立恢复启动；不是最终成绩报告。
+> v0.24 · 2026-09-30 · 已审定32集：28成功、4失败；Sol恢复集通过验收，双线推进至t8/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -209,3 +209,7 @@ t7/seed0两模型均正常finish success，环境terminated=true/truncated=false
 Astra t7/seed1正常finish success，环境terminated=true/truncated=false、成功recipe存在；原生elapsed687.3s，录像448/448帧完整解码。实际Astra/medium、无个人skills已复核；累计31集：Astra15成功/16集、Sol12成功/15集。[E2]
 
 配对停止后持有scheduler.lock，确认冻结文件及候选源码hash一致，原调度/测试脚本分别保存pre-portcheck快照，再原子部署已通过22项测试的候选。独立review-sol-t7-s1-retry-002.json记录部署前后源码hash、旧异常与一次性attempt-002批准，仅恢复Sol。预检通过：剩余89集/45组、额度78%且允许使用；scheduler-resume-006.log启动，保持每模型最多一线。此修正消除可复现的TIME_WAIT误判，不将现场原因推断升级为已证实。[E2/E3]
+
+Sol t7/seed1 attempt-002正常finish success，环境terminated=true/truncated=false、成功recipe存在；原生elapsed1435.0s，录像1086/1086帧完整解码。实际Sol/medium、无个人skills已复核；冻结60资产/347记忆hash一致，旧调度快照和新调度hash均与部署审查一致。[E2]
+
+累计32/120集：Astra15成功/16集、Sol13成功/16集，仅覆盖Spatial Task t0–t7。调度自动进入t8/seed0双线VLA加载，本次跨集未再触发端口预检错误；周额度79%，仍允许使用。一次正常转换不足以证明后续无端口异常。[E2/E3]
