@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.14 · 2026-09-30 · 已审定20集：16成功、4失败；t5/seed0的Sol启动前异常待审查；不是最终成绩报告。
+> v0.15 · 2026-09-30 · 已审定21集：17成功、4失败；t5/seed0的Sol已获独立attempt-002恢复；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -165,3 +165,9 @@ t4/seed1两模型均正常finish success、环境terminated=true/truncated=false
 Sol在VLA启动前的端口bind检查报Address already in use；没有创建正式attempt，也没有启动该集模型推理，不计任务失败。随后只读socket检查未见该端口条目，bind探测成功；原占用进程或TIME_WAIT状态未及时捕获，原因仍未确认，不能断言已修复。[E2/E3]
 
 已将原异常记录及调度源码hash保存到独立review-sol-t5-s0-prelaunch-001.json；未杀进程、未覆盖记录、未放行重试。同对Astra继续启动，调度将等待该线结束后按未解决结果停下；届时再审查独立attempt恢复。冻结60资产与347记忆hash仍一致。[E2]
+
+Astra t5/seed0正常finish success，环境terminated=true/truncated=false，成功recipe存在，原生elapsed417.8s，录像206/206帧完整解码，实际Astra/medium及无个人skills已在运行时复核。累计21集：Astra10成功/11集，Sol7成功/10集；冻结文件hash一致。[E2]
+
+调度停下后，持有scheduler.lock复核Sol尚无正式attempt-001，端口再次bind成功；保留原异常与前次审查文件hash，仅批准Sol t5/seed0进入attempt-002，Astra已计分结果不重跑。独立review-sol-t5-s0-retry-002.json保存批准与证据；此次为可用性恢复尝试，不声称已找到或修复瞬时占用根因，再次异常须重新审查。[E2/E3]
+
+正式预检通过：剩余99集/50个调度组（首组仅Sol），周额度70%，允许使用。持久调度以独立scheduler-resume-004.log恢复，仍最高双线，不改模型、预算或实验内容。[E2]
