@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.38 · 2026-09-30 · 已审定58集：54成功、4失败；双线推进至Spatial Swap t4/seed1；不是最终成绩报告。
+> v0.39 · 2026-09-30 · 已审定58集：54成功、4失败；双线推进至Spatial Swap t4/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -260,3 +260,5 @@ t9/seed0两模型均正常finish success，环境terminated=true/truncated=false
 Astra attempt-001在step10已达环境terminated=true/truncated=false，审计文件写入成功，但finish(success)的MCP传输失败，原生finish为空，调度标记infrastructure_error。原生elapsed为595.4s，录像352/352帧完整解码，recipe存在；60资产与347记忆hash无变化。独立review保存原账本及产物hash，未批准重跑，未覆盖attempt。[E2]
 
 Sol同身份仍在运行；保持配对屏障，待其结束后审定Astra成功后的收尾异常并处理调度。58集统计暂不增加该待审定身份。周额度已用99%，后续由官方额度检查控制放行，不自动重置或购买。[E2]
+
+22:56 UTC复查：官方额度窗口显示已用100%，预计2026-10-05 14:34:52（UTC+8）恢复。当前配对仍仅Sol运行，Astra的infrastructure_error使配对屏障阻止继续放行；本次不重启调度、不干预在途解题。等待额度自然恢复或用户自行处理账户额度，恢复前不启动新集。成功后收尾异常仍保留独立审查记录。[E2]
