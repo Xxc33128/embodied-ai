@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.15 · 2026-09-30 · 已审定21集：17成功、4失败；t5/seed0的Sol已获独立attempt-002恢复；不是最终成绩报告。
+> v0.16 · 2026-09-30 · 已审定22集：18成功、4失败；Sol恢复集通过验收，双线推进至t5/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -171,3 +171,7 @@ Astra t5/seed0正常finish success，环境terminated=true/truncated=false，成
 调度停下后，持有scheduler.lock复核Sol尚无正式attempt-001，端口再次bind成功；保留原异常与前次审查文件hash，仅批准Sol t5/seed0进入attempt-002，Astra已计分结果不重跑。独立review-sol-t5-s0-retry-002.json保存批准与证据；此次为可用性恢复尝试，不声称已找到或修复瞬时占用根因，再次异常须重新审查。[E2/E3]
 
 正式预检通过：剩余99集/50个调度组（首组仅Sol），周额度70%，允许使用。持久调度以独立scheduler-resume-004.log恢复，仍最高双线，不改模型、预算或实验内容。[E2]
+
+Sol t5/seed0 attempt-002正常finish success，环境terminated=true/truncated=false，成功recipe存在，原生elapsed469.9s，录像252/252帧完整解码。实际Sol/medium、无个人skills已复核；60资产、347记忆及恢复审查保存的原证据hash均一致。只计入该身份一次，不计启动前异常为额外集。[E2]
+
+累计22/120集：Astra10成功/11集、Sol8成功/11集。调度已自动恢复t5/seed1双线VLA加载，额度仍允许使用、周用量70%；原端口占用原因未确认，继续监控。[E2]
