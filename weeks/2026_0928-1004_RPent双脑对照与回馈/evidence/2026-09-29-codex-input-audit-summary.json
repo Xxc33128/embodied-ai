@@ -1,0 +1,748 @@
+{
+  "date": "2026-09-29",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "cli_version": "0.158.0-alpha.2.1",
+  "measurement": "response.completed.usage.attribution.items; server-reported counts, not local tokenization",
+  "cases": [
+    {
+      "condition": "current_capture",
+      "provider": "openai",
+      "first_input_tokens": 13111,
+      "first_cached_tokens": 7424,
+      "first_output_tokens": 75,
+      "first_reasoning_tokens": 22,
+      "turn_input_tokens": 26321,
+      "model_request_count": 2,
+      "attribution": [
+        {
+          "index": 0,
+          "type": "additional_tools",
+          "role": "developer",
+          "input_tokens": 8488,
+          "content": [],
+          "namespaces": [
+            {
+              "name": "functions",
+              "tools": [
+                "exec",
+                "wait",
+                "request_user_input",
+                "request_user_input_async"
+              ]
+            },
+            {
+              "name": "clock",
+              "tools": [
+                "sleep"
+              ]
+            },
+            {
+              "name": "collaboration",
+              "tools": [
+                "followup_task",
+                "interrupt_agent",
+                "list_agents",
+                "send_message",
+                "spawn_agent",
+                "wait_agent"
+              ]
+            },
+            {
+              "name": "mcp__cua_repl",
+              "tools": [
+                "js",
+                "js_reset"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 3838,
+          "content": [
+            {
+              "index": 0,
+              "chars": 13570,
+              "input_tokens": 3336,
+              "kind": "<skills_instructions>"
+            },
+            {
+              "index": 1,
+              "chars": 341,
+              "input_tokens": 63,
+              "kind": "<permissions instructions>"
+            },
+            {
+              "index": 2,
+              "chars": 920,
+              "input_tokens": 178,
+              "kind": "<collaboration_mode>"
+            },
+            {
+              "index": 3,
+              "chars": 876,
+              "input_tokens": 261,
+              "kind": "<recommended_plugins>"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 539,
+          "content": [
+            {
+              "index": 0,
+              "chars": 2429,
+              "input_tokens": 539,
+              "kind": "<multi_agent_role>"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 56,
+          "content": [
+            {
+              "index": 0,
+              "chars": 271,
+              "input_tokens": 56,
+              "kind": "<multi_agent_mode>"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 178,
+          "content": [
+            {
+              "index": 0,
+              "chars": 535,
+              "input_tokens": 178,
+              "kind": "<environment_context>"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        }
+      ],
+      "unassigned_input_difference": 2,
+      "request_sha256": "458d8f415589f0dc98936704ae14e944b35e38724c12914d7c468ec3a8673be0",
+      "usage_sha256": "56979375a9c47b9bf38a84106c59f220aaab9832a37ccd79d8f1abc0194f795a"
+    },
+    {
+      "condition": "current_http",
+      "provider": "audit",
+      "first_input_tokens": 11045,
+      "first_cached_tokens": 4992,
+      "first_output_tokens": 65,
+      "first_reasoning_tokens": 15,
+      "turn_input_tokens": 22179,
+      "model_request_count": 2,
+      "attribution": [
+        {
+          "index": 0,
+          "type": "additional_tools",
+          "role": "developer",
+          "input_tokens": 6032,
+          "content": [],
+          "namespaces": [
+            {
+              "name": "functions",
+              "tools": [
+                "exec",
+                "wait",
+                "request_user_input",
+                "request_user_input_async"
+              ]
+            },
+            {
+              "name": "clock",
+              "tools": [
+                "sleep"
+              ]
+            },
+            {
+              "name": "collaboration",
+              "tools": [
+                "followup_task",
+                "interrupt_agent",
+                "list_agents",
+                "send_message",
+                "spawn_agent",
+                "wait_agent"
+              ]
+            },
+            {
+              "name": "mcp__cua_repl",
+              "tools": [
+                "js",
+                "js_reset"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 4230,
+          "content": [
+            {
+              "index": 0,
+              "chars": 15198,
+              "input_tokens": 3728,
+              "kind": "<skills_instructions>"
+            },
+            {
+              "index": 1,
+              "chars": 341,
+              "input_tokens": 63,
+              "kind": "<permissions instructions>"
+            },
+            {
+              "index": 2,
+              "chars": 920,
+              "input_tokens": 178,
+              "kind": "<collaboration_mode>"
+            },
+            {
+              "index": 3,
+              "chars": 876,
+              "input_tokens": 261,
+              "kind": "<recommended_plugins>"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 539,
+          "content": [
+            {
+              "index": 0,
+              "chars": 2429,
+              "input_tokens": 539,
+              "kind": "<multi_agent_role>"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 56,
+          "content": [
+            {
+              "index": 0,
+              "chars": 271,
+              "input_tokens": 56,
+              "kind": "<multi_agent_mode>"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 176,
+          "content": [
+            {
+              "index": 0,
+              "chars": 535,
+              "input_tokens": 176,
+              "kind": "<environment_context>"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        }
+      ],
+      "unassigned_input_difference": 2,
+      "request_sha256": "8c99cbdefe20e318d12fec0f35e5d19d588b1c904bacd1eb1e3190f458236b8c",
+      "usage_sha256": "4f22d0d32c5453fe26ea481fd9dde32e76cff36af607ed031158c08887c81e89"
+    },
+    {
+      "condition": "clean_http",
+      "provider": "audit",
+      "first_input_tokens": 5760,
+      "first_cached_tokens": 2688,
+      "first_output_tokens": 45,
+      "first_reasoning_tokens": 28,
+      "turn_input_tokens": 5760,
+      "model_request_count": 1,
+      "attribution": [
+        {
+          "index": 0,
+          "type": "additional_tools",
+          "role": "developer",
+          "input_tokens": 2828,
+          "content": [],
+          "namespaces": [
+            {
+              "name": "functions",
+              "tools": [
+                "exec",
+                "wait",
+                "request_user_input",
+                "request_user_input_async"
+              ]
+            },
+            {
+              "name": "collaboration",
+              "tools": [
+                "followup_task",
+                "interrupt_agent",
+                "list_agents",
+                "send_message",
+                "spawn_agent",
+                "wait_agent"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 2147,
+          "content": [
+            {
+              "index": 0,
+              "chars": 7850,
+              "input_tokens": 1905,
+              "kind": "<skills_instructions>"
+            },
+            {
+              "index": 1,
+              "chars": 341,
+              "input_tokens": 63,
+              "kind": "<permissions instructions>"
+            },
+            {
+              "index": 2,
+              "chars": 920,
+              "input_tokens": 179,
+              "kind": "<collaboration_mode>"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 539,
+          "content": [
+            {
+              "index": 0,
+              "chars": 2429,
+              "input_tokens": 539,
+              "kind": "<multi_agent_role>"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 56,
+          "content": [
+            {
+              "index": 0,
+              "chars": 271,
+              "input_tokens": 56,
+              "kind": "<multi_agent_mode>"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 178,
+          "content": [
+            {
+              "index": 0,
+              "chars": 535,
+              "input_tokens": 178,
+              "kind": "<environment_context>"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        }
+      ],
+      "unassigned_input_difference": 2,
+      "request_sha256": "c22d48daab03c5c4d45d6dd1455d25d0fbff6f63209888a618d979aa388357a7",
+      "usage_sha256": "7a716f68051b9e8700f4cbdc44a370eacb9e47ffe47b000502712ab5cec4f239"
+    },
+    {
+      "condition": "clean_noenv",
+      "provider": "audit",
+      "first_input_tokens": 5560,
+      "first_cached_tokens": 0,
+      "first_output_tokens": 35,
+      "first_reasoning_tokens": 18,
+      "turn_input_tokens": 5560,
+      "model_request_count": 1,
+      "attribution": [
+        {
+          "index": 0,
+          "type": "additional_tools",
+          "role": "developer",
+          "input_tokens": 2767,
+          "content": [],
+          "namespaces": [
+            {
+              "name": "functions",
+              "tools": [
+                "exec",
+                "wait",
+                "request_user_input",
+                "request_user_input_async"
+              ]
+            },
+            {
+              "name": "collaboration",
+              "tools": [
+                "followup_task",
+                "interrupt_agent",
+                "list_agents",
+                "send_message",
+                "spawn_agent",
+                "wait_agent"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 2148,
+          "content": [
+            {
+              "index": 0,
+              "chars": 7850,
+              "input_tokens": 1906,
+              "kind": "<skills_instructions>"
+            },
+            {
+              "index": 1,
+              "chars": 341,
+              "input_tokens": 63,
+              "kind": "<permissions instructions>"
+            },
+            {
+              "index": 2,
+              "chars": 920,
+              "input_tokens": 179,
+              "kind": "<collaboration_mode>"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 539,
+          "content": [
+            {
+              "index": 0,
+              "chars": 2429,
+              "input_tokens": 539,
+              "kind": "<multi_agent_role>"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 56,
+          "content": [
+            {
+              "index": 0,
+              "chars": 271,
+              "input_tokens": 56,
+              "kind": "<multi_agent_mode>"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 38,
+          "content": [
+            {
+              "index": 0,
+              "chars": 124,
+              "input_tokens": 38,
+              "kind": "<environment_context>"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        }
+      ],
+      "unassigned_input_difference": 2,
+      "request_sha256": "7ce8b7f3fdc590401dea5ea5fb69fc7674739ebdae2900b3a887c566911241cf",
+      "usage_sha256": "03b2242de63b4bc50a9d2ee442990086e9452cc18bfc2dc1647b3e61633edfa8"
+    },
+    {
+      "condition": "clean_noenv_noskills",
+      "provider": "openai",
+      "first_input_tokens": 3763,
+      "first_cached_tokens": 0,
+      "first_output_tokens": 11,
+      "first_reasoning_tokens": 0,
+      "turn_input_tokens": 3763,
+      "model_request_count": 1,
+      "attribution": [
+        {
+          "index": 0,
+          "type": "additional_tools",
+          "role": "developer",
+          "input_tokens": 2767,
+          "content": [],
+          "namespaces": [
+            {
+              "name": "functions",
+              "tools": [
+                "exec",
+                "wait",
+                "request_user_input",
+                "request_user_input_async"
+              ]
+            },
+            {
+              "name": "collaboration",
+              "tools": [
+                "followup_task",
+                "interrupt_agent",
+                "list_agents",
+                "send_message",
+                "spawn_agent",
+                "wait_agent"
+              ]
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 351,
+          "content": [
+            {
+              "index": 0,
+              "chars": 494,
+              "input_tokens": 109,
+              "kind": "<skills_instructions>"
+            },
+            {
+              "index": 1,
+              "chars": 341,
+              "input_tokens": 63,
+              "kind": "<permissions instructions>"
+            },
+            {
+              "index": 2,
+              "chars": 920,
+              "input_tokens": 179,
+              "kind": "<collaboration_mode>"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 539,
+          "content": [
+            {
+              "index": 0,
+              "chars": 2429,
+              "input_tokens": 539,
+              "kind": "<multi_agent_role>"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "type": "message",
+          "role": "developer",
+          "input_tokens": 56,
+          "content": [
+            {
+              "index": 0,
+              "chars": 271,
+              "input_tokens": 56,
+              "kind": "<multi_agent_mode>"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 38,
+          "content": [
+            {
+              "index": 0,
+              "chars": 124,
+              "input_tokens": 38,
+              "kind": "<environment_context>"
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "type": "message",
+          "role": "user",
+          "input_tokens": 5,
+          "content": [
+            {
+              "index": 0,
+              "chars": 1,
+              "input_tokens": 5,
+              "kind": "literal_one"
+            }
+          ]
+        }
+      ],
+      "unassigned_input_difference": 2,
+      "request_sha256": "da4abbc4cec0e3315b6513f3f8386ed757d29b6c943530d38fb4c295e15bf485",
+      "usage_sha256": "698cac7b51f25fbb8ef359a34305eeb198990a983df4524bc148b213ac758f09"
+    }
+  ],
+  "paired_builtin_reduction": 0.7129890931279078
+}
