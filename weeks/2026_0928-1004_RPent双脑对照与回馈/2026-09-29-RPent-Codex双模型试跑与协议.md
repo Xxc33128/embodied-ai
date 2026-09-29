@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.24 · 2026-09-30 · 已审定32集：28成功、4失败；Sol恢复集通过验收，双线推进至t8/seed0；不是最终成绩报告。
+> v0.25 · 2026-09-30 · 已审定34集：30成功、4失败；双线推进至t8/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -151,6 +151,7 @@ Spatial Task t2/seed0的attempt-002两模型均正常finish success，最终环�
 | Spatial Task / t4 / s1 | 成功 / 942.9s / 672 | 成功 / 1629.9s / 1176 | 60资产+347记忆hash一致 |
 | Spatial Task / t5 / s1 | 成功 / 370.7s / 208 | 成功 / 580.8s / 309 | 60资产+347记忆hash一致 |
 | Spatial Task / t6 / s0 | 成功 / 613.1s / 404 | 成功 / 728.7s / 525 | 60资产+347记忆hash一致 |
+| Spatial Task / t8 / s0 | 成功 / 644.3s / 429 | 成功 / 635.1s / 410 | 60资产+347记忆hash一致 |
 
 t3/seed0的Sol正常finish failure，11条环境状态均未terminated，最终truncated=false，录像591/591帧完整解码；计为正式任务失败，不重跑。两模型实际medium、无个人skills已在本对运行时复核。[E2]
 
@@ -213,3 +214,5 @@ Astra t7/seed1正常finish success，环境terminated=true/truncated=false、成
 Sol t7/seed1 attempt-002正常finish success，环境terminated=true/truncated=false、成功recipe存在；原生elapsed1435.0s，录像1086/1086帧完整解码。实际Sol/medium、无个人skills已复核；冻结60资产/347记忆hash一致，旧调度快照和新调度hash均与部署审查一致。[E2]
 
 累计32/120集：Astra15成功/16集、Sol13成功/16集，仅覆盖Spatial Task t0–t7。调度自动进入t8/seed0双线VLA加载，本次跨集未再触发端口预检错误；周额度79%，仍允许使用。一次正常转换不足以证明后续无端口异常。[E2/E3]
+
+t8/seed0两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。累计34/120集：Astra16成功/17集、Sol14成功/17集，仅覆盖Spatial Task部分初态。调度自动进入t8/seed1双线VLA加载，周额度80%，仍允许使用。[E2]
