@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.6 · 2026-09-29 · 已审定6集：3成功、3失败；双线自动推进至Spatial Task t1/seed1；不是最终成绩报告。
+> v0.7 · 2026-09-29 · 已审定8集：5成功、3失败；Sol一次成功后收尾中断已单独审查留痕；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -105,3 +105,15 @@ Spatial Task t0/seed1：Astra环境最终 `terminated=true`、`truncated=false`�
 Spatial Task t1/seed0 两模型均成功：Astra原生elapsed 496.6s、Sol949.1s。两者正常finish success，最终环境 `terminated=true/truncated=false`，各有成功recipe；录像分别261/261帧、293/293帧完整解码。实际rollout模型分别为Astra/Sol且effort=medium，无个人skills注入；冻结60份资产和347份记忆hash无变化。[E2]
 
 调度未经过人工重启，已自动加载下一对t1/seed1的独立VLA。累计6/120集：Astra 2成功/3集，Sol1成功/3集；仅覆盖Spatial Task的部分任务，不能当作完整套件成功率。周额度已用47%。仍保持每模型一线，未验证四线吞吐。[E2]
+
+## 12. 第四对与成功后的收尾异常
+
+Spatial Task t1/seed1：Astra正常finish success，elapsed722.4s，环境成功，成功recipe及293/293帧录像完整。Sol在release后环境已 `terminated=true/truncated=false`，但随后本机rollout在13:45:29 UTC出现 `turn_aborted / reason=interrupted`；对应转接请求仅有initialize、initialized、thread/start、turn/start，没有发出turn/interrupt。中断来源尚未确定，不能称为模型主动结束。[E2]
+
+该本机会话已关闭，远端转接进程仍等待、阻塞SDK收尾。核对进程归属后，仅向这一个转接进程发TERM，没有终止仿真或给模型发送解题信息；原RPent评测进程随后捕获TransportClosedError并自行保存结果。原生elapsed1764.7s包含收尾等待；finish消息为空，但环境成功状态和原生成功recipe均保存，录像266/266帧完整解码。[E2]
+
+调度保守标记 `infrastructure_error / no normal finish` 并停止后续放行。审查依据中断前环境成功及原生recipe，保留本集成功，同时单独标注成功后的基础设施收尾故障；不重新运行、不抹去原始异常。`batch/review-sol-t1-s1-attempt-001.json` 保存原调度记录、干预范围、审查理由和证据hash。资产60文件、记忆347文件SHA256仍一致。[E2]
+
+累计8/120集：Astra3成功/4集，Sol2成功/4集，均仅覆盖Spatial Task t0、t1的两seed。剩余112集重新通过预检后继续双线，未升四线。此次恢复只验证后续连接可用，没有证明此前网络或中断问题的根因已经解决。[E2/E3]
+
+恢复前预检发现私有转接socket拒绝连接；本机SSH控制主进程与原防休眠进程已退出，而桥接服务仍可本地连接。仅在确认没有活动评测且socket无监听后，清除本批遗留socket，按原参数重建SSH控制连接，并为当前桥接进程恢复防休眠。新的官方额度预检通过（周额度51%），队列仍为112集/56对，随后恢复双线调度。SSH退出与会话中断时间相关，但尚不能证明唯一因果；没有修改评测提示、模型或预算。[E2/E3]
