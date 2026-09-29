@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.9 · 2026-09-29 · 已审定10集：7成功、3失败；t2/seed0独立重试双成功，双线自动推进；不是最终成绩报告。
+> v0.10 · 2026-09-29 · 已审定12集：9成功、3失败；双线自动推进至Spatial Task t3/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -137,3 +137,13 @@ Spatial Task t1/seed1：Astra正常finish success，elapsed722.4s，环境成功
 Spatial Task t2/seed0的attempt-002两模型均正常finish success，最终环境 `terminated=true/truncated=false`，成功recipe写出。Astra原生elapsed373.5s，录像163/163帧；Sol385.6s，录像162/162帧，均完整解码。实际模型与medium、无个人skills在运行时已复核；资产60文件、记忆347文件hash无变化，审查时保存的10份原异常产物hash也全部一致。[E2]
 
 该结果计入原120身份各一次，不把启动异常额外计入分母，也不覆盖attempt-001。累计10/120集：Astra4成功/5集，Sol3成功/5集；仍只是Spatial Task部分任务。调度已自动进入t2/seed1，周额度55%，继续双线。[E2]
+
+## 15. 后续配对验收记录
+
+以下耗时为原生elapsed，包含运行中的等待；每行对应两模型的同一task/seed。成功均核验正常finish、环境 `terminated=true/truncated=false`、成功recipe与全帧视频解码；不会把视觉观感替代环境判定。[E2]
+
+| suite / task / seed | Astra结果 / 耗时 / 视频帧 | Sol结果 / 耗时 / 视频帧 | 冻结文件 |
+|---|---|---|---|
+| Spatial Task / t2 / s1 | 成功 / 374.2s / 166 | 成功 / 395.8s / 174 | 60资产+347记忆hash一致 |
+
+本次累计12/120集：Astra5成功/6集、Sol4成功/6集，仅覆盖Spatial Task t0–t2；下一对t3/seed0正在加载，周额度56%，保持双线。[E2]
