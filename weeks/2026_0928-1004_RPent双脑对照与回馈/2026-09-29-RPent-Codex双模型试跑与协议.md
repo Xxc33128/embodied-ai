@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.11 · 2026-09-29 · 已审定14集：10成功、4失败；双线自动推进至Spatial Task t3/seed1；不是最终成绩报告。
+> v0.12 · 2026-09-29 · 已审定16集：12成功、4失败；双线自动推进至Spatial Task t4/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -146,7 +146,10 @@ Spatial Task t2/seed0的attempt-002两模型均正常finish success，最终环�
 |---|---|---|---|
 | Spatial Task / t2 / s1 | 成功 / 374.2s / 166 | 成功 / 395.8s / 174 | 60资产+347记忆hash一致 |
 | Spatial Task / t3 / s0 | 成功 / 666.4s / 474 | 失败 / 801.2s / 591 | 60资产+347记忆hash一致 |
+| Spatial Task / t3 / s1 | 成功 / 739.3s / 463 | 成功 / 749.5s / 466 | 60资产+347记忆hash一致 |
 
 t3/seed0的Sol正常finish failure，11条环境状态均未terminated，最终truncated=false，录像591/591帧完整解码；计为正式任务失败，不重跑。两模型实际medium、无个人skills已在本对运行时复核。[E2]
 
-本次累计14/120集：Astra6成功/7集、Sol4成功/7集，仅覆盖Spatial Task t0–t3的部分初态；下一对t3/seed1已进入VLA加载，周额度60%，保持双线。[E2]
+t3/seed1两模型均正常finish success，环境terminated=true/truncated=false，成功recipe与录像完整；实际模型/medium和无个人skills在运行时复核。[E2]
+
+本次累计16/120集：Astra7成功/8集、Sol5成功/8集，仅覆盖Spatial Task t0–t3；下一对t4/seed0已进入VLA加载，周额度63%，保持双线。[E2]
