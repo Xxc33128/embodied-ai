@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.5 · 2026-09-29 · 已审定4集：1成功、3失败；Sol一次预算超时已保留计分，剩余116集继续双线；不是最终成绩报告。
+> v0.6 · 2026-09-29 · 已审定6集：3成功、3失败；双线自动推进至Spatial Task t1/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -99,3 +99,9 @@ Spatial Task t0/seed1：Astra环境最终 `terminated=true`、`truncated=false`�
 审查前后60份资产、347份记忆hash保持一致。原attempt不修改；独立 `batch/review-sol-t0-s1-attempt-001.json` 保存原调度记录、审查理由及日志/状态/录像SHA256，持锁更新调度账本。重新预检后剩余116集/58对，继续保持每模型一线。[E2]
 
 截至本次审查共4/120集：Astra 1成功/2集，Sol 0成功/2集，均只覆盖Spatial Task t0的两个seed；不能据此报告完整套件成功率。账户最新可读周额度已用45%，不使用重置券或额外购买。[E2]
+
+## 11. 第三对验收及自动推进
+
+Spatial Task t1/seed0 两模型均成功：Astra原生elapsed 496.6s、Sol949.1s。两者正常finish success，最终环境 `terminated=true/truncated=false`，各有成功recipe；录像分别261/261帧、293/293帧完整解码。实际rollout模型分别为Astra/Sol且effort=medium，无个人skills注入；冻结60份资产和347份记忆hash无变化。[E2]
+
+调度未经过人工重启，已自动加载下一对t1/seed1的独立VLA。累计6/120集：Astra 2成功/3集，Sol1成功/3集；仅覆盖Spatial Task的部分任务，不能当作完整套件成功率。周额度已用47%。仍保持每模型一线，未验证四线吞吐。[E2]
