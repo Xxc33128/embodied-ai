@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.28 · 2026-09-30 · 已审定40集：36成功、4失败；Spatial Task完成，双线进入Spatial Swap；不是最终成绩报告。
+> v0.29 · 2026-09-30 · 已审定42集：38成功、4失败；双线推进至Spatial Swap t0/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -236,3 +236,13 @@ t9/seed0两模型均正常finish success，环境terminated=true/truncated=false
 这仅是本批NPU/Codex medium、每任务2个初态的结果，不等同官方low或每任务10个初态的成绩。Sol成功后收尾异常的既有审定保留，详见前文；正常失败不重跑。[E2/E3]
 
 累计40/120集：36成功、4失败；Spatial Swap与Long Swap尚未完成。持久调度已自动进入Spatial Swap t0/seed0双线VLA加载，周额度85%，仍允许使用，保持双线。[E2]
+
+## 20. Spatial Swap配对验收
+
+每行均已核验实际模型/medium、无个人skills、正常finish success、最终环境terminated=true/truncated=false、成功recipe和全帧视频解码。耗时为原生elapsed；冻结60资产与347记忆hash每对复核。[E2]
+
+| task / seed | Astra结果 / 耗时 / 视频帧 | Sol结果 / 耗时 / 视频帧 | 冻结文件 |
+|---|---|---|---|
+| t0 / s0 | 成功 / 500.0s / 319 | 成功 / 659.0s / 484 | hash一致 |
+
+累计42/120集：38成功、4失败；Spatial Swap目前各1成功/1集，尚非整套成绩。调度自动进入t0/seed1双线VLA加载，周额度86%，仍允许使用。[E2]
