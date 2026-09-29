@@ -1,0 +1,2 @@
+# Offline report generation (standard-library evidence checks remain independent)
+Markdown==3.7

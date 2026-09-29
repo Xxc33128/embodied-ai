@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 import json,base64,hashlib,statistics,re,math,collections
 from pathlib import Path
-import argparse
+import argparse,sys
 parser=argparse.ArgumentParser(description='Build a standalone per-decision LIBERO report from recorded episodes')
 parser.add_argument('campaign',type=Path)
+parser.add_argument('--knowledge-md',type=Path,help='Authoritative Markdown companion; figures and local references are embedded')
 parser.add_argument('--include', type=Path, action='append', default=[], help='Additional campaigns to include in the same report')
 args=parser.parse_args()
 root=args.campaign.resolve()
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from report_knowledge import find_companion, render_knowledge
+knowledge_html, knowledge_manifest = render_knowledge(find_companion(args.knowledge_md))
 
 def readlines(path):
  return [json.loads(x) for x in path.read_text().splitlines()] if path.exists() else []
@@ -132,7 +136,8 @@ def pack_images(value):
  if isinstance(value,dict):return {k:pack_images(v) for k,v in value.items()}
  return value
 packed=pack_images(data);packed['image_assets']=assets
-template=(Path(__file__).resolve().parent/'templates/libero_decision_report.html').read_text()
+template=(Path(__file__).resolve().parent/'templates/libero_decision_report.html').read_text().replace('__KNOWLEDGE__',knowledge_html)
+(root/'knowledge_manifest.json').write_text(json.dumps(knowledge_manifest,ensure_ascii=False,indent=2))
 (root/'index.html').write_text(template.replace('__REPORT_DATA__',json.dumps(packed,ensure_ascii=False).replace('</','<\\/')),encoding='utf-8')
 (root/'report_summary.json').write_text(json.dumps({e['case']['episode_id']:{'status':e['status'],**e['summary']} for e in data['episodes']},indent=2))
 print(json.dumps({'episodes':len(data['episodes']),'decisions':sum(len(e['decisions']) for e in data['episodes']),'html_bytes':(root/'index.html').stat().st_size}))

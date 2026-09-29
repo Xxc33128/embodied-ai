@@ -75,5 +75,7 @@ assert expand(packed['episodes'])==data['episodes'], 'packed HTML must preserve 
 assert (r/'index.html').stat().st_size<200_000_000, 'image deduplication regression'
 
 ui=subprocess.check_output(['node',str(Path(__file__).resolve().parent/'check_decision_report.cjs'),str(r/'index.html')],text=True).strip()
-state={'complete':True,'paired_initial_states':paired,'checks':checks,'ui':json.loads(ui),'html_sha256':hashlib.sha256((r/'index.html').read_bytes()).hexdigest(),'html_bytes':(r/'index.html').stat().st_size}
+from verify_report_knowledge import verify as verify_knowledge
+knowledge_checks=verify_knowledge(r)
+state={'knowledge':knowledge_checks,'complete':True,'paired_initial_states':paired,'checks':checks,'ui':json.loads(ui),'html_sha256':hashlib.sha256((r/'index.html').read_bytes()).hexdigest(),'html_bytes':(r/'index.html').stat().st_size}
 (r/'verification.json').write_text(json.dumps(state,indent=2));print(json.dumps(state,indent=2))
