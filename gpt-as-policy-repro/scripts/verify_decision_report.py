@@ -31,6 +31,11 @@ for e in data['episodes']:
    assert m['server_inference_s'] is None
    assert m['usage']['inputTokens']>0 and m['usage']['outputTokens']>0
    assert m['ttft_client_s']>0 and m['tpot_visible_estimate_s']>0
+   expected=m['decode_client_s']/(m['usage']['outputTokens']-1) if m['usage']['outputTokens']>1 else None
+   assert m['tpot_all_output_folded_s']==expected
+   if expected is not None:
+    assert expected<=m['tpot_visible_estimate_s']+1e-12
+    if m['usage']['reasoningOutputTokens']==0:assert abs(expected-m['tpot_visible_estimate_s'])<1e-12
    assert ''.join(c['text'] for c in m['chunks'])==d['output_raw']
    assert json.loads(d['output_raw'])==d['response']
    assert m['timestamp_source'].startswith('rpc_receive')

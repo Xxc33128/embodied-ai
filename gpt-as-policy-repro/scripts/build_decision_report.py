@@ -85,6 +85,9 @@ def build_episode(ep):
    m.update(ttft_client_s=(first-int(r['request_start_ns']))/1e9,tpot_visible_estimate_s=(last-first)/1e9/(m['visible_output_tokens']-1),first_chunk_ns=str(first),last_chunk_ns=str(last),timestamp_source='rpc_receive: transport reader timestamp before queue consumption',chunks=[{'received_ns':str(x['mono_ns']),'text':x['message']['params']['delta']} for x in wire])
   if m:
    m.update(request_wall_s=gpt,decode_client_s=(int(m["last_chunk_ns"])-int(m["first_chunk_ns"]))/1e9,server_inference_s=None)
+  if m:
+   total_output=m['usage']['outputTokens']
+   m['tpot_all_output_folded_s']=m['decode_client_s']/(total_output-1) if total_output>1 else None
   publicmodel={k:v for k,v in m.items() if k not in ('raw_usage_updates',)} if m else None
   timeline=[{'stage':s['name'],'start_s':(s['start_ns']-lo)/1e9,'duration_s':s['duration_s']} for s in sorted(subset,key=lambda s:s['start_ns'])]
   if m:

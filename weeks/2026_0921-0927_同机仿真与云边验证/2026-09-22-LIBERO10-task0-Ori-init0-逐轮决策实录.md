@@ -1,6 +1,6 @@
 # LIBERO 三任务 · init 0：逐轮决策实录
 
-版本：v1.7 · 日期：2026-09-29
+版本：v1.8 · 日期：2026-09-29
 
 【E2／首批实验范围】Campaign `decision_v2_20260922`，仅重跑 **LIBERO-10 / task 0 / Ori / init 0** 的 Student、Direct GPT、Hybrid 三条路线。任务为 `put both the alphabet soup and the tomato sauce in the basket`：把字母汤罐和番茄酱罐都放进篮子。控制步预算 520；环境 seed 0；GPT 为 `gpt-6-astra / medium`。各回合只有一个样本；结果不构成总体成功率估计。
 
@@ -119,3 +119,10 @@
 【E1／维护】MD 是知识内容的单一编辑来源，构建脚本读取它并生成离线 HTML；新增 `requirements-report.txt` 与 `scripts/report_knowledge.py`，维护说明见[知识区构建说明](../../gpt-as-policy-repro/docs/report-knowledge-build.md)。内嵌来源版本及 SHA256 写入 `knowledge_manifest.json`。外部网站引用仍需联网；正文、图表与直接引用的本地附件不依赖原目录。
 
 【E1／核验范围】锚点、重复 ID、四张图片和内嵌附件哈希由新增验证器检查；既有原始哈希与610轮DOM逻辑继续验证。浏览器排版尚未实测，Node 检查不能替代真实浏览器验收。最终机器核验记录见[v1.7 核验结果](evidence/2026-09-29-decision-v17-verification.json)。
+
+
+## 含推理 Token 的 TPOT 折算（v1.8）
+
+【E1／口径】保留 TPOT 可见估算，新增“TPOT 含推理折算 / ms”：同一个客户端 Decode 间隔除以（输出 Token−1）。输出 Token 已包含 reasoning Token，不重复相加；该列只改变分母，不代表隐藏推理阶段也被计时。隐藏推理可能发生于首可见分片之前，因此不能用这列衡量全生成阶段的真实速度。推理计数为0时两列相同；总输出≤1时不适用。逐轮模型数据新增 `tpot_all_output_folded_s`，知识来源更新至 MD v1.9。
+
+【E1／核验】检查全部 GPT 轮次的公式、推理为零时两列相等、含推理折算值不高于可见估算值，以及表格和逐轮分析展示；同时沿用既有原始数据与内嵌资源核验。[v1.8 核验结果](evidence/2026-09-29-decision-v18-verification.json)。
