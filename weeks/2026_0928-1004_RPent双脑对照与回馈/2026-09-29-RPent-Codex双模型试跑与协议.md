@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.18 · 2026-09-30 · 已审定26集：22成功、4失败；双线推进至t6/seed1；不是最终成绩报告。
+> v0.19 · 2026-09-30 · 已审定26集：22成功、4失败；t6/seed1的Sol遇上游容量异常，Astra继续；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -181,3 +181,9 @@ Sol t5/seed0 attempt-002正常finish success，环境terminated=true/truncated=f
 后续t5/seed1两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。累计24/120集：Astra11成功/12集、Sol9成功/12集，仅覆盖Spatial Task t0–t5。调度自动进入t6/seed0双线，周额度71%，仍允许使用。[E2]
 
 t6/seed0两模型均正常finish success，环境terminated=true/truncated=false、成功recipe及录像完整；实际模型/medium、无个人skills已复核，冻结文件hash一致。累计26/120集：Astra12成功/13集、Sol10成功/13集，仅覆盖Spatial Task部分初态。调度自动进入t6/seed1双线，周额度73%，仍允许使用。[E2]
+
+## 17. t6/seed1上游容量异常
+
+Sol attempt-001在读取记忆和初始view_env_state后收到明确serverOverloaded、will_retry=false；SDK failed且无正常finish。原生elapsed98.3s、SDK73.6s、17次工具调用，只有初始环境状态，terminated=false/truncated=false，未执行机器人动作，未产生成功recipe或视频。计基础设施异常，不计任务失败。[E2]
+
+实际Sol/medium和无个人skills已核验，周额度73%且允许使用，错误指向模型服务容量，不能等同额度耗尽。原异常及8份文件hash已保存到review-sol-t6-s1-overloaded-001.json；未批准新attempt。同对Astra继续运行，配对结束后再审查恢复，不替换模型，不覆盖原结果。[E2]
