@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.60 · 2026-09-30 · 已审定96集：85成功、11失败；双线推进至Long Swap t4/seed0；不是最终成绩报告。
+> v0.61 · 2026-09-30 · 已审定98集：86成功、12失败；双线推进至Long Swap t4/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -330,3 +330,5 @@ Sol进程退出码0、SDK completed且finish工具正常完成；分类器未接
 累计94/120集（85成功、9失败）。--check复核冻结文件、剩余26集/13对与官方额度通过（已用34%）；按本次独立审查的一次性恢复授权，以新scheduler-resume-010.log恢复双线，账本确认running。下一配对为t3/seed1；未创建任何重试attempt。[E2]
 
 Long Swap t3/seed1配对验收：两模型均正常finish failure，环境terminated=false/truncated=false，未写成功recipe。Astra979.6s、录像969/969帧，碗在抽屉边缘未能落稳；Sol2376.3s、录像1902/1902帧，碗留在近乎关闭的抽屉外桌面。正常失败保留，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计96/120集（85成功、11失败）；自动进入t4/seed0双线VLA加载，额度已用37%。[E2]
+
+Long Swap t4/seed0配对验收：Astra正常finish success，环境terminated=true/truncated=false、recipe存在，1383.7s、录像1936/1936帧。Sol正常finish failure，环境terminated=false/truncated=false，2065.4s、录像2291/2291帧，未写成功recipe；模型认为目标杯已摆上盘，但环境谓词未触发，后续白杯重抓未成功，按冻结谓词保留失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计98/120集（86成功、12失败）；自动进入t4/seed1双线VLA加载，额度已用41%。[E2]
