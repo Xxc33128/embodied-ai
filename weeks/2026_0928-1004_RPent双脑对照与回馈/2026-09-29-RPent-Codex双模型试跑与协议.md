@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.51 · 2026-09-30 · 已审定80集：76成功、4失败；Spatial Swap两模型各20/20；双线进入Long Swap；不是最终成绩报告。
+> v0.52 · 2026-09-30 · 已审定82集：78成功、4失败；双线推进至Long Swap t0/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -298,3 +298,7 @@ Spatial Swap t9/seed1两模型均正常finish success，环境terminated=true/tr
 Spatial Swap的40个计划身份已全部审定：Astra20/20成功，Sol20/20成功，均为100%。Astra t4/seed1保留环境成功后finish传输异常的既有独立审定，不将其改写为正常finish；其余身份按各配对验收记录计入。[E2]
 
 累计80/120集（76成功、4失败），Spatial Task与Spatial Swap已完成；仍余Long Swap每模型20集。持久调度已自动进入libero_10_swap t0/seed0双线运行，额度已用17%，继续保持每模型一线。本批每任务仅2个初态，不等同官方更大初态样本的最终成绩。[E2/E3]
+
+## 24. Long Swap配对验收
+
+Long Swap t0/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra1098.2s、953/953帧，Sol1201.1s、850/850帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计82/120集（78成功、4失败）；自动进入t0/seed1双线运行，额度已用20%。[E2]
