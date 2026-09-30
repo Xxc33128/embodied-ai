@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.72 · 2026-10-01 · 已审定116集：99成功、17失败；双线推进至Long Swap t9/seed0；不是最终成绩报告。
+> v0.73 · 2026-10-01 · 已审定118集：99成功、19失败；双线推进至Long Swap t9/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -366,3 +366,5 @@ Sol当前attempt-001出现持续response_stream_disconnected与Connection failed
 Sol在原规划期限内自动恢复连接，继续原会话并正常finish failure，SDK completed；最终5348.4s、录像2948/2948帧，环境全程terminated=false/truncated=false、无成功recipe。退出码1，但未见规划超时、强制终止、agent loop异常或结果/记忆收尾异常。独立review引用事故快照hash，封存最终全部产物hash及当时账本，保留task_failure且不批准重试；连接延迟保留在实测耗时中，不将其改写成超时或基础设施未完成集。[E2]
 
 本配对Astra正常失败539.5s、390/390帧，Sol正常失败5348.4s、2948/2948帧：前者三次Pi0抓取失败并使壶倾倒，后者第二壶在搬运中滑落、原地恢复未成功。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计116/120集（99成功、17失败）；调度自动进入t9/seed0双线，官方额度已用67%。[E2]
+
+Long Swap t9/seed0两模型均正常finish failure，环境全程terminated=false/truncated=false、未写成功recipe：Astra1122.0s、录像1470/1470帧，Sol2261.9s、录像2326/2326帧。两者均在微波炉插入过程中使杯子滑落或侧倒，原地重抓恢复未成功；保留正常失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计118/120集（99成功、19失败）；自动进入最后t9/seed1配对的独立VLA加载，官方额度已用69%。[E2]
