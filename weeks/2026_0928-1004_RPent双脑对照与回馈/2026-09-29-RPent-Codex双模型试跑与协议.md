@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.62 · 2026-09-30 · 已审定98集：86成功、12失败；双线推进至Long Swap t4/seed1；不是最终成绩报告。
+> v0.63 · 2026-09-30 · 已审定100集：87成功、13失败；双线推进至Long Swap t5/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -340,3 +340,5 @@ Long Swap t4/seed0配对验收：Astra正常finish success，环境terminated=tr
 失效socket重命名保留，重建SSH转发并确认master存活。取得调度锁后，独立review保存原完整账本及hash、事故记录hash和两套最终产物hash；60资产与347记忆hash一致，实际模型/medium及无个人skills沿用本配对已核验证据。仅批准每模型一次attempt-002，原attempt-001与已有98集审定不变；新attempt若再异常须重新审查。[E2]
 
 --check通过：剩余22集/11对，官方额度已用43%，允许放行。以独立scheduler-resume-011.log恢复双线，账本确认running。本次仅修复连接并另建attempt，未改提示、物理、判分或记忆。[E2]
+
+Long Swap t4/seed1的attempt-002配对验收：Sol正常finish success，环境terminated=true/truncated=false、recipe存在，1567.6s、录像1867/1867帧；Astra正常finish failure，环境terminated=false/truncated=false，1829.3s、录像2318/2318帧，未写成功recipe。Astra认为两杯已摆在其识别的盘上，但谓词未触发，白杯重抓恢复未成功；保留正常失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。原attempt-001基础设施中断及其独立review保留，重试批准已消费。累计100/120集（87成功、13失败）；自动进入t5/seed0双线，额度已用47%。[E2]
