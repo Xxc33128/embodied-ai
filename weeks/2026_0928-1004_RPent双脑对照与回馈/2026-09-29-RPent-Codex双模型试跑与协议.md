@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.43 · 2026-09-30 · 已审定64集：60成功、4失败；双线推进至Spatial Swap t6/seed0；不是最终成绩报告。
+> v0.44 · 2026-09-30 · 已审定66集：62成功、4失败；双线推进至Spatial Swap t6/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -274,3 +274,5 @@ Sol同身份仍在运行；保持配对屏障，待其结束后审定Astra成功
 恢复后首对Spatial Swap t5/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra661.1s、346/346帧，Sol592.6s、310/310帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计62/120集（58成功、4失败）；自动进入t5/seed1双线VLA加载，额度已用2%。[E2]
 
 Spatial Swap t5/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra490.4s、251/251帧，Sol581.3s、334/334帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计64/120集（60成功、4失败）；自动进入t6/seed0双线VLA加载，额度已用3%。[E2]
+
+Spatial Swap t6/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra711.0s、501/501帧，Sol1328.2s、852/852帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计66/120集（62成功、4失败）；自动进入t6/seed1双线VLA加载，额度已用5%。[E2]
