@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.55 · 2026-09-30 · 已入账86集：82成功、4失败；Long Swap t1/seed1的Astra正常stuck待账本归类，Sol运行中；不是最终成绩报告。
+> v0.56 · 2026-09-30 · 已审定88集：83成功、5失败；正常stuck已审定入账，双线续跑Long Swap；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -312,3 +312,7 @@ Long Swap t1/seed0两模型均正常finish success，环境terminated=true/trunc
 Astra attempt-001正常调用finish(stuck)，SDK完成、进程退出码0，环境terminated=false/truncated=false；模型认为目标被遮挡而未满足自身感知检查，主动结束。原生168.9s，2条环境状态、录像35/35帧完整解码，失败集未写成功recipe。该结果属于任务失败，不是可重跑的基础设施故障；分类器因未接受stuck状态而记录infrastructure_error。[E2]
 
 独立review保存原账本记录及10个产物SHA256，60资产与347记忆hash一致，实际Astra/medium及无个人skills已核验。Sol同配对仍在运行；保留配对屏障，待其结束并取得调度锁后再将Astra归入task_failure，禁止为此创建新attempt。此处暂保留86集既有入账统计，不提前声称账本已修正。[E2]
+
+Sol t1/seed1已正常finish success：1182.6s，环境terminated=true/truncated=false，recipe存在，录像749/749帧完整解码。配对屏障随后停止调度。取得调度锁并复核Astra原10个产物hash未变后，独立adjudication引用原review hash和原账本，将其归入task_failure；168.9s、35帧、finish(stuck)原记录保留，不重跑。[E2]
+
+累计88/120集（83成功、5失败）。--check复核60资产、347记忆、剩余32集/16对及官方额度通过（已用26%）；以独立scheduler-resume-009.log恢复双线。此为一次审查后的调度恢复，未新增retry批准，也未改动提示、判分、记忆或分类器代码。[E2]
