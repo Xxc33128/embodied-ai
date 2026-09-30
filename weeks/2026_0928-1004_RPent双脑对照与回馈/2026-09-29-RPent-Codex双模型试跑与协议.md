@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.57 · 2026-09-30 · 已审定90集：84成功、6失败；双线推进至Long Swap t2/seed1；不是最终成绩报告。
+> v0.58 · 2026-09-30 · 已审定92集：85成功、7失败；双线推进至Long Swap t3/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -318,3 +318,5 @@ Sol t1/seed1已正常finish success：1182.6s，环境terminated=true/truncated=
 累计88/120集（83成功、5失败）。--check复核60资产、347记忆、剩余32集/16对及官方额度通过（已用26%）；以独立scheduler-resume-009.log恢复双线。此为一次审查后的调度恢复，未新增retry批准，也未改动提示、判分、记忆或分类器代码。[E2]
 
 Long Swap t2/seed0配对验收：Astra正常finish failure，环境terminated=false/truncated=false，647.8s、录像375/375帧；夹持物在搬运及原地恢复后的短程搬运中滑落，保留正常失败，不重跑。Sol正常finish success，环境terminated=true/truncated=false、recipe存在，1464.4s、录像940/940帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计90/120集（84成功、6失败）；自动进入t2/seed1双线VLA加载，额度已用28%。[E2]
+
+Long Swap t2/seed1配对验收：Astra正常finish success，环境terminated=true/truncated=false、recipe存在，856.8s、录像576/576帧；Sol正常finish failure，环境terminated=false/truncated=false，1762.4s、录像1094/1094帧。Sol审计记载炉灶已开启，但多次抓取未能搬起摩卡壶，保留正常失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计92/120集（85成功、7失败）；自动进入t3/seed0双线VLA加载，额度已用31%。[E2]
