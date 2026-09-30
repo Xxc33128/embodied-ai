@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.66 · 2026-09-30 · 已审定106集：91成功、15失败；双线推进至Long Swap t6/seed1；不是最终成绩报告。
+> v0.67 · 2026-09-30 · 已审定108集：93成功、15失败；双线推进至Long Swap t7/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -348,3 +348,5 @@ Long Swap t5/seed0配对验收：Astra正常finish success，环境terminated=tr
 Long Swap t5/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra454.5s、409/409帧，Sol584.3s、404/404帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计104/120集（90成功、14失败）；自动进入t6/seed0双线VLA加载，额度已用50%。[E2]
 
 Long Swap t6/seed0配对验收：Sol正常finish success，环境terminated=true/truncated=false、recipe存在，887.1s、录像746/746帧；Astra正常finish failure，环境terminated=false/truncated=false，898.4s、录像964/964帧，未写成功recipe。Astra白杯接触放置后在退离时倾倒，保留正常失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计106/120集（91成功、15失败）；自动进入t6/seed1双线VLA加载，额度已用52%。[E2]
+
+Long Swap t6/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra980.9s、977/977帧，Sol835.7s、671/671帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计108/120集（93成功、15失败）；自动进入t7/seed0双线VLA加载，额度已用55%。[E2]
