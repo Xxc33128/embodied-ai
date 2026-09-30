@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.49 · 2026-09-30 · 已审定76集：72成功、4失败；双线推进至Spatial Swap t9/seed0；不是最终成绩报告。
+> v0.50 · 2026-09-30 · 已审定78集：74成功、4失败；双线推进至Spatial Swap t9/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -288,3 +288,5 @@ Spatial Swap t7/seed1两模型均正常finish success，环境terminated=true/tr
 Spatial Swap t8/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra561.9s、348/348帧，Sol895.1s、450/450帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计74/120集（70成功、4失败）；自动进入t8/seed1双线VLA加载，额度已用12%。[E2]
 
 Spatial Swap t8/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra487.0s、291/291帧，Sol751.1s、408/408帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计76/120集（72成功、4失败）；自动进入t9/seed0双线运行，额度已用13%。[E2]
+
+Spatial Swap t9/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra941.2s、498/498帧，Sol752.6s、340/340帧。Astra在环境成功后的收尾阶段出现Broken pipe流中断，SDK自动重连后完成audit写入及finish；未人工干预、未重启或新增attempt，最终原生正常成功。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计78/120集（74成功、4失败），额度已用15%。[E2]
