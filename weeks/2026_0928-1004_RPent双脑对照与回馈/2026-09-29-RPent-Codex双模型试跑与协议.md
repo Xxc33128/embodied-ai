@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.61 · 2026-09-30 · 已审定98集：86成功、12失败；双线推进至Long Swap t4/seed1；不是最终成绩报告。
+> v0.62 · 2026-09-30 · 已审定98集：86成功、12失败；双线推进至Long Swap t4/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -332,3 +332,11 @@ Sol进程退出码0、SDK completed且finish工具正常完成；分类器未接
 Long Swap t3/seed1配对验收：两模型均正常finish failure，环境terminated=false/truncated=false，未写成功recipe。Astra979.6s、录像969/969帧，碗在抽屉边缘未能落稳；Sol2376.3s、录像1902/1902帧，碗留在近乎关闭的抽屉外桌面。正常失败保留，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计96/120集（85成功、11失败）；自动进入t4/seed0双线VLA加载，额度已用37%。[E2]
 
 Long Swap t4/seed0配对验收：Astra正常finish success，环境terminated=true/truncated=false、recipe存在，1383.7s、录像1936/1936帧。Sol正常finish failure，环境terminated=false/truncated=false，2065.4s、录像2291/2291帧，未写成功recipe；模型认为目标杯已摆上盘，但环境谓词未触发，后续白杯重抓未成功，按冻结谓词保留失败，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计98/120集（86成功、12失败）；自动进入t4/seed1双线VLA加载，额度已用41%。[E2]
+
+## 27. Long Swap t4/seed1传输中断审查与独立重试
+
+两模型attempt-001日志同时停止更新，本地会话均记录turn_aborted，SSH控制连接消失；残留转发socket连接被拒绝。连接消失的上游原因尚未确定，不将其归因于模型。先保存事故快照与产物hash，再仅终止两条已断连的remote_codex中继，使原harness正常收尾。两集finish均为空、退出码1，所有环境状态均无成功：Astra943.4s、录像740/740帧；Sol942.2s、录像541/541帧。均归为基础设施中断，不计任务失败。[E2]
+
+失效socket重命名保留，重建SSH转发并确认master存活。取得调度锁后，独立review保存原完整账本及hash、事故记录hash和两套最终产物hash；60资产与347记忆hash一致，实际模型/medium及无个人skills沿用本配对已核验证据。仅批准每模型一次attempt-002，原attempt-001与已有98集审定不变；新attempt若再异常须重新审查。[E2]
+
+--check通过：剩余22集/11对，官方额度已用43%，允许放行。以独立scheduler-resume-011.log恢复双线，账本确认running。本次仅修复连接并另建attempt，未改提示、物理、判分或记忆。[E2]
