@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.70 · 2026-10-01 · 已审定114集：99成功、15失败；双线推进至Long Swap t8/seed1；不是最终成绩报告。
+> v0.71 · 2026-10-01 · 已审定114集：99成功、15失败；双线推进至Long Swap t8/seed1；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -356,3 +356,9 @@ Long Swap t7/seed0两模型均正常finish success，环境terminated=true/trunc
 Long Swap t7/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra763.3s、660/660帧，Sol869.7s、665/665帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计112/120集（97成功、15失败）；自动进入t8/seed0双线，额度已用59%。[E2]
 
 Long Swap t8/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra2146.1s、1926/1926帧，Sol1995.7s、1729/1729帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计114/120集（99成功、15失败）；自动进入t8/seed1双线，额度已用64%。[E2]
+
+## 28. Long Swap t8/seed1上游连接异常观察
+
+Sol当前attempt-001出现持续response_stream_disconnected与Connection failed重试，环境尚未成功；截至2026-10-01 02:29本地时间，SSH转发、调度、episode与VLA仍存活，本地会话持续写入，未见turn_aborted或完成事件。连接中断的上游原因尚未确定。已保存独立事故快照、当时完整账本及产物hash；运行中产物hash只代表该时点，不冒充最终封存。[E2]
+
+保持原attempt及原5400s规划期限，不干预解题或另启重试。现有调度器会将规划超时归入needs_review并阻止后续配对，需届时独立审查连接异常与终态，不能直接当普通预算失败。Astra同配对已正常finish failure（539.5s、390/390帧，环境未成功、无recipe），保留失败；本节暂不更新配对累计验收数字。官方额度已用66%，仍允许使用。[E1/E2]
