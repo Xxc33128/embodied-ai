@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.59 · 2026-09-30 · 已审定94集：85成功、9失败；双线推进至Long Swap t3/seed1；不是最终成绩报告。
+> v0.60 · 2026-09-30 · 已审定96集：85成功、11失败；双线推进至Long Swap t4/seed0；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -328,3 +328,5 @@ Astra正常finish failure，1061.2s、录像1014/1014帧；Sol正常finish stuck
 Sol进程退出码0、SDK completed且finish工具正常完成；分类器未接受stuck状态，将其误记为infrastructure_error并停止配对调度。取得调度锁后，独立review保存本attempt全部文件SHA256，独立adjudication保存原完整账本及其hash并引用review hash，将该记录归入task_failure；原attempt与历史审定保持不变，未修改分类器或解题协议。[E2]
 
 累计94/120集（85成功、9失败）。--check复核冻结文件、剩余26集/13对与官方额度通过（已用34%）；按本次独立审查的一次性恢复授权，以新scheduler-resume-010.log恢复双线，账本确认running。下一配对为t3/seed1；未创建任何重试attempt。[E2]
+
+Long Swap t3/seed1配对验收：两模型均正常finish failure，环境terminated=false/truncated=false，未写成功recipe。Astra979.6s、录像969/969帧，碗在抽屉边缘未能落稳；Sol2376.3s、录像1902/1902帧，碗留在近乎关闭的抽屉外桌面。正常失败保留，不重跑。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计96/120集（85成功、11失败）；自动进入t4/seed0双线VLA加载，额度已用37%。[E2]
