@@ -1,6 +1,6 @@
 # RPent Codex 双模型试跑与评测协议
 
-> v0.54 · 2026-09-30 · 已审定86集：82成功、4失败；双线推进至Long Swap t1/seed1；不是最终成绩报告。
+> v0.55 · 2026-09-30 · 已入账86集：82成功、4失败；Long Swap t1/seed1的Astra正常stuck待账本归类，Sol运行中；不是最终成绩报告。
 > E1=源码证据；E2=配置、元数据及运行日志；E3=估算与解释。敏感连接信息、认证与原始运行文件留在工作目录，不入公开仓库。
 
 ## 1. 已确认范围
@@ -306,3 +306,9 @@ Long Swap t0/seed0两模型均正常finish success，环境terminated=true/trunc
 Long Swap t0/seed1两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra940.5s、761/761帧，Sol1072.1s、822/822帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。按冻结环境终止谓词计分，Astra审计记载第二罐仍被夹持时已触发成功，不另加释放条件。累计84/120集（80成功、4失败）；自动进入t1/seed0双线VLA加载，额度已用22%。[E2]
 
 Long Swap t1/seed0两模型均正常finish success，环境terminated=true/truncated=false、recipe及全帧录像完整：Astra746.4s、468/468帧，Sol986.7s、703/703帧。实际模型/medium及无个人skills已核对，60资产与347记忆hash一致。累计86/120集（82成功、4失败）；自动进入t1/seed1双线VLA加载，额度已用24%。[E2]
+
+## 25. Long Swap t1/seed1正常stuck分类审查
+
+Astra attempt-001正常调用finish(stuck)，SDK完成、进程退出码0，环境terminated=false/truncated=false；模型认为目标被遮挡而未满足自身感知检查，主动结束。原生168.9s，2条环境状态、录像35/35帧完整解码，失败集未写成功recipe。该结果属于任务失败，不是可重跑的基础设施故障；分类器因未接受stuck状态而记录infrastructure_error。[E2]
+
+独立review保存原账本记录及10个产物SHA256，60资产与347记忆hash一致，实际Astra/medium及无个人skills已核验。Sol同配对仍在运行；保留配对屏障，待其结束并取得调度锁后再将Astra归入task_failure，禁止为此创建新attempt。此处暂保留86集既有入账统计，不提前声称账本已修正。[E2]
