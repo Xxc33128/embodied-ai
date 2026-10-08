@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-08",
+  "episodes": 120,
+  "success": 99,
+  "failure": 21,
+  "unique_metered_responses": 5014,
+  "identity_attempt_and_outcome_match": true,
+  "timing_reconciliation": true,
+  "all_token_totals_match": true,
+  "remote_artifact_hash_check": {
+    "checked": 240,
+    "mismatches": []
+  },
+  "text_sensitive_pattern_scan": true,
+  "html_anchor_check": true
+}

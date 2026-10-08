@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-08",
+  "engine": "Playwright Chromium",
+  "initial_rows": 120,
+  "context_charts": 2,
+  "broken_images": 0,
+  "filter_test": {
+    "model": "gpt-6-sol",
+    "suite": "libero_10_swap",
+    "outcome": "failure",
+    "query": "t9",
+    "rows": 2
+  },
+  "detail_test": "t9 seed1, three detail tables",
+  "csv_test": "two rows; seeds 0 and 1; model/suite/task matched",
+  "desktop_width": 1200,
+  "desktop_scroll_width": 1200,
+  "mobile_width": 390,
+  "mobile_scroll_width": 390,
+  "javascript_syntax": "passed after fixing CSV newline literal"
+}
