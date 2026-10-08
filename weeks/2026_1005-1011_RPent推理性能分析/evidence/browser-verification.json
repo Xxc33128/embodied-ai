@@ -17,5 +17,22 @@
   "desktop_scroll_width": 1200,
   "mobile_width": 390,
   "mobile_scroll_width": 390,
-  "javascript_syntax": "passed after fixing CSV newline literal"
+  "javascript_syntax": "passed after fixing CSV newline literal",
+  "v2_review": {
+    "date": "2026-10-08",
+    "agents": [
+      "structure_review",
+      "evidence_review",
+      "protocol_audit"
+    ],
+    "desktop_width": 1440,
+    "desktop_formula_within_first_viewport": true,
+    "mobile_width": 390,
+    "mobile_scroll_width": 390,
+    "ledger_rows": 120,
+    "sol_long_t9_filtered_rows": 2,
+    "source_anchor_opens_ancestors": true,
+    "print_expands_and_restores_details": true,
+    "evidence_images_uncropped": true
+  }
 }
