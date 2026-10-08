@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "evidence_level": "E2",
+  "scope": "Only two excluded attempt-001 model-init rows; does not admit or claim completion of attempt-002 episodes.",
+  "source_snapshot_filename": "batch-summary-ten-attempts-inprogress-001.json",
+  "source_snapshot_sha256": "e2969603e8d681bbd090317c427ea404ef4f439983f4716e74f443a09b3f2aa6",
+  "source_status": "running",
+  "excluded_attempt_loads": [
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "admitted_episode_attempt": false,
+      "vla_model_init_observed_work_s": 163.405656049,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-1458712.jsonl": "77bc8b56f6c9728bec5256e3d2786ed3b84b208050ad544e2c270809f203e1b8",
+        "spans-1459864.jsonl": "1af8273f050c60e025548d1f3819125e6a93abdea48a2ce936ab06190c5f151e",
+        "spans-1460149.jsonl": "c7a48251ef33477cd50fec273cab1866125e647bb9d81689410704c880184bb2",
+        "spans-1460544.jsonl": "546e38e2f908a3b60e9cc9e2b3b4697533c05a12d573cab96fa4365fc8ce8c4e",
+        "starts-1458712.jsonl": "78d64d2a41a4d5e7a8662e26734eea12e69aa28f19de71e7940e5a4024dfc520",
+        "starts-1459864.jsonl": "8adc280cb65e9c6f26c197d6eff9b7adff498fa7e9caeafadf78bf3c08fa35c5",
+        "starts-1460149.jsonl": "fd63c2888448e136df281b76271c01732bf9f4cddbd6cda7c97912fa095f5605",
+        "starts-1460544.jsonl": "eed56b2676630ead4a8dfa06d7524e4f618a2f19307abb7f95e2c6e617cdfb50"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "admitted_episode_attempt": false,
+      "vla_model_init_observed_work_s": 162.803777429,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-1458780.jsonl": "d86567e9344df40b048a781eda6713f55c60437b8d8abde16ea2d8fd029f3e15",
+        "spans-1459938.jsonl": "441f45396fd3d45c85905140d726b8edc0b5f547397c9bbd49b5ccf3083ff64c",
+        "spans-1460148.jsonl": "9d23b5edf8b43cbf4c27df0bcf58c67f15e451a0e6d6d5a82557f3b4be5056e4",
+        "spans-1460728.jsonl": "2a24a35fb119f53d6423b622a1b164e8a5a4933c4aca6aae26724dbb6dbc96f0",
+        "starts-1458780.jsonl": "5b2edb560aafb61fc20d63afd398da1be1af3220e1e463350c9685d3ffbb350e",
+        "starts-1459938.jsonl": "56d1489366b9e3a0e97c78efe1dcdfbbf85877affa0b2698ba314c5213171a32",
+        "starts-1460148.jsonl": "956e501a486f92a144907bcd5d16b4f1945a448d18fd0adfd6d4e78b4b47916f",
+        "starts-1460728.jsonl": "c9ab1d291767f0011d9a353bbb8a96c6ba2be80353122f7945e776ee0c5d4566"
+      }
+    }
+  ],
+  "accounting_note": "Closed model-init spans do not imply completed/admitted episodes. These two loads are outside episode elapsed and already included in the batch all-attempt model-init total."
+}

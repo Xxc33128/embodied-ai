@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "level": "E2",
+  "scope": "closed Astra t0s0 and Sol t9s0 only; no active Astra t9 read",
+  "definition": "Logical model sampling responses inside one SDK turn, not count of turn/completed events.",
+  "examples": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "stream_lines": {
+        "finish_completed": 1558,
+        "finish_usage": 1559,
+        "final_agent_message_completed": 1561,
+        "final_usage": 1562,
+        "outer_turn_completed": 1563
+      },
+      "finish_response_last_input_tokens": 131010,
+      "final_reply_response_last_input_tokens": 131182,
+      "final_reply_output_tokens": 4,
+      "cumulative_input_delta_after_finish_usage": 131182,
+      "distinct_response_evidence": "cloud-first-pair-contract.json#/episodes/0/official_usage_by_response/39 and /40 have distinct response_sha256; final response adds tool return and no new tool call.",
+      "source_reference": "t0-first-pair-trajectory.json#/episodes/0/source_sha256/stream.jsonl"
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 0,
+      "stream_lines": {
+        "finish_completed": 1356,
+        "finish_usage": 1357,
+        "final_agent_message_completed": 1456,
+        "final_usage": 1457,
+        "outer_turn_completed": 1458
+      },
+      "finish_response_last_input_tokens": 137999,
+      "final_reply_response_last_input_tokens": 138165,
+      "final_reply_output_tokens": 101,
+      "cumulative_input_delta_after_finish_usage": 138165,
+      "qualification": "Final reply and additional complete usage increment demonstrate another logical sampling result; transport request-ID audit is maintained separately."
+    }
+  ],
+  "unified_candidates": {
+    "t0": {
+      "primitive_nodes": 10,
+      "finish_sampling": 1,
+      "final_reply_sampling": 1,
+      "base_logical_sampling_calls": 12
+    },
+    "t9": {
+      "primitive_nodes": 12,
+      "finish_sampling": 1,
+      "final_reply_sampling": 1,
+      "base_logical_sampling_calls": 14
+    }
+  },
+  "conditions": [
+    "One primitive per logical sampling response; no additional observation/verification/recovery calls.",
+    "Final assistant reply is separately sampled after finish tool result in observed closed runs.",
+    "If a modified client stops immediately at finish, counts are11/13 instead; that is a different termination behavior.",
+    "Batched multi-tool responses can reduce sampling count; failures/retries/extra observations increase it.",
+    "Candidate counts are conditional mechanism accounting, not measured optimal task paths."
+  ]
+}

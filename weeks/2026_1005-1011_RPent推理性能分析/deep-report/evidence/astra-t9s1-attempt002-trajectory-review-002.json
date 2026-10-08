@@ -1,0 +1,872 @@
+{
+  "episode_key": "gpt-6-astra/libero_10_swap/t9_s1",
+  "attempt": "attempt-002",
+  "task_verdict": "task_failure",
+  "elapsed_s": 1076.7,
+  "measurement_admitted": false,
+  "measurement_invalid_raw": null,
+  "measurement_admission_note": "Read-only snapshot; no whole-pair admission decision made.",
+  "states_sha256": "40006f4ddc3172bd55e2481b5d15c662a75e128d0045f62e2289979366b55dd7",
+  "trajectory": [
+    {
+      "step": 1,
+      "action": "move_to",
+      "elapsed_s": 21.7,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.24,
+          -0.2,
+          1.27
+        ],
+        "gripper": -1,
+        "step_clip": 0.015,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0088,
+        "steps_used": 51,
+        "max_steps": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 2,
+      "action": "move_to",
+      "elapsed_s": 32.33,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.34,
+          -0.24,
+          1.12
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0099,
+        "steps_used": 71,
+        "max_steps": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 3,
+      "action": "move_pose",
+      "elapsed_s": 55.48,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.34,
+          -0.24,
+          1.1
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0691,
+        "final_pitch": 0.8954,
+        "steps_used": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 4,
+      "action": "move_pose",
+      "elapsed_s": 55.23,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.34,
+          -0.24,
+          1.12
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.4679,
+        "final_pitch": 0.2865,
+        "steps_used": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 5,
+      "action": "move_pose",
+      "elapsed_s": 50.28,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.22,
+          0.03,
+          1.25
+        ],
+        "gripper": -1,
+        "step_clip": 0.01,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.6395,
+        "final_pitch": 0.0089,
+        "steps_used": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 6,
+      "action": "pi0_doubled",
+      "elapsed_s": 30.16,
+      "terminated": false,
+      "parameters": {
+        "max_chunks": 8
+      },
+      "result": {
+        "success": false,
+        "task_success": false,
+        "contact_skill_executed": true,
+        "chunks_used": 8,
+        "max_chunks": 8,
+        "terminated": false,
+        "truncated": false
+      },
+      "prompt": {
+        "chars": 18,
+        "sha256": "392955d8f0cb74599fc7b68312aa1c068dbbf9f724e5b3f1f526e018cbf18d0a"
+      }
+    },
+    {
+      "step": 7,
+      "action": "move_to",
+      "elapsed_s": 39.18,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.45,
+          0.02,
+          1.4
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 80
+      },
+      "result": {
+        "final_dist_m": 0.1116,
+        "steps_used": 80,
+        "max_steps": 80,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 8,
+      "action": "move_to",
+      "elapsed_s": 39.77,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.3,
+          0.02,
+          1.35
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 80
+      },
+      "result": {
+        "final_dist_m": 0.0979,
+        "steps_used": 80,
+        "max_steps": 80,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 9,
+      "action": "move_to",
+      "elapsed_s": 37.23,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.14,
+          0.02,
+          1.25
+        ],
+        "gripper": -1,
+        "step_clip": 0.012,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0112,
+        "steps_used": 81,
+        "max_steps": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 10,
+      "action": "move_pose",
+      "elapsed_s": 47.08,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.14,
+          0.02,
+          1.25
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.4236,
+        "final_pitch": 0.0269,
+        "steps_used": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 11,
+      "action": "move_to",
+      "elapsed_s": 32.4,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.15,
+          0.17,
+          1.2
+        ],
+        "gripper": -1,
+        "step_clip": 0.012,
+        "max_steps": 80
+      },
+      "result": {
+        "final_dist_m": 0.0093,
+        "steps_used": 74,
+        "max_steps": 80,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 12,
+      "action": "move_to",
+      "elapsed_s": 30.29,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.29,
+          -0.06,
+          1.19
+        ],
+        "gripper": -1,
+        "step_clip": 0.015,
+        "max_steps": 80
+      },
+      "result": {
+        "final_dist_m": 0.0119,
+        "steps_used": 62,
+        "max_steps": 80,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 13,
+      "action": "move_to",
+      "elapsed_s": 36.62,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.23,
+          -0.28,
+          1.2
+        ],
+        "gripper": -1,
+        "step_clip": 0.012,
+        "max_steps": 80
+      },
+      "result": {
+        "final_dist_m": 0.0191,
+        "steps_used": 80,
+        "max_steps": 80,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 14,
+      "action": "move_to",
+      "elapsed_s": 43.6,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.33,
+          -0.3,
+          1.01
+        ],
+        "gripper": -1,
+        "step_clip": 0.008,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0711,
+        "steps_used": 100,
+        "max_steps": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 15,
+      "action": "move_to",
+      "elapsed_s": 40.04,
+      "terminated": false,
+      "parameters": {
+        "xyz": [
+          -0.12,
+          -0.43,
+          1.2
+        ],
+        "gripper": -1,
+        "step_clip": 0.01,
+        "max_steps": 100
+      },
+      "result": {
+        "final_dist_m": 0.0103,
+        "steps_used": 90,
+        "max_steps": 100,
+        "terminated": false,
+        "truncated": false
+      }
+    },
+    {
+      "step": 16,
+      "action": "rotate_pitch",
+      "elapsed_s": 18.88,
+      "terminated": false,
+      "parameters": {
+        "gripper": -1,
+        "step_clip": 0.04,
+        "max_steps": 40
+      },
+      "result": {
+        "start_pitch": -0.4612,
+        "target_pitch": 0.2388,
+        "final_pitch": -0.1457,
+        "final_err": 0.3845,
+        "steps_used": 40,
+        "terminated": false,
+        "truncated": false
+      }
+    }
+  ],
+  "final_step": 16,
+  "final_terminated": false,
+  "final_truncated": false,
+  "terminated_steps": [],
+  "videos": [
+    {
+      "filename": "episode.mp4",
+      "bytes": 304502,
+      "sha256": "f2c20a2ad89ec5f3f627df852bda8cfcdde6ec0fe56d0fe6fd958f5cae270ff3",
+      "decoder": "OpenCV VideoCapture",
+      "opened": true,
+      "advertised_frames": 1243,
+      "fps": 20.0,
+      "width": 256,
+      "height": 256,
+      "decoded_frames": 1243,
+      "decoded_bgr_sha256": "04186b6e1bf1b57b9bf00c1ac9b1567f10c4b963bef7d1d6b6485fae915a3a97",
+      "decoded_shapes": [
+        [
+          256,
+          256,
+          3
+        ]
+      ],
+      "all_advertised_frames_decoded": true,
+      "duration_s": 62.15
+    }
+  ],
+  "pi_stages": {
+    "complete": false,
+    "issues": [
+      "missing parent span"
+    ],
+    "application_errors": {},
+    "valid_span_count": 130,
+    "stages": {
+      "pi.client.encode": {
+        "count": 8,
+        "inclusive_sum_ns": 1669224,
+        "exclusive_sum_ns": 1669224,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 1669224
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 1669224
+        },
+        "mean_ns": 208653,
+        "median_ns": 143460.0,
+        "p90_ns": 300441,
+        "min_ns": 115020,
+        "max_ns": 569772,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 226490,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.client.predict": {
+        "count": 8,
+        "inclusive_sum_ns": 11199228657,
+        "exclusive_sum_ns": 4667894,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 11199228657
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 4667894
+        },
+        "mean_ns": 1399903582.125,
+        "median_ns": 420454635.0,
+        "p90_ns": 425693506,
+        "min_ns": 386036029,
+        "max_ns": 8306691914,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 221661,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.client.rpc": {
+        "count": 8,
+        "inclusive_sum_ns": 11192891539,
+        "exclusive_sum_ns": 11192891539,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 11192891539
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 11192891539
+        },
+        "mean_ns": 1399111442.375,
+        "median_ns": 420051479.5,
+        "p90_ns": 425324644,
+        "min_ns": 385716128,
+        "max_ns": 8302897383,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 245903,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.denoise.core": {
+        "count": 40,
+        "inclusive_sum_ns": 2077989801,
+        "exclusive_sum_ns": 2077989801,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 2077989801
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 2077989801
+        },
+        "mean_ns": 51949745.025,
+        "median_ns": 49844087.0,
+        "p90_ns": 56005575,
+        "min_ns": 44474861,
+        "max_ns": 127077495,
+        "pre_sync_sum_ns": 3641753,
+        "post_sync_sum_ns": 5273025,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 2220354,
+        "sync_disturbed_count": 40,
+        "measurement_modes": {
+          "stages": 40
+        }
+      },
+      "pi.handler": {
+        "count": 8,
+        "inclusive_sum_ns": 11093022524,
+        "exclusive_sum_ns": 7215582,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 11093022524
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 7215582
+        },
+        "mean_ns": 1386627815.5,
+        "median_ns": 407754038.0,
+        "p90_ns": 414811614,
+        "min_ns": 372694970,
+        "max_ns": 8284395008,
+        "pre_sync_sum_ns": 2673628,
+        "post_sync_sum_ns": 450782,
+        "metadata_input_sum_ns": 1212424,
+        "metadata_output_sum_ns": 512822,
+        "start_record_sum_ns": 331911,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.input_transform": {
+        "count": 8,
+        "inclusive_sum_ns": 80966908,
+        "exclusive_sum_ns": 80966908,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 80966908
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 80966908
+        },
+        "mean_ns": 10120863.5,
+        "median_ns": 9657839.0,
+        "p90_ns": 10516981,
+        "min_ns": 8581575,
+        "max_ns": 14194551,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 6820,
+        "metadata_output_sum_ns": 1844095,
+        "start_record_sum_ns": 263830,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.model_construct": {
+        "count": 1,
+        "inclusive_sum_ns": 160518832105,
+        "exclusive_sum_ns": 160518832105,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 160518832105
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 160518832105
+        },
+        "mean_ns": 160518832105,
+        "median_ns": 160518832105,
+        "p90_ns": 160518832105,
+        "min_ns": 160518832105,
+        "max_ns": 160518832105,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 76890,
+        "sync_disturbed_count": 1,
+        "measurement_modes": {
+          "stages": 1
+        }
+      },
+      "pi.model_init": {
+        "count": 1,
+        "inclusive_sum_ns": 168647858005,
+        "exclusive_sum_ns": 8129025900,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 168647858005
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 8129025900
+        },
+        "mean_ns": 168647858005,
+        "median_ns": 168647858005,
+        "p90_ns": 168647858005,
+        "min_ns": 168647858005,
+        "max_ns": 168647858005,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 23838931,
+        "sync_disturbed_count": 1,
+        "measurement_modes": {
+          "stages": 1
+        }
+      },
+      "pi.obs_processor": {
+        "count": 8,
+        "inclusive_sum_ns": 425450,
+        "exclusive_sum_ns": 425450,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 425450
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 425450
+        },
+        "mean_ns": 53181.25,
+        "median_ns": 47650.0,
+        "p90_ns": 57940,
+        "min_ns": 44490,
+        "max_ns": 84120,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 260070,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.output_transform": {
+        "count": 8,
+        "inclusive_sum_ns": 49694606,
+        "exclusive_sum_ns": 49694606,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 49694606
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 49694606
+        },
+        "mean_ns": 6211825.75,
+        "median_ns": 802272.0,
+        "p90_ns": 1557834,
+        "min_ns": 764803,
+        "max_ns": 43365028,
+        "pre_sync_sum_ns": 42580985,
+        "post_sync_sum_ns": 504273,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 1105143,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.precision": {
+        "count": 8,
+        "inclusive_sum_ns": 10444501,
+        "exclusive_sum_ns": 10444501,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 10444501
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 10444501
+        },
+        "mean_ns": 1305562.625,
+        "median_ns": 1294954.0,
+        "p90_ns": 1319294,
+        "min_ns": 1232933,
+        "max_ns": 1452764,
+        "pre_sync_sum_ns": 696940,
+        "post_sync_sum_ns": 484032,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 298671,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.predict_batch": {
+        "count": 8,
+        "inclusive_sum_ns": 11085806942,
+        "exclusive_sum_ns": 553956727,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 11085806942
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 553956727
+        },
+        "mean_ns": 1385725867.75,
+        "median_ns": 406966245.5,
+        "p90_ns": 414028891,
+        "min_ns": 371910627,
+        "max_ns": 8282633033,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 407090,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.prefix": {
+        "count": 8,
+        "inclusive_sum_ns": 8157214814,
+        "exclusive_sum_ns": 8157214814,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 8157214814
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 8157214814
+        },
+        "mean_ns": 1019651851.75,
+        "median_ns": 122456321.0,
+        "p90_ns": 125088529,
+        "min_ns": 112656552,
+        "max_ns": 7308912891,
+        "pre_sync_sum_ns": 5717885,
+        "post_sync_sum_ns": 4807955,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 392961,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      },
+      "pi.sample": {
+        "count": 8,
+        "inclusive_sum_ns": 10390318750,
+        "exclusive_sum_ns": 155114135,
+        "inclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 10390318750
+        },
+        "exclusive_union_ns_by_clock_domain": {
+          "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 155114135
+        },
+        "mean_ns": 1298789843.75,
+        "median_ns": 381792876.0,
+        "p90_ns": 391568595,
+        "min_ns": 346742073,
+        "max_ns": 7752025008,
+        "pre_sync_sum_ns": 0,
+        "post_sync_sum_ns": 0,
+        "metadata_input_sum_ns": 0,
+        "metadata_output_sum_ns": 0,
+        "start_record_sum_ns": 413721,
+        "sync_disturbed_count": 8,
+        "measurement_modes": {
+          "stages": 8
+        }
+      }
+    },
+    "all_span_union_ns_by_clock_domain": {
+      "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867": 179847086662
+    },
+    "interpretation": "Each stage is nested inclusive/exclusive accounting. Per-stage unions remove same-clock process/thread overlap; unions of different stages are NOT mutually exclusive. Exclusive includes uninstrumented work and logger overhead, not pure compute. Different clock domains are never merged."
+  },
+  "measurement_file_sha256": {
+    "spans-2050434.jsonl": "0d250b519474d4114e65a9c049c368c0a67165a46c865d0651af92c740d583ee",
+    "spans-2051728.jsonl": "76c87845911d9cd5cdf1da5cc11968a15496ada0a717e0565a4376f2cf1dda6f",
+    "spans-2051928.jsonl": "394f68eb33db20e1d2402fb75778bd5f3d4084ed6bb42803db231df00d9b5fff",
+    "spans-2052437.jsonl": "a786a9ab16effacfc7d479a3d27b8c8fb6512f6aaeee9d7c2c226fac665eda05",
+    "starts-2050434.jsonl": "fe5cd2594381eac4fc5b0434a52d8cbde4afaacfe1338dff9064f865cb3f419c",
+    "starts-2051728.jsonl": "4aaa2e4a166bb6749ce8d5c6662bc215393b94126a0e2c2e34e6f6ed43564f30",
+    "starts-2051928.jsonl": "f4c636f384755928fb18451969f40bd33037f91229a4efcb33f365de266669fc",
+    "starts-2052437.jsonl": "c9753537018276a1a6c468591991980e78f091b81c65e5a6636d6d825a3ec84f"
+  },
+  "measurement_audit_issues": [],
+  "stream_audit": [
+    {
+      "sha256": "1329d7421c5da94f9c7bdf7ef7a4bdcec09984f48bf6fa3f08abf85089520fe3",
+      "finish": [
+        {
+          "line": 1114,
+          "status": "failure"
+        }
+      ],
+      "turn_completed_lines": [
+        1119
+      ]
+    }
+  ],
+  "measurement_admission_status": "pending; this read-only task/video review makes no timing admission decision",
+  "analysis": {
+    "primitive_count": 16,
+    "action_counts": {
+      "move_pose": 4,
+      "move_to": 10,
+      "pi0_doubled": 1,
+      "rotate_pitch": 1
+    },
+    "primitive_wall_sum_s": 610.27,
+    "pi_primitive_wall_sum_s": 30.16,
+    "pi_primitive_calls": 1,
+    "pi_chunks": 8,
+    "motion_budget_exhausted_steps": [
+      3,
+      4,
+      5,
+      7,
+      8,
+      10,
+      13,
+      14
+    ],
+    "motion_budget_exhausted_wall_s": 367.24,
+    "costly_adjustment_sequences": [
+      {
+        "steps": [
+          3,
+          4,
+          5
+        ],
+        "wall_s": 160.99,
+        "final_dist_m": [
+          0.0691,
+          0.4679,
+          0.6395
+        ],
+        "interpretation": "Three pose adjustments exhaust 100-step budgets with changed targets. Residuals grow from 0.0691 to 0.4679 to 0.6395 m; these are different targets, not monotonic progress measurements to one fixed goal."
+      },
+      {
+        "steps": [
+          9,
+          10
+        ],
+        "wall_s": 84.31,
+        "same_xyz": true,
+        "position_residual_m": [
+          0.0112,
+          0.4236
+        ],
+        "interpretation": "move_to followed by move_pose at same xyz; pose adjustment can impose a different orientation objective, so not a duplicate-command proof."
+      },
+      {
+        "steps": [
+          16
+        ],
+        "wall_s": 18.88,
+        "rotation_budget": 40,
+        "final_pitch_error_rad": 0.3845,
+        "interpretation": "Rotation budget exhausted with residual; not enough evidence to diagnose IK, collision or simulator fault."
+      }
+    ],
+    "official_terminal": {
+      "terminated_ever_true": false,
+      "final_terminated": false,
+      "final_truncated": false,
+      "individual_goal_values": null,
+      "interpretation": "Official In(mug,microwave region) AND Close(microwave) conjunction not achieved; which conjunct failed is not independently reconstructed."
+    },
+    "pi_semantics": "Only one pi0_doubled call, eight chunks; contact_skill_executed=true. success/task_success=false reflects entire official task, not local contact failure. No pi0_pick primitive or repeated pi prompt call in this attempt."
+  },
+  "limits": [
+    "Exact attempt-002 identity used; original OOM attempt-001 is excluded and not substituted.",
+    "Task failure and fully decoded video are independent of pending measurement admission.",
+    "State-recorded primitive elapsed values are descriptive; not a validated fine-stage timing partition.",
+    "16 primitive calls and eight pi chunks are not cloud logical sampling counts.",
+    "Costly corrective actions may make partial progress; no guarantee their entire time can be removed.",
+    "pi_stages is a filtered descriptive subset including initialization; missing parent in filtered subset is not a full-tree timing verdict."
+  ]
+}

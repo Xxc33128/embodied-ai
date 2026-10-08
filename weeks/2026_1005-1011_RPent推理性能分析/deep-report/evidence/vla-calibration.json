@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "kind": "fixed_observation_no_cloud_vla_calibration",
+  "observation_sha256": "a27964507f11e00609d22e54446fd6e334e0358486dd85a540a6e2ad371ecdde",
+  "seed": 20260929,
+  "device": "npu:0",
+  "backend": "openpi_pytorch",
+  "warmup_count": 2,
+  "repeats_per_mode": 3,
+  "mask_count_enabled": false,
+  "input_format": "env",
+  "comparison_tolerance": {
+    "atol": 1e-06,
+    "rtol": 1e-05
+  },
+  "warmup": [
+    {
+      "mode": "none",
+      "pre_drain_ns": 62061,
+      "call_wall_ns": 8287326228,
+      "completion_barrier_ns": 137261,
+      "complete_wall_ns": 8287463489,
+      "iteration": 0
+    },
+    {
+      "mode": "none",
+      "pre_drain_ns": 63620,
+      "call_wall_ns": 382336888,
+      "completion_barrier_ns": 78160,
+      "complete_wall_ns": 382415048,
+      "iteration": 1
+    }
+  ],
+  "measurements": [
+    {
+      "mode": "none",
+      "pre_drain_ns": 59380,
+      "call_wall_ns": 363353863,
+      "completion_barrier_ns": 73030,
+      "complete_wall_ns": 363426893,
+      "iteration": 0,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "mode": "stages",
+      "pre_drain_ns": 68230,
+      "call_wall_ns": 368968229,
+      "completion_barrier_ns": 48251,
+      "complete_wall_ns": 369016480,
+      "iteration": 0,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "mode": "none",
+      "pre_drain_ns": 56080,
+      "call_wall_ns": 360970786,
+      "completion_barrier_ns": 61101,
+      "complete_wall_ns": 361031887,
+      "iteration": 1,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "mode": "stages",
+      "pre_drain_ns": 55140,
+      "call_wall_ns": 363548254,
+      "completion_barrier_ns": 45850,
+      "complete_wall_ns": 363594104,
+      "iteration": 1,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "mode": "none",
+      "pre_drain_ns": 55291,
+      "call_wall_ns": 360969676,
+      "completion_barrier_ns": 77200,
+      "complete_wall_ns": 361046876,
+      "iteration": 2,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    },
+    {
+      "mode": "stages",
+      "pre_drain_ns": 54501,
+      "call_wall_ns": 363672904,
+      "completion_barrier_ns": 46260,
+      "complete_wall_ns": 363719164,
+      "iteration": 2,
+      "action_shape": [
+        1,
+        5,
+        7
+      ],
+      "action_dtype": "float32",
+      "action_sha256": "3dd9449f1adc86a7e0ac9341405213065da0e6b497694fffcc40532e7b4e69da",
+      "bitwise_equal": true,
+      "max_abs_diff": 0.0,
+      "allclose": true
+    }
+  ],
+  "status": "complete",
+  "limitations": [
+    "host inclusive wall; stage synchronizations perturb execution",
+    "parent/child span times cannot be summed; pre/post sync already inside duration",
+    "mask token-count reduction disabled in both calibration arms",
+    "model stages have fixed order: none,stages repeated; small sample descriptive only",
+    "same checkpoint/config/seed does not guarantee bitwise device determinism",
+    "no cloud model requests; no robot simulation steps"
+  ],
+  "load_complete_ns": 163200727053,
+  "model_config": {
+    "num_steps": 5,
+    "action_horizon": 10,
+    "action_dim": 32,
+    "action_chunk": 5,
+    "action_env_dim": 7,
+    "max_token_len": 200,
+    "pi05": true,
+    "use_dsrl": false,
+    "is_nft": false
+  },
+  "summary": {
+    "none": {
+      "count": 3,
+      "median_ms": 361.046876,
+      "min_ms": 361.031887,
+      "max_ms": 363.426893,
+      "mean_ms": 361.83521866666666
+    },
+    "stages": {
+      "count": 3,
+      "median_ms": 363.719164,
+      "min_ms": 363.594104,
+      "max_ms": 369.01648,
+      "mean_ms": 365.4432493333333
+    },
+    "stages_over_none_median_ratio": 1.0074014987461073,
+    "median_delta_ms": 2.6722879999999805,
+    "median_delta_fraction": 0.007401498746107363
+  },
+  "all_actions_allclose": true
+}

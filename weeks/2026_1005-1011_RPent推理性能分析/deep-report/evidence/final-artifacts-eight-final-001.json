@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "scope": "new batch formal video decode and official success audit",
+  "scenes": [
+    {
+      "task": 0,
+      "level": "E1",
+      "bddl_name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket.bddl",
+      "sha256": "f2b5896754bf46b02090533835e61f057c64fa8403b8dde0caa380ddfb10e567",
+      "goal_lines": [
+        130,
+        134
+      ],
+      "goal_text": "  (:goal\n    (And (In alphabet_soup_1 basket_1_contain_region) (In tomato_sauce_1 basket_1_contain_region))\n  )\n\n)"
+    },
+    {
+      "task": 9,
+      "level": "E1",
+      "bddl_name": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it.bddl",
+      "sha256": "9790756193e8597c5f9cb14047ff327f96aeb146a7f9a6a99931d6eec8943c1f",
+      "goal_lines": [
+        79,
+        83
+      ],
+      "goal_text": "  (:goal\n    (And (In white_yellow_mug_1 microwave_1_heating_region) (Close microwave_1))\n  )\n\n)"
+    }
+  ],
+  "source_evidence": [
+    {
+      "level": "E1",
+      "path": "libero/benchmark/libero_suite_task_map.py",
+      "sha256": "0c950df0a785aa55de968bb38ccd865d2017f71ddbe6f48cfd05ac0742b6d62d",
+      "excerpts": [
+        {
+          "start_line": 37,
+          "end_line": 49,
+          "text": "    ],\n    \"libero_10\": [\n        \"LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket\",\n        \"LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket\",\n        \"KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it\",\n        \"KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it\",\n        \"LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate\",\n        \"STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy\",\n        \"LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate\",\n        \"LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket\",\n        \"KITCHEN_SCENE8_put_both_moka_pots_on_the_stove\",\n        \"KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it\",\n    ],"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/predicates/base_predicates.py",
+      "sha256": "319137e95330dbb22a266a8dceb8110f18413c2bf17461550222228c4bc310a1",
+      "excerpts": [
+        {
+          "start_line": 57,
+          "end_line": 59,
+          "text": "class In(BinaryAtomic):\n    def __call__(self, arg1, arg2):\n        return arg2.check_contact(arg1) and arg2.check_contain(arg1)"
+        },
+        {
+          "start_line": 106,
+          "end_line": 108,
+          "text": "class Close(UnaryAtomic):\n    def __call__(self, arg):\n        return arg.is_close()"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/object_states/base_object_states.py",
+      "sha256": "ca6f53123336b6487bdb4feb02534ddb3a0627a4b847fe89da4460520ef01366",
+      "excerpts": [
+        {
+          "start_line": 108,
+          "end_line": 114,
+          "text": "    def is_close(self):\n        for joint in self.env.get_object(self.object_name).joints:\n            qpos_addr = self.env.sim.model.get_joint_qpos_addr(joint)\n            qpos = self.env.sim.data.qpos[qpos_addr]\n            if not (self.env.get_object(self.object_name).is_close(qpos)):\n                return False\n        return True"
+        },
+        {
+          "start_line": 159,
+          "end_line": 176,
+          "text": "    def check_contain(self, other):\n        this_object = self.env.object_sites_dict[self.object_name]\n        this_object_position = self.env.sim.data.get_site_xpos(self.object_name)\n        this_object_mat = self.env.sim.data.get_site_xmat(self.object_name)\n\n        other_object = self.env.get_object(other.object_name)\n        other_object_position = self.env.sim.data.body_xpos[\n            self.env.obj_body_id[other.object_name]\n        ]\n        return this_object.in_box(\n            this_object_position, this_object_mat, other_object_position\n        )\n\n    def check_contact(self, other):\n        \"\"\"\n        There is no dynamics for site objects, so we return true all the time.\n        \"\"\"\n        return True"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/objects/articulated_objects.py",
+      "sha256": "f5187b0381d69a2a8736c1dcb646e5fa7c138a42950f92e30c21c2efaed52faa",
+      "excerpts": [
+        {
+          "start_line": 62,
+          "end_line": 75,
+          "text": "        self.object_properties[\"articulation\"][\"default_open_ranges\"] = [-2.094, -1.3]\n        self.object_properties[\"articulation\"][\"default_close_ranges\"] = [-0.005, 0.0]\n\n    def is_open(self, qpos):\n        if qpos < max(self.object_properties[\"articulation\"][\"default_open_ranges\"]):\n            return True\n        else:\n            return False\n\n    def is_close(self, qpos):\n        if qpos > min(self.object_properties[\"articulation\"][\"default_close_ranges\"]):\n            return True\n        else:\n            return False"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/problems/libero_living_room_tabletop_manipulation.py",
+      "sha256": "a13bc0a92ff746d572a6d76e09add98dafad70d88928555068728641c6c9de10",
+      "excerpts": [
+        {
+          "start_line": 136,
+          "end_line": 163,
+          "text": "    def _check_success(self):\n        \"\"\"\n        Check if the goal is achieved. Consider conjunction goals at the moment\n        \"\"\"\n        goal_state = self.parsed_problem[\"goal_state\"]\n        result = True\n        for state in goal_state:\n            result = self._eval_predicate(state) and result\n        return result\n\n    def _eval_predicate(self, state):\n        if len(state) == 3:\n            # Checking binary logical predicates\n            predicate_fn_name = state[0]\n            object_1_name = state[1]\n            object_2_name = state[2]\n            return eval_predicate_fn(\n                predicate_fn_name,\n                self.object_states_dict[object_1_name],\n                self.object_states_dict[object_2_name],\n            )\n        elif len(state) == 2:\n            # Checking unary logical predicates\n            predicate_fn_name = state[0]\n            object_name = state[1]\n            return eval_predicate_fn(\n                predicate_fn_name, self.object_states_dict[object_name]\n            )"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/problems/libero_kitchen_tabletop_manipulation.py",
+      "sha256": "e5ea541118d19aa120d08ffec655da0f65d2e2a21c2045cd49e7e0a73f695cd3",
+      "excerpts": [
+        {
+          "start_line": 136,
+          "end_line": 163,
+          "text": "    def _check_success(self):\n        \"\"\"\n        Check if the goal is achieved. Consider conjunction goals at the moment\n        \"\"\"\n        goal_state = self.parsed_problem[\"goal_state\"]\n        result = True\n        for state in goal_state:\n            result = self._eval_predicate(state) and result\n        return result\n\n    def _eval_predicate(self, state):\n        if len(state) == 3:\n            # Checking binary logical predicates\n            predicate_fn_name = state[0]\n            object_1_name = state[1]\n            object_2_name = state[2]\n            return eval_predicate_fn(\n                predicate_fn_name,\n                self.object_states_dict[object_1_name],\n                self.object_states_dict[object_2_name],\n            )\n        elif len(state) == 2:\n            # Checking unary logical predicates\n            predicate_fn_name = state[0]\n            object_name = state[1]\n            return eval_predicate_fn(\n                predicate_fn_name, self.object_states_dict[object_name]\n            )"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "path": "libero/envs/bddl_base_domain.py",
+      "sha256": "5bf9de12aadd27124fe636b98ad30e72bc35a9a4693061123a610c0055fabd63",
+      "excerpts": [
+        {
+          "start_line": 808,
+          "end_line": 817,
+          "text": "    def step(self, action):\n        if self.action_dim == 4 and len(action) > 4:\n            # Convert OSC_POSITION action\n            action = np.array(action)\n            action = np.concatenate((action[:3], action[-1:]), axis=-1)\n\n        obs, reward, done, info = super().step(action)\n        done = self._check_success()\n\n        return obs, reward, done, info"
+        }
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "model": "gpt-6-astra",
+      "suite": "libero_10_swap",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "task_verdict": "success",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "ca4442fe6efc0465173656356af92721c5c4ed448f81f0d61d1f00e74c3f52db",
+      "final_step": 22,
+      "final_terminated": true,
+      "final_truncated": false,
+      "terminated_steps": [
+        22
+      ],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 355028,
+          "sha256": "8f4a4cd28320f50e5e1528db14c67c533c81c40b7bd5c67caca1073d7939d949",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 815,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 815,
+          "decoded_bgr_sha256": "9ec458e3da9a39dd4750f70f84ae33f496ad1f8c3352119a197e5ae3dd4a29b7",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 40.75
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-sol",
+      "suite": "libero_10_swap",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "task_verdict": "success",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "88547163cb049d9731c2110f4f0a2385a18c75923cce19a91bed7066f46268f7",
+      "final_step": 21,
+      "final_terminated": true,
+      "final_truncated": false,
+      "terminated_steps": [
+        21
+      ],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 358410,
+          "sha256": "4b925c89ff3d5a785f3db63c284759490701331bd6276ed8d154394d73529670",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 813,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 813,
+          "decoded_bgr_sha256": "10474ea187a6f776ca7e494b121c826dbd451625329428d219365aa375ba5026",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 40.65
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-astra",
+      "suite": "libero_10_swap",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "task_verdict": "success",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "4b0c9214d8f88f118be608a7328d8ae9b82d5ad6e9424c0a071c1abff937683e",
+      "final_step": 21,
+      "final_terminated": true,
+      "final_truncated": false,
+      "terminated_steps": [
+        21
+      ],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 343021,
+          "sha256": "d2717a70863290f999bdc7fd23ead28afd6e9748960b7af4d5faa6b01ee5689f",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 777,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 777,
+          "decoded_bgr_sha256": "29478599aa69bb1860e11e38839ca7658005660b0b9fc2a6e8fa97358833d988",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 38.85
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-sol",
+      "suite": "libero_10_swap",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "task_verdict": "task_failure",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "994aae987008fce4b1f96debe9af41a10c092c12c19a9bdf8a966ea6abae599c",
+      "final_step": 34,
+      "final_terminated": false,
+      "final_truncated": false,
+      "terminated_steps": [],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 955300,
+          "sha256": "30b1dde90275c57da00b0d9ce681c1ed0432d5fcc04ee6de95975d2dd9ee0b9b",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 1628,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 1628,
+          "decoded_bgr_sha256": "24e34e856b357297bbbfd508474e4a7840b24abcea7ed5981b64b18a9d9f5733",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 81.4
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-astra",
+      "suite": "libero_10_swap",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "task_verdict": "task_failure",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "03299f95c41741d5d4c7feb034a72f6845c2bd4fcc6a17c1b078296aa81611cd",
+      "final_step": 24,
+      "final_terminated": false,
+      "final_truncated": false,
+      "terminated_steps": [],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 486461,
+          "sha256": "be12efb41fdda64f6d5fdc821c02c416e38cf5b508527ea473a92bc5b25449f6",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 1952,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 1952,
+          "decoded_bgr_sha256": "a997f55c5ccecb68d4c95274bc19b6b872d18198c8771c9b2096b3ef916483d2",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 97.6
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-sol",
+      "suite": "libero_10_swap",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "task_verdict": "task_failure",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "ce0774200effa284dc380c4cd6415638b823e700a7e0bcfdb7ac84e1ba14c243",
+      "final_step": 26,
+      "final_terminated": false,
+      "final_truncated": false,
+      "terminated_steps": [],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 960822,
+          "sha256": "7647fd751d97c2c9f86ea75333a4af4c5f2f30d46de0512724283e43d4476d0a",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 1754,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 1754,
+          "decoded_bgr_sha256": "c6f29a7080cf732d3f14c122f7cc910e91bb5d8abdbf0a95fb0e9f1ed3b3ba2a",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 87.7
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-astra",
+      "suite": "libero_10_swap",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "task_verdict": "task_failure",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "40006f4ddc3172bd55e2481b5d15c662a75e128d0045f62e2289979366b55dd7",
+      "final_step": 16,
+      "final_terminated": false,
+      "final_truncated": false,
+      "terminated_steps": [],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 304502,
+          "sha256": "f2c20a2ad89ec5f3f627df852bda8cfcdde6ec0fe56d0fe6fd958f5cae270ff3",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 1243,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 1243,
+          "decoded_bgr_sha256": "04186b6e1bf1b57b9bf00c1ac9b1567f10c4b963bef7d1d6b6485fae915a3a97",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 62.15
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    },
+    {
+      "model": "gpt-6-sol",
+      "suite": "libero_10_swap",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "task_verdict": "task_failure",
+      "measurement_admitted": true,
+      "level": "E2",
+      "states_sha256": "b01e0db2da1541b3cb9f542b94f55099ea83358d550305141c15a654c70974d8",
+      "final_step": 18,
+      "final_terminated": false,
+      "final_truncated": false,
+      "terminated_steps": [],
+      "videos": [
+        {
+          "filename": "episode.mp4",
+          "bytes": 821390,
+          "sha256": "c66f51b50837727a0223ecab5f15166a9abecf166c7bceb9daeaa1febdc74f8d",
+          "decoder": "OpenCV VideoCapture",
+          "opened": true,
+          "advertised_frames": 1534,
+          "fps": 20.0,
+          "width": 256,
+          "height": 256,
+          "decoded_frames": 1534,
+          "decoded_bgr_sha256": "9e5b08f35c5fd96ea473c2cf0e72316d9f030ca12af45457bc61798cdc64c756",
+          "decoded_shapes": [
+            [
+              256,
+              256,
+              3
+            ]
+          ],
+          "all_advertised_frames_decoded": true,
+          "duration_s": 76.7
+        }
+      ],
+      "individual_goal_predicate_values": null,
+      "individual_goal_predicate_replay_performed": false,
+      "verdict_environment_consistent": true,
+      "status": "verified",
+      "predicate_evidence_boundary": "Recorded environment terminated is official goal conjunction via source call chain, independent of model finish text. Individual conjunct booleans/object poses were not persisted/replayed in this audit; no independent per-conjunct numeric verification claimed."
+    }
+  ],
+  "limits": [
+    "No model self-reported finish used as success proof.",
+    "No original video/image uploaded; only metadata and hashes.",
+    "OpenCV decoded every advertised frame; ffprobe not installed in this runtime.",
+    "Failure verdicts preserved; audit never reclassifies or retries a task.",
+    "In(region) checks object body position against region in_box; site contact returns True, not proof of stable placement or gripper release.",
+    "Microwave Close uses joint qpos > -0.005; it is not a visual judgement."
+  ]
+}

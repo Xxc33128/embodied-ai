@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "episodes": [
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t0_s0",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "e4fdc8813b19d9212c9b3db22ae2d6cbb72c45f1c7bb144bb20d39c58fc06cae"
+      ],
+      "session_sha256": "0c8943089a18d315435d5fa86f40c6e2b5da7832aabfe0f5525afd1b0576f5f7",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t0_s1",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "872ddc644a597edff0dae3a3b5695dda1e440f13f57041b69e12add9b56d2bec"
+      ],
+      "session_sha256": "92ace9cc1aa39e5224b44b46c66743a989a34dcfc4a7a0405a0b6c7471511aaa",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t9_s0",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "18689349b051fa66e14c999235022e97e45c4fada26499bb350580f1f727e8a2"
+      ],
+      "session_sha256": "949ede126eb29531ba76ed59fbe2e5ebfbda09f7d5accb89505fccff9505b897",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t9_s1",
+      "attempt": "attempt-002",
+      "thread_sha256": [
+        "3d0234d03754f14d9cabe6208ce27580fc908dc9e99f35e8952655f7ac24681f"
+      ],
+      "session_sha256": "86a4094fbba900b3e14a3650e915bb15230ff109876a95a74aad00c2db643d1d",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t0_s0",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "05f74031e9bd52e0574aa65d595d9c4974829d9f3611e5aa7c15e6fdeb11fdd5"
+      ],
+      "session_sha256": "c2a9994fac35dcc21bb51154094ce0b1f87c2fd7ebe427f4dd8e4581c8e3a8ef",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t0_s1",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "707c148143b60e9e7966e949b4011263bf0ec711617ec1dbf1fd53db8f5ae820"
+      ],
+      "session_sha256": "e143566a3b1390ea074a7b9390ba41ed2b3e6f2ce156ee77bfccce484e41d4b9",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t9_s0",
+      "attempt": "attempt-001",
+      "thread_sha256": [
+        "211668d3f7b92e5e60761dd13fe169ecb2453c724c74fa9767c54de9c15801c7"
+      ],
+      "session_sha256": "ebda83d00b659d3c79ce98ce402406c5e04fef136b5ae3e7c82c416e3f7ab536",
+      "association": "exact_thread_id"
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t9_s1",
+      "attempt": "attempt-002",
+      "thread_sha256": [
+        "296b8519c191f2127b958aac71451701c133247bc20506ff442e63ca3640f45b"
+      ],
+      "session_sha256": "f9f0567c916e49a4ea96670f29371468f81edc3f6eaa7a41f30a88b64f948af6",
+      "association": "exact_thread_id"
+    }
+  ],
+  "selection": {
+    "policy": "current state attempt, terminal task and measurement_invalid=false, exact unique thread/session; excludes prior attempts",
+    "state_sha256": "edb8a7cc40666f4155e44e7ff0d45bec454851640e210f66af282d402f407c51",
+    "map_sha256": "1d4f7c2accccce108f5d2426cb5d638b4ca6bc604c97e6c8792aabd4aa494c35",
+    "excluded_mapping_rows": 2
+  }
+}

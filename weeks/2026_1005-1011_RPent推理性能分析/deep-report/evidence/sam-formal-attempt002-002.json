@@ -1,0 +1,923 @@
+{
+  "schema_version": 1,
+  "scope": "Formal t9 seed1 attempt002 SAM calls only; no health probe attribution",
+  "episodes": [
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t9_s1",
+      "attempt": "attempt-002",
+      "formal_calls": [
+        {
+          "matching": {
+            "client_span_id": "2051728:2621098965303185:274",
+            "server_span_id": "2048707:2621098981711334:15"
+          },
+          "mode": "text",
+          "client_wall_s": 0.565447483,
+          "handler_wall_s": 0.538871064,
+          "io": {
+            "sam.client.total": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_bytes": 424995,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "8ac290eee51ef6ca055593424d9e1681a9e7e92bcbbde91152c1fd4867b31c75",
+                    "request_fingerprint": "c08e0db4ce408b54a5dbe8f8c2764769de6e71735fecc0cd70604fd8bb2df2a6",
+                    "text_prompt": {
+                      "chars": 24,
+                      "sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+                      "utf8_bytes": 24
+                    }
+                  }
+                }
+              }
+            ],
+            "sam.handler": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_base64_chars": 566660,
+                    "image_bytes": 424995,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "8ac290eee51ef6ca055593424d9e1681a9e7e92bcbbde91152c1fd4867b31c75",
+                    "request_fingerprint": "c08e0db4ce408b54a5dbe8f8c2764769de6e71735fecc0cd70604fd8bb2df2a6",
+                    "text_prompt": {
+                      "chars": 24,
+                      "sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+                      "utf8_bytes": 24
+                    }
+                  },
+                  "output_meta": {
+                    "found": true,
+                    "keys": [
+                      "box",
+                      "found",
+                      "mask_png_base64",
+                      "redacted",
+                      "score"
+                    ],
+                    "mask_shape": [
+                      1024,
+                      1024
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "span_chain": [
+            {
+              "name": "rpc.http.client_rtt",
+              "span_id": "2051728:2621098967647522:275",
+              "parent_span_id": "2051728:2621098965303185:274",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621098967692432,
+              "end_ns": 2621099521457150,
+              "duration_ns": 553764718,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.decode",
+              "span_id": "2051728:2621099521534800:276",
+              "parent_span_id": "2051728:2621098965303185:274",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099521570290,
+              "end_ns": 2621099530727257,
+              "duration_ns": 9156967,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.total",
+              "span_id": "2051728:2621098965303185:274",
+              "parent_span_id": null,
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621098965362485,
+              "end_ns": 2621099530809968,
+              "duration_ns": 565447483,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.processor.set_image",
+              "span_id": "2048707:2621099016351896:18",
+              "parent_span_id": "2048707:2621098985752376:17",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099016390306,
+              "end_ns": 2621099133172732,
+              "duration_ns": 116782426,
+              "pre_sync_ns": 81201,
+              "post_sync_ns": 24179762,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.image_cache_lookup_or_encode",
+              "span_id": "2048707:2621098985752376:17",
+              "parent_span_id": "2048707:2621098985632715:16",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621098985778036,
+              "end_ns": 2621099138000106,
+              "duration_ns": 152222070,
+              "pre_sync_ns": 480161,
+              "post_sync_ns": 72890,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor._forward_grounding",
+              "span_id": "2048707:2621099176346229:21",
+              "parent_span_id": "2048707:2621099138360977:20",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099176392339,
+              "end_ns": 2621099364102905,
+              "duration_ns": 187710566,
+              "pre_sync_ns": 64250,
+              "post_sync_ns": 73824959,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor.set_text_prompt",
+              "span_id": "2048707:2621099138360977:20",
+              "parent_span_id": "2048707:2621099138129136:19",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099138387987,
+              "end_ns": 2621099364251675,
+              "duration_ns": 225863688,
+              "pre_sync_ns": 45300,
+              "post_sync_ns": 57800,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.mask_png",
+              "span_id": "2048707:2621099494032209:23",
+              "parent_span_id": "2048707:2621099365054987:22",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099494116419,
+              "end_ns": 2621099512879925,
+              "duration_ns": 18763506,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.select_transfer_encode",
+              "span_id": "2048707:2621099365054987:22",
+              "parent_span_id": "2048707:2621099138129136:19",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099365139458,
+              "end_ns": 2621099520172886,
+              "duration_ns": 155033428,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.text_predict",
+              "span_id": "2048707:2621099138129136:19",
+              "parent_span_id": "2048707:2621098985632715:16",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621099138172066,
+              "end_ns": 2621099520456127,
+              "duration_ns": 382284061,
+              "pre_sync_ns": 58000,
+              "post_sync_ns": 156790,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.locked_request",
+              "span_id": "2048707:2621098985632715:16",
+              "parent_span_id": "2048707:2621098981711334:15",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621098985672025,
+              "end_ns": 2621099520521907,
+              "duration_ns": 534849882,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.handler",
+              "span_id": "2048707:2621098981711334:15",
+              "parent_span_id": "2048707:2621098978088253:14",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621098981747014,
+              "end_ns": 2621099520618078,
+              "duration_ns": 538871064,
+              "status": "ok",
+              "sync_requested": false
+            }
+          ],
+          "mcp_result_association": "unique_text_sha256",
+          "mcp": {
+            "line": 360,
+            "text_sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+            "argument_types": {
+              "camera": "str",
+              "prompt": "str"
+            },
+            "response_fields": [
+              {
+                "found": {
+                  "type": "bool",
+                  "length": null,
+                  "value": true
+                },
+                "score": {
+                  "type": "float",
+                  "length": null,
+                  "value": 0.922
+                },
+                "box": {
+                  "type": "list",
+                  "length": 4,
+                  "value": null
+                }
+              }
+            ]
+          },
+          "all_selected_spans_status_ok": true,
+          "threshold": {
+            "line": 360,
+            "min_score_explicit": false,
+            "min_score": null,
+            "text_sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+            "effective_min_score": 0.2,
+            "evidence": "E1 source default applied to E2 omitted argument",
+            "score_reported_after_rounding_decimals": 3,
+            "threshold_comparison_before_rounding": true
+          }
+        }
+      ],
+      "unassigned_clients": 0,
+      "unassigned_shared_handlers_excluded": 9,
+      "source_sha256": {
+        "stream": "1329d7421c5da94f9c7bdf7ef7a4bdcec09984f48bf6fa3f08abf85089520fe3",
+        "client_files": {
+          "spans-2050434.jsonl": "0d250b519474d4114e65a9c049c368c0a67165a46c865d0651af92c740d583ee",
+          "spans-2051728.jsonl": "76c87845911d9cd5cdf1da5cc11968a15496ada0a717e0565a4376f2cf1dda6f",
+          "spans-2051928.jsonl": "394f68eb33db20e1d2402fb75778bd5f3d4084ed6bb42803db231df00d9b5fff",
+          "spans-2052437.jsonl": "a786a9ab16effacfc7d479a3d27b8c8fb6512f6aaeee9d7c2c226fac665eda05",
+          "starts-2050434.jsonl": "fe5cd2594381eac4fc5b0434a52d8cbde4afaacfe1338dff9064f865cb3f419c",
+          "starts-2051728.jsonl": "4aaa2e4a166bb6749ce8d5c6662bc215393b94126a0e2c2e34e6f6ed43564f30",
+          "starts-2051928.jsonl": "f4c636f384755928fb18451969f40bd33037f91229a4efcb33f365de266669fc",
+          "starts-2052437.jsonl": "c9753537018276a1a6c468591991980e78f091b81c65e5a6636d6d825a3ec84f"
+        },
+        "shared_files": {
+          "spans-172766.jsonl": "337cf36c3b3193f4bd84993ec39566d782fcecd023c45d85c8c8fc91fd6b1a0e",
+          "spans-178356.jsonl": "6431fb0790bc3cc5f6ca24377a6bddb4fed4caba9911c52b1cc2c50a2fe29d02",
+          "spans-2048707.jsonl": "8979a7ec4108f193228fb10b2160436c3b082226502c5466a5fdbd22e0d9af17",
+          "starts-172766.jsonl": "8d732c9c96eaf33bee868cd66a3bc6abe97bb8fc8dd08dbd1fb3107e93d9b590",
+          "starts-178356.jsonl": "9a04fd3b9803783214b2d0aa70d0d0e5d70f8bdb570ed01299211cb5db9f7bdd",
+          "starts-2048707.jsonl": "2a15fb04574ac40a03d021fdc58f50f8aaaee8b862de3b8d9295455cd12d8e5f"
+        }
+      }
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t9_s1",
+      "attempt": "attempt-002",
+      "formal_calls": [
+        {
+          "matching": {
+            "client_span_id": "2051589:2621112240056098:290",
+            "server_span_id": "2048707:2621112251818913:25"
+          },
+          "mode": "text",
+          "client_wall_s": 0.543161406,
+          "handler_wall_s": 0.517879502,
+          "io": {
+            "sam.client.total": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_bytes": 426626,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "0b3e47910e3aa00df879be4a31c61647d4bf3404b4c2c69567042ea0d86436ff",
+                    "request_fingerprint": "ff110f77461e6de79e5a1c4554cc05c3c5d6a8269be8c4a1bcc9e0d5d8d8e9b1",
+                    "text_prompt": {
+                      "chars": 20,
+                      "sha256": "7ec5f7986eb3d829aa0201cee1b87f41f3530b80ba62eef1b4d2c290716f6913",
+                      "utf8_bytes": 20
+                    }
+                  }
+                }
+              }
+            ],
+            "sam.handler": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_base64_chars": 568836,
+                    "image_bytes": 426626,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "0b3e47910e3aa00df879be4a31c61647d4bf3404b4c2c69567042ea0d86436ff",
+                    "request_fingerprint": "ff110f77461e6de79e5a1c4554cc05c3c5d6a8269be8c4a1bcc9e0d5d8d8e9b1",
+                    "text_prompt": {
+                      "chars": 20,
+                      "sha256": "7ec5f7986eb3d829aa0201cee1b87f41f3530b80ba62eef1b4d2c290716f6913",
+                      "utf8_bytes": 20
+                    }
+                  },
+                  "output_meta": {
+                    "found": true,
+                    "keys": [
+                      "box",
+                      "found",
+                      "mask_png_base64",
+                      "redacted",
+                      "score"
+                    ],
+                    "mask_shape": [
+                      1024,
+                      1024
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "span_chain": [
+            {
+              "name": "rpc.http.client_rtt",
+              "span_id": "2051589:2621112242583126:291",
+              "parent_span_id": "2051589:2621112240056098:290",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112242627916,
+              "end_ns": 2621112770567267,
+              "duration_ns": 527939351,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.decode",
+              "span_id": "2051589:2621112770645078:292",
+              "parent_span_id": "2051589:2621112240056098:290",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112770682628,
+              "end_ns": 2621112783148575,
+              "duration_ns": 12465947,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.total",
+              "span_id": "2051589:2621112240056098:290",
+              "parent_span_id": null,
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112240114129,
+              "end_ns": 2621112783275535,
+              "duration_ns": 543161406,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.processor.set_image",
+              "span_id": "2048707:2621112284221499:28",
+              "parent_span_id": "2048707:2621112255314963:27",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112284259999,
+              "end_ns": 2621112397202383,
+              "duration_ns": 112942384,
+              "pre_sync_ns": 83381,
+              "post_sync_ns": 23422799,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.image_cache_lookup_or_encode",
+              "span_id": "2048707:2621112255314963:27",
+              "parent_span_id": "2048707:2621112255206583:26",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112255336594,
+              "end_ns": 2621112401711286,
+              "duration_ns": 146374692,
+              "pre_sync_ns": 191460,
+              "post_sync_ns": 69750,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor._forward_grounding",
+              "span_id": "2048707:2621112438779156:31",
+              "parent_span_id": "2048707:2621112402017997:30",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112438823226,
+              "end_ns": 2621112621967678,
+              "duration_ns": 183144452,
+              "pre_sync_ns": 62971,
+              "post_sync_ns": 73814698,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor.set_text_prompt",
+              "span_id": "2048707:2621112402017997:30",
+              "parent_span_id": "2048707:2621112401796787:29",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112402045477,
+              "end_ns": 2621112622112948,
+              "duration_ns": 220067471,
+              "pre_sync_ns": 44610,
+              "post_sync_ns": 55340,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.mask_png",
+              "span_id": "2048707:2621112750994050:33",
+              "parent_span_id": "2048707:2621112622764270:32",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112751076070,
+              "end_ns": 2621112762110102,
+              "duration_ns": 11034032,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.select_transfer_encode",
+              "span_id": "2048707:2621112622764270:32",
+              "parent_span_id": "2048707:2621112401796787:29",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112622825200,
+              "end_ns": 2621112769299454,
+              "duration_ns": 146474254,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.text_predict",
+              "span_id": "2048707:2621112401796787:29",
+              "parent_span_id": "2048707:2621112255206583:26",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112401839127,
+              "end_ns": 2621112769580285,
+              "duration_ns": 367741158,
+              "pre_sync_ns": 51570,
+              "post_sync_ns": 166001,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.locked_request",
+              "span_id": "2048707:2621112255206583:26",
+              "parent_span_id": "2048707:2621112251818913:25",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112255241563,
+              "end_ns": 2621112769645325,
+              "duration_ns": 514403762,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.handler",
+              "span_id": "2048707:2621112251818913:25",
+              "parent_span_id": "2048707:2621112248925825:24",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621112251848053,
+              "end_ns": 2621112769727555,
+              "duration_ns": 517879502,
+              "status": "ok",
+              "sync_requested": false
+            }
+          ],
+          "mcp_result_association": "unique_text_sha256",
+          "mcp": {
+            "line": 399,
+            "text_sha256": "7ec5f7986eb3d829aa0201cee1b87f41f3530b80ba62eef1b4d2c290716f6913",
+            "argument_types": {
+              "prompt": "str",
+              "camera": "str",
+              "step": "int",
+              "min_score": "float"
+            },
+            "response_fields": [
+              {
+                "found": {
+                  "type": "bool",
+                  "length": null,
+                  "value": true
+                },
+                "score": {
+                  "type": "float",
+                  "length": null,
+                  "value": 0.055
+                },
+                "box": {
+                  "type": "list",
+                  "length": 4,
+                  "value": null
+                }
+              }
+            ]
+          },
+          "all_selected_spans_status_ok": true,
+          "threshold": {
+            "line": 399,
+            "min_score_explicit": true,
+            "min_score": 0.05,
+            "text_sha256": "7ec5f7986eb3d829aa0201cee1b87f41f3530b80ba62eef1b4d2c290716f6913",
+            "effective_min_score": 0.05,
+            "evidence": "E2 explicit MCP tool argument",
+            "score_reported_after_rounding_decimals": 3,
+            "threshold_comparison_before_rounding": true
+          }
+        },
+        {
+          "matching": {
+            "client_span_id": "2051589:2621113569977332:295",
+            "server_span_id": "2048707:2621113578641588:35"
+          },
+          "mode": "text",
+          "client_wall_s": 0.916819532,
+          "handler_wall_s": 0.907017502,
+          "io": {
+            "sam.client.total": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_bytes": 426626,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "0b3e47910e3aa00df879be4a31c61647d4bf3404b4c2c69567042ea0d86436ff",
+                    "request_fingerprint": "12f823c6fd5d9070e7d8ab15c3d7ebb58d7d47a4c3d56681227d093951fb92d1",
+                    "text_prompt": {
+                      "chars": 27,
+                      "sha256": "ae5af7fb5331a7cd00b99e7650d65ae64786ce03f07ea5bdbe4890372706de49",
+                      "utf8_bytes": 27
+                    }
+                  }
+                }
+              }
+            ],
+            "sam.handler": [
+              {
+                "count": 1,
+                "metadata": {
+                  "input_meta": {
+                    "image_base64_chars": 568836,
+                    "image_bytes": 426626,
+                    "image_hw": [
+                      1024,
+                      1024
+                    ],
+                    "image_sha256": "0b3e47910e3aa00df879be4a31c61647d4bf3404b4c2c69567042ea0d86436ff",
+                    "request_fingerprint": "12f823c6fd5d9070e7d8ab15c3d7ebb58d7d47a4c3d56681227d093951fb92d1",
+                    "text_prompt": {
+                      "chars": 27,
+                      "sha256": "ae5af7fb5331a7cd00b99e7650d65ae64786ce03f07ea5bdbe4890372706de49",
+                      "utf8_bytes": 27
+                    }
+                  },
+                  "output_meta": {
+                    "found": false,
+                    "keys": [
+                      "box",
+                      "found",
+                      "reason",
+                      "score"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "span_chain": [
+            {
+              "name": "rpc.http.client_rtt",
+              "span_id": "2051589:2621113571969278:296",
+              "parent_span_id": "2051589:2621113569977332:295",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113572029278,
+              "end_ns": 2621114486504493,
+              "duration_ns": 914475215,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.decode",
+              "span_id": "2051589:2621114486587943:297",
+              "parent_span_id": "2051589:2621113569977332:295",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621114486631883,
+              "end_ns": 2621114486742813,
+              "duration_ns": 110930,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.client.total",
+              "span_id": "2051589:2621113569977332:295",
+              "parent_span_id": null,
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113570020852,
+              "end_ns": 2621114486840384,
+              "duration_ns": 916819532,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.image_cache_lookup_or_encode",
+              "span_id": "2048707:2621113583045121:37",
+              "parent_span_id": "2048707:2621113582944100:36",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113583066051,
+              "end_ns": 2621113583816993,
+              "duration_ns": 750942,
+              "pre_sync_ns": 217160,
+              "post_sync_ns": 57360,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor._forward_grounding",
+              "span_id": "2048707:2621113621147113:40",
+              "parent_span_id": "2048707:2621113584122414:39",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113621202173,
+              "end_ns": 2621114345153405,
+              "duration_ns": 723951232,
+              "pre_sync_ns": 95980,
+              "post_sync_ns": 73895529,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.processor.set_text_prompt",
+              "span_id": "2048707:2621113584122414:39",
+              "parent_span_id": "2048707:2621113583895063:38",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113584146334,
+              "end_ns": 2621114345466486,
+              "duration_ns": 761320152,
+              "pre_sync_ns": 47040,
+              "post_sync_ns": 124311,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.select_transfer_encode",
+              "span_id": "2048707:2621114346198218:41",
+              "parent_span_id": "2048707:2621113583895063:38",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621114346248848,
+              "end_ns": 2621114485127069,
+              "duration_ns": 138878221,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.text_predict",
+              "span_id": "2048707:2621113583895063:38",
+              "parent_span_id": "2048707:2621113582944100:36",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113583921873,
+              "end_ns": 2621114485498120,
+              "duration_ns": 901576247,
+              "pre_sync_ns": 44010,
+              "post_sync_ns": 151801,
+              "status": "ok",
+              "sync_requested": true
+            },
+            {
+              "name": "sam.locked_request",
+              "span_id": "2048707:2621113582944100:36",
+              "parent_span_id": "2048707:2621113578641588:35",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113582977780,
+              "end_ns": 2621114485574300,
+              "duration_ns": 902596520,
+              "status": "ok",
+              "sync_requested": false
+            },
+            {
+              "name": "sam.handler",
+              "span_id": "2048707:2621113578641588:35",
+              "parent_span_id": "2048707:2621113578403057:34",
+              "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+              "start_ns": 2621113578667348,
+              "end_ns": 2621114485684850,
+              "duration_ns": 907017502,
+              "status": "ok",
+              "sync_requested": false
+            }
+          ],
+          "mcp_result_association": "unique_text_sha256",
+          "mcp": {
+            "line": 401,
+            "text_sha256": "ae5af7fb5331a7cd00b99e7650d65ae64786ce03f07ea5bdbe4890372706de49",
+            "argument_types": {
+              "prompt": "str",
+              "camera": "str",
+              "step": "int",
+              "min_score": "float"
+            },
+            "response_fields": [
+              {
+                "found": {
+                  "type": "bool",
+                  "length": null,
+                  "value": false
+                },
+                "score": {
+                  "type": "float",
+                  "length": null,
+                  "value": 0.04
+                },
+                "box": {
+                  "type": "list",
+                  "length": 4,
+                  "value": null
+                }
+              }
+            ]
+          },
+          "all_selected_spans_status_ok": true,
+          "threshold": {
+            "line": 401,
+            "min_score_explicit": true,
+            "min_score": 0.05,
+            "text_sha256": "ae5af7fb5331a7cd00b99e7650d65ae64786ce03f07ea5bdbe4890372706de49",
+            "effective_min_score": 0.05,
+            "evidence": "E2 explicit MCP tool argument",
+            "score_reported_after_rounding_decimals": 3,
+            "threshold_comparison_before_rounding": true
+          }
+        }
+      ],
+      "unassigned_clients": 0,
+      "unassigned_shared_handlers_excluded": 8,
+      "source_sha256": {
+        "stream": "679e9f24df00504d5a1c35c166df7283afb4ffe5e0cfcafdcee740b68dd06e7d",
+        "client_files": {
+          "spans-2050504.jsonl": "39abf658fd17706b9b0b865f7aa45e60478cecf14a0245fee3ca165bd83c237e",
+          "spans-2051589.jsonl": "41ce843b06eb9515138c56cd5cdf26bda77256af6c7754ff30a361c62d8012d3",
+          "spans-2051864.jsonl": "a0f5c77c45ceef9418b70daafab11f52937ab0f38f45a93e14b457ca4ebe112a",
+          "spans-2052262.jsonl": "9aa0c0fe54932cea3f1479807592c117fd8f0ad075ab550beb4664467e19e502",
+          "starts-2050504.jsonl": "1572cfb7aad2838d8115689b71b96ead25a95a1acc182ba25e31488d825f5529",
+          "starts-2051589.jsonl": "1be9dd8f931b6dc3e8e20fc4d3879d8f6a3c711c0cb2686c7b3ee4c29a60d342",
+          "starts-2051864.jsonl": "784b35707507121561060f8afc941563fde8974b113aaf6d3a2ee7d0f3b2ca11",
+          "starts-2052262.jsonl": "087b31aac9995919212ae412684c2ac2710e60aeb39c8c6c9c382c303584ada1"
+        },
+        "shared_files": {
+          "spans-172766.jsonl": "337cf36c3b3193f4bd84993ec39566d782fcecd023c45d85c8c8fc91fd6b1a0e",
+          "spans-178356.jsonl": "6431fb0790bc3cc5f6ca24377a6bddb4fed4caba9911c52b1cc2c50a2fe29d02",
+          "spans-2048707.jsonl": "8979a7ec4108f193228fb10b2160436c3b082226502c5466a5fdbd22e0d9af17",
+          "starts-172766.jsonl": "8d732c9c96eaf33bee868cd66a3bc6abe97bb8fc8dd08dbd1fb3107e93d9b590",
+          "starts-178356.jsonl": "9a04fd3b9803783214b2d0aa70d0d0e5d70f8bdb570ed01299211cb5db9f7bdd",
+          "starts-2048707.jsonl": "2a15fb04574ac40a03d021fdc58f50f8aaaee8b862de3b8d9295455cd12d8e5f"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "Formal calls require exact fingerprint plus same clock domain full containment and unique one-to-one association.",
+    "Shared service health probes/init and any unassigned handlers excluded.",
+    "MCP score is tool-return rounded value, not unrounded SAM tensor score.",
+    "No prompt, image/base64, mask pixels or box coordinates exported.",
+    "Nested/client/server spans overlap and must not be added together.",
+    "Task verdict and measurement admission are independent of this IO audit."
+  ],
+  "q3_guidance": {
+    "formal_observations": [
+      "Three text SAM requests completed successfully at service level: one Astra and two Sol.",
+      "Two found=true results have recorded mask_shape [1024,1024]; successful mask shape can now be cited as formal measurement.",
+      "One found=false response is normal no-detection, distinct from excluded attempt001 OOM.",
+      "Image bytes/base64 lengths/text lengths and hashes are formal measurements; no point-mode formal call observed."
+    ],
+    "timing_comparison_limit": "These attempt002 requests use SAM resource epoch002 after a health probe; do not infer a pure speedup versus epoch001 cold/formal call from these three latencies.",
+    "metadata_boundary": "Generic sanitizer masks mask_shape string inside keys array, while the separately captured mask_shape numeric field remains intact. Raw mask bytes/dtype/score tensor precision are not captured by this metadata; MCP score is rounded tool output."
+  },
+  "threshold_audit_source": [
+    {
+      "path": "robots/libero/tools.py",
+      "sha256": "80341921c9a12a8e03c2ca213c46ab7b3de3551fe111b60a9a328760b3681336",
+      "lines": [
+        {
+          "line": 692,
+          "text": "min_score: float = 0.2,"
+        },
+        {
+          "line": 738,
+          "text": "min_score=min_score,"
+        },
+        {
+          "line": 793,
+          "text": "\"min_score\": min_score,"
+        },
+        {
+          "line": 1571,
+          "text": "\"min_score\": {"
+        }
+      ]
+    },
+    {
+      "path": "rpent/robots/components/sam3_server.py",
+      "sha256": "606d744b49cf79f2453ccb35a19c9e0b38f20216b3b40d448249891cc38aafaf",
+      "lines": [
+        {
+          "line": 177,
+          "text": "min_score: float,"
+        },
+        {
+          "line": 185,
+          "text": "return self._segment_text(state, text_prompt, min_score)"
+        },
+        {
+          "line": 193,
+          "text": "return self._segment_point(state, row, col, min_score)"
+        },
+        {
+          "line": 219,
+          "text": "min_score: float,"
+        },
+        {
+          "line": 227,
+          "text": "min_score=min_score,"
+        },
+        {
+          "line": 235,
+          "text": "min_score: float,"
+        },
+        {
+          "line": 252,
+          "text": "min_score=min_score,"
+        },
+        {
+          "line": 261,
+          "text": "min_score: float,"
+        },
+        {
+          "line": 298,
+          "text": "if score < min_score:"
+        },
+        {
+          "line": 303,
+          "text": "reason=f\"top score {score:.3f} is below min_score {min_score:.3f}\","
+        },
+        {
+          "line": 328,
+          "text": "min_score: float = 0.2,"
+        },
+        {
+          "line": 339,
+          "text": "min_score = float(min_score)"
+        },
+        {
+          "line": 341,
+          "text": "raise ValueError(f\"min_score must be a number, got {min_score!r}\") from exc"
+        },
+        {
+          "line": 342,
+          "text": "if not 0.0 <= min_score <= 1.0:"
+        },
+        {
+          "line": 343,
+          "text": "raise ValueError(\"min_score must be between 0 and 1\")"
+        },
+        {
+          "line": 354,
+          "text": "min_score=min_score,"
+        }
+      ]
+    },
+    {
+      "path": "rpent/robots/components/sam3_client.py",
+      "sha256": "f8091dd9b3057567d936f98143e31c97c8556c6c40de8efad43683a225b97610",
+      "lines": [
+        {
+          "line": 79,
+          "text": "\"min_score\": float(min_score),"
+        }
+      ]
+    }
+  ],
+  "threshold_chain": {
+    "tool_default": "tools.py:692 min_score=0.2; explicit argument overrides default and passed at line738.",
+    "client": "sam3_client.py:79 sends float(min_score) in RPC request.",
+    "server": "sam3_server.py:298 compares raw selected score < min_score before mask validation; below threshold returns found=false.",
+    "presentation": "tools.py:794 round(float(data.score),3), so reported score is rounded after threshold decision.",
+    "observed": "Sol both formal calls explicitly supplied min_score=0.05. Reported0.055 foundtrue and0.040 foundfalse are consistent. Astra omitted min_score, using source default0.2.",
+    "boundary": "Explicit min_score is chosen in model tool call, not a human intervention or harness change. Unrounded tensor score is not captured here."
+  },
+  "previous_snapshot_sha256": "eeed4b7c1f44f99799df34720e9d56f16ec8864a02810a70f8c73a6c00d7fb57"
+}

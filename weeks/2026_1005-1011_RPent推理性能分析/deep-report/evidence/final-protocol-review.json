@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-08T17:28:40.375961+00:00",
+  "evidence_level": "E2 with E1 validator source gates",
+  "verdict": "pass",
+  "blocking_issues": [],
+  "remote_read_only_verification": {
+    "state_status": "complete",
+    "state_sha256": "edb8a7cc40666f4155e44e7ff0d45bec454851640e210f66af282d402f407c51",
+    "pending_episodes": 0,
+    "task_counts": {
+      "success": 3,
+      "task_failure": 5
+    },
+    "all_measurement_admitted": true,
+    "frozen_assets_and_memory_verified": true,
+    "instrumentation_verified": true,
+    "instrumentation_manifest_sha256": "8b012f46518d95bd3013c2e5fe666af122fb23a2c4c0cc3d62670cf729f6847e",
+    "receipt_count": 2,
+    "receipts": [
+      {
+        "episode_key": "gpt-6-astra/libero_10_swap/t9_s1",
+        "receipt_sha256": "ac1ca27fb2fb09d8cabc38c77b1e9fec75939bc844f2d42b88734f5a9fac3207",
+        "history_original_state_and_trees_verified": true
+      },
+      {
+        "episode_key": "gpt-6-sol/libero_10_swap/t9_s1",
+        "receipt_sha256": "19306cf1e60024558fae6f421532ec8dc0fd26441c725b95eac6f8429ef3d0d3",
+        "history_original_state_and_trees_verified": true
+      }
+    ]
+  },
+  "formal_selection": {
+    "episodes": 8,
+    "attempt_001": 6,
+    "attempt_002": 2,
+    "success": 3,
+    "task_failure": 5,
+    "excluded_oom_attempts": 2,
+    "selection_rule": "Only current admitted attempt per identity; earlier six retained, original t9 seed1 OOM attempts excluded and preserved."
+  },
+  "checks": {
+    "integration_issues": 0,
+    "decoded_videos": 8,
+    "actual_model_matches": 8,
+    "observed_medium_effort": 8,
+    "no_personal_skills_observed_in_developer_blocks": 8,
+    "official_usage_four_field_reconciliations": 32,
+    "frozen_asset_files_verified": 60,
+    "frozen_memory_files_verified": 347,
+    "consumed_retry_receipts_verified": 2,
+    "original_attempt_state_and_evidence_trees_verified": true,
+    "all_selected_measurements_admitted": true,
+    "cloud_prefill_and_hidden_thinking_remain_null": true
+  },
+  "cost_accounting": {
+    "actual_attempt_load_count": 10,
+    "all_attempt_load_work_s": 1648.971401772,
+    "selected_eight_load_work_s": 1322.7619682939999,
+    "excluded_two_load_work_s": 326.209433478,
+    "excluded_two_episode_elapsed_s": 3205.2,
+    "load_partition_reconciles": true,
+    "no_duplicate_charge": "Excluded loads are a partition already included in all-attempt load work, not an extra addition. Episode elapsed excludes model initialization. Concurrent work sums are not batch elapsed."
+  },
+  "limits": [
+    "Skills conclusion is observed developer-block content, not a claim that internal skills flags are false.",
+    "SAM resource epoch changed physical device 6 to same-model device 3 for the reviewed retries; do not interpret the cross-epoch difference as isolated model speed.",
+    "Official goal conjunction is recorded; individual goal conjuncts were not independently replayed.",
+    "No inference, replay or runtime/state modification performed by this final review.",
+    "Cloud prefill and hidden-thinking seconds remain unobserved; TTFT and reasoning tokens cannot substitute."
+  ],
+  "source_sha256": {
+    "cloud-contract-eight-final-002.json": "6c8763b679113affc3d042a84ce98b391a5fa98ff1547768f445f2af51d8cd69",
+    "batch-summary-eight-final-001.json": "a08115f508490becb8dafd4af59ea4f28d1f63965850e458f4cc551ca6c898dd",
+    "final-artifacts-eight-final-001.json": "510ae3f01d4d5d4b2abbc36d5720ea50922ece5e28110dba5d4a25a247b774a5",
+    "excluded-attempt-cost-ledger.json": "f94476541c24378fd9e3261b398c0870c9f0b7140ab8cf19b5889802f2a88d71",
+    "map-eight-final-001.json": "c7c92d29e886568232cdb40d4353799cbd5266533ef0c196bfaa92d49ebf0cce",
+    "extract-eight-final-001.json": "cae8dbc7fde32b28ea137519c89f709b8ce16298d248eadf371439612277ee5b"
+  },
+  "report_data_sha256": "1c85b8822cd96360a351806c6e610a8109ff1de4a3c78bb55f589c9937524de9",
+  "final_artifact_addendum": {
+    "recorded_at_utc": "2026-10-08T17:31:34.951455+00:00",
+    "original_review_report_data_sha256": "1c85b8822cd96360a351806c6e610a8109ff1de4a3c78bb55f589c9937524de9",
+    "final_report_data_sha256": "ae4b586b8c6a7dd2b13dcb319c83d7757e51b48232e2e8e63b9ca3ba2fb237e9",
+    "final_html_sha256": "e0c5eca0b0cd4c8b26e79728deadede9c32df0b8dbe330580f226563c98b83fc",
+    "change_scope": "After the protocol review: three narrative statements scoped explicitly to seed0; HTML adds model filtering. No protocol, numerical results or source evidence changes reported. UI QA PASS reported by main reviewer.",
+    "verification_boundary": "Original protocol audit and original report-data hash retained. No repeated remote full audit; local complete/8 admitted/zero integration issues rechecked."
+  }
+}

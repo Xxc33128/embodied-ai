@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "scope": "independent review of t0 seed0 first-pair conditional 10-node / 11-sampling argument; no new replay",
+  "reviewed_artifacts": [
+    {
+      "file": "t0-first-pair-trajectory.json",
+      "sha256": "e98213c5dc17d9a95fca2132ab0573810efa514f07ccab98bf651d2c7d66db39",
+      "pointer": "/ideal_scenario"
+    },
+    {
+      "file": "final-artifacts-audit-001.json",
+      "sha256": "a7e7149090208310262abf2df2c9b3e788f12a3d77b55fccd536b9d55ab37f58",
+      "pointer": "/scenes/0"
+    }
+  ],
+  "overall_verdict": "10-node skeleton is an unvalidated conditional candidate, neither a demonstrated feasible upper bound nor a proven optimal lower bound. 11 logical samples is conditional accounting, not a minimum.",
+  "findings": [
+    {
+      "id": "unvalidated_feasibility",
+      "level": "E3",
+      "severity": "must_qualify",
+      "claim": "Removing detours changes later states, contact, grasp and random-number consumption. Concatenating apparently useful action nodes does not establish successful execution.",
+      "recommended_wording": "10动作候选骨架，待保持同协议独立重放；不能承诺成功或耗时。"
+    },
+    {
+      "id": "goal_does_not_require_release",
+      "level": "E1",
+      "severity": "must_qualify",
+      "source": "final-artifacts-audit-001.json#/scenes/0 and /source_evidence",
+      "claim": "t0 goal is conjunction of two In(region) predicates. Audited site check_contact always returns true; contain checks body position in region. No separate gripper-release or stability predicate is present.",
+      "implication": "release/settling can be useful for physically robust placement or freeing the hand, but cannot be counted as universally necessary solely from the official goal. This undermines a 5-nodes-per-object optimality proof; it does not by itself prove a shorter sequence feasible.",
+      "measurement_limit": "Only official conjunction terminated was recorded; per-subpredicate runtime booleans were not recorded."
+    },
+    {
+      "id": "initial_information",
+      "level": "E3",
+      "severity": "must_qualify",
+      "claim": "Initial object identity, geometry, grasp entry and reachable placement coordinates must be obtained within the allowed information budget. If the candidate assumes coordinates from hindsight, label it oracle-assisted rather than a fair planner baseline.",
+      "required_accounting": [
+        "initial observation if not already supplied",
+        "allowed recipe/skill retrieval if needed or protocol-mandated",
+        "tool discovery/schema acquisition if not initially present",
+        "object localization and collision-safe waypoints"
+      ]
+    },
+    {
+      "id": "primitive_success",
+      "level": "E1+E3",
+      "severity": "must_qualify",
+      "source": "t0-first-pair-trajectory.json#/source_evidence",
+      "claim": "pi0_pick local false is not official failure; modifying its thresholds or max_chunks changes the action policy/budget. A same-protocol baseline must preserve allowed parameters or explicitly pre-register changes.",
+      "conditions": [
+        "one-shot acquisition succeeds",
+        "single transfer waypoint is collision-free",
+        "placement point is reachable",
+        "no recovery motion or repeated contact attempts required"
+      ]
+    },
+    {
+      "id": "observations_and_verification",
+      "level": "E3",
+      "severity": "must_qualify",
+      "claim": "An image returned with an action need not require a separate observation tool, but interpreting it before the next action still requires an adaptive decision boundary. Explicit observe/query calls and final official-success inspection must be accounted for unless folded into existing returns.",
+      "finish_boundary": "finish is agent bookkeeping; it does not replace the official simulator predicate."
+    },
+    {
+      "id": "terminal_sampling",
+      "level": "E1+E2",
+      "severity": "must_qualify",
+      "sources": [
+        {
+          "file": "rpent_planner_codex.py",
+          "lines": [
+            326,
+            339
+          ],
+          "claim": "SDK event stream is drained; this loop does not break immediately on a finish tool result."
+        },
+        {
+          "file": "cloud-first-pair-contract.json",
+          "pointer": "/episodes",
+          "claim": "First-pair exact-thread rollouts end with tool-call usage, tool output, final assistant message and a further token_usage_record; inspected as metadata only."
+        }
+      ],
+      "claim": "If each of 10 primitives occupies its own logical sample and finish is a distinct tool-emitting sample, a separately generated final assistant response adds another sample: 10+1+1=12 before setup/query/recovery overhead.",
+      "qualification": "11 is possible only if finish denotes the terminal response itself, terminal response is merged, or the runtime stops after finish without a new sample. These are distinct conventions and must be stated."
+    },
+    {
+      "id": "batching",
+      "level": "E3",
+      "severity": "must_qualify",
+      "claim": "Multiple already-known sequential actions may be emitted in one model response or executed by a batched orchestrator if the allowed interface supports it. Then 10 physical action nodes do not imply 10 model samples, and fewer than 11 logical samples is possible in principle.",
+      "conditions": [
+        "tool interface supports ordered multi-action execution",
+        "no intermediate result is required to choose later parameters",
+        "robot actions are not executed unsafely in parallel",
+        "same action/tool/budget constraints are preserved"
+      ],
+      "qualification": "No batching feasibility or shorter successful rollout is established here."
+    },
+    {
+      "id": "retry_counters",
+      "level": "E2",
+      "severity": "must_correct_formula",
+      "source": "cloud-first-pair-contract.json#/episodes",
+      "claim": "Transport retries are not automatically new logical decisions. First-pair Sol has 47 logical sampling calls, 53 attempts and 47 usage-bearing completions.",
+      "recommended_wording": "Separate logical recovery decisions from transport retry attempts; do not add both to a single N_cloud counter."
+    }
+  ],
+  "candidate_assumptions": {
+    "knowledge": "Coordinates, tool signatures and relevant permitted memory are available or their discovery/observation costs are counted.",
+    "physics": "Both objects can be handled in proposed order without obstructing each other; one grasp and direct transfer per object suffice.",
+    "control": "Every compound primitive stays within the original allowed parameters and succeeds without retry.",
+    "verification": "Official conjunction is observed, not assumed from visual placement or local skill flags.",
+    "protocol": "No ground-truth object-pose oracle, altered success criterion, changed budget, hidden replay knowledge or unregistered batching privilege is introduced."
+  },
+  "recommended_counting": {
+    "unit_definitions": {
+      "action_node": "one robot primitive invocation; may contain many VLA chunks and control steps",
+      "vla_chunk": "one VLA prediction plus its action chunk execution",
+      "logical_sample": "one run_sampling_request decision with possible transport retries",
+      "attempt": "one try_run_sampling_request transport attempt",
+      "completion": "one distinct response_id usage-bearing completion",
+      "tool_discovery": "tool/schema retrieval, not itself a robot action"
+    },
+    "serial_convention_formula": "N_logical = A + D_extra + O_extra + M_extra + V_extra + F_tool + F_terminal + R_decision, only when these categories occupy disjoint single-call response stages.",
+    "symbols": {
+      "A": 10,
+      "D_extra": "extra tool discovery/schema stages",
+      "O_extra": "extra observation/localization stages",
+      "M_extra": "extra allowed memory/skill query stages",
+      "V_extra": "extra official success verification stages",
+      "F_tool": "distinct finish tool-emitting stage, 0 or 1",
+      "F_terminal": "additional final assistant response stage, 0 or 1",
+      "R_decision": "additional planning/recovery stages; excludes transport retry attempts"
+    },
+    "batched_case": "Build a dependency DAG and count actual response stages between required tool-result dependencies; do not use robot action count as sample count.",
+    "attempt_count": "N_attempts = observed logical calls plus additional attempts only when retries are attributable to those calls; warmup counted separately.",
+    "claimed_optimal_action_lower_bound": null,
+    "claimed_optimal_logical_sample_lower_bound": null,
+    "validated_candidate_action_upper_bound": null,
+    "validated_candidate_wall_clock_upper_bound_s": null
+  },
+  "observed_feasible_references": [
+    {
+      "model": "gpt-6-astra",
+      "level": "E2",
+      "primitive_count": 22,
+      "official_success_first_step": 22,
+      "qualification": "Observed full rollout, including intervening perception/planning/tool activity; not evidence that a shortened skeleton succeeds."
+    },
+    {
+      "model": "gpt-6-sol",
+      "level": "E2",
+      "primitive_count": 21,
+      "official_success_first_step": 21,
+      "qualification": "Observed full rollout, including intervening perception/planning/tool activity; not evidence that a shortened skeleton succeeds."
+    }
+  ],
+  "no_seconds_claim": {
+    "wall_clock_baseline_s": null,
+    "reason": "No counterfactual candidate was replayed. Measured segments cannot simply be deleted; downstream states, action duration, cloud context and latency change.",
+    "future_validation": "If separately authorized, pre-register permitted information/control/batching, replay matched initial states and seeds, record official success and full elapsed boundaries, then report measured feasible candidate performance rather than claim global optimality."
+  }
+}
