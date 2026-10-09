@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "quantitative final conclusion and conditional sensitivity analysis",
+  "independent_review": "evidence_review independently recomputed both recovery windows and all coefficients; no blocking findings",
+  "measurement_data_changed": false,
+  "checks": [
+    "5 visible definitions; no overflow at 1280/390/320",
+    "timeline interactions and JS checks passed",
+    "all episode measurement data unchanged",
+    "conditional savings distinguished from observed performance"
+  ],
+  "sha256": {
+    "report-data.json": "a9c738bfb965536cff6b5533850831cf8e1f80f20364921e3e36b8a277cc21fc",
+    "build_deep_report.py": "24c58d8f7f2a32a0edaf69a3f66c65255dd553ddf88f53a23de171914d139859",
+    "RPent-两场景深度计时报告.html": "13a383e44e8440b0561a62cdeba61687fc0c8c6821bbc2fce91e8ccbcaae0816",
+    "evidence/quantitative-conclusion.json": "083330dbcacc026670f3e80d38d033edc101d4baae43cabdc344e7cb506370ea"
+  }
+}

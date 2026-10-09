@@ -126,3 +126,5 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 三问结论与因素拆分：报告开头直接回答云端阶段可识别性、两场景恢复与条件基线、输入输出与 token 对应边界。五项公式将定义、统计方法、内部结构、影响因素和优化判断合并展示；详细字段仍在 Q3。数据不变，双 Agent 增量审查与浏览器验证见 `evidence/front-answers-factors-review.json`。
 
 结论修订：按用户实际执行场景排除渲染优化，将总公式映射到恢复/控制步数、技能粒度/采样次数、上下文/载荷/重试等可调因素，给出成功率与成本联合验收。仅修改结论和优化方案，原测量数据不变；验证见 `evidence/optimization-conclusion-review.json`。
+
+定量结论：新增扣除已测渲染后的四项敏感度式、10%目标预算、SDK降幅情景，以及两段Sol恢复的逐原语渲染扣减；明确不是真机预测/实测优化收益。独立复算及浏览器验证见 `evidence/quantitative-conclusion-review.json`，派生数值见 `evidence/quantitative-conclusion.json`。

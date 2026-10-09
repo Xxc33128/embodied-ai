@@ -144,6 +144,14 @@ def timeline_section(eps):
     return ''.join(out)
 
 
+def quantitative_conclusion():
+    return """<div class="quantitative-conclusion"><h3>定量结论：下一轮应争取多大的改善？</h3><p>分析口径 T* = 10965.30 − 4391.18 = <b>6574.12 s</b>，只扣除原语执行窗中实测的渲染。它仍含仿真控制、物理、通信等，且工具外围可能含未独立归属的图像工作，<b>不是完整去渲染测量，更不是真机时间预测</b>。以下均为 8 集累计工作量。〔E2〕</p>
+<p class="factor-equation">ΔT* = 1164.85α + 1047.43β + 4187.54γ + 174.30δ（秒）</p><p>α：动作非渲染部分的降幅；β：工具附加项的降幅；γ：SDK非工具项的降幅；δ：SDK外差额的降幅。降幅取0–1。固定其余条件时，式子给出条件收益；这些是账目降幅，不是已经测得的算法收益，也不是采样次数降幅。〔E3〕</p>
+<div class="table-wrap"><table><thead><tr><th>独立假设情景〔E3〕</th><th>节省累计秒数</th><th>T* 降幅</th></tr></thead><tbody><tr><td>SDK非工具项下降10% / 20% / 30%</td><td>418.75 / 837.51 / 1256.26</td><td>6.37% / 12.74% / 19.11%</td></tr><tr><td>动作非渲染部分下降20%</td><td>232.97</td><td>3.54%</td></tr><tr><td>工具附加项下降20%</td><td>209.49</td><td>3.19%</td></tr><tr><td>π handler耗时减半，其余不变</td><td>99.33</td><td>1.51%</td></tr></tbody></table></div><p class="boundary">各行分别计算，π handler 包含于动作项，不能与动作降幅直接叠加。改善某策略后须重新测量各账目；增加诊断或本地技能成本也应计入。压缩上下文20%不等于等待下降20%。</p>
+<h4>先校正“恢复很贵”的解释</h4><p>Sol t0/seed1 第18–34步恢复为562.94 s，其中渲染447.54 s；扣除后动作成本为<b>115.40 s，占该集T*的8.04%</b>。Sol t9/seed1 第14–18步对应156.22 −119.61 = <b>36.61 s，占该集T*的5.23%</b>。两段合计152.01 s，占整批T*的2.31%。〔E2：按同一原语窗口扣减；未四舍五入原值计算〕</p><p>所以这两段的<b>直接动作成本</b>不足以单独支撑整批10%的优化目标，即使全部移除也只有2.31%的账面空间；这不是可实现承诺，也不涵盖其他恢复。真正值得验证的是：减少恢复后是否同时减少了GPT决策与工具往返；目前尚未把这些额外往返精确归属到两段恢复，不能预先把它们算作收益。</p>
+<h4>把10%的目标变成试验指标</h4><p>若只改SDK非工具项，需减少<b>657.41 s / 15.70%</b>。本批448次逻辑采样对应4187.54 s差额，摊销为<b>9.35 s/次</b>；仅在每轮边际成本等于平均值的假设下，相当于约71次采样，平均约9次/集。<b>这不是实测GPT单次延迟，也不是允许删掉71次调用的证据</b>，只用于判断目标量级。若只改动作非渲染部分，则需下降56.44%，要求明显更高。〔E2计算/E3〕</p><p><b>下一轮顺序：</b>先测试连续技能与检查点调整能否减少往返；同时测试无进展检测和分类恢复，记录它们对动作、工具、采样三项的联动影响。再测试上下文/载荷压缩与重试治理。以成功率、成功集耗时和所有attempt成本联合验收，不将失败更快视为改善。已有证据支持试验优先级，尚不支持把这些条件收益写成已实现加速。</p><p class="muted">计算依据：<a href="evidence/quantitative-conclusion.json">逐项预算与两段恢复扣减数据</a>。范围限本次两场景8集；12/14条件理想采样不用于计算上述收益。</p></div>"""
+
+
 def front_answers():
     return """<section id="answers"><div class="section-no">先读结论 / 仅本次 8 集深度测试</div><h2>三个问题，先给答案</h2>
 <article><h3>01 · prefill 和 thinking 能拆开吗？</h3><p><b>云端仍不能精确拆分；本地 π 阶段已测到。</b> 473 次请求尝试有客户端时序，但没有服务端 prefill / 完整 hidden thinking 边界。π handler 为 198.65 s，其中 prefix 合并 96.19 s、denoise 核心 86.14 s；它们不是 Astra 的阶段计时。精确云端拆分需要服务端遥测，补跑与 TTFT 本身不能替代。〔E2〕 <a href="#q1">测量证据 →</a></p></article>
@@ -289,6 +297,7 @@ def build(d):
     if expanded:out.append(formula_explanation(eps))
     out.append('<div class="mechanism"><b>优化看两层：轮数 × 每轮成本。</b><br>每轮 ≈ 模型等待 + 工具执行；本地 π = 前处理 + prefix 合并 + denoise + 后处理。<p class="muted">工具动作内部含策略、控制、物理、渲染和 RPC；这些是嵌套组成，不再加到五桶。模型等待还混有网络、排队与编排，不能当成纯 thinking。prefix 合并项不继续臆分编码 / prefill。〔E3：结构模型〕</p></div>')
     out.append('<div class="statusline">'+esc(d.get('note',''))+' 已结束 '+str(finished)+'/8，计时验收通过 '+str(len(admitted))+'/8。</div><h3>最终结论：公式指向哪些优化因素</h3><p class="answer">'+text(d['conclusion'],'接入新数据后，先确定最大耗时项，再确定应减少调用次数，还是降低单次执行成本。当前不填入旧 120 集的占比。')+'</p>')
+    out.append(quantitative_conclusion())
     out.append(bullets(d['optimization'],'优化排序将在新批次测量闭合后给出。'))
     out.append('<details><summary>顶层计时边界与五桶对账</summary><div><p>T_episode = SDK 报告时长 + episode−SDK 残差。episode 在 init_runtime 后起算，toolkit.close / daemons.stop 后取差，不含后续 transcript 写盘 / finalize_run。SDK 在 MCP 启动后起算，MCP stop 后取差；外 SDK 项由两项 round 到一位小数的时长相减，不是独立实测阶段，也不是全进程墙钟。</p>'+table(['记账项','测量边界'],[['非 π 动作', 'move_to、move_pose、夹爪等原语；不是人工接管。'],['π 动作','π 原语内部，包括模型、RPC、环境执行。'],['工具附加','已完成工具区间并集 − 动作原语时长。'],['SDK 非工具（残差）','SDK 总时长 − 已完成工具区间并集；位于 SDK 区间内部。'],['SDK 外开销（残差）','episode 总时长 − SDK 总时长；属于 episode 内、SDK 区间之外。']])+'<p class="muted">细阶段 span 为父项的组成，不能与父项再次相加。使用同一时钟域的区间并集/独占时间；不同机器单调时钟不能直接相减。算术对账只是必要条件；还须验证原语串行、MCP 包含和区间不重复。未证明这些条件时，五桶只作条件估计。</p></div></details></section>')
     batch_timing=d.get('batch_timing') or {}
