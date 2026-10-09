@@ -105,35 +105,101 @@ def validate(d):
             assert abs(top['sdk_interval_s']+top['outside_sdk_s']-e['elapsed_s'])<=.01,'top-level boundary does not reconcile'
         if e['elapsed_s'] is not None and all(e[k] is not None for k in KEYS):
             assert abs(sum(e[k] for k in KEYS)-e['elapsed_s'])<=.01,'time buckets do not reconcile'
+        v2=e.get('timeline_v2')
+        if v2:
+            def check_intervals(rows,window):
+                assert type(window) in (int,float) and math.isfinite(window) and window>0
+                previous=-1
+                for row in rows:
+                    a,b=row['start_s'],row['end_s']
+                    assert all(type(v) in (int,float) and math.isfinite(v) for v in (a,b))
+                    assert 0<=a<=b<=window+1e-6,'timeline interval outside its own clock window'
+                    assert a>=previous,'timeline must be ordered by start time'
+                    assert isinstance(row['name'],str)
+                    previous=a
+            client=v2['client'];local=v2['local']
+            for rows in client['lanes'].values():check_intervals(rows,client['window_s'])
+            check_intervals(client['events'],client['window_s'])
+            assert len(client['events'])==sum(map(len,client['lanes'].values()))
+            assert len(client['lanes']['gpt'])==e['cloud']['sampling_attempts']
+            assert abs(client['gpt_union_s']-e['cloud']['transport_union_s'])<.001
+            check_intervals(local['actions'],local['window_s'])
+            assert len(local['actions'])==len(e['trajectory'])
+            for action,record in zip(local['actions'],e['trajectory']):
+                detail=action['detail']
+                assert action['name']==record['action']
+                assert abs(detail['window_s']-record['seconds'])<.011
+                assert abs(action['end_s']-action['start_s']-detail['window_s'])<1e-6
+                for rows in detail['lanes'].values():check_intervals(rows,detail['window_s'])
     return d
 
 def timeline_section(eps):
-    labels={'gap':'GPT 请求与等待（含网络、编排）','action':'移动 / 夹爪','pi':'π 动作（含仿真）','observe':'观察 / 定位','other':'记忆 / 其他工具','finish':'结束调用'}
-    out=['<section id="timeline"><div class="section-no">按发生顺序 / 8 集时间轴 · E2</div><h2>每一集，时间先花在哪里，再花在哪里？</h2><p>从左向右读；色块宽度代表持续时间。点选色块查看起止秒数，展开明细查看完整顺序。各集使用自己的时间尺度，比较总时长请看右侧秒数。</p><p class="boundary">0 秒＝本集首个有时间戳的 item 事件，不是 episode 起点。灰色标为「GPT 请求与等待（含网络、编排）」：按事件窗内工具区间的补集计时，包含 GPT 请求及其他客户端等待；不是逐请求单独测得的 GPT 净耗时，不能解释为纯 thinking。工具色块包含其内部仿真、渲染与 RPC；π 色块也不是纯模型推理。加载在 episode 前另计，不能与本图直接拼成全进程墙钟。</p><div class="timeline-legend">']
-    out+=['<span><i class="tl-'+k+'"></i>'+esc(v)+'</span>' for k,v in labels.items()]
-    out.append('</div><fieldset class="timeline-picker"><legend>选择要展示的集（可多选）</legend><div class="timeline-options">')
+    out=['<section id="timeline"><div class="section-no">真实区间 / 8 集时间轴 · E2</div><h2>每一集，模型请求与本地执行如何交错？</h2><p>客户端两行共用横坐标，只画实际记录的请求与工具区间；空白保持空白，重叠保持重叠。点击色块查看起止与耗时。</p><p class="boundary">客户端采用同一 Mac 墙钟；本地动作采用 Linux monotonic 时钟，首个动作记为 0 秒。两者不是共同原点，不能上下对齐。动作细节再以该动作起点归零；π 服务、仿真与渲染存在包含关系，不能相加。客户端 GPT 区间为非预热传输尝试的请求生命周期，不是纯 thinking / prefill；它可以跨到工具执行阶段。</p><fieldset class="timeline-picker"><legend>选择要展示的集（可多选）</legend><div class="timeline-options">']
     for i,e in enumerate(eps):
-        if not e.get('timeline'):continue
         out.append('<label><input type="checkbox" data-timeline-select="'+str(i)+'"'+(' checked' if i==0 else '')+'> '+esc(e['model'].replace('gpt-6-','').title())+' · t'+str(e['task'])+' / seed'+str(e['seed'])+'</label>')
-    out.append('</div><div class="controls"><button type="button" id="timeline-all">全选</button><button type="button" id="timeline-none">清空</button><span id="timeline-count" aria-live="polite">已展示 1 / 8 集</span></div></fieldset><p id="timeline-empty" class="muted" hidden>请勾选上方的集，查看时间轴。</p>')
+    out.append('</div><div class="controls"><button type="button" id="timeline-all">全选</button><button type="button" id="timeline-none">清空</button><span id="timeline-count" aria-live="polite"></span></div></fieldset><p id="timeline-empty" class="muted" hidden>请勾选上方的集，查看时间轴。</p>')
     for i,e in enumerate(eps):
-        t=e.get('timeline')
-        if not t:continue
-        n=t['window_s'];segments=t['segments']
-        assert n>0 and abs(sum(s['end_s']-s['start_s'] for s in segments)-n)<.00001
-        assert segments[0]['start_s']==0 and abs(segments[-1]['end_s']-n)<.00001
-        assert all(a['end_s']==b['start_s'] for a,b in zip(segments,segments[1:]))
-        out.append('<article class="timeline-episode" data-timeline-index="'+str(i)+'"'+(' hidden' if i else '')+'><h3>'+esc(e['model'].replace('gpt-6-','').title())+' · t'+str(e['task'])+' / seed'+str(e['seed'])+' <small>'+('成功' if e['environment_success'] else '失败')+' · '+esc(e['attempt'])+'</small></h3><p class="muted">事件窗 '+number(n,' s')+' ｜ episode '+number(e['elapsed_s'],' s')+' ｜ 窗外差额 '+number(t['unpositioned_boundary_s'],' s')+'（未定位到首尾）｜ 模型加载另计 '+number(e['load_s'],' s')+'</p><div class="timeline-track" aria-label="'+esc(e['id'])+' 时间轴">')
-        rows=[]
-        for j,s in enumerate(segments):
-            duration=s['end_s']-s['start_s']
-            assert duration>=0 and s['kind'] in labels
-            label=f"{j+1}. {s['name']} · {s['start_s']:.3f}–{s['end_s']:.3f} s · 耗时 {duration:.3f} s"
-            out.append('<button class="tl-'+s['kind']+'" style="flex:'+str(duration)+' 0 0" title="'+esc(label)+'" aria-label="'+esc(label)+'" data-timeline-output="tl-output-'+str(i)+'" data-label="'+esc(label)+'"></button>')
-            rows.append([str(j+1),f"{s['start_s']:.3f} → {s['end_s']:.3f}",f'{duration:.3f}',esc(s['name']),esc(labels[s['kind']])])
-        out.append('</div><div class="timeline-axis"><span>0 s</span><span>'+f'{n/2:.1f} s'+'</span><span>'+f'{n:.1f} s'+'</span></div><p class="timeline-output" id="tl-output-'+str(i)+'" aria-live="polite">点选色块查看阶段；很短的调用可在下方明细中查找。</p><details><summary>展开本集时间顺序 · '+str(len(rows))+' 段</summary><div>'+table(['顺序','相对起止 / s','耗时 / s','执行内容','范围'],rows)+'</div></details></article>')
-    out.append('<p class="muted">证据：<a href="evidence/timeline-eight.json">8 集脱敏事件时间戳</a>。逐集按 attempt 与 stream SHA256 匹配已验收轨迹；工具区间和原报告工具并集相符。事件墙钟用于展示先后，不将跨机单调时钟强行对齐；未用累计耗时虚构渲染或 prefill 的起止位置。</p></section>')
+        out.append('<article class="timeline-episode" data-timeline-index="'+str(i)+'"'+(' hidden' if i else '')+'><h3>'+esc(e['model'].replace('gpt-6-','').title())+' · t'+str(e['task'])+' / seed'+str(e['seed'])+' <small>'+('未定' if e['environment_success'] is None else ('成功' if e['environment_success'] else '失败'))+' · '+esc(e['attempt'])+'</small></h3><div class="timeline-content"></div></article>')
+    out.append('<p class="muted">时间轴仅使用 timeline_v2 的实测区间；旧补集时间轴不参与展示。首尾未记录区间不补齐，各窗均为独立时间尺度。原始轮次与秒数保留于数据和明细。</p></section>')
     return ''.join(out)
+
+
+TIMELINE_SCRIPT=r"""
+const tlNode=(tag,cls,value)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(value!==undefined)n.textContent=value;return n};
+const tlTime=v=>Number(v).toFixed(3);
+const tlLabel=x=>`${x.name} · ${tlTime(x.start_s)}–${tlTime(x.end_s)} s · 耗时 ${tlTime(x.end_s-x.start_s)} s`;
+function tlTable(parent,events,title){
+ const fold=tlNode('details'),summary=tlNode('summary','',title+' · '+events.length+' 段');fold.append(summary);
+ const wrap=tlNode('div','table-wrap'),table=tlNode('table'),head=tlNode('thead'),tr=tlNode('tr');
+ ['行 / 内容','起止 / s','耗时 / s'].forEach(x=>tr.append(tlNode('th','',x)));head.append(tr);table.append(head);
+ const body=tlNode('tbody');for(const e of events){const r=tlNode('tr');r.append(tlNode('td','',(e.lane?e.lane+' · ':'')+e.name),tlNode('td','',tlTime(e.start_s)+' → '+tlTime(e.end_s)),tlNode('td','',tlTime(e.end_s-e.start_s)));body.append(r)}
+ table.append(body);wrap.append(table);fold.append(wrap);parent.append(fold);
+}
+function tlChart(parent,windowS,lanes,output){
+ const chart=tlNode('div','timeline-chart');
+ for(const [key,label,events] of lanes){
+  const row=tlNode('div','timeline-lane'),name=tlNode('span','timeline-lane-label',label),track=tlNode('div','timeline-track');
+  track.setAttribute('aria-label',label+'，0 至 '+tlTime(windowS)+' 秒');
+  for(const x of events){const button=tlNode('button','tl-'+key);button.type='button';button.style.left=(windowS>0?100*x.start_s/windowS:0)+'%';button.style.width=(windowS>0?100*(x.end_s-x.start_s)/windowS:0)+'%';button.title=tlLabel(x);button.setAttribute('aria-label',tlLabel(x));button.onclick=()=>{output.textContent=tlLabel(x)};track.append(button)}
+  row.append(name,track);chart.append(row);
+ }
+ const axisrow=tlNode('div','timeline-lane'),axis=tlNode('div','timeline-axis');axisrow.append(tlNode('span'));
+ [0,windowS/2,windowS].forEach(v=>axis.append(tlNode('span','',tlTime(v)+' s')));axisrow.append(axis);chart.append(axisrow);parent.append(chart);
+}
+function tlRenderAction(parent,action){
+ parent.replaceChildren();const detail=action.detail;
+ parent.append(tlNode('p','muted','选中动作：'+tlLabel(action)+'（本地动作窗）。以下 0 秒仅为该动作起点。'));
+ if(!detail){parent.append(tlNode('p','muted','该动作细阶段待接入。'));return}
+ const output=tlNode('p','timeline-output','点击细阶段色块查看；小段可在明细中读取。');output.setAttribute('aria-live','polite');
+ const lanes=[['pi','π 服务',detail.lanes.pi||[]],['sim','仿真 step（含 render）',detail.lanes.sim||[]],['render','render',detail.lanes.render||[]]];
+ tlChart(parent,detail.window_s,lanes,output);parent.append(output);
+ const events=lanes.flatMap(([key,label,items])=>items.map(x=>({...x,lane:label}))).sort((a,b)=>a.start_s-b.start_s);
+ tlTable(parent,events,'选中动作细阶段明细');
+}
+function tlRenderEpisode(article,index){
+ if(article.dataset.rendered)return;article.dataset.rendered='true';const host=article.querySelector('.timeline-content'),t=E[index].timeline_v2;
+ if(!t){host.append(tlNode('p','muted','真实区间 timeline_v2 待接入；不使用旧 gap 推算 GPT 时间。'));return}
+ const client=t.client;host.append(tlNode('h4','','客户端 · 同一 Mac 墙钟'));
+ if(client){
+  host.append(tlNode('p','muted','客户端事件窗 '+tlTime(client.window_s)+' s。GPT 请求与工具共用下列横坐标。'));
+  const output=tlNode('p','timeline-output','点击请求或工具色块查看实际区间。');output.setAttribute('aria-live','polite');
+  tlChart(host,client.window_s,[['gpt','GPT 请求',client.lanes.gpt||[]],['tools','工具调用',client.lanes.tools||[]]],output);host.append(output);
+  tlTable(host,client.events||[],'客户端事件明细（按开始时间）');
+ }else host.append(tlNode('p','muted','客户端实测区间待接入。'));
+ const local=t.local,block=tlNode('div','timeline-local');block.append(tlNode('h4','','本地执行 · 独立 Linux 时钟'));
+ block.append(tlNode('p','boundary','与上方客户端无共同原点，不能按横向位置比较发生时刻。选择一个动作，查看它内部的独立时间窗。'));
+ if(!local||!local.actions.length){block.append(tlNode('p','muted','本地动作区间待接入。'));host.append(block);return}
+ const controls=tlNode('div','controls'),label=tlNode('label','','动作 '),select=tlNode('select','timeline-action-select');
+ select.setAttribute('aria-label','选择本地动作');local.actions.forEach((a,i)=>{const o=tlNode('option','',(i+1)+'. '+a.name+' · '+tlTime(a.start_s)+'–'+tlTime(a.end_s)+' s');o.value=i;select.append(o)});
+ label.append(select);controls.append(label);block.append(tlNode('p','muted','本地动作窗 '+tlTime(local.window_s)+' s；首动作起点为 0。'),controls);
+ const detailHost=tlNode('div','timeline-action-detail');block.append(detailHost);host.append(block);
+ const firstPi=local.actions.findIndex(a=>String(a.name).startsWith('pi0'));select.value=String(firstPi<0?0:firstPi);
+ select.onchange=()=>tlRenderAction(detailHost,local.actions[Number(select.value)]);select.onchange();
+}
+const timelineChoices=[...document.querySelectorAll('[data-timeline-select]')];
+const updateTimeline=()=>{const selected=new Set(timelineChoices.filter(c=>c.checked).map(c=>c.dataset.timelineSelect));document.querySelectorAll('[data-timeline-index]').forEach(a=>{a.hidden=!selected.has(a.dataset.timelineIndex);if(!a.hidden)tlRenderEpisode(a,Number(a.dataset.timelineIndex))});document.getElementById('timeline-count').textContent='已展示 '+selected.size+' / '+timelineChoices.length+' 集';document.getElementById('timeline-empty').hidden=selected.size>0};
+timelineChoices.forEach(c=>c.onchange=updateTimeline);document.getElementById('timeline-all').onclick=()=>{timelineChoices.forEach(c=>c.checked=true);updateTimeline()};document.getElementById('timeline-none').onclick=()=>{timelineChoices.forEach(c=>c.checked=false);updateTimeline()};updateTimeline();
+"""
 
 def build(d):
     eps=d['episodes']
@@ -152,8 +218,10 @@ def build(d):
     mode_note=('同步调用语义包含验证；非纯物理 / 纯 thinking。所有纳入样本均由 step_id 唯一关联原语与 MCP，并有同步 handler 源码支撑；后三项仍是残差。〔E1+E2〕' if expanded else
                '条件模式：五桶仍需原语串行、MCP 包含及数值闭合证据；代数闭合不能独立证明互斥，暂不展示五桶精确占比。〔E3〕')
     css='''
-[hidden]{display:none!important}.timeline-picker{border:1px solid #d7e1e7;margin:20px 0;padding:12px 16px}.timeline-picker legend{font-size:14px;font-weight:600;padding:0 6px}.timeline-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px 18px}.timeline-options label{font-size:14px;cursor:pointer;display:flex;align-items:center;gap:5px;min-height:32px}.timeline-options input{accent-color:#216c83;width:16px;height:16px}.timeline-picker .controls{margin-bottom:0}#timeline-count{font-size:13px;color:#627783}@media print{.timeline-picker,#timeline-empty{display:none}}.timeline-legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px}.timeline-legend i{display:inline-block;width:12px;height:12px;margin-right:6px}.tl-gap{background:#d9e1e5}.tl-action{background:#216c83}.tl-pi{background:#a36a22}.tl-observe{background:#559a8d}.tl-other{background:#7d7fa3}.tl-finish{background:#364753}.timeline-episode{padding:14px 0 22px;border-bottom:1px solid #d7e1e7}.timeline-episode h3{margin:12px 0 5px}.timeline-episode small{font-size:12px;font-weight:400}.timeline-track{display:flex;height:36px;width:100%;overflow:hidden}.timeline-track button{min-width:0;padding:0;border:0;border-radius:0;height:36px}.timeline-track button:hover,.timeline-track button:focus-visible{filter:brightness(1.3);outline:2px solid #111;outline-offset:-2px}.timeline-axis{display:flex;justify-content:space-between;font:11px/2 ui-monospace,monospace;color:#627783}.timeline-output{font-size:13px;min-height:24px;color:#375b6b}.timeline-episode details{margin-top:4px}.timeline-episode th{white-space:normal}@media print{.timeline-track,.timeline-legend i{print-color-adjust:exact;-webkit-print-color-adjust:exact}.timeline-output{display:none}.timeline-episode{break-inside:avoid}}
+
 :root{--ink:#18313f;--muted:#627783;--line:#d7e1e7;--accent:#126580;--paper:#fbfcfd}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;overflow-wrap:anywhere}a{color:var(--accent)}nav{position:sticky;top:0;z-index:5;background:#fbfcfdf5;border-bottom:1px solid var(--line);display:flex;gap:25px;padding:13px max(20px,calc((100vw - 1060px)/2));overflow:auto;white-space:nowrap;backdrop-filter:blur(8px)}nav a{font-size:13px;text-decoration:none;color:#355566;transition:color .15s}nav a:hover{color:#0891b2}main{max-width:1140px;margin:auto;padding:0 40px 60px}header{padding:35px 0 14px}.eyebrow,.section-no{color:var(--accent);font-size:11px;letter-spacing:1.5px;font-weight:650}h1{font-size:clamp(28px,3.4vw,43px);line-height:1.25;margin:12px 0}h2{font-size:27px;line-height:1.4;margin:8px 0 18px}h3{font-size:19px;line-height:1.5;margin:22px 0 10px}p{margin:10px 0 16px}.muted{color:var(--muted);font-size:13px}.meta{display:flex;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13px}.formula-board{background:#173642;color:#fff;padding:25px 28px;margin:10px 0 18px}.formula-title{font-size:12px;color:#bbd3de}.formula{display:flex;flex-wrap:wrap;gap:0 8px;font-size:clamp(18px,2.3vw,27px);line-height:1.8;margin:12px 0}.formula .term{white-space:nowrap}.terms{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;border-top:1px solid #ffffff35;padding-top:17px}.terms strong{font-size:25px;display:block;font-weight:550}.terms span{font-size:12px;color:#c4d7df}.formula-note{font-size:12px;color:#c4d7df;margin:16px 0 0}.num{white-space:nowrap}.unknown{color:#7b8f99;font-variant-numeric:tabular-nums}.formula-board .unknown{color:#a9c1cd}.statusline{border-left:3px solid var(--accent);padding:9px 15px;background:#eff5f8;font-size:14px;margin:20px 0}.mechanism{font-size:17px;padding:16px 0;border-bottom:1px solid var(--line)}section{padding:35px 0;border-bottom:1px solid var(--line)}#formula{padding-top:0}.answer{font-size:19px;max-width:880px;margin-bottom:22px}.boundary{font-size:13px;color:var(--muted);border-left:2px solid var(--line);padding-left:15px;margin:20px 0}.table-wrap{overflow:auto;margin:16px 0}table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}th{text-align:left;color:#375b6b;background:#edf3f6;white-space:nowrap}td,th{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}td{line-height:1.6}details{border-top:1px solid var(--line);padding:0;margin:18px 0 0}summary{cursor:pointer;font-size:14px;font-weight:550;color:#365c6e;padding:15px 0;transition:color .15s}summary:hover{color:#0d7a9d}details>div{padding:0 0 16px}.scene{padding:15px 0 20px;border-bottom:1px solid var(--line)}.scene:last-child{border-bottom:0}.label{font-size:12px;letter-spacing:.6px;color:var(--accent)}.figures{display:grid;grid-template-columns:1fr 1fr;gap:22px}.figures figure{margin:0}.figures img{width:100%;display:block}.figures figcaption{font-size:12px;color:var(--muted)}.controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:15px 0}select,button{font:inherit;font-size:13px;padding:8px 12px;background:#fff;border:1px solid #b9ccd6;color:var(--ink);border-radius:2px}button{cursor:pointer}pre{font:12px/1.7 ui-monospace,monospace;background:#eef3f6;padding:18px;overflow:auto;white-space:pre-wrap}footer{padding-top:25px;color:var(--muted);font-size:12px}ul{padding-left:21px}li{margin:5px 0}@media(max-width:700px){main{padding:0 19px 40px}header{padding-top:25px}nav{padding:12px 19px;gap:19px}h2{font-size:23px}.answer{font-size:17px}.formula-board{padding:21px 18px}.terms{grid-template-columns:repeat(3,1fr);gap:15px}.terms strong{font-size:22px}.formula{font-size:19px}section{padding:28px 0}.figures{grid-template-columns:1fr}th,td{padding:8px}th{white-space:normal}.meta{gap:8px 18px}#q3 th{white-space:normal}#q3 th,#q3 td{padding:5px;font-size:12px}.scene th{white-space:normal}.scene th,.scene td{padding:8px;font-size:13px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}@page{size:A4;margin:14mm}@media print{h2,h3,.section-no{break-after:avoid}.formula-board{background:white;color:#18313f;border:1px solid #18313f}.formula-board .unknown,.formula-title,.terms span,.formula-note{color:#526772}.terms{border-color:#cbd6dc}tr,.formula-board{break-inside:avoid}nav,.controls{display:none}main{max-width:none;padding:0}body{font-size:11px;background:white;color:#111}h1{font-size:28px}h2{font-size:21px}.formula-board{print-color-adjust:exact;-webkit-print-color-adjust:exact}section{padding:20px 0}.table-wrap{overflow:visible}table{font-size:10px}th,td{padding:6px}.answer{font-size:14px}details:not([open]){display:none}}
+
+[hidden]{display:none!important}.timeline-picker{border:1px solid var(--line);margin:20px 0;padding:12px 16px}.timeline-picker legend{font-size:14px;font-weight:600}.timeline-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px 18px}.timeline-options label{font-size:14px;cursor:pointer;display:flex;align-items:center;gap:5px;min-height:32px}.timeline-options input{accent-color:#216c83;width:16px;height:16px}#timeline-count{font-size:13px;color:var(--muted)}.timeline-episode{padding:14px 0 22px;border-bottom:1px solid var(--line)}.timeline-episode h3{margin:12px 0 5px}.timeline-episode h4{font-size:16px;margin:24px 0 10px}.timeline-episode small{font-size:12px;font-weight:400}.timeline-lane{display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px;align-items:center;margin:8px 0}.timeline-lane-label{font-size:12px;line-height:1.4}.timeline-track{position:relative;height:32px;width:100%;background:#edf1f4;overflow:hidden}.timeline-track button{position:absolute;top:0;height:32px;min-width:0;padding:0;border:0;border-radius:0;opacity:.85}.timeline-track button:hover,.timeline-track button:focus-visible{opacity:1;outline:2px solid #172f3b;outline-offset:-2px;z-index:2}.tl-gpt{background:#526581}.tl-tools{background:#247b85}.tl-pi{background:#b77c23}.tl-sim{background:#36868a}.tl-render{background:#8964a3}.timeline-axis{display:flex;justify-content:space-between;font:10px/2 ui-monospace,monospace;color:var(--muted)}.timeline-output{font-size:13px;min-height:24px;color:#375b6b}.timeline-local{border-top:2px solid var(--line);margin-top:26px;padding-top:4px}.timeline-action-select{max-width:100%;width:100%;white-space:normal}.timeline-local .controls label{min-width:0;width:100%}.timeline-episode th{white-space:normal}.timeline-episode details{margin-top:5px}@media(max-width:700px){.timeline-lane{grid-template-columns:76px minmax(0,1fr);gap:7px}.timeline-axis{font-size:9px}.timeline-episode th,.timeline-episode td{padding:5px;font-size:12px}}@media print{.timeline-picker,#timeline-empty{display:none}.timeline-track{print-color-adjust:exact;-webkit-print-color-adjust:exact}.timeline-output{display:none}.timeline-lane{break-inside:avoid}}
 '''
     out=['<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>'+esc(d['title'])+'</title><style>'+css+'</style></head><body>']
     out.append('<nav aria-label="报告导航"><a href="#formula">总公式</a><a href="#timeline">逐集时间轴</a><a href="#q1">01 · 时间拆分</a><a href="#q2">02 · 轨迹与基线</a><a href="#q3">03 · 输入与上下文</a><a href="#episodes">8 集明细</a></nav><main><header><div class="eyebrow">RPENT / DEEP TIMING / INDEPENDENT BATCH</div><h1>'+esc(d['title'])+'</h1><div class="meta"><span>Long Swap · t0 / t9</span><span>Astra / Sol · medium · seed0 / 1</span><span>数据更新：'+text(d['updated_at'],'尚未接入')+'</span></div></header>')
@@ -249,7 +317,7 @@ def build(d):
         related+=table(['可打开的脱敏证据','用途'],[['<a href="'+esc(x['href'])+'">'+esc(x['label'])+'</a>',esc(x['description'])] for x in d['evidence_files']])
     out.append('</div><details><summary>证据来源与适用范围</summary><div>'+related+bullets(d['evidence'],'尚未接入新批次证据文件。')+'<p class="muted">E1＝源码证据；E2＝本批配置、事件与轨迹；E3＝条件推导。旧实验仅用于选题，不能代替本批测量。公开数据只接受脱敏汇总，禁止原始认证、地址和会话内容。</p></div></details></section><footer>'+esc(d['batch'])+' · 独立深度计时报告<br>单一数据源：report-data.json。未知值显示 —；不补零、不借用历史成功率。</footer></main>')
     data=json.dumps(eps,ensure_ascii=False,separators=(',',':')).replace('</','<\\/')
-    out.append('<script id="data" type="application/json">'+data+'</script><script>const timelineChoices=[...document.querySelectorAll("[data-timeline-select]")];const updateTimeline=()=>{const selected=new Set(timelineChoices.filter(c=>c.checked).map(c=>c.dataset.timelineSelect));document.querySelectorAll("[data-timeline-index]").forEach(a=>a.hidden=!selected.has(a.dataset.timelineIndex));document.getElementById("timeline-count").textContent="已展示 "+selected.size+" / "+timelineChoices.length+" 集";document.getElementById("timeline-empty").hidden=selected.size>0};timelineChoices.forEach(c=>c.onchange=updateTimeline);document.getElementById("timeline-all").onclick=()=>{timelineChoices.forEach(c=>c.checked=true);updateTimeline()};document.getElementById("timeline-none").onclick=()=>{timelineChoices.forEach(c=>c.checked=false);updateTimeline()};updateTimeline();document.querySelectorAll("[data-timeline-output]").forEach(b=>b.onclick=()=>{document.getElementById(b.dataset.timelineOutput).textContent=b.dataset.label});const E=JSON.parse(document.getElementById("data").textContent);const applyFilters=()=>{const t=document.getElementById("task-filter").value,m=document.getElementById("model-filter").value;document.querySelectorAll("#episode-details>details").forEach(d=>d.hidden=(!!t&&d.dataset.task!==t)||(!!m&&d.dataset.model!==m))};document.getElementById("task-filter").onchange=applyFilters;document.getElementById("model-filter").onchange=applyFilters;document.getElementById("csv").onclick=()=>{const K=["id","status","environment_success","measurement_invalid","elapsed_s","load_s","request_count","vla_chunks","manual_primitive_s","vla_primitive_s","tool_other_s","sdk_non_mcp_s","outside_sdk_s"];const q=v=>String.fromCharCode(34)+String(v??"").replaceAll(String.fromCharCode(34),String.fromCharCode(34,34))+String.fromCharCode(34);const csv="\\uFEFF"+[K.join(","),...E.map(e=>K.map(k=>q(e[k])).join(","))].join(String.fromCharCode(13,10));const u=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=u;a.download="rpent-deep-timing.csv";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};</script></body></html>')
+    out.append('<script id="data" type="application/json">'+data+'</script><script>const E=JSON.parse(document.getElementById("data").textContent);'+TIMELINE_SCRIPT+'const applyFilters=()=>{const t=document.getElementById("task-filter").value,m=document.getElementById("model-filter").value;document.querySelectorAll("#episode-details>details").forEach(d=>d.hidden=(!!t&&d.dataset.task!==t)||(!!m&&d.dataset.model!==m))};document.getElementById("task-filter").onchange=applyFilters;document.getElementById("model-filter").onchange=applyFilters;document.getElementById("csv").onclick=()=>{const K=["id","status","environment_success","measurement_invalid","elapsed_s","load_s","request_count","vla_chunks","manual_primitive_s","vla_primitive_s","tool_other_s","sdk_non_mcp_s","outside_sdk_s"];const q=v=>String.fromCharCode(34)+String(v??"").replaceAll(String.fromCharCode(34),String.fromCharCode(34,34))+String.fromCharCode(34);const csv="\\uFEFF"+[K.join(","),...E.map(e=>K.map(k=>q(e[k])).join(","))].join(String.fromCharCode(13,10));const u=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=u;a.download="rpent-deep-timing.csv";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};</script></body></html>')
     return '\n'.join(out)+'\n'
 
 if __name__=='__main__':

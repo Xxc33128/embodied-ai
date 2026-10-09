@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "scope": "timeline v2 real intervals, supersedes complement timeline display",
+  "independent_evidence_review": {
+    "agent": "evidence_review",
+    "blocking_issues": [],
+    "tool_intervals": 615,
+    "gpt_request_attempts": 473,
+    "local_actions": 182,
+    "checks": [
+      "exact final attempt and stream hashes",
+      "measurement hashes match accepted snapshot",
+      "local action sequence and duration match",
+      "pi/sim/render aggregate reconciliation",
+      "exact session/item ID and request span association",
+      "Mac client clock separate from Linux monotonic",
+      "all prior report metrics unchanged"
+    ]
+  },
+  "frontend_review": {
+    "agent": "structure_review",
+    "widths": [
+      1280,
+      390,
+      320
+    ],
+    "default_pi_action": true,
+    "action_switch": "passed",
+    "multi_select_all_clear": "passed",
+    "absolute_interval_positioning": "passed",
+    "page_errors": [],
+    "primary_agent_visual_check": "desktop screenshot reviewed"
+  },
+  "measurement_boundaries": {
+    "gpt": "client non-warmup request span lifetime including local transport handling; not pure cloud compute",
+    "tools": "same-Mac receive timestamps for exact item started/completed",
+    "local": "same-kernel primitive-contained service stages, independent origin; not cross-host alignment"
+  },
+  "sha256": {
+    "report-data.json": "a2308f9a8617d8eadbb999cec91e4494ea7936bf6e7866405f0a2e0cda95cd5d",
+    "build_deep_report.py": "3d69b4017d6fbb302ee1e0718eb9968ff0e0d44a79e75362d94320df4f07cd7f",
+    "RPent-两场景深度计时报告.html": "5a905a5d60f78b6a980b9bbf182fe802d865a05084dbe0627f35868e6828085a",
+    "extract_local_timeline.py": "c91dc142210da5de5e16b325a5646087dcdef2ca7869c640b6775b304c867377",
+    "assemble_timeline_v2.py": "98090b807ada1d0a534e54abe1f1a7d4e5a406c4eccb63db4a4968ce55e9bd78",
+    "evidence/timeline-v2-provenance.json": "d7f119b6dbe9e78e922f9303fc04edf23726e69a5e701bb76bd10fdcd36d9574"
+  }
+}

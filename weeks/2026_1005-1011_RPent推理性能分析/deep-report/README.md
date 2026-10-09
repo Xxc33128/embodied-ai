@@ -110,3 +110,13 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 时间轴标注修订：灰色图例与 623 段明细统一为「GPT 请求与等待（含网络、编排）」。仍按工具区间补集计时，非 GPT 净耗时；仅改标签和说明，秒数、区间及结论不变。最新增量验证与产物 hash 见 `evidence/timeline-label-review.json`。
 
 时间轴显示选择：默认仅展示 Astra t0/seed0，8 个复选框支持任意多选，并提供全选/清空；打印仅包含当前选中的时间轴。数据与计时口径不变。增量验证见 `evidence/timeline-picker-review.json`。
+
+## 时间轴 v2：真实请求区间与动作内部顺序（当前版本）
+
+取代前述灰色补集图的展示方式；历史 `timeline` 数据及审查记录保留用于追溯，页面只使用 `timeline_v2`。
+
+- 客户端：按已核验 session 与 item ID 精确关联 Mac `client-events` 中的工具开始/结束接收事件；GPT 以同一 Mac OTLP 的非预热 request span 起止计时，按 request span hash 对齐此前 473 次请求尝试。两行采用共同原点和比例，实际重叠照实展示，空白不标作 GPT。请求生命周期不等于纯服务端推理，也不可与工具时长相加。
+- 本地细节：Linux 同内核 monotonic 时钟下的原语、π handler、sim.env.step、sim.render 区间。下拉选择动作后以该动作开始为 0 展示真实先后。渲染包含于仿真步，二者不能相加。服务阶段由同域原语时间窗包含关联，不宣称 RPC ID 因果关联。
+- 没有把 Mac 与 Linux 的时钟强行对齐。动作列表顺序、数量及耗时与原轨迹核对，但不会据此虚构全局墙钟位置。
+- 安全提取代码：`extract_local_timeline.py` 在节点只读新批次并输出白名单结果；`assemble_timeline_v2.py` 从工作区根运行，使用私有本地新批次 telemetry、client-events 与原精确映射，将脱敏区间接入报告。私有中间输出位置 `rpent-repo/deep-timing-20261008/probes/timeline-local-v2.json`。
+- 来源 hash 与逐集对账：`evidence/timeline-v2-provenance.json`。最新验证见 `evidence/timeline-v2-review.json`；此前 timeline review 只对应历史版本，不作为此次新版的审查声明。

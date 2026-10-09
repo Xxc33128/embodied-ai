@@ -1,0 +1,197 @@
+{
+  "episodes": [
+    {
+      "id": "gpt-6-astra-t0-s0",
+      "attempt": "attempt-001",
+      "session_sha256": "0c8943089a18d315435d5fa86f40c6e2b5da7832aabfe0f5525afd1b0576f5f7",
+      "stream_sha256": "49ba558074e1b26fd13add4f0b0b43191645be52c89d31ff3e88586c0e89a303",
+      "client_events_sha256": "92b5a8b30910b1c49b7de1c7268cb8b9224f8fd3d918a65ef3cef596449c3017",
+      "telemetry_sha256": "cbac4dc72fe8227096dd4480acc2ea7e8a33e17206e6ef1dcb303bfee6133533",
+      "measurement_sha256": {
+        "spans-179854.jsonl": "c948a34edbbb010699e9869e628cd7018e602988db1103c5d04fbf30a168b6fa",
+        "spans-181032.jsonl": "a1180efdc23738d7c261edf63984f04ed0137bf6668beefb2f6d45c810fd76d0",
+        "spans-181237.jsonl": "54eeb9e759fbf474d49a3f01227389afd9a07d74e4f2a1c5259b398a64f9d2c2",
+        "spans-181967.jsonl": "ac9b9430fb9822bbb294cadd393202860e93ac3fa005e77a9ca9f102fcba8abc"
+      },
+      "tool_count": 70,
+      "request_attempt_count": 41,
+      "gpt_union_s": 481.39945300000034,
+      "local_action_count": 22,
+      "local_stage_sums": {
+        "pi": 12.799838215999998,
+        "sim": 427.60890425799977,
+        "render": 391.2487455610004
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-sol-t0-s0",
+      "attempt": "attempt-001",
+      "session_sha256": "c2a9994fac35dcc21bb51154094ce0b1f87c2fd7ebe427f4dd8e4581c8e3a8ef",
+      "stream_sha256": "b63465bfaa29f504706675d5b76d36e6e5e3f83b08bf76bffad1b27a1eef8076",
+      "client_events_sha256": "e01b81faea2a2aa21abe9075912da1db6ac8d17c35fe8598342ce02a07e2c7c0",
+      "telemetry_sha256": "ddf4c8b4983f1fe4a8bcdc9f5ac7b197b7311f4552aadd47703d22b7930a1d7e",
+      "measurement_sha256": {
+        "spans-179914.jsonl": "29d0538eb37a7b475bb6fc4d832f2f4fe86fe2703d6d0cc6b68e73670233ab1f",
+        "spans-180958.jsonl": "6d2a09dc9dfa7a2c81c4a8a38b0c087caf4c88e3ddbef7452d5f547169d0b996",
+        "spans-181238.jsonl": "a14f698c889b2f439a59f84940508da08af3589e840be38a2eca66efdcf6f58b",
+        "spans-181966.jsonl": "3225ff79b13da2f4098ca6fac8c316d9316a792d41836fb66b560e87849bc6a3"
+      },
+      "tool_count": 70,
+      "request_attempt_count": 53,
+      "gpt_union_s": 477.41630900000024,
+      "local_action_count": 21,
+      "local_stage_sums": {
+        "pi": 18.638524431999997,
+        "sim": 443.71929822499965,
+        "render": 405.3716393070003
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-astra-t0-s1",
+      "attempt": "attempt-001",
+      "session_sha256": "92ace9cc1aa39e5224b44b46c66743a989a34dcfc4a7a0405a0b6c7471511aaa",
+      "stream_sha256": "57fbf07b05b3621c61703264469d6ed0c12e8d129407fb269fff4b3b44ea6961",
+      "client_events_sha256": "03efe02b92acdc893411d9ba986eabfa2dea39864b8ce3ffa7d8766c10909aec",
+      "telemetry_sha256": "cc01287a7cc3c0d6cda1842021fdf6d2da5ccfb23d485e10618d840c155b8dc8",
+      "measurement_sha256": {
+        "spans-466458.jsonl": "d5a4a6724f493eebfc1716ec7810c96e838d5a9082289a826dd5dd3ff86ab305",
+        "spans-467823.jsonl": "651d723b14e011af2905dfef479b3e3ebced2e92321493fcfc20495a3f50825f",
+        "spans-467959.jsonl": "c71074213dfe2bab05c2c67bd44d030e70d1425487be9c97acd9685b765533b3",
+        "spans-468427.jsonl": "c295a1edef011e78cff76ebc9c9901050b16428f68b9fbb2d838929292b58590"
+      },
+      "tool_count": 62,
+      "request_attempt_count": 42,
+      "gpt_union_s": 448.3689479999998,
+      "local_action_count": 21,
+      "local_stage_sums": {
+        "pi": 12.512923668999997,
+        "sim": 425.6474035269998,
+        "render": 389.22381808699976
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-sol-t0-s1",
+      "attempt": "attempt-001",
+      "session_sha256": "e143566a3b1390ea074a7b9390ba41ed2b3e6f2ce156ee77bfccce484e41d4b9",
+      "stream_sha256": "01e699e00737c66e2ce2a7e7291c0101b8e49ef6c354ce388a673388cffe43a3",
+      "client_events_sha256": "a1eb893348fc526e29cf6dd6c09cc013f8d568b069bd6712c1db53e9bc12b6e6",
+      "telemetry_sha256": "8f55ac2e1226a5fbc05c6e7974b0aa004eb10b336b4b9a9fbcbc5538468db311",
+      "measurement_sha256": {
+        "spans-466516.jsonl": "b94c65a04f79fec864ce637d1cb87e476cbeabbba0e42b7e617f0700ac3a5ebb",
+        "spans-467619.jsonl": "b3d2509436821ea85445e176708c8ba70b57f3ccd9cb9a0b6dfc050e719aeb9f",
+        "spans-467758.jsonl": "e235438b96729cd230aa5a6ef4b4c33b6c69aed2d7ea821c75f9e4c507fb4661",
+        "spans-468250.jsonl": "d90071f47c756045fa9028fc338a1c4971c64c5b17534d71bdbfa6447fb2739d"
+      },
+      "tool_count": 88,
+      "request_attempt_count": 83,
+      "gpt_union_s": 1067.2762249999994,
+      "local_action_count": 34,
+      "local_stage_sums": {
+        "pi": 50.41494102199996,
+        "sim": 814.8837695789992,
+        "render": 741.0846591090021
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-astra-t9-s0",
+      "attempt": "attempt-001",
+      "session_sha256": "949ede126eb29531ba76ed59fbe2e5ebfbda09f7d5accb89505fccff9505b897",
+      "stream_sha256": "ecea7b28acf60c12af8fe29f54d153d2434d7e6314ec55987c05c74fd5473d4d",
+      "client_events_sha256": "6363b5c2d3682387633623cfd6b530a58458dbf59049969ba4897e554ab8bc62",
+      "telemetry_sha256": "222d3df064d44e6b6d33793aa53e687fae263fc994da87bd07393ad6022c3e4c",
+      "measurement_sha256": {
+        "spans-834721.jsonl": "fb9faaf31ef946820a0d78f785b443139a1fcf302a285a83fe3d93e6524c08fa",
+        "spans-836085.jsonl": "ade3d038fd32dffa0d4e3242ae8d4d456ee36d4bf7f1d3a7c892ca51907a923a",
+        "spans-836285.jsonl": "c3f17ac4a5c29b44bae52da14626aec8d258369917c4f0c314fa53c7fa4164e5",
+        "spans-836828.jsonl": "743aea5660c1f8ec4c0e12f8ea1836283a8b3b848b0e6ab2c0ea651c561e7fd9"
+      },
+      "tool_count": 85,
+      "request_attempt_count": 75,
+      "gpt_union_s": 778.7374400000003,
+      "local_action_count": 24,
+      "local_stage_sums": {
+        "pi": 17.46137819400001,
+        "sim": 812.4834820619991,
+        "render": 733.1194318900008
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-sol-t9-s0",
+      "attempt": "attempt-001",
+      "session_sha256": "ebda83d00b659d3c79ce98ce402406c5e04fef136b5ae3e7c82c416e3f7ab536",
+      "stream_sha256": "3120336afcd065c2ae2c0cd77eee1a3fd2b8c34b6ded6ec871b6d48dd126c439",
+      "client_events_sha256": "dbd141b4cd4a68bb13e7a50370fb6afbbb2ca8672bf27597345fd7e3ffcf700f",
+      "telemetry_sha256": "19f688808601e752479a934f6e75e641d22427e66ce95dd920a24247a53e54a6",
+      "measurement_sha256": {
+        "spans-834784.jsonl": "e1d1c433d44548f374017aca650de207242c6619c126141b7600a4b4ddc36ce9",
+        "spans-836011.jsonl": "5b0c445ce9f11cd9984d3b336b2a412db46fc071ee2e796f7df9afb1a90f4011",
+        "spans-836284.jsonl": "8056972d5cf3dc9163d274c1a87449606abba58cdab0174e4c692c13532de12e",
+        "spans-836827.jsonl": "e5bdaa391ca916274614a73b1dc25f23c01d54282cf70e7b02154a2a60dd9220"
+      },
+      "tool_count": 80,
+      "request_attempt_count": 71,
+      "gpt_union_s": 453.35562700000037,
+      "local_action_count": 26,
+      "local_stage_sums": {
+        "pi": 45.37848059499999,
+        "sim": 718.7138283730006,
+        "render": 648.7566343610009
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-astra-t9-s1",
+      "attempt": "attempt-002",
+      "session_sha256": "86a4094fbba900b3e14a3650e915bb15230ff109876a95a74aad00c2db643d1d",
+      "stream_sha256": "1329d7421c5da94f9c7bdf7ef7a4bdcec09984f48bf6fa3f08abf85089520fe3",
+      "client_events_sha256": "d9a7bce49b5171093f4479b13db7dd9b1da2002806f9d493cda7b9d452b3d8bd",
+      "telemetry_sha256": "c519a3b05ca551c8731aa635f8a3a1f952c0131035f9ce86762d0108d5f718d8",
+      "measurement_sha256": {
+        "spans-2050434.jsonl": "0d250b519474d4114e65a9c049c368c0a67165a46c865d0651af92c740d583ee",
+        "spans-2051728.jsonl": "76c87845911d9cd5cdf1da5cc11968a15496ada0a717e0565a4376f2cf1dda6f",
+        "spans-2051928.jsonl": "394f68eb33db20e1d2402fb75778bd5f3d4084ed6bb42803db231df00d9b5fff",
+        "spans-2052437.jsonl": "a786a9ab16effacfc7d479a3d27b8c8fb6512f6aaeee9d7c2c226fac665eda05"
+      },
+      "tool_count": 60,
+      "request_attempt_count": 47,
+      "gpt_union_s": 444.61543900000015,
+      "local_action_count": 16,
+      "local_stage_sums": {
+        "pi": 11.093022523999997,
+        "sim": 533.3569669020003,
+        "render": 484.47820095799864
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    },
+    {
+      "id": "gpt-6-sol-t9-s1",
+      "attempt": "attempt-002",
+      "session_sha256": "f9f0567c916e49a4ea96670f29371468f81edc3f6eaa7a41f30a88b64f948af6",
+      "stream_sha256": "679e9f24df00504d5a1c35c166df7283afb4ffe5e0cfcafdcee740b68dd06e7d",
+      "client_events_sha256": "4953cd4faee29627dc9892895f73dbf2fe934f9ea8f870156b974c8c2390fd1e",
+      "telemetry_sha256": "ad2162506b4e6e7c23fd61ead46f37f8bd5ef252e11a2d101ab640e81a54d15f",
+      "measurement_sha256": {
+        "spans-2050504.jsonl": "39abf658fd17706b9b0b865f7aa45e60478cecf14a0245fee3ca165bd83c237e",
+        "spans-2051589.jsonl": "41ce843b06eb9515138c56cd5cdf26bda77256af6c7754ff30a361c62d8012d3",
+        "spans-2051864.jsonl": "a0f5c77c45ceef9418b70daafab11f52937ab0f38f45a93e14b457ca4ebe112a",
+        "spans-2052262.jsonl": "9aa0c0fe54932cea3f1479807592c117fd8f0ad075ab550beb4664467e19e502"
+      },
+      "tool_count": 100,
+      "request_attempt_count": 61,
+      "gpt_union_s": 448.05889499999995,
+      "local_action_count": 18,
+      "local_stage_sums": {
+        "pi": 30.353619984,
+        "sim": 658.8274688090004,
+        "render": 597.8959157659991
+      },
+      "association": "exact session + exact item ID hashes; request span hashes; local action sequence/duration checked, no cross-host clock alignment"
+    }
+  ],
+  "clock_policy": "Mac client wall for GPT and MCP; separate Linux monotonic per-primitive detail. No wall offset estimated; no gap substituted for GPT. Service intervals use same-kernel primitive containment, not RPC IDs."
+}

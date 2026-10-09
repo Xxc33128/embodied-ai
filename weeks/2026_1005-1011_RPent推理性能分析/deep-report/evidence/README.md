@@ -12,3 +12,5 @@
 这些是脱敏摘要，原始会话、认证、原始敏感日志不在本目录。未知阶段不补零；嵌套计时不能与父项相加。
 
 - `timeline-eight.json`：最终 8 集已验收 attempt 的脱敏工具起止事件；`timeline-review.json`：时间轴增量数据/交互审查及当前产物 hash。旧三份 final review 的产物 hash 对应增补前版本。
+
+- 当前时间轴 v2：`timeline-v2-provenance.json` 记录精确 session/item/span 匹配及来源 hash；`timeline-v2-review.json` 为当前版验证。时间轴 v1 与旧 label/picker 审查保留为历史记录。
