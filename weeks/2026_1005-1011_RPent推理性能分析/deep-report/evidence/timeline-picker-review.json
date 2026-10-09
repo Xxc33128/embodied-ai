@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "timeline visibility selection only",
+  "data_changed": false,
+  "checks": [
+    "default one episode",
+    "multiple selection",
+    "selected identity correct",
+    "select all eight",
+    "clear and empty state",
+    "segment click unchanged",
+    "no overflow at 1280/390/320",
+    "print selected timelines only",
+    "no JS errors"
+  ],
+  "sha256": {
+    "build_deep_report.py": "10d08ce259214d97aff6a17e03426008c7b97604ab5963ec3c94f4ee31e4c1c4",
+    "RPent-两场景深度计时报告.html": "c3b24b97320b44314af4548c6494fb6eb7f713c4c57f062f8fd3a0e788e67f0f",
+    "report-data.json": "fe5f2424d4ff90780da84933bd2cf1c9d48feb4c4c06ec481aabe65240248a3e"
+  }
+}
