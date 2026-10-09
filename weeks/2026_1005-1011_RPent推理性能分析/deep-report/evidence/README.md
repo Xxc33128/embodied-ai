@@ -10,3 +10,5 @@
 - final-evidence-review、final-protocol-review、final-ui-review 为独立交叉审查；其中hash对应各次审查的明确快照。
 
 这些是脱敏摘要，原始会话、认证、原始敏感日志不在本目录。未知阶段不补零；嵌套计时不能与父项相加。
+
+- `timeline-eight.json`：最终 8 集已验收 attempt 的脱敏工具起止事件；`timeline-review.json`：时间轴增量数据/交互审查及当前产物 hash。旧三份 final review 的产物 hash 对应增补前版本。

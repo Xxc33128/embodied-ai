@@ -100,3 +100,9 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 主文只区分“验收通过的分析分母”与“排除 attempt 的复现消耗”；原因和资源变更放默认关闭的成本明细。汇总只加明确存在的 `episode_elapsed_s`，缺项标为已观测下限，不补零。排除项不得与同一已入选 attempt 重复；重复身份、非有限或负耗时均拒绝生成。
 
 `batch_timing.model_load_work_s` 覆盖全部实际 attempt 的已闭合模型初始化 span，包括排除项；它可能跨 lane 并行，不是墙钟。最终入选 8 集的冷加载子集与全部 attempt 工作量必须分别保留；不能把排除项的 `load_s` 再加到全部加载总数。资源 epoch 仅解释运行条件变化，不能将 OOM 前后两组直接当成相同条件下的优化收益。〔E2/E3〕
+
+## 2026-10-09 逐集时间轴增补
+
+公式后新增 8 集事件时间轴，可点选阶段并展开完整顺序。`extract_timeline.py` 只读提取本批已验收 attempt 的工具事件，输出 `evidence/timeline-eight.json`，与既有 stream SHA256 核对后接入 `report-data.json`。原点为首个有时间戳的 item 事件；不是 episode 起点。模型加载另计，事件窗外差额不虚构首尾位置，工具间隔不标作 thinking。
+
+此次增量审查及新版产物 hash 见 `evidence/timeline-review.json`；原三份 `final-*-review.json` 保留对应时间轴增补前版本的审查，不代表新增页面已由三人重审。
