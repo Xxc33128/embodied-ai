@@ -155,7 +155,7 @@ def factor_breakdown():
     rows=[
       ('T动作非π', 'Σ动作 [动作准备 + Σ控制步 (控制计算 + 物理推进 + 相机渲染 + 观察处理 / 通信) + 动作收尾]',
        '次数：路径段数、恢复次数。步数：目标距离与姿态、控制步幅、到达容差、接触状态、最大步数。每步：相机数量 / 分辨率、渲染实现、物理模型、设备与 RPC。',
-       '先减少耗尽预算的移动与多余路径；再评估降低渲染成本。改变相机频率、步幅或容差会改变观察 / 控制条件，须另设实验，不可当作原协议下的无损加速。'),
+       '优先减少无进展步数与恢复路径；渲染不列入后续优化目标。改变步幅、预算或容差会改变控制条件，须另设成功率对照，不能以提前失败换取较短耗时。'),
       ('Tπ动作', 'Σ技能 [技能准备 + Σ动作块 (π 请求往返 + 动作块执行与观察 + 终止检查) + 技能收尾]；π handler 内含前处理、prefix 合并、denoise、后处理',
        '块数：抓取 / 任务成功谓词、最大预算、失败恢复、指令与感知质量。单块策略成本：图像与有效 token 长度、denoise 步数、设备、首次调用 / 缓存状态。执行成本：本批每块 5 个控制步及其渲染、物理与通信。',
        '优先减少不成功动作块。371 次 handler 共 198.65 s，而完整 π 动作共 1110.09 s；单独加速 π 网络只作用于其中一部分。不能把整段 π 动作都归为神经网络推理。'),
@@ -198,7 +198,7 @@ def formula_explanation(eps):
     if example and all(example.get(k) is not None for k in KEYS):
         out.append('<div class="formula-example"><b>具体例子 · Astra / t0 / seed0</b><p>'+number(example['elapsed_s'],' s')+' = '+ ' + '.join(number(example[k],' s') for k in KEYS)+'</p><p class="muted">依次对应：非 π 动作、π 动作、工具其余时间、SDK 内非工具时间、SDK 外时间。五项合计回到本集总时长；上面两个动作项已经含内部渲染，不能再把渲染秒数加一次。此处显示两位小数。〔E2〕</p></div>')
     out.append('<p><b>这是一份耗时账本，不是执行顺序。</b> 一集会反复经历 GPT 请求、工具调用和动作执行；真实先后看下面的时间轴。也不能把另列的 GPT 请求生命周期再加到公式里，它与工具区间可能重叠。</p></div>')
-    out.append('<p class="statusline"><b>优化优先级：</b>动作中的渲染 4391.18 s（40.05%），物理推进 121.48 s（1.11%），π handler 198.65 s（1.81%）。这些是动作父项的内部组成。优先验证渲染路径和恢复次数；GPT 相关等待也大，但云端计算、网络、排队尚不能精确归因。〔E2/E3〕</p>')
+    out.append('<div class="formula-example"><b>从记账公式到可调因素〔E3：优化模型〕</b><p>T执行 ≈ N动作 × 平均动作成本；平均动作成本受控制步数、π块数和恢复影响。<br>T高层等待 ≈ N采样 × 平均非工具等待；T工具外围受调用次数与返回载荷影响。</p><p>这些是定位用的近似关系，不替代上方精确五项账本；请求与工具可能重叠，不能用请求时长直接相加。减少一次失败恢复，可能同时减少动作、工具和后续决策，具有跨项优化空间；仅加速某个算子，只降低该子阶段。具体节省量须通过成功对照测得。</p><p><b>后续可调因素：</b>恢复策略与无进展阈值 → 技能粒度与检查点 → 历史/图像载荷与重试 → 单次执行成本。渲染保留为本次仿真测量证据，按用户场景不列为后续优化目标。</p></div>')
     return ''.join(out)
 
 
@@ -288,7 +288,7 @@ def build(d):
     out.append('<section id="formula"><div class="formula-board"><div class="formula-title">总公式 · '+('源码与逐步关联支持的五项分解' if expanded else '顶层计时与条件分解')+'</div><div class="formula"><span class="term">T<sub>episode</sub> =</span>'+''.join('<span class="term">'+(' + ' if i else '')+'T<sub>'+esc(term)+'</sub></span>' for i,term in enumerate(formula_terms))+'</div><div class="terms">'+''.join('<div><strong>'+number(v,' s')+'</strong><span>'+esc(label)+'</span></div>' for v,label in zip(display_values,display_labels))+'</div><p class="formula-note">'+mode_note+' 数值是纳入样本的累计工作量，不是并行批次墙钟。模型加载另列。</p></div>')
     if expanded:out.append(formula_explanation(eps))
     out.append('<div class="mechanism"><b>优化看两层：轮数 × 每轮成本。</b><br>每轮 ≈ 模型等待 + 工具执行；本地 π = 前处理 + prefix 合并 + denoise + 后处理。<p class="muted">工具动作内部含策略、控制、物理、渲染和 RPC；这些是嵌套组成，不再加到五桶。模型等待还混有网络、排队与编排，不能当成纯 thinking。prefix 合并项不继续臆分编码 / prefill。〔E3：结构模型〕</p></div>')
-    out.append('<div class="statusline">'+esc(d.get('note',''))+' 已结束 '+str(finished)+'/8，计时验收通过 '+str(len(admitted))+'/8。</div><p class="answer">'+text(d['conclusion'],'接入新数据后，先确定最大耗时项，再确定应减少调用次数，还是降低单次执行成本。当前不填入旧 120 集的占比。')+'</p>')
+    out.append('<div class="statusline">'+esc(d.get('note',''))+' 已结束 '+str(finished)+'/8，计时验收通过 '+str(len(admitted))+'/8。</div><h3>最终结论：公式指向哪些优化因素</h3><p class="answer">'+text(d['conclusion'],'接入新数据后，先确定最大耗时项，再确定应减少调用次数，还是降低单次执行成本。当前不填入旧 120 集的占比。')+'</p>')
     out.append(bullets(d['optimization'],'优化排序将在新批次测量闭合后给出。'))
     out.append('<details><summary>顶层计时边界与五桶对账</summary><div><p>T_episode = SDK 报告时长 + episode−SDK 残差。episode 在 init_runtime 后起算，toolkit.close / daemons.stop 后取差，不含后续 transcript 写盘 / finalize_run。SDK 在 MCP 启动后起算，MCP stop 后取差；外 SDK 项由两项 round 到一位小数的时长相减，不是独立实测阶段，也不是全进程墙钟。</p>'+table(['记账项','测量边界'],[['非 π 动作', 'move_to、move_pose、夹爪等原语；不是人工接管。'],['π 动作','π 原语内部，包括模型、RPC、环境执行。'],['工具附加','已完成工具区间并集 − 动作原语时长。'],['SDK 非工具（残差）','SDK 总时长 − 已完成工具区间并集；位于 SDK 区间内部。'],['SDK 外开销（残差）','episode 总时长 − SDK 总时长；属于 episode 内、SDK 区间之外。']])+'<p class="muted">细阶段 span 为父项的组成，不能与父项再次相加。使用同一时钟域的区间并集/独占时间；不同机器单调时钟不能直接相减。算术对账只是必要条件；还须验证原语串行、MCP 包含和区间不重复。未证明这些条件时，五桶只作条件估计。</p></div></details></section>')
     batch_timing=d.get('batch_timing') or {}
