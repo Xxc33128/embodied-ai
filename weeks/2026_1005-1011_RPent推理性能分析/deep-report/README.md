@@ -120,3 +120,5 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 - 没有把 Mac 与 Linux 的时钟强行对齐。动作列表顺序、数量及耗时与原轨迹核对，但不会据此虚构全局墙钟位置。
 - 安全提取代码：`extract_local_timeline.py` 在节点只读新批次并输出白名单结果；`assemble_timeline_v2.py` 从工作区根运行，使用私有本地新批次 telemetry、client-events 与原精确映射，将脱敏区间接入报告。私有中间输出位置 `rpent-repo/deep-timing-20261008/probes/timeline-local-v2.json`。
 - 来源 hash 与逐集对账：`evidence/timeline-v2-provenance.json`。最新验证见 `evidence/timeline-v2-review.json`；此前 timeline review 只对应历史版本，不作为此次新版的审查声明。
+
+公式说明增补：在总公式下默认展开五项定义、统计方法、残差含义及 Astra t0/seed0 对账例子；明确 π 动作包含仿真，SDK 非工具差额不是纯 thinking，公式是耗时账本而非执行顺序。数据未变。最新增量验证见 `evidence/formula-explanation-review.json`。
