@@ -122,3 +122,5 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 - 来源 hash 与逐集对账：`evidence/timeline-v2-provenance.json`。最新验证见 `evidence/timeline-v2-review.json`；此前 timeline review 只对应历史版本，不作为此次新版的审查声明。
 
 公式说明增补：在总公式下默认展开五项定义、统计方法、残差含义及 Astra t0/seed0 对账例子；明确 π 动作包含仿真，SDK 非工具差额不是纯 thinking，公式是耗时账本而非执行顺序。数据未变。最新增量验证见 `evidence/formula-explanation-review.json`。
+
+三问结论与因素拆分：报告开头直接回答云端阶段可识别性、两场景恢复与条件基线、输入输出与 token 对应边界。五项公式将定义、统计方法、内部结构、影响因素和优化判断合并展示；详细字段仍在 Q3。数据不变，双 Agent 增量审查与浏览器验证见 `evidence/front-answers-factors-review.json`。

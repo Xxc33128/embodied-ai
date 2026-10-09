@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "front three answers and integrated five-term factor explanations",
+  "data_changed": false,
+  "reviews": {
+    "evidence_review": "No blocking issues; field-count wording changed to avoid inaccurate count.",
+    "structure_review": "Recommended shorter front answers and merging duplicated five-term explanations; both adopted."
+  },
+  "verification": {
+    "front_answers": 3,
+    "factor_structures": 5,
+    "front_before_formula": true,
+    "viewports": [
+      1280,
+      390,
+      320
+    ],
+    "overflow": false,
+    "javascript_errors": [],
+    "timeline_interactions": "passed"
+  },
+  "sha256": {
+    "report-data.json": "a2308f9a8617d8eadbb999cec91e4494ea7936bf6e7866405f0a2e0cda95cd5d",
+    "build_deep_report.py": "8d9b32bc6745e0b260ccdc8876ba9abf760f96078744c9300f98daff65e9b890",
+    "RPent-两场景深度计时报告.html": "dabad9082694ae695132597972bf04acd7d86d3e45f780a583606a30dfdf87ef"
+  }
+}
