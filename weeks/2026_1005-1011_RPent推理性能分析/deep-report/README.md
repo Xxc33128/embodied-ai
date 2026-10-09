@@ -106,3 +106,5 @@ Q1 实测表主视图只保留组件、累计秒数和可选 episode 占比；�
 公式后新增 8 集事件时间轴，可点选阶段并展开完整顺序。`extract_timeline.py` 只读提取本批已验收 attempt 的工具事件，输出 `evidence/timeline-eight.json`，与既有 stream SHA256 核对后接入 `report-data.json`。原点为首个有时间戳的 item 事件；不是 episode 起点。模型加载另计，事件窗外差额不虚构首尾位置，工具间隔不标作 thinking。
 
 此次增量审查及新版产物 hash 见 `evidence/timeline-review.json`；原三份 `final-*-review.json` 保留对应时间轴增补前版本的审查，不代表新增页面已由三人重审。
+
+时间轴标注修订：灰色图例与 623 段明细统一为「GPT 请求与等待（含网络、编排）」。仍按工具区间补集计时，非 GPT 净耗时；仅改标签和说明，秒数、区间及结论不变。最新增量验证与产物 hash 见 `evidence/timeline-label-review.json`。

@@ -108,8 +108,8 @@ def validate(d):
     return d
 
 def timeline_section(eps):
-    labels={'gap':'未细分间隔','action':'移动 / 夹爪','pi':'π 动作（含仿真）','observe':'观察 / 定位','other':'记忆 / 其他工具','finish':'结束调用'}
-    out=['<section id="timeline"><div class="section-no">按发生顺序 / 8 集时间轴 · E2</div><h2>每一集，时间先花在哪里，再花在哪里？</h2><p>从左向右读；色块宽度代表持续时间。点选色块查看起止秒数，展开明细查看完整顺序。各集使用自己的时间尺度，比较总时长请看右侧秒数。</p><p class="boundary">0 秒＝本集首个有时间戳的 item 事件，不是 episode 起点。灰色是工具调用之间的未细分间隔，混有模型请求、网络、编排等，不能解释为纯 thinking。工具色块包含其内部仿真、渲染与 RPC；π 色块也不是纯模型推理。加载在 episode 前另计，不能与本图直接拼成全进程墙钟。</p><div class="timeline-legend">']
+    labels={'gap':'GPT 请求与等待（含网络、编排）','action':'移动 / 夹爪','pi':'π 动作（含仿真）','observe':'观察 / 定位','other':'记忆 / 其他工具','finish':'结束调用'}
+    out=['<section id="timeline"><div class="section-no">按发生顺序 / 8 集时间轴 · E2</div><h2>每一集，时间先花在哪里，再花在哪里？</h2><p>从左向右读；色块宽度代表持续时间。点选色块查看起止秒数，展开明细查看完整顺序。各集使用自己的时间尺度，比较总时长请看右侧秒数。</p><p class="boundary">0 秒＝本集首个有时间戳的 item 事件，不是 episode 起点。灰色标为「GPT 请求与等待（含网络、编排）」：按事件窗内工具区间的补集计时，包含 GPT 请求及其他客户端等待；不是逐请求单独测得的 GPT 净耗时，不能解释为纯 thinking。工具色块包含其内部仿真、渲染与 RPC；π 色块也不是纯模型推理。加载在 episode 前另计，不能与本图直接拼成全进程墙钟。</p><div class="timeline-legend">']
     out+=['<span><i class="tl-'+k+'"></i>'+esc(v)+'</span>' for k,v in labels.items()]
     out.append('</div>')
     for i,e in enumerate(eps):
