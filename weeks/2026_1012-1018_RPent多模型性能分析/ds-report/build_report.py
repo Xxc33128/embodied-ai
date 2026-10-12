@@ -20,37 +20,14 @@ def add(s):parts.append(s)
 def section(n,title):add(f'<section id="s{n}"><div class="eyebrow">{n:02d} / ANALYSIS</div><h2>{title}</h2>')
 add('''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RPent × DeepSeek｜两场景性能审计</title><style>
 :root{--ink:#172c39;--muted:#5c6c75;--accent:#087e8b;--line:#d4dde0}*{box-sizing:border-box}body{margin:0;background:#fafbf9;color:var(--ink);font:16px/1.8 -apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif}main{max-width:1160px;margin:auto;padding:42px 32px 90px}header{padding:28px 0 35px;border-bottom:3px solid var(--ink)}h1{font-size:42px;line-height:1.2;letter-spacing:-1px;max-width:850px}h2{font-size:28px;line-height:1.35;margin:9px 0 24px}h3{font-size:19px;margin-top:26px}.eyebrow{font-size:12px;letter-spacing:2px;color:var(--accent);font-weight:700}.lead{font-size:20px;max-width:850px}nav{display:flex;flex-wrap:wrap;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}a{color:var(--accent)}section{padding:42px 0;border-bottom:1px solid var(--line)}p{max-width:960px}li{margin:12px 0}.formula{font:18px/1.9 ui-monospace,monospace;padding:24px;background:#eaf2f1;overflow:auto}.muted,small{color:var(--muted)}.scroll{overflow:auto;max-height:650px}table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}td,th{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);min-width:80px}th{background:#eaf0ef;position:sticky;top:0;white-space:nowrap}details{margin:18px 0;border-top:1px solid var(--line);padding-top:14px}summary{cursor:pointer;font-weight:650}pre{overflow:auto;font-size:12px;padding:20px;background:#edf2f2;max-height:450px}select,button{padding:10px;border:1px solid var(--line);background:white;color:var(--ink);font-size:15px}button{cursor:pointer}canvas{width:100%;height:270px;display:block;margin:24px 0;background:white}.notice{border-left:3px solid var(--accent);padding:8px 20px}.metric{font-size:32px;color:var(--accent)}@media(max-width:700px){main{padding:22px 18px}h1{font-size:32px}h2{font-size:24px}td,th{padding:9px}.lead{font-size:18px}}@media print{nav,button{display:none}.scroll{max-height:none;overflow:visible}section{break-inside:auto}body{font-size:11px}main{padding:0}canvas{max-height:220px}details{display:block}}
-</style><main><header><div class="eyebrow">RPENT / DEEPSEEK-V4.1-FLASH / 2026.10.12</div><h1>两场景性能审计<br>耗时、瓶颈与优化收益</h1><p class="lead">DeepSeek 推理耗时分析：实测数据、分阶段模型与优化预算。</p><p class="muted">2026-10-12 · v1.3 · E1源码，E2日志实测，E3条件估算。</p></header><nav><a href="#conclusions">结论与公式</a><a href="#proxy-audit">数据附录</a><a href="#s2">① 推理计时</a><a href="#s3">② 场景与轨迹</a><a href="#s4">③ 输入输出</a><a href="#s5">逐集时间轴</a><a href="#s6">执行开销</a><a href="#s7">证据与明细</a></nav>''')
-from report_proxy import render as render_proxy
-proxy_appendix=render_proxy(table)
+</style><main><header><div class="eyebrow">RPENT / DEEPSEEK-V4.1-FLASH / 2026.10.12</div><h1>两场景性能审计<br>耗时、瓶颈与优化收益</h1><p class="lead">DeepSeek 推理耗时分析：实测数据、分阶段模型与优化预算。</p><p class="muted">2026-10-12 · v1.4 · E1源码，E2日志实测，E3条件估算。</p></header><nav><a href="#conclusions">结论与公式</a><a href="#s2">思考开关与分段表</a><a href="#s3">② 场景与轨迹</a><a href="#s4">③ 输入输出</a><a href="#s5">逐集时间轴</a><a href="#s6">执行开销</a><a href="#s7">证据与明细</a></nav>''')
+D['batches']={'流式补测':D['batches']['流式补测']}
 from report_conclusions import render as render_conclusions
 add(render_conclusions(table))
-from report_intro import render
-add('<details><summary>原成功4集：耗时模型与优化预算</summary>'+render(D, table)+'</details>')
-section(2,'① 原8+8集：客户端实测、统计派生与估算的边界')
-rows=[]
-for effort in ['medium','none']:
- es=[e for e in D['batches']['流式补测'] if e['effort']==effort];rs=[r for e in es for r in e['llm']['per_request']];tt=[r['ttft_ms']/1000 for r in rs if r['ttft_ms'] is not None];tp=[r['tpot_ms'] for r in rs if r['tpot_ms'] is not None];think=[r['thinking_visible_ms']/1000 for r in rs if r['thinking_visible_ms'] is not None]
- rows.append([effort,len(rs),len(tt),num(q(tt,.5)),num(q(tt,.9)),num(min(tt)),num(max(tt)),num(q(tp,.5)),len(think),num(q(think,.5))])
-add(table(['档位','响应attempt','有效样本','TTFT P50 s','P90 s','最小 s','最大 s','TPOT P50 ms/token','thinking窗口n','窗口P50 s'],rows))
-add('''<p>这些分布混合不同上下文长度与任务阶段，不能把最大/最小比直接叫同输入网络抖动。分位数按所有有效请求做线性插值，不是逐集中位数的平均；177 个有效样本 / 178 个响应 attempt，177 个逐集去重逻辑请求。medium t0/seed1 有一次 12.412 s 失败 attempt，无 usage、无有效 delta；保留其成本，不将缺值当零。〔E2〕</p>''')
-add(table(['指标','准确口径','不能推断'],[
-['TTFT〔E1/E2〕','从客户端请求起点到首个非空 reasoning/content/tool-call delta；取三者最早值','不是纯 prefill；tool delta 可能先到元数据，不保证第一个文本 token。'],
-['TPOT proxy〔E1/E2〕','(最后 chunk 到达 − TTFT)/(completion_tokens − 1)，每请求派生；包含 reasoning 输出','不是逐 token 间隔；尾部可能包含 usage/[DONE]，也不是设备纯 decode。'],
-['thinking 可见窗口〔E1/E2〕','首 reasoning delta → 首 content delta，medium 有82条，共535.721 s','不是完整思考时间；86条有 reasoning，直接工具调用或截断可能没有content。none缺值不等于内部计算为0。'],
-['prefill〔E3〕','旧校准拟合 TTFT 对 prompt 长度斜率 .0368 ms/token、截距约7.042 s','不能拆出纯服务端 prefill；缓存、队列和传输混杂。不把倒数写成实测 prefill吞吐。'],
-['上传〔E3〕','旧字节阶梯带宽估计1.804 MB/s；请求JSON字节/该速率只作敏感性估计','不是本请求精确上传耗时；JSON体长度不等于完整网络线速字节。'],
-['服务端阶段','需要提供方 trace：排队、prefill起止、decode起止、缓存命中，以及token事件','仅靠更多客户端重复实验也不能保证精确拆分。自托管后可加服务端埋点。']]))
-add('<p>原始非流式批没有可用的逐请求 TTFT/TPOT，不能用后来补测的值回填。stream shim 改变了线上请求模式；结构兼容验证不证明性能或策略轨迹等价。〔E1/E3〕</p></section>')
-section(3,'② 两个场景：一个可完成，一个暴露长轨迹与预算问题')
-add('''<p><strong>t0：两罐入篮。</strong>alphabet soup 与 tomato sauce 均进入篮子区域。<strong>t9：杯入微波炉并关门。</strong>yellow-and-white mug 入炉，同时门关闭。每场景 seed0/1、medium/none，共 8 集/批。官方目标的区域/关门谓词才是成功标准，不能把一次技能返回当整集成功。〔E1〕</p><p>下表“成功”严格指日志 finish success；现有汇总 solved 字段由 finish_status 构造，并非本次重新核验所有 states 的独立判定。t9 的提前退出与预算异常均单列。〔E1/E2〕</p>''')
-for batch,eps in D['batches'].items():
- add('<h3>'+batch+'</h3>');rows=[]
- for e in eps:
-  r=e['result'];status='日志成功' if r['finish_status']=='success' else ('进程异常/length' if r['process_exit_code'] else ('finish失败' if r['finish_status']=='failure' else '未finish成功'))
-  rows.append([e['identity'],e['effort'],status,r['turns'],e['decisions']['tool_calls_total'],num(r['rpent_elapsed_s']),num(e['llm']['wall_sum_ms']/1000),span(e,'vla_process','pi.handler')['spans'],num(r['vla_model_load_s'])])
- add(table(['场景/seed','档位','结果','轮次','工具次数','episode s','LLM s','π chunks','独立加载 s'],rows))
-add('''<h3>重复调用的规模与可优化部分</h3><p>原始 medium t9 两集共 249 次 π chunk、7 次 pick、5 次 doubled、48 次 move_to，仍 finish failure；none t9/seed0 连 π 都未调用便停下。查询次数和动作次数应分别看，back_project 与 read_text_file 不是机器人动作。缺少逐步子目标进展标注时，不能把重复调用全算无效。〔E2〕</p><p><strong>重复动作的可节省比例尚未量化。</strong>需标注每次动作前后的子目标变化，再与成功最短对照路径比较。〔E3〕</p><h3>复合技能设计目标：尚未重放验证</h3><p>如果感知已可靠、复合技能能稳定完成一个子目标：t0 可用“规划/定位 → 第一罐后检查 → 第二罐后验收”约 3 次高层决策；t9 可用“定位/检查门态 → 抓取入炉 → 关门 → 验收”约 4 次。这是<strong>新技能粒度下的设计目标</strong>，不是当前工具接口的数学下界，也不是现有日志实测。当前 t0 补测最快成功轨迹为 26 轮、805.1 s；26→3 不能直接宣称节省88.5%，因为工具与感知仍需执行。〔E2/E3〕</p><p>更可实施的首个优化实验：保持任务、seed、模型和物理设置，压缩重复历史/图像并合并独立查询；对比成功率、决策轮数、总输入tokens、LLM墙钟与去渲染后的关键路径。每项单独消融。〔E3〕</p></section>''')
+from report_streaming import render as render_streaming
+add(render_streaming(D,table))
+section(3,'两个场景与结果')
+add('<p>t0：两罐入篮；t9：杯入微波炉并关门。各场景seed0/1，medium/none，共8集流式实验。t0两档均成功，t9两档均未完成。t9的退出路径不同，耗时不能作为完成同一任务的加速比。〔E2〕</p></section>')
 section(4,'③ 每轮究竟输入什么，输出什么')
 add('''<p>结构是 <strong>DeepSeek 高层决策 → RPent 工具 → π0.5 动作 / SAM3 分割 → 仿真与观测 → 下一轮 DeepSeek</strong>。这里的 SAM3 是分割服务，不是仿真器；Astra 是此前对照模型，本批模型是服务返回的 deepseek-v4.1-flash。〔E1/E2〕</p>''')
 add(table(['组件','输入字段','输出与长度口径'],[
@@ -75,10 +52,9 @@ for e in D['batches']['流式补测']:
  rows.append([e['identity']+'/'+e['effort'],h['spans'],num(h['sum_ms']/1000),num(h['sum_ms']/h['spans'] if h['spans'] else None),num(rend['sum_ms']/1000),num(sam['sum_ms']/1000)])
 add(table(['episode','π handler次数','π总 s','π均值 ms/chunk','sim.render累计 s','SAM client累计 s'],rows))
 add('''<p>例如补测 medium t0/seed0：28 次 π handler 总计约16.98 s、约606 ms/chunk；但外层 pi0_pick 总计约94.89 s，里面还包含动作执行、仿真、观测和通信。因此“pick耗时”不能叫“π神经网络推理耗时”。模型独立加载约165.6 s另计，未塞入每次推理。〔E2〕</p><p>本表为各类span累计，<strong>不是互斥总账</strong>。本报告按你的实际部署假设不把渲染作为首要优化方向；也不直接用episode减render累计来承诺真实机器人耗时，因为观测图像、控制闭环和嵌套边界会变化。优化π的收益上限，必须按π独占关键路径占比计算。〔E3〕</p>''')
-add('<details><summary>全部16集工具计数与本地分阶段耗时</summary><pre>'+esc(json.dumps([{ 'batch':b,'episode':e['identity']+'/'+e['effort'],'tools':e['decisions']['tool_calls_by_name'],'local_execution':e['local_execution']} for b,es in D['batches'].items() for e in es],ensure_ascii=False,indent=2))+'</pre></details></section>')
-section(7,'可复核明细与证据边界')
-add('''<p><a href="round-context.json">逐轮新增上下文与工具摘要</a> · <a href="requests.csv">两批逐请求CSV</a> · <a href="measurement-source.md">计时源码与行号</a> · <a href="scene-goals.json">场景目标谓词</a> · <a href="audited-data.json">统计输入 JSON</a> · <a href="io-evidence.json">输入输出元数据</a> · <a href="timeline-evidence.json">时间轴与源文件hash</a> · <a href="build_report.py">可复现构建脚本</a></p><p>采集源码〔E1〕：ds_http_hooks.py::_scan / _emit_transport；ds_stream_shim.py 流式重组；timing_hooks.py::_metadata_input / _metadata_output；extract_metrics.py 请求计时与finish判定。原始指标文件SHA256见audited-data.json.sources。只导出白名单元数据，未发布认证、服务地址、原始prompt或原始日志。</p><p>范围限制：每场景仅2个seed；未作随机顺序/服务负载控制，不能因果比较模型或推理档位。成功仅复核既有日志字段，未重跑环境；HTTP状态/错误分类未在旧metrics完整保留。SAM按同机时间窗归属，非严格逐请求匹配。本报告不将未知项补零。</p><h3>流式每请求明细（全部两批明细另附CSV）</h3><p>筛选集数与时间轴同步。单位明确标在列名中；缺失值为“—”。</p><div id="requests"></div></section>''')
-add('<details id="proxy-audit"><summary>附录：代理计时、批次归属与完整数据</summary>'+proxy_appendix.replace('id="proxy-audit"','id="proxy-data"')+'</details>')
+add('<details><summary>流式8集工具计数与本地分阶段耗时</summary><pre>'+esc(json.dumps([{ 'batch':b,'episode':e['identity']+'/'+e['effort'],'tools':e['decisions']['tool_calls_by_name'],'local_execution':e['local_execution']} for b,es in D['batches'].items() for e in es],ensure_ascii=False,indent=2))+'</pre></details></section>')
+section(7,'数据与计时口径')
+add('<p><a href="streaming-phases.csv">流式逐请求分段CSV</a> · <a href="proxy-source-audit.md">计时源码</a> · <a href="round-context.json">逐轮上下文证据</a> · <a href="timeline-evidence.json">时间轴证据</a></p><p>正文只统计流式请求。纯prefill未采集服务端起止事件；thinking与正文/工具区间为客户端可见窗口；按token比例分配的耗时单列为估算。原始记录保留备查。〔E1/E2/E3〕</p><div id="requests"></div></section>')
 R=json.loads((B/'round-context.json').read_text())
 J={'rounds':R,'episodes':D['batches']['流式补测'],'timeline':T,'io':I}
 add('<script>const D='+json.dumps(J,ensure_ascii=False).replace('</','<\/')+';')
