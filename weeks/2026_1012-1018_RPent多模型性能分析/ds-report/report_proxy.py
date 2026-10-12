@@ -24,9 +24,8 @@ def render(table):
   for r in allrows:
    row={k:r.get(k) for k in cols};u=r.get('usage',{});row.update(prompt_tokens=u.get('prompt_tokens'),completion_tokens=u.get('completion_tokens'),reasoning_tokens=u.get('completion_tokens_details',{}).get('reasoning_tokens'));w.writerow(row)
  nvalid=sum(r['valid_stream_ttft'] for r in allrows); nw=sum(r['thinking_visible_proxy_s'] is not None for r in allrows)
- s='<section id="proxy-audit"><div class="eyebrow">新增核对 / 25 份代理日志</div><h2>确实有更细的计时；先纠正字段名，再按批次使用</h2>'
- s+=f'<p class="lead">补核的25份日志共有 {len(allrows)} 条记录，其中 {nvalid} 条符合本报告的流式首输出筛选（DeepSeek 287条、Qwen 68条），{nw} 条可计算首输出到正文/工具的 thinking 可见代理窗口。这些是另一些实验与回放记录（含Qwen），<strong>不能合并进原8+8集，也不能把记录数当成独立实验数</strong>。〔E1/E2〕</p>'
- s+='<p>此前“仍不可识别”的表述过于笼统：已经记录的客户端阶段必须补上。准确结论是：<strong>可测客户端等待与可见输出窗口；目前导出的日志没有服务端 prefill、完整 thinking 的独立起止事件。</strong>拿到更多客户端时间戳，不等于拿到了服务端计算时间。〔E1/E2〕</p>'
+ s='<section id="proxy-audit"><h2>计时定义与来源</h2>'
+ s+=f'<p>25份文件，{len(allrows)}条记录；{nvalid}条流式TTFT（DeepSeek287、Qwen68），{nw}条thinking可见窗口。逐请求数据与批次映射见下表。〔E2〕</p>'
  s+=table(['指标','本次实际找到什么','报告采用口径'],[
  ['prefill','请求准备、连接到响应头、响应头到首输出；另有TTFT拟合','这些客户端区间为实测；纯prefill未单独实测。input/TTFT不能称prefill吞吐。拟合及速率反推为E3估算。'],
  ['thinking','reasoning_tokens及部分first_content_s、ttft_s','两时间戳之差为客户端可见代理窗口；first_content可能是tool delta。未保存逐token/末reason事件，不等于完整服务端thinking。'],
@@ -79,5 +78,5 @@ def render(table):
    if vals:fields[k]=vals
   rows.append([esc(f['file']),'<br>'.join(esc(k)+f': n={len(v)}, Σ={sum(v):,.3f}' for k,v in fields.items()) or '—'])
  s+=table(['文件','字段覆盖与累计（_s为秒，bytes为字节，tok为token，其余计数）'],rows)+'</details>'
- s+='<p><a href="proxy-requests.csv">全部484条代理记录与派生指标CSV</a> · <a href="proxy-run-mapping.json">批次匹配证据</a> · <a href="proxy-inventory.json">字段与原文件hash</a>。另有原8+8集的484条响应记录，两个484恰好相同，属于不同来源，不能据此视为重复或互相替代。</p></section>'
+ s+='<p><a href="proxy-requests.csv">全部484条代理记录与派生指标CSV</a> · <a href="proxy-run-mapping.json">批次匹配证据</a> · <a href="proxy-inventory.json">字段与原文件hash</a>。另有原8+8集的484条响应记录，独立列于原批CSV。</p></section>'
  return s
