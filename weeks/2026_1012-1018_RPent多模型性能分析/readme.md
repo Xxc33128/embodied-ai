@@ -9,3 +9,5 @@
 数据与执行索引：[报告说明](ds-report/README.md)、[逐请求CSV](ds-report/requests.csv)、[统计JSON](ds-report/audited-data.json)、[构建器](ds-report/build_report.py)。
 
 遗留：服务端prefill/完整thinking仍缺trace；无效动作率缺逐动作子目标标注；3/4次高层决策为复合技能设计目标，未重放验收。〔E3〕
+
+10-12 修订v1.1：耗时占比/敏感性预算前置，四层公式代入成功四集实数；新增178次请求的上下文差分与工具结果摘要。
