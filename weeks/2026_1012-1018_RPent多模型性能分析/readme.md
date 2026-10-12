@@ -1,0 +1,11 @@
+# 2026-10-12—10-18 · RPent 多模型性能分析
+
+本周目标：以已有 DeepSeek 两场景数据复核推理耗时、输入输出和优化空间；不将客户端代理指标写成服务端精确计时。
+
+| 日期 | 产出 | 结论 |
+|---|---|---|
+| 10-12 | [DeepSeek 两场景性能审计 HTML](ds-report/RPent-DeepSeek-两场景性能审计.html) | 原始8集与流式8集分开；TTFT/TPOT有效177/178；成功t0四集两批合计4170.0/4174.9秒，不能由全批总时长宣称加速。〔E2〕 |
+
+数据与执行索引：[报告说明](ds-report/README.md)、[逐请求CSV](ds-report/requests.csv)、[统计JSON](ds-report/audited-data.json)、[构建器](ds-report/build_report.py)。
+
+遗留：服务端prefill/完整thinking仍缺trace；无效动作率缺逐动作子目标标注；3/4次高层决策为复合技能设计目标，未重放验收。〔E3〕
