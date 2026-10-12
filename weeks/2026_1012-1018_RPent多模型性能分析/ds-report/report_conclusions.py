@@ -36,5 +36,5 @@ def render(table):
  ['TTFT',f'中位数{statistics.median(r["ttft_s"] for r in rs):.3f}s；累计{tt:.3f}s','客户端首非空输出等待，实测'],
  ['TPOT',f'每请求均值的中位数{tp:.3f}ms/token','由(响应耗时−TTFT)/(输出tokens−1)派生；不是逐token时钟'],
  ['thinking',f'14条可见窗口，累计{thinking:.3f}s','首输出→首正文/工具的客户端窗口；非完整服务端计算时间'],
- ['prefill','无独立实测值','TTFT包含多种等待；回归或速率反推只能标为估算']])
+ ['prefill代理',f'累计{tt:.3f}s（取TTFT）','采用参考报告口径：首输出前耗时，含网络与服务等待']])
  return s+'</section>'

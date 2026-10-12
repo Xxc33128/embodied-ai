@@ -1,4 +1,4 @@
-# DeepSeek 两场景性能审计 v1.4
+# DeepSeek 两场景性能审计 v1.5
 
 日期：2026-10-12。分析既有数据，未执行新的模型/仿真实验。
 
@@ -60,3 +60,9 @@
 正文移除非流式8集及非流式代理运行。流式8集178条，加15个精确归属DeepSeek运行的280条有效流式请求，共23组选项、458条。原始记录保留备查。新增report_streaming.py和streaming-phases.csv。分段表区分客户端实测窗口、TPOT派生值、按token比例估算的thinking/decode；纯prefill缺测。thinking窗口终点采用首正文或工具delta，与旧content-only口径不同。
 
 思考开关：成功率均2/4；共同成功两集2326.7到1848.2秒，省478.5秒（20.57%），63到57轮。删除混入非流式的43.1%变慢结论。独立Agent核验配对数值，23组切换、458行CSV、估算闭合及浏览器布局检查通过。
+
+## v1.5 参考报告估算口径
+
+逐轮主表改为实测总耗时、prefill代理（取实测TTFT）、thinking估算、decode估算与分段合计。按本轮首输出后耗时/输出tokens得到均摊tau，分别乘reasoning tokens和其余输出tokens；tau与原TPOT的N-1口径分开列示。实测窗口及其他字段移入展开表。CSV的prefill为TTFT代理数值。
+
+共同成功两集medium：prefill代理776.094秒、thinking估算352.550秒、decode估算97.379秒，另12.412秒失败请求；none：607.904、0、107.915秒。全部458行中有分段的行均与实测总耗时闭合。
