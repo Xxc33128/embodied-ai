@@ -1,4 +1,4 @@
-# DeepSeek 两场景性能审计 v1.1
+# DeepSeek 两场景性能审计 v1.2
 
 日期：2026-10-12。分析既有数据，未执行新的模型/仿真实验。
 
@@ -22,7 +22,7 @@
 - `timeline-evidence.json`：LLM、动作外层、π/SAM client和render的相对区间。轨道有嵌套，不作条长相加。
 - `measurement-source.md`、`scene-goals.json`：E1定义与目标证据。
 - `extract_*_remote.py`：远程只读白名单提取脚本，需要在原实验节点运行；不启动评测。
-- `build_report.py`：读取本目录3个JSON并生成HTML；运行 `python3 build_report.py` 即可。
+- `build_report.py`：读取本目录脱敏JSON并生成HTML；运行 `python3 build_report.py` 即可。
 
 ## 交叉审查与验证
 
@@ -35,3 +35,18 @@
 公式改为四集成功样本的逐层实数代入，耗时占比与优化预算前置；新增report_intro.py构建模块。round-context.json和extract_round_context_remote.py保存逐请求消息多重集差分、新带入的历史工具返回的白名单摘要。正文不导出原始会话或思考内容。
 
 消息差分识别新增/改写与删除/改写；工具结果归属为本请求带入的历史工具结果。官方token差额不等于新增文本token。优化预算为条件敏感性估算，不是已测加速。
+
+## v1.2 补核代理日志与批次
+
+新增25份代理指标文件，共484行，与前述8+8集的484条响应属于不同数据源。450行通过请求数、input/output累计值与时间窗匹配25个完整运行区块；32行仅候选关联，2行未归属。repro2/3/4属于Qwen，未混入DeepSeek结论。参考报告11轮实验的transcript可确认，但当前根指标文件没有对应数据；现存files_api的13轮对应另一个运行。
+
+- `proxy-inventory.json`：原文件hash、逐行白名单计时/usage/结构字段，无原始内容。
+- `proxy-run-mapping.json`：行范围、实际运行、任务、token对账、时间窗及transcript/run.log指纹。
+- `proxy-source-audit.md`：六份当前采集源码的hash与行号；当前源码不能证明所有历史运行版本。
+- `proxy-requests.csv`：新增484行记录与派生TTFT筛选、thinking窗口、均值TPOT；原TPOT p50/p90字段为delta字段间隔。
+- `extract_proxy_inventory_remote.py`：只读白名单提取器。
+- `report_proxy.py`：单独渲染新增审计和15请求模型，未修改原8+8集统计。
+
+355行符合保守流式TTFT筛选（DeepSeek287、Qwen68），329行有thinking可见代理窗口；非流式的完成耗时不冒充TTFT。新模型逐层代入110.534秒请求累计，明确阶段影响因素、分母和20%敏感性预算。请求累计减episode仅作账面核算；整集优化收益要求同轨迹/同成功结果并落在关键路径。prefill拟合与均匀速率思考估算不等于服务端实测。
+
+三项交叉复核已完成：运行归属、源码边界、独立数值与性能模型。页面保留原8集时间轴及逐轮上下文选择器；新增全批归属、计时覆盖和phase字段表。
