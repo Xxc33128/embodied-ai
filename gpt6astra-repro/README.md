@@ -9,7 +9,7 @@
 ```
 gpt6astra-repro/
 ├── README.md            ← 本文件：方法、控制变量、复跑方法、结果汇总
-├── code/                ← 全部脚本（评测 CLI、环境与适配器、批次 runner、测试）
+├── code/                ← 已发表脚本快照（评测 CLI、环境与适配器、批次 runner、测试）
 │   └── AGENTS.md        ← 开发操作手册（协议对齐值、已知坑、机制发现）
 └── results/
     ├── README.md        ← 各模型批次索引与状态
@@ -79,6 +79,8 @@ GLM / DeepSeek / Qwen 三个完整批次盲评成功率（0/20、1/20、4/20）�
 
 ## 未上传内容（本机全量保留）
 
+- **2026-10-13 镜像核对**：本目录是历史发表快照，不与本机工作目录自动同步。工作版 `run_subagent_trials.py` 后续增加了模型／推理档位标签参数；`run_subagent_trials_xhigh.py`、`test_runner_model_label.py`、`summarize_gpt_trials.py` 及三个 `build_summary_{charts,html,montage}.py` 未收进本镜像。本次保留运行代码和结果快照的原有对应关系，未覆盖 runner 或将本机报告工具作为可复跑交付物发布。〔E1：文件哈希／清单核对；E3：归档取舍〕
+- 9/23 续测与 Sol 对照结论见 [9/21–9/27 周目录](../weeks/2026_0921-0927_同机仿真与云边验证/readme.md)；下方结果目录与上方旧汇总表的覆盖范围以各自批次说明为准。
 - `outgoing-*.json`：发给模型的请求体（内嵌 base64 观测图像；文本部分与 `harness/` 记录一致）
 - `frames/`、wire 图像 blobs、`physics.jsonl`：中间帧与逐步物理记录，由冻结初态 + `harness/actions` 记录的动作序列确定性可复跑
 - 盲评片段视频（`blind-review` 的 mp4）：与 `trials/trial-NN/video.mp4` 同源，仅保留评分依据 `evidence.json`
