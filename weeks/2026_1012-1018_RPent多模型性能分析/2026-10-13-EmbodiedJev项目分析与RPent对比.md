@@ -1,6 +1,6 @@
 # EmbodiedJev 项目分析与 RPent 对比
 
-版本：v1.0 · 日期：2026-10-13
+版本：v1.1 · 日期：2026-10-13
 
 分析对象：[FBddcz/embodied-jev](https://github.com/FBddcz/embodied-jev)，固定提交 `f08de2e4e20d6cd69fea9c57ac1062c3ef510f1e`。RPent 对照依据为已有的脱敏源码摘录、工具 Schema 和换模型接入审计。本次完成了 EmbodiedJev 源码检查与本地规则基线验证，没有重跑其付费模型实验，也没有启动新的 RPent 评测。
 
@@ -80,6 +80,55 @@ LIBERO 关抽屉一对记录中，作者报告混合组耗时从 609.8 秒降至
 本地基线的 `forbidden_contact_steps` 为零，指标只覆盖代码定义的末端部分连杆／手指与桌面、障碍接触，不代表全机体碰撞检查完备。原始验证结果保留在参考 clone 的 `runs/local-review-20261013/`，未复制进公开报告。〔E1：[检查范围][J5]；E3：本次结果记载〕
 
 ## 3. 与当前 RPent 的差别
+
+下图对照 EmbodiedJev LIBERO v2 与 RPent 的现有控制链路。箭头表示调用或数据关系；局部反馈可以在技能内部处理，并不要求每个环境步都调用高层 LLM。〔E1：[v2 选择与执行][J7]、[深度反投影][J6]、[RPent 动作循环 E02–E03][R1]；E2：[RPent 工具 Schema][R2]〕
+
+```mermaid
+flowchart LR
+    subgraph EJ["EmbodiedJev · LIBERO v2"]
+        direction TB
+        EObs["双相机 RGB-D<br/>本体状态"]
+        EPlan["GPT 视觉规划<br/>进展评估 + 2–3 个候选"]
+        EGround["代码反投影与校验<br/>深度 + 相机标定"]
+        ESelect["Jev / GPT 选择器<br/>候选与速度档<br/>或重新观察"]
+        EServo["确定性数值伺服<br/>XYZ、旋转与夹爪"]
+        EEnv["LIBERO / MuJoCo<br/>物理、观测与终态"]
+
+        EObs -->|RGB + 本体反馈| EPlan
+        EPlan -->|像素或位移计划| EGround
+        EObs -->|深度 + 标定| EGround
+        EGround -->|候选与结构化证据| ESelect
+        ESelect -->|选中短动作或保持| EServo
+        EServo -->|OSC 动作| EEnv
+        EEnv -->|新观测| EObs
+        EEnv -->|实际位姿反馈| EServo
+    end
+
+    subgraph RP["RPent · 当前审计版本"]
+        direction TB
+        RObs["观测记录<br/>图像 + 本体反馈"]
+        RPlan["LLM planner<br/>规划与工具编排"]
+        RTools["Toolkit<br/>工具分发与回传"]
+        RSAM["SAM3 + 反投影<br/>已有观测定位"]
+        RVLA["π0.5 + 技能循环<br/>图像、状态、指令 → 动作块"]
+        RServo["手写伺服原语<br/>move_to / move_pose<br/>release"]
+        REnv["LIBERO / MuJoCo<br/>物理、观测与终态"]
+
+        RObs -->|观测工具提供图像与状态| RPlan
+        RPlan <-->|工具调用 / 结果| RTools
+        RTools <-->|定位请求 / 坐标结果| RSAM
+        RTools -->|抓取或接触指令| RVLA
+        RTools -->|几何运动与夹爪指令| RServo
+        RVLA -->|动作块| REnv
+        RServo -->|OSC 动作| REnv
+        REnv -->|刷新观测| RObs
+        REnv -->|技能内反馈与重采样| RVLA
+    end
+
+    EJ ~~~ RP
+```
+
+EmbodiedJev v2 的选择器决定执行哪个候选，数值伺服生成实际运动；RPent 的 π0.5 直接生成动作块，同时保留传统伺服工具。图中的 Jev／GPT 表示两种对照配置，RPent 分支则表示可调用的工具类型。〔E1：[候选选择与伺服][J7]、[π0.5 输入输出 E06–E08][R1]；E2：[工具定义][R2]〕
 
 | 维度 | RPent 当前审计版本 | EmbodiedJev 的对应实现 |
 |---|---|---|
