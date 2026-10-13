@@ -6,6 +6,7 @@
 |---|---|---|
 | 10-12 | [DeepSeek 两场景性能审计 HTML](ds-report/RPent-DeepSeek-两场景性能审计.html) | 原始8集与流式8集分开；TTFT/TPOT有效177/178；成功t0四集两批合计4170.0/4174.9秒，不能由全批总时长宣称加速。〔E2〕 |
 | 10-13 | [VLM＋VLA 双脑架构与推理优化调研](2026-10-13-VLM-VLA双脑架构与推理优化调研.md) | 分析芯片需求、七组架构消融、1–4B 空间推理与四种调度；保留来源、证据口径和未核实项，§6 汇总四项最小实验。仅调研与设计，未运行新实验。〔E3〕 |
+| 10-13 | [EmbodiedJev 项目分析与 RPent 对比](2026-10-13-EmbodiedJev项目分析与RPent对比.md) | 核对 Panda 工作台及 LIBERO v1／v2 的分工，区分 Jev 候选选择与 π0.5 动作生成；建议先验证复合技能，再测进展恢复与选择器。附固定提交源码和结果边界；本机规则基线 9/9，未新增 RPent 评测。〔E1／E3〕 |
 
 数据与执行索引：[报告说明](ds-report/README.md)、[逐请求CSV](ds-report/requests.csv)、[统计JSON](ds-report/audited-data.json)、[构建器](ds-report/build_report.py)。
 
