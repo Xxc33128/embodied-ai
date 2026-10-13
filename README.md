@@ -25,6 +25,11 @@
 ## 同机仿真与云边验证（9/21 起）
 
 - [`weeks/2026_0921-0927_同机仿真与云边验证/`](weeks/2026_0921-0927_同机仿真与云边验证/) — 新主线「CPU MuJoCo/LIBERO＋NPU π0.5＋Mac 接入 GPT」确定与首周执行：RPent 跨节点复现（Object Swap 18/20=90%，cache 命中率与上游一致）及 Flash Mode / libero_goal 补测、GPT-6 Sol/Astra 同 seed bowl 五次对照、Token 与 Prefill/Decoder 规律分析、init0 18 格全链路记录。周 readme 为总索引。
+- [`weeks/2026_0928-1004_RPent双脑对照与回馈/`](weeks/2026_0928-1004_RPent双脑对照与回馈/) — Astra/Sol 双模型 120 集结果与验收证据；历史实验记录以该周文档为准。〔E2〕
+- [`weeks/2026_1005-1011_RPent推理性能分析/`](weeks/2026_1005-1011_RPent推理性能分析/) — 120 集耗时复盘、独立 8 集深度计时，以及 DeepSeek 首批接入与流式补测。〔E2/E3〕
+- [`weeks/2026_1012-1018_RPent多模型性能分析/`](weeks/2026_1012-1018_RPent多模型性能分析/) — 10/12 对既有 DeepSeek 数据的计时审计，10/13 VLM＋VLA 双脑架构与推理优化调研；本周持续更新。〔E2/E3〕
+
+完整周目录见 [周时间线索引](weeks/README.md)。DeepSeek 的计时有效性与阶段命名采用 [10/12 审计口径](weeks/2026_1012-1018_RPent多模型性能分析/ds-report/README.md)，前一周保留原始分析过程。
 
 ## 成果区（不按周拆分）
 
