@@ -19,7 +19,9 @@
 
 数据与执行索引：[报告说明](ds-report/README.md)、[逐请求CSV](ds-report/requests.csv)、[统计JSON](ds-report/audited-data.json)、[构建器](ds-report/build_report.py)。
 
-联合训练执行方案：[Motus＋910B3 第一版联合 RL](../../docs/superpowers/plans/2026-10-14-motus-910b3-joint-rl.md)（T0–T7代码改动、G0–G6门槛、910B3资源模型、轨迹与概率接口、NPU数值/梯度/恢复验收；所有执行任务尚未启动）。〔E3〕
+联合训练执行方案：[Motus＋910B3 第一版联合 RL](../../docs/superpowers/plans/2026-10-14-motus-910b3-joint-rl.md)（T0–T7代码改动、G0–G6门槛、910B3资源模型、轨迹与概率接口、NPU数值/梯度/恢复验收；10-15已开始资源、独立源码、环境与资产准备，G0–G6尚未通过）。〔E2／E3〕
+
+10-15 联合训练准备：按用户要求，源码、环境、模型权重与原始证据主要存远程节点，本地仅留本索引。已确认1、2号卡旧进程为Linux僵尸；两卡在现有CANN8.5环境下的小张量前向／反向均通过，各有约52.9GiB可分配显存，残留显存尚未回收；共享旧容器仍有存活服务，未重启或reset。1、2号卡用于后续验证，7号卡备用。固定Motus源码与四组资产revision／配置已落盘；CANN9目标镜像及约23.12GB必要权重正在下载，未开始SFT或RL，完整模型显存与双卡HCCL仍待验收。〔E2／E3〕
 
 遗留：服务端prefill/完整thinking仍缺trace；无效动作率缺逐动作子目标标注；3/4次高层决策为复合技能设计目标，未重放验收。〔E3〕
 
