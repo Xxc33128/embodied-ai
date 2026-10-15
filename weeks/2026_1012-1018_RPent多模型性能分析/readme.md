@@ -13,6 +13,7 @@
 | 10-14 | [Motus 与 910B3 联合端到端 RL 实验预注册](2026-10-14-Motus与910B3联合端到端RL实验预注册.md) | 固定内部三模态融合与纯任务梯度判据；Stage 2→LIBERO 暖启动、NPU算子适配、可微视频重放与四臂比较。仅设计与源码核查，未改模型或启动训练。〔E1／E2／E3〕 |
 | 10-15 | [COAP 论文分析与 RPent 实验建议](2026-10-15-COAP论文分析与RPent实验建议.md) | 对照 GPT-as-Policy Direct／Hybrid、RPent 普通模式与 Flash，区分免在线规划和无模型执行；t0 优先验证抓持判据、局部恢复与复合技能，t9 先补阶段诊断。给出 A–D 递进对照、Flash 系统对照及证据边界；仅分析与设计，未新增实验。〔E1／E3〕 |
 | 10-15 | [Motus 联合训练的 VLM 与 Wan 模型选型核查](2026-10-15-Motus联合训练的VLM与Wan模型选型核查.md) | 核实 Wan3.0 服务、Animate-2／Dancer 开放分支及 Wan2.2 5B／A14B 接口差异；补齐 Qwen3.8，区分空间 QA、grounding、开放权重与 NPU 训练样例。记录 Motus 维度耦合、权重加载风险和初筛标准，未改模型或执行训练。〔E1／E2／E3〕 |
+| 10-15 | [EmbodiedEvo 分析与 RPent 经验复用实验建议](2026-10-15-EmbodiedEvo分析与RPent经验复用实验建议.md) | 对照 COAP、GPT-as-Policy、RPent 与 Flash，区分冻结经验和冻结策略；澄清53%费用节省的比较对象、缓存与探索成本。固定源码核查冻结／reset／recipe机制，提出t0抓持、t9阶段诊断及K0–K3经验表示对照；未新增实验。〔E1／E2／E3〕 |
 
 执行方案：[910B3 本地 VLM 首批 32 次基线](2026-10-13-910B3本地VLM首批32次推理基线执行方案.md)（Qwen3.8-27B BF16／TP2 候选、8 请求×4 次、指标采集脚本与芯片归因表；仅设备配置已核查，模型多图部署和推理均待执行）· [脱敏环境快照](910b3-baseline32/environment-observed-20261013.json)。〔实测／E2；设计／E3〕
 
