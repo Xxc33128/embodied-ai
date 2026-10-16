@@ -45,6 +45,12 @@ T3源码／CPU／数据准备经修复复审通过，提交a28fe9b：严格Stage
 
 本次使用CANN8.5.2／torch_npu2.7.1.post2，属于完整预训练模型的联合适配参数SFT工程验收；输入切分仍为draft，未作收敛、任务成功率或泛化结论，未通过正式G0／G1／G2，尚未执行task RL。CANN9镜像传输最终失败，原BF16数值误差与初态隔离仍待解决。〔E2／E3〕
 
+10-16 初态隔离后续：新生成并冻结train100／dev20／eval100个完整初态，220个root与scene均唯一，与官方初态池的exact root重叠为0；独立文件审计、Registry校验及跨场景A→B→A恢复通过。完整模型XML、静态fixture pose、float64状态及INTEGRATION均绑定；重复canonical恢复的积分状态、两路RGB和proprio精确一致，原始WARMSTART经forward规范化的区别单独留证。本验收仅解决reset-selection；旧演示的原始reset来源仍不明，其normalizer和工程SFT后代继续隔离于正式训练用途。原始池、审计与失败现场均存节点。〔E1／E2／E3〕
+
+10-16 因果采样工程闭环：在1、2号卡完成新源码d8a7b64的双卡缩小配置纯actor更新及world-frozen阴性对照，随后以完整约80.6亿参数模型跑通真实训练初态观测→当前帧VAE／全512位置T5／两图Qwen→K10、H8、D7、sigma=0.02采样→CPU真实执行16步→固定原始动作链重放→一次纯score联合更新。1503个训练张量（43,502,271参数）的VLM语言LoRA、WAN LoRA、Action与Understanding四组梯度／更新均正且有限；冻结基座不变，两rank更新后参数指纹一致。同策略重放mu、video、step_logp和logp误差均0；完整反传allocated峰值每卡约31.66GiB、reserved最大33.88GiB，限当前batch／shape／checkpoint策略。跨CPU／NPU的总logp一ULP归约差已通过有序求和及显式sampler身份修复，两轮定向复审通过，最近14项定向检查通过，旧产物保留且拒绝复用。六阶段均退出0并经独立产物审计，权重、环境、轨迹和报告全部留节点，本地仅此索引。〔E1／E2〕
+
+本轮优势为外部固定A=1，仅验证联合梯度与采样链路；两个8步片段奖励均0且episode未完成，return／advantage保留None、正式训练有效步数为0。尚未完成干净暖启动与normalizer、20-dev筛查、正式G0／G1／G2／G3／G4及任务RL学习，未作成功率或泛化结论；原BF16数值失败及其冻结阈值保持原记录。〔E2／E3〕
+
 遗留：服务端prefill/完整thinking仍缺trace；无效动作率缺逐动作子目标标注；3/4次高层决策为复合技能设计目标，未重放验收。〔E3〕
 
 资源状态：910B3 型号及每卡 HBM 已确认。仍待验证：完整板卡规格／有效性能、950 目标 SKU、VLM 等待时的仿真推进、双脑受控增益、结果校验空间监督与调度非劣性；详见 [调研报告 §5–§6](2026-10-13-VLM-VLA双脑架构与推理优化调研.md)。当前数据仅为仿真日志，不作真机泛化结论。〔E3〕
