@@ -1,9 +1,9 @@
 {
-  "version": "v4.0",
+  "version": "v4.1",
   "date": "2026-10-16",
   "report": "具身智能实验结果与改进方向报告",
   "pdf_pages": 42,
-  "numbered_tables": 28,
+  "numbered_tables": 26,
   "figures": 7,
   "csv_files": 15,
   "ppt_units": 18,
@@ -12,7 +12,6 @@
     "data_and_document_checks_passed": true,
     "checks": {
       "sections_28": true,
-      "tables_28": true,
       "figures_7": true,
       "sources_48": true,
       "ppt_units_18": true,
@@ -24,28 +23,32 @@
       "derived_sources_rows": true,
       "content_matches_build": true,
       "privacy_scan": true,
-      "docx_tables_29": true,
       "docx_figures_7": true,
       "pdf_pages_42": true,
       "pdf_no_empty_page": true,
       "pdf_all_table_numbers": true,
       "pdf_all_figure_numbers": true,
       "pdf_low_think_label": true,
-      "word_no_font_theme_overrides": true
+      "word_no_font_theme_overrides": true,
+      "tables_26": true,
+      "docx_tables_27": true,
+      "merged_table_12_records": true,
+      "merged_table_all_groups_on_page3": true,
+      "pdf_version": true
     },
-    "visual_review": "42 rendered pages checked; final layout revision changes only page 18, rechecked.",
+    "visual_review": "Merged table and reflowed pages reviewed; unchanged pages compared to v4.0 images outside footer and renumbered table-label pixels.",
     "bold": "Explicit Arial and Hiragino Sans GB font families; heading and table-header weight normalized."
   },
   "files": [
     {
       "path": "README.md",
-      "bytes": 4780,
-      "sha256": "3a6d297fe54de9e1abab7f0a394b08b2c6e59b8d595e97a80c3c1e88c93e85e5"
+      "bytes": 5002,
+      "sha256": "9bb3837dd17c8c3911e4805cbe0b1df6074689e0e4d5634d2f3c082a4e408823"
     },
     {
       "path": "content-source.json",
-      "bytes": 120281,
-      "sha256": "8c9efc101b2ce14114250e2950bab52292ca1eddad94651c162c68ac4fa945c9"
+      "bytes": 121739,
+      "sha256": "4f2f9c269bc65ff0b8f2f5fe02e87a6e76ea4a5277df9845620f58f1f519678e"
     },
     {
       "path": "data/deepseek16_episodes.csv",
@@ -169,8 +172,8 @@
     },
     {
       "path": "ppt-plan.json",
-      "bytes": 22069,
-      "sha256": "90e79f7cc1e072baf2973420f040c55f49d12c231eb6a7065343c322a9fea5a4"
+      "bytes": 22169,
+      "sha256": "53a8b300503fefad63c228de3d3b0473b865efcd05a1687e0d7ec21eb8bbf662"
     },
     {
       "path": "sources.json",
@@ -179,18 +182,19 @@
     },
     {
       "path": "table-data.json",
-      "bytes": 27284,
-      "sha256": "e7a2a32a2b318c6fd4f58dbf33956f964e985cf025774d5ced8afdac0646a36d"
+      "bytes": 27465,
+      "sha256": "5a0868efb0f56dd5e731eee0437f218fd2bfa258bc440f2a01ec6570e0bc0315"
     },
     {
       "path": "具身智能实验结果与改进方向报告.docx",
-      "bytes": 538101,
-      "sha256": "12cd5c7925bec8a8ca23caee0e81ed00a40d937dd084a81c09eabcbd9f02bfda"
+      "bytes": 538788,
+      "sha256": "18b1054e90ac5900fadb0f6c65a7b27ee56e799c825c9903ed7df79c4919c025"
     },
     {
       "path": "具身智能实验结果与改进方向报告.pdf",
-      "bytes": 2800569,
-      "sha256": "e93f356edddab49d7fd250051238911e31a787d19231369470e07d17292e0b22"
+      "bytes": 2813593,
+      "sha256": "33a55ab2938606a2ba0cb032713b8dea3b6659b9fca1cdf786874c542ba01f93"
     }
-  ]
+  ],
+  "revision": "Merged former tables 02, 03, and 04 into one grouped table on PDF page 3; all 12 source rows preserved, later tables renumbered."
 }
