@@ -63,8 +63,41 @@
   "visual_review": {
     "pages_reviewed": 40,
     "final_changed_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
       16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
       27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
       36,
       37,
       38,
@@ -72,11 +105,12 @@
       40
     ]
   },
+  "typography_revision": "2026-10-16: uniform heading and table-header font families and weights; identical text content",
   "files": [
     {
       "file": "README.md",
-      "bytes": 10679,
-      "sha256": "07eaeb8a7fc8efd5cfc53dfd6ebc49fe9f26128a24aab8cfdfe83e4c152d5cc4"
+      "bytes": 10813,
+      "sha256": "63f2b1136697c2799d62d9287c9d5e5673abc374a47ca912af5bfb27893afb7e"
     },
     {
       "file": "data/deepseek16_episodes.csv",
@@ -185,13 +219,13 @@
     },
     {
       "file": "具身智能模型Harness与推理性能研究报告.docx",
-      "bytes": 192329,
-      "sha256": "c9acd9e0c35a2a7a62f1bd7f5245c06b0eada962b1aeb15b54fa539ce9b1ce56"
+      "bytes": 193121,
+      "sha256": "9f3d0d8ac13628ff6a4d666ed157e609178877808c690894c6cfee6cc5627ad1"
     },
     {
       "file": "具身智能模型Harness与推理性能研究报告.pdf",
-      "bytes": 2041367,
-      "sha256": "3e4ea41ae7c8135203f9a220f3f921ec0c0a33a112bce04ebce40b5197f2be48"
+      "bytes": 2065531,
+      "sha256": "70c91a5945f8fc68abad0dab6ded618d5e56433e299366f472db02806a0cf379"
     }
   ]
 }
