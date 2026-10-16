@@ -1,0 +1,197 @@
+{
+  "version": "3.0",
+  "date": "2026-10-16",
+  "report_pages": 40,
+  "slide_units": 30,
+  "tables": 39,
+  "sources": 38,
+  "numeric_checks": [
+    {
+      "check": "120 five-bucket closure",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "120 metered response count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "8 elapsed matches quantitative ledger",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "8 render matches quantitative ledger",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "8 pure cloud stages remain missing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phase table 458",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phase table 23 groups",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "phase allocation algebra closure",
+      "passed": true,
+      "detail": {
+        "rows": 457,
+        "max_residual_s": 7.105427357601002e-15
+      }
+    },
+    {
+      "check": "streaming attempt logical denominator",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "replay 9 bodies 42 attempts",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "visual_review": {
+    "pages_reviewed": 40,
+    "final_changed_pages_reviewed": [
+      16,
+      27,
+      36,
+      37,
+      38,
+      39,
+      40
+    ]
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 10679,
+      "sha256": "07eaeb8a7fc8efd5cfc53dfd6ebc49fe9f26128a24aab8cfdfe83e4c152d5cc4"
+    },
+    {
+      "file": "data/deepseek16_episodes.csv",
+      "bytes": 5320,
+      "sha256": "0f62cd781dbd93a29fc6f53ceba672d369e579afd34d7dbe45263b214936c513"
+    },
+    {
+      "file": "data/deepseek_pairs.csv",
+      "bytes": 596,
+      "sha256": "6e2e55824e378dd899dac9524e01b5f649bc7012ffbbfe2559dfa180280ae74d"
+    },
+    {
+      "file": "data/deepseek_phase_groups.csv",
+      "bytes": 28778,
+      "sha256": "97584c52e350216380008324f4b1c21cd67720a5177e699d305629266f1aee80"
+    },
+    {
+      "file": "data/deepseek_protocol.csv",
+      "bytes": 1707,
+      "sha256": "24e47002ca3274714c8e0f481a2aeb51d5e23b1f0bd01b07005f89894a5ed0ac"
+    },
+    {
+      "file": "data/ds_flash_v5_report_table.csv",
+      "bytes": 2511,
+      "sha256": "7291db90ee87ece741a8cd774589470b3df186df2e75eabd5211f974c40ae2c4"
+    },
+    {
+      "file": "data/files_api_report_table.csv",
+      "bytes": 1975,
+      "sha256": "1c3c5c181155ab10e51a3d397724aba642b0e11e9f4fcb6fdf304782d9735c5a"
+    },
+    {
+      "file": "data/phase_rows_sanitized.csv",
+      "bytes": 100760,
+      "sha256": "3a50a4befaa62e12d31b0ab85685db0e55a61bf54d5ff7ede43f858bdecb505e"
+    },
+    {
+      "file": "data/replay42_requests.csv",
+      "bytes": 3962,
+      "sha256": "fb4fddea9d49cc4f7165615750961b20399d24f2b8683ea6704a1c52750a3795"
+    },
+    {
+      "file": "data/representative_requests.csv",
+      "bytes": 817,
+      "sha256": "76479bd71b554264483497f7322371b804bf7faa92b764cf9bf494b79b0f5016"
+    },
+    {
+      "file": "data/rpent120_episodes.csv",
+      "bytes": 15504,
+      "sha256": "48b38eef51bc1b4e2a3a927ce916e6c69fc9ddf131bef2c0ac1e30b1ac4795fc"
+    },
+    {
+      "file": "data/rpent120_groups.csv",
+      "bytes": 6775,
+      "sha256": "2344e95e07d60a8482010a658c6dca94dde8a0dc615b2a56bb6268b29c594781"
+    },
+    {
+      "file": "data/rpent120_paired.csv",
+      "bytes": 5092,
+      "sha256": "dfccda3767453dac728f4ec66d565f3d834c54ba81aef01c3020ba3ce962275b"
+    },
+    {
+      "file": "data/rpent8_episodes.csv",
+      "bytes": 1863,
+      "sha256": "59e5485814d8e6d11d8a747b4a7a743dd17a792900e1430341a5ae6fd890267c"
+    },
+    {
+      "file": "data/rpent_representative_local_actions.csv",
+      "bytes": 7399,
+      "sha256": "51460260b7b5ccf6ef0d7bb810f8d18239a22cb81f25e6f7da0eece239d6b614"
+    },
+    {
+      "file": "data/rpent_representative_timeline.csv",
+      "bytes": 18105,
+      "sha256": "eceb7cffd44ba63e5d12d851dafe614420a6d3992bb84f52d738214a7d92babf"
+    },
+    {
+      "file": "figures/paired_cost.png",
+      "bytes": 50914,
+      "sha256": "7268fb75f46e0c29827b7a34c3f6f19d9133f5272810b57106690cded63fa8c6"
+    },
+    {
+      "file": "figures/rpent_timeline.png",
+      "bytes": 41938,
+      "sha256": "b293bb32c2ba31fb38ce51a67ab5974ed24416bf2a70072b0aca4ebe344e09fc"
+    },
+    {
+      "file": "figures/v5_requests.png",
+      "bytes": 33194,
+      "sha256": "ab2ebfc756e598e909aecc04ecd3fd9b4ec004ccd86c758a0d1d42d228bc0459"
+    },
+    {
+      "file": "slide-plan.json",
+      "bytes": 23655,
+      "sha256": "e42eb8f6add3639a02680b06f7070ae4b5a73a4c7a1692937b40d9bc587a9ab8"
+    },
+    {
+      "file": "sources.json",
+      "bytes": 10557,
+      "sha256": "691a61e35c676b2800f50bfdf61efe274270649e13d88fdbc52573b25b0fe5f2"
+    },
+    {
+      "file": "table-data.json",
+      "bytes": 35232,
+      "sha256": "f4d5f227f362d6b4929429a00a6613cb3a8b62bcdd82999dc912d6c91873e744"
+    },
+    {
+      "file": "具身智能模型Harness与推理性能研究报告.docx",
+      "bytes": 192329,
+      "sha256": "c9acd9e0c35a2a7a62f1bd7f5245c06b0eada962b1aeb15b54fa539ce9b1ce56"
+    },
+    {
+      "file": "具身智能模型Harness与推理性能研究报告.pdf",
+      "bytes": 2041367,
+      "sha256": "3e4ea41ae7c8135203f9a220f3f921ec0c0a33a112bce04ebce40b5197f2be48"
+    }
+  ]
+}
