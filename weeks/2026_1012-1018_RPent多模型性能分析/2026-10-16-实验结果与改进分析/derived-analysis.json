@@ -1,0 +1,307 @@
+{
+  "evidence": "E3 recomputation from public sanitized tables",
+  "sources": {
+    "rpent120_episodes.csv": {
+      "sha256": "48b38eef51bc1b4e2a3a927ce916e6c69fc9ddf131bef2c0ac1e30b1ac4795fc",
+      "rows": 120
+    },
+    "rpent120_paired.csv": {
+      "sha256": "dfccda3767453dac728f4ec66d565f3d834c54ba81aef01c3020ba3ce962275b",
+      "rows": 60
+    },
+    "deepseek_pairs.csv": {
+      "sha256": "6e2e55824e378dd899dac9524e01b5f649bc7012ffbbfe2559dfa180280ae74d",
+      "rows": 4
+    },
+    "phase_rows_sanitized.csv": {
+      "sha256": "3a50a4befaa62e12d31b0ab85685db0e55a61bf54d5ff7ede43f858bdecb505e",
+      "rows": 458
+    },
+    "rpent_representative_local_actions.csv": {
+      "sha256": "51460260b7b5ccf6ef0d7bb810f8d18239a22cb81f25e6f7da0eece239d6b614",
+      "rows": 55
+    },
+    "rpent8_episodes.csv": {
+      "sha256": "59e5485814d8e6d11d8a747b4a7a743dd17a792900e1430341a5ae6fd890267c",
+      "rows": 8
+    }
+  },
+  "spatial_swap": {
+    "pair_count": 20,
+    "successes": {
+      "astra": 20,
+      "sol": 20
+    },
+    "elapsed_total_s": {
+      "astra": 11738.4,
+      "sol": 18873.7
+    },
+    "request_counts": {
+      "astra": 579.0,
+      "sol": 865.0
+    },
+    "actions": {
+      "astra": 186.0,
+      "sol": 286.0
+    },
+    "pi_chunks": {
+      "astra": 175.0,
+      "sol": 407.0
+    },
+    "elapsed_delta_sol_minus_astra_s": 7135.300000000001,
+    "bucket_difference_s": {
+      "manual_primitive_s": 2182.3200000000006,
+      "vla_primitive_s": 932.9899999999997,
+      "tool_other_s": 697.9269999999999,
+      "sdk_non_mcp_s": 3321.8630000000003,
+      "outside_sdk_s": 0.19999999999987494
+    },
+    "bucket_share_of_delta": {
+      "manual_primitive_s": 0.30584838759407457,
+      "vla_primitive_s": 0.13075694084341227,
+      "tool_other_s": 0.09781326643588914,
+      "sdk_non_mcp_s": 0.46555337547124853,
+      "outside_sdk_s": 2.802965537536963e-05
+    },
+    "sdk_per_count_s": {
+      "astra": 7.401196891191709,
+      "sol": 8.7944
+    },
+    "sdk_exact_symmetric_decomposition": {
+      "formula": "N_s*c_s-N_a*c_a = (N_s-N_a)*(c_s+c_a)/2 + (c_s-c_a)*(N_s+N_a)/2",
+      "denominator_s": 3321.8630000000003,
+      "count_term_s": 2315.9703554404146,
+      "cost_term_s": 1005.8926445595855,
+      "count_term_share": 0.6971902078563789,
+      "cost_term_share": 0.302809792143621,
+      "interpretation": "Bookkeeping decomposition; c includes workload mix and runtime/service wait, not pure model latency."
+    },
+    "tokens": {
+      "input_tokens": {
+        "astra": 33501909.0,
+        "sol": 58435134.0,
+        "sol_over_astra": 1.7442329629633941
+      },
+      "cached_input_tokens": {
+        "astra": 31849600.0,
+        "sol": 56175616.0,
+        "sol_over_astra": 1.763777755450618
+      },
+      "output_tokens": {
+        "astra": 92009.0,
+        "sol": 161138.0,
+        "sol_over_astra": 1.7513286743688117
+      },
+      "reasoning_tokens": {
+        "astra": 10559.0,
+        "sol": 56336.0,
+        "sol_over_astra": 5.335353726678663
+      }
+    }
+  },
+  "long_swap": {
+    "all_pairs": 20,
+    "common_success_pairs": 8,
+    "other_pairs": 12,
+    "outcome_pairs": {
+      "True/True": 8,
+      "False/True": 4,
+      "True/False": 3,
+      "False/False": 5
+    },
+    "all_delta_s": 13126.7,
+    "common_success_delta_s": 536.4000000000001,
+    "other_pairs_delta_s": 12590.3,
+    "other_pairs_share_of_delta": 0.9591367213389502,
+    "batch_cost_per_success": {
+      "gpt-6-astra": {
+        "batch_episode_count": 20,
+        "successes": 11,
+        "all_episode_s": 19474.399999999994,
+        "all_episode_s_per_success": 1770.3999999999994
+      },
+      "gpt-6-sol": {
+        "batch_episode_count": 20,
+        "successes": 12,
+        "all_episode_s": 32601.1,
+        "all_episode_s_per_success": 2716.758333333333
+      }
+    }
+  },
+  "deepseek_paired_additions": [
+    {
+      "batch": "原始非流式",
+      "identity": "t0_s0",
+      "medium_request_s_per_logical": 18.391435076923077,
+      "none_request_s_per_logical": 17.514424391304345,
+      "relative_per_logical_change": -0.0476858212505219,
+      "llm_saved_s": -327.48620999999997,
+      "episode_saved_s": -431.69999999999993,
+      "other_episode_cost_change_s": 104.21378999999996
+    },
+    {
+      "batch": "原始非流式",
+      "identity": "t0_s1",
+      "medium_request_s_per_logical": 20.16068285185185,
+      "none_request_s_per_logical": 11.857499230769228,
+      "relative_per_logical_change": -0.41185031688150064,
+      "llm_saved_s": 236.04345699999993,
+      "episode_saved_s": 197.0999999999999,
+      "other_episode_cost_change_s": 38.94345700000002
+    },
+    {
+      "batch": "流式补测",
+      "identity": "t0_s0",
+      "medium_request_s_per_logical": 23.187314,
+      "none_request_s_per_logical": 13.864831709677421,
+      "relative_per_logical_change": -0.40205097883793606,
+      "llm_saved_s": 428.12083499999994,
+      "episode_saved_s": 454.70000000000005,
+      "other_episode_cost_change_s": -26.579165000000103
+    },
+    {
+      "batch": "流式补测",
+      "identity": "t0_s1",
+      "medium_request_s_per_logical": 14.63479230769231,
+      "none_request_s_per_logical": 11.000366615384618,
+      "relative_per_logical_change": -0.24834146026092718,
+      "llm_saved_s": 94.495068,
+      "episode_saved_s": 23.799999999999955,
+      "other_episode_cost_change_s": 70.69506800000005
+    }
+  ],
+  "deepseek_common_output": {
+    "medium_output": 61835.0,
+    "medium_reasoning": 45618.0,
+    "medium_nonreasoning": 16217.0,
+    "none_output": 23370.0,
+    "valid_usage_rows": {
+      "medium": 63,
+      "none": 57
+    },
+    "none_over_medium_nonreasoning_change": 0.4410803477831904
+  },
+  "v5_additions": {
+    "total": 93.592,
+    "ttft": 27.256,
+    "post": 66.336,
+    "thinking": 47.14400000000001,
+    "decode_window": 19.192,
+    "prep": 9.93,
+    "headers": 10.415000000000001,
+    "after_headers": 6.907,
+    "input": 780723.0,
+    "cache": 720256.0,
+    "output": 17432.0,
+    "reason": 10941.0,
+    "requests": 15,
+    "two_longest_s": 41.06,
+    "two_longest_share": 0.4387127104880759,
+    "weighted_cache_ratio": 0.9225499953248464,
+    "uncached_input_tokens": 60467.0,
+    "row11_think_half_saved_s": 9.979500000000002,
+    "row11_think_half_fraction_of_request_total": 0.10662770322249766,
+    "row11_think_half_fraction_of_episode": 0.054682191780821926
+  },
+  "recovery": {
+    "actions": 17,
+    "sum_duration_s": 562.9423447830001,
+    "sum_render_s": 447.5428892069999,
+    "sum_nonrender_s": 115.39945557600015,
+    "local_timeline_start_s": 660.671506374,
+    "local_timeline_end_s": 1858.560709696,
+    "local_timeline_span_s": 1197.889203322
+  },
+  "deep_summary": {
+    "elapsed_s": 10965.3,
+    "render_s": 4391.179045039,
+    "pi_handler_s": 198.652728636,
+    "pi_prefix_s": 96.185944278,
+    "pi_denoise_s": 86.14176840399999,
+    "physics_s": 121.48058004800001,
+    "logical_rounds": 448.0,
+    "sampling_attempts": 473.0,
+    "vla_chunks": 371.0,
+    "pi_half_save_s": 99.326364318,
+    "pi_half_share": 0.009058244126289295,
+    "fixed_observation_median_ms": 361.046876,
+    "conditional_action_coverage_ms": 250,
+    "required_speedup_to_250ms": 1.444187504
+  },
+  "checks": [
+    {
+      "check": "spatial five buckets close delta",
+      "actual": 7135.3,
+      "expected": 7135.300000000001,
+      "passed": true
+    },
+    {
+      "check": "SDK symmetric decomposition closes",
+      "actual": 3321.8630000000003,
+      "expected": 3321.8630000000003,
+      "passed": true
+    },
+    {
+      "check": "spatial count term",
+      "actual": 2315.9703554404146,
+      "expected": 2315.9703554404146,
+      "passed": true
+    },
+    {
+      "check": "long partition closes",
+      "actual": 13126.699999999999,
+      "expected": 13126.7,
+      "passed": true
+    },
+    {
+      "check": "long other-pair delta",
+      "actual": 12590.3,
+      "expected": 12590.3,
+      "passed": true
+    },
+    {
+      "check": "stream t0s1 residual increase",
+      "actual": 70.69506800000005,
+      "expected": 70.695068,
+      "passed": true
+    },
+    {
+      "check": "v5 long-tail sum",
+      "actual": 41.06,
+      "expected": 41.06,
+      "passed": true
+    },
+    {
+      "check": "v5 uncached input",
+      "actual": 60467.0,
+      "expected": 60467,
+      "passed": true
+    },
+    {
+      "check": "v5 stage closure",
+      "actual": 93.59200000000001,
+      "expected": 93.592,
+      "passed": true
+    },
+    {
+      "check": "medium nonreasoning tokens",
+      "actual": 16217.0,
+      "expected": 16217,
+      "passed": true
+    },
+    {
+      "check": "recovery cumulative action time",
+      "actual": 562.9423447830001,
+      "expected": 562.942344783,
+      "passed": true
+    },
+    {
+      "check": "recovery span",
+      "actual": 1197.889203322,
+      "expected": 1197.889203,
+      "passed": true
+    }
+  ],
+  "all_checks_passed": true,
+  "packaging": "CSV normalized to UTF-8 LF; source hashes below refer to accompanying data copies. Values unchanged."
+}

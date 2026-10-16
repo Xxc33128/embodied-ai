@@ -1,0 +1,118 @@
+[
+  {
+    "image": "figures/rpent120_distribution.png",
+    "caption": "每点为一个回合 圆点成功 叉号失败 横线为中位数〔S1 E3〕",
+    "id": "图 01",
+    "section": "4.1"
+  },
+  {
+    "image": "figures/spatial_swap_buckets.png",
+    "caption": "Spatial Swap 每模型 20 集均成功 五类平均时间相加等于平均回合时间 SDK 非工具含模型请求与相关等待〔S1 E3〕",
+    "id": "图 02",
+    "section": "4.2"
+  },
+  {
+    "image": "figures/rpent_recovery_timeline.png",
+    "caption": "t0 seed1 客户端请求与工具时间轴 两行有重叠 不相加〔S2 E3〕",
+    "id": "图 03",
+    "section": "4.4"
+  },
+  {
+    "image": "figures/deepseek_paired_runs.png",
+    "caption": "两批分别配对 标签保留逻辑请求数〔S4 E3〕",
+    "id": "图 04",
+    "section": "5.1"
+  },
+  {
+    "image": "figures/v5_request_windows.png",
+    "caption": "v5 全部 15 请求的有效事件窗口 第 11 和第 14 次合计占请求时间 43.87%〔S4 S6 E3〕",
+    "id": "图 05",
+    "section": "5.3"
+  },
+  {
+    "image": "figures/v5_context_cache.png",
+    "caption": "v5 各轮输入与缓存 Token 及有效 TTFT 缓存是输入子集〔S4 E3〕",
+    "id": "图 06",
+    "section": "5.4"
+  },
+  {
+    "image": "figures/fixed_body_replay.png",
+    "caption": "9 个请求体的 33 次流式重放 每点为一次 TTFT 其余 9 次为非流式〔S7 E3〕",
+    "id": "图 07",
+    "section": "5.5",
+    "groups": [
+      {
+        "plot_group": 1,
+        "body_sha": "ee6cfcad6aff6168",
+        "identity": "t0_s0",
+        "effort": "medium",
+        "label": "largest",
+        "input_tokens": "64652"
+      },
+      {
+        "plot_group": 2,
+        "body_sha": "20e7b52fd3451fcb",
+        "identity": "t0_s0",
+        "effort": "medium",
+        "label": "smallest",
+        "input_tokens": "13372"
+      },
+      {
+        "plot_group": 3,
+        "body_sha": "eb64295fb21b3392",
+        "identity": "t0_s1",
+        "effort": "medium",
+        "label": "largest",
+        "input_tokens": "81748"
+      },
+      {
+        "plot_group": 4,
+        "body_sha": "60d0fcad87b0728f",
+        "identity": "t9_s0",
+        "effort": "medium",
+        "label": "largest",
+        "input_tokens": "229734"
+      },
+      {
+        "plot_group": 5,
+        "body_sha": "359dfab645187627",
+        "identity": "t9_s1",
+        "effort": "medium",
+        "label": "largest",
+        "input_tokens": "233579"
+      },
+      {
+        "plot_group": 6,
+        "body_sha": "e4b4aecf13c04fc8",
+        "identity": "t0_s0",
+        "effort": "none",
+        "label": "largest",
+        "input_tokens": "87925"
+      },
+      {
+        "plot_group": 7,
+        "body_sha": "f3e003b6e93d5134",
+        "identity": "t0_s1",
+        "effort": "none",
+        "label": "largest",
+        "input_tokens": "53074"
+      },
+      {
+        "plot_group": 8,
+        "body_sha": "bd4ff081ae751235",
+        "identity": "t9_s0",
+        "effort": "none",
+        "label": "largest",
+        "input_tokens": "56413"
+      },
+      {
+        "plot_group": 9,
+        "body_sha": "5fe1dcc6c8587789",
+        "identity": "t9_s1",
+        "effort": "none",
+        "label": "largest",
+        "input_tokens": "105529"
+      }
+    ]
+  }
+]

@@ -1,0 +1,196 @@
+{
+  "version": "v4.0",
+  "date": "2026-10-16",
+  "report": "具身智能实验结果与改进方向报告",
+  "pdf_pages": 42,
+  "numbered_tables": 28,
+  "figures": 7,
+  "csv_files": 15,
+  "ppt_units": 18,
+  "sources": 48,
+  "verification": {
+    "data_and_document_checks_passed": true,
+    "checks": {
+      "sections_28": true,
+      "tables_28": true,
+      "figures_7": true,
+      "sources_48": true,
+      "ppt_units_18": true,
+      "ppt_section_refs": true,
+      "tables_rectangular": true,
+      "local_sources_exist": true,
+      "derived_checks": true,
+      "derived_sources_sha256": true,
+      "derived_sources_rows": true,
+      "content_matches_build": true,
+      "privacy_scan": true,
+      "docx_tables_29": true,
+      "docx_figures_7": true,
+      "pdf_pages_42": true,
+      "pdf_no_empty_page": true,
+      "pdf_all_table_numbers": true,
+      "pdf_all_figure_numbers": true,
+      "pdf_low_think_label": true,
+      "word_no_font_theme_overrides": true
+    },
+    "visual_review": "42 rendered pages checked; final layout revision changes only page 18, rechecked.",
+    "bold": "Explicit Arial and Hiragino Sans GB font families; heading and table-header weight normalized."
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4780,
+      "sha256": "3a6d297fe54de9e1abab7f0a394b08b2c6e59b8d595e97a80c3c1e88c93e85e5"
+    },
+    {
+      "path": "content-source.json",
+      "bytes": 120281,
+      "sha256": "8c9efc101b2ce14114250e2950bab52292ca1eddad94651c162c68ac4fa945c9"
+    },
+    {
+      "path": "data/deepseek16_episodes.csv",
+      "bytes": 5320,
+      "sha256": "0f62cd781dbd93a29fc6f53ceba672d369e579afd34d7dbe45263b214936c513"
+    },
+    {
+      "path": "data/deepseek_pairs.csv",
+      "bytes": 596,
+      "sha256": "6e2e55824e378dd899dac9524e01b5f649bc7012ffbbfe2559dfa180280ae74d"
+    },
+    {
+      "path": "data/deepseek_phase_groups.csv",
+      "bytes": 28778,
+      "sha256": "97584c52e350216380008324f4b1c21cd67720a5177e699d305629266f1aee80"
+    },
+    {
+      "path": "data/deepseek_protocol.csv",
+      "bytes": 1707,
+      "sha256": "24e47002ca3274714c8e0f481a2aeb51d5e23b1f0bd01b07005f89894a5ed0ac"
+    },
+    {
+      "path": "data/ds_flash_v5_report_table.csv",
+      "bytes": 2511,
+      "sha256": "7291db90ee87ece741a8cd774589470b3df186df2e75eabd5211f974c40ae2c4"
+    },
+    {
+      "path": "data/files_api_report_table.csv",
+      "bytes": 1975,
+      "sha256": "1c3c5c181155ab10e51a3d397724aba642b0e11e9f4fcb6fdf304782d9735c5a"
+    },
+    {
+      "path": "data/phase_rows_sanitized.csv",
+      "bytes": 100760,
+      "sha256": "3a50a4befaa62e12d31b0ab85685db0e55a61bf54d5ff7ede43f858bdecb505e"
+    },
+    {
+      "path": "data/replay42_requests.csv",
+      "bytes": 3962,
+      "sha256": "fb4fddea9d49cc4f7165615750961b20399d24f2b8683ea6704a1c52750a3795"
+    },
+    {
+      "path": "data/representative_requests.csv",
+      "bytes": 817,
+      "sha256": "76479bd71b554264483497f7322371b804bf7faa92b764cf9bf494b79b0f5016"
+    },
+    {
+      "path": "data/rpent120_episodes.csv",
+      "bytes": 15504,
+      "sha256": "48b38eef51bc1b4e2a3a927ce916e6c69fc9ddf131bef2c0ac1e30b1ac4795fc"
+    },
+    {
+      "path": "data/rpent120_groups.csv",
+      "bytes": 6775,
+      "sha256": "2344e95e07d60a8482010a658c6dca94dde8a0dc615b2a56bb6268b29c594781"
+    },
+    {
+      "path": "data/rpent120_paired.csv",
+      "bytes": 5092,
+      "sha256": "dfccda3767453dac728f4ec66d565f3d834c54ba81aef01c3020ba3ce962275b"
+    },
+    {
+      "path": "data/rpent8_episodes.csv",
+      "bytes": 1863,
+      "sha256": "59e5485814d8e6d11d8a747b4a7a743dd17a792900e1430341a5ae6fd890267c"
+    },
+    {
+      "path": "data/rpent_representative_local_actions.csv",
+      "bytes": 7399,
+      "sha256": "51460260b7b5ccf6ef0d7bb810f8d18239a22cb81f25e6f7da0eece239d6b614"
+    },
+    {
+      "path": "data/rpent_representative_timeline.csv",
+      "bytes": 18105,
+      "sha256": "eceb7cffd44ba63e5d12d851dafe614420a6d3992bb84f52d738214a7d92babf"
+    },
+    {
+      "path": "derived-analysis.json",
+      "bytes": 8989,
+      "sha256": "b199e1f10eacae7a53be7cf6e80478320ea568f93ca85851c972ec47d5980710"
+    },
+    {
+      "path": "figure-data.json",
+      "bytes": 3262,
+      "sha256": "ae0b0dae52d4260422d265e8658d1b9859cde3e5100f3511627f2a9cc39d138b"
+    },
+    {
+      "path": "figures/deepseek_paired_runs.png",
+      "bytes": 103244,
+      "sha256": "2cafdc629f17ad97fee1e34be3f00a566e38359822be297d14e1c3bb8a01512b"
+    },
+    {
+      "path": "figures/fixed_body_replay.png",
+      "bytes": 65937,
+      "sha256": "243933d99476e24d9fab49b76948d9cb7e1638c0b9aa33d8bdfc37884c3ebdb3"
+    },
+    {
+      "path": "figures/rpent120_distribution.png",
+      "bytes": 96010,
+      "sha256": "b98971f7463c7112724e1daf1f1696c50cbe711f2f6c074da1d4828f79df9ea4"
+    },
+    {
+      "path": "figures/rpent_recovery_timeline.png",
+      "bytes": 51830,
+      "sha256": "dfe08cbed4ed8eca469b0e77c961a264ba17160a161f495dc241d0d699bbaf6e"
+    },
+    {
+      "path": "figures/spatial_swap_buckets.png",
+      "bytes": 57644,
+      "sha256": "dcfbd408bae28d342a8a5bdc4160fd52784b382dd726a0bf867be8201892da2b"
+    },
+    {
+      "path": "figures/v5_context_cache.png",
+      "bytes": 68052,
+      "sha256": "7c545cfcd9b88d82a4fdfab20af434e33b0d4abb4a8be1a1e59e0c8a00cf515e"
+    },
+    {
+      "path": "figures/v5_request_windows.png",
+      "bytes": 43229,
+      "sha256": "6492983e45b8b6eb84afc96ab41b18ab33c49c927b12b36331663aaa533a57b5"
+    },
+    {
+      "path": "ppt-plan.json",
+      "bytes": 22069,
+      "sha256": "90e79f7cc1e072baf2973420f040c55f49d12c231eb6a7065343c322a9fea5a4"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 14001,
+      "sha256": "3eb33897154b82a7a3ea6815590558984bf57deb5908972dee23cefbea75e2f1"
+    },
+    {
+      "path": "table-data.json",
+      "bytes": 27284,
+      "sha256": "e7a2a32a2b318c6fd4f58dbf33956f964e985cf025774d5ced8afdac0646a36d"
+    },
+    {
+      "path": "具身智能实验结果与改进方向报告.docx",
+      "bytes": 538101,
+      "sha256": "12cd5c7925bec8a8ca23caee0e81ed00a40d937dd084a81c09eabcbd9f02bfda"
+    },
+    {
+      "path": "具身智能实验结果与改进方向报告.pdf",
+      "bytes": 2800569,
+      "sha256": "e93f356edddab49d7fd250051238911e31a787d19231369470e07d17292e0b22"
+    }
+  ]
+}

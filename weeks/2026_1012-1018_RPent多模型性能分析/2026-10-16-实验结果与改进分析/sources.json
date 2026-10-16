@@ -1,0 +1,338 @@
+[
+  {
+    "id": "L01",
+    "title": "具身智能测试项目与数据汇总 v1.3",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-16-具身智能测试项目与数据汇总.md",
+    "url": "../2026-10-16-具身智能测试项目与数据汇总.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L02",
+    "title": "bowl多模型总结与同seed对照",
+    "repository_path": "weeks/2026_0914-0920_GPT6Astra评测复现/2026-09-16-bowl-eval-v1四模型总结报告.md",
+    "url": "../../2026_0914-0920_GPT6Astra评测复现/2026-09-16-bowl-eval-v1四模型总结报告.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L03",
+    "title": "GPT-as-Policy三任务逐轮决策实录",
+    "repository_path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-22-LIBERO10-task0-Ori-init0-逐轮决策实录.md",
+    "url": "../../2026_0921-0927_同机仿真与云边验证/2026-09-22-LIBERO10-task0-Ori-init0-逐轮决策实录.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L04",
+    "title": "RPent Codex双模型120集结果",
+    "repository_path": "weeks/2026_0928-1004_RPent双脑对照与回馈/2026-10-01-RPent-Codex双模型120集结果.md",
+    "url": "../../2026_0928-1004_RPent双脑对照与回馈/2026-10-01-RPent-Codex双模型120集结果.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L05",
+    "title": "RPent 120集运行账本与性能报告",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/evidence/runtime-ledger.json",
+    "url": "../../2026_1005-1011_RPent推理性能分析/evidence/runtime-ledger.json",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L06",
+    "title": "RPent独立8集精细计时数据",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/deep-report/report-data.json",
+    "url": "../../2026_1005-1011_RPent推理性能分析/deep-report/report-data.json",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L07",
+    "title": "DeepSeek两场景性能审计与分阶段表",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/ds-report/README.md",
+    "url": "../ds-report/README.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L08",
+    "title": "DeepSeek单局v5与Files API逐轮表复算",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-16-三层研究报告/data/ds_flash_v5_report_table.csv",
+    "url": "../2026-10-16-三层研究报告/data/ds_flash_v5_report_table.csv",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L09",
+    "title": "EmbodiedJev项目分析与RPent对比",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-13-EmbodiedJev项目分析与RPent对比.md",
+    "url": "../2026-10-13-EmbodiedJev项目分析与RPent对比.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L10",
+    "title": "RPent扩展FlashMode与libero_goal",
+    "repository_path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-27-RPent扩展-FlashMode与libero_goal.md",
+    "url": "../../2026_0921-0927_同机仿真与云边验证/2026-09-27-RPent扩展-FlashMode与libero_goal.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L11",
+    "title": "COAP论文分析与RPent实验建议",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-15-COAP论文分析与RPent实验建议.md",
+    "url": "../2026-10-15-COAP论文分析与RPent实验建议.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L12",
+    "title": "EmbodiedEvo分析与RPent经验复用实验建议",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-15-EmbodiedEvo分析与RPent经验复用实验建议.md",
+    "url": "../2026-10-15-EmbodiedEvo分析与RPent经验复用实验建议.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L13",
+    "title": "VLM VLA双脑架构与推理优化调研",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-13-VLM-VLA双脑架构与推理优化调研.md",
+    "url": "../2026-10-13-VLM-VLA双脑架构与推理优化调研.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L14",
+    "title": "Motus与910B3联合端到端RL预注册",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-14-Motus与910B3联合端到端RL实验预注册.md",
+    "url": "../2026-10-14-Motus与910B3联合端到端RL实验预注册.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L15",
+    "title": "Motus联合训练模型选型核查",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-15-Motus联合训练的VLM与Wan模型选型核查.md",
+    "url": "../2026-10-15-Motus联合训练的VLM与Wan模型选型核查.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "L16",
+    "title": "10月16日完整Motus工程小训练记录",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/readme.md",
+    "url": "../readme.md",
+    "evidence": "E1/E2按采集与配置；报告转引及复算E3"
+  },
+  {
+    "id": "W01",
+    "title": "RoboDojo v1 paper",
+    "url": "https://arxiv.org/html/2607.04434v1",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W02",
+    "title": "RoboDojo official homepage leaderboard and News",
+    "url": "https://robodojo-benchmark.com/",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W03",
+    "title": "LIBERO official datasets",
+    "url": "https://libero-project.github.io/datasets",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W04",
+    "title": "LIBERO official repository",
+    "url": "https://github.com/Lifelong-Robot-Learning/LIBERO",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W05",
+    "title": "RoboSpatial",
+    "url": "https://arxiv.org/abs/2411.16537v5",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W06",
+    "title": "SpatialVLM",
+    "url": "https://spatial-vlm.github.io/",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W07",
+    "title": "DAgger",
+    "url": "https://proceedings.mlr.press/v15/ross11a.html",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W08",
+    "title": "Embodied-R1.5",
+    "url": "https://arxiv.org/abs/2606.11324v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W09",
+    "title": "Pointing-VLA",
+    "url": "https://arxiv.org/abs/2608.23138",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W10",
+    "title": "Embodied-R1",
+    "url": "https://arxiv.org/abs/2508.13998",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W11",
+    "title": "Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement",
+    "url": "https://arxiv.org/html/2610.12369v1",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W12",
+    "title": "EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence",
+    "url": "https://arxiv.org/html/2610.18867v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W13",
+    "title": "Real-Time Execution of Action Chunking Flow Policies",
+    "url": "https://arxiv.org/abs/2506.07339v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W14",
+    "title": "Hi Robot: Open-Ended Instruction Following with Hierarchical Vision-Language-Action Models",
+    "url": "https://arxiv.org/html/2502.19417v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W15",
+    "title": "Helix: A Vision-Language-Action Model for Generalist Humanoid Control",
+    "url": "https://www.figure.ai/news/helix",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W16",
+    "title": "Motus: A Unified Latent Action World Model",
+    "url": "https://arxiv.org/abs/2512.13030v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W17",
+    "title": "Motus2: A Self-Evolving General World Model for Dexterous Manipulation",
+    "url": "https://arxiv.org/abs/2608.30237v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W18",
+    "title": "EmbodiedJev fixed-source candidate selection and servo",
+    "url": "https://github.com/FBddcz/embodied-jev/blob/f08de2e4e20d6cd69fea9c57ac1062c3ef510f1e/src/embodied_jev/policies.py#L277-L313",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W19",
+    "title": "ReinFlow: Fine-tuning Flow Matching Policy with Online Reinforcement Learning",
+    "url": "https://arxiv.org/html/2505.22094v2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W20",
+    "title": "LIBERO-PRO official repository",
+    "url": "https://github.com/RLinf/LIBERO-PRO",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W21",
+    "title": "Motus2 official code release status",
+    "url": "https://github.com/shengshu-ai/Motus2",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "W22",
+    "title": "Motus Team official model directory",
+    "url": "https://huggingface.co/motus-robotics",
+    "accessed": "2026-10-16",
+    "evidence": "E1固定源码或E3官方论文与文档"
+  },
+  {
+    "id": "L17",
+    "title": "GPT-as-Policy 18 格运行记录",
+    "repository_path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-21-init0-18格运行记录.md",
+    "evidence": "E3 报告转引",
+    "url": "../../2026_0921-0927_同机仿真与云边验证/2026-09-21-init0-18格运行记录.md"
+  },
+  {
+    "id": "L18",
+    "title": "GPT Token 与 Prefill Decoder 规律分析",
+    "repository_path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-22-GPT-Token与Prefill-Decoder规律分析.md",
+    "evidence": "E3 报告转引",
+    "url": "../../2026_0921-0927_同机仿真与云边验证/2026-09-22-GPT-Token与Prefill-Decoder规律分析.md"
+  },
+  {
+    "id": "L19",
+    "title": "RPent GLM 普通模式 Object Swap 20 集",
+    "repository_path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-24-RPent复现-npunew-GLM5.3-ObjectSwap20集.md",
+    "evidence": "E3 报告转引",
+    "url": "../../2026_0921-0927_同机仿真与云边验证/2026-09-24-RPent复现-npunew-GLM5.3-ObjectSwap20集.md"
+  },
+  {
+    "id": "S1",
+    "title": "120 集逐集结果、请求计量、五类互斥时间；由安全 CSV 复算",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/evidence/runtime-ledger.json",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../../2026_1005-1011_RPent推理性能分析/evidence/runtime-ledger.json"
+  },
+  {
+    "id": "S2",
+    "title": "8 集、时间轴、动作和嵌套阶段；quantitative-conclusion 与 excluded-attempt-cost-ledger 交叉核验",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/deep-report/report-data.json",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../../2026_1005-1011_RPent推理性能分析/deep-report/report-data.json"
+  },
+  {
+    "id": "S3",
+    "title": "render-path-audit.json、vla-calibration.json、logical-sampling-count-convention.json",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/deep-report/evidence/",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../../2026_1005-1011_RPent推理性能分析/deep-report/evidence"
+  },
+  {
+    "id": "S4",
+    "title": "audited-data.json、streaming-phases.csv、proxy-run-mapping.json、io-evidence.json",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/ds-report/",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../ds-report"
+  },
+  {
+    "id": "S5",
+    "title": "HTTP 流采集/TTFT/TPOT 定义；同时读取 proxy-source-audit.md 的代理字段审计",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/ds-report/measurement-source.md",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../ds-report/measurement-source.md"
+  },
+  {
+    "id": "S6",
+    "title": "ds_flash_v5_report.html 与 files_api_report.html 的已提取安全逐轮表；不展开会话/图片",
+    "repository_path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-16-实验结果与改进分析/data",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "data"
+  },
+  {
+    "id": "S7",
+    "title": "stream-probe.json、upload-ladder.json、calibration.json、cliff-ab.json",
+    "repository_path": "weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/",
+    "evidence": "E1 采集机制 E3 统计",
+    "url": "../../2026_1005-1011_RPent推理性能分析/evidence-ds-20261009"
+  }
+]

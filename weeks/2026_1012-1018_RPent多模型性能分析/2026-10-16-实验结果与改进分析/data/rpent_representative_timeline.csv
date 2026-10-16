@@ -1,0 +1,276 @@
+episode,clock,lane,name,start_s,end_s
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 1,0.0,6.953865
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 2,6.967104,15.157428
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 3,15.356148,27.620786
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 4,29.235278,44.29667
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 5,44.499422,53.034752
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 6,81.860499,94.598986
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 7,94.615,108.654465
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 8,129.276731,141.837019
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 9,167.044838,178.631412
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 10,178.826728,186.068826
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 11,213.438214,220.275626
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 12,222.17699,239.828223
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 13,240.073709,254.583154
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 14,272.297961,286.482918
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 15,317.358288,322.957561
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 16,323.006469,331.525067
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 17,340.524201,351.386401
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 18,376.112617,383.61839
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 19,414.496761,418.317044
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 20,419.213736,423.714893
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 21,428.049919,436.628089
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 22,467.466651,472.524696
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 23,481.910382,492.446781
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 24,523.262943,528.93332
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 25,536.061768,545.081553
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 26,560.231202,570.34113
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 27,601.032359,615.787545
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 28,615.9767,623.806002
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 29,650.152236,667.113909
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 30,692.633239,701.763203
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 31,732.619087,740.294794
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 32,740.328253,748.701121
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 33,757.442559,766.026691
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 34,791.190323,804.169243
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 35,835.064527,839.978718
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 36,843.584734,857.0203
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 37,887.956626,892.240508
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 38,904.888125,916.329434
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 39,916.476568,926.445899
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 40,954.247089,1008.085956
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 41,1008.164688,1015.891859
+gpt-6-astra-t0-s1,client,gpt,GPT 请求尝试 42,1015.922541,1020.257924
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.007207,15.069153
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.072997,15.119663
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.122207,15.16307
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.165733,15.201558
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.203802,15.250698
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.252886,15.301563
+gpt-6-astra-t0-s1,client,tools,read_text_file,15.303957,15.343245
+gpt-6-astra-t0-s1,client,tools,read_text_file,27.218436,27.262312
+gpt-6-astra-t0-s1,client,tools,read_text_file,27.263464,27.302331
+gpt-6-astra-t0-s1,client,tools,read_text_file,27.303628,27.329031
+gpt-6-astra-t0-s1,client,tools,read_text_file,27.330578,27.371565
+gpt-6-astra-t0-s1,client,tools,read_text_file,27.374235,27.41597
+gpt-6-astra-t0-s1,client,tools,view_env_state,27.419712,29.201887
+gpt-6-astra-t0-s1,client,tools,back_project,43.751272,43.874786
+gpt-6-astra-t0-s1,client,tools,back_project,43.877735,43.95221
+gpt-6-astra-t0-s1,client,tools,back_project,43.954858,44.027396
+gpt-6-astra-t0-s1,client,tools,back_project,44.03041,44.10363
+gpt-6-astra-t0-s1,client,tools,back_project,44.106565,44.180938
+gpt-6-astra-t0-s1,client,tools,back_project,44.184235,44.257538
+gpt-6-astra-t0-s1,client,tools,back_project,44.261372,44.333765
+gpt-6-astra-t0-s1,client,tools,back_project,44.336917,44.408672
+gpt-6-astra-t0-s1,client,tools,back_project,44.411583,44.48538
+gpt-6-astra-t0-s1,client,tools,move_to,52.726822,81.825999
+gpt-6-astra-t0-s1,client,tools,back_project,94.000407,94.10936
+gpt-6-astra-t0-s1,client,tools,back_project,94.112045,94.184173
+gpt-6-astra-t0-s1,client,tools,back_project,94.188004,94.258299
+gpt-6-astra-t0-s1,client,tools,back_project,94.262181,94.337955
+gpt-6-astra-t0-s1,client,tools,move_to,104.239714,129.24822
+gpt-6-astra-t0-s1,client,tools,move_to,141.512271,167.010802
+gpt-6-astra-t0-s1,client,tools,back_project,178.56051,178.659789
+gpt-6-astra-t0-s1,client,tools,back_project,178.663294,178.736548
+gpt-6-astra-t0-s1,client,tools,back_project,178.739261,178.80927
+gpt-6-astra-t0-s1,client,tools,move_to,185.906484,213.399365
+gpt-6-astra-t0-s1,client,tools,back_project,239.800729,239.913341
+gpt-6-astra-t0-s1,client,tools,back_project,239.914329,239.992336
+gpt-6-astra-t0-s1,client,tools,back_project,239.993454,240.062676
+gpt-6-astra-t0-s1,client,tools,move_to,254.469526,272.257731
+gpt-6-astra-t0-s1,client,tools,pi0_pick,286.298143,321.727216
+gpt-6-astra-t0-s1,client,tools,set_gripper,331.454474,340.493592
+gpt-6-astra-t0-s1,client,tools,move_to,351.318166,376.073108
+gpt-6-astra-t0-s1,client,tools,move_to,383.481765,428.015064
+gpt-6-astra-t0-s1,client,tools,move_to,436.433199,481.873576
+gpt-6-astra-t0-s1,client,tools,move_to,492.234452,536.024503
+gpt-6-astra-t0-s1,client,tools,release,544.8805,560.195344
+gpt-6-astra-t0-s1,client,tools,move_to,570.134982,600.98804
+gpt-6-astra-t0-s1,client,tools,back_project,615.596922,615.705625
+gpt-6-astra-t0-s1,client,tools,back_project,615.708373,615.790074
+gpt-6-astra-t0-s1,client,tools,back_project,615.793865,615.869186
+gpt-6-astra-t0-s1,client,tools,back_project,615.872057,615.946469
+gpt-6-astra-t0-s1,client,tools,move_to,623.602329,650.120003
+gpt-6-astra-t0-s1,client,tools,move_to,666.962383,692.580605
+gpt-6-astra-t0-s1,client,tools,pi0_pick,701.581089,733.203677
+gpt-6-astra-t0-s1,client,tools,set_gripper,748.445773,757.411867
+gpt-6-astra-t0-s1,client,tools,move_to,765.933536,791.139757
+gpt-6-astra-t0-s1,client,tools,move_to,804.035311,843.543091
+gpt-6-astra-t0-s1,client,tools,move_to,856.904912,904.84192
+gpt-6-astra-t0-s1,client,tools,back_project,916.178701,916.284956
+gpt-6-astra-t0-s1,client,tools,back_project,916.28834,916.364525
+gpt-6-astra-t0-s1,client,tools,back_project,916.367836,916.442148
+gpt-6-astra-t0-s1,client,tools,move_to,926.280341,954.185822
+gpt-6-astra-t0-s1,client,tools,write_text_file,1007.015935,1007.099854
+gpt-6-astra-t0-s1,client,tools,finish,1015.302922,1015.34864
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 1,0.0,4.650587
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 2,4.664291,9.252219
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 3,9.265735,15.095423
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 4,15.312672,20.236234
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 5,20.249412,25.760103
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 6,26.342208,33.71104
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 7,34.600224,44.591952
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 8,65.131691,71.249793
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 9,71.363726,76.276033
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 10,100.069305,106.599957
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 11,131.023103,136.620251
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 12,137.024423,143.971868
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 13,173.758494,178.285042
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 14,209.173815,213.196933
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 15,213.245722,218.852633
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 16,218.885287,224.728002
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 17,235.760632,241.634974
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 18,272.475662,275.43281
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 19,286.437288,289.125605
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 20,295.422206,303.352967
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 21,312.557882,321.738749
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 22,322.010274,328.596297
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 23,358.64171,375.059734
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 24,375.112303,381.489169
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 25,411.903465,415.96655
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 26,426.595284,429.305509
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 27,429.525464,436.862061
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 28,450.533447,462.753181
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 29,483.272858,493.341518
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 30,493.365443,502.538942
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 31,531.319285,535.620745
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 32,566.460771,569.519807
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 33,569.576427,577.856658
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 34,608.653748,611.493194
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 35,622.525441,627.412477
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 36,627.438941,634.058178
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 37,643.085582,649.100383
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 38,649.128182,656.801161
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 39,687.308448,690.366022
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 40,690.400516,698.790966
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 41,698.830753,705.261806
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 42,734.629293,743.908205
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 43,774.611746,778.314207
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 44,787.434723,797.075596
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 45,809.621079,818.062481
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 46,848.955509,853.688393
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 47,864.715308,868.397812
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 48,868.458883,885.745312
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 49,912.029981,919.002716
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 50,949.851076,954.401742
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 51,965.363577,970.011051
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 52,970.036509,984.596088
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 53,1010.043598,1015.782008
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 54,1016.440846,1023.340462
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 55,1053.744923,1060.03259
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 56,1070.946989,1074.604566
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 57,1074.660165,1083.307229
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 58,1083.344616,1094.692431
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 59,1125.249443,1129.076139
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 60,1139.912005,1143.764908
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 61,1154.56943,1159.535653
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 62,1159.949524,1169.487524
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 63,1192.066711,1209.474696
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 64,1240.255213,1250.514286
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 65,1250.583181,1256.981805
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 66,1258.611478,1261.697687
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 67,1264.590695,1267.59297
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 68,1270.18811,1273.296852
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 69,1276.191257,1279.296254
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 70,1283.895821,1286.95553
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 71,1286.981822,1332.893396
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 72,1367.054908,1406.151638
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 73,1408.804699,1437.257347
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 74,1461.240624,1491.744049
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 75,1541.316595,1577.471493
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 76,1579.537551,1626.178152
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 77,1659.274374,1699.797573
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 78,1734.711596,1785.798484
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 79,1789.066562,1849.813273
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 80,1890.281806,1956.630667
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 81,1959.690073,2009.652268
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 82,2028.400255,2094.588612
+gpt-6-sol-t0-s1,client,gpt,GPT 请求尝试 83,2097.780316,2143.649537
+gpt-6-sol-t0-s1,client,tools,read_text_file,8.853305,8.930616
+gpt-6-sol-t0-s1,client,tools,read_text_file,8.93317,8.987203
+gpt-6-sol-t0-s1,client,tools,read_text_file,8.990314,9.040598
+gpt-6-sol-t0-s1,client,tools,read_text_file,9.04311,9.07677
+gpt-6-sol-t0-s1,client,tools,read_text_file,9.079166,9.121593
+gpt-6-sol-t0-s1,client,tools,read_text_file,9.124295,9.166385
+gpt-6-sol-t0-s1,client,tools,read_text_file,14.985121,15.20463
+gpt-6-sol-t0-s1,client,tools,read_text_file,15.207805,15.249431
+gpt-6-sol-t0-s1,client,tools,read_text_file,15.252724,15.30011
+gpt-6-sol-t0-s1,client,tools,read_text_file,20.012882,20.049316
+gpt-6-sol-t0-s1,client,tools,read_text_file,20.051981,20.098912
+gpt-6-sol-t0-s1,client,tools,read_text_file,20.101817,20.147907
+gpt-6-sol-t0-s1,client,tools,read_text_file,20.150518,20.183355
+gpt-6-sol-t0-s1,client,tools,view_env_state,25.492302,26.306881
+gpt-6-sol-t0-s1,client,tools,back_project,33.609671,33.822497
+gpt-6-sol-t0-s1,client,tools,back_project,33.825809,33.900192
+gpt-6-sol-t0-s1,client,tools,back_project,33.904171,33.977572
+gpt-6-sol-t0-s1,client,tools,back_project,33.983321,34.05463
+gpt-6-sol-t0-s1,client,tools,back_project,34.0582,34.131499
+gpt-6-sol-t0-s1,client,tools,back_project,34.134146,34.207176
+gpt-6-sol-t0-s1,client,tools,back_project,34.210124,34.282213
+gpt-6-sol-t0-s1,client,tools,back_project,34.285092,34.357728
+gpt-6-sol-t0-s1,client,tools,back_project,34.36062,34.432738
+gpt-6-sol-t0-s1,client,tools,back_project,34.4355,34.508212
+gpt-6-sol-t0-s1,client,tools,back_project,34.511647,34.584747
+gpt-6-sol-t0-s1,client,tools,move_to,44.344796,65.10015
+gpt-6-sol-t0-s1,client,tools,back_project,71.097501,71.201996
+gpt-6-sol-t0-s1,client,tools,back_project,71.204461,71.274883
+gpt-6-sol-t0-s1,client,tools,back_project,71.278043,71.347885
+gpt-6-sol-t0-s1,client,tools,move_to,76.071663,100.039023
+gpt-6-sol-t0-s1,client,tools,move_to,105.575987,130.997428
+gpt-6-sol-t0-s1,client,tools,back_project,136.502564,136.616211
+gpt-6-sol-t0-s1,client,tools,back_project,136.617415,136.690184
+gpt-6-sol-t0-s1,client,tools,back_project,136.69122,136.762118
+gpt-6-sol-t0-s1,client,tools,back_project,136.763392,136.836621
+gpt-6-sol-t0-s1,client,tools,back_project,136.83918,136.920497
+gpt-6-sol-t0-s1,client,tools,back_project,136.923645,137.00363
+gpt-6-sol-t0-s1,client,tools,move_to,143.906795,173.728808
+gpt-6-sol-t0-s1,client,tools,move_to,178.149794,210.217519
+gpt-6-sol-t0-s1,client,tools,back_project,218.34497,218.449928
+gpt-6-sol-t0-s1,client,tools,back_project,218.451557,218.520739
+gpt-6-sol-t0-s1,client,tools,back_project,218.523639,218.592475
+gpt-6-sol-t0-s1,client,tools,move_to,224.595584,235.724252
+gpt-6-sol-t0-s1,client,tools,pi0_pick,241.447681,295.387607
+gpt-6-sol-t0-s1,client,tools,set_gripper,303.197031,312.522525
+gpt-6-sol-t0-s1,client,tools,back_project,321.621518,321.8325
+gpt-6-sol-t0-s1,client,tools,back_project,321.835749,321.912
+gpt-6-sol-t0-s1,client,tools,back_project,321.914892,321.988881
+gpt-6-sol-t0-s1,client,tools,move_to,328.470859,358.596159
+gpt-6-sol-t0-s1,client,tools,back_project,374.85107,374.952221
+gpt-6-sol-t0-s1,client,tools,back_project,374.954922,375.028292
+gpt-6-sol-t0-s1,client,tools,back_project,375.029433,375.102982
+gpt-6-sol-t0-s1,client,tools,move_to,380.863878,429.488547
+gpt-6-sol-t0-s1,client,tools,release,436.681478,450.496549
+gpt-6-sol-t0-s1,client,tools,move_to,462.510638,483.239139
+gpt-6-sol-t0-s1,client,tools,back_project,493.06622,493.181375
+gpt-6-sol-t0-s1,client,tools,back_project,493.184204,493.256081
+gpt-6-sol-t0-s1,client,tools,back_project,493.258814,493.329893
+gpt-6-sol-t0-s1,client,tools,move_to,502.003252,531.287338
+gpt-6-sol-t0-s1,client,tools,move_to,535.417667,568.851214
+gpt-6-sol-t0-s1,client,tools,pi0_pick,577.619797,624.170205
+gpt-6-sol-t0-s1,client,tools,set_gripper,633.857612,643.042265
+gpt-6-sol-t0-s1,client,tools,back_project,648.793564,648.899331
+gpt-6-sol-t0-s1,client,tools,back_project,648.902264,648.978167
+gpt-6-sol-t0-s1,client,tools,back_project,648.981084,649.054963
+gpt-6-sol-t0-s1,client,tools,move_to,656.263295,688.606135
+gpt-6-sol-t0-s1,client,tools,back_project,698.410748,698.51531
+gpt-6-sol-t0-s1,client,tools,back_project,698.51862,698.592344
+gpt-6-sol-t0-s1,client,tools,back_project,698.595333,698.667588
+gpt-6-sol-t0-s1,client,tools,move_to,705.023693,734.583308
+gpt-6-sol-t0-s1,client,tools,pi0_pick,743.564,787.396653
+gpt-6-sol-t0-s1,client,tools,move_to,796.999157,809.583196
+gpt-6-sol-t0-s1,client,tools,pi0_pick,817.896128,867.265339
+gpt-6-sol-t0-s1,client,tools,move_to,885.31441,911.952924
+gpt-6-sol-t0-s1,client,tools,pi0_pick,918.8086,968.157581
+gpt-6-sol-t0-s1,client,tools,move_to,978.999895,1016.400342
+gpt-6-sol-t0-s1,client,tools,pi0_pick,1022.70779,1071.452507
+gpt-6-sol-t0-s1,client,tools,move_pose,1094.217347,1159.907451
+gpt-6-sol-t0-s1,client,tools,move_to,1169.284721,1192.010898
+gpt-6-sol-t0-s1,client,tools,move_to,1209.19405,1243.107731
+gpt-6-sol-t0-s1,client,tools,pi0_pick,1335.985299,1399.308286
+gpt-6-sol-t0-s1,client,tools,release,1449.278985,1461.197122
+gpt-6-sol-t0-s1,client,tools,move_to,1510.280443,1558.878138
+gpt-6-sol-t0-s1,client,tools,move_to,1633.555115,1659.231246
+gpt-6-sol-t0-s1,client,tools,move_to,1703.672204,1754.400513
+gpt-6-sol-t0-s1,client,tools,pi0_pick,1859.211772,1908.22642
+gpt-6-sol-t0-s1,client,tools,write_text_file,2026.471223,2026.557187
+gpt-6-sol-t0-s1,client,tools,finish,2097.367723,2097.430561
