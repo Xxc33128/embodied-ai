@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "evidence_grade": "E2",
+  "recorded_date": "2026-10-22",
+  "last_live_verification_utc": "2026-10-19T09:18:07.364538+00:00",
+  "status_scope": "Historical configuration last verified on 2026-10-19; not a new online check.",
+  "model": "Qwen/Qwen3.8-27B",
+  "model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "hardware": {
+    "type": "Ascend 910B3",
+    "hbm_capacity_gib_per_card": 64,
+    "physical_devices": [
+      3,
+      7
+    ],
+    "container_logical_devices": [
+      0,
+      1
+    ]
+  },
+  "container_image": "quay.io/ascend/vllm-ascend:nightly-main-20260827",
+  "container_image_id": "sha256:bcc1ebe8f424abd5f8a1af5a58fcd607b08039370ee850161ce11efbc96d363a",
+  "software_versions": {
+    "vllm": "0.27.1+empty",
+    "vllm-ascend": "0.19.1rc2.dev1713+g128ecf890",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4.dev20260715",
+    "transformers": "5.14.1",
+    "CANN": "9.1.0",
+    "driver": "25.5.1"
+  },
+  "vllm_serve_options": {
+    "--served-model-name": "qwen3.8-27b",
+    "--host": "127.0.0.1",
+    "--port": 18808,
+    "--dtype": "bfloat16",
+    "--tensor-parallel-size": 2,
+    "--max-model-len": 262144,
+    "--max-num-seqs": 4,
+    "--max-num-batched-tokens": 16384,
+    "--gpu-memory-utilization": 0.9,
+    "--limit-mm-per-prompt": {
+      "image": 1,
+      "video": 0
+    },
+    "--skip-mm-profiling": true,
+    "--load-format": "safetensors",
+    "--compilation-config": {
+      "cudagraph_mode": "FULL_DECODE_ONLY",
+      "cudagraph_capture_sizes": [
+        5,
+        10,
+        15,
+        20
+      ]
+    },
+    "--mm-encoder-tp-mode": "data",
+    "--enable-prefix-caching": true,
+    "--mamba-cache-mode": "align",
+    "--speculative-config": {
+      "method": "qwen3_5_mtp",
+      "num_speculative_tokens": 4,
+      "enforce_eager": true
+    },
+    "--long-prefill-token-threshold": 8192,
+    "--mm-processor-kwargs": {
+      "size": {
+        "shortest_edge": 524288,
+        "longest_edge": 16777216
+      }
+    }
+  },
+  "runtime_environment": {
+    "HCCL_BUFFSIZE": "64",
+    "VLLM_DISABLE_COMPILE_CACHE": "1",
+    "VLLM_CACHE_ROOT": "<PER_CONFIGURATION_CACHE_DIRECTORY>",
+    "ASCEND_RT_VISIBLE_DEVICES": "unset inside the allocated container; host device mapping is configured separately"
+  },
+  "model_path": "<MODEL_DIRECTORY>",
+  "quantization": null,
+  "native_position_config": {
+    "max_position_embeddings": 262144,
+    "rope_parameters": {
+      "mrope_interleaved": true,
+      "mrope_section": [
+        11,
+        11,
+        10
+      ],
+      "partial_rotary_factor": 0.25,
+      "rope_theta": 10000000,
+      "rope_type": "default"
+    }
+  },
+  "operational_limits": {
+    "max_images_per_prompt": 1,
+    "video_enabled": false,
+    "full_restart_cycle_verified": false,
+    "system_boot_autostart_installed": false,
+    "four_near_256k_requests_verified": false,
+    "runtime_experimental_operator_patch_enabled": false
+  },
+  "redaction": "No host addresses, credentials, usernames, actual model/cache paths or raw service logs are included."
+}

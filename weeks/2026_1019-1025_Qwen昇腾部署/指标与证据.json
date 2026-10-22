@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "evidence_grade": "E2",
+  "recorded_date": "2026-10-22",
+  "experiment_dates": [
+    "2026-10-15",
+    "2026-10-19"
+  ],
+  "last_live_verification_utc": "2026-10-19T09:18:07.364538+00:00",
+  "scope": "Historical archived measurements; no new server probe or performance run during documentation.",
+  "single_card": {
+    "protocol": {
+      "warmup_each_case": 1,
+      "repeats_each_case": 5,
+      "concurrency": 1,
+      "temperature": 0,
+      "max_tokens": 256,
+      "enable_thinking": false,
+      "prefix_caching": false,
+      "image_cache": "default media cache warmed once per case",
+      "context_limit": 4096,
+      "timings_exclude": [
+        "service startup",
+        "warmup",
+        "profiled requests"
+      ]
+    },
+    "eager_baseline": {
+      "text": {
+        "median_total_seconds": 3.657382542733103,
+        "median_ttft_seconds": 0.4084611628204584,
+        "median_decode_tokens_per_second_estimate": 5.5314918979321455,
+        "completion_token_counts": [
+          19
+        ],
+        "all_match_original_reference": true
+      },
+      "vision": {
+        "median_total_seconds": 4.390410274267197,
+        "median_ttft_seconds": 0.4203145387582481,
+        "median_decode_tokens_per_second_estimate": 5.5376166977857935,
+        "completion_token_counts": [
+          23
+        ],
+        "all_match_original_reference": true
+      }
+    },
+    "graph": {
+      "text": {
+        "median_total_seconds": 1.1760510480962694,
+        "median_ttft_seconds": 0.2668053791858256,
+        "median_decode_tokens_per_second_estimate": 19.799720343762274,
+        "completion_token_counts": [
+          19
+        ],
+        "all_match_original_reference": true
+      },
+      "vision": {
+        "median_total_seconds": 1.3871583621948957,
+        "median_ttft_seconds": 0.27538570389151573,
+        "median_decode_tokens_per_second_estimate": 19.79481207162587,
+        "completion_token_counts": [
+          23
+        ],
+        "all_match_original_reference": true
+      }
+    },
+    "final_graph_mtp3": {
+      "text": {
+        "median_total_seconds": 0.6301528648473322,
+        "median_ttft_seconds": 0.31452437583357096,
+        "median_decode_tokens_per_second_estimate": 56.84353300692853,
+        "completion_token_counts": [
+          19
+        ],
+        "all_match_original_reference": true
+      },
+      "vision": {
+        "median_total_seconds": 0.7587295160628855,
+        "median_ttft_seconds": 0.3164707222022116,
+        "median_decode_tokens_per_second_estimate": 49.68956491229043,
+        "completion_token_counts": [
+          23
+        ],
+        "all_match_original_reference": true
+      }
+    },
+    "text_latency_speedup": 5.803960827217981,
+    "vision_latency_speedup": 5.786528903013321,
+    "image_sha256": "b9f8c59fae6d2a202114ea383707e0f4a43b7836587a0b2dd2fc5a147552a35b"
+  },
+  "prefill_sweep": {
+    "verified_utc": "2026-10-18T16:22:30.554994+00:00",
+    "selected_chunk": 16384,
+    "measurements": [
+      {
+        "chunk_size": 2048,
+        "ttft_median_seconds": 114.06622885121033,
+        "ttft_min_seconds": 114.05110130505636,
+        "ttft_max_seconds": 114.16900274576619,
+        "total_median_seconds": 114.9535672632046,
+        "hbm_peak_mib": {
+          "3": 60368,
+          "7": 60355
+        },
+        "hbm_peak_gib": {
+          "3": 58.953125,
+          "7": 58.9404296875
+        },
+        "kv_pool_usage_peak_percent": 34.79923518164436,
+        "retrieval": "7/7 in each of 3 runs",
+        "short_regression_correct": true
+      },
+      {
+        "chunk_size": 4096,
+        "ttft_median_seconds": 110.77905330387875,
+        "ttft_min_seconds": 110.61807216284797,
+        "ttft_max_seconds": 110.90702427783981,
+        "total_median_seconds": 111.67843393282965,
+        "hbm_peak_mib": {
+          "3": 60388,
+          "7": 60374
+        },
+        "hbm_peak_gib": {
+          "3": 58.97265625,
+          "7": 58.958984375
+        },
+        "kv_pool_usage_peak_percent": 35.0,
+        "retrieval": "7/7 in each of 3 runs",
+        "short_regression_correct": true
+      },
+      {
+        "chunk_size": 8192,
+        "ttft_median_seconds": 109.10444601811469,
+        "ttft_min_seconds": 108.66799522424117,
+        "ttft_max_seconds": 109.41912915790454,
+        "total_median_seconds": 109.95545100420713,
+        "hbm_peak_mib": {
+          "3": 60551,
+          "7": 60534
+        },
+        "hbm_peak_gib": {
+          "3": 59.1318359375,
+          "7": 59.115234375
+        },
+        "kv_pool_usage_peak_percent": 35.40856031128404,
+        "retrieval": "7/7 in each of 3 runs",
+        "short_regression_correct": true
+      },
+      {
+        "chunk_size": 16384,
+        "ttft_median_seconds": 109.02453664503992,
+        "ttft_min_seconds": 108.45167859178036,
+        "ttft_max_seconds": 109.29479255480692,
+        "total_median_seconds": 109.90635264664888,
+        "hbm_peak_mib": {
+          "3": 61053,
+          "7": 61039
+        },
+        "hbm_peak_gib": {
+          "3": 59.6220703125,
+          "7": 59.6083984375
+        },
+        "kv_pool_usage_peak_percent": 36.32734530938124,
+        "retrieval": "7/7 in each of 3 runs",
+        "short_regression_correct": true
+      }
+    ],
+    "input_tokens": 260081,
+    "repeats_per_chunk": 3,
+    "memory_sampling_target_seconds": 1
+  },
+  "mtp_sweep": {
+    "repeats_per_case": 2,
+    "output_tokens_per_case": 1024,
+    "prefix_cache_enabled": true,
+    "cold_prefix_hits": 0,
+    "rows": [
+      {
+        "steps": 0,
+        "accepted": true,
+        "median_decode_tps_estimate": {
+          "narrative": 30.390038178464074,
+          "code": 30.393338602647887,
+          "long-context": 28.631041484220123
+        }
+      },
+      {
+        "steps": 1,
+        "accepted": true,
+        "median_decode_tps_estimate": {
+          "narrative": 39.42499412616503,
+          "code": 45.27406076965215,
+          "long-context": 40.23146901457044
+        }
+      },
+      {
+        "steps": 2,
+        "accepted": false,
+        "rejection_reason": "Frozen-image color counts changed; not retained."
+      },
+      {
+        "steps": 3,
+        "accepted": true,
+        "median_decode_tps_estimate": {
+          "narrative": 48.87821640639622,
+          "code": 79.79348371042074,
+          "long-context": 56.82352970640643
+        }
+      },
+      {
+        "steps": 4,
+        "accepted": true,
+        "median_decode_tps_estimate": {
+          "narrative": 51.15285541379019,
+          "code": 91.84328580910497,
+          "long-context": 61.247208662065326
+        }
+      }
+    ],
+    "selected_steps": 4,
+    "comparison_scope": "Same cache-on MTP3 baseline; not an overall gain versus all earlier stages."
+  },
+  "four_concurrency": {
+    "burst_output_tps": 166.8969645773084,
+    "baseline_seq1_burst_tps": 61.17051581295194,
+    "throughput_ratio": 2.7283890344761565,
+    "mixed_short_ttft": 4.617194935213774,
+    "baseline_seq1_mixed_short_ttft": 16.219527108129114,
+    "mixed_short_total": 13.044014384038746,
+    "full_cold_ttft": 109.46254530223086,
+    "full_warm_ttft": 2.4232238410040736,
+    "full_peak_hbm_mib": {
+      "3": 61345,
+      "7": 61342
+    },
+    "cached_reverse_ttft": 2.369168116245419,
+    "cached_history_ttft": 2.496613558847457,
+    "near_256k_retrieval": "7/7",
+    "four_64k_distinct_document_retrieval": "12/12 keys per round, 3 rounds",
+    "long4_key_label_omissions": 3,
+    "image_prompt_tokens_before": 221,
+    "image_prompt_tokens_now": 569,
+    "three_burst_rounds_observed_running": [
+      4.0,
+      4.0,
+      4.0
+    ],
+    "four_distinct_long_document_rounds": [
+      {
+        "group_seconds": 67.44302037497982,
+        "prompt_tokens": [
+          63472,
+          63476,
+          63475,
+          63476
+        ],
+        "quality_passed": true
+      },
+      {
+        "group_seconds": 67.44146669097245,
+        "prompt_tokens": [
+          63472,
+          63476,
+          63475,
+          63476
+        ],
+        "quality_passed": true
+      },
+      {
+        "group_seconds": 67.51865112688392,
+        "prompt_tokens": [
+          63472,
+          63476,
+          63475,
+          63476
+        ],
+        "quality_passed": true
+      }
+    ],
+    "full_cold_input_tokens": 260081,
+    "full_warm_input_tokens": 260081,
+    "full_warm_cached_tokens": 258048.0,
+    "fact_regression": {
+      "passed": 39,
+      "total": 39,
+      "all_passed": true
+    },
+    "strict_byte_match": {
+      "passed": 12,
+      "total": 39,
+      "all_passed": false
+    },
+    "stress_requests": 80,
+    "stress_images": 50,
+    "stress_math_requests": 30,
+    "stress_scope": "Repeated frozen image and arithmetic requests, not 80 independent quality examples",
+    "candidate_fact_counts": {
+      "eager0": {
+        "passed": 22,
+        "total": 39,
+        "all_passed": false
+      },
+      "eager4": {
+        "passed": 22,
+        "total": 39,
+        "all_passed": false
+      },
+      "full0": {
+        "passed": 21,
+        "total": 39,
+        "all_passed": false
+      },
+      "full4": {
+        "passed": 18,
+        "total": 39,
+        "all_passed": false
+      },
+      "invariantnorm4": {
+        "passed": 12,
+        "total": 39,
+        "all_passed": false
+      },
+      "norm4": {
+        "passed": 19,
+        "total": 39,
+        "all_passed": false
+      },
+      "sync4": {
+        "passed": 18,
+        "total": 39,
+        "all_passed": false
+      },
+      "vision4-reviewed": {
+        "passed": 39,
+        "total": 39,
+        "all_passed": true
+      }
+    },
+    "image_visual_tokens_before": 192,
+    "image_visual_tokens_after": 540,
+    "full_peak_hbm_gib": {
+      "3": 59.9072265625,
+      "7": 59.904296875
+    }
+  },
+  "limitations": [
+    "Shared KV pool; four concurrent near-256K requests were not tested or promised.",
+    "Vision quality gate covers the frozen image; cross-batch bitwise/text equality is not claimed.",
+    "3/12 distinct-document answers omitted KEY labels despite correct values.",
+    "1 Hz whole-card HBM samples include preallocated caches; transient peaks may be missed.",
+    "Final restart helper was checked as a no-op on a healthy service, not through a full restart.",
+    "No new live health verification was performed on 2026-10-22."
+  ],
+  "source_files": [
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-singlecard-20261015/preflight-summary.json",
+      "sha256": "7c94944c897a25d0e604bcdced8a4aecf59382f78fc09e1d21bed017dad20000",
+      "bytes": 1433,
+      "role": "Single-card random-weight compatibility check, not model quality evidence"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-speed-20261016/experiment.json",
+      "sha256": "1ab647e5ce2bbbcb92c7eb359071c03fb7955fdff05aa4c8bac6253336860e62",
+      "bytes": 2466,
+      "role": "Single-card environment, hardware and selected configuration"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-speed-20261016/results/eager-baseline.json",
+      "sha256": "3c92845025ea465c966f43db5b9cdfaad190d77de64ffad4129a92249802c584",
+      "bytes": 10335,
+      "role": "Frozen text/image eager baseline, five repetitions"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-speed-20261016/results/graph.json",
+      "sha256": "95f40285fe167261b4086d1e4bc35e86c7cabb73496380b38b47967d10f2c27f",
+      "bytes": 10351,
+      "role": "Frozen text/image decode-graph comparison"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-speed-20261016/results/final-validation.json",
+      "sha256": "60afbf3a85c465fd1e8947b64bb4f29fcb15ec4b570b130d4d0d23d6c775679e",
+      "bytes": 10358,
+      "role": "Final single-card MTP3 validation"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-speed-20261016/results/comparison.json",
+      "sha256": "15d9ba88cea89ea6084a909d7b77bea7c26b3e8a8fe7bf352880025ccf1f9251",
+      "bytes": 3604,
+      "role": "Single-card before/after comparison"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-tp2-20261017/experiment.json",
+      "sha256": "909e1aa726b6ef0e5a62bcb228185dc02cf256f3d8f54722ba97ddb081898acc",
+      "bytes": 1865,
+      "role": "Historical TP2 128K configuration; superseded"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-tp2-20261017/results/comparison.json",
+      "sha256": "26486c9c65535afc82d7278f936e0aee4b7f37f13d1ae90f7b3f08326c224f2e",
+      "bytes": 1083,
+      "role": "Single-card and TP2 short examples, separate measurement dates"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-prefill-20261018/native-config-evidence.json",
+      "sha256": "a1539b8a0b3a914e4843595c66a6143aca02f5f41e1ce014b48d76e86269ee7b",
+      "bytes": 247,
+      "role": "Native 262144 context and default RoPE configuration"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-prefill-20261018/fixture.json",
+      "sha256": "48b8f813a8cefddc6cc0b6be34252867abbc1c33d9d3158cac5baf36ef8ff2be",
+      "bytes": 1276,
+      "role": "Frozen near-limit retrieval fixture metadata"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-prefill-20261018/results/summary.json",
+      "sha256": "cc3875ea120b91b6f031fbda29add85cd7da0572175bac1b81c98eecfa092120",
+      "bytes": 2289,
+      "role": "Four prefill budgets, three repetitions each"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/source-evidence.json",
+      "sha256": "96955e60ee3efbdde3c8ead1e07df4107b15100f31b0db2eea9ea8dedbadacfe",
+      "bytes": 7637,
+      "role": "Pinned software and source excerpts"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/prefill-communication-comparison.json",
+      "sha256": "dc443319a2238a30fc5aeca3c5f84b6bef198d8b79757ce9950af07d242aadc3",
+      "bytes": 12813,
+      "role": "HCCL buffer comparison"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/mtp-comparison.json",
+      "sha256": "e80919d468fdd02d81b662d0a46016deae5113bc99c58164bbbf1530b95c88c9",
+      "bytes": 89844,
+      "role": "MTP 0-4 trials and rejection evidence"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency-comparison.json",
+      "sha256": "1bef41ef38dcbed1aaadd105f231d1e90c614abd8095fad636444fe6352c88d5",
+      "bytes": 44620,
+      "role": "Historical concurrency baseline and cache timing"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/优化实测报告.md",
+      "sha256": "9c1daa4739c47fcbb55f8c0b7d3e7f652b6be14a927a4531c466751101649d92",
+      "bytes": 12595,
+      "role": "Human-readable staged report; contains local-only links in the original"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/selected-launch-args.json",
+      "sha256": "48da41b0ea35fbbd9816aadcd2143022a0e6724d31369c668e35c00d80f4b411",
+      "bytes": 1191,
+      "role": "Final selected four-concurrency service options"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/final-verification.json",
+      "sha256": "f0577edaf2b1928710f7f65857bbd67ceb01cdfad64a61061ac31419976ba96e",
+      "bytes": 20796,
+      "role": "Final aggregate metrics and 80 stress responses"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/live-verification.json",
+      "sha256": "5961a523c10a9d71324a58e8f5475fc6a1fd704ee06cbf4d6954f6b9a35fd696",
+      "bytes": 6550,
+      "role": "Last fresh online argv/health/quality verification"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/performance-vision4-reviewed.json",
+      "sha256": "c5f95348e6d3b30109bbc97c4bb9e9f578beefa585e97eccc297fd5aee2c54e3",
+      "bytes": 93825,
+      "role": "Three burst/mixed/distinct-long-document groups and cold/warm 260K"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/probe-vision4-reviewed.json",
+      "sha256": "9fdc25fc901a945113411820ad7c07bc12cd53a4c42cf63387992cf30a5b9ceb",
+      "bytes": 9043,
+      "role": "Original strict byte-match flags, kept separate from fact checking"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/fact-checks.json",
+      "sha256": "d7030cee3677030e853de3d73b421949028db964397a250d5dc986cb55d9510c",
+      "bytes": 124961,
+      "role": "Fact-based evaluation of candidate configurations"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/resolution-comparison.json",
+      "sha256": "2cbb1a03aa0d84d411434a87fd6af484b787f3b5aa9a6c82db4d816e4165056f",
+      "bytes": 45029,
+      "role": "Image processor budget trials and manual hallucination review"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/retrieval-format-review.json",
+      "sha256": "e441a5f480f0a564a66ecc45a5461bdc280383244e63936cb6e08f14238fffb8",
+      "bytes": 475,
+      "role": "Separate record of missing KEY labels"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/norm-probe.json",
+      "sha256": "bef622807da3bd045e8f873fed5b4ca86d0d7e2e735050aba8c72265c9e95bbf",
+      "bytes": 8413,
+      "role": "Standalone normalization probe; not a complete model root-cause proof"
+    },
+    {
+      "workspace_relative_path": "rpent-repo/qwen38-next-20261019/concurrency4-20261019/quality.py",
+      "sha256": "e79e72bf77356e9258776c742de4038df48ef3783ef178448906280a4ee4c8e6",
+      "bytes": 2078,
+      "role": "Frozen-image and arithmetic fact-checking implementation"
+    }
+  ]
+}
