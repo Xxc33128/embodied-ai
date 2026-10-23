@@ -10,6 +10,7 @@
 | 10-22 | [术语、配置和复现说明](术语与复现.md) | 解释 BF16、MTP、TP、Prefill、KV cache、TTFT；列出保留方案、现场脚本索引及后续验证方法〔E2/E3〕。 |
 | 10-22 | [保留配置](保留配置.json) | 从最终启动参数提取的脱敏配置快照，含版本和模型 revision〔E2〕。 |
 | 10-22 | [指标与证据](指标与证据.json) | 原始精度数值、阶段对照、证据文件相对位置及 SHA256〔E2〕。 |
+| 10-23 | [SuperMimic 与 Isaac Lab Agent Skills 调研](SuperMimic与IsaacLab-AgentSkills调研.md) | 主题外调研：SuperMimic（CoRL 2026 Oral）1×H100 训练 3 小时超过 SONIC 归一化 return 0.90（SONIC 为 128 GPU×7 天）；Isaac Lab 官方 agent skills 目录（24 项）机制与逐项盘点，develop 分支已于 10-19 cutover 到 main。均为公开网络资料〔E3/E4〕，未跑代码。 |
 
 〔E2/E3〕四并发已验证四条约 63K 文档及图文混合请求；四条接近 256K 的请求同时驻留尚未验证。图片采用同一原图和问题，但最终预处理使视觉 tokens 从 192 增至 540。通用多模态能力和跨批次逐字一致性不在本次验收范围内。
 
