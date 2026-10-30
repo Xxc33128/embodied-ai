@@ -10,10 +10,12 @@
 | 日期 | 结论 | 证据 |
 |---|---|---|
 | 10-26 | 六线 17+2 篇蒸馏论文并行调研成稿：latent 蒸馏优于 pixel/logits、动作导向表征优于语义、on-policy+per-token reverse-KL 为效率上限、少步化必须带分布锚、速度收益主要来自动作解码方式而非骨干规模；勘误 RLDG 归属（Berkeley Levine 组、方向为专才→通才） | E3（论文转引，未独立复核） |
+| 10-30 | 大小脑联合后训练与 RL 调研：区分 VLM＋Action 联合 RL、Reasoning–Action 轨迹优化、World SFT＋Actor RL；优先 Z-1／π_RL／SyVLA／DeepThinkVLA／WAM-RL，补 Motus2 与长程信用分配；提出冻结／有限解冻／世界在线适配对照 | E3（论文与官方文档）；Motus／SyVLA 定点源码 E1 |
 
 ## 过程文档索引
 
 - [具身蒸馏调研报告.md](具身蒸馏调研报告.md)——六条线分线笔记 + 横向对比表 + 配方/坑清单 + 与 Motus/DreamLab/GR00T NPU 部署的结合点
+- [2026-10-30-具身大小脑联合后训练与RL调研.md](2026-10-30-具身大小脑联合后训练与RL调研.md)——实际更新模块／梯度与奖励边界、优先阅读清单、官方实现入口及研究对照建议
 
 ## 遗留 → 下周
 
