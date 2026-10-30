@@ -26,4 +26,4 @@
 
 - 延伸阅读四项（Refined Policy Distillation、Fast ECoT/ECoT-Lite、综述 §3.6/§5.2、REPA 原文）见报告 §7
 - 关键数字引用进正式报告前需抽查复核（当前全 E3）
-- 补充分册 §7 抽查清单（SaiVLA-0／EXIMO／Psi-R1／LaST-R1／ReCoVLA／DR-APO／DR-WM 命名等）逐项复核后再进正式材料
+- 补充分册 §7 抽查清单（SaiVLA-0／EXIMO／Psi-R1／LaST-R1／ReCoVLA／DR-APO／DR-WM 命名等）逐项复核后再进正式材料（#8／#10 已由第三册 §1 结项）
