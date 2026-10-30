@@ -1,0 +1,18 @@
+flowchart TB
+    D["公开 RoboCasa 演示"] --> S["按场景全参 SFT"]
+    S --> V["VLM：默认冻结；选中任务可更新"]
+    V --> A["Action Expert：训练"]
+    A --> F["Flow-SDE 动作采样"]
+    F --> P["Leader 执行前缀"]
+    P --> X["克隆分叉处 Simulator State"]
+    X --> R["独立后缀执行与任务回报"]
+    R --> G["组相对 Advantage 与时间校准"]
+    G --> L["Clipped GRPO：Flat屏蔽前缀；Tree仅屏蔽共享Root"]
+    L -.->|"更新"| A
+    L -.->|"选择性更新"| V
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class V frozen
+    class A train
+    class L objective

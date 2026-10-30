@@ -1,0 +1,19 @@
+flowchart TB
+    W["World Model：训练"] --> I["Policy 在模型中生成想象轨迹"]
+    P["当前 Policy"] --> I
+    R["冻结 Reward VLM"] --> I
+    I --> G["内层 GRPO"]
+    G --> U["更新后 Policy"]
+    U --> E["目标 Simulator：30条外层轨迹"]
+    E --> H["IMG：回报梯度与截断 HVP"]
+    G --> H
+    H -.->|"元梯度更新"| W
+    D["演示锚点"] --> V["VWI：停止梯度的有符号加权预测 Loss"]
+    I --> V
+    V -.->|"代理目标更新"| W
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class R frozen
+    class W,P,U train
+    class G,H,V objective

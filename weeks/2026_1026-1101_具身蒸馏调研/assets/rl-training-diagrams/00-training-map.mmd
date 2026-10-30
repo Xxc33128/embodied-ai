@@ -1,0 +1,21 @@
+flowchart TB
+    D["示范与离线经验"] --> S["预训练或 SFT 初始化"]
+    S --> P["当前策略"]
+    P --> E["真实机器人或物理仿真"]
+    E --> B["观察、动作、奖励与终止记录"]
+    B --> O["策略梯度或 Actor-Critic 更新"]
+    O -.->|"参数更新"| P
+    B --> V["价值学习与优势标注"]
+    V --> A["优势条件化策略训练"]
+    A -.->|"参数更新"| P
+    B --> W["世界模型训练"]
+    W --> I["想象轨迹"]
+    P --> I
+    I --> O
+    P --> T["独立评测：成功率、吞吐量、泛化与成本"]
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef data fill:#f0fdf4,stroke:#16a34a,color:#14532d
+    classDef eval fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class P,O,V,A,W train
+    class D,S,B,I data
+    class E,T eval

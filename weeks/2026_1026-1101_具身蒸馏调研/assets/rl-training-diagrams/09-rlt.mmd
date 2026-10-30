@@ -1,0 +1,19 @@
+flowchart TB
+    D["每任务示范"] --> T["适配 VLA 与 RL Token"]
+    T --> F["在线阶段冻结 VLA 与 Token"]
+    O["观察与本体状态"] --> F
+    F --> Z["RL Token 与参考动作块"]
+    Z --> A["轻量 RL Actor：训练"]
+    A --> E["真机关键阶段"]
+    E --> B["Replay：Reward 与人工干预"]
+    B --> Q["Twin-Q：TD 学习"]
+    Q --> L["Actor 目标：负 Q 加参考动作约束"]
+    L -.->|"更新"| A
+    F --> N["完整任务前段由基础 VLA 执行"]
+    N -->|"人工切到关键阶段"| E
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class F frozen
+    class A,Q train
+    class L objective

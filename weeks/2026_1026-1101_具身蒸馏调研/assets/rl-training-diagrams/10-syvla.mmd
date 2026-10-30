@@ -1,0 +1,21 @@
+flowchart TB
+    D["机器人与多模态数据"] --> S["预训练与目标 SFT"]
+    S --> V["Qwen VLM：训练"]
+    O["观察与指令"] --> V
+    V --> F["Feature Query 与 Intention Decoupling"]
+    F --> A["Flow Action Expert：训练"]
+    A --> E["真机器人与人工任务结果"]
+    E --> G["Value 与截断 GAE"]
+    D --> R["相似专家样本检索"]
+    E -->|"当前观察与 CLIP 查询"| R
+    R --> L["Rollout Surrogate 与 Expert A＝1"]
+    G --> L
+    L -.->|"经条件表示更新"| V
+    L -.->|"更新"| A
+    D --> C["辅助 CoT CE"]
+    V --> C
+    C -.->|"监督更新"| V
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class V,A,G train
+    class L,C objective

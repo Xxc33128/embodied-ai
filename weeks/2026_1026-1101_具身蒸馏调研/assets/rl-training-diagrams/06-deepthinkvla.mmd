@@ -1,0 +1,15 @@
+flowchart TB
+    D["机器人演示"] --> C["关键帧云 VLM 标注"]
+    C --> X["本地 VLM 扩展 CoT 标注"]
+    X --> S["Hybrid Decoder SFT"]
+    S --> P["统一 Policy：CoT 因果、动作并行"]
+    P --> E["仿真 Reasoning-Action Rollouts"]
+    E --> R["任务成功与格式 Reward"]
+    R --> G["组相对 Advantage"]
+    G --> L["Clipped GRPO"]
+    L -.->|"更新统一策略"| P
+    S --> H["真机 SFT-only 评测"]
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class S,P train
+    class R,G,L objective

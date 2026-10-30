@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-30",
+  "source": "../../2026-10-30-具身RL图解与训练详表.md",
+  "renderer": "@mermaid-js/mermaid-cli@12.0.0",
+  "validation": {
+    "rendered": 11,
+    "svg_xml_parsed": 11,
+    "png_visually_reviewed": 11
+  },
+  "diagrams": [
+    {
+      "name": "00-training-map",
+      "files": {
+        "mmd": {
+          "bytes": 809,
+          "sha256": "4c537edca1b4e0ad336994835fa0ab0d21adac7da4535892f67b933ece01f65f"
+        },
+        "svg": {
+          "bytes": 32596,
+          "sha256": "860aa8ae13d31cdd23fcdf92f0c6177e7514abadaecd05740ca7e8420278e2f7"
+        },
+        "png": {
+          "bytes": 183185,
+          "sha256": "1ac492a387d33370814b4311d95f782daa7380ef0f07c8f18c8f2eddc53a4608"
+        }
+      }
+    },
+    {
+      "name": "01-pi-rl",
+      "files": {
+        "mmd": {
+          "bytes": 743,
+          "sha256": "b8f5c41c5d727c4c37592460dafd9b2969bbce5269f035c28e890eca6654e205"
+        },
+        "svg": {
+          "bytes": 30253,
+          "sha256": "df86f50b7b78d6e97f386ec5d142b1d36499d74805bfcec58cd8d3f9f83113ff"
+        },
+        "png": {
+          "bytes": 139713,
+          "sha256": "0969c24bdcd59478ea7142b7d008b3c04da9f092ed8f65a2da522b8d3cbeaf34"
+        }
+      }
+    },
+    {
+      "name": "02-z1",
+      "files": {
+        "mmd": {
+          "bytes": 764,
+          "sha256": "9b95b933ddb664d2db7de1b5d7655ce991a198c6cad7e6ee1d3bb5c1d85ec07d"
+        },
+        "svg": {
+          "bytes": 28881,
+          "sha256": "c8efbcb56e0c02f3e3fe4ae6899b14a3ef89971aa182ce3b1a7c1d8c166e521a"
+        },
+        "png": {
+          "bytes": 128638,
+          "sha256": "cf7c8bb50c1bf240de24ed17df020bc716310545541499cb39fe1d9d8538b40b"
+        }
+      }
+    },
+    {
+      "name": "03-drill",
+      "files": {
+        "mmd": {
+          "bytes": 735,
+          "sha256": "e623715b5d0e424c4bed027ed48da995fc118ec3e392177c8deef844a191c0d9"
+        },
+        "svg": {
+          "bytes": 29860,
+          "sha256": "bb91f4b94e7453c2af1ed04f4afa66e51c0189779716af61fe940acd9b037891"
+        },
+        "png": {
+          "bytes": 149942,
+          "sha256": "48a8ebe896172145446739d3c832c12bc0236ba046af4c9c5148681eb66477f4"
+        }
+      }
+    },
+    {
+      "name": "04-atomicrl",
+      "files": {
+        "mmd": {
+          "bytes": 767,
+          "sha256": "67602cd7a026e055845ae4e22895df5f68edd359732ea08252d9f7aced5f6bc2"
+        },
+        "svg": {
+          "bytes": 31289,
+          "sha256": "9aef852018e15be48abdbac6234c68ff6af74e06cae846d076b9f88b1147d0f6"
+        },
+        "png": {
+          "bytes": 142852,
+          "sha256": "e64b5d580b5fbc2ebbc745edbf6b40650487dd5ffb27f3511bfbf3ecdae87883"
+        }
+      }
+    },
+    {
+      "name": "05-tempo",
+      "files": {
+        "mmd": {
+          "bytes": 643,
+          "sha256": "060db60879854fdda0004e1f968706214a8f1c85d29af7b48809aceb55aa06e5"
+        },
+        "svg": {
+          "bytes": 27828,
+          "sha256": "bc655be16b1bf87199cc618f3955d75edeac8de978d05902ff65b33cc0cf7491"
+        },
+        "png": {
+          "bytes": 144107,
+          "sha256": "5c5500bb826fad6d324683d525845c619d881e8f9628a9c9a9b4f8b24b44b64a"
+        }
+      }
+    },
+    {
+      "name": "06-deepthinkvla",
+      "files": {
+        "mmd": {
+          "bytes": 606,
+          "sha256": "39594e02b4573f8e3a85f58770b387cdfb6facb84b3206fc5d81c42d08cbfc66"
+        },
+        "svg": {
+          "bytes": 25903,
+          "sha256": "c5d76b5893004f83a8f777924e5fad0a0810ffb32b17e6ee460407b054007011"
+        },
+        "png": {
+          "bytes": 121660,
+          "sha256": "189aec995dace26b1971bf26605fe99e5759dde7bda228f9bc7a3e7f81da7a97"
+        }
+      }
+    },
+    {
+      "name": "07-wam-rl",
+      "files": {
+        "mmd": {
+          "bytes": 786,
+          "sha256": "4f320721b155e7a2db0284b1ed2c27b3e026df6fb156b8741d98ce26e173954b"
+        },
+        "svg": {
+          "bytes": 34158,
+          "sha256": "8f9fc9c1515c3925f6304aa1813c9d1302300bf423d68cf19ea972caf76015a1"
+        },
+        "png": {
+          "bytes": 175291,
+          "sha256": "e36c086b16b1c078a049732225ef7d09b757221954e60f8f9e1e0cd3e9cf1c54"
+        }
+      }
+    },
+    {
+      "name": "08-recap",
+      "files": {
+        "mmd": {
+          "bytes": 637,
+          "sha256": "3f8d0fae67c4fabfbddd69cf8c1ca6af292e6e3eafb94e8e9ef1d6073fd06f3b"
+        },
+        "svg": {
+          "bytes": 29690,
+          "sha256": "f9488d828927ceb38b4835077d86f462cbcd26ad70907ba3485c3cedfe7881e9"
+        },
+        "png": {
+          "bytes": 131060,
+          "sha256": "e0181b447854105c70c526e619225c16a54ef6cd4f5e753115f9d1916a0c2497"
+        }
+      }
+    },
+    {
+      "name": "09-rlt",
+      "files": {
+        "mmd": {
+          "bytes": 778,
+          "sha256": "d89a9f8e9c148459c6a0f192ab7cb540748b2e6c7ea768a9f5dd9388df931d36"
+        },
+        "svg": {
+          "bytes": 28708,
+          "sha256": "e4e5c5c82833d07b7b8e0a7db7d7cab76357c7cec829be1218d8c54db3598c76"
+        },
+        "png": {
+          "bytes": 134524,
+          "sha256": "bbb96a5679c601c51572a6156f3c88df0bdaa8cf00aeced1738c4b8bea73b46c"
+        }
+      }
+    },
+    {
+      "name": "10-syvla",
+      "files": {
+        "mmd": {
+          "bytes": 775,
+          "sha256": "7a595513acdc1e8af134fbb7a6db04b950a01307cf0854ec76916fb268b4735d"
+        },
+        "svg": {
+          "bytes": 36953,
+          "sha256": "c49751921faf223db6087809e4d0b44b01e6f796679dd69902523be0c685b051"
+        },
+        "png": {
+          "bytes": 161370,
+          "sha256": "52b573f17b516797b76e76847a026cbfdb4343bfa30af04157e0ae05ba10f647"
+        }
+      }
+    }
+  ]
+}

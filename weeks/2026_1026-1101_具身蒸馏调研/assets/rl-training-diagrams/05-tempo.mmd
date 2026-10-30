@@ -1,0 +1,16 @@
+flowchart TB
+    O["观察与指令"] --> V["冻结 VLM"]
+    V --> S["语义投影：训练"]
+    S --> Z["潜在动作 z"]
+    Z --> A["Action Expert：训练"]
+    A --> E["环境与当前指令成功反馈"]
+    E --> DS["语义 Replay：h、z、r、h′"]
+    E --> DA["动作 Replay：h、z、a、r、h′"]
+    DS --> QS["语义 Twin Critics"]
+    DA --> QA["动作 Twin Critics"]
+    QS -.->|"低频更新投影"| S
+    QA -.->|"高频更新 Expert；z 停梯度"| A
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    class V frozen
+    class S,A,QS,QA train

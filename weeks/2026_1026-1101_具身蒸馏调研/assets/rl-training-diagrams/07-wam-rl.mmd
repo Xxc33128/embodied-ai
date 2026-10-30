@@ -1,0 +1,21 @@
+flowchart TB
+    O["当前观察"] --> W["DiT World Model：训练"]
+    W --> I["想象未来与中间潜在表征"]
+    I --> A["Actor：训练"]
+    A --> E["物理 Simulator 执行"]
+    E --> X["实际未来观察"]
+    I --> R["想象与执行的 Reconstruction Similarity"]
+    X --> R
+    R --> L["Advantage 与 Policy Gradient"]
+    L -.->|"更新"| A
+    X --> S["成功轨迹 Video SFT"]
+    S -.->|"更新"| W
+    F["冻结 Pretrained WM Reference"] --> K["Gaussian Latent KL"]
+    W --> K
+    K -.->|"约束更新"| W
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class F frozen
+    class W,A train
+    class R,L,S,K objective

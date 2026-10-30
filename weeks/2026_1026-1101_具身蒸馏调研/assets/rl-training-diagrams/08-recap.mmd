@@ -1,0 +1,18 @@
+flowchart TB
+    D["训练数据：初始示范与后续经验"] --> V["Distributional Value：训练"]
+    V --> I["Advantage 二值条件"]
+    I --> P["VLM Backbone：训练"]
+    D --> P
+    P -->|"条件；KI 阻断 Flow 反向梯度"| A["Action Expert：训练"]
+    A --> E["真机自主执行与人工纠正"]
+    E --> D
+    P --> C["离散 Token CE"]
+    A --> F["连续 Flow Loss"]
+    D --> C
+    D --> F
+    C -.->|"更新"| P
+    F -.->|"更新"| A
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class V,P,A train
+    class I,C,F objective

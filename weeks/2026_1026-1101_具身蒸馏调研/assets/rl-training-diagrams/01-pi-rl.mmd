@@ -1,0 +1,19 @@
+flowchart TB
+    D["专家演示"] --> S["全参 SFT 初始化"]
+    S --> V["VLM：默认冻结"]
+    O["当前图像、指令与模型所需状态"] --> V
+    V --> A["Action Expert：训练"]
+    A --> F["Flow-SDE 随机去噪链"]
+    F --> E["执行前 H′ 步：物理仿真"]
+    E --> B["轨迹、奖励、旧 Log Probability"]
+    B --> C["Critic 与 GAE"]
+    B --> L["同一采样链上的 Clipped PPO"]
+    C --> L
+    L -.->|"更新"| A
+    L -.->|"仅联合消融：VLM LoRA"| V
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class V frozen
+    class A,C train
+    class L objective

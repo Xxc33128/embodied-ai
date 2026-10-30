@@ -1,0 +1,20 @@
+flowchart TB
+    D["带原子进度与完成标注的示范"] --> C["PCC 离线监督训练"]
+    C --> F["RL 阶段固定 PCC"]
+    P["可训练 Policy"] --> E["Simulator 轨迹"]
+    E --> F
+    F --> B["边界与子任务完成判定"]
+    B --> A["SAPO：调整 GAE 跨边界传播"]
+    F --> M["掌握度统计与 BATE"]
+    M -->|"任务采样与探索分配"| E
+    F --> R["可选进度 Reward"]
+    R --> A
+    A --> L["PPO 与探索目标"]
+    M -->|"掌握度加权 Entropy"| L
+    L -.->|"更新"| P
+    classDef frozen fill:#eef2f6,stroke:#64748b,color:#111827
+    classDef train fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef objective fill:#fff7ed,stroke:#ea580c,color:#7c2d12
+    class F frozen
+    class P,C train
+    class A,L,R objective
