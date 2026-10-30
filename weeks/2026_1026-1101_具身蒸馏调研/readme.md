@@ -12,6 +12,7 @@
 | 10-26 | 六线 17+2 篇蒸馏论文并行调研成稿：latent 蒸馏优于 pixel/logits、动作导向表征优于语义、on-policy+per-token reverse-KL 为效率上限、少步化必须带分布锚、速度收益主要来自动作解码方式而非骨干规模；勘误 RLDG 归属（Berkeley Levine 组、方向为专才→通才） | E3（论文转引，未独立复核） |
 | 10-30 | 大小脑联合后训练与 RL 调研：区分 VLM＋Action 联合 RL、Reasoning–Action 轨迹优化、World SFT＋Actor RL；优先 Z-1／π_RL／SyVLA／DeepThinkVLA／WAM-RL，补 Motus2 与长程信用分配；提出冻结／有限解冻／世界在线适配对照 | E3（论文与官方文档）；Motus／SyVLA 定点源码 E1 |
 | 10-30（补） | 扩线补充与核验（第二册）：SaiVLA-0／InternVLA·M1 结构线＋EXIMO／Psi-R1／LaST-R1／ReCoVLA 联合 RL 增量＋WAM×RL 谱系（WoVR+／VLA-RFT／DRILL／DR-APO／测试时）＋RLinf×Ascend CANN 与 verl-vla 基建线索；标记 MIND-2 引用待复核 | E3（检索索引级；部分 curl 实抓）；本地 clone／PDF E1／E2 |
+| 10-30（第三册） | 四路全网原文核验（网络抓取未阻断）：解决抽查清单 #8/#10（τ0-VLA、Helix 2.5）；纠错 15 个流传名（VERSE／dexGRPO／AnyDual／TGRoK3.0／WBT-1／RAPO／R1-02 查无此文，iRe-VLA／AutoVLA／π*0.6／DeepThink-with-Confidence／Dream-1 归属纠错）；新增六线（双系统 SFT 教训／flow-RL 方法栈／GRPO 退化变体／TEMPO 解耦 RL／世界模型新增／reward 谱系）＋LIBERO 数字总表＋Motus 四 arms 映射与纯任务奖励坑清单；重判：双端同奖励联合 RL 公开配方仍缺位，产业界零公开，NVIDIA WAM 大一统是并列空白 | E3（子调研打开原文页）；转述项标 E4 |
 
 ## 过程文档索引
 
@@ -19,6 +20,7 @@
 - [2026-10-30-具身大小脑联合后训练与RL调研.md](2026-10-30-具身大小脑联合后训练与RL调研.md)——实际更新模块／梯度与奖励边界、优先阅读清单、官方实现入口及研究对照建议
 - [2026-10-30-具身大小脑联合后训练与RL调研-扩线补充与核验.md](2026-10-30-具身大小脑联合后训练与RL调研-扩线补充与核验.md)——双脑／三脑结构线、VLM×VLA 联合 RL 增量、WAM×RL 谱系扩展（测试时／工业／评测）、基建×昇腾、底表资源；与 v1.0 互补合读〔E3；本地项 E1／E2〕
 - [联合后训练调研-分线笔记/line-C-WAM与世界模型RL.md](联合后训练调研-分线笔记/line-C-WAM与世界模型RL.md)——C 线（WAM／世界模型×RL）249 行实抓笔记（逐条 URL、数字、扫描清单与 910B 粗判）；第二册 §3 的详细底表
+- [2026-10-30-具身大小脑联合后训练与RL调研-第三册.md](2026-10-30-具身大小脑联合后训练与RL调研-第三册.md)——全网原文核验与新增线：抽查清单 #8/#10 解决、15 个流传名纠错表、双系统联合 SFT 工程教训（OpenHelix）、flow 头 RL 方法栈（π_RL/RECAP/RLT/EXPO）、GRPO 退化与 credit assignment 变体、TEMPO 解耦 RL、世界模型×动作新增（UniWAM/DUST/Prophet/Dream-1）、reward 谱系、RLinf/verl-vla 核验、LIBERO 数字总表、Motus 四 arms 文献映射〔E3；转述 E4〕
 
 ## 遗留 → 下周
 
