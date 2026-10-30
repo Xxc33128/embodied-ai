@@ -11,13 +11,16 @@
 |---|---|---|
 | 10-26 | 六线 17+2 篇蒸馏论文并行调研成稿：latent 蒸馏优于 pixel/logits、动作导向表征优于语义、on-policy+per-token reverse-KL 为效率上限、少步化必须带分布锚、速度收益主要来自动作解码方式而非骨干规模；勘误 RLDG 归属（Berkeley Levine 组、方向为专才→通才） | E3（论文转引，未独立复核） |
 | 10-30 | 大小脑联合后训练与 RL 调研：区分 VLM＋Action 联合 RL、Reasoning–Action 轨迹优化、World SFT＋Actor RL；优先 Z-1／π_RL／SyVLA／DeepThinkVLA／WAM-RL，补 Motus2 与长程信用分配；提出冻结／有限解冻／世界在线适配对照 | E3（论文与官方文档）；Motus／SyVLA 定点源码 E1 |
+| 10-30（补） | 扩线补充与核验（第二册）：SaiVLA-0／InternVLA·M1 结构线＋EXIMO／Psi-R1／LaST-R1／ReCoVLA 联合 RL 增量＋WAM×RL 谱系（WoVR+／VLA-RFT／DR-APO／测试时两件套）＋RLinf×Ascend CANN 与 verl-vla 基建线索；标记 MIND-2 引用待复核 | E3（检索索引级）；本地 clone／PDF E1／E2 |
 
 ## 过程文档索引
 
 - [具身蒸馏调研报告.md](具身蒸馏调研报告.md)——六条线分线笔记 + 横向对比表 + 配方/坑清单 + 与 Motus/DreamLab/GR00T NPU 部署的结合点
 - [2026-10-30-具身大小脑联合后训练与RL调研.md](2026-10-30-具身大小脑联合后训练与RL调研.md)——实际更新模块／梯度与奖励边界、优先阅读清单、官方实现入口及研究对照建议
+- [2026-10-30-具身大小脑联合后训练与RL调研-扩线补充与核验.md](2026-10-30-具身大小脑联合后训练与RL调研-扩线补充与核验.md)——双脑／三脑结构线、VLM×VLA 联合 RL 增量、WAM×RL 谱系扩展（测试时／工业／评测）、基建×昇腾、底表资源；与 v1.0 互补合读〔E3；本地项 E1／E2〕
 
 ## 遗留 → 下周
 
 - 延伸阅读四项（Refined Policy Distillation、Fast ECoT/ECoT-Lite、综述 §3.6/§5.2、REPA 原文）见报告 §7
 - 关键数字引用进正式报告前需抽查复核（当前全 E3）
+- 补充分册 §7 抽查清单十项（SaiVLA-0／EXIMO／Psi-R1／LaST-R1／ReCoVLA／DR-APO 等）逐项复核后再进正式材料
