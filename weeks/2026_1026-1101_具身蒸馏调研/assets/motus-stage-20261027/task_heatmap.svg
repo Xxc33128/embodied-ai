@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="960" height="580" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="960" height="580"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-580)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="960" height="580" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="65" y="542" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,1084) scale(1,-1)">Per-task outcomes across checkpoints</text>
+			<text x="65" y="518" style="font-family: Helvetica; font-size: 12px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,1036) scale(1,-1)">Each cell is successful episodes / 5; the same five initial states are reused.</text>
+			<text x="218.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">1000</text>
+			<text x="301.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">2000</text>
+			<text x="384.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">3000</text>
+			<text x="467.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">4000</text>
+			<text x="550.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">5000</text>
+			<text x="633.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">6000</text>
+			<text x="716.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">7000</text>
+			<text x="799.156" y="485" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,970) scale(1,-1)">8000</text>
+			<text x="108.988" y="449.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,898) scale(1,-1)">Task 0</text>
+			<rect x="190" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,898) scale(1,-1)">0/5</text>
+			<rect x="273" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,898) scale(1,-1)">0/5</text>
+			<rect x="356" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="389.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,898) scale(1,-1)">1/5</text>
+			<rect x="439" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="472.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,898) scale(1,-1)">3/5</text>
+			<rect x="522" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="555.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,898) scale(1,-1)">2/5</text>
+			<rect x="605" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="638.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,898) scale(1,-1)">3/5</text>
+			<rect x="688" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="721.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,898) scale(1,-1)">3/5</text>
+			<rect x="771" y="436" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="804.16" y="449.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,898) scale(1,-1)">5/5</text>
+			<text x="108.988" y="415.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">Task 1</text>
+			<rect x="190" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">0/5</text>
+			<rect x="273" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">0/5</text>
+			<rect x="356" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="389.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">1/5</text>
+			<rect x="439" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="472.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">0/5</text>
+			<rect x="522" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="555.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,830) scale(1,-1)">1/5</text>
+			<rect x="605" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="638.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,830) scale(1,-1)">4/5</text>
+			<rect x="688" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="721.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,830) scale(1,-1)">5/5</text>
+			<rect x="771" y="402" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="804.16" y="415.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,830) scale(1,-1)">5/5</text>
+			<text x="108.988" y="381.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">Task 2</text>
+			<rect x="190" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="223.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">1/5</text>
+			<rect x="273" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="306.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">2/5</text>
+			<rect x="356" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="389.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">2/5</text>
+			<rect x="439" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="472.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">0/5</text>
+			<rect x="522" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="555.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,762) scale(1,-1)">1/5</text>
+			<rect x="605" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="638.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,762) scale(1,-1)">4/5</text>
+			<rect x="688" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="721.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,762) scale(1,-1)">4/5</text>
+			<rect x="771" y="368" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="804.16" y="381.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,762) scale(1,-1)">3/5</text>
+			<text x="108.988" y="347.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">Task 3</text>
+			<rect x="190" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">0/5</text>
+			<rect x="273" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">0/5</text>
+			<rect x="356" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="389.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">1/5</text>
+			<rect x="439" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="472.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,694) scale(1,-1)">3/5</text>
+			<rect x="522" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="555.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">2/5</text>
+			<rect x="605" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="638.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,694) scale(1,-1)">4/5</text>
+			<rect x="688" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="721.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,694) scale(1,-1)">5/5</text>
+			<rect x="771" y="334" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="804.16" y="347.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,694) scale(1,-1)">1/5</text>
+			<text x="108.988" y="313.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,626) scale(1,-1)">Task 4</text>
+			<rect x="190" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,626) scale(1,-1)">0/5</text>
+			<rect x="273" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="306.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,626) scale(1,-1)">2/5</text>
+			<rect x="356" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="389.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,626) scale(1,-1)">0/5</text>
+			<rect x="439" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="472.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,626) scale(1,-1)">2/5</text>
+			<rect x="522" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="555.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,626) scale(1,-1)">3/5</text>
+			<rect x="605" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="638.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,626) scale(1,-1)">3/5</text>
+			<rect x="688" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="721.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,626) scale(1,-1)">3/5</text>
+			<rect x="771" y="300" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="804.16" y="313.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,626) scale(1,-1)">5/5</text>
+			<text x="108.988" y="279.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,558) scale(1,-1)">Task 5</text>
+			<rect x="190" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,558) scale(1,-1)">0/5</text>
+			<rect x="273" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="306.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,558) scale(1,-1)">2/5</text>
+			<rect x="356" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="389.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,558) scale(1,-1)">1/5</text>
+			<rect x="439" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="472.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,558) scale(1,-1)">5/5</text>
+			<rect x="522" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="555.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,558) scale(1,-1)">3/5</text>
+			<rect x="605" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="638.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,558) scale(1,-1)">4/5</text>
+			<rect x="688" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="721.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,558) scale(1,-1)">4/5</text>
+			<rect x="771" y="266" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="804.16" y="279.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,558) scale(1,-1)">5/5</text>
+			<text x="108.988" y="245.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,490) scale(1,-1)">Task 6</text>
+			<rect x="190" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,490) scale(1,-1)">0/5</text>
+			<rect x="273" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="306.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,490) scale(1,-1)">1/5</text>
+			<rect x="356" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="389.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,490) scale(1,-1)">1/5</text>
+			<rect x="439" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="472.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,490) scale(1,-1)">3/5</text>
+			<rect x="522" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="555.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,490) scale(1,-1)">3/5</text>
+			<rect x="605" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="638.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,490) scale(1,-1)">1/5</text>
+			<rect x="688" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="721.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,490) scale(1,-1)">4/5</text>
+			<rect x="771" y="232" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="804.16" y="245.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,490) scale(1,-1)">5/5</text>
+			<text x="108.988" y="211.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">Task 7</text>
+			<rect x="190" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">0/5</text>
+			<rect x="273" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">0/5</text>
+			<rect x="356" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="389.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">2/5</text>
+			<rect x="439" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="472.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">2/5</text>
+			<rect x="522" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="555.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,422) scale(1,-1)">3/5</text>
+			<rect x="605" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="638.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">2/5</text>
+			<rect x="688" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="721.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,422) scale(1,-1)">5/5</text>
+			<rect x="771" y="198" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="804.16" y="211.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,422) scale(1,-1)">2/5</text>
+			<text x="108.988" y="177.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">Task 8</text>
+			<rect x="190" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="273" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="356" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="389.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="439" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="472.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="522" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="555.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,354) scale(1,-1)">3/5</text>
+			<rect x="605" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="638.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="688" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="721.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<rect x="771" y="164" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="804.16" y="177.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,354) scale(1,-1)">0/5</text>
+			<text x="108.988" y="143.0" style="font-family: Helvetica; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">Task 9</text>
+			<rect x="190" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="223.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">0/5</text>
+			<rect x="273" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="306.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">0/5</text>
+			<rect x="356" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="389.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">0/5</text>
+			<rect x="439" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="472.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">0/5</text>
+			<rect x="522" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="555.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">1/5</text>
+			<rect x="605" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="638.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">1/5</text>
+			<rect x="688" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="721.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,286) scale(1,-1)">2/5</text>
+			<rect x="771" y="130" width="83" height="34" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 2; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="804.16" y="143.0" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(100%,100%,100%); stroke:none;" transform="translate(0,286) scale(1,-1)">4/5</text>
+			<rect x="190" y="164" width="664" height="34" style="stroke: rgb(68%,36%,0%); stroke-linecap: butt; stroke-width: 2; fill: none; fill-rule: evenodd;"/>
+			<text x="65" y="106" style="font-family: Helvetica; font-size: 11px;fill: rgb(68%,36%,0%); stroke:none;" transform="translate(0,212) scale(1,-1)">Task 8: both moka pots onto the stove. 3/5 at step 5,000, then 0/5 at 6,000-8,000.</text>
+			<text x="65" y="84" style="font-family: Helvetica; font-size: 11px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,168) scale(1,-1)">Overall: 35/50 at both 7,000 and 8,000; individual cases still change (9 improved, 9 regressed).</text>
+			<rect x="222" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(94%,96%,97%); fill-rule: evenodd;"/>
+			<text x="235.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">0/5</text>
+			<rect x="313" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(76%,85%,87%); fill-rule: evenodd;"/>
+			<text x="326.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">1/5</text>
+			<rect x="404" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(59%,74%,77%); fill-rule: evenodd;"/>
+			<text x="417.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">2/5</text>
+			<rect x="495" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(41%,63%,67%); fill-rule: evenodd;"/>
+			<text x="508.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">3/5</text>
+			<rect x="586" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(24%,52%,56%); fill-rule: evenodd;"/>
+			<text x="599.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">4/5</text>
+			<rect x="677" y="36" width="40" height="18" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 1; fill: rgb(7%,41%,47%); fill-rule: evenodd;"/>
+			<text x="690.05" y="20" style="font-family: Helvetica; font-size: 10px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,40) scale(1,-1)">5/5</text>
+			<text x="65" y="9" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,18) scale(1,-1)">Task names and provenance are provided in the report and experiment_snapshot.json.</text>
+		</g>
+	</g>
+</svg>

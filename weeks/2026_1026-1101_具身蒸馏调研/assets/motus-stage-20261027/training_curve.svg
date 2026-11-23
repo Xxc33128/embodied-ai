@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="960" height="500" preserveAspectRatio="xMinYMin meet" viewBox="0 0 960 500" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="960" height="500"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-500)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="960" height="500" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="65" y="461" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,922) scale(1,-1)">LIBERO-Long: fixed-50 success rate</text>
+			<text x="65" y="437" style="font-family: Helvetica; font-size: 12px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,874) scale(1,-1)">10 tasks x 5 official initial states | completed evaluations only</text>
+			<g transform="">
+				<g transform="">
+					<g transform="">
+						<path d="M 85,100 L 885,100 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 85,100 L 85,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 179.117647,100 L 179.117647,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 273.235294,100 L 273.235294,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 367.352941,100 L 367.352941,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 461.470588,100 L 461.470588,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 555.588235,100 L 555.588235,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 649.705882,100 L 649.705882,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 743.823529,100 L 743.823529,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 837.941176,100 L 837.941176,95 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,85,95)">
+							<text x="-3.0580000000000003" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">0</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,179.117647,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">1000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,273.235294,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">2000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,367.352941,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">3000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,461.470588,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">4000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,555.588235,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">5000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,649.705882,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">6000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,743.823529,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">7000</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,837.941176,95)">
+							<text x="-12.232000000000001" y="-11.0" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-22) scale(1,-1)">8000</text>
+						</g>
+					</g>
+				</g>
+				<g transform="">
+					<g transform="">
+						<path d="M 85,100 L 85,395 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<path d="M 85,100 L 80,100 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 85,159 L 80,159 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 85,218 L 80,218 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 85,277 L 80,277 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 85,336 L 80,336 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+						<path d="M 85,395 L 80,395 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 1;"/>
+					</g>
+					<g transform="">
+						<g transform=" matrix(1,0,0,1,80,100)">
+							<text x="-15.895000000000001" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">0%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,80,159)">
+							<text x="-22.011" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">20%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,80,218)">
+							<text x="-22.011" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">40%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,80,277)">
+							<text x="-22.011" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">60%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,80,336)">
+							<text x="-22.011" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">80%</text>
+						</g>
+						<g transform=" matrix(1,0,0,1,80,395)">
+							<text x="-28.127" y="-4.4" style="font-family: Helvetica; font-size: 11px;fill: rgb(0%,0%,0%); stroke:none;" transform="translate(0,-8) scale(1,-1)">100%</text>
+						</g>
+					</g>
+				</g>
+				<path d="M 85,159 L 885,159 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 85,218 L 885,218 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 85,277 L 885,277 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 85,336 L 885,336 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<path d="M 85,395 L 885,395 Z" style="stroke: rgb(88%,90%,92%); stroke-linecap: butt; stroke-width: 0.25;"/>
+				<g transform="">
+					<polyline points="179.1176 105.9, 273.2353 141.3, 367.3529 153.1, 461.4706 206.2, 555.5882 229.8, 649.7059 253.4, 743.8235 306.5, 837.9412 306.5" style="stroke: rgb(6%,42%,47%); stroke-linecap: round; stroke-width: 3; fill: None; fill-rule: evenodd;"/>
+					<circle cx="179.11764705882354" cy="105.9" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="273.2352941176471" cy="141.3" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="367.3529411764706" cy="153.1" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="461.4705882352941" cy="206.2" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="555.5882352941176" cy="229.8" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="649.7058823529412" cy="253.4" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="743.8235294117648" cy="306.5" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<circle cx="837.9411764705882" cy="306.5" r="4.0" style="stroke: rgb(100%,100%,100%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+					<polyline points="103.8235 100" style="stroke: rgb(68%,36%,0%); stroke-linecap: round; stroke-width: 1; fill: None; fill-rule: evenodd;"/>
+					<polygon points="99.32353 100, 103.8235 104.5, 108.3235 100, 103.8235 95.5" style="stroke: rgb(0%,0%,0%); stroke-linecap: butt; stroke-width: 0.1; fill: rgb(68%,36%,0%); fill-rule: evenodd;"/>
+					<polyline points="103.8235 100, 179.1176 105.9" style="stroke: rgb(60%,65%,69%); stroke-linecap: round; stroke-width: 1; fill: None; fill-rule: evenodd; stroke-dasharray: 4, 4;"/>
+				</g>
+			</g>
+			<text x="170.44764705882355" y="119.9" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,239) scale(1,-1)">2%</text>
+			<text x="261.2292941176471" y="155.3" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,310) scale(1,-1)">14%</text>
+			<text x="355.34694117647064" y="167.1" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,334) scale(1,-1)">18%</text>
+			<text x="449.46458823529406" y="220.2" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,440) scale(1,-1)">36%</text>
+			<text x="543.5822352941177" y="243.8" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,487) scale(1,-1)">44%</text>
+			<text x="637.6998823529412" y="267.4" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,534) scale(1,-1)">52%</text>
+			<text x="731.8175294117647" y="320.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,641) scale(1,-1)">70%</text>
+			<text x="825.9351764705882" y="320.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(6%,42%,47%); stroke:none;" transform="translate(0,641) scale(1,-1)">70%</text>
+			<text x="110.82352941176471" y="118" style="font-family: Helvetica; font-size: 10px;fill: rgb(68%,36%,0%); stroke:none;" transform="translate(0,236) scale(1,-1)">0% pilot</text>
+			<text x="398.2965" y="64" style="font-family: Helvetica; font-size: 13px;fill: rgb(9%,19%,27%); stroke:none;" transform="translate(0,128) scale(1,-1)">Absolute global optimizer step</text>
+			<text x="65" y="412" style="font-family: Helvetica; font-size: 11px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,824) scale(1,-1)">Success rate</text>
+			<circle cx="74" cy="31" r="4" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(6%,42%,47%); fill-rule: evenodd;"/>
+			<text x="87" y="27" style="font-family: Helvetica; font-size: 11px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,54) scale(1,-1)">Full TRAIN windows</text>
+			<rect x="252" y="27" width="8" height="8" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(68%,36%,0%); fill-rule: evenodd;"/>
+			<text x="268" y="27" style="font-family: Helvetica; font-size: 11px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,54) scale(1,-1)">200-step pilot</text>
+			<text x="65" y="9" style="font-family: Helvetica; font-size: 10px;fill: rgb(32%,40%,46%); stroke:none;" transform="translate(0,18) scale(1,-1)">Pilot: 900 TRAIN windows. The 200 -&gt; 1,000 segment switches to all 30,639 TRAIN windows.</text>
+		</g>
+	</g>
+</svg>
