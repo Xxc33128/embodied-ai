@@ -28,7 +28,7 @@
 - [`weeks/2026_0928-1004_RPent双脑对照与回馈/`](weeks/2026_0928-1004_RPent双脑对照与回馈/) — Astra/Sol 双模型 120 集结果与验收证据；历史实验记录以该周文档为准。〔E2〕
 - [`weeks/2026_1005-1011_RPent推理性能分析/`](weeks/2026_1005-1011_RPent推理性能分析/) — 120 集耗时复盘、独立 8 集深度计时，以及 DeepSeek 首批接入与流式补测。〔E2/E3〕
 - [`weeks/2026_1012-1018_RPent多模型性能分析/`](weeks/2026_1012-1018_RPent多模型性能分析/) — DeepSeek 计时审计、VLM＋VLA 架构调研、综合性能评估汇报（docx/pdf/pptx）、三层研究报告与 Motus 910B3 联合训练预注册。〔E2/E3〕
-- [`weeks/2026_1019-1025_Qwen昇腾部署/`](weeks/2026_1019-1025_Qwen昇腾部署/) — Qwen3.8-27B 双卡原生 256K＋四并发部署归档；同期补录 DreamLab（Dream-1/RoboDojo）评测与审计、MiniMax-H3 四卡部署、Motus 联合训练执行增量。〔E2/E3〕
+- [`weeks/2026_1019-1025_Qwen昇腾部署/`](weeks/2026_1019-1025_Qwen昇腾部署/) — Qwen3.8-27B 双卡原生 256K＋四并发部署归档；同期补录 DreamLab（Dream-1/RoboDojo）评测与审计、Motus 联合训练执行增量。〔E2/E3〕
 
 ## 具身调研、HomeBody／HALO 复现与 ScientistTwo 复刻（10/26 起）
 

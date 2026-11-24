@@ -14,7 +14,7 @@
 | [9/28–10/4](2026_0928-1004_RPent双脑对照与回馈/) | RPent 双脑对照与回馈 | Astra/Sol 双模型 120 集结果与验收〔E2〕 | 见周 readme |
 | [10/5–10/11](2026_1005-1011_RPent推理性能分析/) | RPent 推理性能分析 | 120 集耗时复盘、独立深测与 DeepSeek 首批接入〔E2/E3〕 | 3 HTML＋过程文档 |
 | [10/12–10/18](2026_1012-1018_RPent多模型性能分析/) | RPent 多模型性能分析 | DeepSeek 计时审计、VLM＋VLA 架构调研、综合性能评估汇报、三层研究报告与 Motus 910B3 预注册〔E2/E3〕；已收口 | 见周 readme（6 子目录＋10 按日 md） |
-| [10/19–10/25](2026_1019-1025_Qwen昇腾部署/) | Qwen 昇腾部署＋多线执行周 | Qwen3.8-27B 双卡原生 256K＋四并发归档；同期补录 DreamLab（Dream-1）评测与审计、MiniMax-H3 四卡部署、Motus 联合训练执行增量〔E2/E3〕 | 见周 readme（9 文档） |
+| [10/19–10/25](2026_1019-1025_Qwen昇腾部署/) | Qwen 昇腾部署＋多线执行周 | Qwen3.8-27B 双卡原生 256K＋四并发归档；同期补录 DreamLab（Dream-1）评测与审计、Motus 联合训练执行增量〔E2/E3〕 | 见周 readme（9 文档） |
 | [10/26–11/1](2026_1026-1101_具身蒸馏调研/) | 具身蒸馏调研（另有 Motus／DreamLab／HomeBody 三条实验线） | 六线 17+2 篇蒸馏论文与大小脑联合后训练 RL 三册调研〔E3〕；Motus LIBERO-Long 续训到 9000 步 76%、DreamLab 四瓶入桶双方 0/3、HomeBody 51 场 32/51 | 见周 readme（调研 8＋实验线 4） |
 | [11/2–11/8](2026_1102-1108_HomeBody复现与ScientistTwo复刻/) | HomeBody 复现与 ScientistTwo 复刻 | HomeBody 51 场基线冻结、SONIC 动作库接入、VLM×SONIC 分支姿态套件 60/60 而其余五套正式验收未运行；ScientistTwo 复刻终审 GO 7/10，试跑均为模拟后端〔E1–E3〕 | 见周 readme |
 | [11/9–11/15](2026_1109-1115_Qwen换脑与HALO调研/) | Qwen 换脑与 HALO 调研 | HomeBody 换脑：本地 Qwen3.8-27B 36/51 对 DeepSeek 32/51，关思考则跌到 8%；HALO 定性为方法论开源、权重不发布〔E1/E2/E3〕 | 5 文档 |

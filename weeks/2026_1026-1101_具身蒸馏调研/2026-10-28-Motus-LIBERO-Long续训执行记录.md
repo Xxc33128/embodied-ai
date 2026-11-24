@@ -44,7 +44,7 @@
 - 先 TDD 再独立审查：失败用例覆盖坏父 hash、非 6000 步、父批次未退出或未恢复、6001 成本不符、未知更新、错误模型身份、target 非 1000 倍数、先训练后初始评测、越过 10000、STOP 与绝对截止、缺 gate、初始评测失败时零更新、清理或日志失败不能跳过恢复；通过后再做独立代码审查与精确哈希 gate。
 - 单次 claim：控制器验证配置后，以自身真实 PID／start_ticks 独占发布 claim，并绑定 gate、config、controller 三者的 SHA；主 agent 不预创建 claim，也不重复启动。
 - 人工停止：`control/STOP.json`；参数更新在 step 边界协作保存，原始部分评测与全部成本保留，无盲目自动重试。兜底硬截止 2026-10-29 09:00，工作截止 08:10，新模型启动截止 08:00，checkpoint grace 600 秒。步数目标预计更早到达，时间截止只作保护。
-- 资源：取得原资源租约并校验真实 PID；只允许暂停已授权的 diagnostic、MiniMax-H3、Qwen 三个容器，发现其他 NPU 工作负载即停止，不处理无关进程。
+- 资源：取得原资源租约并校验真实 PID；只允许暂停已授权的 diagnostic、Qwen 与另一个服务容器（共三个），发现其他 NPU 工作负载即停止，不处理无关进程。
 - 看护：每两小时 heartbeat，只在新完整评测、失败、停止或需处理变化时通知；10000 完成后恢复服务并暂停看护。
 
 以上五条均为〔E3 计划，S1、S2、S3〕；实际执行情况见 §3。
@@ -79,7 +79,7 @@
 | 10-28 06:44 | 训练预算达到（`accepted_step 10000`）：9000→10000 作业 exit0，八 rank receipt passed，1000 次 intent／complete 一致、unknown 0；四个续训段均不超过 10000，总新增更新 4000。published cost charged＝confirmed＝10001、unknown_rank_updates 0、retries 0，含历史 6001，未重置失败或回放成本。10000 checkpoint 清单 SHA `59a422e6…`，canonical 32,090,317,686 字节。最终 50 集当时 47/50，6 个作业存活、10 个已有 complete 结果；服务恢复 pending | `monitor-20261027T2243/verification.json` |
 | 10-28 07:01:18 | 控制器 complete／finished／accepted_step 10000／restored，`restoration_errors=[]`。最终 result complete，50/50 完成，30 成功（60%） | `user-stop-20261028T0336/verification.json` |
 | 10-28 11:36:52 | 用户要求停止本任务。前两次远程连接在 banner 阶段超时，其间已用原生工具删除 motus 自动看护（deleteStatus=deleted）；第三次连接成功后独占写入 `control/STOP.json`（reason=human-stop，source=explicit-user-request） | S1 |
-| 10-28 11:38 | 核实：controller、注册作业与 CPU bridge 的原 PID＋start_ticks 均无存活身份，八卡训练容器 exited，原 diagnostic、MiniMax、Qwen 容器 running。只读取现有结果，不补评、不继续分析 | `user-stop-20261028T0336/verification.json` |
+| 10-28 11:38 | 核实：controller、注册作业与 CPU bridge 的原 PID＋start_ticks 均无存活身份，八卡训练容器 exited，原 diagnostic、Qwen 与另一服务容器 running。只读取现有结果，不补评、不继续分析 | `user-stop-20261028T0336/verification.json` |
 | 10-28 11:43–11:47 | 用户追加要求关闭 3、7 卡 Qwen 服务：确认占卡者只有 Qwen3.8-27B 双卡容器的两个 VLLMWorker（各约 56,309／56,289 MB），停止后容器 exited；11:47 复核两卡无运行进程，HBM 降至 3,426／3,423 MB，其他空闲卡约 3,405–3,411 MB。容器、模型、数据与 checkpoint 均未删除 | `evidence/user-stop-qwen38-npu3-7-20261028T034519Z/` |
 
 本表均为〔E2，S1〕。`monitor-*` 与 `user-stop-20261028T0336/` 在 `continuation-20261026-attempt02/evidence/` 下，`user-stop-qwen38-*` 在实验根的 `evidence/` 下。各次看护均未改活动源码、数据、依赖，也未重启作业。阶段报告快照的 8423 步与 10-27 15:47 看护记录的 trajectory 8521 相隔约 48 分钟，98 步约合 29 秒每步，与稳态节奏相符，两者不矛盾。〔E2；节奏为推算，E3〕
@@ -156,7 +156,7 @@
 |---|---|
 | 训练 | 停在用户上限 10000 步。最终完整 checkpoint 为 `checkpoint-010000`（清单 SHA `59a422e6…`），canonical 已导出；总实际训练更新 10001（含历史一次恢复回放），unknown 0。〔E2〕 |
 | 评测 | 最终 10000 步 30/50＝60%；本协议固定 50 集的历史最高为 9000 步 38/50＝76%。〔E2〕 |
-| 进程与资源 | 本实验的 controller、注册作业与 CPU bridge 全部退出，八卡训练容器 exited；diagnostic 与 MiniMax 容器 running；Qwen3.8-27B 双卡容器按用户追加指令保持停止，不得自动恢复。〔E2〕 |
+| 进程与资源 | 本实验的 controller、注册作业与 CPU bridge 全部退出，八卡训练容器 exited；diagnostic 与另一服务容器 running；Qwen3.8-27B 双卡容器按用户追加指令保持停止，不得自动恢复。〔E2〕 |
 | 自动化与记录 | motus 两小时看护已删除，`control/STOP.json` 已发布；本地 README 与 AGENTS 已改为停止态；checkpoint 与全部历史证据保留。〔E2〕 |
 | 结论边界 | 以上是冻结 VLM 的 FP32 SFT 在同一固定 50 集上的观察。每任务只有 5 集，且这 50 集被反复用于开发观察；若选 9000 步作为交付 checkpoint，应另用独立初态与 seed 组确认。它也不是论文 97.6% 的同条件复现。〔样本结构 E2；解释 E3〕 |
 
