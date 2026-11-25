@@ -1,0 +1,73 @@
+{
+ "baseline_sha256": "6039feef932310b81b05b97fe614585fe3d1331047d84e86ec326a81361ab52b",
+ "checks": {
+  "S0 p=0 zero pinned": {
+   "detail": "pinned_zero=0, min_start=5 (calib skip 5 expected)",
+   "ok": true
+  },
+  "S1 p=0.25 single draw": {
+   "detail": "pinned_zero=25162/100000 (expect ~25000; double-draw bug would give ~43750)",
+   "ok": true
+  },
+  "S2 p=1 all pinned at reset": {
+   "detail": "pinned_zero=100000/100000",
+   "ok": true
+  },
+  "S3 independence": {
+   "detail": "marginals 25119/25173 (~25000), both-zero 6244 (~6250)",
+   "ok": true
+  },
+  "S3b hit then miss": {
+   "detail": "hit batch pinned=100000/100000; next reset (p->0) pinned=0; p=0 pinned=0",
+   "ok": true
+  },
+  "S4 chain reached parent robot reset": {
+   "detail": "write_root_state_to_sim calls on this instance=2 (S2 reset + S4 overflow), last batch rows=100000",
+   "ok": true
+  },
+  "S4 overflow unpinned": {
+   "detail": "pinned_zero=0, min_start=5 (uniform resample, calib skip active)",
+   "ok": true
+  },
+  "S5 FRAME=1 pin zero frame": {
+   "detail": "whole batch pinned to clip frame 0",
+   "ok": true
+  },
+  "S5 IDX pin non-zero frame": {
+   "detail": "starts uniq=[175] (expect [175])",
+   "ok": true
+  },
+  "S6 ledger": {
+   "detail": "reset count/pinned=100000/25043 (draw gave 25043), overflow count/pinned=100000/0, hist_keys=226",
+   "ok": true
+  },
+  "S7 no environ writes": {
+   "detail": "no `os.environ[...] =` writes on MOTION_* vars",
+   "ok": true
+  },
+  "S7 overflow reason": {
+   "detail": "overflow call site passes reason=\"overflow\"",
+   "ok": true
+  },
+  "S7 reset gating": {
+   "detail": "both prob branches gated on reason == \"reset\"",
+   "ok": true
+  },
+  "S7 single-draw handoff": {
+   "detail": "subclass passes pin_prob_applied to parent",
+   "ok": true
+  },
+  "S8 flat-task unchanged": {
+   "detail": "reset at frame0=100000/100000, overflow chained to frame0=100000/100000 (original non-adaptive behavior preserved)",
+   "ok": true
+  },
+  "S9 p=0 bitwise == pre-fix": {
+   "detail": "reset torch.equal=True, overflow torch.equal=True vs baseline 6039feef9323 (100000 envs x 2 calls)",
+   "ok": true
+  }
+ },
+ "commands_path": "/data/halo/halo-repo/tracker/training/source/halo_tracker/halo_tracker/tasks/manager_based/tracking/g1/mdp/commands.py",
+ "commands_sha256": "3ab334ce796c41fcba351a8982f0d3cc7a94dbbacdae35699b352f57c63694f7",
+ "mode": "stub-math",
+ "n_env": 100000
+}

@@ -1,0 +1,11 @@
+T0=2026-11-23T15:06:40+08:00 epoch=1795417600
+TRAIN_RC=0 TRAIN_SECONDS=1602
+EXP_CKPT=logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_15-06-49_r15_exp_f0mix_fixed/model_399.pt
+-rw-r--r-- 1 root root 382492619 Nov 23 15:33 logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_15-06-49_r15_exp_f0mix_fixed/model_399.pt
+0cee07abee2aa8b822a55e3c68459e4f94b75ade8f310738301b2735a4b4907a  logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_15-06-49_r15_exp_f0mix_fixed/model_399.pt
+OK-r15_exp_f0.json
+OK-r15_exp_p1.json
+OK-r15_exp_p3.json
+OK-r15_exp_p2.json
+EVAL_SECONDS=168 TOTAL_SECONDS=1772
+R15-ARM-DONE

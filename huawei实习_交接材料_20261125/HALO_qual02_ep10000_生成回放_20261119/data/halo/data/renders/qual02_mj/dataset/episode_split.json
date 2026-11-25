@@ -1,0 +1,12 @@
+{
+ "train_episodes": [
+  10000
+ ],
+ "val_episodes": [],
+ "reserved_eval_episodes": [
+  0
+ ],
+ "train_split": 0.9,
+ "seed": 42,
+ "explicit_override": true
+}

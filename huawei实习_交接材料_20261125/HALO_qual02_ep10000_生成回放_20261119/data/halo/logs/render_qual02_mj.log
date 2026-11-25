@@ -1,0 +1,4 @@
+[shard 0] 1 sit episodes (backend=mujoco)
+[infinigen] clearance grid (60, 60) n_free=2916 cell=0.1
+  [1/1] episode_10000 — resume skip
+[shard 0] done — 1 episodes → /data/halo/data/renders/qual02_mj/dataset

@@ -1,0 +1,25 @@
+<mujoco model="infinigen_scene_with_robot">
+  <compiler meshdir="/" texturedir="/" angle="radian" autolimits="true"/>
+  <include file="g1_29dof_ego.xml"/>
+  <visual>
+    <headlight ambient="1 1 1" diffuse="0 0 0" specular="0 0 0"/>
+    <global offwidth="1600" offheight="1000"/>
+    <quality offsamples="4"/>
+    <map znear="0.005" zfar="5.0"/>
+  </visual>
+  <asset>
+    <mesh name="m_g000" file="/data/halo/data/renders/qual02_mj/_mjscene/_mjparts/g000.obj" inertia="shell"/>
+      <mesh name="mesh_01" file="/data/halo/data/renders/qual02_mj/_mjscene/arm_chair.obj"/>
+    <texture name="tex_01" type="2d" file="/data/halo/data/renders/qual02_mj/_mjscene/arm_chair.png"/>
+    <material name="mat_01" texture="tex_01" specular="0.05" shininess="0.05" emission="1.0"/>
+      <texture name="_bg_sky" type="skybox" builtin="flat" rgb1="0.55 0.55 0.58" rgb2="0.55 0.55 0.58" width="8" height="8"/>
+    <material name="_bg_floor_mat" rgba="0.45 0.42 0.38 1"/>
+  </asset>
+  <worldbody>
+    <geom type="mesh" mesh="m_g000" rgba="0.7 0.7 0.7 1" group="2" contype="0" conaffinity="0"/>
+      <body name="prop_01" pos="2.4310 4.3988 0.0000" quat="-0.9073 0.0000 0.0000 -0.4206">
+      <geom type="mesh" mesh="mesh_01" material="mat_01"/>
+    </body>
+      <geom name="_bg_floor" type="plane" size="60 60 0.1" pos="0 0 -0.0200" material="_bg_floor_mat" contype="0" conaffinity="0"/>
+  </worldbody>
+</mujoco>

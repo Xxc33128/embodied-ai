@@ -1,0 +1,835 @@
+{
+  "task_type": "sit_on_chair",
+  "phases": {
+    "WALK": [
+      0,
+      98
+    ],
+    "TURN": [
+      98,
+      148
+    ],
+    "SIT": [
+      148,
+      198
+    ]
+  },
+  "seams": [
+    98,
+    148
+  ],
+  "recipe": "sit_syn_staged_walk_turn_sit",
+  "tier": "industry",
+  "segments": 3,
+  "global_ep": 10000,
+  "scene": "canonical",
+  "batch": 16,
+  "n_max_retry": 5,
+  "rounds_used": 1,
+  "sit_nf": 50,
+  "seam_k": 3,
+  "steps": 15,
+  "turn_steps": 50,
+  "sit_steps": 50,
+  "turn_nf": 50,
+  "turn_constraint": "plateau",
+  "turn_end_back_cm": 20.0,
+  "standing_kf": "standpose",
+  "n_candidates": 4,
+  "n_passed": 2,
+  "final_gen_accepted": true,
+  "kept_score": 0.9388,
+  "kept_blocking": [],
+  "final_checks": {
+    "teleport": {
+      "name": "teleport",
+      "status": "pass",
+      "value": 0.0303,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "per-frame root displacement: max 3.0 cm/frame (0.9 m/s) at frame 45",
+        "threshold 35 cm/frame (10.5 m/s)",
+        "0 frame(s) exceed \u2192 PASS"
+      ],
+      "meta": {
+        "max_m_per_frame": 0.0303,
+        "seams": []
+      }
+    },
+    "excessive_speed": {
+      "name": "excessive_speed",
+      "status": "pass",
+      "value": {
+        "root_mps": 0.909,
+        "joint_radps": 10.743
+      },
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "max root speed 0.91 m/s vs limit 2.5 m/s \u2192 ok",
+        "max joint speed 10.7 rad/s vs limit 12.0 rad/s \u2192 ok",
+        "PASS (score 1.00)"
+      ],
+      "meta": {
+        "root_thresh_mps": 2.5,
+        "joint_thresh_radps": 12.0
+      }
+    },
+    "sudden_jump": {
+      "name": "sudden_jump",
+      "status": "pass",
+      "value": 0.03,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "peak prominence (rise above baseline that later reverses) over a 10-frame window: max 3 cm at frame 55",
+        "threshold 16 cm \u2014 a monotonic stand-up scores ~0",
+        "no ballistic pop \u2192 PASS"
+      ],
+      "meta": {
+        "peak_prominence_m": 0.03,
+        "threshold_m": 0.16
+      }
+    },
+    "small_hop": {
+      "name": "small_hop",
+      "status": "pass",
+      "value": 0.0,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "pelvis bounce peaks (find_peaks prominence): 0 > 4 cm, biggest 0 cm",
+        "flag if a single bounce in [5,16) cm OR >= 2 bounces (good gait bob is one <=6.5 cm bob)",
+        "single=False repeated=False \u2192 PASS"
+      ],
+      "meta": {
+        "peak_hop_m": 0.0,
+        "n_bounce": 0
+      }
+    },
+    "crab_walk": {
+      "name": "crab_walk",
+      "status": "pass",
+      "value": 0.286,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "mean lateral fraction of moving translation: 0.29",
+        "threshold 0.32 (forward walks stay <=0.30)",
+        "forward \u2192 PASS"
+      ],
+      "meta": {
+        "lateral_fraction": 0.286
+      }
+    },
+    "upper_body_speed": {
+      "name": "upper_body_speed",
+      "status": "pass",
+      "value": 0.729,
+      "passed": true,
+      "score": 1.0,
+      "time": [
+        [
+          148,
+          148
+        ],
+        [
+          160,
+          164
+        ],
+        [
+          175,
+          179
+        ],
+        [
+          183,
+          184
+        ]
+      ],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "shoulder angular speed: p95 0.73, peak 5.62 rad/s",
+        "threshold p95 <= 1.10 rad/s (calm arms; good motions <=0.96)",
+        "natural \u2192 PASS"
+      ],
+      "meta": {
+        "p95_radps": 0.729,
+        "peak_radps": 5.621
+      }
+    },
+    "turn_rate": {
+      "name": "turn_rate",
+      "status": "pass",
+      "value": 116.0,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "peak yaw rate 116 deg/s at frame 127",
+        "threshold 230 deg/s (plausible turns peak ~230)",
+        "0 frame(s) over \u2192 PASS"
+      ],
+      "meta": {
+        "peak_dps": 116.0,
+        "threshold_dps": 230.0
+      }
+    },
+    "vertical_drift": {
+      "name": "vertical_drift",
+      "status": "pass",
+      "value": 0.0,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "scanned 21-frame (0.7s) windows for a monotonic root rise while translating < 12 cm horizontally",
+        "biggest such rise: 0.0 cm (starts frame 0); threshold 3 cm, ignores full stand-ups > 18 cm",
+        "0 drift window(s) \u2192 PASS"
+      ],
+      "meta": {
+        "max_drift_m": 0.0
+      }
+    },
+    "back_and_forth": {
+      "name": "back_and_forth",
+      "status": "pass",
+      "value": {
+        "reversals": 0,
+        "path_ratio": 1.17
+      },
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "travel-direction reversals (>120\u00b0): 0  (threshold 3)",
+        "path length 2.28 m vs net displacement 1.94 m (ratio 1.2)",
+        "PASS"
+      ],
+      "meta": {
+        "path_len_m": 2.28,
+        "net_disp_m": 1.94
+      }
+    },
+    "jitter": {
+      "name": "jitter",
+      "status": "pass",
+      "value": 61.92,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "root jerk RMS 62 m/s\u00b3 (joint jerk 695 rad/s\u00b3)",
+        "warn \u2265 75.0, fail \u2265 120.0",
+        "PASS"
+      ],
+      "meta": {
+        "root_jerk_mps3": 61.92,
+        "joint_jerk_rad_s3": 695.13
+      }
+    },
+    "foot_sink": {
+      "name": "foot_sink",
+      "status": "pass",
+      "value": 0.0254,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "ray-cast floor under feet z \u2248 0.000 m",
+        "deepest sole gap -2.5 cm (at frame 64)",
+        "frames with a foot below floor-5cm: 0/198 (0.0%)",
+        "fail if >5% of frames sink \u2192 PASS"
+      ],
+      "meta": {
+        "max_sink_m": 0.0254,
+        "frac_frames": 0.0,
+        "plant_offset_max_m": 0.0254
+      }
+    },
+    "foot_float": {
+      "name": "foot_float",
+      "status": "pass",
+      "value": 0.0,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "lower foot above floor by up to 0 cm",
+        "frames with BOTH feet >12cm up: 0 (0%); sustained runs (\u226510f): 0",
+        "PASS"
+      ],
+      "meta": {
+        "frac_frames_airborne": 0.0
+      }
+    },
+    "stance_width": {
+      "name": "stance_width",
+      "status": "pass",
+      "value": 0.335,
+      "passed": true,
+      "score": 1.0,
+      "time": [
+        [
+          111,
+          128
+        ]
+      ],
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "lateral stance width over grounded frames: p10 22, median 28, p90 34 cm (min 21, max 44)",
+        "plausible band 5-35 cm",
+        "out-of-band grounded frames: 18 (9%) [18 wide, 0 narrow] \u2192 PASS"
+      ],
+      "meta": {
+        "median_m": 0.282,
+        "p10_m": 0.223,
+        "p90_m": 0.335,
+        "min_m": 0.211,
+        "max_m": 0.441,
+        "band_m": [
+          0.05,
+          0.35
+        ],
+        "n_wide": 18,
+        "n_narrow": 0
+      }
+    },
+    "walk_pause": {
+      "name": "walk_pause",
+      "status": "pass",
+      "value": 0.83,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "longest no-step-while-gliding run in WALK/TURN: 25 frames (0.83s)",
+        "pause if >= 30 frames (1.0s) of locomotion + translating(>10cm/s) + not-stepping(<4cm)",
+        "no pause \u2192 PASS"
+      ],
+      "meta": {
+        "longest_pause_s": 0.83
+      }
+    },
+    "walk_torso_bend": {
+      "name": "walk_torso_bend",
+      "status": "pass",
+      "value": 17.6,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "max forward spine flexion (waist_pitch) during WALK/TURN: 18 deg at frame 130",
+        "threshold 18 deg (a normal sit-lean is confined to the SIT phase)",
+        "upright \u2192 PASS"
+      ],
+      "meta": {
+        "max_waist_pitch_deg": 17.6
+      }
+    },
+    "walk_leg_angle": {
+      "name": "walk_leg_angle",
+      "status": "pass",
+      "value": 0.082,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "max swing-foot height while walking: 8.2 cm at frame 50",
+        "threshold 15 cm (a normal step lifts <=11 cm)",
+        "ok \u2192 PASS"
+      ],
+      "meta": {
+        "max_swing_foot_m": 0.082,
+        "frame": 50
+      }
+    },
+    "step_clearance": {
+      "name": "step_clearance",
+      "status": "pass",
+      "value": 0.066,
+      "passed": true,
+      "score": 1.0,
+      "time": [
+        [
+          6,
+          12
+        ],
+        [
+          71,
+          77
+        ],
+        [
+          135,
+          141
+        ],
+        [
+          164,
+          170
+        ]
+      ],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "swing-foot peak clearance over walking phase: median 4, p75 7 cm (6 steps)",
+        "threshold p75 >= 6 cm (clean walks lift to ~7-8 cm)",
+        "clears \u2192 PASS"
+      ],
+      "meta": {
+        "p75_clearance_m": 0.066,
+        "median_clearance_m": 0.04,
+        "n_steps": 6
+      }
+    },
+    "flight_phase": {
+      "name": "flight_phase",
+      "status": "pass",
+      "value": -0.0,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "lower-foot (both-feet-airborne) clearance while walking: max -0.0 cm",
+        "flight if lower foot > 2 cm for >= 1 frames (good walks keep a stance foot down, <=1.7 cm)",
+        "0 flight frame(s) \u2192 PASS"
+      ],
+      "meta": {
+        "max_lower_foot_m": -0.0
+      }
+    },
+    "feet_close": {
+      "name": "feet_close",
+      "status": "pass",
+      "value": 0.213,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "min horizontal inter-foot distance: 21.3 cm at frame 56",
+        "threshold 12 cm (plausible motions stay > ~13 cm apart)",
+        "0 frame(s) closer \u2192 PASS"
+      ],
+      "meta": {
+        "min_foot_dist_m": 0.213,
+        "frame": 56
+      }
+    },
+    "foot_skate": {
+      "name": "foot_skate",
+      "status": "fail",
+      "value": 0.147,
+      "passed": false,
+      "score": 1.0,
+      "time": [
+        [
+          43,
+          43
+        ],
+        [
+          98,
+          98
+        ],
+        [
+          108,
+          110
+        ],
+        [
+          121,
+          121
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          131,
+          131
+        ],
+        [
+          137,
+          137
+        ],
+        [
+          147,
+          148
+        ]
+      ],
+      "comment": "planted foot slides: p95 15 cm/s, peak 118 cm/s in 5% of planted frames",
+      "severity": "soft",
+      "trace": [
+        "planted-foot frames (whole foot <3cm, \u22654f run, low vert-vel): 219",
+        "planted slip: median 5, p95 15, peak 118 cm/s",
+        "frames slipping >15cm/s: 11 (5% of planted)",
+        "fail if >3% \u2192 FAIL"
+      ],
+      "meta": {
+        "p95_slip_mps": 0.147,
+        "median_slip_mps": 0.049,
+        "max_slip_mps": 1.178,
+        "frac_planted_skating": 0.0502,
+        "n_planted_steps": 219
+      }
+    },
+    "foot_skate_severe": {
+      "name": "foot_skate_severe",
+      "status": "pass",
+      "value": 0.147,
+      "passed": true,
+      "score": 1.0,
+      "time": [
+        [
+          7,
+          17
+        ],
+        [
+          25,
+          37
+        ],
+        [
+          39,
+          43
+        ],
+        [
+          47,
+          60
+        ],
+        [
+          62,
+          64
+        ],
+        [
+          69,
+          83
+        ],
+        [
+          107,
+          120
+        ],
+        [
+          129,
+          140
+        ]
+      ],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "planted-slip p95 15 cm/s",
+        "egregious-skate threshold 35 cm/s (tolerated slip tops ~33)",
+        "ok \u2192 PASS"
+      ],
+      "meta": {
+        "p95_slip_mps": 0.147,
+        "severe_mps": 0.35
+      }
+    },
+    "joint_over_limit": {
+      "name": "joint_over_limit",
+      "status": "pass",
+      "value": 1.13,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "worst joint overshoot: left_ankle_roll by 1.1\u00b0 (range [-15.0, 15.0]\u00b0) at frame 127",
+        "joints over by >0.5/1/3/10/20\u00b0: 1/1/0/0/0",
+        "tolerance 3.0\u00b0 (sub-tol saturation, e.g. ankle_roll, is cosmetic) \u2192 PASS"
+      ],
+      "meta": {
+        "worst_joint": "left_ankle_roll",
+        "worst_deg": 1.13,
+        "tol_deg": 3.0,
+        "tiers": {
+          ">0.5deg": 1,
+          ">1deg": 1,
+          ">3deg": 0,
+          ">10deg": 0,
+          ">20deg": 0
+        },
+        "per_joint_deg": {
+          "left_ankle_roll": 1.13
+        }
+      }
+    },
+    "joint_flip": {
+      "name": "joint_flip",
+      "status": "pass",
+      "value": 0.358,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "largest single-joint step: left_wrist_roll 0.36 rad (21\u00b0) at frame 148",
+        "threshold 1.0 rad/frame",
+        "0 flip frame(s) \u2192 PASS"
+      ],
+      "meta": {
+        "flip_joint": "left_wrist_roll",
+        "max_rad": 0.358,
+        "is_wrap": false
+      }
+    },
+    "root_curvature": {
+      "name": "root_curvature",
+      "status": "pass",
+      "value": 1.1,
+      "passed": true,
+      "score": 1.0,
+      "time": [],
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "peak root-path curvature 1.1 g at frame 147 (deviation 0.6 cm from the neighbour midpoint)",
+        "threshold 15 g (LAFAN human motion tops ~18 g; >15 g is an artifact)",
+        "0 frame(s) over \u2192 PASS"
+      ],
+      "meta": {
+        "peak_g": 1.1,
+        "threshold_g": 15.0
+      }
+    },
+    "non_finite": {
+      "name": "non_finite",
+      "status": "pass",
+      "value": 0,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "non-finite (NaN/inf) entries in qpos[198,36]: 0",
+        "all finite",
+        "PASS"
+      ],
+      "meta": {
+        "n_nonfinite": 0,
+        "first_frame_col": null
+      }
+    },
+    "dead_clip": {
+      "name": "dead_clip",
+      "status": "pass",
+      "value": 1.94,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "soft",
+      "trace": [
+        "max root-xy excursion from start: 194.0 cm",
+        "threshold 10 cm (below \u2192 the clip goes nowhere)",
+        "moves \u2192 PASS"
+      ],
+      "meta": {
+        "excursion_m": 1.94,
+        "threshold_m": 0.1
+      }
+    },
+    "self_collision": {
+      "name": "self_collision",
+      "status": "fail",
+      "value": 0.0782,
+      "passed": false,
+      "score": 0.0,
+      "time": [
+        [
+          6,
+          11
+        ],
+        [
+          16,
+          27
+        ],
+        [
+          31,
+          33
+        ],
+        [
+          50,
+          60
+        ],
+        [
+          64,
+          97
+        ],
+        [
+          135,
+          144
+        ],
+        [
+          158,
+          197
+        ]
+      ],
+      "comment": "limbs interpenetrate up to 7.8 cm \u2014 worst left_hip_yaw_link\u2194left_wrist_yaw_link",
+      "severity": "soft",
+      "trace": [
+        "min cross-limb signed distance -7.8 cm (left_hip_yaw_link\u2194left_wrist_yaw_link) at frame 184",
+        "penetration tolerance 1.5 cm (hull-aware \u2014 MuJoCo geoms are convex hulls)",
+        "frames interpenetrating: 116 \u2192 FAIL"
+      ],
+      "meta": {
+        "max_penetration_m": 0.0782,
+        "worst": {
+          "frame": 184,
+          "dist": -0.078164,
+          "pair": [
+            "left_hip_yaw_link",
+            "left_wrist_yaw_link"
+          ]
+        }
+      }
+    },
+    "scene_collision": {
+      "name": "scene_collision",
+      "status": "skip",
+      "value": null,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "MuJoCo scene has no furniture/prop geometry (floor-only); floor covered by foot_sink",
+      "severity": "hard",
+      "trace": [
+        "SKIP: MuJoCo scene has no furniture/prop geometry (floor-only); floor covered by foot_sink"
+      ],
+      "meta": {}
+    },
+    "sits_at_end": {
+      "name": "sits_at_end",
+      "status": "pass",
+      "value": {
+        "root_z_end": 0.553,
+        "settle_std": 0.0018
+      },
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "",
+      "severity": "hard",
+      "trace": [
+        "final root z 0.55 m in seated band [0.35, 0.62] \u2192 ok",
+        "settle std over last 15 frames 0.2 cm (tol 3 cm) \u2192 ok",
+        "PASS"
+      ],
+      "meta": {
+        "root_z_end_m": 0.553,
+        "settle_frames": 15,
+        "root_z_std_m": 0.0018
+      }
+    },
+    "seat_contact": {
+      "name": "seat_contact",
+      "status": "skip",
+      "value": null,
+      "passed": true,
+      "score": 1.0,
+      "time": null,
+      "comment": "no scene distances (floor-only scene)",
+      "severity": "soft",
+      "trace": [],
+      "meta": {}
+    }
+  },
+  "total_frames": 198,
+  "staged": {
+    "walk_rounds": 1,
+    "turn_tries": 3,
+    "sit_tries": 1,
+    "walk_batch": 16,
+    "walk_gen_s": 3087.91,
+    "walk_pick_idx": 12,
+    "walk_pick_score": 0.9576,
+    "walk_pick_blocking": [],
+    "walk_n_pass": 10,
+    "walk_batch_skate": [
+      0.0291,
+      0.0463,
+      0.0268,
+      0.0278,
+      0.0275,
+      0.0278,
+      0.0179,
+      0.0185,
+      0.0273,
+      0.0286,
+      0.0187,
+      0.0381,
+      0.0095,
+      0.02,
+      0.0385,
+      0.0283
+    ],
+    "walk_pick_skate": 0.0095,
+    "turn_gen_s": 1327.61,
+    "turn_passed": true,
+    "turn_blocking": [],
+    "sit_gen_s": 439.94,
+    "sit_passed": true,
+    "sit_blocking": []
+  },
+  "vdr_level": "light",
+  "asset_color": "default",
+  "domain_randomization": true,
+  "prompt": "sit down on armchair",
+  "duration_s": 0.0,
+  "lighting_variation": "default",
+  "cam_artifacts": {
+    "vignette": 0.0637,
+    "chroma": 0.0112,
+    "noise": 0.0019,
+    "salt_pepper": 0.0004,
+    "defocus": 0.0025,
+    "posterize": 0.0449,
+    "scanline": 0.0401,
+    "brightness": 1.0495,
+    "contrast": 1.0084,
+    "saturation": 0.9729,
+    "gamma": 1.0347,
+    "color_tone": 0.5402,
+    "motion_blur_gain": 0.3,
+    "motion_blur_rand_dir_prob": 0.15
+  }
+}

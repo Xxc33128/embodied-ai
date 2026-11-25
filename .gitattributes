@@ -1,1 +1,6 @@
 sonic-npu/packages/*.zip filter=lfs diff=lfs merge=lfs -text
+
+# 交接材料（2026-11-25）：超过 GitHub 单文件上限的大文件走 LFS
+huawei实习_交接材料_20261125/**/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+huawei实习_交接材料_20261125/**/本机成品/**/*.html filter=lfs diff=lfs merge=lfs -text
+huawei实习_交接材料_20261125/**/model_399.pt filter=lfs diff=lfs merge=lfs -text
