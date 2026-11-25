@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.085, \"y\": 0.065, \"z\": 0.85, \"yaw\": 0.04, \"gripper\": 0}, \"note\": \"The step-132 view showed the block visible beyond the closed fingertips, so the fingers point -x and the frame must lead +x about 2.5cm. Reverting yaw to the original orientation, moving to (-0.085, 0.065, 0.85) so the pads span the block, and closing in the same motion.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

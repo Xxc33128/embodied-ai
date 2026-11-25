@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "scope": "Excluded attempt cost ledger; separate from the eight selected formal episodes. No active attempt payload read.",
+  "evidence_level": "E2 reviewed records with preserved artifact hashes",
+  "excluded_attempts": [
+    {
+      "episode_key": "gpt-6-astra/libero_10_swap/t9_s1",
+      "review_id": "sam-oom-20261009-gpt-6-astra-t9s1-001-to-002",
+      "from_attempt": "attempt-001",
+      "to_attempt": "attempt-002",
+      "state_sha256": "ab7665c19a09fb6a19d722118f4edba343f154726f0882faf97ceaa43f8e3940",
+      "artifact_tree_sha256": "69f5aad3547f0072e837011bfe3ed3b5c496f93d0bfea8b910c27805d1a666ca",
+      "measurement_tree_sha256": "37be4a95bbb729249b3a48c416b55cde4387d7ba502d320762675654cfd83ba2",
+      "evidence_sha256": {
+        "deep-sam-oom-audit-safe.json": "25fe4f124bee6a34c72d1a68c671bc879702052cb7005571462a92215e4c1122",
+        "deep-last-pair-span-audit-safe.json": "127053c30e4b7bb073dcae2b254ab6d235bffe597a69cf327a4698b082723266",
+        "deep-npu-capacity-safe.json": "443b7d4ed45d52ede18b88469faf0679d348f5199db64159bc8df70a68651452",
+        "sam-health-epoch002-001.json": "d64187a11a441e9a1e3710c1461a4d52651f9516f9c11c2bda5e51642bd09e50",
+        "sam-resource-epoch002-review.json": "94366763ebb06e35f6204f530404c695eaf5e497f845c1e817a0e849e7f5a62c"
+      },
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "recorded_task_verdict": "task_failure",
+      "episode_elapsed_s": 1224.0,
+      "selected_for_formal_analysis": false,
+      "exclusion_category": "sam_npu_oom",
+      "evidence_level": "E2",
+      "states_sha256": "6caea7039d31eaf7377123557d36ac5f19404927768b7d6cfaecaffb8dd39843",
+      "stream_sha256": "4cb770200cf32a0ab320edeb395e8ccdcdfbac6b8f5692575610024ec8bf5bbd",
+      "video_sha256": [
+        "741d7ea56c75bba3062bf8ec8b9601d9bc396391624265f166c70079f7edc68d"
+      ],
+      "final_terminated": false,
+      "oom_tool_errors": [
+        {
+          "line": 258,
+          "result_sha256": "8bbdd36e62e3885ea1b816af26a234bef6b2b5a9f410771e8182601a251a699b",
+          "category": "npu_out_of_memory",
+          "tool_status": "failed",
+          "duration_ms": 12938
+        },
+        {
+          "line": 260,
+          "result_sha256": "341fb89a069acc29d3de5abbcc5fc024b7b72cc937f02169dc2325b7485cb3a0",
+          "category": "npu_out_of_memory",
+          "tool_status": "failed",
+          "duration_ms": 11842
+        }
+      ],
+      "load_s": 163.405656049,
+      "load_source_snapshot_sha256": "e2969603e8d681bbd090317c427ea404ef4f439983f4716e74f443a09b3f2aa6",
+      "load_source_pointer": "actual_attempt_loads/6",
+      "load_accounting_note": "Episode-external model initialization; already included in batch all-attempt load sum. Do not add again to that sum or to episode elapsed."
+    },
+    {
+      "episode_key": "gpt-6-sol/libero_10_swap/t9_s1",
+      "review_id": "sam-oom-20261009-gpt-6-sol-t9s1-001-to-002",
+      "from_attempt": "attempt-001",
+      "to_attempt": "attempt-002",
+      "state_sha256": "ab7665c19a09fb6a19d722118f4edba343f154726f0882faf97ceaa43f8e3940",
+      "artifact_tree_sha256": "f5b86d3410513b50b0459558647eb3bf07f3f477aa8f4c0e19600a0879a72ef2",
+      "measurement_tree_sha256": "0a894ae9103138a828e9f6298b477d454d0829614c6a94d861783f60f15c80b1",
+      "evidence_sha256": {
+        "deep-sam-oom-audit-safe.json": "25fe4f124bee6a34c72d1a68c671bc879702052cb7005571462a92215e4c1122",
+        "deep-last-pair-span-audit-safe.json": "127053c30e4b7bb073dcae2b254ab6d235bffe597a69cf327a4698b082723266",
+        "deep-npu-capacity-safe.json": "443b7d4ed45d52ede18b88469faf0679d348f5199db64159bc8df70a68651452",
+        "sam-health-epoch002-001.json": "d64187a11a441e9a1e3710c1461a4d52651f9516f9c11c2bda5e51642bd09e50",
+        "sam-resource-epoch002-review.json": "94366763ebb06e35f6204f530404c695eaf5e497f845c1e817a0e849e7f5a62c"
+      },
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "recorded_task_verdict": "task_failure",
+      "episode_elapsed_s": 1981.2,
+      "selected_for_formal_analysis": false,
+      "exclusion_category": "sam_npu_oom",
+      "evidence_level": "E2",
+      "states_sha256": "10fa5e358325ade0e61718e607c15a3750139290928f859c8b309414b6520487",
+      "stream_sha256": "793d5d0336db2a550810bb8991a3e24a5d4b9cb92b930f1fa7ac582233494745",
+      "video_sha256": [
+        "6ea8b3fe9c9144eb76c2669391f7877eb83ea063ca6b755881bfcf0ee903de95"
+      ],
+      "final_terminated": false,
+      "oom_tool_errors": [
+        {
+          "line": 264,
+          "result_sha256": "4b0584d5e6231e9eed28cb89fffc69492e46f72aa8e8d733bb54cbba9f758ec3",
+          "category": "npu_out_of_memory",
+          "tool_status": "failed",
+          "duration_ms": 13964
+        }
+      ],
+      "load_s": 162.803777429,
+      "load_source_snapshot_sha256": "e2969603e8d681bbd090317c427ea404ef4f439983f4716e74f443a09b3f2aa6",
+      "load_source_pointer": "actual_attempt_loads/8",
+      "load_accounting_note": "Episode-external model initialization; already included in batch all-attempt load sum. Do not add again to that sum or to episode elapsed."
+    }
+  ],
+  "cost_totals": {
+    "excluded_attempt_count": 2,
+    "cumulative_episode_work_s": 3205.2,
+    "calculation": "1224.0 + 1981.2 = 3205.2 seconds",
+    "parallel_elapsed_wall_s": null,
+    "parallel_elapsed_wall_reason": "Sum of episode durations is cumulative work, not elapsed wall time of two concurrent lanes. No common start/end interval union reconstructed here.",
+    "device_compute_s": null,
+    "billing_cost": null,
+    "includes_model_loading": false,
+    "includes_health_probes": false,
+    "interpretation": "Episode elapsed duration includes more than accelerator execution; it is not device compute time, monetary cost or scheduler elapsed duration.",
+    "excluded_attempt_model_init_work_s": 326.209433478,
+    "load_accounting": "Separate episode-external work; subset of the all-attempt model-init total, not an extra additive cost on top of it."
+  },
+  "resource_epochs": [
+    {
+      "epoch": "epoch-001",
+      "sam_physical_device": 6,
+      "device_model": "910B3",
+      "role": "Original shared SAM service; excluded attempts were affected by NPU OOM.",
+      "sam_launch_script_sha256": "2fe60b5013a52cfc04b25febfcc58245676bcd0bca5daac23634484bff5c654b"
+    },
+    {
+      "epoch": "epoch-002",
+      "sam_physical_device": 3,
+      "device_model": "910B3",
+      "change": "Physical device selection changed for batch-owned SAM service. Shared measurement outputs remain separated by process.",
+      "sam_launch_script_sha256": "330c5cdc92620fb7205cf30bc7ef2c5cacb0b109ba0e42e2e1cd430d08b862c6",
+      "external_processes_modified": false,
+      "review_sha256": "94366763ebb06e35f6204f530404c695eaf5e497f845c1e817a0e849e7f5a62c",
+      "applies_to": "Subsequent independently reviewed attempt-002; its task outcome is not asserted in this ledger."
+    }
+  ],
+  "nonformal_probes": [
+    {
+      "kind": "sam_health_replay",
+      "selected_for_formal_analysis": false,
+      "counted_as_formal_episode": false,
+      "included_in_excluded_episode_work_s": false,
+      "resource_epoch": "epoch-002",
+      "elapsed_s": 11.490641549,
+      "status": "ok",
+      "found": true,
+      "mask_shape": [
+        1024,
+        1024
+      ],
+      "request_fingerprint": "3f5400c03db5bdc95b6e5117c0fd8997572d9d25dc0717f20004cd3d887badf0",
+      "source_sha256": "d64187a11a441e9a1e3710c1461a4d52651f9516f9c11c2bda5e51642bd09e50",
+      "interpretation": "Replay of previously failed request establishes this health probe succeeded after service rescheduling; not a new formal task outcome or proof the retry will succeed."
+    }
+  ],
+  "limits": [
+    "Original recorded task_failure and video evidence are retained; infrastructure exclusion does not overwrite the observed trajectory.",
+    "Do not attribute these two failures solely to planner performance or count them in the final selected eight-episode success rate.",
+    "Host span closure does not repair failed synchronized SAM scopes: exception paths did not establish completed accelerator timing.",
+    "Resource snapshots are point-in-time evidence, not a complete memory history or proof of a unique allocator cause.",
+    "Two resource epochs must remain visible in the report; no measured equivalence of latency across epochs is claimed.",
+    "Retry approval is for the named transition 001 to 002 only, not authorization for further retries."
+  ]
+}

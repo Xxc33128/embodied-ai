@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.07, \"y\": -0.06, \"z\": 0.885, \"gripper\": 1}, \"note\": \"x=-0.078 y=-0.0329 z=0.9251; the bowl is now leaving the top of the wrist view and the block sits just above the finger tips, about 2.7 cm -y and 4.0 cm -z away. Same pre-grasp pull, gripper still open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

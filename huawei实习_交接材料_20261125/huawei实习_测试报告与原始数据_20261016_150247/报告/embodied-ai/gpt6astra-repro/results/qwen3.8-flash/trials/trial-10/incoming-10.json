@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.055, \"z\": 0.862}, \"note\": \"Now the block is clearly visible in the wrist view at the bottom-right, right beside my right finger, and the side view agrees it is ~35 px (0.037 m) toward +x of my fingers. Consensus block centre is about (-0.05, +0.075). I slide onto it and take the last 5 cm down so the pads straddle its sides.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

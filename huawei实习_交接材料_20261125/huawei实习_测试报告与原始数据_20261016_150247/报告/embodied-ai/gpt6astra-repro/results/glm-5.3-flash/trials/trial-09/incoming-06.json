@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.0335, \"z\": 0.806, \"gripper\": 0.5}, \"note\": \"Wrist view shows only table between the open fingers: at this low height the block sits just below the near frame edge, about 0.3-0.6 cm further in +y. Final centering nudge and deeper settle so the fingertips surround the block down to ~6 mm above the table, fingers held open via the latched intermediate value.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

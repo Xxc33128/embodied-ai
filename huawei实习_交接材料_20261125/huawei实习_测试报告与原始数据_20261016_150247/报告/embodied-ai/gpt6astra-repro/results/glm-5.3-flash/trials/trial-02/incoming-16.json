@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.055, \"y\": 0.07, \"z\": 0.865, \"gripper\": 1}, \"note\": \"Second close also caught air - the wrist view shows the same gap between the closed tips and the block, so the block is still roughly 25mm further +x than the tips. I reopen the jaws while shifting another +27mm to x=-0.055 with y=+0.070, keeping the low height so the pads straddle the block for attempt three.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

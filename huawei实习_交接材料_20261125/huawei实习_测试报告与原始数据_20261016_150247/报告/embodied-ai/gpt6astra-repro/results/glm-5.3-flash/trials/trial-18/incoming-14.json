@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.081, \"z\": 0.855, \"gripper\": 0.5}, \"note\": \"Now I slide sideways (+x) and descend to grasp height along y=0.12, so the red block ends up straddled between the wide-open jaws; entering its x-range happens above block-top and the final descent is vertical past its faces, which cannot tip it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

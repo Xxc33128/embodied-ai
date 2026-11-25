@@ -1,0 +1,9 @@
+{
+  "stage_max": 1,
+  "basis": "Gripper actually touched the block during steps 738-773 and 835-859 (closed to ~0.02 and tipped/nudged it ~2.8 cm around step 774). grasped stayed false and block bottom z never exceeded ~0.800 m, so it was pushed but never collected or lifted.",
+  "reviewers": "blind-pass1-A",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Gripper contact is flagged at steps 738-773 and again 835-859, and it shoved the block ~2 cm sideways (cube xy moved 0.222->0.245 m from the bowl; measured_gripper closed 0.49->0.02 during 741-774). grasped was never true and the block bottom-z stayed ~0.80 m, so contact/nudge only, no grasp or lift."
+}

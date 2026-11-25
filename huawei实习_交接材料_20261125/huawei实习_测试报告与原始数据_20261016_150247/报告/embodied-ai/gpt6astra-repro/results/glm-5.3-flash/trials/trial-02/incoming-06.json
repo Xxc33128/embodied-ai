@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.129, \"y\": 0.057, \"z\": 0.82}, \"note\": \"Block center (-0.129, +0.057) is confirmed and the open jaws (opening ~0.98) straddle its y-range with several mm clearance. I command the full descent along one straight line to fingertip height z=0.82 (mid-height of the 45mm block); the diagonal keeps lateral error near zero by the time the pads reach the block top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

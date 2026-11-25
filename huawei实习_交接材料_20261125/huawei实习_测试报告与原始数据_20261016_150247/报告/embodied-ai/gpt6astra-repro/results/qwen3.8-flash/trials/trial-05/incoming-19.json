@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0151, \"y\": 0.0645, \"z\": 0.95, \"gripper\": 0}, \"note\": \"Jaws are open and sitting at the block position I triangulated from both fixed cameras (the wrist view now shows the blue bowl ahead-right, matching my map). I will clamp closed here and rise, so the closing happens over the block rather than during the later travel.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

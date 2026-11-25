@@ -1,0 +1,430 @@
+{
+ "date": "2026-09-17",
+ "pins": {
+  "expected": {
+   "gpt_as_policy_commit": "8f3d362b077d8efb77e2a7274d5b2c20e2243846",
+   "robodojo_commit": "ee67a1468510da7624a089164402359f2afc72c8",
+   "xpolicylab_commit": "432f82b1758c5b1202e42a3dfe014546dbc50871",
+   "hf_revision": "91f76c28d93dd20c5fa46ce6a5a1d96a4f384acd"
+  },
+  "clone_heads_match": {
+   "gpt_as_policy_commit": true,
+   "robodojo_commit": true,
+   "xpolicylab_commit": true
+  },
+  "robodojo_xpolicylab_submodule_pin": "432f82b1758c5b1202e42a3dfe014546dbc50871"
+ },
+ "panel_scope_identity": {
+  "panel_sha256_equal_scope_rows": true,
+  "panel_native_source_commit_matches_pin": true,
+  "scope_count": 50,
+  "panel_case_count": 60
+ },
+ "panel_bytes_sha256": "8218ab8a8b3a30d286a58130e8770a169e6133021f01e338ee5c6610ef93021b",
+ "scope_bytes_sha256": "05767f60ef548f62b9b7ede442efafd7854d09628cf63d28f4c09ff6767e1928",
+ "panel_canonical_variants": {
+  "sort_keys": "972c92ce88b477e7bf0f9bcdf3686e432e14b57d37ddb4b85a8898919818af7d",
+  "sort_keys_compact": "9641fa252856c5ffc07b269c9fef4fed7f5bbc91b45ea0e93fe2a39fa73944b7",
+  "sort_keys_ensure_ascii_false": "972c92ce88b477e7bf0f9bcdf3686e432e14b57d37ddb4b85a8898919818af7d",
+  "sort_keys_indent2": "9b536498a12abba594f619dc5438f63f3c90d55f0ed9b9a9d7e052c000d0b2ee",
+  "insertion_order": "5d25f322b123bb48acdd481c9b1832d1526963b659efa8562ad4bffdb18c42c7"
+ },
+ "scope_canonical_variants": {
+  "sort_keys": "d092808d11ed9371806a3d9041ec4048a0401327d392aa15a1467828178094b2",
+  "sort_keys_compact": "56ee460abe265a150dde279de227aded371058d62017b5580790ef1e939237b1",
+  "sort_keys_ensure_ascii_false": "d092808d11ed9371806a3d9041ec4048a0401327d392aa15a1467828178094b2",
+  "sort_keys_indent2": "ab8c360ab8d042713256efd8c16af8fa5d64130f5b986beba81ef5c4e9549538",
+  "insertion_order": "8ae8ae0c4a62a2b06f695be0e67f566c1997d6be078c94892802db70b49799ec"
+ },
+ "native_sources": {
+  "total": 169,
+  "passed": 169,
+  "failed": 0,
+  "failures": [],
+  "regression_vs_prior": {
+   "n": 75,
+   "all_consistent": true
+  }
+ },
+ "case_inputs": {
+  "layouts": {
+   "total": 50,
+   "passed": 50,
+   "prior_regression_consistent": true
+  },
+  "trajectories": {
+   "total": 25,
+   "passed": 25,
+   "records": [
+    {
+     "case_id": "imitate_sorting_sequence__standard__g0__l0",
+     "path": "Assets/Traj/RoboDojo/imitate_sorting_sequence/0/0.pkl",
+     "expected": "e87b1a5d7d76eb39c165f904a3f382929dae846488d30fd95cc505fb9f66711b",
+     "actual": "e87b1a5d7d76eb39c165f904a3f382929dae846488d30fd95cc505fb9f66711b",
+     "match": true,
+     "bytes": 3173423,
+     "prior_match": true
+    },
+    {
+     "case_id": "imitate_sorting_sequence__standard__g0__l1",
+     "path": "Assets/Traj/RoboDojo/imitate_sorting_sequence/0/1.pkl",
+     "expected": "d365a2e9365517d91e5d7f091faaf02162b45d64784eb2c367e07d6589c96010",
+     "actual": "d365a2e9365517d91e5d7f091faaf02162b45d64784eb2c367e07d6589c96010",
+     "match": true,
+     "bytes": 3060024,
+     "prior_match": true
+    },
+    {
+     "case_id": "imitate_sorting_sequence__standard__g0__l2",
+     "path": "Assets/Traj/RoboDojo/imitate_sorting_sequence/0/2.pkl",
+     "expected": "8cea316ad803e28839e8e6c5f330aac4bc29d00e2c12045547a1d7fe71551254",
+     "actual": "8cea316ad803e28839e8e6c5f330aac4bc29d00e2c12045547a1d7fe71551254",
+     "match": true,
+     "bytes": 3548896,
+     "prior_match": true
+    },
+    {
+     "case_id": "imitate_sorting_sequence__standard__g0__l3",
+     "path": "Assets/Traj/RoboDojo/imitate_sorting_sequence/0/3.pkl",
+     "expected": "14821c325e3cc7ea9fc187f979a27a70f34703a3815c015284189d400dfd7889",
+     "actual": "14821c325e3cc7ea9fc187f979a27a70f34703a3815c015284189d400dfd7889",
+     "match": true,
+     "bytes": 2861411,
+     "prior_match": true
+    },
+    {
+     "case_id": "imitate_sorting_sequence__standard__g0__l4",
+     "path": "Assets/Traj/RoboDojo/imitate_sorting_sequence/0/4.pkl",
+     "expected": "27eca96475f60a02d5540dd7d6293d0bdb9caa9313e0c8665a07d330a904d94a",
+     "actual": "27eca96475f60a02d5540dd7d6293d0bdb9caa9313e0c8665a07d330a904d94a",
+     "match": true,
+     "bytes": 2876559,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l0",
+     "path": "Assets/Traj/RoboDojo/make_kong/0.pkl",
+     "expected": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "actual": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "match": true,
+     "bytes": 384528,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l0",
+     "path": "Assets/Traj/RoboDojo/make_kong/1.pkl",
+     "expected": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "actual": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "match": true,
+     "bytes": 390112,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l0",
+     "path": "Assets/Traj/RoboDojo/make_kong/2.pkl",
+     "expected": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "actual": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "match": true,
+     "bytes": 393735,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l0",
+     "path": "Assets/Traj/RoboDojo/make_kong/3.pkl",
+     "expected": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "actual": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "match": true,
+     "bytes": 396812,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l1",
+     "path": "Assets/Traj/RoboDojo/make_kong/0.pkl",
+     "expected": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "actual": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "match": true,
+     "bytes": 384528,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l1",
+     "path": "Assets/Traj/RoboDojo/make_kong/1.pkl",
+     "expected": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "actual": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "match": true,
+     "bytes": 390112,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l1",
+     "path": "Assets/Traj/RoboDojo/make_kong/2.pkl",
+     "expected": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "actual": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "match": true,
+     "bytes": 393735,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l1",
+     "path": "Assets/Traj/RoboDojo/make_kong/3.pkl",
+     "expected": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "actual": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "match": true,
+     "bytes": 396812,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l2",
+     "path": "Assets/Traj/RoboDojo/make_kong/0.pkl",
+     "expected": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "actual": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "match": true,
+     "bytes": 384528,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l2",
+     "path": "Assets/Traj/RoboDojo/make_kong/1.pkl",
+     "expected": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "actual": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "match": true,
+     "bytes": 390112,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l2",
+     "path": "Assets/Traj/RoboDojo/make_kong/2.pkl",
+     "expected": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "actual": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "match": true,
+     "bytes": 393735,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l2",
+     "path": "Assets/Traj/RoboDojo/make_kong/3.pkl",
+     "expected": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "actual": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "match": true,
+     "bytes": 396812,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l3",
+     "path": "Assets/Traj/RoboDojo/make_kong/0.pkl",
+     "expected": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "actual": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "match": true,
+     "bytes": 384528,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l3",
+     "path": "Assets/Traj/RoboDojo/make_kong/1.pkl",
+     "expected": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "actual": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "match": true,
+     "bytes": 390112,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l3",
+     "path": "Assets/Traj/RoboDojo/make_kong/2.pkl",
+     "expected": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "actual": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "match": true,
+     "bytes": 393735,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l3",
+     "path": "Assets/Traj/RoboDojo/make_kong/3.pkl",
+     "expected": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "actual": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "match": true,
+     "bytes": 396812,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l4",
+     "path": "Assets/Traj/RoboDojo/make_kong/0.pkl",
+     "expected": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "actual": "a2b66eb5b5d4b5a3b4cf51c0a5b44358aa701433331caf9aa3763f636a1f6cb2",
+     "match": true,
+     "bytes": 384528,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l4",
+     "path": "Assets/Traj/RoboDojo/make_kong/1.pkl",
+     "expected": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "actual": "c7f171a586b56fd2cd78b26a58a87e0ed4bc9b49d6b5605c7b17263fd30a4e90",
+     "match": true,
+     "bytes": 390112,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l4",
+     "path": "Assets/Traj/RoboDojo/make_kong/2.pkl",
+     "expected": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "actual": "16b40a4c9d646e403a25a40d4d4840a6d534dd86fb6f4c7048c5b6a4fbefd683",
+     "match": true,
+     "bytes": 393735,
+     "prior_match": true
+    },
+    {
+     "case_id": "make_kong__standard__g0__l4",
+     "path": "Assets/Traj/RoboDojo/make_kong/3.pkl",
+     "expected": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "actual": "4a8561ea07549f6f105b21acab991e3c90bb4f60f1cd05c30bfb87e4a5cbb30c",
+     "match": true,
+     "bytes": 396812,
+     "prior_match": true
+    }
+   ]
+  }
+ },
+ "checkpoint_metadata": {
+  "subdir": "ckpt/RoboDojo/Pi_05/RoboDojo-sim-arx_x5-joint-0/59999",
+  "identity_files_n": 17,
+  "params_bytes": 12440988569,
+  "params_bytes_expected": 12440988569,
+  "params_bytes_match": true,
+  "all_match_prior": true,
+  "per_file": [
+   {
+    "path": "assets/arx_x5_sim/norm_stats.json",
+    "lfs_sha256": "ad7dea3e3d2bcdb348945fe03422ab1adccd03baf67318b1a1d153dfe8694db5",
+    "expected_prior": "ad7dea3e3d2bcdb348945fe03422ab1adccd03baf67318b1a1d153dfe8694db5",
+    "match": true,
+    "size": 3407
+   },
+   {
+    "path": "params/_METADATA",
+    "lfs_sha256": "f7b1dbf26ce9466c9d444c3a7f60dfe21767b3abc3380a455e841972eae4f274",
+    "expected_prior": "f7b1dbf26ce9466c9d444c3a7f60dfe21767b3abc3380a455e841972eae4f274",
+    "match": true,
+    "size": 23491
+   },
+   {
+    "path": "params/_sharding",
+    "lfs_sha256": "77b1fa6b2c8d2a16a94d19eb268bed916c6913565421fdf6312453ac6c4fc621",
+    "expected_prior": "77b1fa6b2c8d2a16a94d19eb268bed916c6913565421fdf6312453ac6c4fc621",
+    "match": true,
+    "size": 18258
+   },
+   {
+    "path": "params/array_metadatas/process_0",
+    "lfs_sha256": "2b650291cb689bb0504470bf03a071c40ae96e203667b89cead0c6adb2d6288f",
+    "expected_prior": "2b650291cb689bb0504470bf03a071c40ae96e203667b89cead0c6adb2d6288f",
+    "match": true,
+    "size": 9058
+   },
+   {
+    "path": "params/d/e9268d0868cc79dc08071adee3ba67f5",
+    "lfs_sha256": "9482acdbb1250cf3344fad3c8be7f587ba3770441198e7d60f357702486ac2c8",
+    "expected_prior": "9482acdbb1250cf3344fad3c8be7f587ba3770441198e7d60f357702486ac2c8",
+    "match": true,
+    "size": 42398
+   },
+   {
+    "path": "params/manifest.ocdbt",
+    "lfs_sha256": "634fea47615fa13f4c0852dc13b05d897ee1694a473d9d0605d02b834fd2befe",
+    "expected_prior": "634fea47615fa13f4c0852dc13b05d897ee1694a473d9d0605d02b834fd2befe",
+    "match": true,
+    "size": 120
+   },
+   {
+    "path": "params/ocdbt.process_0/d/0a05b3b4870f64154af3641ef1c1eecf",
+    "lfs_sha256": "429161d8ab2ac9d13b72095d8b5be5ffba8f99302b12bb2cae149d1ee0a148b0",
+    "expected_prior": "429161d8ab2ac9d13b72095d8b5be5ffba8f99302b12bb2cae149d1ee0a148b0",
+    "match": true,
+    "size": 2284789865
+   },
+   {
+    "path": "params/ocdbt.process_0/d/1fbec215d6341f33f041c6145ee3756f",
+    "lfs_sha256": "cdf1415e6f30a9827e52e6d5442b5f819dadbaba7c8e941773290cfc2742f249",
+    "expected_prior": "cdf1415e6f30a9827e52e6d5442b5f819dadbaba7c8e941773290cfc2742f249",
+    "match": true,
+    "size": 1200
+   },
+   {
+    "path": "params/ocdbt.process_0/d/3749fcdb2abf24595f8ca06ee208e773",
+    "lfs_sha256": "23ddd7f53b976bd27b1a62a83ad1499925a8a2e90a5b0545affd63c7bbd52bbc",
+    "expected_prior": "23ddd7f53b976bd27b1a62a83ad1499925a8a2e90a5b0545affd63c7bbd52bbc",
+    "match": true,
+    "size": 560077054
+   },
+   {
+    "path": "params/ocdbt.process_0/d/42eb48ef345d0e30b95bc9e2a194adc8",
+    "lfs_sha256": "41eb65bde7e3d16f63ac71ac80bc4547bdcf3107c41af70ac5174992bd38b709",
+    "expected_prior": "41eb65bde7e3d16f63ac71ac80bc4547bdcf3107c41af70ac5174992bd38b709",
+    "match": true,
+    "size": 2520305970
+   },
+   {
+    "path": "params/ocdbt.process_0/d/5dd44e9e6c20354d58016a470210b404",
+    "lfs_sha256": "d096237d5373dc120004174e89dc44a341fdffdcc7457d568d0b841700ff2ade",
+    "expected_prior": "d096237d5373dc120004174e89dc44a341fdffdcc7457d568d0b841700ff2ade",
+    "match": true,
+    "size": 109402
+   },
+   {
+    "path": "params/ocdbt.process_0/d/a66e531837010ca0fb32ecd927335e53",
+    "lfs_sha256": "522d9057a70c021327d3c76132377aa0e6c323feb4dea4db0b8ccb16fc7980f4",
+    "expected_prior": "522d9057a70c021327d3c76132377aa0e6c323feb4dea4db0b8ccb16fc7980f4",
+    "match": true,
+    "size": 2343282541
+   },
+   {
+    "path": "params/ocdbt.process_0/d/ce1637cf430319dc033526f7e32d833e",
+    "lfs_sha256": "93e3eb49cbbcae7b3e424c4e19a11262ee118355a4676a62681ec2e26fccbc16",
+    "expected_prior": "93e3eb49cbbcae7b3e424c4e19a11262ee118355a4676a62681ec2e26fccbc16",
+    "match": true,
+    "size": 2165726013
+   },
+   {
+    "path": "params/ocdbt.process_0/d/d7a5b27d8a8c4f63cc9dfe9d12d5e2d3",
+    "lfs_sha256": "437c63711361d678a44b06455d0124a50ec79d9ee0bafe2ada78e41d79360fa6",
+    "expected_prior": "437c63711361d678a44b06455d0124a50ec79d9ee0bafe2ada78e41d79360fa6",
+    "match": true,
+    "size": 232
+   },
+   {
+    "path": "params/ocdbt.process_0/d/d931aec2d1d586717a28915e6c710676",
+    "lfs_sha256": "1a8834dd2a575ce5f8bfa7be2fbd554cca261cdf997d928c5a719e77174b1d83",
+    "expected_prior": "1a8834dd2a575ce5f8bfa7be2fbd554cca261cdf997d928c5a719e77174b1d83",
+    "match": true,
+    "size": 2240108427
+   },
+   {
+    "path": "params/ocdbt.process_0/d/fbf78c71d75f5d3cb7ef11cd9cde9ab0",
+    "lfs_sha256": "9c268e5dfc2248b4c75ae5ccbf2f23a196b2cd55ee798707c0bef5d4b3f6b653",
+    "expected_prior": "9c268e5dfc2248b4c75ae5ccbf2f23a196b2cd55ee798707c0bef5d4b3f6b653",
+    "match": true,
+    "size": 326494172
+   },
+   {
+    "path": "params/ocdbt.process_0/manifest.ocdbt",
+    "lfs_sha256": "b2117af3ce683fba15add35bdd5596df488e816ec4c5bcef1a82161a965115bd",
+    "expected_prior": "b2117af3ce683fba15add35bdd5596df488e816ec4c5bcef1a82161a965115bd",
+    "match": true,
+    "size": 368
+   }
+  ],
+  "aggregate": "d15fb8bd1d29cb30b69f01b71c66596cb0293c1a8a94111b343c1580dd3e3e5b",
+  "aggregate_recipe": "上游原配方：sha256(json.dumps({path: sha256}, sort_keys=True))，经作者 previous_load_sha256 验证",
+  "aggregate_reproduced": true,
+  "expected_prior_aggregate": "d15fb8bd1d29cb30b69f01b71c66596cb0293c1a8a94111b343c1580dd3e3e5b",
+  "note": "17 文件内容尚未下载（下载在 NPU 服务器执行）；此为 LFS 元数据级核对。内容级验证在服务器下载完成后重跑，聚合配方不变。"
+ },
+ "checkpoint_content_verification": {
+  "date": "2026-09-17",
+  "method": "sha256sum -c",
+  "passed": 17,
+  "failed": 0,
+  "original_ckpt": "<实验服务器> 共享盘 robodojo_ckpt（只读）",
+  "aggregate_content_level": "d15fb8bd1d29cb30b69f01b71c66596cb0293c1a8a94111b343c1580dd3e3e5b",
+  "aggregate_recipe": "sha256(json.dumps({path: sha256}, sort_keys=True))"
+ }
+}

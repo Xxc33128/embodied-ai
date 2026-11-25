@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0659, \"y\": 0.0239, \"z\": 0.867, \"yaw\": 0.0811, \"gripper\": 0.5}, \"note\": \"Wrist view shows the block bracketed by the open pads with the pad bottoms at the block top. I lower ~2 cm so the pads straddle the block sides (pad bottoms near the block mid-height), again using intermediate gripper 0.5 to keep the open latch and schedule ~40 steps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

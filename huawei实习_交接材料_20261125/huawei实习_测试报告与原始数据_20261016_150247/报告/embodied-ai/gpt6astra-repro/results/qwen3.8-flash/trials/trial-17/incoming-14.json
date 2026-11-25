@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.01, \"y\": 0.006, \"z\": 0.94, \"gripper\": 0}, \"note\": \"Gripper measurement stopped at 0.602 instead of 0.016, i.e. the jaws are pinching the 4 cm cube at x=-0.085, y=0.006, z=0.837. Lifting clear of the table and starting the traverse in +x toward the bowl (side view places the bowl at x about +0.095, y about +0.01); re-latching closed each chunk to keep the interpolation long.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

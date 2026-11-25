@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.113, \"y\": -0.016, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Wrist view shows the red block just below image center with the blue bowl beyond it, so the block is a few mm off my current hover axis. I will open the gripper and descend to ~10 cm above the table over the block, nudging slightly to center it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.096, \"y\": 0.046, \"z\": 0.9, \"gripper\": 0.45}, \"note\": \"Wrist-frame calibration from the last two views puts the block ~0.6 cm +x and ~1.4 cm -y from the current hover point, near (-0.096, 0.046). Moving there while descending to z=0.90. The intermediate gripper value 0.45 (still latched open) stretches the interpolation so the lagging servo has enough control steps to converge.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

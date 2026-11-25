@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.011, \"y\": 0.067, \"z\": 0.83, \"gripper\": 1.0}, \"note\": \"The block is lying on the table again (front/side views: ~9px right and 20px right of the lifted hand) and my jaws are latched empty at 0.023. I will reopen while descending onto the block position I can now triangulate from both fixed cameras, so the next chunk can clamp it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

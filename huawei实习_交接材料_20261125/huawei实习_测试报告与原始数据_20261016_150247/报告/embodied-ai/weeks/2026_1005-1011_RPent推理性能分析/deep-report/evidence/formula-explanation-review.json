@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scope": "visible five-term formula definitions and worked example",
+  "data_changed": false,
+  "evidence_review": {
+    "agent": "evidence_review",
+    "blocking_issues": [],
+    "checks": [
+      "five terms correspond to original buckets",
+      "worked example reconciles to 1090.50 seconds",
+      "pi action versus handler distinguished",
+      "SDK remainder not pure thinking",
+      "load separate; no nested render or GPT request double counting"
+    ],
+    "resolution": "Opening definition uses transcript elapsed_s as E2; no new claim about exact code-level start/end location."
+  },
+  "ui_review": {
+    "widths": [
+      1280,
+      390,
+      320
+    ],
+    "visible_definitions": 5,
+    "overflow": false,
+    "page_errors": [],
+    "desktop_visual_check": true
+  },
+  "sha256": {
+    "report-data.json": "a2308f9a8617d8eadbb999cec91e4494ea7936bf6e7866405f0a2e0cda95cd5d",
+    "build_deep_report.py": "fd8be4f3433238f900f8c6985588f6120640af204b8ff8bad7488cf0315d5857",
+    "RPent-两场景深度计时报告.html": "0738ac6c0c0e2f1d36abdc5433e20a6e48d27e17c4afdc1d75f0a597ea1ada69"
+  }
+}

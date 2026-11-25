@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.027, \"y\": 0.045, \"z\": 0.838, \"gripper\": 1}, \"note\": \"Re-reading all three views puts the block at (-0.027, 0.045), about 2.5cm to my +y side. The reopen gives the controller a long window while I shift over the block and descend so the pads end level with its sides.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

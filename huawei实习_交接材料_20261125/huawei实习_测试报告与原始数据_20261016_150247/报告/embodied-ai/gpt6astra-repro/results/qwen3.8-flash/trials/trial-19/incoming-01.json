@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.18, \"y\": 0.05, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Front and side views show the red block beyond the bowl on the far side of the table, with the arm base behind it; eef is at (-0.123,0.024,0.994). I will open the gripper and move outward/lower toward the block region to localize it in the wrist camera.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

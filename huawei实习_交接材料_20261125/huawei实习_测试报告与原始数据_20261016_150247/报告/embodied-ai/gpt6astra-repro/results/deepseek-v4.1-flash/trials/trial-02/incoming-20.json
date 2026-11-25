@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.235, \"y\": 0.045, \"z\": 0.825, \"gripper\": 0}, \"note\": \"Final call: the block was released just past the bowl and lies upright beside it. I descend the open jaws onto the block position and close (long latch execution) as a last recovery attempt, which may capture the block or nudge it toward the bowl opening.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

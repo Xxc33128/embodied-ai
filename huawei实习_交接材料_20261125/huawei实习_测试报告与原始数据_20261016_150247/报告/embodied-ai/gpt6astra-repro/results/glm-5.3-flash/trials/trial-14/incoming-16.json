@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.05, \"y\": 0.08, \"z\": 0.92, \"gripper\": 1}, \"note\": \"The wrist camera confirms the red block is now on the bowl floor inside the bowl mouth. I open the jaws directly over the bowl with a slight lift so nothing drags the block back out, leaving it settled inside.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

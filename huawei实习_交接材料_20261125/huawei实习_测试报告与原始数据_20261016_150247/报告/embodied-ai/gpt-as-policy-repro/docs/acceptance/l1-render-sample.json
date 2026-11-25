@@ -1,0 +1,20 @@
+{
+ "libero_goal#0": {
+  "mean_abs": 0.0514,
+  "frac_gt0": 0.0132,
+  "frac_gt30": 0.0013,
+  "max_sum": 192.0
+ },
+ "libero_10#3": {
+  "mean_abs": 0.1288,
+  "frac_gt0": 0.0203,
+  "frac_gt30": 0.0028,
+  "max_sum": 228.0
+ },
+ "libero_object#5": {
+  "mean_abs": 0.0182,
+  "frac_gt0": 0.0049,
+  "frac_gt30": 0.0005,
+  "max_sum": 186.0
+ }
+}

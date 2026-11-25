@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.037, \"y\": 0.002, \"z\": 0.9, \"gripper\": 0.75}, \"note\": \"The block now sits left of the finger gap in the wrist view, so I need the sign of the wrist-image horizontal axis. I lift slightly to z=0.90 and shift y +20mm as a parallax calibration, watching which way the block slides in the wrist image.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

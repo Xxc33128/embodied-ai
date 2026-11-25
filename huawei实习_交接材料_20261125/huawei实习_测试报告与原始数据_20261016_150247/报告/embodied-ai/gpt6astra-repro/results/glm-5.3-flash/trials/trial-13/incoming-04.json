@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.865}, \"note\": \"Wrist view: the red block sits just right of the gaze center between the open fingertips, and the blue bowl is farther up-image. The +x probes barely moved the image, so the block is roughly along the forward axis. I descend toward grasp height; the servo lag should stop the hand a couple cm above the target, safely near the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

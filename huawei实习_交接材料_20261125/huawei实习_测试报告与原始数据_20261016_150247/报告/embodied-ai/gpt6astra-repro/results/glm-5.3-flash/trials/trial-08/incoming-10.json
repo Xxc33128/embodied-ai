@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.067, \"y\": 0.005, \"z\": 0.9, \"gripper\": 0.5}, \"note\": \"The wrist view relative to the finger gap and the side view both indicate the block is several cm toward -y and somewhat +x of the current hover, near y=0.0. Repositioning to about (-0.067, 0.005) at safe height z=0.90, gripper latched open with padding for servo convergence.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

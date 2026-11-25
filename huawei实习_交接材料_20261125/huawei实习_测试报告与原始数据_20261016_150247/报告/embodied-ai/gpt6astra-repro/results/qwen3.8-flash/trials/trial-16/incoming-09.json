@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.041, \"y\": -0.045, \"z\": 0.885, \"gripper\": 0.75}, \"note\": \"Small parallax shifts have been ambiguous, so I sweep y by a large -47 mm at safe height. If the block slides toward the finger gap I am closing on it; if it slides away I will reverse the sign.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

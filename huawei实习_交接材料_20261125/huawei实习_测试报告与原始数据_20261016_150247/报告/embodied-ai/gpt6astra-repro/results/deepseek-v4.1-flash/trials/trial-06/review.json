@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact=false for all 468 steps with cube_pos and cube_quat exactly constant (unique quaternion, bottom_z fixed at 0.7998 after the spawn settle), so the block was never touched; sheets/frames around the closest approaches (steps 240-467, e.g. step 340 and final step 467) show a visible gap and the jaws closing to measured_gripper ~0.012 on empty air.",
+  "reviewers": "blind-pass1-B",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

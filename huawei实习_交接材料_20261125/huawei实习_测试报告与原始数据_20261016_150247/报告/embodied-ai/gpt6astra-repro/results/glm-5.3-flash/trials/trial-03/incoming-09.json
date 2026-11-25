@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": 0.004, \"z\": 0.868, \"gripper\": 1}, \"note\": \"The yaw swing pushed the gripper about 5cm off-center relative to the block (state shows TCP at (-0.098, 0.048) vs block near (-0.075, 0.002)). Re-centering over the block while holding this safe height, yaw left unchanged so the gripper does not swing further; gripper stays open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

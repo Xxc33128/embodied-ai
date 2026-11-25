@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": 0.03, \"z\": 0.807, \"gripper\": 0}, \"note\": \"Image-based localization keeps missing the block, so switching to a contact sweep-grasp: with the gripper closing over several seconds, the TCP translates through the candidate zone at grasp height; the closing pads funnel any block in the strip into the gap. Sweeping toward +y first, stopping short of the bowl rim.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "scope": "2026-10-09 incremental chronological timeline review; prior final reviews refer to the pre-timeline report hashes",
+  "evidence_review": {
+    "agent": "evidence_review",
+    "blocking_issues": [],
+    "episodes": 8,
+    "tool_intervals": 615,
+    "checks": [
+      "exact attempt and stream SHA256 match",
+      "tool interval rows match source",
+      "tool sum reconciles with original tool union",
+      "segments continuously cover observed item window",
+      "gaps not labeled thinking",
+      "unpositioned boundary difference and model loading not fabricated on axis"
+    ],
+    "nonblocking": [
+      "Future extractor reuse should record fallback start provenance explicitly."
+    ]
+  },
+  "ui_review": {
+    "viewport_widths": [
+      1280,
+      390,
+      320
+    ],
+    "horizontal_page_overflow": false,
+    "episode_count": 8,
+    "segment_click": "passed",
+    "sequence_expansion": "passed",
+    "page_errors": [],
+    "visual_inspection": "desktop screenshot reviewed"
+  },
+  "sha256": {
+    "report-data.json": "e879c1025ea3d5a85df18986af6e1d57ecf8716d0ee974eb3996560a441f443d",
+    "RPent-两场景深度计时报告.html": "8f4d253c9645f097db4857f4699bc192c26096fd5b6ef079e6b1220bde458f3a",
+    "build_deep_report.py": "1e9878ef8d2ddff2038e1badc04ce9bf5e9e5537c3b9f2ac3f629b9cdf247adf",
+    "extract_timeline.py": "a3ed08989c572790ceff4b72bec4cd42f85f7ce78ab5c47badad778bc07b64be",
+    "evidence/timeline-eight.json": "648d8bda205ab4e96b0e69b6d8b29078b033725438240df7cc681c3bfd923624"
+  }
+}

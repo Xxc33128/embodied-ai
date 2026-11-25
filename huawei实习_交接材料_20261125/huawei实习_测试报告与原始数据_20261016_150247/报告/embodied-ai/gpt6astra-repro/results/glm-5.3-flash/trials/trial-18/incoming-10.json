@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0797, \"y\": 0.085, \"z\": 0.8546, \"gripper\": 0}, \"note\": \"Second close also finished on air, so by touch geometry the block center is beyond y=0.09; the earlier camera-based estimates were skewed by depth parallax. I shift the jaw line to y=0.085 and close again - if the block center is within about 3.7cm of this line the right finger will contact and capture it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

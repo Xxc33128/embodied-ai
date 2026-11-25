@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": 0.002, \"z\": 0.828, \"yaw\": 0.48, \"gripper\": 0}, \"note\": \"Block is at about (-0.075, 0.002). Diving to grasp height z=0.828 while latching the gripper closed; the fingers arrive mostly open and finish closing around the block. Pinning yaw at its current 0.48 to stop the residual swing from the earlier rotation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

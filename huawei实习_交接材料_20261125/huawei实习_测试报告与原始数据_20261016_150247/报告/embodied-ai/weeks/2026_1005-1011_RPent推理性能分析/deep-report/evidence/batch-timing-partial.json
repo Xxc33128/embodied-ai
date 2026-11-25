@@ -1,0 +1,540 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-08T14:48:29.510465+00:00",
+  "evidence_level": "E2",
+  "status": "running",
+  "state_sha256": "8246fcba1130db060c380508dc4346ea27f49b2ae53e90a3ef38791f7a9e8508",
+  "batch_timing": {
+    "wall_s": null,
+    "gate_envelope_wall_s": null,
+    "start_utc": "2026-10-08T13:58:13.019141+00:00",
+    "end_utc": null,
+    "boundary": "first before_pair gate to final after_pair gate; excludes pre-gate launcher/check and post-gate teardown",
+    "model_load_work_s": 659.982215762,
+    "model_load_episodes": 4,
+    "pair_wait_union_s": null,
+    "review_pause_union_s": null,
+    "observed_inter_pair_gap_s": 151.8589687347412
+  },
+  "pairs": [
+    {
+      "start_utc": "2026-10-08T13:58:13.019141+00:00",
+      "end_utc": "2026-10-08T14:21:38.219288+00:00",
+      "gate_envelope_s": 1405.2001466751099,
+      "critical_path_pair_wait_s": null
+    },
+    {
+      "start_utc": "2026-10-08T14:24:10.078257+00:00",
+      "end_utc": null,
+      "gate_envelope_s": null,
+      "critical_path_pair_wait_s": null
+    }
+  ],
+  "inter_pair_gaps": [
+    {
+      "start_utc": "2026-10-08T14:21:38.219288+00:00",
+      "end_utc": "2026-10-08T14:24:10.078257+00:00",
+      "seconds": 151.8589687347412
+    }
+  ],
+  "episodes": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "state": "success",
+      "scheduler_elapsed_s": 1090.5,
+      "vla_model_init_s": 165.229429845,
+      "model_init_span_count": 1,
+      "measurement_file_sha256": {
+        "spans-179854.jsonl": "c948a34edbbb010699e9869e628cd7018e602988db1103c5d04fbf30a168b6fa"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "state": "success",
+      "scheduler_elapsed_s": 1153.1,
+      "vla_model_init_s": 165.043068291,
+      "model_init_span_count": 1,
+      "measurement_file_sha256": {
+        "spans-179914.jsonl": "29d0538eb37a7b475bb6fc4d832f2f4fe86fe2703d6d0cc6b68e73670233ab1f"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "state": "success",
+      "scheduler_elapsed_s": 1049.1,
+      "vla_model_init_s": 166.437466018,
+      "model_init_span_count": 1,
+      "measurement_file_sha256": {
+        "spans-466458.jsonl": "d5a4a6724f493eebfc1716ec7810c96e838d5a9082289a826dd5dd3ff86ab305"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "state": "running",
+      "scheduler_elapsed_s": null,
+      "vla_model_init_s": 163.272251608,
+      "model_init_span_count": 1,
+      "measurement_file_sha256": {
+        "spans-466516.jsonl": "0083104276244750c261d44d01d9aa7653a976b59961f2b9dd931ba2f454bf30"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "state": "unreported",
+      "scheduler_elapsed_s": null,
+      "vla_model_init_s": null,
+      "model_init_span_count": 0,
+      "measurement_file_sha256": {}
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "state": "unreported",
+      "scheduler_elapsed_s": null,
+      "vla_model_init_s": null,
+      "model_init_span_count": 0,
+      "measurement_file_sha256": {}
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "state": "unreported",
+      "scheduler_elapsed_s": null,
+      "vla_model_init_s": null,
+      "model_init_span_count": 0,
+      "measurement_file_sha256": {}
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "state": "unreported",
+      "scheduler_elapsed_s": null,
+      "vla_model_init_s": null,
+      "model_init_span_count": 0,
+      "measurement_file_sha256": {}
+    }
+  ],
+  "scheduler_logs": [
+    {
+      "file": "scheduler-resume-001.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "traceback_count": 0,
+      "measurement_gate_stop_count": 0
+    },
+    {
+      "file": "scheduler.log",
+      "sha256": "ee48d8f03315edb28061a2a90e1f5c7b489ee47caa72781d1bfabc31f517ca8c",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    }
+  ],
+  "resources": {
+    "sampling_nominal_interval_s": 30,
+    "sample_count": 85,
+    "leading_unsampled_s": 234.82281970977783,
+    "start_utc": "2026-10-08T14:02:07.841961+00:00",
+    "end_utc": "2026-10-08T14:48:21.951211+00:00",
+    "interval_s": {
+      "count": 84,
+      "min": 31.05283284187317,
+      "median": 31.077205061912537,
+      "max": 193.97374820709229,
+      "mean": 33.025110119865055
+    },
+    "gaps_over_60s": [
+      {
+        "start_utc": "2026-10-08T14:21:17.979516+00:00",
+        "end_utc": "2026-10-08T14:24:31.953264+00:00",
+        "seconds": 193.97374820709229
+      }
+    ],
+    "partial_or_invalid_rows": 0,
+    "npu_timeout_count": 0,
+    "npu_nonzero_return_count": 0,
+    "host_loadavg": [
+      {
+        "count": 85,
+        "min": 10.3564453125,
+        "median": 14.142578125,
+        "max": 35.849609375,
+        "mean": 15.281278722426471
+      },
+      {
+        "count": 85,
+        "min": 12.5439453125,
+        "median": 14.7578125,
+        "max": 18.1767578125,
+        "mean": 14.81461971507353
+      },
+      {
+        "count": 85,
+        "min": 13.10888671875,
+        "median": 14.25341796875,
+        "max": 15.51220703125,
+        "mean": 14.16453929227941
+      }
+    ],
+    "host_memory_total_kb": {
+      "count": 85,
+      "min": 1582638912.0,
+      "median": 1582638912.0,
+      "max": 1582638912.0,
+      "mean": 1582638912.0
+    },
+    "host_memory_available_kb": {
+      "count": 85,
+      "min": 1476187612.0,
+      "median": 1480511144.0,
+      "max": 1504478964.0,
+      "mean": 1484001550.7294118
+    },
+    "devices": [
+      {
+        "device_id": 0,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 11301.0,
+          "median": 11301.0,
+          "max": 11302.0,
+          "mean": 11301.211764705882
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 1,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 11296.0,
+          "median": 11297.0,
+          "max": 11297.0,
+          "mean": 11296.529411764706
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 2,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 11296.0,
+          "median": 11296.0,
+          "max": 11298.0,
+          "mean": 11296.24705882353
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 3,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 3404.0,
+          "median": 3404.0,
+          "max": 3405.0,
+          "mean": 3404.4470588235295
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 4,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 21692.0,
+          "median": 21693.0,
+          "max": 21693.0,
+          "mean": 21692.694117647057
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 5,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 11304.0,
+          "median": 11305.0,
+          "max": 11305.0,
+          "mean": 11304.741176470588
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 6,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 42465.0,
+          "median": 42466.0,
+          "max": 42466.0,
+          "mean": 42465.65882352941
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 7,
+        "utilization_pct": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 57.0,
+          "mean": 0.6705882352941176
+        },
+        "memory_used_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 85,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 85,
+          "min": 3404.0,
+          "median": 19191.0,
+          "max": 19194.0,
+          "mean": 17185.4
+        },
+        "hbm_total_mb": {
+          "count": 85,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      }
+    ],
+    "sources": [
+      {
+        "file": "resource-samples-466454.jsonl",
+        "sha256": "db5520defbdffbb7375ac9ddbab229cd11fa0255ae37e216ae0f6b8682d11f94",
+        "rows": 47
+      },
+      {
+        "file": "resource-samples.jsonl",
+        "sha256": "d7b23877337ef4460c5b2c2485710b3e92228fe73f4814487b13cf5a5d419182",
+        "rows": 38
+      }
+    ]
+  },
+  "limitations": [
+    "VLA coldload is completed pi.model_init host-span duration (includes nested construct; do not add construct again), not device-only time or full readiness wait.",
+    "Pair gate envelope includes both lanes and admission/cleanup overhead; completed lane timestamps are not retained reliably, so critical-path lane wait remains null.",
+    "Inter-pair gaps include review, quota probes and restart; they are not pure review duration. No review-start evidence: review pause remains null.",
+    "Batch final wall remains null while not complete. Gate-envelope wall is scoped; launch-to-process-exit wall is unavailable.",
+    "Resource samples cover the entire host/all visible NPU devices, including other workloads; sampled utilization cannot establish a bottleneck or per-episode attribution. Interval gaps and missing edges are not interpolated."
+  ]
+}

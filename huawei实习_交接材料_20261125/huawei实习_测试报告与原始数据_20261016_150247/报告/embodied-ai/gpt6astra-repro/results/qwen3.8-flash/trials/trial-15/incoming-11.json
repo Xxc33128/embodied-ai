@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0, \"y\": 0.112, \"z\": 0.9}, \"note\": \"Side view keeps the block about 20px (4cm) to the +x side of my finger blob and the wrist view shows the block sitting above and beyond my finger gap, so my jaws are still short of the block in +x. I set the target well past it in +x to buy about three fast control steps and close most of that gap, holding y and height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

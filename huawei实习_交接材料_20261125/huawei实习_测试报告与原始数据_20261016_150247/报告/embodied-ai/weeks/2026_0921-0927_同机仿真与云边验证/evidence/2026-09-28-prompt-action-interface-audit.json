@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-28",
+  "scope": "Read-only source and recorded-prompt comparison; no rerun or runtime changes",
+  "source_root": "GPT-as-Policy-repro (local working repository)",
+  "sources": [
+    {
+      "path": "data/decision_v2_20260922/episodes/libero_10-hybrid/decision_protocol.json",
+      "sha256": "c8548e25cb27b2c24dbdcc019bc4233703e5996f9c5088e158b1413bcba0487b"
+    },
+    {
+      "path": "upstream/GPT-as-Policy/hybrid_rollout/robodojo/skill/gate_prompt.md",
+      "sha256": "5bb54e0e5b39387d3873f4d4b3eed695a3a682ac28df0dd219f69176ade9e58d"
+    },
+    {
+      "path": "upstream/GPT-as-Policy/hybrid_rollout/robodojo/skill/context/eef_control.md",
+      "sha256": "b483f5d76b51a8f027d4d6cbae1e6fe57ad9dcc6cb22160377de8dd6fc6a008d"
+    },
+    {
+      "path": "src/gap_repro/libero/actions.py",
+      "sha256": "86657edd811d2f9403f33038eed62f8b3301f25f8c0af345b90325e6c949b333"
+    },
+    {
+      "path": "src/gap_repro/libero/decision_turns.py",
+      "sha256": "76b165a8672776f50ec5616bdde65318855dafc438ec51bb4336c5925ce37b55"
+    }
+  ],
+  "recorded_hybrid_gate_matches_upstream_exactly": true,
+  "recorded_target_bounds": {
+    "translation_m": 0.05,
+    "rotation_rad": 0.35
+  },
+  "current_code_target_bounds": {
+    "translation_m": 0.055,
+    "rotation_rad": 0.425
+  },
+  "gate_references_fk_but_libero_candidate_has_no_fk": true,
+  "direct_conversion": "pose difference, equal increments, normalization, repeated steps; not joint IK",
+  "first_input_14000": "User-reported approximate value; exact round and component accounting not independently resolved"
+}

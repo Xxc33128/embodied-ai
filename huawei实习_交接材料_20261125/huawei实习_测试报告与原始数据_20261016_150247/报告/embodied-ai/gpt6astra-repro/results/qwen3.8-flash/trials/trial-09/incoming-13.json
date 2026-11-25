@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.062, \"y\": -0.04, \"z\": 0.915, \"gripper\": 0}, \"note\": \"Wrist frame: pads are open and the block is level with them in x but still sits ~18 mm toward the left pad along the finger axis, so shift another 19 mm in -y to centre it and latch closed at z=0.915 (pads now overlap the full upper half of the block).\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

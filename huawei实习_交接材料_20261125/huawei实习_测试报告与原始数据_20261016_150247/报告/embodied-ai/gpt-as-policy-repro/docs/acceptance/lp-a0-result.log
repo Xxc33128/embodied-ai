@@ -1,0 +1,6 @@
+A0 shape=(10, 7) cpu_time=612.8s npu_time=205.4s
+A0 cpu_determinism_max_abs=0.000e+00
+A0 npu_vs_cpu max_abs=3.565e-03 mean_abs=7.657e-04 mean_rel=1.488e-02 p99_abs=3.137e-03
+A0 cpu_sample[0,:5]=[-0.360786, -0.102651, -0.643713, 0.04569, -0.072314]
+A0 npu_sample[0,:5]=[-0.358838, -0.101363, -0.646191, 0.046336, -0.072483]
+A0_DONE

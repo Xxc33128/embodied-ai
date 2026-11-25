@@ -1,0 +1,264 @@
+{
+  "scope": "统计记录与必要原始样例；其余图像载荷省去",
+  "date": "2026-10-16",
+  "local_original_roots": [
+    {
+      "name": "gpt6astra-repro_本机完整实验记录",
+      "roots": [
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/gpt6astra-repro",
+          "prefix": "gpt6astra-repro"
+        }
+      ]
+    },
+    {
+      "name": "GPT-as-Policy_实验批次与代码",
+      "roots": [
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/.gitignore",
+          "prefix": "GPT-as-Policy-repro/.gitignore"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-17-GPT-as-Policy在MuJoCo与昇腾上的复现计划.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-17-GPT-as-Policy在MuJoCo与昇腾上的复现计划.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-17-LIBERO-PRO补充面板初步计划.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-17-LIBERO-PRO补充面板初步计划.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-17-LP1对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-17-LP1对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-17-LP2转换对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-17-LP2转换对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-17-迁移与LIBERO-PRO工作对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-17-迁移与LIBERO-PRO工作对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-18-LP-A0对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-18-LP-A0对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-18-LP-A0正式运行对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-18-LP-A0正式运行对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-18-LP-A1对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-18-LP-A1对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-18-工程交接文档.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-18-工程交接文档.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-19-LP-A1-P1修复对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-19-LP-A1-P1修复对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-19-LP-A2对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-19-LP-A2对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-19-LP3契约与LP5提案对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-19-LP3契约与LP5提案对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-19-LP5冻结提案.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-19-LP5冻结提案.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-21-RoboTwin2.0双臂测评集与π0.5微调权重调研报告.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-21-RoboTwin2.0双臂测评集与π0.5微调权重调研报告.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/2026-09-23-RoboTwin适配RT0-RT7对抗性审查.md",
+          "prefix": "GPT-as-Policy-repro/2026-09-23-RoboTwin适配RT0-RT7对抗性审查.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/GITHUB_UPLOAD_NOTE.md",
+          "prefix": "GPT-as-Policy-repro/GITHUB_UPLOAD_NOTE.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/NPU连接指南-私发勿入库.md",
+          "prefix": "GPT-as-Policy-repro/NPU连接指南-私发勿入库.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/README.md",
+          "prefix": "GPT-as-Policy-repro/README.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/configs",
+          "prefix": "GPT-as-Policy-repro/configs"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/docs",
+          "prefix": "GPT-as-Policy-repro/docs"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/experiments",
+          "prefix": "GPT-as-Policy-repro/experiments"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/npunex",
+          "prefix": "GPT-as-Policy-repro/npunex"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/patches",
+          "prefix": "GPT-as-Policy-repro/patches"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/requirements-dev.txt",
+          "prefix": "GPT-as-Policy-repro/requirements-dev.txt"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/requirements-report.txt",
+          "prefix": "GPT-as-Policy-repro/requirements-report.txt"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/scripts",
+          "prefix": "GPT-as-Policy-repro/scripts"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/src",
+          "prefix": "GPT-as-Policy-repro/src"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/tests",
+          "prefix": "GPT-as-Policy-repro/tests"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/tools",
+          "prefix": "GPT-as-Policy-repro/tools"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/vendor",
+          "prefix": "GPT-as-Policy-repro/vendor"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/init0_20260921_141155",
+          "prefix": "GPT-as-Policy-repro/data/init0_20260921_141155"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/goal8_hybrid_repeat_20260921_160205",
+          "prefix": "GPT-as-Policy-repro/data/goal8_hybrid_repeat_20260921_160205"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/decision_v2_20260922",
+          "prefix": "GPT-as-Policy-repro/data/decision_v2_20260922"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/decision_extra_20260922",
+          "prefix": "GPT-as-Policy-repro/data/decision_extra_20260922"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/decision_extra_retry1_20260922",
+          "prefix": "GPT-as-Policy-repro/data/decision_extra_retry1_20260922"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/decision_v2_probe",
+          "prefix": "GPT-as-Policy-repro/data/decision_v2_probe"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/parallel-probe-20260921",
+          "prefix": "GPT-as-Policy-repro/data/parallel-probe-20260921"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/GPT-as-Policy-repro/data/codex_input_audit_20260929",
+          "prefix": "GPT-as-Policy-repro/data/codex_input_audit_20260929"
+        }
+      ]
+    },
+    {
+      "name": "RPent_本机实验现场",
+      "roots": [
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/.DS_Store",
+          "prefix": "rpent-repo/.DS_Store"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/AGENTS.md",
+          "prefix": "rpent-repo/AGENTS.md"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/GPT-6 Astra 直接控制机器人-能力、成本与实时性边界.pdf",
+          "prefix": "rpent-repo/GPT-6 Astra 直接控制机器人-能力、成本与实时性边界.pdf"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/archive",
+          "prefix": "rpent-repo/archive"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/codex-eval-20260929",
+          "prefix": "rpent-repo/codex-eval-20260929"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/deep-timing-20261008",
+          "prefix": "rpent-repo/deep-timing-20261008"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/ds-adapter-20261009",
+          "prefix": "rpent-repo/ds-adapter-20261009"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/ds_flash_v5_report.html",
+          "prefix": "rpent-repo/ds_flash_v5_report.html"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/eval20-npunew",
+          "prefix": "rpent-repo/eval20-npunew"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/files_api_report.html",
+          "prefix": "rpent-repo/files_api_report.html"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/flash20-npunew",
+          "prefix": "rpent-repo/flash20-npunew"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/goal20-npunew",
+          "prefix": "rpent-repo/goal20-npunew"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/retry-npunew",
+          "prefix": "rpent-repo/retry-npunew"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/rpent-replication",
+          "prefix": "rpent-repo/rpent-replication"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/rpent-repo/scripts-npunew",
+          "prefix": "rpent-repo/scripts-npunew"
+        }
+      ]
+    },
+    {
+      "name": "RPent_脱敏前分析原件",
+      "roots": [
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析",
+          "prefix": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析"
+        },
+        {
+          "src": "/Users/xerxes3/Documents/huawei实习/embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report/proxy-source-audit.md",
+          "prefix": "embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report/proxy-source-audit.md"
+        }
+      ]
+    }
+  ],
+  "remote_original_root": "npunew:/data/rpent2/",
+  "remote_batches": [
+    "codex-eval-20260929",
+    "deep-timing-20261008",
+    "ds-adapter-20261009",
+    "logs / fw_* / captured_reqs / req_imgs / record_av* / root llm_*.jsonl and collectors"
+  ],
+  "necessary_original_request_body_count": 9,
+  "excluded": "credentials/private-guides/runtime-handles/caches/weights/environment-containers/extra-image-payloads",
+  "verification": "all archive member SHA256 + source fingerprints + non-image record bytes / NPY array bytes"
+}

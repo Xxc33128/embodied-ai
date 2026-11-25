@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": -0.01, \"z\": 0.92}, \"note\": \"Wrist view shows the red block ahead of the fingers (moving +x brought it lower in frame), so the block is roughly 3-5 cm forward of the hand near y=0; the bowl is beyond it. I advance to over the estimated block position and drop to 12 cm above the table so the close-range wrist view can resolve the remaining offset.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

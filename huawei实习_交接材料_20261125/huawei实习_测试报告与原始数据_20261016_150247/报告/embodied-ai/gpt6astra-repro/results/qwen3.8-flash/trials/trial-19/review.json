@@ -1,0 +1,24 @@
+{
+  "stage_max": 4,
+  "blind": true,
+  "reviewers": "reviewer group 1-5 (pass 1), qwen3.8-max subagent, model identity and policy notes hidden from reviewers",
+  "second_review": true,
+  "pass1_stage": 4,
+  "pass2_stage": 3,
+  "evidence_final_frame": {
+    "step": 707,
+    "cube_bottom_z": 0.7933,
+    "speed_m_s": 0.04,
+    "distance_to_bowl_axis_m": 0.0095,
+    "grasped": false,
+    "env_success": 1.0,
+    "table_top_z": 0.8
+  },
+  "basis": "lift to bottom z 0.93 at 609, held over the bowl centre 660-704 (0.008-0.010 m from axis), release at 705, block at rest inside the bowl at 707",
+  "reviewed_at": "2026-09-15T22:44:51+0800",
+  "rubric": "SOP section 6 stage 0-4; pictures first, trajectory only for height/rest",
+  "disagreement": "pass-2 reviewer scored 3 because only two post-release frames exist before the harness terminated on success; the packet's own trajectory shows the block at bottom z 0.7933 (below the 0.80 table top, i.e. inside the bowl), 0.0095 m from the bowl axis and |v|=0.040 m/s at the final step, the same rest signature as the other three successes (0.050/0.087/0.050 m/s). Stage 4 kept, flagged as boundary so the number is read with this caveat.",
+  "strict_frame_only_stage": 3,
+  "boundary_pending": false,
+  "adjudication": "stage 4 kept: the packet trajectory (evidence reviewers are allowed to use) shows the block below the table top inside the bowl, 9.5 mm from the bowl axis, |v|=0.040 m/s at the final step - the same rest signature as the other three successes (0.050/0.087/0.050). The pass-2 reviewer only had two post-release frames because the harness terminates on success; reading the frames alone it scored 3, which is recorded in strict_frame_only_stage."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.05, \"z\": 1.02, \"gripper\": 1}, \"note\": \"Front view shows the blue bowl near table centre with the red block just behind it; side view confirms the bowl is farther from the base than the block. Wrist view shows the block slightly off-centre. I will hover open the gripper and move to my best estimate above the red block to calibrate the mapping from images to world axes.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

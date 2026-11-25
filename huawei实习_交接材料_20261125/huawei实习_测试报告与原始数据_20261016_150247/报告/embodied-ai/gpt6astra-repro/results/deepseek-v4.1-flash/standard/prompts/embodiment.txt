@@ -1,0 +1,11 @@
+Robot: one Franka Panda arm with a parallel-jaw gripper in a tabletop simulation. The table surface is at world z=0.80 m. World +z points upward. All position targets and measured end-effector positions use the same world frame.
+
+The move_to tool accepts absolute x, y, z, yaw, and gripper targets. Position units are meters and yaw units are radians. Valid bounds are x in [-0.30, 0.35], y in [-0.30, 0.30], z in [0.80, 1.30], and yaw in [-pi, pi]. The gripper is oriented approximately downward; yaw is its controllable rotation about world +z. Pitch and roll are not exposed as action dimensions.
+
+Gripper commands are binary: use 0 to close and 1 to open. The reported gripper value is the measured opening normalized from 0 to 1, so holding an object may produce an intermediate measurement. In the adapter, targets below 0.35 latch closed, targets above 0.65 latch open, and intermediate targets retain the previous command. Intermediate commanded openings are not supported. Dimensions omitted from move_to are filled from the measured end-effector state by the tool layer.
+
+The tool layer interpolates targets under its shared motion limits. The robot may not reach a target before the next observation; use the measured state and images to determine what happened. No additional settling motion is inserted after a tool call.
+
+State fields: eef_pos is the measured end-effector position; eef_quat uses (w,x,y,z); eef_yaw is in radians; gripper is measured normalized opening; eef_state is [x,y,z,yaw,gripper]. joint_pos and joint_vel describe the seven arm joints in radians and radians per second. joint_eff contains arm actuator torques in N m, including controller compensation; it is not a fingertip contact sensor.
+
+Cameras: front and side are fixed views; wrist moves with the hand. All are 224x224 RGB images with the top row at the top of the view. The wrist view can rotate as the hand rotates. No fixed mapping from image directions to world x/y is assumed. Each request includes the current three views and retains images from at most the two most recent observations.

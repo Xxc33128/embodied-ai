@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.085, \"y\": 0.019, \"z\": 0.84, \"gripper\": 1}, \"note\": \"Resolved the frame from the wrist view geometry (image-up points to +x, where the bowl sits) and from the side view: at 4 mm/px the block centre is about 13 px = 52 mm on the -x side of my finger column, i.e. x=-0.085, y=+0.019, and the bowl is about 36 px further in +x (x=+0.11). Moving back in -x over the block and re-opening the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

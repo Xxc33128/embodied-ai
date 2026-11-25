@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.077, \"y\": 0.024, \"z\": 0.875, \"gripper\": 0.5}, \"note\": \"Three successive wrist frames (scaled by the wide field of view) agree the block is further right-front than my current target, near (-0.072, 0.028); I aim slightly conservatively at (-0.077, 0.024). The intermediate gripper value keeps the previous open command while giving the arm a long interpolation window to actually settle above the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

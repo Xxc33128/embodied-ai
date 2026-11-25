@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.079, \"y\": 0.04, \"z\": 0.858, \"gripper\": 1}, \"note\": \"The jaws closed on air: the wrist view shows the untouched block to the right of the closed fingers, so it sits a few cm further +y. I reopen fully (long interpolation window) while shifting the jaw line toward the block so the opening sweep and drift re-center it between the fingers, ready for a second close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

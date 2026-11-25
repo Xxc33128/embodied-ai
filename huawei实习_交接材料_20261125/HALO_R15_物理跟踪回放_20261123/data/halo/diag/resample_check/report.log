@@ -1,0 +1,21 @@
+[import] real isaaclab chain unavailable (ModuleNotFoundError: No module named 'isaaclab_tasks'); using stubs
+[import] loaded commands.py in stub-math mode sha256=3ab334ce796c41fc
+[PASS] S0 p=0 zero pinned: pinned_zero=0, min_start=5 (calib skip 5 expected)
+[PASS] S1 p=0.25 single draw: pinned_zero=25162/100000 (expect ~25000; double-draw bug would give ~43750)
+[PASS] S2 p=1 all pinned at reset: pinned_zero=100000/100000
+[PASS] S4 overflow unpinned: pinned_zero=0, min_start=5 (uniform resample, calib skip active)
+[PASS] S4 chain reached parent robot reset: write_root_state_to_sim calls on this instance=2 (S2 reset + S4 overflow), last batch rows=100000
+[PASS] S3 independence: marginals 25119/25173 (~25000), both-zero 6244 (~6250)
+[PASS] S3b hit then miss: hit batch pinned=100000/100000; next reset (p->0) pinned=0; p=0 pinned=0
+[PASS] S5 IDX pin non-zero frame: starts uniq=[175] (expect [175])
+[PASS] S5 FRAME=1 pin zero frame: whole batch pinned to clip frame 0
+[PASS] S6 ledger: reset count/pinned=100000/25043 (draw gave 25043), overflow count/pinned=100000/0, hist_keys=226
+[PASS] S7 no environ writes: no `os.environ[...] =` writes on MOTION_* vars
+[PASS] S7 overflow reason: overflow call site passes reason="overflow"
+[PASS] S7 single-draw handoff: subclass passes pin_prob_applied to parent
+[PASS] S7 reset gating: both prob branches gated on reason == "reset"
+[PASS] S8 flat-task unchanged: reset at frame0=100000/100000, overflow chained to frame0=100000/100000 (original non-adaptive behavior preserved)
+[import] real isaaclab chain unavailable (ModuleNotFoundError: sibling module loaded by path); using stubs
+[PASS] S9 p=0 bitwise == pre-fix: reset torch.equal=True, overflow torch.equal=True vs baseline 6039feef9323 (100000 envs x 2 calls)
+RESAMPLE-CHECK PASS
+report -> /data/halo/diag/resample_check/report.json

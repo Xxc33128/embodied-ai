@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.005, \"y\": 0.015, \"z\": 0.93, \"yaw\": 0.36, \"gripper\": 0}, \"note\": \"The block is starting to slip in the corner-grip during the yaw twist, so I freeze the yaw and combine the full transfer to the bowl with a re-close: the jaw stroke extends the motion window so the arm can complete the whole transfer, and the jaws re-seat on the block on the way.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

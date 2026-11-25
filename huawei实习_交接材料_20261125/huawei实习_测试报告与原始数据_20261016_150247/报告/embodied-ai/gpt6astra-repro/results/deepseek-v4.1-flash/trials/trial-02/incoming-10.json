@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.047, \"y\": 0.0252, \"z\": 0.9038, \"gripper\": 0}, \"note\": \"The side view shows the block ~1.5 cm beyond the fingertip in +x, and the front view shows it ~1.5 cm in +y. I command both corrections with a gripper latch-close so the execution is long and completes fully.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

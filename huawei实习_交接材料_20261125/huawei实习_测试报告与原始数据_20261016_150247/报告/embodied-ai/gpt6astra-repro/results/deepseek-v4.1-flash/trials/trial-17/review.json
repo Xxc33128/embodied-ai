@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact=false for all 765 steps and cube xy/quaternion are exactly constant post-settle; at steps 740-764 the gripper closed to 0.016 while still ~5.8cm from the block center (frames 760/764 show a gap), so no contact occurred.",
+  "reviewers": "blind-pass1-D",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

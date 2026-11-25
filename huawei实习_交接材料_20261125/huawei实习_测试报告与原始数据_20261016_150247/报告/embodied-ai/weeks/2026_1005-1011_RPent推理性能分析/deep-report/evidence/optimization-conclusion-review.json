@@ -1,0 +1,20 @@
+{
+  "scope": "optimization conclusion mapped to adjustable formula factors; rendering excluded from future optimization scope",
+  "status": "passed",
+  "changed_data_fields": [
+    "conclusion",
+    "optimization"
+  ],
+  "measurement_data_changed": false,
+  "checks": [
+    "builder validation passed",
+    "five term explanations retained",
+    "1280/390/320 no overflow or JavaScript errors",
+    "conditional optimization benefits not claimed as measured"
+  ],
+  "sha256": {
+    "report-data.json": "e4531827f44651bbdaf14774115c130edd824e042446bd6535ec677b9f10f935",
+    "build_deep_report.py": "7e1be58b8584f2f414d39d263317aba1edb3c2102440c18f5a6ceabb043d91fb",
+    "RPent-两场景深度计时报告.html": "eb0aa816739bd52f3ac48aad7594ccd06d468be50a9fbb323a55fd8568b7e528"
+  }
+}

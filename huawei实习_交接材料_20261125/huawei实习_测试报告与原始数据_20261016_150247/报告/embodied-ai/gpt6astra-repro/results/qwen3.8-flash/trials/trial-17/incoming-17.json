@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.163, \"y\": 0.016, \"z\": 0.905, \"gripper\": 0}, \"note\": \"Side view at 770: held block now at px 67-78 versus bowl px 50-77 (centre 63.5), so ~9 px = 30 mm of +x travel still needed to be over the bowl centre; front view puts the bowl at y about +0.016. Moving there and lowering to z=0.905 so the block sits inside the rim (rim z about 0.866) before I open the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

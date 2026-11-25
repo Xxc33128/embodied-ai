@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.082, \"y\": 0.014, \"z\": 0.87}, \"note\": \"Close wrist view shows the red block below-right of image center while I am at (-0.0926, 0.0036), so the block sits a bit toward +x and +y of me. I shift onto the block and descend to just above block-top height for a final centering check before gripping.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

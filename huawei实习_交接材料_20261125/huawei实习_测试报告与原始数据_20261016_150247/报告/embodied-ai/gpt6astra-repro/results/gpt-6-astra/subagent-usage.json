@@ -1,0 +1,553 @@
+[
+  {
+    "agent_path": "/root/standard20_coordinator",
+    "category": "management",
+    "attempt_path": null,
+    "session_id": "01a0a318-bffd-73c2-8aad-c35ac42033cb",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-25-03-01a0a318-bffd-73c2-8aad-c35ac42033cb.jsonl",
+    "usage_source_sha256": "fb732f49a1c0bd89fd085be856ab85e5bf8ca35f6e25b15c1a6fca060e687af6",
+    "final_usage_line": 186,
+    "first_usage_timestamp": "2026-09-15T03:25:17.455Z",
+    "last_usage_timestamp": "2026-09-15T03:31:41.719Z",
+    "usage_events": 29,
+    "unique_usage_increments": 28,
+    "tool_calls": 28,
+    "input_tokens": 1111603,
+    "cached_input_tokens": 1063168,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4759,
+    "reasoning_output_tokens": 194,
+    "total_tokens": 1116362,
+    "noncached_input_tokens": 48435,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_01",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a319-54d6-7003-bec5-ad9c1b2e0600",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-25-41-01a0a319-54d6-7003-bec5-ad9c1b2e0600.jsonl",
+    "usage_source_sha256": "f574af93d212ff75478a9401fe1aaf5bd96c72e966f34b2621166a6b47e778fc",
+    "final_usage_line": 28,
+    "first_usage_timestamp": "2026-09-15T03:25:59.419Z",
+    "last_usage_timestamp": "2026-09-15T03:26:23.691Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 92857,
+    "cached_input_tokens": 60544,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 522,
+    "reasoning_output_tokens": 180,
+    "total_tokens": 93379,
+    "noncached_input_tokens": 32313,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_02",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a31a-6299-7752-8827-51c2796f2c94",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-26-50-01a0a31a-6299-7752-8827-51c2796f2c94.jsonl",
+    "usage_source_sha256": "b7df8bd182942af4616379a005171b89387db60aabe136f8ba84fd335fc8bf8a",
+    "final_usage_line": 31,
+    "first_usage_timestamp": "2026-09-15T03:27:03.116Z",
+    "last_usage_timestamp": "2026-09-15T03:27:36.410Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 94455,
+    "cached_input_tokens": 89984,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 816,
+    "reasoning_output_tokens": 287,
+    "total_tokens": 95271,
+    "noncached_input_tokens": 4471,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_03",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a31b-a9d9-7b71-a36c-ddd114d632a0",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-28-14-01a0a31b-a9d9-7b71-a36c-ddd114d632a0.jsonl",
+    "usage_source_sha256": "2163c0bf3d5876101c50bfeb493f5ba5d8a1f9598a95f8af409006cb346b768e",
+    "final_usage_line": 31,
+    "first_usage_timestamp": "2026-09-15T03:28:26.213Z",
+    "last_usage_timestamp": "2026-09-15T03:28:50.201Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 96152,
+    "cached_input_tokens": 90880,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 472,
+    "reasoning_output_tokens": 56,
+    "total_tokens": 96624,
+    "noncached_input_tokens": 5272,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_04",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a31c-72af-7473-a6f4-2bf2755b2fbb",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-29-05-01a0a31c-72af-7473-a6f4-2bf2755b2fbb.jsonl",
+    "usage_source_sha256": "90579f116d4d8bd1293da647e0dd41dfff248b11d6cfe179897369d81f95bfd6",
+    "final_usage_line": 31,
+    "first_usage_timestamp": "2026-09-15T03:29:18.475Z",
+    "last_usage_timestamp": "2026-09-15T03:29:51.841Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 96582,
+    "cached_input_tokens": 91008,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 660,
+    "reasoning_output_tokens": 140,
+    "total_tokens": 97242,
+    "noncached_input_tokens": 5574,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_05",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a31d-6411-76d3-a5e4-3fab6a8f1ae6",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-30-07-01a0a31d-6411-76d3-a5e4-3fab6a8f1ae6.jsonl",
+    "usage_source_sha256": "b5c6fe41d51d5515b629b662e8c862047b4281999fedfae3b102776696f776a7",
+    "final_usage_line": 31,
+    "first_usage_timestamp": "2026-09-15T03:30:21.473Z",
+    "last_usage_timestamp": "2026-09-15T03:30:45.307Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 97564,
+    "cached_input_tokens": 91520,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 505,
+    "reasoning_output_tokens": 81,
+    "total_tokens": 98069,
+    "noncached_input_tokens": 6044,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/standard20_coordinator/decision_01_06",
+    "category": "superseded_per_decision",
+    "attempt_path": null,
+    "session_id": "01a0a31e-3cda-70b1-a3a8-fbba8d40e676",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-31-03-01a0a31e-3cda-70b1-a3a8-fbba8d40e676.jsonl",
+    "usage_source_sha256": "708169c062340de42d94a1a1b1325f8e5ce408cf70b50320a55b983dc2f6a3aa",
+    "final_usage_line": 31,
+    "first_usage_timestamp": "2026-09-15T03:31:12.281Z",
+    "last_usage_timestamp": "2026-09-15T03:31:33.995Z",
+    "usage_events": 3,
+    "unique_usage_increments": 3,
+    "tool_calls": 2,
+    "input_tokens": 99586,
+    "cached_input_tokens": 82304,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 461,
+    "reasoning_output_tokens": 46,
+    "total_tokens": 100047,
+    "noncached_input_tokens": 17282,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/persistent20_manager",
+    "category": "management",
+    "attempt_path": null,
+    "session_id": "01a0a323-eb2e-7693-b0cb-affe58a81f6e",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-37-15-01a0a323-eb2e-7693-b0cb-affe58a81f6e.jsonl",
+    "usage_source_sha256": "ae53d8bccf098fae3a9eca299a9d4c97302b23c164de903a614f67cf5ffdd1d8",
+    "final_usage_line": 135,
+    "first_usage_timestamp": "2026-09-15T03:37:28.206Z",
+    "last_usage_timestamp": "2026-09-15T03:47:47.822Z",
+    "usage_events": 23,
+    "unique_usage_increments": 22,
+    "tool_calls": 22,
+    "input_tokens": 977041,
+    "cached_input_tokens": 944512,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3175,
+    "reasoning_output_tokens": 22,
+    "total_tokens": 980216,
+    "noncached_input_tokens": 32529,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/persistent20_manager/policy_01",
+    "category": "valid_policy",
+    "attempt_path": "trial-01",
+    "session_id": "01a0a324-b020-77d3-8b02-b02bdb00911a",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-38-05-01a0a324-b020-77d3-8b02-b02bdb00911a.jsonl",
+    "usage_source_sha256": "02de5697920fa93c81bc0d1dac6ec65e2cd6707bbfa67066433fb2baa293defd",
+    "final_usage_line": 159,
+    "first_usage_timestamp": "2026-09-15T03:38:17.428Z",
+    "last_usage_timestamp": "2026-09-15T03:42:14.937Z",
+    "usage_events": 22,
+    "unique_usage_increments": 22,
+    "tool_calls": 21,
+    "input_tokens": 1183063,
+    "cached_input_tokens": 1127168,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4268,
+    "reasoning_output_tokens": 782,
+    "total_tokens": 1187331,
+    "noncached_input_tokens": 55895,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/persistent20_manager/policy_02",
+    "category": "interrupted_policy",
+    "attempt_path": "trial-02",
+    "session_id": "01a0a329-322b-7f83-aa32-d371f26b35c6",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-43-01-01a0a329-322b-7f83-aa32-d371f26b35c6.jsonl",
+    "usage_source_sha256": "674449c7297b48ed6b84dcc71d186d563a3e89be037b0a8e0c8848a6384fbd86",
+    "final_usage_line": 205,
+    "first_usage_timestamp": "2026-09-15T03:43:16.556Z",
+    "last_usage_timestamp": "2026-09-15T03:47:47.200Z",
+    "usage_events": 29,
+    "unique_usage_increments": 28,
+    "tool_calls": 28,
+    "input_tokens": 1807310,
+    "cached_input_tokens": 1716480,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5580,
+    "reasoning_output_tokens": 954,
+    "total_tokens": 1812890,
+    "noncached_input_tokens": 90830,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/blind_video_review",
+    "category": "review",
+    "attempt_path": null,
+    "session_id": "01a0a32a-43c4-7c51-a84f-daba6c54b4df",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-44-11-01a0a32a-43c4-7c51-a84f-daba6c54b4df.jsonl",
+    "usage_source_sha256": "3c52b4888f39b4397b1661ca44a503c00d7dbd1120e6fa44a44eff6f46d33479",
+    "final_usage_line": 49,
+    "first_usage_timestamp": "2026-09-15T03:44:19.781Z",
+    "last_usage_timestamp": "2026-09-15T03:45:47.421Z",
+    "usage_events": 6,
+    "unique_usage_increments": 6,
+    "tool_calls": 5,
+    "input_tokens": 211396,
+    "cached_input_tokens": 199040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1641,
+    "reasoning_output_tokens": 216,
+    "total_tokens": 213037,
+    "noncached_input_tokens": 12356,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/blind_review_second",
+    "category": "review",
+    "attempt_path": null,
+    "session_id": "01a0a32c-8498-78f3-8777-0a373396ec1c",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T11-46-38-01a0a32c-8498-78f3-8777-0a373396ec1c.jsonl",
+    "usage_source_sha256": "3a2d45e116ef94f7ea8d528ab700bc68bd6555b7830d1a840ceea8063d39f670",
+    "final_usage_line": 48,
+    "first_usage_timestamp": "2026-09-15T03:46:48.554Z",
+    "last_usage_timestamp": "2026-09-15T03:47:56.332Z",
+    "usage_events": 6,
+    "unique_usage_increments": 5,
+    "tool_calls": 5,
+    "input_tokens": 168266,
+    "cached_input_tokens": 157824,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1550,
+    "reasoning_output_tokens": 173,
+    "total_tokens": 169816,
+    "noncached_input_tokens": 10442,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/resume_persistent20",
+    "category": "management",
+    "attempt_path": null,
+    "session_id": "01a0a435-8cb2-75a2-89da-c9ba0fa59f73",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T16-36-07-01a0a435-8cb2-75a2-89da-c9ba0fa59f73.jsonl",
+    "usage_source_sha256": "5e963252129b0293a5456216a4c96a31d6022c2c39cd69d42632490b7f536f6b",
+    "final_usage_line": 169,
+    "first_usage_timestamp": "2026-09-15T08:36:18.908Z",
+    "last_usage_timestamp": "2026-09-15T08:50:48.272Z",
+    "usage_events": 31,
+    "unique_usage_increments": 30,
+    "tool_calls": 30,
+    "input_tokens": 1264999,
+    "cached_input_tokens": 1184896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3718,
+    "reasoning_output_tokens": 0,
+    "total_tokens": 1268717,
+    "noncached_input_tokens": 80103,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/resume_persistent20/policy_02",
+    "category": "valid_policy",
+    "attempt_path": "trial-02-attempt-02",
+    "session_id": "01a0a436-941e-7fe2-abd7-b4d12181d7bd",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T16-37-15-01a0a436-941e-7fe2-abd7-b4d12181d7bd.jsonl",
+    "usage_source_sha256": "cc558e0166d50e4a971916969c2e5872d2c4d527c059a534a08f30f23525ebb6",
+    "final_usage_line": 175,
+    "first_usage_timestamp": "2026-09-15T08:37:29.598Z",
+    "last_usage_timestamp": "2026-09-15T08:42:55.442Z",
+    "usage_events": 24,
+    "unique_usage_increments": 24,
+    "tool_calls": 23,
+    "input_tokens": 1079608,
+    "cached_input_tokens": 1041664,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5148,
+    "reasoning_output_tokens": 909,
+    "total_tokens": 1084756,
+    "noncached_input_tokens": 37944,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/resume_persistent20/policy_03",
+    "category": "valid_policy",
+    "attempt_path": "trial-03",
+    "session_id": "01a0a43c-b47d-7da2-8a18-832b460d896e",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T16-43-56-01a0a43c-b47d-7da2-8a18-832b460d896e.jsonl",
+    "usage_source_sha256": "b27de8d10712302368fb3f98bd6e657172901ad0eaa90560a6348b8480cc4652",
+    "final_usage_line": 201,
+    "first_usage_timestamp": "2026-09-15T08:44:09.353Z",
+    "last_usage_timestamp": "2026-09-15T08:49:25.950Z",
+    "usage_events": 28,
+    "unique_usage_increments": 28,
+    "tool_calls": 27,
+    "input_tokens": 1360883,
+    "cached_input_tokens": 1327232,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5362,
+    "reasoning_output_tokens": 607,
+    "total_tokens": 1366245,
+    "noncached_input_tokens": 33651,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/blind_review_remaining",
+    "category": "review",
+    "attempt_path": null,
+    "session_id": "01a0a43e-7f4d-7c82-866e-febf991d48ae",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "high"
+    ],
+    "usage_source_file": "rollout-2026-09-15T16-45-54-01a0a43e-7f4d-7c82-866e-febf991d48ae.jsonl",
+    "usage_source_sha256": "6be7a30200d0a0e929398da4b9417f52be4d4c345db60b2a5776f376927bf0cb",
+    "final_usage_line": 59,
+    "first_usage_timestamp": "2026-09-15T08:46:11.305Z",
+    "last_usage_timestamp": "2026-09-15T08:53:37.049Z",
+    "usage_events": 6,
+    "unique_usage_increments": 5,
+    "tool_calls": 4,
+    "input_tokens": 206413,
+    "cached_input_tokens": 186112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1515,
+    "reasoning_output_tokens": 165,
+    "total_tokens": 207928,
+    "noncached_input_tokens": 20301,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/policy_04",
+    "category": "valid_policy",
+    "attempt_path": "trial-04",
+    "session_id": "01a0a54b-bb29-7be1-b2e9-fbc4931dd403",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T21-39-58-01a0a54b-bb29-7be1-b2e9-fbc4931dd403.jsonl",
+    "usage_source_sha256": "1c760d1e1789ff060938ed3d63aff29ec3b62f4f0816d6d477d18ddaa316634b",
+    "final_usage_line": 213,
+    "first_usage_timestamp": "2026-09-15T13:40:10.401Z",
+    "last_usage_timestamp": "2026-09-15T13:46:29.238Z",
+    "usage_events": 30,
+    "unique_usage_increments": 30,
+    "tool_calls": 29,
+    "input_tokens": 2037392,
+    "cached_input_tokens": 1932288,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5372,
+    "reasoning_output_tokens": 541,
+    "total_tokens": 2042764,
+    "noncached_input_tokens": 105104,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/policy_05",
+    "category": "valid_policy",
+    "attempt_path": "trial-05",
+    "session_id": "01a0a552-4490-7a50-a127-16a40abcdedf",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T21-47-07-01a0a552-4490-7a50-a127-16a40abcdedf.jsonl",
+    "usage_source_sha256": "71c42688b4da2ac686877c37f241c9f08ba2bb6cbc7679dda9fe585514b36879",
+    "final_usage_line": 201,
+    "first_usage_timestamp": "2026-09-15T13:47:21.388Z",
+    "last_usage_timestamp": "2026-09-15T13:52:41.889Z",
+    "usage_events": 28,
+    "unique_usage_increments": 28,
+    "tool_calls": 27,
+    "input_tokens": 1797976,
+    "cached_input_tokens": 1716224,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5281,
+    "reasoning_output_tokens": 771,
+    "total_tokens": 1803257,
+    "noncached_input_tokens": 81752,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  },
+  {
+    "agent_path": "/root/policy_06",
+    "category": "interrupted_policy",
+    "attempt_path": "trial-06",
+    "session_id": "01a0a557-ed7f-7f61-a19a-0573ab41d142",
+    "model": [
+      "gpt-6-astra"
+    ],
+    "effort": [
+      "medium"
+    ],
+    "usage_source_file": "rollout-2026-09-15T21-53-18-01a0a557-ed7f-7f61-a19a-0573ab41d142.jsonl",
+    "usage_source_sha256": "e7bf4f6bcd2dbc61b64341c77a8db5c45a5dde65325a08057e855dd51e9d0a98",
+    "final_usage_line": 30,
+    "first_usage_timestamp": "2026-09-15T13:53:30.527Z",
+    "last_usage_timestamp": "2026-09-15T13:53:49.918Z",
+    "usage_events": 4,
+    "unique_usage_increments": 3,
+    "tool_calls": 3,
+    "input_tokens": 93603,
+    "cached_input_tokens": 89984,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 474,
+    "reasoning_output_tokens": 27,
+    "total_tokens": 94077,
+    "noncached_input_tokens": 3619,
+    "increment_sum_matches_cumulative": true,
+    "provider_cost_usd": null
+  }
+]

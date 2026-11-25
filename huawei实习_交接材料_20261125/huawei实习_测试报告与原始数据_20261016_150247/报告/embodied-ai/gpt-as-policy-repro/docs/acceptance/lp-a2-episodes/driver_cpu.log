@@ -1,0 +1,5 @@
+[03:59:42] paper_init0_done
+[12:34:23] paper_init1_done
+PIN_WRITTEN /workspace/data/lp_a2/pin_ref.json fixtures=['flat_stove_1', 'wine_rack_1', 'wooden_cabinet_1']
+[12:34:24] pinned_launched
+[14:17:32] CPU_ARM_ALL_DONE

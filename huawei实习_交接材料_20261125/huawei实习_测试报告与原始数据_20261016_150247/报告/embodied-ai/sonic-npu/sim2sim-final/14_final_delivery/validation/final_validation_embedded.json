@@ -1,0 +1,10 @@
+{
+  "mode": "embedded",
+  "decision": "VALID_FINAL_DELIVERY",
+  "errors": [],
+  "notes": [
+    "SHA256_FULL_TREE.txt verified (108 entries)",
+    "embedded: source ZIPs not verified; NOT a full-provenance claim"
+  ],
+  "index_rows": 10
+}

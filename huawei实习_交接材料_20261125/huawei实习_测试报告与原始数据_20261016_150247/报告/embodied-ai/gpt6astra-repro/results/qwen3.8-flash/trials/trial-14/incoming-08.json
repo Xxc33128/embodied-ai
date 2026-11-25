@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.03, \"y\": -0.18, \"z\": 0.84, \"gripper\": 1}, \"note\": \"Working out the camera frames: side view horizontal is world y (right = -y, base off-table to the right) and front view horizontal is world x, wrist view is up=+y/right=+x. That puts the block near (x +0.03, y -0.12) while I am at (0.007,-0.063), so the block is 6 cm in -y of the hand centre, outside the finger span. Sliding in -y toward it, keeping a safe height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

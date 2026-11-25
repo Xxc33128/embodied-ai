@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"y\": 0.012, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Cross-referencing the three views: the wrist camera is tilted forward, so the block lies about 10-13 cm ahead of the hand (toward the bowl), slightly to its right; the small +x probes confirmed axial motion barely shifts the image. I traverse forward toward the block at safe height with the jaws held open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

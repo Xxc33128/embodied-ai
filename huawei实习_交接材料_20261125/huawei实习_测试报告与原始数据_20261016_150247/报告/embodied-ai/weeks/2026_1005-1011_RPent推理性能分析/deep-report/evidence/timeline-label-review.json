@@ -1,0 +1,20 @@
+{
+  "scope": "timeline display label correction only",
+  "status": "passed",
+  "changed_gap_labels": 623,
+  "numeric_and_interval_changes": false,
+  "label": "GPT 请求与等待（含网络、编排）",
+  "measurement_boundary": "complement of tool intervals within observed item-event window; not independently measured net GPT time or pure thinking",
+  "checks": [
+    "all other report data unchanged",
+    "HTML rebuilt",
+    "8 timelines and click/expansion verified",
+    "1280/390/320 viewport no horizontal overflow",
+    "no page errors"
+  ],
+  "sha256": {
+    "report-data.json": "fe5f2424d4ff90780da84933bd2cf1c9d48feb4c4c06ec481aabe65240248a3e",
+    "build_deep_report.py": "995798d847a5ef1288b59052f41f2f0c557f4c6ece50bf4251b1442600cef1d9",
+    "RPent-两场景深度计时报告.html": "8951ee2608178e686ce8e967b07991200e2a738206496cdf7084a9436fb9961e"
+  }
+}

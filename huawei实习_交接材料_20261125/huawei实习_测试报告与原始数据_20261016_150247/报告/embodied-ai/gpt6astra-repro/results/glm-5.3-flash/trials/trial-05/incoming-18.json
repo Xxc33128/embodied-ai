@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.062, \"y\": 0.052, \"z\": 0.95}, \"note\": \"The last two open commands were truncated to one control step with the jaws still closed. Retrying the open with a larger combined motion (rise to z=0.95 plus translate) to force the tool to re-plan the full trajectory including the gripper dimension.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

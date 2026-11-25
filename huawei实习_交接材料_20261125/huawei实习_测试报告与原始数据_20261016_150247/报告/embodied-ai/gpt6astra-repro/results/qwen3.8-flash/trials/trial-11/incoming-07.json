@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.3, \"y\": 0.12}, \"note\": \"Side view now puts the hand at image 169 (x=-0.094, model checks out) and the block at 187, i.e. x=-0.134; the front view puts the block about 16 px right of the hand, i.e. +0.05 m in y. Command a large diagonal toward that corner to get as much travel as possible out of one call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

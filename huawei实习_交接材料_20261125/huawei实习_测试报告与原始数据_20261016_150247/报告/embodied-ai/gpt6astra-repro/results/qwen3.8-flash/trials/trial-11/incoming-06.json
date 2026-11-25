@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.25}, \"note\": \"Calibrating with the side view: the base sits at image x=285 and the hand at 167 for x=-0.09, giving about 455 px per metre with larger world x to the left, so the red block (image x=185) is at world x about -0.13, not under my hand. Travel in x toward the block, commanding well past it because each call only delivers part of the requested distance.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

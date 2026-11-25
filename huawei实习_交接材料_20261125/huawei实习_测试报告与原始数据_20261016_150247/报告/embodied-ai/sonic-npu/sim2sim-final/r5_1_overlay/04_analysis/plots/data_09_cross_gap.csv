@@ -1,0 +1,5 @@
+metric,D00,D20,change_pct,unit,aggregation,coordinate_frame
+q_gap,0.055946,0.067324,20.34,rad,RMS over 500 cycles,joint space
+body_position_world_gap,0.104610,0.074709,-28.58,m,RMS over 500 cycles,world
+body_position_pelvis_relative_gap,0.017400,0.023317,34.01,m,RMS over 500 cycles,pelvis-translated
+body_orientation_gap,0.104374,0.150575,44.26,rad,RMS over 500 cycles,SO3 geodesic

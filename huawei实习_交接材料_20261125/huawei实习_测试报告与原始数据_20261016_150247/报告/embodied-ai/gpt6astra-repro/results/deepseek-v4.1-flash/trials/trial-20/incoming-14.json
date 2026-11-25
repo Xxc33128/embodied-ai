@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.0505, \"z\": 0.85, \"gripper\": 0.66}, \"note\": \"Jaws are open again at 8.8 cm. I now descend 2.6 cm to put the finger pads level with the block belly (the earlier empty close shows the fingertips were still above the block top at z=0.869), keeping the 0.66 gripper engine for 27 steps and a small -y trim.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

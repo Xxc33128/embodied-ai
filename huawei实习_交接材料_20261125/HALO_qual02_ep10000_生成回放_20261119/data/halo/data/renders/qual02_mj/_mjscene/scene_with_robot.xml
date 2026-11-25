@@ -1,0 +1,16 @@
+<mujoco model="infinigen_scene_with_robot">
+  <compiler meshdir="/" texturedir="/" angle="radian" autolimits="true"/>
+  <include file="g1_29dof_ego.xml"/>
+  <visual>
+    <headlight ambient="1 1 1" diffuse="0 0 0" specular="0 0 0"/>
+    <global offwidth="1600" offheight="1000"/>
+    <quality offsamples="4"/>
+    <map znear="0.005" zfar="5.0"/>
+  </visual>
+  <asset>
+    <mesh name="m_g000" file="/data/halo/data/renders/qual02_mj/_mjscene/_mjparts/g000.obj" inertia="shell"/>
+  </asset>
+  <worldbody>
+    <geom type="mesh" mesh="m_g000" rgba="0.7 0.7 0.7 1" group="2" contype="0" conaffinity="0"/>
+  </worldbody>
+</mujoco>

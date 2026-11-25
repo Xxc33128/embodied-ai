@@ -1,0 +1,619 @@
+cat: '/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor': No such file or directory
+[Warning] [simulation_app.simulation_app] DISPLAY environment variable is not set, running in headless mode with --no-window flag. Set DISPLAY environment variable if you want to run in non-headless mode.
+Loading user config located at: '/data/envs/halo-tracker/lib/python3.11/site-packages/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /data/envs/halo-tracker/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261123_110208.log
+[0.080s] [ext: omni.kit.async_engine-0.0.3] startup
+[0.235s] [ext: omni.metrics.core-0.0.3] startup
+[0.235s] [ext: omni.client.lib-1.1.0] startup
+[0.252s] [ext: omni.blobkey-1.1.2] startup
+[0.253s] [ext: omni.stats-1.0.1] startup
+[0.254s] [ext: omni.datastore-0.0.0] startup
+[0.261s] [ext: omni.client-1.3.0] startup
+[0.266s] [ext: omni.ujitso.default-1.0.0] startup
+[0.268s] [ext: omni.hsscclient-1.1.2] startup
+[0.272s] [ext: omni.gpu_foundation.shadercache.vulkan-1.0.0] startup
+[0.276s] [ext: omni.assets.plugins-0.0.0] startup
+[0.278s] [ext: omni.gpu_foundation-0.0.0] startup
+[0.287s] [ext: carb.windowing.plugins-1.0.0] startup
+2026-11-23T03:02:08Z [265ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:08Z [265ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+[0.288s] [ext: omni.kit.renderer.init-0.0.0] startup
+2026-11-23T03:02:08Z [274ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.178.04    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | Tesla T4                         | Yes: 0 |     | 15606   MB | 10de      | 0          |
+|     |                                  |        |     |            | 1eb8      | 3559578b.. |
+|     |                                  |        |     |            | 0         |            |
+|=============================================================================================|
+| OS: 22.04.2 LTS (Jammy Jellyfish) ubuntu, Version: 22.04.2, Kernel: 5.15.0-76-generic
+| Processor: Intel(R) Xeon(R) Gold 6278C CPU @ 2.60GHz
+| Cores: 4 | Logical Cores: 8
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 31900 | Free Memory: 27791
+| Total Page/Swap (MB): 0 | Free Page/Swap: 0
+|---------------------------------------------------------------------------------------------|
+2026-11-23T03:02:09Z [1,173ms] [Warning] [gpu.foundation.plugin] ECC is enabled on physical device 0
+[1.440s] [ext: omni.materialx.libs-1.0.7] startup
+[1.450s] [ext: omni.kit.loop-isaac-1.3.7] startup
+[1.451s] [ext: omni.kit.test-2.0.1] startup
+[1.512s] [ext: omni.kit.pipapi-0.0.0] startup
+[1.513s] [ext: omni.usd.config-1.0.6] startup
+[1.516s] [ext: omni.gpucompute.plugins-0.0.0] startup
+[1.517s] [ext: omni.usd.libs-1.0.1] startup
+[1.626s] [ext: omni.kit.pip_archive-0.0.0] startup
+[1.626s] [ext: omni.mdl-56.0.3] startup
+[1.748s] [ext: omni.iray.libs-0.0.0] startup
+[1.755s] [ext: omni.mdl.neuraylib-0.2.12] startup
+[1.758s] [ext: omni.kit.usd.mdl-1.1.5] startup
+[1.882s] [ext: omni.kit.telemetry-0.5.2] startup
+[1.908s] [ext: omni.appwindow-1.1.10] startup
+2026-11-23T03:02:10Z [1,887ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,887ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+[1.913s] [ext: omni.kit.renderer.core-1.1.0] startup
+2026-11-23T03:02:10Z [1,906ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,906ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-11-23T03:02:10Z [1,916ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,916ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+[1.941s] [ext: omni.kit.renderer.capture-0.0.0] startup
+[1.944s] [ext: omni.kit.renderer.imgui-2.0.5] startup
+2026-11-23T03:02:10Z [1,925ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,925ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-11-23T03:02:10Z [1,927ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,927ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+2026-11-23T03:02:10Z [1,928ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:10Z [1,928ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+[2.060s] [ext: omni.ui-2.27.1] startup
+[2.073s] [ext: omni.kit.mainwindow-1.0.3] startup
+[2.075s] [ext: carb.audio-0.1.0] startup
+[2.078s] [ext: omni.uiaudio-1.0.0] startup
+[2.079s] [ext: omni.kit.uiapp-0.0.0] startup
+[2.079s] [ext: omni.usd.schema.metrics.assembler-107.3.1] startup
+[2.082s] [ext: omni.usd.schema.omnigraph-1.0.0] startup
+[2.089s] [ext: omni.usd.schema.semantics-0.0.0] startup
+[2.092s] [ext: omni.usd.schema.audio-0.0.0] startup
+[2.095s] [ext: omni.usd.schema.geospatial-0.0.0] startup
+[2.098s] [ext: omni.usd.schema.anim-0.0.0] startup
+[2.123s] [ext: omni.usd_resolver-1.0.0] startup
+[2.127s] [ext: omni.usd.core-1.5.3] startup
+[2.130s] [ext: omni.usd.schema.omni_lens_distortion-0.0.0] startup
+[2.154s] [ext: isaacsim.robot.schema-3.6.0] startup
+[2.163s] [ext: omni.usd.schema.physx-107.3.26] startup
+[2.203s] [ext: omni.usd.schema.render_settings.rtx-0.0.0] startup
+[2.204s] [ext: omni.usd.schema.omni_sensors-0.0.0] startup
+[2.205s] [ext: omni.usd.schema.omniscripting-1.0.0] startup
+[2.210s] [ext: omni.graph.exec-0.9.6] startup
+[2.210s] [ext: omni.kit.actions.core-1.0.0] startup
+[2.215s] [ext: omni.kit.usd_undo-0.1.8] startup
+[2.215s] [ext: omni.kit.exec.core-0.13.4] startup
+[2.217s] [ext: omni.kit.commands-1.4.10] startup
+[2.221s] [ext: omni.kit.window.popup_dialog-2.0.24] startup
+[2.225s] [ext: omni.activity.core-1.0.3] startup
+[2.227s] [ext: omni.resourcemonitor-107.0.1] startup
+[2.229s] [ext: omni.timeline-1.0.14] startup
+[2.231s] [ext: omni.kit.widget.nucleus_connector-2.0.1] startup
+[2.233s] [ext: usdrt.scenegraph-7.6.1] startup
+[2.277s] [ext: omni.kit.audiodeviceenum-1.0.2] startup
+[2.279s] [ext: omni.hydra.usdrt_delegate-7.5.1] startup
+[2.286s] [ext: omni.hydra.scene_delegate-0.3.4] startup
+[2.292s] [ext: omni.usd-1.13.10] startup
+[2.318s] [ext: omni.kit.asset_converter-5.0.17] startup
+[2.334s] [ext: omni.index.libs-380600.8087.0] startup
+[2.334s] [ext: omni.volume-0.5.2] startup
+[2.337s] [ext: omni.ujitso.client-0.0.0] startup
+[2.338s] [ext: omni.index-1.0.1] startup
+[2.339s] [ext: omni.hydra.rtx.shadercache.vulkan-1.0.0] startup
+[2.340s] [ext: omni.hydra.rtx-1.0.0] startup
+2026-11-23T03:02:10Z [2,343ms] [Warning] [omni.log] Source: omni.hydra was already registered.
+[2.385s] [ext: omni.kit.notification_manager-1.0.10] startup
+[2.388s] [ext: omni.kit.clipboard-1.0.5] startup
+[2.388s] [ext: omni.kit.viewport.legacy_gizmos-1.0.19] startup
+[2.391s] [ext: omni.kit.raycast.query-1.1.0] startup
+[2.397s] [ext: omni.kit.menu.core-1.1.2] startup
+[2.398s] [ext: omni.kit.widget.options_menu-1.1.6] startup
+[2.402s] [ext: omni.kit.helper.file_utils-0.1.9] startup
+[2.404s] [ext: omni.kit.widget.path_field-2.0.11] startup
+[2.405s] [ext: omni.kit.widget.context_menu-1.2.5] startup
+[2.406s] [ext: omni.kit.widget.options_button-1.0.3] startup
+[2.407s] [ext: omni.kit.widget.filebrowser-2.12.3] startup
+[2.413s] [ext: omni.kit.widget.browser_bar-2.0.10] startup
+[2.414s] [ext: omni.kit.usd.layers-2.2.11] startup
+[2.423s] [ext: omni.ui.scene-1.11.5] startup
+[2.429s] [ext: omni.kit.viewport.registry-104.0.6] startup
+[2.429s] [ext: omni.kit.window.filepicker-2.13.4] startup
+[2.447s] [ext: omni.kit.menu.utils-2.0.5] startup
+[2.456s] [ext: omni.kit.context_menu-1.8.6] startup
+[2.458s] [ext: omni.kit.viewport.scene_camera_model-1.0.6] startup
+[2.463s] [ext: omni.kit.hydra_texture-1.4.6] startup
+[2.466s] [ext: omni.kit.window.file_importer-1.1.18] startup
+[2.469s] [ext: omni.kit.widget.searchable_combobox-1.0.6] startup
+[2.470s] [ext: omni.kit.window.drop_support-1.0.5] startup
+[2.470s] [ext: omni.kit.widget.viewport-107.1.3] startup
+[2.474s] [ext: omni.kit.material.library-2.0.7] startup
+[2.480s] [ext: omni.hydra.engine.stats-1.0.3] startup
+[2.483s] [ext: omni.kit.widget.settings-1.2.6] startup
+[2.485s] [ext: omni.kit.viewport.window-107.2.0] startup
+[2.505s] [ext: omni.kit.window.preferences-1.8.0] startup
+[2.513s] [ext: omni.kit.widget.toolbar-2.0.1] startup
+[2.519s] [ext: omni.kit.viewport.utility-1.1.2] startup
+[2.520s] [ext: omni.kit.manipulator.transform-107.0.0] startup
+[2.525s] [ext: omni.kit.manipulator.tool.snap-1.5.13] startup
+[2.530s] [ext: omni.kit.manipulator.selector-1.1.3] startup
+[2.532s] [ext: omni.kit.property.adapter.core-1.0.2] startup
+[2.534s] [ext: omni.kit.viewport.manipulator.transform-107.0.4] startup
+[2.536s] [ext: omni.kit.manipulator.viewport-107.0.1] startup
+[2.537s] [ext: omni.kit.property.adapter.fabric-1.0.3] startup
+[2.539s] [ext: omni.kit.manipulator.prim.core-107.0.8] startup
+[2.546s] [ext: omni.kit.primitive.mesh-1.0.17] startup
+[2.550s] [ext: omni.kit.widget.filter-1.1.4] startup
+[2.551s] [ext: omni.kit.hotkeys.core-1.3.10] startup
+[2.554s] [ext: omni.kit.manipulator.prim.usd-107.0.3] startup
+[2.555s] [ext: omni.fabric.commands-1.1.6] startup
+[2.558s] [ext: omni.kit.window.file_exporter-1.0.33] startup
+[2.559s] [ext: omni.kit.widget.searchfield-1.1.8] startup
+[2.560s] [ext: omni.kit.manipulator.prim.fabric-107.0.4] startup
+[2.562s] [ext: omni.debugdraw-0.1.4] startup
+[2.566s] [ext: omni.kit.widget.stage-3.1.4] startup
+[2.579s] [ext: omni.kit.property.adapter.usd-1.0.2] startup
+[2.580s] [ext: omni.kit.manipulator.prim-107.0.0] startup
+[2.580s] [ext: omni.kvdb-107.3.26] startup
+[2.582s] [ext: omni.convexdecomposition-107.3.26] startup
+[2.585s] [ext: omni.physx.foundation-107.3.26] startup
+[2.587s] [ext: omni.localcache-107.3.26] startup
+[2.589s] [ext: omni.kit.window.content_browser_registry-0.0.6] startup
+[2.590s] [ext: omni.kit.widget.highlight_label-1.0.3] startup
+[2.590s] [ext: omni.kit.stage_template.core-1.1.22] startup
+[2.591s] [ext: omni.usdphysics-107.3.26] startup
+[2.593s] [ext: omni.kit.window.file-2.0.5] startup
+[2.597s] [ext: omni.physx.cooking-107.3.26] startup
+[2.600s] [ext: omni.physics-107.3.26] startup
+[2.604s] [ext: omni.kit.window.property-1.12.1] startup
+[2.607s] [ext: omni.kit.window.content_browser-3.1.3] startup
+[2.622s] [ext: omni.physx-107.3.26] startup
+[2.634s] [ext: omni.physics.stageupdate-107.3.26] startup
+[2.636s] [ext: omni.kit.property.usd-4.5.12] startup
+[2.648s] [ext: omni.kit.manipulator.selection-106.0.1] startup
+[2.650s] [ext: omni.physics.physx-107.3.26] startup
+2026-11-23T03:02:11Z [2,629ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+[2.652s] [ext: omni.kit.widget.prompt-1.0.7] startup
+[2.653s] [ext: omni.kit.viewport.menubar.core-107.2.1] startup
+[2.670s] [ext: omni.kit.viewport.actions-107.0.2] startup
+[2.675s] [ext: omni.inspect-1.0.2] startup
+[2.677s] [ext: omni.kit.widget.layers-1.8.6] startup
+[2.691s] [ext: omni.kit.viewport.menubar.display-107.0.3] startup
+[2.693s] [ext: omni.usd.metrics.assembler-107.3.1] startup
+[2.698s] [ext: omni.graph.core-2.184.5] startup
+[2.701s] [ext: omni.kit.numpy.common-0.1.3] startup
+[2.703s] [ext: omni.usdphysics.ui-107.3.26] startup
+[2.737s] [ext: omni.physx.commands-107.3.26] startup
+[2.743s] [ext: isaacsim.core.deprecation_manager-0.2.7] startup
+[2.744s] [ext: omni.isaac.dynamic_control-2.0.7] startup
+2026-11-23T03:02:11Z [2,727ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+[2.751s] [ext: omni.physx.ui-107.3.26] startup
+[2.790s] [ext: isaacsim.core.version-2.0.6] startup
+[2.790s] [ext: omni.physics.tensors-107.3.26] startup
+[2.796s] [ext: omni.warp.core-1.8.2] startup
+[3.077s] [ext: omni.usd.metrics.assembler.physics-107.3.26] startup
+[3.080s] [ext: isaacsim.storage.native-1.5.1] startup
+[3.081s] [ext: omni.physx.tensors-107.3.26] startup
+[3.087s] [ext: isaacsim.core.utils-3.5.1] startup
+[3.091s] [ext: isaacsim.core.simulation_manager-1.4.4] startup
+[5.007s] [ext: omni.kit.widget.stage_icons-1.0.8] startup
+[5.008s] [ext: omni.kit.widget.text_editor-1.1.1] startup
+[5.010s] [ext: omni.kit.window.stage-2.6.1] startup
+[5.015s] [ext: omni.kit.menu.create-2.0.1] startup
+[5.017s] [ext: omni.kit.window.extensions-1.4.27] startup
+[5.024s] [ext: omni.kit.scripting-107.3.2] startup
+[5.029s] [ext: omni.kit.stagerecorder.core-107.0.3] startup
+[5.033s] [ext: isaacsim.replicator.behavior-1.1.16] startup
+[5.033s] [ext: omni.graph.tools-1.79.2] startup
+[5.064s] [ext: omni.ui_query-1.1.8] startup
+[5.065s] [ext: omni.kit.widget.zoombar-1.0.6] startup
+[5.066s] [ext: omni.graph-1.141.2] startup
+[5.119s] [ext: omni.graph.action_core-1.1.7] startup
+[5.121s] [ext: omni.kit.ui_test-1.3.7] startup
+[5.124s] [ext: omni.kit.browser.core-2.3.13] startup
+[5.130s] [ext: omni.kit.usd.collect-2.4.5] startup
+[5.135s] [ext: omni.graph.action_nodes-1.50.4] startup
+[5.140s] [ext: omni.kit.menu.stage-1.2.7] startup
+[5.145s] [ext: omni.kit.browser.folder.core-1.10.9] startup
+[5.157s] [ext: omni.kit.usdz_export-1.0.9] startup
+[5.162s] [ext: omni.graph.visualization.nodes-2.1.3] startup
+[5.201s] [ext: omni.graph.action-1.130.0] startup
+[5.203s] [ext: omni.kit.tool.collect-2.2.18] startup
+[5.210s] [ext: omni.kit.tool.asset_importer-4.3.2] startup
+[5.223s] [ext: isaacsim.gui.components-1.2.1] startup
+[5.229s] [ext: isaacsim.examples.browser-0.2.1] startup
+[5.237s] [ext: isaacsim.asset.importer.urdf-2.4.31] startup
+[5.314s] [ext: isaacsim.core.cloner-1.4.10] startup
+[5.319s] [ext: omni.kit.stagerecorder.ui-107.0.1] startup
+[5.326s] [ext: isaacsim.asset.browser-1.3.23] startup
+[5.405s] [ext: semantics.schema.editor-2.0.2] startup
+2026-11-23T03:02:13Z [5,389ms] [Warning] [pxr.Semantics] pxr.Semantics is deprecated - please use Semantics instead
+[5.414s] [ext: omni.kit.stagerecorder.bundle-105.0.2] startup
+[5.415s] [ext: omni.kit.window.status_bar-0.1.9] startup
+[5.420s] [ext: omni.kit.widget.graph-2.0.0] startup
+[5.427s] [ext: omni.kit.stage_templates-2.0.0] startup
+[5.430s] [ext: omni.graph.image.core-0.6.1] startup
+[5.431s] [ext: omni.kit.graph.delegate.default-1.2.3] startup
+[5.432s] [ext: isaacsim.core.experimental.utils-0.3.0] startup
+[5.434s] [ext: omni.graph.image.nodes-1.3.1] startup
+[5.436s] [ext: omni.kit.graph.editor.core-1.5.3] startup
+[5.439s] [ext: omni.kit.graph.usd.commands-1.3.1] startup
+[5.441s] [ext: omni.graph.nodes-1.170.10] startup
+[5.453s] [ext: omni.graph.ui_nodes-1.50.5] startup
+[5.458s] [ext: omni.kit.widget.material_preview-1.0.16] startup
+[5.463s] [ext: omni.syntheticdata-0.6.13] startup
+[5.498s] [ext: omni.videoencoding-0.1.2] startup
+[5.508s] [ext: omni.warp-1.8.2] startup
+[5.530s] [ext: omni.kit.window.material_graph-1.9.1] startup
+[5.564s] [ext: omni.graph.scriptnode-1.50.0] startup
+[5.571s] [ext: isaacsim.core.prims-0.6.1] startup
+[5.629s] [ext: isaacsim.test.docstring-1.1.0] startup
+[5.652s] [ext: omni.replicator.core-1.12.27] startup
+2026-11-23T03:02:14Z [5,829ms] [Warning] [omni.graph.core.plugin] Found duplicate of category 'Replicator' - was 'Annotators', adding 'Fabric Reader'
+2026-11-23T03:02:14Z [5,829ms] [Warning] [omni.graph.core.plugin] Category 'Replicator' not accepted on node type 'omni.replicator.core.FabricReader' in extension 'omni.replicator.core'
+2026-11-23T03:02:14Z [5,830ms] [Warning] [omni.replicator.core.scripts.extension] No material configuration file, adding configuration to material settings directly.
+[5.858s] [ext: isaacsim.core.api-4.8.0] startup
+[5.897s] [ext: isaacsim.core.experimental.prims-0.8.1] startup
+[5.974s] [ext: isaacsim.core.nodes-3.4.3] startup
+[5.995s] [ext: isaacsim.robot.surface_gripper-3.3.1] startup
+[6.004s] [ext: isaacsim.util.debug_draw-3.1.0] startup
+[6.017s] [ext: omni.sensors.nv.common-3.0.0] startup
+[6.087s] [ext: isaacsim.robot.manipulators-3.3.6] startup
+[6.123s] [ext: isaacsim.sensors.physx-2.3.2] startup
+[6.252s] [ext: omni.sensors.nv.materials-2.0.0] startup
+[6.265s] [ext: omni.sensors.net-1.0.0] startup
+[6.271s] [ext: isaacsim.app.about-2.0.11] startup
+[6.289s] [ext: isaacsim.simulation_app-2.12.2] startup
+[6.293s] [ext: omni.sensors.nv.ids-2.0.0] startup
+[6.372s] [ext: omni.sensors.nv.lidar-3.0.0] startup
+[6.386s] [ext: omni.kit.property.audio-1.0.16] startup
+[6.430s] [ext: omni.kit.property.camera-1.0.10] startup
+[6.454s] [ext: omni.kit.property.geometry-2.0.4] startup
+[6.528s] [ext: omni.hydra.scene_api-0.1.2] startup
+[6.604s] [ext: omni.kit.property.light-1.0.12] startup
+[6.700s] [ext: omni.sensors.nv.wpm-3.0.0] startup
+[6.709s] [ext: omni.kit.selection-0.1.6] startup
+[6.751s] [ext: omni.kit.property.material-1.11.9] startup
+[6.776s] [ext: omni.kit.property.transform-1.5.13] startup
+[6.787s] [ext: omni.kit.property.render-1.2.1] startup
+[6.791s] [ext: omni.sensors.nv.radar-3.0.0] startup
+[6.796s] [ext: isaacsim.gui.menu-2.4.4] startup
+[6.812s] [ext: omni.kit.manipulator.camera-106.0.4] startup
+[6.831s] [ext: isaacsim.gui.property-1.1.3] startup
+[6.836s] [ext: omni.kit.property.bundle-1.4.1] startup
+[6.840s] [ext: isaacsim.sensors.rtx-15.8.4] startup
+[6.865s] [ext: isaacsim.sensors.physics-0.4.3] startup
+[6.883s] [ext: omni.kit.viewport.menubar.camera-107.0.6] startup
+[6.912s] [ext: omni.kit.viewport.menubar.lighting-107.3.1] startup
+[6.930s] [ext: omni.kit.viewport.menubar.settings-107.0.3] startup
+[6.944s] [ext: omni.kit.viewport.menubar.render-107.0.10] startup
+[6.956s] [ext: isaacsim.robot.policy.examples-4.1.11] startup
+[6.963s] [ext: isaacsim.asset.importer.mjcf-2.5.13] startup
+[6.979s] [ext: omni.kit.window.console-1.1.4] startup
+[6.997s] [ext: omni.rtx.window.settings-0.6.19] startup
+[7.003s] [ext: omni.ocio-0.1.1] startup
+[7.007s] [ext: omni.physx.demos-107.3.26] startup
+[7.032s] [ext: omni.kit.property.physx-107.3.26] startup
+[7.065s] [ext: omni.replicator.replicator_yaml-2.0.11] startup
+[7.088s] [ext: omni.asset_validator.core-1.1.6] startup
+[7.158s] [ext: omni.rtx.settings.core-0.6.5] startup
+[7.164s] [ext: omni.physx.vehicle-107.3.26] startup
+[7.189s] [ext: omni.usd.metrics.assembler.ui-107.3.1] startup
+[7.203s] [ext: omni.kit.window.script_editor-2.0.1] startup
+[7.208s] [ext: isaacsim.robot.wheeled_robots-4.0.24] startup
+[7.215s] [ext: omni.physx.asset_validator-107.3.26] startup
+[7.226s] [ext: omni.kit.window.toolbar-2.0.0] startup
+[7.236s] [ext: omni.physx.camera-107.3.26] startup
+[7.256s] [ext: omni.anim.curve.core-1.3.1] startup
+[7.279s] [ext: omni.physx.cct-107.3.26] startup
+[7.294s] [ext: omni.physx.graph-107.3.26] startup
+[7.319s] [ext: omni.physx.supportui-107.3.26] startup
+[7.337s] [ext: omni.physx.telemetry-107.3.26] startup
+[7.342s] [ext: isaaclab-0.54.2] startup
+[7.606s] [ext: isaaclab_contrib-0.0.2] startup
+[7.608s] [ext: isaacsim.core.throttling-2.2.2] startup
+[7.610s] [ext: omni.kit.ui.actions-1.0.5] startup
+[7.614s] [ext: semantics.schema.property-2.0.1] startup
+[7.616s] [ext: omni.physx.bundle-107.3.26] startup
+[7.618s] [ext: isaacsim.sensors.camera-1.3.6] startup
+[7.624s] [ext: isaaclab_assets-0.2.4] startup
+[8.035s] [ext: isaaclab_tasks-0.11.12] startup
+[8.276s] [ext: omni.kit.menu.common-2.0.1] startup
+[8.278s] [ext: isaaclab_rl-0.4.7] startup
+[8.280s] [ext: isaaclab_mimic-1.0.16] startup
+[8.281s] [ext: isaaclab.python-2.3.2] startup
+[8.284s] Simulation App Starting
+2026-11-23T03:02:16Z [8,388ms] [Warning] [carb.audio.device] audio device is misconfigured or broken {deviceIndex = 0, name = 'default'} (The device is likely misconfigured, check your $HOME/.asoundrc)
+2026-11-23T03:02:16Z [8,388ms] [Warning] [carb.audio.output] failed to retrieve the capabilities for device 0 {result = eDeviceLost (2)}
+2026-11-23T03:02:16Z [8,388ms] [Warning] [carb.audio.context] failed to set the requested output during context creation.  Using a null streamer instead {result = eDeviceLost (2)}
+2026-11-23T03:02:17Z [8,426ms] [Warning] [omni.fabric.plugin] Warning: attribute viewportHandle not found for bucket id 9
+
+[8.632s] app ready
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /data/envs/halo-tracker/lib/python3.11/site-packages/isaaclab/apps/isaaclab.python.kit
+[INFO]: Parsing configuration from: halo_tracker.tasks.manager_based.tracking.g1.motion_tracking_scene_env_cfg:G1TerrainEnvCfg_PreRL_CNN_Play
+[LOCAL-GROUND] terrain → local USD /tmp/halo_flat_ground.3048634.usda
+[SceneEnv] height scanner: per-env terrain=True, objects=[]
+[INFO]: Parsing configuration from: halo_tracker.tasks.manager_based.tracking.g1.agents.rsl_rl_ppo_cfg:MotionTrackingScenePPORunnerCfg_PreRL
+[INFO] Motion data folder(s): ['data/g1_processed/robot-terrain/labsofa']
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-11-23_11-02-24.log[0m
+[36m======================================================================================[0m
+
+[33m11:02:24 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+[13.061s] Simulation App Startup Complete
+[15.472s] [ext: omni.physx.fabric-107.3.26] startup
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link imu_in_pelvis has body properties (mass, inertia, or collisions) and is being merged into pelvis
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link LL_FOOT has body properties (mass, inertia, or collisions) and is being merged into left_ankle_roll_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link pelvis_contour_link has body properties (mass, inertia, or collisions) and is being merged into pelvis
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link LR_FOOT has body properties (mass, inertia, or collisions) and is being merged into right_ankle_roll_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link battery_link has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link d435i_color_optical_frame has body properties (mass, inertia, or collisions) and is being merged into d435i_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link d435i_depth_optical_frame has body properties (mass, inertia, or collisions) and is being merged into d435i_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link d435i_link has body properties (mass, inertia, or collisions) and is being merged into d435i_bottom_screw_frame
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link d435i_bottom_screw_frame has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link oak1_link has body properties (mass, inertia, or collisions) and is being merged into helmet_assembly_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link helmet_assembly_link has body properties (mass, inertia, or collisions) and is being merged into head_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 3
+	Physics step-size     : 0.005
+	Rendering step-size   : 0.02
+	Environment step-size : 0.02
+[INFO]: Time taken for scene creation : 6.109818 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 1
+	Environment spacing   : 5.0
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : ['/World/ground']
+	Replicate physics     : False
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Time taken for simulation start : 3.517263 seconds
+[MotionCommand] Loaded 1 NPZ files from ['data/g1_processed/robot-terrain/labsofa']
+[SceneMotionLoader] 1 motions, object types: ['none'], terrain-bound: 1
+[MotionCommandObjectTerrain] scene objects: []; terrain variants in scene: 1
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++---------------------------------------------+
+|             Active Command Terms            |
++-------+--------+----------------------------+
+| Index | Name   |            Type            |
++-------+--------+----------------------------+
+|   0   | motion | MotionCommandObjectTerrain |
++-------+--------+----------------------------+
+
+[INFO] Event Manager:  <EventManager> contains 0 active terms.
+
+[INFO] Recorder Manager:  <RecorderManager> contains 0 active terms.
++---------------------+
+| Active Recorder Terms |
++-----------+---------+
+|   Index   | Name    |
++-----------+---------+
++-----------+---------+
+
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 29)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          29 |
++--------+-------------+-------------+
+
+[INFO] Observation Manager: <ObservationManager> contains 3 groups.
++-----------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic_state' (shape: (1021,)) |
++------------+-------------------------------------+--------------+
+|   Index    | Name                                |    Shape     |
++------------+-------------------------------------+--------------+
+|     0      | base_lin_vel                        |     (3,)     |
+|     1      | base_ang_vel                        |     (3,)     |
+|     2      | proj_gravity                        |     (3,)     |
+|     3      | joint_pos                           |    (29,)     |
+|     4      | joint_vel                           |    (29,)     |
+|     5      | last_action                         |    (29,)     |
+|     6      | command                             |    (790,)    |
+|     7      | motion_anchor_ori_b                 |     (6,)     |
+|     8      | motion_anchor_pos_b                 |     (3,)     |
+|     9      | body_pos                            |    (42,)     |
+|     10     | body_ori                            |    (84,)     |
++------------+-------------------------------------+--------------+
++---------------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic_temporal' (shape: (30, 172)) |
++------------+--------------------------------------+-----------------+
+|   Index    | Name                                 |      Shape      |
++------------+--------------------------------------+-----------------+
+|     0      | base_lin_vel                         |     (30, 3)     |
+|     1      | base_ang_vel                         |     (30, 3)     |
+|     2      | proj_gravity                         |     (30, 3)     |
+|     3      | joint_pos                            |     (30, 29)    |
+|     4      | joint_vel                            |     (30, 29)    |
+|     5      | last_action                          |     (30, 29)    |
+|     6      | motion_anchor_ori_b                  |     (30, 6)     |
+|     7      | motion_anchor_pos_b                  |     (30, 3)     |
+|     8      | command                              |     (30, 67)    |
++------------+--------------------------------------+-----------------+
++----------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic_height' (shape: (1, 17, 11)) |
++---------------+-----------------+------------------------------+
+|     Index     | Name            |            Shape             |
++---------------+-----------------+------------------------------+
+|       0       | height          |         (1, 17, 11)          |
++---------------+-----------------+------------------------------+
+
+[INFO] Termination Manager:  <TerminationManager> contains 6 active terms.
++-------------------------------------------+
+|          Active Termination Terms         |
++-------+------------------------+----------+
+| Index | Name                   | Time Out |
++-------+------------------------+----------+
+|   0   | time_out               |   True   |
+|   1   | motion_ends            |   True   |
+|   2   | anchor_pos             |  False   |
+|   3   | anchor_ori             |  False   |
+|   4   | ee_body_pos            |  False   |
+|   5   | joint_vel_out_of_limit |  False   |
++-------+------------------------+----------+
+
+[INFO] Reward Manager:  <RewardManager> contains 11 active terms.
++-------------------------------------------+
+|            Active Reward Terms            |
++-------+--------------------------+--------+
+| Index | Name                     | Weight |
++-------+--------------------------+--------+
+|   0   | motion_global_anchor_pos |    1.0 |
+|   1   | motion_global_anchor_ori |    1.0 |
+|   2   | motion_body_pos          |    1.0 |
+|   3   | motion_body_ori          |    1.0 |
+|   4   | motion_body_lin_vel      |    1.0 |
+|   5   | motion_body_ang_vel      |    1.0 |
+|   6   | action_rate_l2           |  -0.03 |
+|   7   | joint_limit              | -100.0 |
+|   8   | undesired_contacts       |   -0.1 |
+|   9   | survival                 |    0.1 |
+|   10  | power_safety             |  -10.0 |
++-------+--------------------------+--------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 0 active terms.
++----------------------+
+| Active Curriculum Terms |
++-----------+----------+
+|   Index   | Name     |
++-----------+----------+
++-----------+----------+
+
+[INFO]: Completed setting up the environment...
+[INFO]: Loading model checkpoint from: /data/halo/halo-repo/tracker/logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_10-05-23_r14_ctrl_mix/model_399.pt
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  ['critic_state', 'critic_temporal', 'critic_height']
+	 critic :  ['critic_state', 'critic_temporal', 'critic_height']
+--------------------------------------------------------------------------------
+Actor Model: HaloCNNModel(
+  (obs_normalizer): Identity()
+  (distribution): GaussianDistribution()
+  (mlp): ResidualMLP(
+    (embed): Linear(in_features=2045, out_features=768, bias=True)
+    (blocks): ModuleList(
+      (0-2): 3 x Sequential(
+        (0): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (1): Linear(in_features=768, out_features=3072, bias=True)
+        (2): GELU(approximate='none')
+        (3): Linear(in_features=3072, out_features=768, bias=True)
+      )
+    )
+    (final_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (head): Linear(in_features=768, out_features=29, bias=True)
+    (unflatten): Identity()
+  )
+  (cnns): ModuleDict(
+    (critic_temporal): TemporalCNN(
+      (0): Conv2d(172, 64, kernel_size=(3, 1), stride=(2, 1))
+      (1): LayerNorm((64, 14, 1), eps=1e-05, elementwise_affine=True)
+      (2): ELU(alpha=1.0)
+      (3): Conv2d(64, 128, kernel_size=(3, 1), stride=(2, 1))
+      (4): LayerNorm((128, 6, 1), eps=1e-05, elementwise_affine=True)
+      (5): ELU(alpha=1.0)
+      (6): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+      (7): LayerNorm((128, 6, 1), eps=1e-05, elementwise_affine=True)
+      (8): ELU(alpha=1.0)
+      (9): Flatten(start_dim=1, end_dim=-1)
+    )
+    (critic_height): CNN(
+      (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2))
+      (1): LayerNorm((32, 8, 5), eps=1e-05, elementwise_affine=True)
+      (2): ELU(alpha=1.0)
+      (3): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 0))
+      (4): LayerNorm((64, 4, 2), eps=1e-05, elementwise_affine=True)
+      (5): ELU(alpha=1.0)
+      (6): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (7): LayerNorm((128, 2, 1), eps=1e-05, elementwise_affine=True)
+      (8): ELU(alpha=1.0)
+      (9): Flatten(start_dim=1, end_dim=-1)
+    )
+  )
+)
+Critic Model: HaloCNNModel(
+  (obs_normalizer): Identity()
+  (mlp): ResidualMLP(
+    (embed): Linear(in_features=2045, out_features=768, bias=True)
+    (blocks): ModuleList(
+      (0-2): 3 x Sequential(
+        (0): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (1): Linear(in_features=768, out_features=3072, bias=True)
+        (2): GELU(approximate='none')
+        (3): Linear(in_features=3072, out_features=768, bias=True)
+      )
+    )
+    (final_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (head): Linear(in_features=768, out_features=1, bias=True)
+    (unflatten): Identity()
+  )
+  (cnns): ModuleDict(
+    (critic_temporal): TemporalCNN(
+      (0): Conv2d(172, 64, kernel_size=(3, 1), stride=(2, 1))
+      (1): LayerNorm((64, 14, 1), eps=1e-05, elementwise_affine=True)
+      (2): ELU(alpha=1.0)
+      (3): Conv2d(64, 128, kernel_size=(3, 1), stride=(2, 1))
+      (4): LayerNorm((128, 6, 1), eps=1e-05, elementwise_affine=True)
+      (5): ELU(alpha=1.0)
+      (6): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+      (7): LayerNorm((128, 6, 1), eps=1e-05, elementwise_affine=True)
+      (8): ELU(alpha=1.0)
+      (9): Flatten(start_dim=1, end_dim=-1)
+    )
+    (critic_height): CNN(
+      (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2))
+      (1): LayerNorm((32, 8, 5), eps=1e-05, elementwise_affine=True)
+      (2): ELU(alpha=1.0)
+      (3): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 0))
+      (4): LayerNorm((64, 4, 2), eps=1e-05, elementwise_affine=True)
+      (5): ELU(alpha=1.0)
+      (6): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (7): LayerNorm((128, 2, 1), eps=1e-05, elementwise_affine=True)
+      (8): ELU(alpha=1.0)
+      (9): Flatten(start_dim=1, end_dim=-1)
+    )
+  )
+)
+[INFO] Exported policy (JIT + ONNX) to: /data/halo/halo-repo/tracker/logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_10-05-23_r14_ctrl_mix/exported
+[eval] settled: {'steps_run': 89, 'env_survival_steps': 89, 'frames_tracked': 88, 'last_ref_frame': 263, 'fired_terminations': ['anchor_pos'], 'is_time_out': False, 'last_valid_state': [0.4835, 1.7585, 0.4361], 'judge_window': {'anchor': [{'ref': 0.7792, 'act': 0.6016, 'diff': -0.1775, 'thr': 0.35, 'fired': False}, {'ref': 0.7795, 'act': 0.5936, 'diff': -0.1859, 'thr': 0.35, 'fired': False}, {'ref': 0.7794, 'act': 0.5844, 'diff': -0.195, 'thr': 0.35, 'fired': False}, {'ref': 0.7792, 'act': 0.5736, 'diff': -0.2056, 'thr': 0.35, 'fired': False}, {'ref': 0.7788, 'act': 0.5611, 'diff': -0.2177, 'thr': 0.35, 'fired': False}, {'ref': 0.7783, 'act': 0.5442, 'diff': -0.2341, 'thr': 0.35, 'fired': False}, {'ref': 0.7778, 'act': 0.5234, 'diff': -0.2544, 'thr': 0.35, 'fired': False}, {'ref': 0.7771, 'act': 0.5017, 'diff': -0.2754, 'thr': 0.35, 'fired': False}, {'ref': 0.7764, 'act': 0.4801, 'diff': -0.2963, 'thr': 0.35, 'fired': False}, {'ref': 0.7755, 'act': 0.4586, 'diff': -0.3169, 'thr': 0.35, 'fired': False}, {'ref': 0.7746, 'act': 0.4361, 'diff': -0.3384, 'thr': 0.35, 'fired': False}, {'ref': 0.7734, 'act': 0.4132, 'diff': -0.3602, 'thr': 0.35, 'fired': True}], 'ee': [{'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0357, 'act': 0.099, 'diff': 0.0633, 'over': False}, 'right_ankle_roll_link': {'ref': 0.031, 'act': 0.087, 'diff': 0.056, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.7049, 'act': 0.5979, 'diff': -0.1071, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6992, 'act': 0.5269, 'diff': -0.1723, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.036, 'act': 0.1041, 'diff': 0.0681, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0315, 'act': 0.0893, 'diff': 0.0577, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.7047, 'act': 0.5965, 'diff': -0.1081, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6986, 'act': 0.5421, 'diff': -0.1565, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0363, 'act': 0.1095, 'diff': 0.0731, 'over': False}, 'right_ankle_roll_link': {'ref': 0.032, 'act': 0.0907, 'diff': 0.0587, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.704, 'act': 0.5937, 'diff': -0.1103, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6975, 'act': 0.5617, 'diff': -0.1358, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0366, 'act': 0.1147, 'diff': 0.0781, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0323, 'act': 0.0934, 'diff': 0.061, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.7031, 'act': 0.5886, 'diff': -0.1145, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6961, 'act': 0.5843, 'diff': -0.1118, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0368, 'act': 0.1198, 'diff': 0.083, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0327, 'act': 0.1017, 'diff': 0.069, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.7019, 'act': 0.5803, 'diff': -0.1216, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6943, 'act': 0.6073, 'diff': -0.0871, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.037, 'act': 0.124, 'diff': 0.087, 'over': False}, 'right_ankle_roll_link': {'ref': 0.033, 'act': 0.1173, 'diff': 0.0843, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.7006, 'act': 0.5678, 'diff': -0.1328, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6924, 'act': 0.6274, 'diff': -0.065, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0372, 'act': 0.1271, 'diff': 0.0899, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0334, 'act': 0.1381, 'diff': 0.1047, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6991, 'act': 0.5515, 'diff': -0.1476, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6902, 'act': 0.6435, 'diff': -0.0467, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0374, 'act': 0.1305, 'diff': 0.0931, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0337, 'act': 0.1581, 'diff': 0.1244, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6973, 'act': 0.5315, 'diff': -0.1658, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6877, 'act': 0.6581, 'diff': -0.0296, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0376, 'act': 0.1342, 'diff': 0.0966, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0341, 'act': 0.178, 'diff': 0.1439, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6954, 'act': 0.5066, 'diff': -0.1888, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.685, 'act': 0.6701, 'diff': -0.0149, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0377, 'act': 0.1374, 'diff': 0.0997, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0344, 'act': 0.1984, 'diff': 0.164, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6933, 'act': 0.4762, 'diff': -0.2171, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.682, 'act': 0.6828, 'diff': 0.0008, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0378, 'act': 0.1405, 'diff': 0.1027, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0347, 'act': 0.22, 'diff': 0.1854, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6911, 'act': 0.4401, 'diff': -0.251, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6788, 'act': 0.6938, 'diff': 0.015, 'over': False}}}, {'thr': 0.4, 'fired': False, 'bodies': {'left_ankle_roll_link': {'ref': 0.0379, 'act': 0.1426, 'diff': 0.1046, 'over': False}, 'right_ankle_roll_link': {'ref': 0.0349, 'act': 0.2409, 'diff': 0.206, 'over': False}, 'left_wrist_yaw_link': {'ref': 0.6887, 'act': 0.3984, 'diff': -0.2903, 'over': False}, 'right_wrist_yaw_link': {'ref': 0.6755, 'act': 0.7023, 'diff': 0.0267, 'over': False}}}]}, 'episode_reward_terms': {'Episode_Reward/motion_global_anchor_pos': 0.0316, 'Episode_Reward/motion_global_anchor_ori': 0.0092, 'Episode_Reward/motion_body_pos': 0.0351, 'Episode_Reward/motion_body_ori': 0.0159, 'Episode_Reward/motion_body_lin_vel': 0.012, 'Episode_Reward/motion_body_ang_vel': 0.0021, 'Episode_Reward/action_rate_l2': -0.0022, 'Episode_Reward/joint_limit': 0.0, 'Episode_Reward/undesired_contacts': -0.0017, 'Episode_Reward/survival': 0.0045, 'Episode_Reward/power_safety': 0.0}, 'checkpoint': 'logs/rsl_rl/motion_tracking_scene_prerl/2026-11-23_10-05-23_r14_ctrl_mix/model_399.pt', 'rew_sum': 4.253, 'rew_mean': 0.0478, 'root_z_min': 0.4361, 'seat_load_bearing': 'unmeasured'}2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link head_link has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link imu_in_torso has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link left_rubber_hand has body properties (mass, inertia, or collisions) and is being merged into left_wrist_yaw_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link logo_link has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link mac_mini_backpack_link has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link mid360_link has body properties (mass, inertia, or collisions) and is being merged into torso_link
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:24Z [15,621ms] [Warning] [isaacsim.asset.importer.urdf] link right_rubber_hand has body properties (mass, inertia, or collisions) and is being merged into right_wrist_yaw_link
+2026-11-23T03:02:29Z [21,200ms] [Warning] [isaacsim.asset.importer.urdf] DEPRECATION WARNING: Merging bodies with inertia is deprecated. This will be removed in a future release.
+2026-11-23T03:02:29Z [21,200ms] [Warning] [isaacsim.asset.importer.urdf] link labsofa_link has body properties (mass, inertia, or collisions) and is being merged into world
+2026-11-23T03:02:32Z [24,067ms] [Warning] [omni.fabric.plugin] getAttributeCount called on non-existent path /World/envs/env_0/Robot/right_ankle_roll_link/collisions/right_ankle_roll_link_col8
+2026-11-23T03:02:32Z [24,067ms] [Warning] [omni.fabric.plugin] getTypes called on non-existent path /World/envs/env_0/Robot/right_ankle_roll_link/collisions/right_ankle_roll_link_col8
+2026-11-23T03:02:48Z [39,918ms] [Warning] [carb.windowing-glfw.plugin] GLFW initialization failed.
+2026-11-23T03:02:48Z [39,918ms] [Warning] [carb] Failed to startup plugin carb.windowing-glfw.plugin (interfaces: [carb::windowing::IGLContext v1.0],[carb::windowing::IWindowing v1.5]) (impl: carb.windowing-glfw.plugin)
+[41.581s] Simulation App Shutting Down

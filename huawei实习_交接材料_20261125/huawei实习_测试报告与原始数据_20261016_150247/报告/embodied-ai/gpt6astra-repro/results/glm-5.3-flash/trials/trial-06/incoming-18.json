@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": -0.0554, \"z\": 0.866, \"gripper\": 1}, \"note\": \"Third close also measured 0.016 (fully closed, block nudged out again). The views still show the block directly under the straddling fingers. I reopen and creep 6mm deeper so the pads contact the block below its mid-height - a wedging contact that tightens instead of ejecting - before the next close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

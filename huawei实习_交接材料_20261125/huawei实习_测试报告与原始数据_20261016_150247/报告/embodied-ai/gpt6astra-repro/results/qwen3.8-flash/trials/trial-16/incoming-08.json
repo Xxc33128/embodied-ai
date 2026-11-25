@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": 0.02, \"z\": 0.895, \"gripper\": 0.75}, \"note\": \"Block has not been knocked away (front view unchanged) but the two wrist-view parallax readings disagree, so I raise slightly and sweep y +40 mm: the fixed front view will show which way +y moves the hand, and the wrist view should show the block slide the opposite way.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

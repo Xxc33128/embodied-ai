@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.035, \"y\": 0.058, \"z\": 0.885, \"gripper\": 1}, \"note\": \"The close came up empty: measured gripper 0.016 and the side view shows the block a few cm ahead of the finger plane with my tips too high. Reopening and shifting forward over the block with a small rise for clearance before descending onto it again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

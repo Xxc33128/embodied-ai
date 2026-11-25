@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.9, \"y\": 0.002, \"gripper\": 1}, \"note\": \"Both closes shut on air: the arm stalls about 8 mm short of its z target, so the fingertips only reached the block top and the pads closed above it. I open the fingers while rising to z=0.90, nudging +y a few mm so the fingers clear the block before a deeper final descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

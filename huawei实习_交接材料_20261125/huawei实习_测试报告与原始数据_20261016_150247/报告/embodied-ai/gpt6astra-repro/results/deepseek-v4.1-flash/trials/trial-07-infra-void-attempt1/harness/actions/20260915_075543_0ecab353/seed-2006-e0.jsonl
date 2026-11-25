@@ -1,0 +1,1 @@
+{"kind": "header", "run_id": "20260915_075543_0ecab353", "scene_id": "seed-2006", "epoch": 0, "action_dim": 5, "labels": ["x", "y", "z", "yaw", "gripper"]}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.09, \"y\": 0.05, \"z\": 0.8}, \"note\": \"Block is undisturbed (side-view bbox unchanged) and still centred between the pads in the wrist view. Fingertips are at about x=-0.028, z=0.877, so I need ~2.5 cm more descent and ~2 cm more -x. Descending toward the block now.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

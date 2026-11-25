@@ -1,0 +1,5 @@
+condition,survival_cycles,survival_time_s,fall_reason,reset_observed,unit
+isaac_d00_10s,500,10.00,null,false,cycle/s
+isaac_d20_10s_r2,500,10.00,null,false,cycle/s
+mj_elbow_d00_10s,500,10.00,null,false,cycle/s
+mj_elbow_d20_10s,500,10.00,null,false,cycle/s

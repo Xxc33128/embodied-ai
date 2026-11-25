@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.065, \"y\": 0.055, \"z\": 0.9}, \"note\": \"My re-close command only ran 2 steps because the empty gripper had already reached its target. Reopening and flying to a hover above the bowl-relative block estimate (+0.065,+0.055); the opening servo keeps this call long enough for the arm to converge fully.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

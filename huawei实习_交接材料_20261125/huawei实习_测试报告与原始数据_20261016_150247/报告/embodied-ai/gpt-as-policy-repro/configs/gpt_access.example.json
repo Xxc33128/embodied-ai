@@ -1,0 +1,17 @@
+{
+  "_comment": "GPT 接入配置模板（联调时复制为 gpt_access.json 并填值；凭据只经环境变量，绝不写进本文件或提交版本库）",
+  "route_A_app_server": {
+    "app_server_cmd": "codex app-server --stdio --strict-config",
+    "model": "REQUIRED: 模型名",
+    "provider": "REQUIRED: provider 名",
+    "effort": "xhigh",
+    "workspace": "/tmp/gap_repro_appserver"
+  },
+  "route_B_api_gateway": {
+    "endpoint": "https://REQUIRED.example/v1/turn",
+    "api_key_env": "GPT_API_KEY",
+    "model": "REQUIRED: 模型名",
+    "effort": "xhigh",
+    "rate_limit_s": 1.0
+  }
+}

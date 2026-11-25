@@ -1,0 +1,60 @@
+{
+  "scope": "8 accepted episodes; subtract only measured primitive-window render; not real-robot prediction",
+  "episode_work_s": 10965.3,
+  "render_s": 4391.179045038998,
+  "non_render_work_s": 6574.120954961001,
+  "action_non_render_s": 1164.8509549610017,
+  "tool_other_s": 1047.4340000000002,
+  "sdk_non_tool_s": 4187.536,
+  "outside_sdk_s": 174.2999999999995,
+  "recovery_segments": [
+    {
+      "task": 0,
+      "steps": [
+        18,
+        34
+      ],
+      "gross_s": 562.9423447830001,
+      "render_s": 447.5428892069999,
+      "non_render_s": 115.39945557600015,
+      "fraction_of_episode_non_render": 0.0803944700105885,
+      "model": "gpt-6-sol",
+      "seed": 1,
+      "attempt": "attempt-001",
+      "source": "report-data.json: episode timeline_v2.local.actions; 1-based trajectory steps; render intervals summed within each action"
+    },
+    {
+      "task": 9,
+      "steps": [
+        14,
+        18
+      ],
+      "gross_s": 156.21552024599998,
+      "render_s": 119.607198404,
+      "non_render_s": 36.60832184199998,
+      "fraction_of_episode_non_render": 0.052289827564788435,
+      "model": "gpt-6-sol",
+      "seed": 1,
+      "attempt": "attempt-002",
+      "source": "report-data.json: episode timeline_v2.local.actions; 1-based trajectory steps; render intervals summed within each action"
+    }
+  ],
+  "sensitivity": [
+    {
+      "sdk_reduction_fraction": 0.1,
+      "saved_s": 418.7536,
+      "fraction_of_non_render": 0.06369727646766185
+    },
+    {
+      "sdk_reduction_fraction": 0.2,
+      "saved_s": 837.5072,
+      "fraction_of_non_render": 0.1273945529353237
+    },
+    {
+      "sdk_reduction_fraction": 0.3,
+      "saved_s": 1256.2608,
+      "fraction_of_non_render": 0.19109182940298555
+    }
+  ],
+  "logical_rounds": 448
+}

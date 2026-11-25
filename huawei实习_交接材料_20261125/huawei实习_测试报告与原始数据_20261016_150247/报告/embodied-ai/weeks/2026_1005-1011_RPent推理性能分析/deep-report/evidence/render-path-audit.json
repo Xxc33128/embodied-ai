@@ -1,0 +1,285 @@
+{
+  "observed_at_utc": "2026-10-08T15:04:40.675231+00:00",
+  "live_processes": [],
+  "source_evidence": [
+    {
+      "level": "E1",
+      "source": "libero/libero/envs/env_wrapper.py",
+      "sha256": "41fe00ccef0c48eeabb8aba3d022f5e099b2e7259cfed58365535ea38c2721eb",
+      "excerpts": [
+        {
+          "start_line": 19,
+          "end_line": 39,
+          "text": "        initialization_noise=None,\n        use_camera_obs=True,\n        has_renderer=False,\n        has_offscreen_renderer=True,\n        render_camera=\"frontview\",\n        render_collision_mesh=False,\n        render_visual_mesh=True,\n        render_gpu_device_id=-1,\n        control_freq=20,\n        horizon=1000,\n        ignore_done=False,\n        hard_reset=True,\n        camera_names=[\n            \"agentview\",\n            \"robot0_eye_in_hand\",\n        ],\n        camera_heights=128,\n        camera_widths=128,\n        camera_depths=False,\n        camera_segmentations=None,\n        renderer=\"mujoco\","
+        },
+        {
+          "start_line": 79,
+          "end_line": 90,
+          "text": "            control_freq=control_freq,\n            horizon=horizon,\n            ignore_done=ignore_done,\n            hard_reset=hard_reset,\n            camera_names=camera_names,\n            camera_heights=camera_heights,\n            camera_widths=camera_widths,\n            camera_depths=camera_depths,\n            camera_segmentations=camera_segmentations,\n            renderer=renderer,\n            renderer_config=renderer_config,\n            **kwargs,"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "robosuite/environments/robot_env.py",
+      "sha256": "75640d1b801fa2ed277fc0d7ee41ea97d617b5a1d6b589d1059a05dc2cff51fa",
+      "excerpts": [
+        {
+          "start_line": 373,
+          "end_line": 434,
+          "text": "                    sampling_rate=self.control_freq,\n                )\n\n        return observables\n\n    def _create_camera_sensors(self, cam_name, cam_w, cam_h, cam_d, cam_segs, modality=\"image\"):\n        \"\"\"\n        Helper function to create sensors for a given camera. This is abstracted in a separate function call so that we\n        don't have local function naming collisions during the _setup_observables() call.\n        Args:\n            cam_name (str): Name of camera to create sensors for\n            cam_w (int): Width of camera\n            cam_h (int): Height of camera\n            cam_d (bool): Whether to create a depth sensor as well\n            cam_segs (None or list): Type of segmentation(s) to use, where each entry can be the following:\n                `None`: no segmentation sensor used\n                `'instance'`: segmentation at the class-instance level\n                `'class'`: segmentation at the class level\n                `'element'`: segmentation at the per-geom level\n\n            modality (str): Modality to assign to all sensors\n        Returns:\n            2-tuple:\n                sensors (list): Array of sensors for the given camera\n                names (list): array of corresponding observable names\n        \"\"\"\n        # Make sure we get correct convention\n        convention = IMAGE_CONVENTION_MAPPING[macros.IMAGE_CONVENTION]\n\n        # Create sensor information\n        sensors = []\n        names = []\n\n        # Add camera observables to the dict\n        rgb_sensor_name = f\"{cam_name}_image\"\n        depth_sensor_name = f\"{cam_name}_depth\"\n        segmentation_sensor_name = f\"{cam_name}_segmentation\"\n\n        @sensor(modality=modality)\n        def camera_rgb(obs_cache):\n            img = self.sim.render(\n                camera_name=cam_name,\n                width=cam_w,\n                height=cam_h,\n                depth=cam_d,\n            )\n            if cam_d:\n                rgb, depth = img\n                obs_cache[depth_sensor_name] = np.expand_dims(depth[::convention], axis=-1)\n                return rgb[::convention]\n            else:\n                return img[::convention]\n\n        sensors.append(camera_rgb)\n        names.append(rgb_sensor_name)\n\n        if cam_d:\n\n            @sensor(modality=modality)\n            def camera_depth(obs_cache):\n                return obs_cache[depth_sensor_name] if depth_sensor_name in obs_cache else np.zeros((cam_h, cam_w, 1))\n"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "robosuite/environments/base.py",
+      "sha256": "ba6e6bc0252be8ae17972df48b26f8425a12af55339979a1ea1757b1f54c3345",
+      "excerpts": [
+        {
+          "start_line": 378,
+          "end_line": 387,
+          "text": "    def _update_observables(self, force=False):\n        \"\"\"\n        Updates all observables in this environment\n        Args:\n            force (bool): If True, will force all the observables to update their internal values to the newest\n                value. This is useful if, e.g., you want to grab observations when directly setting simulation states\n                without actually stepping the simulation.\n        \"\"\"\n        for observable in self._observables.values():\n            observable.update(timestep=self.model_timestep, obs_cache=self._obs_cache, force=force)"
+        },
+        {
+          "start_line": 451,
+          "end_line": 481,
+          "text": "\n        # Loop through the simulation at the model timestep rate until we're ready to take the next policy step\n        # (as defined by the control frequency specified at the environment level)\n        for i in range(int(self.control_timestep / self.model_timestep)):\n            if self.lite_physics:\n                self.sim.step1()\n            else:\n                self.sim.forward()\n            self._pre_action(action, policy_step)\n            if self.lite_physics:\n                self.sim.step2()\n            else:\n                self.sim.step()\n            self._update_observables()\n            policy_step = False\n\n        # Note: this is done all at once to avoid floating point inaccuracies\n        self.cur_time += self.control_timestep\n\n        reward, done, info = self._post_action(action)\n\n        if self.viewer is not None and self.renderer != \"mujoco\":\n            self.viewer.update()\n        elif self.has_renderer and self.renderer == \"mjviewer\" and self.viewer is None:\n            # need to launch again after it was destroyed\n            self.initialize_renderer()\n            # so that mujoco viewer renders\n            self.viewer.update()\n\n        observations = self.viewer._get_observations() if self.viewer_get_obs else self._get_observations()\n        return observations, reward, done, info"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "robosuite/utils/binding_utils.py",
+      "sha256": "c8463cddb558f22247b1c8f202443ddeabe1469e5433b5b9d0eb7b938f32f480",
+      "excerpts": [
+        {
+          "start_line": 129,
+          "end_line": 158,
+          "text": "    def render(self, width, height, camera_id=None, segmentation=False):\n        viewport = mujoco.MjrRect(0, 0, width, height)\n\n        # if self.sim.render_callback is not None:\n        #     self.sim.render_callback(self.sim, self)\n\n        # update width and height of rendering context if necessary\n        if width > self.con.offWidth or height > self.con.offHeight:\n            new_width = max(width, self.model.vis.global_.offwidth)\n            new_height = max(height, self.model.vis.global_.offheight)\n            self.update_offscreen_size(new_width, new_height)\n\n        if camera_id is not None:\n            if camera_id == -1:\n                self.cam.type = mujoco.mjtCamera.mjCAMERA_FREE\n            else:\n                self.cam.type = mujoco.mjtCamera.mjCAMERA_FIXED\n            self.cam.fixedcamid = camera_id\n\n        mujoco.mjv_updateScene(\n            self.model._model, self.data._data, self.vopt, self.pert, self.cam, mujoco.mjtCatBit.mjCAT_ALL, self.scn\n        )\n\n        if segmentation:\n            self.scn.flags[mujoco.mjtRndFlag.mjRND_SEGMENT] = 1\n            self.scn.flags[mujoco.mjtRndFlag.mjRND_IDCOLOR] = 1\n\n        # for marker_params in self._markers:\n        #     self._add_marker_to_scene(marker_params)\n"
+        },
+        {
+          "start_line": 167,
+          "end_line": 174,
+          "text": "    def read_pixels(self, width, height, depth=False, segmentation=False):\n        viewport = mujoco.MjrRect(0, 0, width, height)\n        rgb_img = np.empty((height, width, 3), dtype=np.uint8)\n        depth_img = np.empty((height, width), dtype=np.float32) if depth else None\n\n        mujoco.mjr_readPixels(rgb=rgb_img, depth=depth_img, viewport=viewport, con=self.con)\n\n        ret_img = rgb_img"
+        },
+        {
+          "start_line": 1125,
+          "end_line": 1143,
+          "text": "        - device (int): device to use for rendering (only for GPU-backed\n            rendering).\n        Returns:\n        - rgb (uint8 array): image buffer from camera\n        - depth (float array): depth buffer from camera (only returned\n            if depth=True)\n        \"\"\"\n        if camera_name is None:\n            camera_id = None\n        else:\n            camera_id = self.model.camera_name2id(camera_name)\n\n        assert mode == \"offscreen\", \"only offscreen supported for now\"\n        assert self._render_context_offscreen is not None\n        with _MjSim_render_lock:\n            self._render_context_offscreen.render(\n                width=width, height=height, camera_id=camera_id, segmentation=segmentation\n            )\n            return self._render_context_offscreen.read_pixels(width, height, depth=depth, segmentation=segmentation)"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "robots/libero/env_server.py",
+      "sha256": "c8c46cb6e77a9052b5ee93c19d00082b54e53c8da171dc2ffe2e96a08c25c6bc",
+      "excerpts": [
+        {
+          "start_line": 29,
+          "end_line": 34,
+          "text": "\n# MuJoCo env vars must be set BEFORE importing anything that touches MuJoCo.\nos.environ.setdefault(\"MUJOCO_GL\", \"egl\")\nos.environ.setdefault(\"PYOPENGL_PLATFORM\", \"egl\")\nassert \"mujoco\" not in sys.modules, (\n    \"mujoco must not be imported before MUJOCO_GL/PYOPENGL_PLATFORM are set\""
+        },
+        {
+          "start_line": 78,
+          "end_line": 94,
+          "text": "            \"use_ordered_reset_state_ids\": True,\n            \"specific_reset_id\": specific_reset_id,\n            \"video_cfg\": {\n                \"save_video\": True,\n                \"info_on_video\": True,\n                \"video_base_dir\": \"/tmp/primitive_videos\",\n            },\n            \"init_params\": {\n                \"camera_heights\": 256,\n                \"camera_widths\": 256,\n                # Render depth too, so we can back-project pixels to world\n                # from depth + camera calibration\n                \"camera_depths\": True,\n                \"horizon\": max_episode_steps,\n                **(\n                    {\"robots\": [os.environ[\"LIBERO_ROBOT_BASE\"]]}\n                    if os.environ.get(\"LIBERO_ROBOT_BASE\")"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "rlinf/envs/libero/libero_env.py",
+      "sha256": "ecc3343cdd6336704af3596028939147cc1269fe38a9c55ae5e3b5b2efd7d8d2",
+      "excerpts": [
+        {
+          "start_line": 562,
+          "end_line": 599,
+          "text": "    def _extract_image_and_state(self, obs):\n        return {\n            \"full_image\": get_libero_image(obs),\n            \"wrist_image\": get_libero_wrist_image(obs),\n            \"state\": np.concatenate(\n                [\n                    obs[\"robot0_eef_pos\"],\n                    quat2axisangle(obs[\"robot0_eef_quat\"]),\n                    obs[\"robot0_gripper_qpos\"],\n                ]\n            ),\n        }\n\n    def _wrap_obs(self, obs_list):\n        images_and_states_list = []\n        for obs in obs_list:\n            images_and_states = self._extract_image_and_state(obs)\n            images_and_states_list.append(images_and_states)\n\n        images_and_states = to_tensor(\n            list_of_dict_to_dict_of_list(images_and_states_list)\n        )\n\n        full_image_tensor = torch.stack(\n            [value.clone() for value in images_and_states[\"full_image\"]]\n        )\n        wrist_image_tensor = torch.stack(\n            [value.clone() for value in images_and_states[\"wrist_image\"]]\n        )\n\n        states = images_and_states[\"state\"]\n\n        obs = {\n            \"main_images\": full_image_tensor,\n            \"wrist_images\": wrist_image_tensor,\n            \"states\": states,\n            \"task_descriptions\": self.task_descriptions,\n        }"
+        }
+      ]
+    },
+    {
+      "level": "E1",
+      "source": "robots/libero/tools.py",
+      "sha256": "80341921c9a12a8e03c2ca213c46ab7b3de3551fe111b60a9a328760b3681336",
+      "excerpts": [
+        {
+          "start_line": 132,
+          "end_line": 140,
+          "text": "    def _step_env(self, action) -> None:\n        \"\"\"Execute one env action between cancellation checkpoints.\"\"\"\n        self._check_cancelled()\n        obs, reward, terminated, truncated, _info = self.env.step(action)\n        if self._flywheel is not None:\n            self._flywheel.add_transition(action, obs, reward, terminated, truncated)\n        self.set_obs(obs)\n        if self._recording:\n            self.record_frame(obs)"
+        },
+        {
+          "start_line": 153,
+          "end_line": 190,
+          "text": "        self._check_cancelled()\n        original_task = self._last_obs.get(\"task_descriptions\")\n        try:\n            self._last_obs[\"task_descriptions\"] = instruction\n            self._last_obs.setdefault(\"extra_view_images\", None)\n\n            actions = self.model.predict(self._last_obs, options={\"mode\": \"eval\"})\n            self._check_cancelled()\n\n            vla_id = (\n                self._flywheel.add_proposal(instruction, actions)\n                if self._flywheel is not None\n                else -1\n            )\n\n            if not self._recording and self._flywheel is None:\n                chunk_obs, _r, _t, _tr, _i = self.env.chunk_step(actions)\n                obs = chunk_obs[-1] if self.env.return_all_frames else chunk_obs\n            else:\n                chunk_obs, rewards, terminated, truncated, _info = self.env.chunk_step(\n                    actions, return_all_frames=True\n                )\n                for index, obs in enumerate(chunk_obs):\n                    if self._recording:\n                        self.record_frame(obs)\n                    if self._flywheel is not None:\n                        self._flywheel.add_transition(\n                            actions[index],\n                            obs,\n                            rewards[index],\n                            terminated[index],\n                            truncated[index],\n                            vla_id=vla_id,\n                            proposal_index=index,\n                        )\n                obs = chunk_obs[-1]\n            self.set_obs(obs)\n            return self._last_obs"
+        },
+        {
+          "start_line": 1122,
+          "end_line": 1177,
+          "text": "\n    try:\n        rgb_hi, depth_hi = primitives.env.render_camera(\n            camera_name=\"agentview\",\n            height=1024,\n            width=1024,\n            depth=True,\n        )\n        meta_hi = primitives.env.get_camera_meta(\"agentview\", 1024, 1024)\n        if meta_hi is None:\n            raise RuntimeError(\"agentview camera metadata missing\")\n        env_state.save(\n            \"agentview_high.png\",\n            np.asarray(rgb_hi)[::-1],\n            step=step_idx,\n        )\n        world_hi = _world_from_depth(\n            _metric_depth(depth_hi, meta_hi)[::-1],\n            meta_hi,\n        ).astype(np.float16)\n        env_state.save(\n            \"agentview_world_high.npz\",\n            world_hi,\n            step=step_idx,\n        )\n    except Exception as e:\n        logger.warning(\"agentview high-res dump failed: %s\", e)\n\n    try:\n        rgb_wrist_hi, depth_wrist_hi = primitives.env.render_camera(\n            camera_name=\"robot0_eye_in_hand\",\n            height=1024,\n            width=1024,\n            depth=True,\n        )\n        meta_wrist_hi = primitives.env.get_camera_meta(\"robot0_eye_in_hand\", 1024, 1024)\n        if meta_wrist_hi is None:\n            raise RuntimeError(\"robot0_eye_in_hand camera metadata missing\")\n        env_state.save(\n            \"wrist_high.png\",\n            np.asarray(rgb_wrist_hi)[::-1],\n            step=step_idx,\n        )\n        world_wrist_hi = _world_from_depth(\n            _metric_depth(depth_wrist_hi, meta_wrist_hi)[::-1],\n            meta_wrist_hi,\n        ).astype(np.float16)\n        env_state.save(\n            \"wrist_world_high.npz\",\n            world_wrist_hi,\n            step=step_idx,\n        )\n    except Exception as e:\n        logger.warning(\"wrist high-res dump failed: %s\", e)\n\n"
+        }
+      ]
+    }
+  ],
+  "primitive_window_measurements": [
+    {
+      "level": "E2",
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "scope": "same-kernel service spans fully contained in unique primitive interval; excludes reset/init/post-primitive artifact renders",
+      "stages": {
+        "sim.env.step": {
+          "count": 815,
+          "inclusive_s": 427.608904258
+        },
+        "sim.render": {
+          "count": 1630,
+          "inclusive_s": 391.248745561
+        },
+        "render.render": {
+          "count": 1630,
+          "inclusive_s": 314.990007255
+        },
+        "render.read_pixels": {
+          "count": 1630,
+          "inclusive_s": 75.216879089
+        },
+        "sim.step1": {
+          "count": 20375,
+          "inclusive_s": 5.85810296
+        },
+        "sim.step2": {
+          "count": 20375,
+          "inclusive_s": 4.85283932
+        },
+        "pi.handler": {
+          "count": 15,
+          "inclusive_s": 12.799838216
+        }
+      },
+      "renders_per_control_step": 2.0,
+      "physics_substeps_per_control_step": 25.0,
+      "sim_render_fraction_of_sim_env_step_inclusive": 0.9149686586623045,
+      "source": "t0-first-pair-trajectory.json"
+    },
+    {
+      "level": "E2",
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "scope": "same-kernel service spans fully contained in unique primitive interval; excludes reset/init/post-primitive artifact renders",
+      "stages": {
+        "sim.env.step": {
+          "count": 813,
+          "inclusive_s": 443.719298225
+        },
+        "sim.render": {
+          "count": 1626,
+          "inclusive_s": 405.371639307
+        },
+        "render.render": {
+          "count": 1626,
+          "inclusive_s": 325.144608413
+        },
+        "render.read_pixels": {
+          "count": 1626,
+          "inclusive_s": 79.333920407
+        },
+        "sim.step1": {
+          "count": 20325,
+          "inclusive_s": 6.865740896
+        },
+        "sim.step2": {
+          "count": 20325,
+          "inclusive_s": 5.576195236
+        },
+        "pi.handler": {
+          "count": 28,
+          "inclusive_s": 18.638524432
+        }
+      },
+      "renders_per_control_step": 2.0,
+      "physics_substeps_per_control_step": 25.0,
+      "sim_render_fraction_of_sim_env_step_inclusive": 0.9135767610933281,
+      "source": "t0-first-pair-trajectory.json"
+    }
+  ],
+  "conclusions": [
+    {
+      "level": "E2",
+      "claim": "本次审查较早的存活env_server及渲染worker白名单快照为MUJOCO_GL=osmesa/PYOPENGL_PLATFORM=osmesa，映射libOSMesa.so.8.0.0；稍后的带UTC快照已无匹配渲染进程。未查询GL_RENDERER，不能证明具体CPU驱动名/llvmpipe，也不把配置等同GL_RENDERER。"
+    },
+    {
+      "level": "E1",
+      "claim": "env_server源码setdefault egl是缺省值，进程继承osmesa时不会覆盖；运行值优先。"
+    },
+    {
+      "level": "E1+E2",
+      "claim": "每control step两路agentview/robot0_eye_in_hand，256×256 RGB+depth；源码camera_rgb一次sim.render(depth=True)并缓存depth，camera_depth复用缓存，不是RGB和depth各独立渲染一次。首对原语窗内815/813控制步对应1630/1626次render（恰好2倍），25次physics子步/控制步。"
+    },
+    {
+      "level": "E1",
+      "claim": "π输入只使用main/wrist RGB和state，未传depth；depth被后续空间回投/观察artifact使用，不能称整系统完全无用。"
+    },
+    {
+      "level": "E1+E3",
+      "claim": "π每chunk预测一次，chunk中间观测用于录制、状态推进等，不会每control step重新调用π。手工原语同样生成两路观测但没有π推理，因此存在非π直接消费的图像成本；不能未经依赖审计直接删除。"
+    },
+    {
+      "level": "E1",
+      "claim": "每原语后的_save_observation_artifacts额外渲染agentview和wrist两路1024×1024 RGB+depth，供高分辨观察/回投，不是π256输入。该成本在tool_other，未纳入本文件原语窗stage统计。"
+    }
+  ],
+  "optimization_hypotheses": [
+    {
+      "level": "E3",
+      "proposal": "独立A/B比较硬件EGL与当前OSMesa，先确认设备/驱动和像素、任务等价性；当前未测收益。"
+    },
+    {
+      "level": "E3",
+      "proposal": "区分控制必需状态、πchunk边界RGB、录像采样与高分辨观察请求，研究按需渲染/降低非消费帧频率；保持物理步频不变，需验证原语终止与录像协议。"
+    },
+    {
+      "level": "E3",
+      "proposal": "按实际回投需求延迟depth/1024图生成；先确认agent观察语义和协议允许，当前批次不改配置。"
+    }
+  ],
+  "limits": [
+    "无新仿真/模型启动，无设置修改。",
+    "存活进程白名单快照是当前时点证据，不是每集GL_RENDERER历史采样。",
+    "渲染span没有逐次camera/尺寸参数，具体相机/分辨率由冻结源码与2倍计数交叉支持。",
+    "sim.render包含render.render/read_pixels，三者不可相加；比例分母是原语窗内sim.env.step而非总episode。"
+  ],
+  "prior_live_snapshot_in_this_audit": {
+    "level": "E2",
+    "timestamp_utc": null,
+    "timestamp_note": "Earlier read-only process inspection in this same audit; exact timestamp not captured. Later snapshot contains zero matching active render processes.",
+    "selection": "new batch RPENT_TIMING_DIR plus env_server/spawn_main, filtering mapped OSMesa or selected GL settings",
+    "processes": [
+      {
+        "role": "env_server",
+        "environment": {
+          "MUJOCO_GL": "osmesa",
+          "PYOPENGL_PLATFORM": "osmesa"
+        },
+        "mapped_backend_libraries": [
+          "libGLX.so.0.0.0",
+          "libOSMesa.so.8.0.0"
+        ]
+      },
+      {
+        "role": "simulation_worker",
+        "environment": {
+          "MUJOCO_GL": "osmesa",
+          "PYOPENGL_PLATFORM": "osmesa"
+        },
+        "mapped_backend_libraries": [
+          "libGLX.so.0.0.0",
+          "libOSMesa.so.8.0.0"
+        ]
+      }
+    ]
+  }
+}

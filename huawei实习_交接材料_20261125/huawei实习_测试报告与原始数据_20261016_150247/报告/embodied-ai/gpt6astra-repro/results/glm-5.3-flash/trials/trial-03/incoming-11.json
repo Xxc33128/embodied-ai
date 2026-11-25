@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.075, \"y\": 0.002, \"z\": 0.845, \"gripper\": 1}, \"note\": \"The dive converged exactly onto the block spot but the fingers closed early (reading 0.11) and may be wedged beside the block instead of around it. Fully reopening the gripper at this pose and rising a few millimeters so I can see the block clearly between the open pads before re-closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

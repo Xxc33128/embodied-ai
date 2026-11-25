@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.05, \"y\": 0.1, \"z\": 1.08}, \"note\": \"In the wrist view the red block sits left-and-below center and the bowl above it; the gripper drifted open (0.75), good for approach. I keep a high hover and add a +y leg to the same vantage; the blocks pixel shift between wrist frames will tell me which image side corresponds to +y so I can steer over the block precisely.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

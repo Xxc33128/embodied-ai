@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.13, \"y\": -0.1, \"z\": 0.88}, \"note\": \"Two mirror readings of the block survive: (-0.07,-0.01) or (+0.04,+0.08). A move toward -x/-y is the test and also the correction for the first: if the block slides left toward my finger gap I continue that way, if it runs further right out of frame I reverse. Commanding a long way past so the truncated motion still lands near the block, and dropping to 0.88.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

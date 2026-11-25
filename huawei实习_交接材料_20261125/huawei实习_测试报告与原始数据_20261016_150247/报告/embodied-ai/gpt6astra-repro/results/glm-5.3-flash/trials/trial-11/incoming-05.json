@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.015, \"y\": -0.014, \"z\": 0.87, \"gripper\": 0.65}, \"note\": \"Cartesian-only moves only track ~5mm per granted step, so I bundle the descent with an intermediate gripper target of 0.65, which per the docs retains the previous open command while extending the interpolation window, letting the arm track the full 14cm descent to grasp height above the block at x=-0.015, y=-0.014.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

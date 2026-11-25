@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.082, \"y\": 0.052, \"z\": 0.843, \"gripper\": 1}, \"note\": \"Second close also missed and nudged the block another 2cm forward, so it now sits about 2cm ahead of the jaw axis; with the jaws open I slide forward so the block threads between the fingers, keeping y near its alignment.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

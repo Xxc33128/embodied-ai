@@ -1,0 +1,25 @@
+{
+ "schema": "gap_repro.validation.v1",
+ "created": "2026-09-18",
+ "scope": "LP-A0 runtime numeric equivalence for converted pi05_libero weights",
+ "preregistration_note": "阈值在本文件写入时冻结（正式多 draw 运行之前）。先前的单样本结果（max_abs=3.565e-3，2026-09-17）为开发诊断证据，未参与阈值制定，也不得用于事后宣称合规。",
+ "fixtures": {
+  "draws": 8,
+  "inputs": "2 个合成观测（seed0/1）+ 6 个真实帧（LIBERO Goal smoke env 连续 reset 首帧）",
+  "noise": "JAX 侧按 W7 规则生成（openpi sample_noise 语义），每 draw 独立 key；同一数组注入 jax_cpu / torch_cpu / torch_npu 三腿",
+  "legs": ["jax_cpu", "torch_cpu", "torch_npu"],
+  "checkpoint": "pi05_libero_pt（见 libero_pro.lock.json lp2_conversion 节）"
+ },
+ "thresholds": {
+  "justification": "bf16 cast 相对精度 ~3.9e-3（2^-8）；10 步 Euler 累积 ~sqrt(10) 倍；O(1) 幅值下绝对差带 0.03 覆盖 dtype 噪声上界并留 ~4x 余量。结构性失败（如分开播种实测的 max_abs≈2.0）远超此带。",
+  "per_draw_max_abs": 0.03,
+  "per_draw_mean_abs": 0.005,
+  "structural": "每 draw 输出与 torch_cpu 参考的逐维符号一致率 >= 0.9，成对余弦 >= 0.99"
+ },
+ "comparisons": [
+  "torch_cpu vs torch_npu（主对象：设备替换）",
+  "jax_cpu vs torch_cpu（主对象：实现替换，逐张量中间量 + 未解码动作 + 解码动作）"
+ ],
+ "fail_policy": "任一 draw 超限 → 冻结记录并归因（kernel/shape/精度），不得放宽阈值；同位重复失败升级为转换或注入缺陷调查",
+ "evidence_required": ["每 draw 的 noise/observation sha256、checkpoint ID、三腿输出数组、逐对差值统计", "JAX 与 Torch 的中间量（未解码动作）对比记录"]
+}

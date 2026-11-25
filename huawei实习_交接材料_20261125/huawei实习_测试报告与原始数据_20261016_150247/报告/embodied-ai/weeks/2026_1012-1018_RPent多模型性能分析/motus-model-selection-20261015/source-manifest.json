@@ -1,0 +1,223 @@
+{
+  "as_of": "2026-10-15",
+  "timezone": "Asia/Singapore",
+  "scope": "Public model/repository metadata only; no model tensors or private runtime data downloaded.",
+  "note": "last_modified and commit dates are update dates, not release dates. The catalog absence claim applies only to the recorded official catalog and retrieval date.",
+  "motus": {
+    "repository": "https://github.com/thu-ml/Motus",
+    "commit": "f771216802b8a1601599422f12088bee3c068c14"
+  },
+  "diffsynth": {
+    "repository": "https://github.com/modelscope/DiffSynth-Studio",
+    "commit": "208d3abad800f09bd0acd18a134013e2ebd22c17"
+  },
+  "public_metadata": {
+    "wan_catalog": {
+      "url": "https://huggingface.co/api/models?author=Wan-AI&limit=100",
+      "model_ids": [
+        "Wan-AI/Wan2.2-TI2V-5B",
+        "Wan-AI/Wan2.2-Animate-14B",
+        "Wan-AI/Wan2.2-Animate-2-14B",
+        "Wan-AI/Wan2.2-I2V-A14B",
+        "Wan-AI/Wan2.1-T2V-14B",
+        "Wan-AI/Wan2.1-T2V-1.3B",
+        "Wan-AI/Wan2.2-T2V-A14B",
+        "Wan-AI/Wan2.1-VACE-1.3B",
+        "Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+        "Wan-AI/Wan2.2-S2V-14B",
+        "Wan-AI/Wan2.1-I2V-14B-480P",
+        "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+        "Wan-AI/Wan2.1-VACE-14B",
+        "Wan-AI/Wan-Dancer-14B",
+        "Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+        "Wan-AI/Wan2.2-Animate-2-14B-Diffusers",
+        "Wan-AI/Wan2.1-I2V-14B-720P",
+        "Wan-AI/Wan2.1-T2V-14B-Diffusers",
+        "Wan-AI/Wan2.1-I2V-14B-720P-Diffusers",
+        "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers",
+        "Wan-AI/Wan2.1-FLF2V-14B-720P",
+        "Wan-AI/Wan2.1-FLF2V-14B-720P-diffusers",
+        "Wan-AI/Wan2.1-VACE-14B-diffusers",
+        "Wan-AI/Wan2.1-VACE-1.3B-diffusers",
+        "Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+        "Wan-AI/Wan2.2-Animate-14B-Diffusers",
+        "Wan-AI/Wan2.2-Animate-2-14B-Distilled-Diffusers"
+      ],
+      "count": 27
+    },
+    "wan5b": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan2.2-TI2V-5B",
+      "model_id": "Wan-AI/Wan2.2-TI2V-5B",
+      "revision": "921dbaf3f1674a56f47e83fb80a34bac8a8f203e",
+      "last_modified": "2025-08-07T10:22:24.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "wan14b": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan2.2-I2V-A14B",
+      "model_id": "Wan-AI/Wan2.2-I2V-A14B",
+      "revision": "206a9ee1b7bfaaf8f7e4d81335650533490646a3",
+      "last_modified": "2025-08-07T09:42:48.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "animate2": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan2.2-Animate-2-14B",
+      "model_id": "Wan-AI/Wan2.2-Animate-2-14B",
+      "revision": "6e8f1973bf0abc2aafd517992e8b6d88c3c46e69",
+      "last_modified": "2026-08-09T04:09:19.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "dancer": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan-Dancer-14B",
+      "model_id": "Wan-AI/Wan-Dancer-14B",
+      "revision": "85ce88dd8d025459dcf0fe93982d6da8b9002957",
+      "last_modified": "2026-07-17T09:01:53.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "motus_stage2": {
+      "url": "https://huggingface.co/api/models/motus-robotics/Motus",
+      "model_id": "motus-robotics/Motus",
+      "revision": "3cc380a3cc18e8a78fd1ec41417d00e945f472e1",
+      "last_modified": "2025-12-16T03:43:54.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "qwen38": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.8-27B",
+      "model_id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "last_modified": "2026-08-14T15:00:01.000Z",
+      "gated": false,
+      "license": "apache-2.0"
+    },
+    "wan_repo": {
+      "url": "https://api.github.com/repos/Wan-Video/Wan2.2/commits/main",
+      "commit": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+      "date": "2026-09-21T06:16:22Z"
+    },
+    "animate_repo": {
+      "url": "https://api.github.com/repos/Wan-Video/Wan-Animate-2/commits/main",
+      "commit": "3ad2fef7d61d6200c9c653e0fe47be7616b323f3",
+      "date": "2026-08-08T06:27:43Z"
+    },
+    "dancer_repo": {
+      "url": "https://api.github.com/repos/Wan-Video/Wan-Dancer/commits/main",
+      "commit": "e6c87a94ec733230dac15b924c015f6e6501e618",
+      "date": "2026-07-17T08:49:55Z"
+    }
+  },
+  "additional_models": {
+    "Qwen/Qwen3-VL-2B-Instruct": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3-VL-2B-Instruct",
+      "revision": "89644892e4d85e24eaac8bacfd4f463576704203",
+      "last_modified": "2025-10-23T11:30:44.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 1
+    },
+    "Qwen/Qwen3-VL-4B-Instruct": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3-VL-4B-Instruct",
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "last_modified": "2025-10-15T16:15:55.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 2
+    },
+    "Qwen/Qwen3-VL-8B-Instruct": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3-VL-8B-Instruct",
+      "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "last_modified": "2025-10-15T16:16:59.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 4
+    },
+    "Qwen/Qwen3.5-4B": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "last_modified": "2026-03-02T00:52:52.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 2
+    },
+    "Qwen/Qwen3.5-9B": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "last_modified": "2026-03-02T00:51:43.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 4
+    },
+    "Qwen/Qwen3.6-27B": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "last_modified": "2026-04-24T02:39:16.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 15
+    },
+    "xiaomi-research/SpatioLM-Understanding-InternVL3.5": {
+      "url": "https://huggingface.co/api/models/xiaomi-research/SpatioLM-Understanding-InternVL3.5",
+      "revision": "fcfd7d4821c2e54d4607a72e7242a27f6c0bbc1b",
+      "last_modified": "2026-08-04T09:17:11.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 4
+    },
+    "xiaomi-research/SpatioLM-Understanding-SenseNovaSI": {
+      "url": "https://huggingface.co/api/models/xiaomi-research/SpatioLM-Understanding-SenseNovaSI",
+      "revision": "7b888c6012ae855e2036d98d4a6a1fa3e9887540",
+      "last_modified": "2026-08-04T09:20:26.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 4
+    },
+    "katefgroup/Qwen-3D": {
+      "url": "https://huggingface.co/api/models/katefgroup/Qwen-3D",
+      "revision": "ef8107c9fa06033935ca5d4998aa6bb209b9597a",
+      "last_modified": "2026-08-06T19:37:16.000Z",
+      "gated": false,
+      "license": "cc-by-nc-4.0",
+      "tensor_file_count": 2
+    },
+    "motus-robotics/Motus_Wan2_2_5B_pretrain": {
+      "url": "https://huggingface.co/api/models/motus-robotics/Motus_Wan2_2_5B_pretrain",
+      "revision": "9e5cfc3c759e94fadde17f55e2a6aa8ba28151d3",
+      "last_modified": "2025-12-16T03:45:32.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 1
+    },
+    "Wan-AI/Wan2.2-T2V-A14B": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan2.2-T2V-A14B",
+      "revision": "c8c270b13ee05bfa474194ac9fb07a5868a97cea",
+      "last_modified": "2025-08-07T09:43:34.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 14
+    },
+    "Wan-AI/Wan2.2-Animate-2-14B-Distilled-Diffusers": {
+      "url": "https://huggingface.co/api/models/Wan-AI/Wan2.2-Animate-2-14B-Distilled-Diffusers",
+      "revision": "59e4141466bcb1bf9733eca1bc78be6891c9fbdf",
+      "last_modified": "2026-08-13T02:19:44.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 9
+    },
+    "Ruihang/Wan-Move-14B-480P": {
+      "url": "https://huggingface.co/api/models/Ruihang/Wan-Move-14B-480P",
+      "revision": "63a21fd3f4f1e6c6104e29f6b8d9b8ce3d635456",
+      "last_modified": "2026-01-05T09:24:16.000Z",
+      "gated": false,
+      "license": "apache-2.0",
+      "tensor_file_count": 10
+    }
+  },
+  "ms_swift": {
+    "repository": "https://github.com/modelscope/ms-swift",
+    "commit": "191313a4f5bf60361ec57c0cb2116e12de1b894d",
+    "source_pr": "https://github.com/modelscope/ms-swift/pull/9920"
+  }
+}

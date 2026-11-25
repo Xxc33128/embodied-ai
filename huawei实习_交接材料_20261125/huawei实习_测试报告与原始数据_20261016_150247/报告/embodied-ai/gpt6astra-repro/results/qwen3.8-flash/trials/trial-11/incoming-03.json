@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0511, \"y\": 0.03, \"z\": 0.93, \"gripper\": 1.0}, \"note\": \"Last call only advanced 2 steps, so the hand is still at x=-0.051 y=-0.014 z=1.010. In the wrist view the red block sits about 56 px below the image centre and the +y nudge pulled it toward centre, so the block lies at larger y than the hand. Move +y and down to 0.93 to close that gap.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

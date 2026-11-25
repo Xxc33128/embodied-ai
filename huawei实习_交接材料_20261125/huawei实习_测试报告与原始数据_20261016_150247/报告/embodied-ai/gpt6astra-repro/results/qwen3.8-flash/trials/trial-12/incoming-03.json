@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.01}, \"note\": \"My 3-axis move only executed 2 steps (0.1s) and barely changed the measured state, so I suspect multi-axis commands get truncated here. The wrist view still shows the red block just right of the finger gap centre, so it is a few cm ahead in +x. I test with a single-axis +x step toward the block and will read the step count and the measured position.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

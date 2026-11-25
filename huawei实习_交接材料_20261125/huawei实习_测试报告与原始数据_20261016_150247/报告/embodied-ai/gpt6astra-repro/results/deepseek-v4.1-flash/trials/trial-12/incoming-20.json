@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0991, \"y\": -0.0608, \"z\": 0.858, \"gripper\": 0}, \"note\": \"The open pads now straddle the red block at mid-height (block centered between the finger prongs in the wrist view). Final decision: latch the gripper closed and lift 1.7 cm, attempting to pick the block; if it holds, the block is in the hand at trial end.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

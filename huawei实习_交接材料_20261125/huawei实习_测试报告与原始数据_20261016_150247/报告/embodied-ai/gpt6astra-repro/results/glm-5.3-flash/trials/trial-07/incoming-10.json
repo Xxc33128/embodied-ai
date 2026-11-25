@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.104, \"y\": 0.053, \"z\": 0.848, \"gripper\": 1}, \"note\": \"The jaws closed empty and pushed the block about 2cm to +x; the front view now shows the block just ahead of the gripper at the same height in y, so I reopen the jaws and lower straight down around its corrected position.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

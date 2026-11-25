@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.037, \"y\": 0.004, \"z\": 0.82, \"gripper\": 0}, \"note\": \"Cross-checking all views: the block lies about 5 cm beyond the TCP along the reach direction at y=0.004, with the bowl farther left. Commanding the grasp point at TCP z=0.82 with gripper close: the close transition spans ~80 slow steps so the heavily damped servo converges onto the block while the jaws gradually pinch it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

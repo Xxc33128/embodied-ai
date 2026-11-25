@@ -1,0 +1,49 @@
+# Embodied AI — 工作记录区
+
+个人工作日志/总结仓库（fork 自 versatile-ai/embodied-ai，本人维护分支：Xxc33128/embodied-ai）。
+
+## sonic-npu/ — SONIC（GR00T WholeBodyControl）→ 昇腾 NPU 迁移研究
+
+实习期主要工作，**按周时间线组织**：每周一个目录，readme 讲本周故事，旁边是原始文档。
+
+| 周次 | 主题 | 一句话结论 |
+|---|---|---|---|
+| [8/10–8/16](weeks/2026_0810-0816_环境搭建与Isaac排坑/) | 环境搭建与 Isaac 排坑 | 双引擎环境跑通；scenedb 崩溃定位到驱动版本 |
+| [8/17–8/23](weeks/2026_0817-0823_Phase7接口门禁与跨引擎审计/) | Phase7 接口门禁与跨引擎审计 | Interface gate PASS 14/14；物理对齐预注册路线确定 |
+| [8/24–8/30](weeks/2026_0824-0830_环境收口与Sim2Sim审查链启动/) | 环境收口 + Sim2Sim 审查链启动 | 右肘 armature 不一致确立为分叉首要因素：隔离 MAE ↓74.8% |
+| [8/31–9/6](weeks/2026_0831-0906_科学验收收口与主报告定稿/) | 科学验收全链收口 + 主报告定稿 | P1 迁移成立 / P2 无增量 / P3 VALID；final v1 科学结论全过 |
+| [9/7–9/13](weeks/2026_0907-0913_调研与归档/) | VLA/WAM 调研 + 远程 NPU 接入 + 修订归档 | 双调研成稿；NPU 机接入排障；② v1.8 / ① v1.5 |
+
+（周时间线 9/14 起延续于下面两个章节，周目录均在仓库根 `weeks/`。）
+
+## GPT-6 Astra 评测复现（9/14 起，独立于 sonic-npu）
+
+- [`weeks/2026_0914-0920_GPT6Astra评测复现/`](weeks/2026_0914-0920_GPT6Astra评测复现/) — 复现 OpenAI × RoboCurve「GPT-6 Astra on robot arms」评测协议（inspect-robots + LLM agent，robosuite 碗任务，每模型 20 trials 统一规程）。周目标、当日记录、标准测试流程（`bowl-eval-v1/`）在内。
+- [`gpt6astra-repro/`](gpt6astra-repro/) — 上项代码与结果镜像：已发表脚本快照 + 各批次精简结果（GLM/DeepSeek/Qwen 20-trial 等），图像大块与后续本机工具未上传，镜像覆盖范围见其 README。
+- [`gpt-as-policy-repro/`](gpt-as-policy-repro/) — GPT-as-Policy 复现工程（LIBERO-PRO 单线，π₀.₅ 学生 + GPT Direct/Hybrid 三方法 72 格面板）：全部代码 + 264 单测 + 验收证据（240/240 case 池、逐 case 冒烟、动作探针、集成证明）。入口 `docs/acceptance/environment-handover.md`；大文件与敏感项剔除说明见其 `GITHUB_UPLOAD_NOTE.md`。
+
+## 同机仿真与云边验证（9/21 起）
+
+- [`weeks/2026_0921-0927_同机仿真与云边验证/`](weeks/2026_0921-0927_同机仿真与云边验证/) — 新主线「CPU MuJoCo/LIBERO＋NPU π0.5＋Mac 接入 GPT」确定与首周执行：RPent 跨节点复现（Object Swap 18/20=90%，cache 命中率与上游一致）及 Flash Mode / libero_goal 补测、GPT-6 Sol/Astra 同 seed bowl 五次对照、Token 与 Prefill/Decoder 规律分析、init0 18 格全链路记录。周 readme 为总索引。
+- [`weeks/2026_0928-1004_RPent双脑对照与回馈/`](weeks/2026_0928-1004_RPent双脑对照与回馈/) — Astra/Sol 双模型 120 集结果与验收证据；历史实验记录以该周文档为准。〔E2〕
+- [`weeks/2026_1005-1011_RPent推理性能分析/`](weeks/2026_1005-1011_RPent推理性能分析/) — 120 集耗时复盘、独立 8 集深度计时，以及 DeepSeek 首批接入与流式补测。〔E2/E3〕
+- [`weeks/2026_1012-1018_RPent多模型性能分析/`](weeks/2026_1012-1018_RPent多模型性能分析/) — 10/12 对既有 DeepSeek 数据的计时审计，10/13 VLM＋VLA 双脑架构与推理优化调研；本周持续更新。〔E2/E3〕
+
+完整周目录见 [周时间线索引](weeks/README.md)。DeepSeek 的计时有效性与阶段命名采用 [10/12 审计口径](weeks/2026_1012-1018_RPent多模型性能分析/ds-report/README.md)，前一周保留原始分析过程。
+
+## 成果区（不按周拆分）
+
+- [`sonic-npu/reports/`](sonic-npu/reports/) — 三份主报告现行版（② 原版解析 v1.8 / ③ 分支审计 v1.4 / ① B 路线 v1.5）+ `00_总览.md` 导航。**推荐阅读顺序：② → ③ → ①**（懂原版 → 盘现状 → 评新路）。
+- [`sonic-npu/lectures/`](sonic-npu/lectures/) — 讲解提纲 + 三份讲稿（版本对应表在内）。
+- [`sonic-npu/sim2sim-final/`](sonic-npu/sim2sim-final/) — Sim2Sim 最终交付报告子集（最终版报告、claim 矩阵、validation、指标图、代码快照）。
+- [`sonic-npu/packages/`](sonic-npu/packages/) — 9 个实验反馈包（Git LFS）+ SHA256SUMS。
+- [`sonic-npu/notes/`](sonic-npu/notes/)、[`sonic-npu/survey/`](sonic-npu/survey/)、[`sonic-npu/handover/`](sonic-npu/handover/) — 迁移实证笔记、知识底稿（综述/SONIC 论文精读/代码解析）、交接类文档。
+- [`sonic-npu/MANIFEST.md`](sonic-npu/MANIFEST.md) — 完整内容索引 + 未上传大文件（1.75GB final zip 等）的 SHA256 与保存位置。
+
+## 收录规则
+
+周目录只收录**结论/报告/预注册类**文档（审查裁决、验收结论、调研结论、根因归档、实验计划）；执行指令与交接类不入时间线（交接文档在 `handover/`，工具类仅在周 readme 留索引行）。
+
+## 历史
+
+- 原 DreamZero NPU 训练交付物已于 2026-09-08 清理：报告保留在本仓库 git 历史（`git show b62887c:dreamzero/final_report.html` 可找回）；代码改动在独立仓库 zhangqin200182/dreamzero。

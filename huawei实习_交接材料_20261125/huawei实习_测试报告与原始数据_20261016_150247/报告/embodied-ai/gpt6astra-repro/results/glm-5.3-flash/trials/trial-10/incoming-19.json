@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.09, \"y\": 0.0, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Holding the block just short of the bowl. Finishing the transfer to above the bowl while lowering slightly to z=0.90 and opening the gripper: the fingers widen progressively so the block releases over the bowl center and drops inside.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

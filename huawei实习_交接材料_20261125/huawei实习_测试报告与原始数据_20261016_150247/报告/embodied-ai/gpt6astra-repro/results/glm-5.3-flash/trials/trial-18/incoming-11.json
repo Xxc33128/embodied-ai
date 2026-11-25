@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0797, \"y\": 0.05, \"z\": 0.95, \"gripper\": 1}, \"note\": \"The previous target is still driving my closed jaw +y toward the block, so I halt and reverse: retreat to y=0.05 while rising to z=0.95 and reopening there - with the fingertips well above block-top the opening sweep cannot disturb the block, and the long open window lets the arm settle.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

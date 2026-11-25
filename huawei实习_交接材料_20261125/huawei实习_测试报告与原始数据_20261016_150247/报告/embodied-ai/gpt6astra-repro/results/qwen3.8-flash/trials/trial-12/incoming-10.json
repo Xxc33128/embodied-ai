@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": -0.058, \"z\": 0.85, \"gripper\": 0}, \"note\": \"Measured (-0.030,-0.053,0.866): the wrist view shows the block centred in the jaw gap and the side view shows the fingertips level with the block top, so the jaws now straddle the upper part of the block. I latch the gripper closed while creeping 1-2 mm lower so the pads pinch the sides rather than ride over the top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

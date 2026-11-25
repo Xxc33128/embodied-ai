@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.02, \"y\": 0.022, \"z\": 0.875, \"gripper\": 0}, \"note\": \"The bowl is right ahead of the hand and the block sits at about (0.02, 0.02). Gripper travel makes the controller run ~80 steps so position converges fully, so I pair this alignment move with closing on air a bit above the block, safely clear of its top.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

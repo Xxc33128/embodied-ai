@@ -1,0 +1,382 @@
+{
+  "note": "tool-side token accounting from local opencode.db; includes subagent system prompts, tool outputs, images and retries; NOT provider API usage; batch artifacts keep usage_tokens/cost = null by design (subagent access exposes no API usage fields)",
+  "generated_at": "2026-09-15T20:15+0800",
+  "policy_subagents": {
+    "summary": {
+      "total": 155931516,
+      "input": 4722644,
+      "output": 258765,
+      "reasoning": 2910939,
+      "cache_read": 148039168,
+      "cache_write": 0,
+      "api_calls": 941,
+      "cost_recorded": 3.0543
+    },
+    "per_session": {
+      "trial-01": {
+        "total": 5986928,
+        "input": 175186,
+        "output": 9976,
+        "reasoning": 114470,
+        "cache_read": 5687296,
+        "cache_write": 0,
+        "api_calls": 37,
+        "cost_recorded": 0.118,
+        "session_first_ms": 1789454254490,
+        "session_last_ms": 1789456343191
+      },
+      "trial-02": {
+        "total": 9387245,
+        "input": 434800,
+        "output": 15309,
+        "reasoning": 135856,
+        "cache_read": 8801280,
+        "cache_write": 0,
+        "api_calls": 59,
+        "cost_recorded": 0.1823,
+        "session_first_ms": 1789454256031,
+        "session_last_ms": 1789458865332
+      },
+      "trial-03": {
+        "total": 5477880,
+        "input": 150261,
+        "output": 8295,
+        "reasoning": 147868,
+        "cache_read": 5171456,
+        "cache_write": 0,
+        "api_calls": 36,
+        "cost_recorded": 0.1318,
+        "session_first_ms": 1789454258177,
+        "session_last_ms": 1789456503574
+      },
+      "trial-04": {
+        "total": 4270327,
+        "input": 124067,
+        "output": 8039,
+        "reasoning": 128237,
+        "cache_read": 4009984,
+        "cache_write": 0,
+        "api_calls": 31,
+        "cost_recorded": 0.1124,
+        "session_first_ms": 1789454260161,
+        "session_last_ms": 1789455904274
+      },
+      "trial-05": {
+        "total": 8390788,
+        "input": 426058,
+        "output": 11527,
+        "reasoning": 169395,
+        "cache_read": 7783808,
+        "cache_write": 0,
+        "api_calls": 42,
+        "cost_recorded": 0.1958,
+        "session_first_ms": 1789454261689,
+        "session_last_ms": 1789458417943
+      },
+      "trial-06": {
+        "total": 7144203,
+        "input": 449471,
+        "output": 9884,
+        "reasoning": 126768,
+        "cache_read": 6558080,
+        "cache_write": 0,
+        "api_calls": 43,
+        "cost_recorded": 0.1691,
+        "session_first_ms": 1789459015209,
+        "session_last_ms": 1789462430790
+      },
+      "trial-07-failed-attempt1": {
+        "total": 48138,
+        "input": 24947,
+        "output": 384,
+        "reasoning": 23,
+        "cache_read": 22784,
+        "cache_write": 0,
+        "api_calls": 3,
+        "cost_recorded": 0.0041,
+        "session_first_ms": 1789459024291,
+        "session_last_ms": 1789459080214
+      },
+      "trial-08": {
+        "total": 8055593,
+        "input": 164906,
+        "output": 15910,
+        "reasoning": 130521,
+        "cache_read": 7744256,
+        "cache_write": 0,
+        "api_calls": 48,
+        "cost_recorded": 0.1358,
+        "session_first_ms": 1789459027091,
+        "session_last_ms": 1789460818879
+      },
+      "trial-09": {
+        "total": 9048943,
+        "input": 66797,
+        "output": 16938,
+        "reasoning": 159064,
+        "cache_read": 8806144,
+        "cache_write": 0,
+        "api_calls": 57,
+        "cost_recorded": 0.142,
+        "session_first_ms": 1789459029174,
+        "session_last_ms": 1789460823034
+      },
+      "trial-10": {
+        "total": 2631410,
+        "input": 97946,
+        "output": 6312,
+        "reasoning": 91568,
+        "cache_read": 2435584,
+        "cache_write": 0,
+        "api_calls": 24,
+        "cost_recorded": 0.0807,
+        "session_first_ms": 1789459031252,
+        "session_last_ms": 1789460149567
+      },
+      "trial-11": {
+        "total": 5554621,
+        "input": 175221,
+        "output": 10010,
+        "reasoning": 70062,
+        "cache_read": 5299328,
+        "cache_write": 0,
+        "api_calls": 44,
+        "cost_recorded": 0.0902,
+        "session_first_ms": 1789459033444,
+        "session_last_ms": 1789460544464
+      },
+      "trial-12": {
+        "total": 12308086,
+        "input": 181389,
+        "output": 17875,
+        "reasoning": 179606,
+        "cache_read": 11929216,
+        "cache_write": 0,
+        "api_calls": 59,
+        "cost_recorded": 0.1815,
+        "session_first_ms": 1789459034571,
+        "session_last_ms": 1789461092750
+      },
+      "trial-13": {
+        "total": 5155721,
+        "input": 173417,
+        "output": 7838,
+        "reasoning": 88706,
+        "cache_read": 4885760,
+        "cache_write": 0,
+        "api_calls": 38,
+        "cost_recorded": 0.0986,
+        "session_first_ms": 1789459035969,
+        "session_last_ms": 1789460514039
+      },
+      "trial-14": {
+        "total": 7446405,
+        "input": 178791,
+        "output": 10079,
+        "reasoning": 143679,
+        "cache_read": 7113856,
+        "cache_write": 0,
+        "api_calls": 44,
+        "cost_recorded": 0.1404,
+        "session_first_ms": 1789459037265,
+        "session_last_ms": 1789461174026
+      },
+      "trial-15": {
+        "total": 10235050,
+        "input": 404404,
+        "output": 24298,
+        "reasoning": 178956,
+        "cache_read": 9627392,
+        "cache_write": 0,
+        "api_calls": 61,
+        "cost_recorded": 0.2115,
+        "session_first_ms": 1789459038365,
+        "session_last_ms": 1789462273416
+      },
+      "trial-16-failed-attempt1": {
+        "total": 381740,
+        "input": 36887,
+        "output": 2022,
+        "reasoning": 33327,
+        "cache_read": 309504,
+        "cache_write": 0,
+        "api_calls": 9,
+        "cost_recorded": 0.0277,
+        "session_first_ms": 1789459039662,
+        "session_last_ms": 1789459405620
+      },
+      "trial-17": {
+        "total": 11813269,
+        "input": 422179,
+        "output": 19985,
+        "reasoning": 184161,
+        "cache_read": 11186944,
+        "cache_write": 0,
+        "api_calls": 66,
+        "cost_recorded": 0.2194,
+        "session_first_ms": 1789459040764,
+        "session_last_ms": 1789462242073
+      },
+      "trial-18": {
+        "total": 5074889,
+        "input": 122669,
+        "output": 8775,
+        "reasoning": 143957,
+        "cache_read": 4799488,
+        "cache_write": 0,
+        "api_calls": 33,
+        "cost_recorded": 0.1244,
+        "session_first_ms": 1789459041997,
+        "session_last_ms": 1789460687661
+      },
+      "trial-19": {
+        "total": 5828609,
+        "input": 147265,
+        "output": 10623,
+        "reasoning": 120001,
+        "cache_read": 5550720,
+        "cache_write": 0,
+        "api_calls": 39,
+        "cost_recorded": 0.1171,
+        "session_first_ms": 1789459043063,
+        "session_last_ms": 1789460788261
+      },
+      "trial-20": {
+        "total": 11031272,
+        "input": 454556,
+        "output": 16530,
+        "reasoning": 155962,
+        "cache_read": 10404224,
+        "cache_write": 0,
+        "api_calls": 64,
+        "cost_recorded": 0.2029,
+        "session_first_ms": 1789459043976,
+        "session_last_ms": 1789462148968
+      },
+      "trial-07-retry": {
+        "total": 15219100,
+        "input": 189693,
+        "output": 20625,
+        "reasoning": 239502,
+        "cache_read": 14769280,
+        "cache_write": 0,
+        "api_calls": 72,
+        "cost_recorded": 0.2288,
+        "session_first_ms": 1789462493095,
+        "session_last_ms": 1789466823734
+      },
+      "trial-16-retry": {
+        "total": 5441299,
+        "input": 121734,
+        "output": 7531,
+        "reasoning": 169250,
+        "cache_read": 5142784,
+        "cache_write": 0,
+        "api_calls": 32,
+        "cost_recorded": 0.1398,
+        "session_first_ms": 1789462494217,
+        "session_last_ms": 1789464166873
+      }
+    }
+  },
+  "reviewers": {
+    "summary": {
+      "total": 18845122,
+      "input": 716414,
+      "output": 44109,
+      "reasoning": 191351,
+      "cache_read": 17893248,
+      "cache_write": 0,
+      "api_calls": 221,
+      "cost_recorded": 0.3024
+    },
+    "per_session": {
+      "rev-A": {
+        "total": 4935907,
+        "input": 219139,
+        "output": 9352,
+        "reasoning": 55000,
+        "cache_read": 4652416,
+        "cache_write": 0,
+        "api_calls": 53,
+        "cost_recorded": 0.0854,
+        "session_first_ms": 1789466969228,
+        "session_last_ms": 1789469280525
+      },
+      "rev-B": {
+        "total": 2247214,
+        "input": 140071,
+        "output": 6782,
+        "reasoning": 29961,
+        "cache_read": 2070400,
+        "cache_write": 0,
+        "api_calls": 35,
+        "cost_recorded": 0.0493,
+        "session_first_ms": 1789466971238,
+        "session_last_ms": 1789469322247
+      },
+      "rev-C": {
+        "total": 5399941,
+        "input": 190550,
+        "output": 10614,
+        "reasoning": 25273,
+        "cache_read": 5173504,
+        "cache_write": 0,
+        "api_calls": 63,
+        "cost_recorded": 0.0656,
+        "session_first_ms": 1789466973887,
+        "session_last_ms": 1789470500462
+      },
+      "rev-D": {
+        "total": 1919773,
+        "input": 71435,
+        "output": 7701,
+        "reasoning": 17789,
+        "cache_read": 1822848,
+        "cache_write": 0,
+        "api_calls": 30,
+        "cost_recorded": 0.0315,
+        "session_first_ms": 1789466975684,
+        "session_last_ms": 1789467855976
+      },
+      "rev-second": {
+        "total": 4342287,
+        "input": 95219,
+        "output": 9660,
+        "reasoning": 63328,
+        "cache_read": 4174080,
+        "cache_write": 0,
+        "api_calls": 40,
+        "cost_recorded": 0.0706,
+        "session_first_ms": 1789470532246,
+        "session_last_ms": 1789471481760
+      }
+    }
+  },
+  "orchestrator": {
+    "summary": {
+      "total": 10405631,
+      "input": 821150,
+      "output": 49232,
+      "reasoning": 85649,
+      "cache_read": 9449600,
+      "cache_write": 0,
+      "api_calls": 74,
+      "cost_recorded": 0.2324
+    },
+    "per_session": {
+      "orchestrator": {
+        "total": 10405631,
+        "input": 821150,
+        "output": 49232,
+        "reasoning": 85649,
+        "cache_read": 9449600,
+        "cache_write": 0,
+        "api_calls": 74,
+        "cost_recorded": 0.2324,
+        "session_first_ms": 1789453749473,
+        "session_last_ms": 1789520825305
+      }
+    }
+  }
+}

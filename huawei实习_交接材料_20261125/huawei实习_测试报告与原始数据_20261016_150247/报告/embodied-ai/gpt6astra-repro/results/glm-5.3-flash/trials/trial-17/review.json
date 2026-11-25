@@ -1,0 +1,7 @@
+{
+  "stage_max": 1,
+  "basis": "Contact from step 430 with brief grasped flags (439-455) while block tipped on edge; bottom_z never above 0.8001, no lift.",
+  "reviewers": "reviewer-D",
+  "second_review": false,
+  "blind": true
+}

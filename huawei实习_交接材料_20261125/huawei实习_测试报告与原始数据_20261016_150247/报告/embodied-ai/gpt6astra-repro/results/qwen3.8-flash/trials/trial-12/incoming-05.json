@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.01, \"y\": -0.01, \"z\": 0.82}, \"note\": \"Measured state is (-0.035, 0.018, 0.996) and the wrist view now puts the red block about 2-3 cm forward and slightly to the -y side, roughly under the right finger. Each call only yields a few control steps and the arm tracks maybe 15 percent of the command, so I aim the reference past the block (x -0.01, y -0.01, z 0.82) to buy more steps and get a real descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

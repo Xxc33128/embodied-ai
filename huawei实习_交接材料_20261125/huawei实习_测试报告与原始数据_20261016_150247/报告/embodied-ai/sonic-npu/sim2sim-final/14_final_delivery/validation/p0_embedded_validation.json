@@ -1,0 +1,12 @@
+{
+  "mode": "embedded",
+  "decision": "P0_OVERLAY_VALID",
+  "external_source_status": "EXTERNAL_SOURCE_NOT_CHECKED",
+  "full_provenance_claim": false,
+  "errors": [],
+  "notes": [
+    "overlay SHA256.txt 29/29 OK",
+    "humanoid-lab dirty files 87 (dirty repo is the honest state)",
+    "mode=embedded: external source ZIPs not read; this is NOT a full-provenance PASS"
+  ]
+}

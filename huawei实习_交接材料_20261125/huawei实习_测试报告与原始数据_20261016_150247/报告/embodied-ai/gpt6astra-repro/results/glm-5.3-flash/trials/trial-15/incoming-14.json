@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0075, \"y\": 0.0192, \"z\": 0.935, \"gripper\": 1, \"yaw\": 0.5}, \"note\": \"The close missed again, so the block sits a couple cm off to the side. I rise straight up with the gripper open to get an unobstructed wrist view of the block, adding a small yaw rotation to test whether rotation commands also extend the motion window.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "trial-07-infra-void-attempt1",
+    "status": "error",
+    "trial_index": 6
+  },
+  {
+    "path": "trial-16-infra-void-attempt1",
+    "status": "error",
+    "trial_index": 15
+  }
+]

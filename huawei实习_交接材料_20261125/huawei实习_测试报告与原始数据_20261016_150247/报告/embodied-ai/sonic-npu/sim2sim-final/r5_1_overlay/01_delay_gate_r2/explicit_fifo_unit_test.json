@@ -1,0 +1,62 @@
+{
+  "implementation_under_test": "00_inputs/executed_sources/p3_instrumented_delayed_actuator_r2.py",
+  "actuator_source_sha256": "85a06b932e91dff057a7f2f4ddcb2697b7bc321ba43deb5c4236680245da5582",
+  "expected_sha256": "85a06b932e91dff057a7f2f4ddcb2697b7bc321ba43deb5c4236680245da5582",
+  "sha_match": true,
+  "position_delay_backend": "explicit_deque",
+  "tests": {
+    "delay4_effective_equals_requested_shift4": {
+      "pass": true,
+      "max_diff": 0.0
+    },
+    "delay4_first4_repeat_first_prefill": {
+      "pass": true,
+      "first4": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "delay4_pulse_landing_idx6": {
+      "pass": true,
+      "idx": 6
+    },
+    "delay0_identity": {
+      "pass": true
+    },
+    "reset_no_leak_first_output_equals_new_input": {
+      "pass": true,
+      "value": 7.0
+    },
+    "reset_after_shift4_relation_holds": {
+      "pass": true,
+      "effs": [
+        7.0,
+        7.0,
+        7.0,
+        7.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0
+      ],
+      "expected": [
+        7.0,
+        7.0,
+        7.0,
+        7.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0
+      ]
+    },
+    "physics_step_counter_matches": {
+      "pass": true
+    },
+    "constant_per_control_semantics_note": "with inputs constant within a control cycle (real runner behavior), first control yields exactly 4 identical effective outputs then eff[k]==req[k-4]"
+  },
+  "pass": true,
+  "note": "P0-2: unit test of the actual executed explicit-deque FIFO (repeat-first-q-des); native DelayBuffer test kept separately as engineering supplement"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1067, \"y\": 0.021, \"z\": 0.858, \"gripper\": 0}, \"note\": \"Block is centered within ~2mm of the jaw axis at yaw 0. I close one step lower than last time so the pads land at block mid-height instead of the top edge, letting the arm finish its descent during the jaw stroke.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

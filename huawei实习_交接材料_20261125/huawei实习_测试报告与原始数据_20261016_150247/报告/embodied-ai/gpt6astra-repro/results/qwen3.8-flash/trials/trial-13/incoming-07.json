@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.2, \"y\": -0.012, \"z\": 0.9}, \"note\": \"Zoomed pixel measurement of the side view shows the block about 20 px left of the finger column, i.e. several centimetres toward -x, while the wrist view shows the block sitting on the camera optical axis ahead of the hand rather than between the fingers. Lifting 3 cm to clear the block top and stepping toward -x to test convergence: if the block grows in the wrist view I am closing on it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

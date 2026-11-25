@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "final selected 8 episodes, 6 attempt-001 plus 2 attempt-002; excluded attempts are separate costs",
+  "report_data_sha256": "ae4b586b8c6a7dd2b13dcb319c83d7757e51b48232e2e8e63b9ca3ba2fb237e9",
+  "report_html_sha256": "e0c5eca0b0cd4c8b26e79728deadede9c32df0b8dbe330580f226563c98b83fc",
+  "builder_sha256": "3759d2d1bc5a0fddd16a500200b2b6d31e8a3298a993db5968da0eb83bb59ee1",
+  "viewports": [
+    {
+      "width": 1280,
+      "document_width": 1280,
+      "visible_table_overflow_count": 0,
+      "details_open_by_default": 0
+    },
+    {
+      "width": 390,
+      "document_width": 390,
+      "visible_table_overflow_count": 0,
+      "details_open_by_default": 0
+    },
+    {
+      "width": 320,
+      "document_width": 320,
+      "visible_table_overflow_count": 0,
+      "details_open_by_default": 0
+    }
+  ],
+  "print": {
+    "media": "print",
+    "format": "A4",
+    "viewport_width": 794,
+    "document_width": 794,
+    "visible_table_overflow_count": 0,
+    "pdf_generated": true
+  },
+  "filter_checks": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "visible_episodes": 2,
+      "seeds": [
+        0,
+        1
+      ]
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "visible_episodes": 2,
+      "seeds": [
+        0,
+        1
+      ]
+    }
+  ],
+  "filter_reset_visible_episodes": 8,
+  "csv": {
+    "rows": 8,
+    "all_exported_fields_match_report_data": true,
+    "export_after_filter_still_contains_all_8": true,
+    "utf8_bom": true
+  },
+  "relative_links": {
+    "checked_count": 26,
+    "all_targets_exist": true
+  },
+  "visual_review": {
+    "formula_first_screen": true,
+    "three_questions_clear": true,
+    "nested_components_marked_not_additive": true,
+    "excluded_costs_separate_from_admitted_denominator": true,
+    "screenshots_private_only": true
+  },
+  "changes": [
+    "Added model dropdown and combined model/task filter; CSV remains all eight selected rows."
+  ],
+  "limitations": [
+    "Cloud prefill and hidden thinking remain unknown; UI review does not certify unobserved server stages.",
+    "Default print preserves summary view and omits closed evidence details."
+  ],
+  "local_regression_tests": {
+    "passed": 5,
+    "notes": "Excluded-cost fixtures reset optional arrays independently; no production data changes."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "release": "https://github.com/Xxc33128/embodied-ai/releases/tag/repro-assets-20260921",
+  "url": "https://github.com/Xxc33128/embodied-ai/releases/download/repro-assets-20260921/libero-pro-assets-20260921.tar.gz",
+  "sha256": "2556dd85edc362e18c228aa6df41bd571b200b48631bd939ec662fc9dd1e7455",
+  "bytes": 1634946,
+  "payload_files": 470,
+  "upstream_task_init_files": 390,
+  "generated_env_files": 80,
+  "libero_pro_commit": "eafdb809426b13153aa1e4c42d6601844217dfec",
+  "source_dataset": "https://huggingface.co/datasets/zhouxueyang/LIBERO-Pro",
+  "dataset_license": "CC-BY-4.0",
+  "verification": "All 470 files matched source server SHA256; 80 Env files also matched the archived generation manifest."
+}

@@ -1,0 +1,63 @@
+{
+  "tests": [
+    {
+      "test": "N1_delete_report_image",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_FINAL_DELIVERY",
+      "matched_error": "image missing",
+      "errors": [
+        "report/\u672c\u5468\u4e09\u9879\u76eeSim2Sim\u8c03\u7814\u4e0e\u5b9e\u9a8c\u603b\u7ed3_\u6700\u7ec8\u7248.md asset ref missing: assets/p3/07_body_position_world_vs_pelvis_relative.png",
+        "report/\u672c\u5468\u4e09\u9879\u76eeSim2Sim\u4e00\u9875\u6458\u8981_\u6700\u7ec8\u7248.md image missing: ../assets/p3/07_body_position_world_vs_pelvis_relative.png"
+      ]
+    },
+    {
+      "test": "N2_tamper_source_zip_hash",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_FINAL_DELIVERY",
+      "matched_error": "sha mismatch",
+      "errors": [
+        "index sha mismatch P3_R4_final_gate_v1.zip",
+        "source zip sha mismatch P3_R4_final_gate_v1.zip"
+      ]
+    },
+    {
+      "test": "N3_p2_elbow_xml_missing",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_FINAL_DELIVERY",
+      "matched_error": "P2 elbow XML missing",
+      "errors": [
+        "packaged P2 elbow XML missing: E:\\Temp\\fdneg_sabq3a4_\\no_elbow\\l7_29dof_neck_fixed_elbow_matched.xml"
+      ]
+    },
+    {
+      "test": "N3b_p2_elbow_xml_tampered",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_FINAL_DELIVERY",
+      "matched_error": "elbow XML sha",
+      "errors": [
+        "packaged P2 elbow XML sha ab077adae754 != ab1e1862367b"
+      ]
+    },
+    {
+      "test": "N4_r5_unit_mixed",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_FINAL_DELIVERY",
+      "matched_error": "mixed unit",
+      "errors": [
+        "R5.1 long csv still contains mixed unit"
+      ]
+    },
+    {
+      "test": "CONTROL_untouched",
+      "pass": true,
+      "decision": "VALID_FINAL_DELIVERY"
+    }
+  ],
+  "overall_pass": true,
+  "note": "final validator negative tests per R7 plan section 11 (4 required + control; N3b added)"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1186, \"y\": -0.0383, \"z\": 0.89}, \"note\": \"The long move executed 21 steps and traveled 5 cm down, so larger moves do buy more travel. From the wrist view the block is about 10 mm ahead of me in x and 19 mm to my -y; I apply most of that correction while descending to 9 cm above the table for a closer look.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

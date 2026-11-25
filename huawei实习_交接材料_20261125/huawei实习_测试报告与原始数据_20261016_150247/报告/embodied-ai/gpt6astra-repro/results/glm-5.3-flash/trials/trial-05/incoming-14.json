@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.047, \"y\": 0.024, \"z\": 0.85, \"gripper\": 0}, \"note\": \"Fixed front and side cameras both show the red cube on the table right of the bowl, matching my hover at (+0.04,+0.02). Descending to z=0.85 and closing for the grasp; the gripper measurement next step will tell me if I am holding the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

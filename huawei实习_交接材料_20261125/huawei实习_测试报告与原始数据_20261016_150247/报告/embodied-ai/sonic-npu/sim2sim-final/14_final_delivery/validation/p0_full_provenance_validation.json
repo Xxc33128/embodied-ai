@@ -1,0 +1,12 @@
+{
+  "mode": "full-provenance",
+  "decision": "P0_OVERLAY_VALID",
+  "external_source_status": "EXTERNAL_SOURCES_VERIFIED",
+  "full_provenance_claim": true,
+  "errors": [],
+  "notes": [
+    "overlay SHA256.txt 29/29 OK",
+    "humanoid-lab dirty files 87 (dirty repo is the honest state)",
+    "body/anchor metrics recomputed from P1 zip traces (float64, same algorithm as p1_summarize): match"
+  ]
+}

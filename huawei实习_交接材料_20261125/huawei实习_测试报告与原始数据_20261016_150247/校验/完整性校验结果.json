@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "verified_at": "2026-10-16T17:34:05+0800",
+  "report_files": 7088,
+  "report_bytes": 1099731163,
+  "raw_files": 33880,
+  "raw_original_bytes": 7537061268,
+  "archive_bytes": 1866775234,
+  "archive_count": 8,
+  "archives": [
+    {
+      "path": "原始数据/npunew/RPent_早期批次及代理原始记录.tar.gz",
+      "files": 4813,
+      "original_bytes": 141553012,
+      "archive_bytes": 66226410,
+      "sha256": "bad024caa402078346d124717acd2ec3a962d7f8ba4e09d2798cae01e5d6f0fb",
+      "symlinks": 24,
+      "passed": true
+    },
+    {
+      "path": "原始数据/npunew/codex-eval-20260929_远程原始记录.tar.gz",
+      "files": 6175,
+      "original_bytes": 246313781,
+      "archive_bytes": 133089299,
+      "sha256": "4c4e53ca5d5a5e548005e7f0dec3ff20863f4c2814f53ca921a386c4dd4a3037",
+      "symlinks": 0,
+      "passed": true
+    },
+    {
+      "path": "原始数据/npunew/deep-timing-20261008_远程原始记录.tar.gz",
+      "files": 834,
+      "original_bytes": 2226555063,
+      "archive_bytes": 257302019,
+      "sha256": "399aec6a0b83a01b15c59251158eacc8722e1d6ee3427180460376b89f5d39c5",
+      "symlinks": 11,
+      "passed": true
+    },
+    {
+      "path": "原始数据/npunew/ds-adapter-20261009_远程原始记录.tar.gz",
+      "files": 1732,
+      "original_bytes": 2191104661,
+      "archive_bytes": 268960503,
+      "sha256": "aed32cc2ca7d88c0af05063deeb99f206070b11c26148a555e277add6b2acc0c",
+      "symlinks": 0,
+      "passed": true
+    },
+    {
+      "path": "原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "files": 4194,
+      "original_bytes": 1532746033,
+      "archive_bytes": 613157667,
+      "sha256": "419f5e0ccf218e7cee87ddaff782d741ae9cd4afdb258d7dade09dcf2faf7856",
+      "symlinks": 0,
+      "passed": true
+    },
+    {
+      "path": "原始数据/本机/RPent_本机实验现场.tar.gz",
+      "files": 1536,
+      "original_bytes": 609146248,
+      "archive_bytes": 196313763,
+      "sha256": "947e5e4eb2accee559141fce0ef54d187f46fcef993e283e1f8a8ab874a290f3",
+      "symlinks": 0,
+      "passed": true
+    },
+    {
+      "path": "原始数据/本机/RPent_脱敏前分析原件.tar.gz",
+      "files": 86,
+      "original_bytes": 25556440,
+      "archive_bytes": 9150511,
+      "sha256": "b09c50c8b2c22255fda495078a9fda35d05b0ff4f8cb742dabf1b88797fa98bd",
+      "symlinks": 0,
+      "passed": true
+    },
+    {
+      "path": "原始数据/本机/gpt6astra-repro_本机完整实验记录.tar.gz",
+      "files": 14510,
+      "original_bytes": 564086030,
+      "archive_bytes": 322575062,
+      "sha256": "6d1d7bf3a04e4177493e620aa0680e2f6c76b5477b250a8d4503b85970cf690b",
+      "symlinks": 0,
+      "passed": true
+    }
+  ],
+  "seconds": 18.8
+}

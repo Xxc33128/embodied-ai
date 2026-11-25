@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.072, \"y\": 0.096, \"z\": 0.835, \"gripper\": 1}, \"note\": \"Using the block width as a pixel scale, the close-range wrist view puts the block center about 1.5-2cm to the +x side of the hand axis, so I am correcting the grasp x to -0.072 while finishing the forward descent; closing the gripper on the next call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
