@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="360" viewBox="0 0 940 360" role="img"><title>Direct：模型选择动作，控制器执行，观测反馈与事后评分分开</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="360" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<rect x="25" y="65" width="170" height="100" rx="9" fill="white" stroke="#cedadc"/>
+<text x="110.0" y="93" class="label" text-anchor="middle">观测与任务</text>
+<text x="110.0" y="116" class="sub" text-anchor="middle">三视角 RGB</text>
+<text x="110.0" y="135" class="sub" text-anchor="middle">本体状态／轮内历史</text>
+<rect x="265" y="65" width="170" height="100" rx="9" fill="#e1eeee" stroke="#7ca7ad"/>
+<text x="350.0" y="93" class="label" text-anchor="middle">通用模型</text>
+<text x="350.0" y="116" class="sub" text-anchor="middle">末端位姿＋夹爪</text>
+<text x="350.0" y="135" class="sub" text-anchor="middle">每次机器人决策</text>
+<rect x="505" y="65" width="170" height="100" rx="9" fill="white" stroke="#cedadc"/>
+<text x="590.0" y="93" class="label" text-anchor="middle">适配与控制器</text>
+<text x="590.0" y="116" class="sub" text-anchor="middle">Schema／边界校验</text>
+<text x="590.0" y="135" class="sub" text-anchor="middle">OSC_POSE／伺服</text>
+<rect x="745" y="65" width="170" height="100" rx="9" fill="white" stroke="#cedadc"/>
+<text x="830.0" y="93" class="label" text-anchor="middle">Panda 仿真</text>
+<text x="830.0" y="116" class="sub" text-anchor="middle">推进控制步</text>
+<text x="830.0" y="135" class="sub" text-anchor="middle">渲染新观测</text>
+<polyline points="195,115 265,115" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="435,115 505,115" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="675,115 745,115" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="830,165 830,215 110,215 110,165" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="470" y="204" class="sub" text-anchor="middle">动作后观测返回；等待模型时物理暂停</text>
+<rect x="340" y="260" width="260" height="72" rx="9" fill="white" stroke="#cedadc"/>
+<text x="470.0" y="288" class="label" text-anchor="middle">独立结果核验</text>
+<text x="470.0" y="311" class="sub" text-anchor="middle">自动入碗／录像阶段／私有轨迹</text>
+<polyline points="830,215 830,294 600,294" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+<text x="735" y="282" class="sub" text-anchor="middle">仅评测使用</text>
+<text x="25" y="30" class="label" text-anchor="start">执行闭环</text>
+</svg>

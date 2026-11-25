@@ -1,0 +1,18 @@
+{
+  "fps": 20,
+  "sources": [
+    {
+      "path": "gpt6astra-repro/results/gpt-6-astra/decision-trace.csv",
+      "sha256": "11a9ffe5a9d8c1e475a48076d91f2d865867fb49eef5a0f8f86a89c44a147235"
+    },
+    {
+      "path": "gpt6astra-repro/results/qwen3.8-flash/trials/trial-03/harness/wire/20260915_080430_f605892e/seed-2002-e0/calls.jsonl",
+      "sha256": "ef0d7536afd563599f44ea3a02588a59e600b564f4598ebd3f712aea50de6332"
+    },
+    {
+      "path": "gpt6astra-repro/results/qwen3.8-flash/trials/trial-03/result.json",
+      "sha256": "c6cb2ba5de11057235966eb38a97d6765d6952c272c58c6c5fd42d0746e8e305"
+    }
+  ],
+  "qwen_mapping": "Latest camera step in each request to next request step; last endpoint from result.physics_steps. Round 19 is give_up; its final one-step interval is termination recording, not a new grasp action."
+}

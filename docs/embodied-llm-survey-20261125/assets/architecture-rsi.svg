@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="540" viewBox="0 0 940 540" role="img"><title>RSI：开发反馈更新程序或经验，冻结后在独立留出场景验证</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="540" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<text x="30" y="32" class="label" text-anchor="start">开发阶段｜只使用开发场景</text>
+<rect x="30" y="65" width="240" height="90" rx="9" fill="white" stroke="#cedadc"/>
+<text x="150.0" y="93" class="label" text-anchor="middle">执行与收集反馈</text>
+<text x="150.0" y="116" class="sub" text-anchor="middle">成功、失败、状态证据</text>
+<rect x="350" y="65" width="240" height="90" rx="9" fill="#e1eeee" stroke="#7ca7ad"/>
+<text x="470.0" y="93" class="label" text-anchor="middle">编程代理修订</text>
+<text x="470.0" y="116" class="sub" text-anchor="middle">代码／Skills／Lessons</text>
+<rect x="670" y="65" width="240" height="90" rx="9" fill="white" stroke="#cedadc"/>
+<text x="790.0" y="93" class="label" text-anchor="middle">开发验证与回归</text>
+<text x="790.0" y="116" class="sub" text-anchor="middle">确认收益，检查旧任务退化</text>
+<polyline points="270,110 350,110" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="590,110 670,110" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="790,155 790,185 150,185 150,155" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+<text x="470" y="176" class="sub" text-anchor="middle">未通过则继续修订</text>
+<rect x="350" y="220" width="240" height="70" rx="9" fill="white" stroke="#cedadc"/>
+<text x="470.0" y="248" class="label" text-anchor="middle">冻结版本与证据</text>
+<text x="470.0" y="271" class="sub" text-anchor="middle">测试集不得回流</text>
+<polyline points="790,185 790,255 590,255" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="60" y="335" width="350" height="95" rx="9" fill="white" stroke="#cedadc"/>
+<text x="235.0" y="363" class="label" text-anchor="middle">COAP：冻结程序执行</text>
+<text x="235.0" y="386" class="sub" text-anchor="middle">根据显式状态分支</text>
+<text x="235.0" y="405" class="sub" text-anchor="middle">严格路线无在线VLM／VLA</text>
+<rect x="530" y="335" width="350" height="95" rx="9" fill="#e1eeee" stroke="#7ca7ad"/>
+<text x="705.0" y="363" class="label" text-anchor="middle">EmbodiedEvo：在线代理</text>
+<text x="705.0" y="386" class="sub" text-anchor="middle">读取冻结Skills／Lessons</text>
+<text x="705.0" y="405" class="sub" text-anchor="middle">仍可修正当前回合程序</text>
+<polyline points="470,290 470,310 235,310 235,335" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="470,310 705,310 705,335" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="470" y="473" class="label" text-anchor="middle">独立留出初态 → 原生任务结果、退化、在线成本与开发摊销</text>
+<text x="470" y="510" class="sub" text-anchor="middle">本项目状态：已调研与设计；尚无正式RSI留出评测成绩</text>
+</svg>

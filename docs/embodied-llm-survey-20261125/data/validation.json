@@ -1,0 +1,105 @@
+{
+  "checks": {
+    "rpent120_count": true,
+    "rpent120_successes": true,
+    "rpent120_responses": true,
+    "rpent8_count_success": true,
+    "rpent8_buckets_close": true,
+    "rpent8_total": true,
+    "trial03_steps": true,
+    "trial03_wait": true,
+    "videos_sample_counts": true,
+    "source_citations_resolved": true,
+    "unexpanded_html_markers": true,
+    "offline_assets": true,
+    "no_external_scripts": true
+  },
+  "html_bytes": 2924502,
+  "included_videos": 3,
+  "architecture_diagrams": 6,
+  "timing_and_result_figures": 3,
+  "browser_verification": {
+    "status": "passed",
+    "date": "2026-11-25",
+    "timezone": "Asia/Shanghai",
+    "browser": "Google Chrome on macOS, refreshed existing local report tab",
+    "method": "Real native UI playback, observed accessibility state and screenshots; no screenshots retained",
+    "scope": "Representative round playback on all three videos; not exhaustive real-browser playback of all 42 rounds",
+    "report_sha256": "2d147dbda0226b9874b8abbc6832fbb6fb747f31c61d2af0959bafef49e1c9a1",
+    "checks": [
+      {
+        "video": "direct-astra",
+        "rounds": [
+          7
+        ],
+        "observed": "6.50-second start, automatic pause at 7.10 seconds"
+      },
+      {
+        "video": "direct-qwen",
+        "rounds": [
+          7,
+          13,
+          19,
+          2
+        ],
+        "observed": "Round 7 start 1.00/end 4.95; round 13 start 15.15/end 17.20; round 19 terminal pause at 31.05; expanded table round 2 displayed completion for 0.15–0.30. Native slider value for the short table segment lagged, so no precise seek timing claim for that case."
+      },
+      {
+        "video": "direct-boundary",
+        "rounds": [
+          7,
+          10
+        ],
+        "observed": "Round 7 start 14.10/end 16.25; round 10 at 0.5x start 20.55/end 21.45. Full playback restarted at 0 and continued into round 5, then manually paused at 7.25."
+      }
+    ],
+    "limitations": [
+      "Browser sampling does not cover every button or every speed on every video.",
+      "42-round mappings and pause behavior additionally covered by Node event simulation.",
+      "No other browser or mobile viewport tests."
+    ],
+    "prior_verification": "data/browser-verification-v01-prior.json"
+  },
+  "scope": "No robotics rerun; source statistics recomputed and local media metadata inspected.",
+  "extended_checks": {
+    "unique_html_ids": true,
+    "all_internal_anchors_resolve": true,
+    "local_links_exist": true,
+    "all_media_inline": true,
+    "nine_diagrams_three_videos": true,
+    "all_inline_media_decode": true,
+    "twenty_four_local_sources": true,
+    "ten_primary_references": true,
+    "source_copies_match_hash": true,
+    "video_bytes_match_hash": true,
+    "embedded_video_direct-astra": true,
+    "embedded_video_direct-qwen": true,
+    "embedded_video_direct-boundary": true,
+    "javascript_syntax": true,
+    "ten_numbered_chapters": true,
+    "figures_numbered_in_order": true,
+    "no_unexpanded_placeholders": true,
+    "rsi_evidence_boundary": true,
+    "motus_latest_not_best": true
+  },
+  "media_playback_verification": "Representative round playback on all three videos; not exhaustive real-browser playback of all 42 rounds",
+  "report_version": "2.0",
+  "report_date": "2026-11-25",
+  "video_segment_validation": {
+    "status": "passed",
+    "method": "Node event simulation plus separate real browser sampling",
+    "rounds": 42,
+    "buttons": 57,
+    "cases": [
+      "all video timestamp mappings",
+      "end pause",
+      "duplicate highlights",
+      "independent players",
+      "full playback",
+      "manual seeking",
+      "half speed",
+      "metadata race",
+      "Qwen give_up terminal recording"
+    ]
+  }
+}

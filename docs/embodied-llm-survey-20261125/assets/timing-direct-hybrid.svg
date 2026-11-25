@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="405" viewBox="0 0 940 405" role="img"><title>时间分解：Panda等待与LIBERO三路线每轮时间</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="405" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<text x="30" y="32" class="label" text-anchor="start">Panda Astra首批｜累计 1,755.02 s</text>
+<rect x="30" y="53" width="813.1293090677029" height="30" fill="#205f71"/>
+<rect x="843.1293090677029" y="53" width="46.870690932297066" height="30" fill="#b8c2cc"/>
+<text x="30" y="111" class="sub" text-anchor="start">等待 1,659.37 s；其他 95.65 s。仿真 108.05 s 属于另一时钟。</text>
+<text x="30" y="158" class="label" text-anchor="start">LIBERO 两罐｜平均每决策轮墙钟，秒</text>
+<text x="30" y="208" class="" text-anchor="start">Student</text>
+<rect x="145" y="188" width="0.0" height="27" fill="#205f71"/>
+<rect x="145.0" y="188" width="20.301000000000002" height="27" fill="#669b9b"/>
+<rect x="165.301" y="188" width="92.92899999999999" height="27" fill="#c79553"/>
+<rect x="258.22999999999996" y="188" width="27.5705" height="27" fill="#b8c2cc"/>
+<text x="295.80049999999994" y="208" class="" text-anchor="start">4.203</text>
+<text x="30" y="258" class="" text-anchor="start">Direct</text>
+<rect x="145" y="238" width="362.4365" height="27" fill="#205f71"/>
+<rect x="507.4365" y="238" width="0.0" height="27" fill="#669b9b"/>
+<rect x="507.4365" y="238" width="90.75150000000001" height="27" fill="#c79553"/>
+<rect x="598.188" y="238" width="29.647499999999997" height="27" fill="#b8c2cc"/>
+<text x="637.8355" y="258" class="" text-anchor="start">14.413</text>
+<text x="30" y="308" class="" text-anchor="start">Hybrid</text>
+<rect x="145" y="288" width="481.529" height="27" fill="#205f71"/>
+<rect x="626.529" y="288" width="20.3345" height="27" fill="#669b9b"/>
+<rect x="646.8635" y="288" width="98.423" height="27" fill="#c79553"/>
+<rect x="745.2865" y="288" width="30.116500000000002" height="27" fill="#b8c2cc"/>
+<text x="785.403" y="308" class="" text-anchor="start">18.818</text>
+<rect x="30" y="367" width="12" height="12" fill="#205f71"/>
+<text x="50" y="378" class="sub" text-anchor="start">GPT往返</text>
+<rect x="250" y="367" width="12" height="12" fill="#669b9b"/>
+<text x="270" y="378" class="sub" text-anchor="start">π推理与交换</text>
+<rect x="470" y="367" width="12" height="12" fill="#c79553"/>
+<text x="490" y="378" class="sub" text-anchor="start">渲染</text>
+<rect x="690" y="367" width="12" height="12" fill="#b8c2cc"/>
+<text x="710" y="378" class="sub" text-anchor="start">其他</text>
+</svg>

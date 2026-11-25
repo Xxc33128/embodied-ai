@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="440" viewBox="0 0 940 440" role="img"><title>HALO：在线编排生成跟踪与离线训练数据分开</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="440" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<text x="30" y="30" class="label" text-anchor="start">在线目标架构｜本地完整闭环尚未验收</text>
+<rect x="30" y="65" width="240" height="110" rx="9" fill="#e1eeee" stroke="#7ca7ad"/>
+<text x="150.0" y="93" class="label" text-anchor="middle">任务编排器</text>
+<text x="150.0" y="116" class="sub" text-anchor="middle">语言／状态 → 技能条件</text>
+<text x="150.0" y="135" class="sub" text-anchor="middle">通用模型</text>
+<rect x="350" y="65" width="240" height="110" rx="9" fill="white" stroke="#cedadc"/>
+<text x="470.0" y="93" class="label" text-anchor="middle">运动生成器</text>
+<text x="470.0" y="116" class="sub" text-anchor="middle">图像＋条件＋运动前缀</text>
+<text x="470.0" y="135" class="sub" text-anchor="middle">150×36 参考轨迹</text>
+<rect x="670" y="65" width="240" height="110" rx="9" fill="white" stroke="#cedadc"/>
+<text x="790.0" y="93" class="label" text-anchor="middle">运动跟踪器</text>
+<text x="790.0" y="116" class="sub" text-anchor="middle">参考＋深度＋本体状态</text>
+<text x="790.0" y="135" class="sub" text-anchor="middle">关节目标／50 Hz</text>
+<polyline points="270,115 350,115" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="590,115 670,115" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="790,175 790,210 470,210 470,175" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="630" y="201" class="sub" text-anchor="middle">已执行前缀／运动反馈</text>
+<polyline points="910,120 925,120 925,240 150,240 150,175" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+<text x="310" y="232" class="sub" text-anchor="middle">任务状态反馈</text>
+<text x="30" y="285" class="label" text-anchor="start">离线数据与训练｜已有部分分层证据</text>
+<rect x="30" y="315" width="240" height="85" rx="9" fill="white" stroke="#cedadc"/>
+<text x="150.0" y="343" class="label" text-anchor="middle">场景＋Kimodo轨迹</text>
+<text x="150.0" y="366" class="sub" text-anchor="middle">WALK／TURN／SIT质量门禁</text>
+<rect x="350" y="315" width="240" height="85" rx="9" fill="white" stroke="#cedadc"/>
+<text x="470.0" y="343" class="label" text-anchor="middle">渲染与数据集</text>
+<text x="470.0" y="366" class="sub" text-anchor="middle">图像／parquet／轨迹</text>
+<rect x="670" y="315" width="240" height="85" rx="9" fill="white" stroke="#cedadc"/>
+<text x="790.0" y="343" class="label" text-anchor="middle">训练与分层评估</text>
+<text x="790.0" y="366" class="sub" text-anchor="middle">Generator／Tracker分别验收</text>
+<polyline points="270,355 350,355" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="590,355 670,355" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+</svg>

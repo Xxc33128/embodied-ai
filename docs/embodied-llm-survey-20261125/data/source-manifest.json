@@ -1,0 +1,282 @@
+{
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Astra首批五场：结果、耗时与逐步决策",
+      "path": "weeks/2026_0914-0920_GPT6Astra评测复现/2026-09-16-GPT6-Astra五次任务总结与用量.md",
+      "bundled": "evidence/S01.md",
+      "sha256": "bea35f5c4540a7b2c4ff6be527ddf7974300ec81e728a237ba9e269b34ad8851",
+      "size": 15006
+    },
+    {
+      "id": "S02",
+      "title": "Astra入碗续测五场及匿名审核",
+      "path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-23-GPT6-Astra-bowl续测五次.md",
+      "bundled": "evidence/S02.md",
+      "sha256": "515faa797486bad9fd77af8472ce35a06cec8e61718e67f2f7f20f8a64ae53f4",
+      "size": 3154
+    },
+    {
+      "id": "S03",
+      "title": "具身智能测试项目与数据汇总 v1.3",
+      "path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-16-具身智能测试项目与数据汇总.md",
+      "bundled": "evidence/S03.md",
+      "sha256": "0862e3d09c807c9f81c7f082ef5afdfcc05e9bff6219705647c178b3d3bfc280",
+      "size": 30582
+    },
+    {
+      "id": "S04",
+      "title": "LIBERO三任务逐轮决策实录 v1.8",
+      "path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-22-LIBERO10-task0-Ori-init0-逐轮决策实录.md",
+      "bundled": "evidence/S04.md",
+      "sha256": "428215395fba4ba8c641dc80fa2e052bbc1c497fb5292da96db193fb41253776",
+      "size": 19408
+    },
+    {
+      "id": "S05",
+      "title": "LIBERO init0 18格运行记录",
+      "path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-21-init0-18格运行记录.md",
+      "bundled": "evidence/S05.md",
+      "sha256": "59274359d195d8f4cc37db0d2bac9284ef4f774c1a43a062b4f24cfc6f786428",
+      "size": 34445
+    },
+    {
+      "id": "S06",
+      "title": "RPent Astra／Sol 120集正式结果",
+      "path": "weeks/2026_0928-1004_RPent双脑对照与回馈/2026-10-01-RPent-Codex双模型120集结果.md",
+      "bundled": "evidence/S06.md",
+      "sha256": "3d2ed5c98ae2bf2eb298accdf64c44ff5696ef69d26d0e0f2820f10e9894d3f0",
+      "size": 3694
+    },
+    {
+      "id": "S07",
+      "title": "RPent独立8集深测：机器可读结果",
+      "path": "weeks/2026_1005-1011_RPent推理性能分析/deep-report/report-data.json",
+      "bundled": "evidence/S07.json",
+      "sha256": "a9c738bfb965536cff6b5533850831cf8e1f80f20364921e3e36b8a277cc21fc",
+      "size": 6992627
+    },
+    {
+      "id": "S08",
+      "title": "DeepSeek两场景计时审计说明",
+      "path": "weeks/2026_1012-1018_RPent多模型性能分析/ds-report/README.md",
+      "bundled": "evidence/S08.md",
+      "sha256": "e88679a17c475d5beed1b78e5428855a17b8b80f7e8e6fcf4d1bf9e88d63c98e",
+      "size": 6471
+    },
+    {
+      "id": "S09",
+      "title": "DreamLab四瓶入桶：批次与接口对照",
+      "path": "weeks/2026_1026-1101_具身蒸馏调研/2026-10-27-DreamLab四瓶入桶Dream1与Astra对比分析总结.md",
+      "bundled": "evidence/S09.md",
+      "sha256": "7bb5330b44bc44026e0b0ad1d1c2618c37f1147b73bf3855f0757560540d3ca3",
+      "size": 31595
+    },
+    {
+      "id": "S10",
+      "title": "HomeBody仿真复现报告（含批次口径提示）",
+      "path": "weeks/2026_1026-1101_具身蒸馏调研/2026-10-28-HomeBody复现报告.md",
+      "bundled": "evidence/S10.md",
+      "sha256": "a853209874f6027fbaafad8da895017881922893ffb88ad1e7e9b639d244c2d0",
+      "size": 51593
+    },
+    {
+      "id": "S11",
+      "title": "HomeBody Qwen换模型与关思考补测",
+      "path": "weeks/2026_1109-1115_Qwen换脑与HALO调研/2026-11-12-HomeBody-Qwen3.8换脑报告.md",
+      "bundled": "evidence/S11.md",
+      "sha256": "f26c505c112cd321f5feb6295a0b4433048a9d2907e03484eef49a92592125c3",
+      "size": 18380
+    },
+    {
+      "id": "S12",
+      "title": "HALO架构与输入输出核查摘要",
+      "path": "weeks/2026_1109-1115_Qwen换脑与HALO调研/2026-11-11-HALO架构总结摘要.md",
+      "bundled": "evidence/S12.md",
+      "sha256": "c561e20ace07f53be16be1d80b61a14c9baa03dade55f33bdb000756a7a87fb8",
+      "size": 33343
+    },
+    {
+      "id": "S13",
+      "title": "HALO复现归因与首条合格轨迹",
+      "path": "weeks/2026_1116-1122_HALO复现归因与首条合格/2026-11-20-HALO复现归因与首条合格总结.md",
+      "bundled": "evidence/S13.md",
+      "sha256": "6d75334537df4cc5281f66631228a2522631e7b3339cacb532513c23743d2381",
+      "size": 43110
+    },
+    {
+      "id": "S14",
+      "title": "HALO 11月23日结项与盲评进展",
+      "path": "weeks/2026_1123-1129_HALO盲评与四周包/2026-11-23-HALO结项与盲评进展.md",
+      "bundled": "evidence/S14.md",
+      "sha256": "315d9b4aa77ea019a9785090085e20fc3182460a4594d5b3526dedbb8c3cb4e6",
+      "size": 6700
+    },
+    {
+      "id": "S15",
+      "title": "HomeBody VLM×SONIC扩展与验收边界",
+      "path": "weeks/2026_1102-1108_HomeBody复现与ScientistTwo复刻/2026-11-06-HomeBody-VLMxSONIC扩展与ARDY诊断执行总结.md",
+      "bundled": "evidence/S15.md",
+      "sha256": "1eddc72635f273d3cf7d166e9e2198de1a1f67dd375b1da6c677c847f1092495",
+      "size": 38542
+    },
+    {
+      "id": "S16",
+      "title": "DreamLab评测与审计总结",
+      "path": "weeks/2026_1019-1025_Qwen昇腾部署/2026-10-22-DreamLab-Dream1评测与审计总结.md",
+      "bundled": "evidence/S16.md",
+      "sha256": "ad03142fabeff55472eb512b11c62cae1220229bdda069934bdf2c48d62cd817",
+      "size": 20285
+    },
+    {
+      "id": "S17",
+      "title": "RPent120集逐episode统计CSV",
+      "path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-16-实验结果与改进分析/data/rpent120_episodes.csv",
+      "bundled": "evidence/S17.csv",
+      "sha256": "48b38eef51bc1b4e2a3a927ce916e6c69fc9ddf131bef2c0ac1e30b1ac4795fc",
+      "size": 15504
+    },
+    {
+      "id": "S18",
+      "title": "RPent Flash、goal与失败重跑",
+      "path": "weeks/2026_0921-0927_同机仿真与云边验证/2026-09-27-RPent扩展-FlashMode与libero_goal.md",
+      "bundled": "evidence/S18.md",
+      "sha256": "b7e3ca29952189c6c8697b08659d546b1717ed5182b0effcda0a448d14a9623b",
+      "size": 11038
+    },
+    {
+      "id": "S19",
+      "title": "COAP分析与RPent程序化执行实验建议",
+      "path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-15-COAP论文分析与RPent实验建议.md",
+      "bundled": "evidence/S19.md",
+      "sha256": "e563089024e18b433b3a00dbfe718ecb3efe7d8c966ca1f43a7af35a77e56c7c",
+      "size": 20212
+    },
+    {
+      "id": "S20",
+      "title": "EmbodiedEvo分析与经验复用实验建议",
+      "path": "weeks/2026_1012-1018_RPent多模型性能分析/2026-10-15-EmbodiedEvo分析与RPent经验复用实验建议.md",
+      "bundled": "evidence/S20.md",
+      "sha256": "7b1b8fcd7f807a9a4c5ae27c03c89324af4957d39d6855453c558e68d41b5859",
+      "size": 21673
+    },
+    {
+      "id": "S21",
+      "title": "Motus冻结VLM训练阶段报告",
+      "path": "weeks/2026_1026-1101_具身蒸馏调研/2026-10-27-Motus架构与LIBERO-Long阶段训练报告.md",
+      "bundled": "evidence/S21.md",
+      "sha256": "feaa65d506afc33ebb00a9e4f56a16a49245a840a377ef8253897275a19d423d",
+      "size": 36744
+    },
+    {
+      "id": "S22",
+      "title": "Motus续训至10000步及停止记录",
+      "path": "weeks/2026_1026-1101_具身蒸馏调研/2026-10-28-Motus-LIBERO-Long续训执行记录.md",
+      "bundled": "evidence/S22.md",
+      "sha256": "67bde3ac944036c0df431517d338b83a729923b5329ddf669abf7f4994bdba3b",
+      "size": 25193
+    },
+    {
+      "id": "S23",
+      "title": "Hybrid门控与观测白名单源码",
+      "path": "gpt-as-policy-repro/src/gap_repro/agent/gate.py",
+      "bundled": "evidence/S23.py",
+      "sha256": "fb187615e46a39517db11edc75efba9143e0d4ee492bf53249c1fca946f20983",
+      "size": 3678
+    },
+    {
+      "id": "S24",
+      "title": "LIBERO动作接口及模式约束源码",
+      "path": "gpt-as-policy-repro/src/gap_repro/libero/agent_contract.py",
+      "bundled": "evidence/S24.py",
+      "sha256": "e775996a4b0498c01cc9a5ddb205573807233b712659749b348f9d7d5de898a4",
+      "size": 7697
+    }
+  ],
+  "related_work": [
+    {
+      "id": "R01",
+      "title": "SayCan: Grounding Language in Robotic Affordances",
+      "url": "https://say-can.github.io/",
+      "accessed": "2026-11-25",
+      "usage": "技能规划与可执行性结合；仅方法背景"
+    },
+    {
+      "id": "R02",
+      "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+      "url": "https://robotics-transformer2.github.io/",
+      "accessed": "2026-11-25",
+      "usage": "动作token与联合训练；仅方法背景"
+    },
+    {
+      "id": "R03",
+      "title": "π0.5: a VLA with Open-World Generalization",
+      "url": "https://www.pi.website/blog/pi05",
+      "accessed": "2026-11-25",
+      "usage": "异构数据联合训练；仅方法背景"
+    },
+    {
+      "id": "R04",
+      "title": "Huang et al. Inner Monologue: Embodied Reasoning through Planning with Language Models. CoRL 2022, PMLR 205 (2023)",
+      "url": "https://proceedings.mlr.press/v205/huang23c.html",
+      "accessed": "2026-11-25",
+      "usage": "执行反馈与在线重规划；方法背景"
+    },
+    {
+      "id": "R05",
+      "title": "Galbot Team. Systematically Exploring the Capabilities of GPT-6 Astra as Embodied Policies. arXiv:2609.38537v1 (2026)",
+      "url": "https://arxiv.org/html/2609.38537v1",
+      "accessed": "2026-11-25",
+      "usage": "Direct／Hybrid上游方法与作者结果；不并入本地统计"
+    },
+    {
+      "id": "R06",
+      "title": "Zhang et al. Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents. arXiv:2607.08448v5 (2026)",
+      "url": "https://arxiv.org/abs/2607.08448v5",
+      "accessed": "2026-11-25",
+      "usage": "RPent技术来源；与本地实现和评测条件分别说明"
+    },
+    {
+      "id": "R07",
+      "title": "Hu et al. Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement. arXiv:2610.12369v1 (2026)",
+      "url": "https://arxiv.org/html/2610.12369v1",
+      "accessed": "2026-11-25",
+      "usage": "COAP方法与作者结果；未本地复现实验成绩"
+    },
+    {
+      "id": "R08",
+      "title": "Li et al. EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. arXiv:2610.18867v2 (2026)",
+      "url": "https://arxiv.org/html/2610.18867v2",
+      "accessed": "2026-11-25",
+      "usage": "经验冻结机制、表8与附录E；作者配对开发集结果"
+    },
+    {
+      "id": "R09",
+      "title": "Huh et al. HomeBody: A Humanoid That Explores, Remembers, and Acts on Its Own. 官方项目页 (2026)",
+      "url": "https://tml.stanford.edu/homebody/",
+      "accessed": "2026-11-25",
+      "usage": "上游技能与空间记忆设计；本地成绩来自S10／S11"
+    },
+    {
+      "id": "R10",
+      "title": "Hu et al. HALO: Perceptive Humanoid Motion from Simulation. Apple官方项目页 (2026)",
+      "url": "https://apple-aiml-research.github.io/ml-halo/",
+      "accessed": "2026-11-25",
+      "usage": "编排—生成—跟踪架构；页面仍标Paper Soon，不作为已发表论文列录"
+    }
+  ],
+  "supplemental": [
+    {
+      "path": "weeks/2026_1005-1011_RPent推理性能分析/deep-report/evidence/quantitative-conclusion.json",
+      "sha256": "083330dbcacc026670f3e80d38d033edc101d4baae43cabdc344e7cb506370ea"
+    },
+    {
+      "path": "gpt6astra-repro/results/gpt-6-astra/decision-trace.csv",
+      "sha256": "11a9ffe5a9d8c1e475a48076d91f2d865867fb49eef5a0f8f86a89c44a147235"
+    },
+    {
+      "path": "gpt6astra-repro/results/qwen3.8-flash/summary.csv",
+      "sha256": "338dd280faab64dd93944f804ff7391429ade25341b331c0c1d75a5d39808506"
+    }
+  ]
+}

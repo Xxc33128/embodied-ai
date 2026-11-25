@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="430" viewBox="0 0 940 430" role="img"><title>RPent：分套件成功数和平均episode耗时</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="430" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<text x="30" y="32" class="label" text-anchor="start">同套件对照｜每模型每套件 n=20</text>
+<text x="280" y="64" class="sub" text-anchor="middle">原生成功数 / 20</text>
+<text x="705" y="64" class="sub" text-anchor="middle">episode均值 / s（含失败）</text>
+<text x="30" y="114" class="" text-anchor="start">Spatial Task</text>
+<rect x="170" y="90" width="218.5" height="22" rx="3" fill="#205f71"/>
+<text x="410" y="107" class="sub" text-anchor="start">19/20</text>
+<rect x="535" y="90" width="126.8621111111111" height="22" rx="3" fill="#205f71"/>
+<text x="835" y="107" class="sub" text-anchor="start">787.4</text>
+<rect x="170" y="123" width="195.5" height="22" rx="3" fill="#c79553"/>
+<text x="410" y="140" class="sub" text-anchor="start">17/20</text>
+<rect x="535" y="123" width="201.16655555555562" height="22" rx="3" fill="#c79553"/>
+<text x="835" y="140" class="sub" text-anchor="start">1248.6</text>
+<text x="30" y="214" class="" text-anchor="start">Spatial Swap</text>
+<rect x="170" y="190" width="230.0" height="22" rx="3" fill="#205f71"/>
+<text x="410" y="207" class="sub" text-anchor="start">20/20</text>
+<rect x="535" y="190" width="94.55933333333333" height="22" rx="3" fill="#205f71"/>
+<text x="835" y="207" class="sub" text-anchor="start">586.9</text>
+<rect x="170" y="223" width="230.0" height="22" rx="3" fill="#c79553"/>
+<text x="410" y="240" class="sub" text-anchor="start">20/20</text>
+<rect x="535" y="223" width="152.03813888888888" height="22" rx="3" fill="#c79553"/>
+<text x="835" y="240" class="sub" text-anchor="start">943.7</text>
+<text x="30" y="314" class="" text-anchor="start">Long Swap</text>
+<rect x="170" y="290" width="126.50000000000001" height="22" rx="3" fill="#205f71"/>
+<text x="410" y="307" class="sub" text-anchor="start">11/20</text>
+<rect x="535" y="290" width="156.87711111111108" height="22" rx="3" fill="#205f71"/>
+<text x="835" y="307" class="sub" text-anchor="start">973.7</text>
+<rect x="170" y="323" width="138.0" height="22" rx="3" fill="#c79553"/>
+<text x="410" y="340" class="sub" text-anchor="start">12/20</text>
+<rect x="535" y="323" width="262.6199722222222" height="22" rx="3" fill="#c79553"/>
+<text x="835" y="340" class="sub" text-anchor="start">1630.1</text>
+<text x="170" y="405" class="sub" text-anchor="start">深青：Astra / medium</text>
+<text x="535" y="405" class="sub" text-anchor="start">赭黄：Sol / medium</text>
+</svg>

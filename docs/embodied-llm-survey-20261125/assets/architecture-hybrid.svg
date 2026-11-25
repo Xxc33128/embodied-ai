@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="405" viewBox="0 0 940 405" role="img"><title>Hybrid：π候选动作由模型审核，执行与目标评分分开</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#6d8190"/></marker></defs>
+<rect width="940" height="405" rx="16" fill="#f5f8f8"/>
+<style>text{font-family:PingFang SC,Microsoft YaHei,Arial,sans-serif;fill:#203642;font-size:16px}.sub{fill:#637785;font-size:13px}.label{font-weight:600}</style>
+<rect x="25" y="60" width="190" height="100" rx="9" fill="white" stroke="#cedadc"/>
+<text x="120.0" y="88" class="label" text-anchor="middle">观测与任务</text>
+<text x="120.0" y="111" class="sub" text-anchor="middle">双视角 RGB＋状态</text>
+<text x="120.0" y="130" class="sub" text-anchor="middle">当前指令／剩余预算</text>
+<rect x="300" y="35" width="230" height="85" rx="9" fill="white" stroke="#cedadc"/>
+<text x="415.0" y="63" class="label" text-anchor="middle">π0.5 候选策略</text>
+<text x="415.0" y="86" class="sub" text-anchor="middle">10×7 动作块；可见前缀</text>
+<rect x="300" y="165" width="230" height="105" rx="9" fill="#e1eeee" stroke="#7ca7ad"/>
+<text x="415.0" y="193" class="label" text-anchor="middle">通用模型审核</text>
+<text x="415.0" y="216" class="sub" text-anchor="middle">student／edit／eef</text>
+<text x="415.0" y="235" class="sub" text-anchor="middle">放行、修改或接管</text>
+<rect x="650" y="165" width="255" height="105" rx="9" fill="white" stroke="#cedadc"/>
+<text x="777.5" y="193" class="label" text-anchor="middle">校验与仿真执行</text>
+<text x="777.5" y="216" class="sub" text-anchor="middle">最多执行前 5 步</text>
+<text x="777.5" y="235" class="sub" text-anchor="middle">保留实际动作来源</text>
+<polyline points="215,100 255,100 255,77 300,77" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="415,120 415,165" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="452" y="145" class="sub" text-anchor="middle">候选</text>
+<polyline points="215,130 250,130 250,215 300,215" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<polyline points="530,215 650,215" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="590" y="199" class="sub" text-anchor="middle">实际选定动作</text>
+<polyline points="775,270 775,320 115,320 115,160" fill="none" stroke="#6d8190" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="460" y="310" class="sub" text-anchor="middle">新观测／执行结果</text>
+<text x="470" y="370" class="label" text-anchor="middle">审核发生 ≠ 接管发生 ≠ 目标纠正成功</text>
+</svg>

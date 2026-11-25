@@ -1,0 +1,260 @@
+{
+  "rpent120": {
+    "gpt-6-astra": {
+      "n": 60,
+      "successes": 50,
+      "elapsed_s": 46961.20000000001,
+      "manual_primitive_s": 18701.840000000004,
+      "vla_primitive_s": 3343.4300000000003,
+      "tool_other_s": 5288.314000000001,
+      "sdk_non_mcp_s": 18185.215999999997,
+      "outside_sdk_s": 1442.4000000000003,
+      "request_count": 2112.0,
+      "suites": {
+        "libero_spatial_task": {
+          "n": 20,
+          "successes": 19,
+          "elapsed_mean_s": 787.42
+        },
+        "libero_spatial_swap": {
+          "n": 20,
+          "successes": 20,
+          "elapsed_mean_s": 586.92
+        },
+        "libero_10_swap": {
+          "n": 20,
+          "successes": 11,
+          "elapsed_mean_s": 973.7199999999997
+        }
+      }
+    },
+    "gpt-6-sol": {
+      "n": 60,
+      "successes": 49,
+      "elapsed_s": 76447.19999999998,
+      "manual_primitive_s": 26625.730000000007,
+      "vla_primitive_s": 6023.65,
+      "tool_other_s": 7141.51,
+      "sdk_non_mcp_s": 35208.80999999999,
+      "outside_sdk_s": 1447.4999999999998,
+      "request_count": 2902.0,
+      "suites": {
+        "libero_spatial_task": {
+          "n": 20,
+          "successes": 17,
+          "elapsed_mean_s": 1248.6200000000003
+        },
+        "libero_spatial_swap": {
+          "n": 20,
+          "successes": 20,
+          "elapsed_mean_s": 943.6850000000001
+        },
+        "libero_10_swap": {
+          "n": 20,
+          "successes": 12,
+          "elapsed_mean_s": 1630.0549999999998
+        }
+      }
+    }
+  },
+  "rpent8": [
+    {
+      "id": "gpt-6-astra-t0-s0",
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "environment_success": true,
+      "request_count": 41,
+      "vla_chunks": 15,
+      "elapsed_s": 1090.5,
+      "manual_primitive_s": 422.55,
+      "vla_primitive_s": 53.58,
+      "tool_other_s": 141.37400000000002,
+      "sdk_non_mcp_s": 450.196,
+      "outside_sdk_s": 22.799999999999955
+    },
+    {
+      "id": "gpt-6-sol-t0-s0",
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "environment_success": true,
+      "request_count": 47,
+      "vla_chunks": 28,
+      "elapsed_s": 1153.1,
+      "manual_primitive_s": 400.03,
+      "vla_primitive_s": 97.37,
+      "tool_other_s": 140.12,
+      "sdk_non_mcp_s": 492.3800000000001,
+      "outside_sdk_s": 23.199999999999818
+    },
+    {
+      "id": "gpt-6-astra-t0-s1",
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "environment_success": true,
+      "request_count": 41,
+      "vla_chunks": 15,
+      "elapsed_s": 1049.1,
+      "manual_primitive_s": 417.6500000000001,
+      "vla_primitive_s": 54.980000000000004,
+      "tool_other_s": 138.77699999999993,
+      "sdk_non_mcp_s": 415.09299999999996,
+      "outside_sdk_s": 22.59999999999991
+    },
+    {
+      "id": "gpt-6-sol-t0-s1",
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "environment_success": false,
+      "request_count": 77,
+      "vla_chunks": 116,
+      "elapsed_s": 2176.5,
+      "manual_primitive_s": 574.67,
+      "vla_primitive_s": 357.55000000000007,
+      "tool_other_s": 211.65899999999988,
+      "sdk_non_mcp_s": 1009.6210000000001,
+      "outside_sdk_s": 23.0
+    },
+    {
+      "id": "gpt-6-astra-t9-s0",
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "environment_success": false,
+      "request_count": 75,
+      "vla_chunks": 28,
+      "elapsed_s": 1711.6,
+      "manual_primitive_s": 872.83,
+      "vla_primitive_s": 79.44,
+      "tool_other_s": 119.75700000000006,
+      "sdk_non_mcp_s": 618.873,
+      "outside_sdk_s": 20.699999999999818
+    },
+    {
+      "id": "gpt-6-sol-t9-s0",
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "environment_success": false,
+      "request_count": 65,
+      "vla_chunks": 100,
+      "elapsed_s": 1409.8,
+      "manual_primitive_s": 576.6,
+      "vla_primitive_s": 264.87,
+      "tool_other_s": 120.87400000000002,
+      "sdk_non_mcp_s": 426.25599999999986,
+      "outside_sdk_s": 21.200000000000045
+    },
+    {
+      "id": "gpt-6-astra-t9-s1",
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "environment_success": false,
+      "request_count": 47,
+      "vla_chunks": 8,
+      "elapsed_s": 1076.7,
+      "manual_primitive_s": 580.1099999999999,
+      "vla_primitive_s": 30.16,
+      "tool_other_s": 83.20100000000014,
+      "sdk_non_mcp_s": 363.4290000000001,
+      "outside_sdk_s": 19.799999999999955
+    },
+    {
+      "id": "gpt-6-sol-t9-s1",
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "environment_success": false,
+      "request_count": 55,
+      "vla_chunks": 61,
+      "elapsed_s": 1298.0,
+      "manual_primitive_s": 601.5,
+      "vla_primitive_s": 172.14,
+      "tool_other_s": 91.67200000000003,
+      "sdk_non_mcp_s": 411.688,
+      "outside_sdk_s": 21.0
+    }
+  ],
+  "rpent8_totals": {
+    "elapsed_s": 10965.3,
+    "manual_primitive_s": 4445.94,
+    "vla_primitive_s": 1110.0900000000001,
+    "tool_other_s": 1047.4340000000002,
+    "sdk_non_mcp_s": 4187.536,
+    "outside_sdk_s": 174.2999999999995
+  },
+  "rpent8_nonrender": {
+    "scope": "8 accepted episodes; subtract only measured primitive-window render; not real-robot prediction",
+    "episode_work_s": 10965.3,
+    "render_s": 4391.179045038998,
+    "non_render_work_s": 6574.120954961001,
+    "action_non_render_s": 1164.8509549610017,
+    "tool_other_s": 1047.4340000000002,
+    "sdk_non_tool_s": 4187.536,
+    "outside_sdk_s": 174.2999999999995,
+    "recovery_segments": [
+      {
+        "task": 0,
+        "steps": [
+          18,
+          34
+        ],
+        "gross_s": 562.9423447830001,
+        "render_s": 447.5428892069999,
+        "non_render_s": 115.39945557600015,
+        "fraction_of_episode_non_render": 0.0803944700105885,
+        "model": "gpt-6-sol",
+        "seed": 1,
+        "attempt": "attempt-001",
+        "source": "report-data.json: episode timeline_v2.local.actions; 1-based trajectory steps; render intervals summed within each action"
+      },
+      {
+        "task": 9,
+        "steps": [
+          14,
+          18
+        ],
+        "gross_s": 156.21552024599998,
+        "render_s": 119.607198404,
+        "non_render_s": 36.60832184199998,
+        "fraction_of_episode_non_render": 0.052289827564788435,
+        "model": "gpt-6-sol",
+        "seed": 1,
+        "attempt": "attempt-002",
+        "source": "report-data.json: episode timeline_v2.local.actions; 1-based trajectory steps; render intervals summed within each action"
+      }
+    ],
+    "sensitivity": [
+      {
+        "sdk_reduction_fraction": 0.1,
+        "saved_s": 418.7536,
+        "fraction_of_non_render": 0.06369727646766185
+      },
+      {
+        "sdk_reduction_fraction": 0.2,
+        "saved_s": 837.5072,
+        "fraction_of_non_render": 0.1273945529353237
+      },
+      {
+        "sdk_reduction_fraction": 0.3,
+        "saved_s": 1256.2608,
+        "fraction_of_non_render": 0.19109182940298555
+      }
+    ],
+    "logical_rounds": 448
+  },
+  "source_date": "2026-11-23",
+  "report_date": "2026-11-25"
+}

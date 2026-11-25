@@ -1,0 +1,117 @@
+{
+  "available": [
+    {
+      "id": "direct-astra",
+      "label": "V01 · Astra trial-03 · seed 2002",
+      "source": "gpt6astra-repro/results/gpt-6-astra/trials/trial-03/video.mp4",
+      "poster": "gpt6astra-repro/results/gpt-6-astra/trials/trial-03/initial-side.png",
+      "nframes": 448,
+      "duration_s": 22.4,
+      "steps": 447,
+      "summary": "自动入碗成功；13次决策。视频为20 fps仿真时钟，省略模型等待。",
+      "result": "environment_success",
+      "sha256": "d507ad1d0dcd0feff8d6a5d8d1a013c312e4007ab757f54bdfb3cb230fbd7e05",
+      "size": 595465,
+      "file": "assets/direct-astra.mp4",
+      "status": "included",
+      "metadata": {
+        "width": 672.0,
+        "height": 224.0,
+        "duration_s": 22.4,
+        "sample_count": 448,
+        "avc1_present": true
+      },
+      "timeline_file": "data/direct-astra-timeline.json"
+    },
+    {
+      "id": "direct-qwen",
+      "label": "V02 · Qwen trial-03 · seed 2002",
+      "source": "gpt6astra-repro/results/qwen3.8-flash/trials/trial-03/video.mp4",
+      "poster": "gpt6astra-repro/results/qwen3.8-flash/initializations/trial-03/side.png",
+      "nframes": 622,
+      "duration_s": 31.1,
+      "steps": 621,
+      "summary": "自动失败；19次决策，归档阶段评分2。与V01初态相同；接入条件不同。",
+      "result": "environment_failure",
+      "sha256": "21f54daa4b73e539d48ed188175b705b443895a133324afc50bb1fd007fe5180",
+      "size": 782770,
+      "file": "assets/direct-qwen.mp4",
+      "status": "included",
+      "metadata": {
+        "width": 672.0,
+        "height": 224.0,
+        "duration_s": 31.1,
+        "sample_count": 622,
+        "avc1_present": true
+      },
+      "timeline_file": "data/direct-qwen-timeline.json"
+    },
+    {
+      "id": "direct-boundary",
+      "label": "V03 · Astra trial-01 · seed 2000",
+      "source": "gpt6astra-repro/results/gpt-6-astra/trials/trial-01/video.mp4",
+      "poster": "gpt6astra-repro/results/gpt-6-astra/trials/trial-01/initial-side.png",
+      "nframes": 430,
+      "duration_s": 21.5,
+      "steps": 429,
+      "summary": "自动入碗成功；10次决策。终帧在着底后反弹阶段，稳定放置尚未证实。",
+      "result": "environment_success_stability_uncertain",
+      "sha256": "25d6f9f74bd97d81f2cbb48f57660a267bded3d0b9d81bc5443bb993d7aace1b",
+      "size": 543053,
+      "file": "assets/direct-boundary.mp4",
+      "status": "included",
+      "metadata": {
+        "width": 672.0,
+        "height": 224.0,
+        "duration_s": 21.5,
+        "sample_count": 430,
+        "avc1_present": true
+      },
+      "timeline_file": "data/direct-boundary-timeline.json"
+    }
+  ],
+  "missing": {
+    "hybrid": {
+      "title": "代表视频待补：全放行与目标抽屉接管",
+      "reason": "当前仓库保留逐轮报告和核验结果，原始9段录像在离线归档。对应视频未在本工作区提供。",
+      "paths": [
+        "包B · GPT-as-Policy-repro/data/decision_v2_20260922/episodes/",
+        "包B · GPT-as-Policy-repro/data/decision_extra_20260922/episodes/"
+      ],
+      "source": "S03",
+      "case": "两罐 Hybrid全放行；底层抽屉 Hybrid 13次接管"
+    },
+    "rpent": {
+      "title": "代表视频待补：t0 seed1 的路径差异",
+      "reason": "原始深测视频在远程归档包F，当前工作区仅有结果与计时。不能用120集中的同task/seed录像替代。",
+      "paths": [
+        "包F · rpent2/deep-timing-20261008/formal-results/",
+        "t0 seed1 · Astra / Sol · attempt-001"
+      ],
+      "source": "S03",
+      "case": "1049.1秒成功 vs 2176.5秒失败"
+    },
+    "homebody": {
+      "title": "代表视频待补：落点邻段与持物掉落",
+      "reason": "归档文档明确注明12段精选MP4未上传，当前只提供现场文件名。",
+      "paths": [
+        "videos/cartons_to_corner_counter__fail.mp4",
+        "videos/conditional_juice__fail.mp4"
+      ],
+      "source": "S11",
+      "case": "Qwen角柜9步败局；条件成立后搬运掉落"
+    },
+    "halo": {
+      "title": "代表视频待补：生成参考与物理跟踪",
+      "reason": "轨迹与回放产物在实验节点，当前报告为现场台账转引。两类视频须分别标记，不能把运动学参考当成物理执行。",
+      "paths": [
+        "ep10000 · qual02 · episodes/{fpv,oak,tpv}.mp4",
+        "R15 · frame0 / seed5 · 物理跟踪回放（确切文件名待取片核对）"
+      ],
+      "source": "S13",
+      "case": "198帧合格生成轨迹；站姿起步跟踪止于WALK"
+    }
+  },
+  "timeline_source": "gpt6astra-repro/results/gpt-6-astra/decision-trace.csv",
+  "media_verification": "container metadata and file hashes; playback verification separately recorded in validation.json"
+}

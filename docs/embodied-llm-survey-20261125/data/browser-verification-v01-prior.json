@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "date": "2026-11-25",
+  "timezone": "Asia/Shanghai",
+  "browser": "Google Chrome on macOS (existing local report tab, refreshed)",
+  "method": "Real native browser UI playback; accessibility states and screenshots observed through CUA. No screenshots retained.",
+  "scope": "V01 / direct-astra / trial-03 / seed 2002 only",
+  "report_sha256": "266bae47d1145dd1c867e61e85bc023e2a6fbc3df74589f9a97daaee421ea492",
+  "segments": [
+    {
+      "round": 6,
+      "start_seconds": 2.5,
+      "end_seconds": 6.5,
+      "result": "passed: jump, playback, automatic pause and selection/status"
+    },
+    {
+      "round": 7,
+      "start_seconds": 6.5,
+      "end_seconds": 7.1,
+      "result": "passed: jump, playback, automatic pause and selection/status"
+    },
+    {
+      "round": 8,
+      "start_seconds": 7.1,
+      "end_seconds": 11.05,
+      "result": "passed: jump, playback, automatic pause and selection/status"
+    },
+    {
+      "round": 10,
+      "start_seconds": 15.05,
+      "end_seconds": 17.2,
+      "result": "passed: jump, playback, automatic pause and selection/status"
+    },
+    {
+      "round": 13,
+      "start_seconds": 21.35,
+      "end_seconds": 22.35,
+      "result": "passed: jump, playback, automatic pause and selection/status"
+    }
+  ],
+  "other_checks": {
+    "half_speed": "passed: selected 0.5x, played round 6 to 6.50 seconds; restored 1x; no quantitative speed benchmark",
+    "full_playback": "passed: started at 0, advanced beyond segment endpoints; complete mode naturally ended at 22.40 seconds",
+    "manual_seek": "passed: native timeline Increment during round 6 cleared selected segment; screenshot showed playback at 0:10 beyond the old 6.50-second boundary, then natural end at 22.40 seconds",
+    "visual_correspondence": "observed empty-grasp correction, subsequent lifting, and final red block placement in blue bowl"
+  },
+  "limitations": [
+    "V02 and V03 playback not tested",
+    "Other browsers, mobile layouts and whole-report interactive controls not tested",
+    "Native timeline accessibility values can lag during playback; screenshots and round status corroborated progress"
+  ]
+}

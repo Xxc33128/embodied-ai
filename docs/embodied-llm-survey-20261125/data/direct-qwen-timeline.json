@@ -1,0 +1,192 @@
+[
+  {
+    "call": 1,
+    "start_step": 0,
+    "end_step": 3,
+    "control_steps": 3,
+    "decision_wait_seconds": 74.83167910575867,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.02, \"y\": -0.005, \"z\": 0.95}",
+    "recorded_note": "Front/side views show the red block and blue bowl on the table near y=0, with the block a few cm from my current hover at x=-0.104. I cannot tell from a single frame which side of the hand the block lies on, so I shift forward in +x and lower slightly; the block motion in the wrist view will reveal its direction and distance."
+  },
+  {
+    "call": 2,
+    "start_step": 3,
+    "end_step": 6,
+    "control_steps": 3,
+    "decision_wait_seconds": 122.38937973976135,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.05, \"y\": -0.01, \"z\": 0.92}",
+    "recorded_note": "Wrist view shows the red block ahead of the fingers (moving +x brought it lower in frame), so the block is roughly 3-5 cm forward of the hand near y=0; the bowl is beyond it. I advance to over the estimated block position and drop to 12 cm above the table so the close-range wrist view can resolve the remaining offset."
+  },
+  {
+    "call": 3,
+    "start_step": 6,
+    "end_step": 11,
+    "control_steps": 5,
+    "decision_wait_seconds": 74.93030619621277,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.05, \"y\": -0.01, \"z\": 0.82}",
+    "recorded_note": "Side view puts the block just forward of the hand (hand x=-0.082, block near x=-0.05) and the wrist view still shows it ~3 cm ahead, so the block is farther ahead than my last short step covered. Each call only advances the servo a centimetre or two, so I command a long downward target past the grasp height to get more motion per call and will stop when the wrist view shows the fingers straddling the block."
+  },
+  {
+    "call": 4,
+    "start_step": 11,
+    "end_step": 15,
+    "control_steps": 4,
+    "decision_wait_seconds": 56.15953612327576,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.045, \"y\": 0.0, \"z\": 0.8}",
+    "recorded_note": "Side view shows the block about 2.5 cm forward of the fingers and the front view shows block and bowl both at y=0, so the block is near (x=-0.045, y=0). Hand is at (-0.071,-0.009,0.948) with gripper fully open (0.97). I close the small x gap and command a deep descent so the 5-step chunk gives maximum downward travel; I will stop and re-check before the fingers reach the block."
+  },
+  {
+    "call": 5,
+    "start_step": 15,
+    "end_step": 18,
+    "control_steps": 3,
+    "decision_wait_seconds": 68.5765872001648,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.02, \"y\": 0.005, \"z\": 0.8}",
+    "recorded_note": "Wrist view at 11 cm height still shows the block ahead of and above the finger gap, so the fingers are ~2 cm behind the block (block x about -0.043, y about 0) and need to come forward and down. I bias the target forward past the block and deep, so the 4-step chunk carries the open fingers down alongside it."
+  },
+  {
+    "call": 6,
+    "start_step": 18,
+    "end_step": 20,
+    "control_steps": 2,
+    "decision_wait_seconds": 50.298651933670044,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.01, \"y\": 0.03, \"z\": 0.85}",
+    "recorded_note": "Close-range wrist view now shows the block large and sitting just above the open finger gap but about 1 cm to the image-left (+y world) and still slightly ahead in x; side view agrees the block is a bit forward of the blades. I nudge forward, left-to-right in world +y and down so the open fingers straddle the block at pad height."
+  },
+  {
+    "call": 7,
+    "start_step": 20,
+    "end_step": 99,
+    "control_steps": 79,
+    "decision_wait_seconds": 132.50615763664246,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.038, \"y\": -0.002, \"z\": 0.8, \"gripper\": 0}",
+    "recorded_note": "Front view confirms the fingers are now vertically above the block (block and bowl both at image x=118, hand aligned), and side view shows the pads level with the block top but ~1 cm short in x. Hand is at (-0.055,-0.004,0.878), opening 0.98. I latch the gripper closed and use a long deep target so the 3-step chunk both closes the fingers and sinks them alongside the block."
+  },
+  {
+    "call": 8,
+    "start_step": 99,
+    "end_step": 141,
+    "control_steps": 42,
+    "decision_wait_seconds": 54.54437589645386,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.03, \"y\": 0.004, \"z\": 0.822, \"gripper\": 0}",
+    "recorded_note": "The long 79-step chunk let the hand sink to z=0.825 with the block now sitting between the open pads (wrist view shows it captured between the fingers, slightly +y). Opening has only fallen to 0.52, so the stroke is slow; I keep the hand essentially in place and re-issue the close command so the gripper delta itself buys a long chunk and the pads clamp the block."
+  },
+  {
+    "call": 9,
+    "start_step": 141,
+    "end_step": 182,
+    "control_steps": 41,
+    "decision_wait_seconds": 49.179571866989136,
+    "tool": "move_to",
+    "targets_json": "{\"x\": -0.005, \"y\": 0.006, \"z\": 1.0, \"gripper\": 0}",
+    "recorded_note": "Gripper opening has stalled at 0.506 over 42 steps, which means the pads are pressed against the block (it is ~4 cm wide and now centred between the pads in the wrist view). I keep the close command latched and lift to z=1.00 with a small step toward the bowl so the block clears the table and the bowl rim."
+  },
+  {
+    "call": 10,
+    "start_step": 182,
+    "end_step": 223,
+    "control_steps": 41,
+    "decision_wait_seconds": 61.88411211967468,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.07, \"y\": 0.006, \"z\": 0.94, \"gripper\": 0}",
+    "recorded_note": "Block is clearly held between the pads (wrist view shows it clamped at the fingertips, opening steady at 0.505) and hand is lifted to (-0.011,0.006,0.965). Side view puts the bowl centre about 8 cm further forward, near x=+0.07 at the same y. I carry the block over the bowl mouth and keep the close command latched so the chunk stays long."
+  },
+  {
+    "call": 11,
+    "start_step": 223,
+    "end_step": 263,
+    "control_steps": 40,
+    "decision_wait_seconds": 90.69993805885315,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.085, \"y\": 0.006, \"z\": 0.955, \"gripper\": 0}",
+    "recorded_note": "Hand is at (0.051,0.006,0.945) still clamping the block (opening 0.499); wrist view shows the bowl mouth centred in y but still ahead, and side view shows the held block at about rim height. I step forward over the bowl centre while lifting 1 cm so the block clears the rim before I open."
+  },
+  {
+    "call": 12,
+    "start_step": 263,
+    "end_step": 303,
+    "control_steps": 40,
+    "decision_wait_seconds": 93.09803080558777,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.1, \"y\": 0.005, \"z\": 0.92, \"gripper\": 0}",
+    "recorded_note": "Hand is at (0.0755,0.005,0.950) still clamping (0.497). Wrist view shows the bowl mouth centred in y and large, but the held block still projects below/short of the bowl interior, so I am a little short of the bowl centre. I creep another 2.5 cm forward and drop 3 cm so the block hangs inside the bowl walls before release."
+  },
+  {
+    "call": 13,
+    "start_step": 303,
+    "end_step": 344,
+    "control_steps": 41,
+    "decision_wait_seconds": 72.8246910572052,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.11, \"y\": 0.006, \"z\": 0.925, \"gripper\": 1}",
+    "recorded_note": "Hand is at (0.094,0.006,0.926); the wrist view shows the bowl mouth centred directly ahead with the held block hanging just inside the near wall, and the front view shows block and bowl aligned in y. I nudge 1.5 cm further over the interior and release the latch so the block drops into the bowl."
+  },
+  {
+    "call": 14,
+    "start_step": 344,
+    "end_step": 423,
+    "control_steps": 79,
+    "decision_wait_seconds": 111.59784722328186,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.104, \"y\": 0.005, \"z\": 0.82, \"gripper\": 0}",
+    "recorded_note": "Release landed the block on the table just short of the bowl: side and front views show it at x=0.104 directly under the now-open hand (0.984), with the bowl mouth still 4-7 cm further forward. I drop straight back onto the block and re-latch the close command so the long chunk sinks the pads around it and clamps again."
+  },
+  {
+    "call": 15,
+    "start_step": 423,
+    "end_step": 480,
+    "control_steps": 57,
+    "decision_wait_seconds": 152.79550886154175,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.104, \"y\": 0.01, \"z\": 0.93, \"gripper\": 1}",
+    "recorded_note": "Second squeeze came up empty (opening 0.29) and the side view still shows the block on the table at x=0.104 touching the bowl near wall, so the pads closed beside it while my hand sat 1.4 cm short in -y. I lift clear of the block, shift back over its centre and re-open the fingers for a clean re-grasp."
+  },
+  {
+    "call": 16,
+    "start_step": 480,
+    "end_step": 559,
+    "control_steps": 79,
+    "decision_wait_seconds": 39.600985288619995,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.105, \"y\": 0.006, \"z\": 0.8, \"gripper\": 0}",
+    "recorded_note": "Hand is above the block at (0.105,0.006,0.921) with fingers wide (0.984) and the wrist view shows the block edge-on centred between the two pads, y now matched. I drive straight down onto it with the close command latched so the long chunk sinks the pads past the block sides and clamps."
+  },
+  {
+    "call": 17,
+    "start_step": 559,
+    "end_step": 618,
+    "control_steps": 59,
+    "decision_wait_seconds": 21.71605896949768,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.1065, \"y\": 0.0, \"z\": 0.862, \"gripper\": 0}",
+    "recorded_note": "Hand is now at (0.1065,0.000,0.862) pressed down at the block level and the closing has only reached 0.725 (about 6 cm) with big joint torques, so the pads are still outside the 4 cm block. I hold the pose exactly and re-issue the close so the long stroke finishes clamping the block before I lift."
+  },
+  {
+    "call": 18,
+    "start_step": 618,
+    "end_step": 620,
+    "control_steps": 2,
+    "decision_wait_seconds": 65.04540419578552,
+    "tool": "move_to",
+    "targets_json": "{\"x\": 0.115, \"y\": 0.006, \"z\": 0.845, \"gripper\": 0}",
+    "recorded_note": "Side view still shows the block untouched on the table beside the bowl near wall, so my last squeeze closed on air (0.019) with the pads just short of it. Two actions left: I drive forward and down into the block with the close command latched, so the pads are still travelling inward when they reach the block sides."
+  },
+  {
+    "call": 19,
+    "start_step": 620,
+    "end_step": 621,
+    "control_steps": 1,
+    "decision_wait_seconds": 94.11708092689514,
+    "tool": "give_up",
+    "targets_json": "{}",
+    "recorded_note": "One policy call remains and the red block is still resting on the table (last seen in the side view beside the bowl near wall at about x=0.104, y=0.005), not inside the bowl. The hand is at (0.1067, 0.000, 0.8628) with the gripper closed on air (measured opening 0.018), so a grasp, a transport over the bowl mouth and a release cannot be finished in the remaining call. I am not claiming the goal was reached."
+  }
+]
