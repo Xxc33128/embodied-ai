@@ -1,0 +1,46 @@
+{
+ "sizes": [
+  {
+   "target_mb": 0.05,
+   "bytes": 52428,
+   "min_ms": 1385.765,
+   "median_ms": 1532.756,
+   "max_ms": 1545.798,
+   "status": 404,
+   "error": null,
+   "excess_over_tiny_ms": 0.0
+  },
+  {
+   "target_mb": 0.5,
+   "bytes": 524288,
+   "min_ms": 2369.337,
+   "median_ms": 2987.721,
+   "max_ms": 3219.694,
+   "status": 404,
+   "error": null,
+   "excess_over_tiny_ms": 983.572
+  },
+  {
+   "target_mb": 1.5,
+   "bytes": 1572864,
+   "min_ms": 2445.044,
+   "median_ms": 2800.384,
+   "max_ms": 7456.37,
+   "status": 404,
+   "error": null,
+   "excess_over_tiny_ms": 1059.279
+  },
+  {
+   "target_mb": 4.3,
+   "bytes": 4508876,
+   "min_ms": 3855.471,
+   "median_ms": 4516.456,
+   "max_ms": 9358.285,
+   "status": 404,
+   "error": null,
+   "excess_over_tiny_ms": 2469.706
+  }
+ ],
+ "inferred_mb_per_s": 1.804,
+ "interpretation": "If min time scales with bytes, the excess over the tiny request is link/ingest time that must be subtracted from TTFT before calling anything 'prefill'."
+}

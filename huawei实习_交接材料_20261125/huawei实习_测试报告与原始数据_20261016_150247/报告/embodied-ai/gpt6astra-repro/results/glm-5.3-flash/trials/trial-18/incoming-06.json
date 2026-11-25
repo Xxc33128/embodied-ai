@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.081, \"y\": 0.019, \"z\": 0.85, \"gripper\": 0.5}, \"note\": \"Front and side views both show the fingertips just above the block, confirming x/y alignment; the wrist offset is near-field camera parallax. I descend to block mid-height with fingers open, using the intermediate gripper value again to keep the jaws open while the arm settles.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

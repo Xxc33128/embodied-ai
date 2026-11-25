@@ -1,0 +1,28 @@
+{
+  "clip": "clip-785a4b1fd2",
+  "control_hz": 20,
+  "table_top_z": 0.8,
+  "bowl_xy": [
+    0.16,
+    0.0
+  ],
+  "steps": 163,
+  "selected_frames": [
+    0,
+    20,
+    40,
+    60,
+    80,
+    94,
+    95,
+    96,
+    100,
+    120,
+    140,
+    152,
+    159,
+    160,
+    163
+  ],
+  "identity_and_policy_notes_removed": true
+}

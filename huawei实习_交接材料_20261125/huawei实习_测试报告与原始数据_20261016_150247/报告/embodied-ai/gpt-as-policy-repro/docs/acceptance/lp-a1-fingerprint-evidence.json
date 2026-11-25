@@ -1,0 +1,57 @@
+{
+ "schema": "gap_repro.lp_a1_fingerprint.v1",
+ "suite": "libero_goal",
+ "task_index": 0,
+ "records": [
+  {
+   "init": 0,
+   "state_fingerprints": [
+    "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+    "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+    "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced"
+   ],
+   "consistent": true,
+   "image_diff_stats": [
+    {
+     "mean_abs": 2.3439,
+     "frac_gt0": 0.1738,
+     "frac_gt30": 0.0605,
+     "max_sum": 547
+    },
+    {
+     "mean_abs": 3.4074,
+     "frac_gt0": 0.197,
+     "frac_gt30": 0.0582,
+     "max_sum": 565
+    }
+   ]
+  },
+  {
+   "init": 1,
+   "state_fingerprints": [
+    "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+    "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+    "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c"
+   ],
+   "consistent": true,
+   "image_diff_stats": [
+    {
+     "mean_abs": 2.7311,
+     "frac_gt0": 0.1672,
+     "frac_gt30": 0.0698,
+     "max_sum": 568
+    },
+    {
+     "mean_abs": 3.0848,
+     "frac_gt0": 0.1773,
+     "frac_gt30": 0.0471,
+     "max_sum": 560
+    }
+   ]
+  }
+ ],
+ "reset_consistency": true,
+ "init_pairing_discriminates": true,
+ "render_image_tolerance_ok": true,
+ "note": "\u72b6\u6001\u6307\u7eb9=\u786c\u95e8\uff08\u9010\u4f4d\uff09\uff1b\u56fe\u50cf OSMesa \u9010\u6b21\u5fae\u5c0f\u975e\u786e\u5b9a\u6027\u4ee5\u5bb9\u5dee\u8bb0\u5f55"
+}

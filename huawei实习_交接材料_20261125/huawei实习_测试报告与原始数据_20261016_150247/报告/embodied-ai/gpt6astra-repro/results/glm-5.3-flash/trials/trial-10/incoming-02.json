@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.13, \"y\": -0.05, \"z\": 0.95}, \"note\": \"The bowl now sits centered in the wrist view so the bowl is near (0.09, 0.0); triangulating the step-0 views puts the red block near (-0.10, -0.05). Hovering slightly offset there so the block lands near the wrist-view center; gripper stays open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

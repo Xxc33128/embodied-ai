@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-18",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-18",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.035, \"z\": 0.852, \"gripper\": 1}, \"note\": \"The previous close was empty because the already-closed latch gave no interpolation window; the block sits untouched at (-0.028,-0.035). I reopen the jaws and adjust onto the proven grasp pose in a single move; the reopen delta gives 80+ steps so the small descent completes fully before I close next.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

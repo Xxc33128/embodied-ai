@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.166, \"y\": 0.01, \"z\": 0.88, \"gripper\": 0}, \"note\": \"Wrist view shows the blue bowl opening directly ahead of the held red block, so the hand is still short of the bowl in x. Carrying the block (closed latch held) to the estimated bowl centre x=0.166, y=0.010 and descending to z=0.88 so the block hangs inside the bowl mouth.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

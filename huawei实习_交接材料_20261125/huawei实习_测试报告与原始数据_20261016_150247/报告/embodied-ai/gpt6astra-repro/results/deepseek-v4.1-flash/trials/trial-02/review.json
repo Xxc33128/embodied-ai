@@ -1,0 +1,10 @@
+{
+  "stage_max": 3,
+  "basis": "Block was grasped steps 732-811 and lifted well off the table (bottom z up to ~1.16 m); at step 787 the held block was 4.4 cm from bowl_xy and frames 784-790 show it passing above the bowl (bowl opening is visibly ~10-13 cm wide). Grasp ended near step 812 at 8.8 cm from bowl center and the block fell and came to rest ~10 cm from bowl_xy on the table against the bowl's outer wall (steps 860-900), so it was never released inside the bowl.",
+  "reviewers": "blind-pass1-A",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Grasped at step 732 and lifted (block bottom-z up to 1.16 m); while still held the block xy passed within 0.044 m of bowl_xy at steps 785-790 (over the bowl-opening region, corroborated by front/wrist frames), then it was released at 812 and settled on the table 0.10 m from the bowl center by step 900 - beside, not inside, the bowl. Flagging for second review only because the over-bowl pass is borderline (block center at the rim of an opening I estimate at ~0.04-0.05 m), not because of any trajectory/image conflict.",
+  "boundary_note": "stage 3 属边界：持物经过碗口上方时块心距碗心最近 4.4cm（碗口半径估计 4-5cm）；两轮独立盲评均判 3；释放后落碗外 10cm"
+}

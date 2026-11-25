@@ -1,0 +1,214 @@
+{
+  "protocol": {
+    "protocol_id": "robosuite-bowl-paired20-v1",
+    "version": "1.0",
+    "status": "specified_not_executed",
+    "experiment_design": {
+      "trials_per_model": 20,
+      "formal_scene_seeds": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ],
+      "eval_seed": 0,
+      "epoch": 0,
+      "seed_file": "seeds.csv",
+      "seed_derivation": "inspect_robots.rollout.derive_seed; crc32(f\"{eval_seed}:{scene_seed}:{epoch}\") & 0xffffffff",
+      "initialization_bank_status": "not_generated",
+      "attempt_selection": "first valid attempt; infrastructure retries retained and disclosed"
+    },
+    "context": {
+      "fresh_per_trial": true,
+      "cross_trial_memory": false,
+      "prior_learnings": null,
+      "operator_feedback": false,
+      "text_history": "entire current trial",
+      "image_horizon_observations": 2,
+      "subagent_strict_equivalence": "fresh context per decision loaded only with canonical current request; otherwise report as separate access-mode group"
+    },
+    "prompt_files": {
+      "system": "prompts/system.txt",
+      "embodiment": "prompts/embodiment.txt",
+      "task": "prompts/task.txt"
+    },
+    "prompt_sha256": {
+      "system": "c73f2cd3a5656a6d06c7dc457ccbb4f21c86b8f1704f61fe3a80f2b72fdbca64",
+      "embodiment": "d63100b8f0bd013d15b8ca99c3b6ee48bb8b85aaa8dd732200e1afed76b43c5d",
+      "task": "42a68914b23d97b69852d5ddac9a49498ba96e7ae12ba6fc8e7fbfbadea031f6"
+    },
+    "system_message_assembly": "strip(system.txt) + \"\\n\\nRobot documentation:\\n\" + strip(embodiment.txt)",
+    "assembled_system_sha256": "1224e6ebdd986b16de687156a41e4e44f18f909286a03e5b6369573f0adc54a5",
+    "model_request": {
+      "max_llm_calls": 20,
+      "effort": "medium",
+      "temperature": null,
+      "max_output_tokens": null,
+      "wire": "provider adapter; preserve canonical task information; declare actual wire",
+      "images": "always",
+      "image_horizon": 2,
+      "depth": "render",
+      "unknown_usage_or_cost": null
+    },
+    "environment": {
+      "embodiment": "robosuite-bowl",
+      "robot": "Panda",
+      "controller": "BASIC/right OSC_POSE world frame",
+      "control_hz": 20,
+      "max_steps": 900,
+      "max_speed_frac": 0.25,
+      "execution_noise_constructor": [
+        0.0015,
+        0.001,
+        0.017
+      ],
+      "extra_settle_steps": 0,
+      "sim_during_model_inference": "paused",
+      "position_bounds": {
+        "x": [
+          -0.3,
+          0.35
+        ],
+        "y": [
+          -0.3,
+          0.3
+        ],
+        "z": [
+          0.8,
+          1.3
+        ]
+      },
+      "yaw_bounds_rad": [
+        -3.141592653589793,
+        3.141592653589793
+      ],
+      "native_max_step": [
+        0.04,
+        0.04,
+        0.04,
+        0.35,
+        null
+      ],
+      "gripper": "binary latch: target<.35 close, target>.65 open, intermediate hold",
+      "random_cube_x_m": [
+        -0.12,
+        -0.04
+      ],
+      "random_cube_y_m": [
+        -0.1,
+        0.1
+      ],
+      "random_cube_yaw_rad": [
+        -0.1745,
+        0.1745
+      ],
+      "cube_half_size_m": [
+        0.02,
+        0.022
+      ],
+      "actual_initial_state_must_match": true
+    },
+    "observations": {
+      "cameras": [
+        "front",
+        "side",
+        "wrist"
+      ],
+      "image_shape": [
+        224,
+        224,
+        3
+      ],
+      "state_fields": [
+        "eef_pos",
+        "eef_quat",
+        "eef_yaw",
+        "gripper",
+        "eef_state",
+        "joint_pos",
+        "joint_vel",
+        "joint_eff"
+      ],
+      "private_fields_excluded": [
+        "scene_seed",
+        "derived_seed",
+        "cube_pos",
+        "cube_quat",
+        "contact_flags",
+        "grasp_flags",
+        "success",
+        "phase",
+        "phase_max"
+      ]
+    },
+    "recording": {
+      "video_fps": 20,
+      "video_clock": "simulation",
+      "video_every_control_step": true,
+      "video_layout": "front | side | wrist",
+      "initial_and_final_frame": true,
+      "model_visible_frames": "lossless PNG all observations with sha256 references",
+      "exact_requests_and_responses": true,
+      "expanded_actions": true,
+      "private_physics_trace": true,
+      "wall_and_sim_timestamps": true,
+      "credentials_in_logs": false
+    },
+    "scoring": {
+      "primary_success": "reviewed stage_max == 4",
+      "stage_max": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "env_success": "separate signal, not sole final grade",
+      "blind_video_review": true,
+      "current_phase_field": "approximate candidate only"
+    },
+    "reference_environment_versions": {
+      "inspect-robots": "0.58.0",
+      "inspect-robots-agent": "0.26.0",
+      "robosuite": "1.5.2",
+      "robosuite-models": "1.0.0",
+      "mujoco": "3.3.0",
+      "numpy": "1.26.4"
+    },
+    "reference_source_sha256": {
+      "robosuite_bowl.py": "9560c7becbf9a10ea924810282651f50ec1cd32f5eba7bfe38c24719c982187a",
+      "robosuite_bowl_env.py": "619b32143a02c5d526d33009d5ccdb7e29e344afbb5dea88f311fa85b7b543a6",
+      "robosuite_bowl_asset.xml": "570edb5ad223e537685962bf715f5209db5790ffad0103b56f8eb791f1fbef4a"
+    },
+    "execution_readiness": {
+      "standard_prompt_loader": "requires runner integration",
+      "max_steps_900": "must be explicit in formal runner",
+      "initialization_bank": "generate before formal model calls",
+      "video_and_recording": "one bridge transport smoke only; no formal model trials run",
+      "scoring": "offline review required"
+    }
+  },
+  "scene_seed": 2015,
+  "trial_index": 15,
+  "access_mode": "one persistent clean subagent per trial; explicit requests plus its own trial memory",
+  "no_extra_settle": true,
+  "decision_model": "deepseek-v4.1-flash-subagent",
+  "decision_model_snapshot": "unknown; opencode-go subagent backend not independently verifiable",
+  "effort_effect": "medium requested in wire; subagent backend effort control not exposed"
+}

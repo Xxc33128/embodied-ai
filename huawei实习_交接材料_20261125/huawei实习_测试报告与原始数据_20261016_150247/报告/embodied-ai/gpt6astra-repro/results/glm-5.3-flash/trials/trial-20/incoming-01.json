@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.09, \"z\": 0.98, \"gripper\": 1}, \"note\": \"I see the red block slightly right and below center in the wrist view, with the blue bowl toward the top of that view, so I am near the block but need to calibrate the wrist camera axis mapping. I will open the gripper and move 4.8 cm in +x while holding height, then compare the block shift in the next wrist image.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

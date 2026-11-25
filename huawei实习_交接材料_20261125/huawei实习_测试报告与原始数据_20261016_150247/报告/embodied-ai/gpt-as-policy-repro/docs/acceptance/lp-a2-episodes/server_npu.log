@@ -1,0 +1,107 @@
+LP_A2_SERVER_READY device=npu
+[npu] served paper_faithful_torch_npu_init0_r0_1789798973741.npz 8.08s sha=19d1678a24a4890a
+[npu] served paper_faithful_torch_npu_init0_r1_1789798985589.npz 0.56s sha=d52215ea21c6f129
+[npu] served paper_faithful_torch_npu_init0_r2_1789798989607.npz 0.53s sha=c598dd6e22dec71e
+[npu] served paper_faithful_torch_npu_init0_r3_1789798993687.npz 0.54s sha=5ea3a7e6fdc92045
+[npu] served paper_faithful_torch_npu_init0_r4_1789798997689.npz 0.53s sha=4c5e5c148d8b260f
+[npu] served paper_faithful_torch_npu_init0_r5_1789799001567.npz 0.53s sha=00e6df3fe98c2d24
+[npu] served paper_faithful_torch_npu_init0_r6_1789799005694.npz 0.56s sha=59e8cceda8df8d42
+[npu] served paper_faithful_torch_npu_init0_r7_1789799009547.npz 0.53s sha=44d989db8c4d0c79
+[npu] served paper_faithful_torch_npu_init0_r8_1789799013325.npz 0.61s sha=a69f8dfcbd26d7f0
+[npu] served paper_faithful_torch_npu_init0_r9_1789799017149.npz 0.57s sha=35dcf01f4f88175f
+[npu] served paper_faithful_torch_npu_init0_r10_1789799020933.npz 0.53s sha=e40be973f0016890
+[npu] served paper_faithful_torch_npu_init0_r11_1789799024816.npz 0.57s sha=c9bb2e35006a9ce9
+[npu] served paper_faithful_torch_npu_init0_r12_1789799029124.npz 0.57s sha=54a36da7d3fc83f1
+[npu] served paper_faithful_torch_npu_init0_r13_1789799032746.npz 0.53s sha=9829bf6e7800ec11
+[npu] served paper_faithful_torch_npu_init0_r14_1789799036295.npz 0.56s sha=694ff254d5e4b2f1
+[npu] served paper_faithful_torch_npu_init0_r15_1789799039857.npz 0.57s sha=54928450940ac109
+[npu] served paper_faithful_torch_npu_init0_r16_1789799043677.npz 0.54s sha=7ba3978421907011
+[npu] served paper_faithful_torch_npu_init0_r17_1789799047143.npz 0.53s sha=cf9c04fa0a067ac5
+[npu] served paper_faithful_torch_npu_init0_r18_1789799050678.npz 0.6s sha=d10782e2434ce78c
+[npu] served paper_faithful_torch_npu_init0_r19_1789799054360.npz 0.53s sha=7857419531069315
+[npu] served paper_faithful_torch_npu_init0_r20_1789799058071.npz 0.54s sha=ac46c8c14e68816f
+[npu] served paper_faithful_torch_npu_init0_r21_1789799061784.npz 0.59s sha=db03eaa5e1271965
+[npu] served paper_faithful_torch_npu_init0_r22_1789799065409.npz 0.53s sha=09fda1977efc965b
+[npu] served paper_faithful_torch_npu_init0_r23_1789799068920.npz 0.54s sha=76dac1cd4f5bb2a2
+[npu] served paper_faithful_torch_npu_init0_r24_1789799072513.npz 0.54s sha=b2884307a0d538df
+[npu] served paper_faithful_torch_npu_init0_r25_1789799076328.npz 0.53s sha=28b44bef9384af09
+[npu] served paper_faithful_torch_npu_init1_r0_1789799093378.npz 0.61s sha=990ecce95d78b778
+[npu] served paper_faithful_torch_npu_init1_r1_1789799097580.npz 0.52s sha=f0e2324740ba6bf5
+[npu] served paper_faithful_torch_npu_init1_r2_1789799101662.npz 0.55s sha=62b136521c3f54bd
+[npu] served paper_faithful_torch_npu_init1_r3_1789799105814.npz 0.56s sha=ad676a00936711e5
+[npu] served paper_faithful_torch_npu_init1_r4_1789799110070.npz 0.52s sha=6cdd93239543d4b2
+[npu] served paper_faithful_torch_npu_init1_r5_1789799113856.npz 0.52s sha=a4413aeeea2e67d4
+[npu] served paper_faithful_torch_npu_init1_r6_1789799117579.npz 0.56s sha=3e37654b0043ba72
+[npu] served paper_faithful_torch_npu_init1_r7_1789799121335.npz 0.54s sha=ff8b38f1822821a4
+[npu] served paper_faithful_torch_npu_init1_r8_1789799125061.npz 0.56s sha=7ed4579975c7762e
+[npu] served paper_faithful_torch_npu_init1_r9_1789799128837.npz 0.53s sha=6fdadc8c71d0d28d
+[npu] served paper_faithful_torch_npu_init1_r10_1789799132531.npz 0.55s sha=8b2c999596592637
+[npu] served paper_faithful_torch_npu_init1_r11_1789799136148.npz 0.54s sha=341a45b29a814158
+[npu] served paper_faithful_torch_npu_init1_r12_1789799139741.npz 0.54s sha=4c9aa2e27196a5c9
+[npu] served paper_faithful_torch_npu_init1_r13_1789799143201.npz 0.59s sha=13408033d2cba077
+[npu] served paper_faithful_torch_npu_init1_r14_1789799146732.npz 0.52s sha=451f652eb89759c3
+[npu] served paper_faithful_torch_npu_init1_r15_1789799150208.npz 0.57s sha=27edab3ece753099
+[npu] served paper_faithful_torch_npu_init1_r16_1789799153702.npz 0.58s sha=f2c6bf45dcc3581f
+[npu] served paper_faithful_torch_npu_init1_r17_1789799157203.npz 0.52s sha=181f58a0e9bbd744
+[npu] served paper_faithful_torch_npu_init1_r18_1789799160825.npz 0.53s sha=f0bc5edeb72c70be
+[npu] served paper_faithful_torch_npu_init1_r19_1789799164645.npz 0.59s sha=41adbeae21c8a03d
+[npu] served paper_faithful_torch_npu_init1_r20_1789799168717.npz 0.55s sha=8538b099b1cd4394
+[npu] served paper_faithful_torch_npu_init1_r21_1789799172792.npz 0.56s sha=626ab909271db4ad
+[npu] served paper_faithful_torch_npu_init1_r22_1789799176430.npz 0.55s sha=51dbb3c9ef1297d3
+[npu] served paper_faithful_torch_npu_init1_r23_1789799180364.npz 0.56s sha=f6f0f2cba86d9328
+[npu] served paper_faithful_torch_npu_init1_r24_1789799184473.npz 0.57s sha=18b400741e7551d6
+[npu] served paper_faithful_torch_npu_init1_r25_1789799188419.npz 0.56s sha=94dcc412197e6891
+[npu] served scene_pinned_torch_npu_init0_r0_1789799276067.npz 0.53s sha=0f399b701e7b392c
+[npu] served scene_pinned_torch_npu_init0_r1_1789799280016.npz 0.54s sha=5133a51338580740
+[npu] served scene_pinned_torch_npu_init0_r2_1789799283941.npz 0.56s sha=04dd0a64cb57680a
+[npu] served scene_pinned_torch_npu_init0_r3_1789799287952.npz 0.52s sha=d39397afc7006dbe
+[npu] served scene_pinned_torch_npu_init0_r4_1789799291931.npz 0.55s sha=f274ca907256fe4e
+[npu] served scene_pinned_torch_npu_init0_r5_1789799296139.npz 0.52s sha=50a97f957aceea14
+[npu] served scene_pinned_torch_npu_init0_r6_1789799300009.npz 0.55s sha=204a860011bec826
+[npu] served scene_pinned_torch_npu_init0_r7_1789799303879.npz 0.55s sha=725489327173cbd5
+[npu] served scene_pinned_torch_npu_init0_r8_1789799307733.npz 0.52s sha=fa1bbb9ad943c795
+[npu] served scene_pinned_torch_npu_init0_r9_1789799311463.npz 0.52s sha=021be3a20ca33804
+[npu] served scene_pinned_torch_npu_init0_r10_1789799315289.npz 0.55s sha=feaf30f5f8a6f1a7
+[npu] served scene_pinned_torch_npu_init0_r11_1789799319042.npz 0.52s sha=d0bf4bbe4199bf52
+[npu] served scene_pinned_torch_npu_init0_r12_1789799322807.npz 0.52s sha=c59ca1ff33f2a440
+[npu] served scene_pinned_torch_npu_init0_r13_1789799326482.npz 0.52s sha=5597bb3044e06aa7
+[npu] served scene_pinned_torch_npu_init0_r14_1789799330089.npz 0.56s sha=8ef6af228dee57e8
+[npu] served scene_pinned_torch_npu_init0_r15_1789799333698.npz 0.53s sha=57005b99c1833d46
+[npu] served scene_pinned_torch_npu_init0_r16_1789799337326.npz 0.52s sha=d43733d69e008445
+[npu] served scene_pinned_torch_npu_init0_r17_1789799340956.npz 0.52s sha=496da266bcb1cdf4
+[npu] served scene_pinned_torch_npu_init0_r18_1789799344533.npz 0.55s sha=bbe8b1c1ccf95023
+[npu] served scene_pinned_torch_npu_init0_r19_1789799348070.npz 0.55s sha=d7de5d512a47e5a7
+[npu] served scene_pinned_torch_npu_init0_r20_1789799351662.npz 0.52s sha=bb39ba7d6d84d564
+[npu] served scene_pinned_torch_npu_init0_r21_1789799355291.npz 0.52s sha=8c6bce72b7378376
+[npu] served scene_pinned_torch_npu_init0_r22_1789799358815.npz 0.52s sha=4986f1b5f5285280
+[npu] served scene_pinned_torch_npu_init0_r23_1789799362295.npz 0.55s sha=8a8edec5ed3ebbf5
+[npu] served scene_pinned_torch_npu_init0_r24_1789799365857.npz 0.52s sha=253f338eb31aab0a
+[npu] served scene_pinned_torch_npu_init0_r25_1789799369413.npz 0.52s sha=4e83b0b8c6b12929
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+[ERROR] TBE Subprocess[task_distribute] raise error[], main process disappeared!
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/usr/local/python3.11.15/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/local/Ascend/cann-8.5.2/python/site-packages/tbe/common/repository_manager/utils/multiprocess_util.py", line 68, in run
+    item = self.task_q.get()
+           ^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in get
+  File "/usr/local/python3.11.15/lib/python3.11/multiprocessing/managers.py", line 822, in _callmethod
+    kind, result = conn.recv()
+                   ^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.12, \"y\": -0.035, \"z\": 0.88}, \"note\": \"Test result: the -x step made the block move UP in the wrist view (v 124 to 106) and slightly smaller, so the block lies toward +x, not -x. Wrist image axes are roughly right = -y and down = -x, so the block is about 6 cm toward +x and ~2 cm toward -y. Committing a long +x command (the tool layer only executes a few steps per call, so a far target is needed) to close on it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

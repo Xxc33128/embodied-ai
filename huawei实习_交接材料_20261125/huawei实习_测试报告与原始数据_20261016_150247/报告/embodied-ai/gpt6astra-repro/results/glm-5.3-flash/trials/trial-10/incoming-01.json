@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.15, \"y\": 0.0, \"z\": 0.95, \"gripper\": 1}, \"note\": \"Wrist view shows the red block right of the gripper axis and the bowl farther away; I estimate the block near x=0.15, y=0.0. Opening the gripper and moving to hover above that estimate to calibrate with the wrist camera.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

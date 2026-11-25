@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0197, \"y\": 0.0316, \"z\": 0.88, \"gripper\": 0}, \"note\": \"At 1.00 m the wrist camera finally shows the block: it sits at u~85, v~167, i.e. inside the open jaw gap (which spans u 75-155, jaws now along world x after the 90 deg yaw) just right of the left finger, and at the same image row as the fingers so my y is already right. The bowl is off to the right edge (larger x). Step straight down to 0.88 m - pads mid-block height - and close, since the block is already between the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

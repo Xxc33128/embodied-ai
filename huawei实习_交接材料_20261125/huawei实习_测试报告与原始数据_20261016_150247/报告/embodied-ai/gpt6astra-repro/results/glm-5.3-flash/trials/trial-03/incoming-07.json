@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.076, \"y\": 0.002, \"z\": 0.845, \"yaw\": 1.2, \"gripper\": 1}, \"note\": \"Arm is descending too slowly (2-3 steps per call), so I am pairing the descent with a wrist yaw rotation to 1.2 rad; the yaw servo takes many control steps during which the descent can also progress. Target: hover just above the block at (-0.076, 0.002, 0.845), gripper open; the 67-degree finger rotation is harmless for the square block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

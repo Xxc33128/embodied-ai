@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.01, \"y\": 0.052, \"z\": 0.89, \"gripper\": 1}, \"note\": \"Holding the block at 0.91m height; I translate over the bowl center while opening the jaws so the block drops inside the bowl, staying above rim height along the way.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

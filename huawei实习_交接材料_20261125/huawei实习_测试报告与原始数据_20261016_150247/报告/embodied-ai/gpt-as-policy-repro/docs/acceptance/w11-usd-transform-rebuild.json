@@ -1,0 +1,154 @@
+{
+ "unit_audit": {
+  "up_axis": {
+   "Z": 120
+  },
+  "meters_per_unit": {
+   "1.0": 120
+  },
+  "note": "MuJoCo \u4e3a Z-up/\u7c73\uff1b\u4e0e\u8d44\u4ea7\u4e00\u81f4\u65f6\u65e0\u9700\u6362\u7b97"
+ },
+ "generated_by": "scripts/w11_reconvert_affected.py",
+ "note": "F05\uff1a\u65e7\u5b9e\u73b0 p @ M.T \u4e22\u5931\u7236\u8282\u70b9\u53d8\u6362\u3002raw_affected = \u4efb\u4e00 mesh prim \u7684 local-to-world \u77e9\u9635\u8f6c\u7f6e\u540e\u7ed3\u679c\u4e0d\u540c\uff1bincluded_affected = \u5176\u4e2d\u4f1a\u88ab\u8f6c\u6362\u5668\u5b9e\u9645\u6536\u5f55\u7684 prim\uff08\u6709 visual \u65f6\u8df3\u8fc7 collision\uff09\u3002\u5386\u53f2\u4ea7\u7269\u4fdd\u6301\u4e0d\u52a8\uff0c\u5019\u9009\u8d44\u4ea7\u65b0\u4ea7\u7269\u5728 new_dir\u3002old_dir \u4ea7\u7269\u82e5\u6765\u81ea\u5176\u4ed6\u7ba1\u7ebf\u7248\u672c/\u6e90\u6811\uff0c\u65b0\u65e7\u5dee\u5f02\u4e0d\u80fd\u5355\u72ec\u5f52\u56e0\u4e8e\u672c\u4fee\u590d\uff0c\u89c1 per-asset oracle_bbox \u4e0e provenance \u8bf4\u660e\u3002",
+ "object_dir": "data/organize_objects",
+ "old_dir": "data/w11_scene_obj",
+ "new_dir": "data/w11_scene_obj_v2",
+ "files_scanned": 120,
+ "assets_checked": 120,
+ "assets_without_mesh": [],
+ "raw_affected": [
+  "Rigid/bottle/00055/object.usdz",
+  "Rigid/box/00000/object.usdz"
+ ],
+ "included_affected": [],
+ "affected": [
+  {
+   "asset": "Rigid/bottle/00055/object.usdz",
+   "old_obj": "data/w11_scene_obj/Rigid_bottle_00055_object.obj",
+   "new_obj": "data/w11_scene_obj_v2/Rigid_bottle_00055_object.obj",
+   "old_sha256": "055d962451466450f060502f336ef00abc9aad79f76fbad70802e84433c1743b",
+   "old_bbox": {
+    "min": [
+     -0.04,
+     -0.04,
+     -0.1125
+    ],
+    "max": [
+     0.04,
+     0.04,
+     0.1125
+    ],
+    "n_verts": 2138,
+    "n_faces": 8140
+   },
+   "new_sha256": "93fbd5c453a2dfd9565c461f55b253cc007c4ce1e7a2812f5b34fdc221843678",
+   "new_bbox": {
+    "min": [
+     -0.04,
+     -0.04,
+     -0.1125
+    ],
+    "max": [
+     0.04,
+     0.04,
+     0.1125
+    ],
+    "n_verts": 2008,
+    "n_faces": 3942
+   },
+   "converter_info": {
+    "n_meshes": 1,
+    "n_verts": 2008,
+    "n_faces": 3942
+   },
+   "oracle_bbox": {
+    "min": [
+     -0.03999999910593033,
+     -0.03999999910593033,
+     -0.11250000447034836
+    ],
+    "max": [
+     0.03999999910593033,
+     0.03999999910593033,
+     0.11250000447034836
+    ]
+   },
+   "oracle_ok": true,
+   "bbox_delta_min": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_delta_max": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "included_in_conversion": false
+  },
+  {
+   "asset": "Rigid/box/00000/object.usdz",
+   "old_obj": "data/w11_scene_obj/Rigid_box_00000_object.obj",
+   "new_obj": "data/w11_scene_obj_v2/Rigid_box_00000_object.obj",
+   "old_sha256": "68adcea9305c6d6d860c5beb725d71997eff817cc7c686f60b70adc2ed324eee",
+   "old_bbox": {
+    "min": [
+     -0.5,
+     -0.5,
+     -0.5
+    ],
+    "max": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "n_verts": 80,
+    "n_faces": 286
+   },
+   "new_sha256": "130b686641bc87f0dfd30fbfc84e5f7b554dad75fe65d0cc813d1babf42936b4",
+   "new_bbox": {
+    "min": [
+     -0.08399545,
+     -0.1506332,
+     -3e-08
+    ],
+    "max": [
+     0.08600455,
+     0.14064243,
+     0.1818178
+    ],
+    "n_verts": 72,
+    "n_faces": 119
+   },
+   "converter_info": {
+    "n_meshes": 1,
+    "n_verts": 72,
+    "n_faces": 119
+   },
+   "oracle_bbox": {
+    "min": [
+     -0.08399545401334763,
+     -0.15063320100307465,
+     -3.3527612686157227e-08
+    ],
+    "max": [
+     0.08600454777479172,
+     0.1406424343585968,
+     0.18181779980659485
+    ]
+   },
+   "oracle_ok": true,
+   "bbox_delta_min": [
+    0.41600455000000003,
+    0.3493668,
+    0.49999997
+   ],
+   "bbox_delta_max": [
+    -0.41399545,
+    -0.35935757,
+    -0.31818219999999997
+   ],
+   "included_in_conversion": false
+  }
+ ]
+}

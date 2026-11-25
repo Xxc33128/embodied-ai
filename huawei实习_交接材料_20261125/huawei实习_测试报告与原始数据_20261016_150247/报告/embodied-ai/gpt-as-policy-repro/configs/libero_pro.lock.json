@@ -1,0 +1,375 @@
+{
+ "schema": "gap_repro.libero_pro_upstream_lock.v1",
+ "created": "2026-09-17",
+ "panel_status": "LP0/LP1/LP2/LP-A0/LP-A1(P1修复)/LP-A2 完成；LP-A2 闭环设备替换：6/6 episode 双设备全成功，pinned 首块差 0.0022 过预注册阈值（0.03），零成功率翻转；下一步 LP3（待模型接入信息）/LP5（待冻结决策）",
+ "canonical_source": {
+  "repo": "https://github.com/Zxy-MLlab/LIBERO-PRO",
+  "role": "规范源（论文代码链接，321 stars）",
+  "default_branch": "master",
+  "locked_commit": "eafdb809426b13153aa1e4c42d6601844217dfec",
+  "commit_date": "2026-03-23",
+  "license": "MIT"
+ },
+ "maintained_fork": {
+  "repo": "https://github.com/RLinf/LIBERO-PRO",
+  "role": "维护 fork（团队框架组织；含 libero 安装导入修复；README 结果表为 P1/P2 压缩口径）",
+  "default_branch": "master",
+  "head_commit": "0bcf73621c789ffd6ed8858467a89df9ca94fd6b",
+  "note": "结果锚定以论文六条件表为准，不用 fork 压缩表"
+ },
+ "normative_anchor": {
+  "paper": "arXiv 2510.03827v1（Tables 2–5）",
+  "conditions": [
+   "Ori",
+   "Obj",
+   "Pos",
+   "Sem",
+   "Task",
+   "Env"
+  ],
+  "suites": [
+   "libero_goal",
+   "libero_spatial",
+   "libero_10",
+   "libero_object"
+  ],
+  "protocol": "每套件 10 任务 × 每任务 50 集；Sem 每任务 3 个改写；Task 不得与其他维度组合，其余可随机组合",
+  "pi05_table": {
+   "libero_goal": {
+    "Ori": 0.97,
+    "Obj": 0.97,
+    "Pos": 0.38,
+    "Sem": 0.97,
+    "Task": 0.0,
+    "Env": 0.46
+   },
+   "libero_spatial": {
+    "Ori": 0.98,
+    "Obj": 0.97,
+    "Pos": 0.2,
+    "Sem": 0.97,
+    "Task": 0.01,
+    "Env": 0.46
+   },
+   "libero_10": {
+    "Ori": 0.93,
+    "Obj": 0.92,
+    "Pos": 0.08,
+    "Sem": 0.93,
+    "Task": 0.01,
+    "Env": 0.46
+   },
+   "libero_object": {
+    "Ori": 0.98,
+    "Obj": 0.98,
+    "Pos": 0.17,
+    "Sem": 0.96,
+    "Task": 0.01,
+    "Env": 0.73
+   }
+  },
+  "pi05_pro_total_check": "五扰动均值（不含 Ori）复算 = 0.532，与用户引用的 0.53 相符",
+  "pi0_row": {
+   "PRO_total": 0.44,
+   "Position": 0.0,
+   "verified": "2026-09-17 对抗审查对 arXiv 2510.03827v1 证实"
+  }
+ },
+ "task_max_steps": {
+  "goal": 300,
+  "spatial": 220,
+  "10": 520,
+  "object": 280,
+  "note": "RLinf README TASK_MAX_STEPS 与 openpi examples/libero/main.py 一致，且 6 条件变体同值"
+ },
+ "bddl_init_assets": {
+  "hf_dataset": "https://huggingface.co/datasets/zhouxueyang/LIBERO-Pro",
+  "usage": "下载 bddl_files/init_files 覆盖进 libero/libero/bddl_files（fork README 步骤）"
+ },
+ "student_checkpoint": {
+  "official": "gs://openpi-assets/checkpoints/pi05_libero（JAX，config 名 pi05_libero）",
+  "gs_reachability": {
+   "mac": "HTTP 200",
+   "<实验服务器>": "HTTP 200",
+   "tested": "2026-09-17, params/_METADATA"
+  },
+  "pytorch": "README 权重表无预转换版；openpi 官方提供 PyTorch 实现（LIBERO 上验证）与 JAX→PyTorch 转换脚本 → 自转换 + LP-A0 数值验收",
+  "converter": "examples/convert_jax_model_to_pytorch.py",
+  "weight_integrity": {
+   "status": "verified",
+   "result": "16/16 对象 crc32c 与 GCS 元数据一致（2026-09-18，含 6 个复合大对象 ≈12.44GB）",
+   "evidence": "服务器 data/pi05_libero_crc32c_verify.json（算法测试向量本地验证通过）",
+   "verifier": "scripts/verify_pi05_libero_crc32c.py",
+   "note": "10 个小对象另有 md5 对账；权源身份就此闭合，转换可开始"
+  }
+ },
+ "openpi_client_behavior_pins": {
+  "source": "openpi main @ examples/libero/main.py（E1）",
+  "num_steps_wait": 10,
+  "replan_steps": 5,
+  "resize_size": 224,
+  "image_rotate": "180°（训练预处理对齐）",
+  "max_steps": {
+   "spatial": 220,
+   "object": 280,
+   "goal": 300,
+   "10": 520,
+   "90": 400
+  },
+  "transport": "websocket（WebsocketClientPolicy ↔ serve_policy.py）"
+ },
+ "env_pins": {
+  "python": "3.8.13（conda）",
+  "torch": "1.11.0（官方 cu113 → PyPI aarch64 CPU，已记录的最小适配）",
+  "requirements": [
+   "hydra-core==1.2.0",
+   "numpy==1.22.4",
+   "wandb==0.13.1",
+   "easydict==1.9",
+   "transformers==4.21.1",
+   "opencv-python==4.6.0.66",
+   "robomimic==0.2.0",
+   "einops==0.4.1",
+   "thop==0.1.1-2209072238",
+   "robosuite==1.4.0",
+   "bddl==1.0.1",
+   "future==0.18.2",
+   "matplotlib==3.5.3",
+   "cloudpickle==2.1.0",
+   "gym==0.25.2"
+  ],
+  "known_risk": "robosuite 1.4.0 → mujoco-py → MuJoCo 2.1.0 官方二进制仅 x86_64；aarch64 断点在 LP1 构建日志中定位",
+  "builder": "scripts/setup_libero_env.sh（阶段化，失败不阻断后续阶段）"
+ },
+ "pinned_sources": {
+  "openpi": {
+   "url": "https://github.com/Physical-Intelligence/openpi",
+   "commit": "215abfb217dbac7d5f1273282331b9b1866c0479",
+   "clone": "upstream/openpi（浅克隆，2026-09-17）",
+   "role": "客户端行为 pin 的 E1 锚（examples/libero/main.py：wait10/旋转180/resize224/replan5/max_steps/websocket）"
+  }
+ },
+ "lp2_conversion": {
+  "status": "done (weights bitwise-faithful; assets fix applied)",
+  "command": "PYTHONPATH=/data/pi05_hybrid/openpi/src python3 /data/pi05_hybrid/openpi/examples/convert_jax_model_to_pytorch.py --checkpoint_dir /workspace/data/checkpoints/pi05_libero --config_name pi05_libero --output_path /workspace/data/checkpoints/pi05_libero_pt",
+  "script_pin": "colleague copy == upstream openpi@215abfb2（convert/config/pi0_config/pi0_pytorch 四文件 md5 双验一致）",
+  "output": {
+   "config_json_md5": "87c6c228a2c99ec3bedfb283bcf445d8",
+   "model_safetensors_md5": "032ad4665674b90d0bab42551154f6ab",
+   "bytes": 7233650408
+  },
+  "fidelity_audit": "JAX 51 叶子/3,353,433,872 元素 == 811 张量；810 张量 bf16 逐位相等；embedder 经 lm_head tie 逐位相等 → 100% 元素保真",
+  "action_horizon": "10 为 upstream config.py:745 官方显式值（默认 50 未泄漏）",
+  "assets_fix": "pi05_libero/assets → pi05_libero_pt/assets（官方脚本查 parent/assets 静默跳过，已手工补齐 norm_stats）",
+  "known_dead_weight": "gemma_expert.lm_head.weight 526.6MB 随机初始化（动作前向不经过；使输出 md5 不可复现，哈希仅作本次产物指纹）",
+  "review": "2026-09-17-LP2转换对抗性审查.md"
+ },
+ "lp_a0": {
+  "status": "PASS (formal: 8/8 draws within preregistered thresholds, three legs jax_cpu/torch_cpu/torch_npu)",
+  "method": "同一转换权重在 Torch CPU 与 Torch NPU（卡1）；固定观测（seed0 合成）+ 同一噪声数组经 infer(obs, noise=...) 注入两侧",
+  "results": {
+   "shape": [
+    10,
+    7
+   ],
+   "cpu_determinism_max_abs": 0.0,
+   "npu_vs_cpu_max_abs": 0.003565,
+   "mean_abs": 0.0007657,
+   "mean_rel": 0.01488,
+   "p99_abs": 0.003137,
+   "cpu_time_s": 612.8,
+   "npu_time_s": 205.4
+  },
+  "interpretation": "分开播种时 max_abs≈2.0（生成式采样噪声主导，非数值问题）；注入同一噪声后差值缩小三个数量级至 bf16/归约顺序量级。正式 W6/W7 阈值仍按主计划预注册程序确定，本结果作为 LP-A0 运行时等价证据",
+  "noise_rule": "噪声生成一次显式注入两栈（对应主计划 W7『JAX 生成注入』的 Torch 内部版本；JAX 基线对齐在 W6/LP-A0 完整链中补）",
+  "ops_blocker_resolved": "GE/TBE 初始化失败根因=/root/atc_data 知识库缓存损坏（mv 复位后消失）+ 与常驻服务进程的编译资源竞争（跑验收时暂停服务，完成后已恢复）",
+  "evidence": "docs/acceptance/lp-a0-result.log",
+  "date": "2026-09-18",
+  "label_correction": "实测数字经攻击存活（noise 注入贯穿去噪循环、determinism=0 可信、证据链闭合），但按计划 §2 定义 LP-A0=JAX CPU→Torch CPU→NPU 逐张量对比，本轮仅完成 Torch 段且阈值未预注册——PASS 标签撤回",
+  "formal_run": {
+   "date": "2026-09-18",
+   "design": "configs/validation.json（8 draws：2 合成 + 6 真实帧；JAX 生成噪声注入三腿）",
+   "results": {
+    "npu_vs_cpu_max_abs_range": [
+     0.0028,
+     0.0141
+    ],
+    "npu_vs_cpu_mean_abs_range": [
+     0.0006,
+     0.0028
+    ],
+    "jax_vs_cpu_max_abs_range": [
+     0.0027,
+     0.0135
+    ],
+    "passes": "8/8（阈值 per_draw max_abs<=0.03, mean_abs<=0.005）"
+   },
+   "evidence": "docs/acceptance/lp-a0-formal-evidence.json（逐 draw 三腿 sha256 + 差值）",
+   "scripts": [
+    "scripts/lp_a0_leg_jax.py",
+    "scripts/lp_a0_leg_torch.py",
+    "scripts/lp_a0_compare.py",
+    "scripts/lp_a0_capture_frames.py"
+   ],
+   "ops_note": "进程隔离（JAX 与 torch_npu 分进程）+ 每轮 atc_data 复位 + 服务暂停窗口 = 必要条件；pi05 服务已在正式跑完成后恢复（health ok）",
+   "structural_checks": {
+    "status": "PASS 8/8（符号一致率 ≥0.986、余弦 ≥0.99995；npu_vs_cpu 与 jax_vs_cpu 双对比）",
+    "note": "指标为 validation.json 预注册项，执行遗漏后离线补算（诚实记录：post-hoc 计算）",
+    "computed": "docs/acceptance/lp-a0-formal-evidence.json#structural_checks"
+   },
+   "scope_limitation": "等价结论限定于受试输入域：libero_goal task0 近初态真实帧 ×6 + 合成帧 ×2、单一 prompt。未解码动作/中间量对比仍为开放项（P2-1）",
+   "meta_records": "docs/acceptance/lp-a0-formal-meta/（三腿动作 npz、noise.npz、逐腿 meta/sha）"
+  }
+ },
+ "lp_a2": {
+  "status": "PASS (closed-loop device replacement: 6/6 episodes success both devices, pinned first-chunk gate PASS, zero success flips)",
+  "preregistration": "configs/lp_a2_validation.json（阈值先于任何运行冻结，commit b6b0850；噪声形状勘误 df79121 留痕）",
+  "design": "libero_goal task0 × {paper_faithful(init 0,1), scene_pinned(init 0)} × {torch_cpu, torch_npu}；官方客户端契约 E1 逐项对齐（wait10/replan5/max300/旋转180°/state=eef_pos+axisangle(eef_quat)+gripper_qpos/prompt=task.language/actions[:5]）；噪声按 (arm,init,replan_idx) 稳定播种显式注入两设备；scene_pinned 为工程消融（fixture 钉扎，偏离论文协议、不进论文口径）",
+  "results": {
+   "scene_pinned_init0": {
+    "scene_fingerprint_equal": true,
+    "first_chunk_diff": {
+     "max_abs": 0.002152,
+     "mean_abs": 0.000533
+    },
+    "threshold": {
+     "max_abs": 0.03,
+     "mean_abs": 0.005
+    },
+    "verdict": "PASS（13.9×/9.4× 余量）——闭环纯设备数值差落在 LP-A0 单次前向带内",
+    "success": "cpu@127 / npu@126",
+    "divergence_step": 82,
+    "scene_fingerprint_equal_note": "钉扎机制另有 pin selftest（scripts/lp_a2_pin_selftest.py）与指纹敏感性回归测试支撑；本数据本身不可判别钉扎是否生效（pin_ref 恰等于自然布局，若钉扎失效指纹也会相等）——审查 P3 如实登记，selftest 日志未留档"
+   },
+   "paper_faithful_init0": {
+    "scene_fingerprint_equal": true,
+    "note": "同种子同 reset 序列下 fixture 布局跨设备复现（协议确定性）",
+    "first_chunk_diff": {
+     "max_abs": 0.002427,
+     "mean_abs": 0.000454
+    },
+    "success": "cpu@125 / npu@130",
+    "divergence_step": 90
+   },
+   "paper_faithful_init1": {
+    "scene_fingerprint_equal": false,
+    "note": "布局差异归因（审查 P2-1 修正）：非协议内在——CPU init1 客户端因两次 harness 崩溃独立重启（新进程第 2 次 reset 的自然布局），NPU init1 为单进程第 3 次 reset；决定性证据：5/6 集位姿逐位等于第 2 次 reset 布局且 CPU init1 两轮独立进程的 r0 动作 sha 相同（2e9ec50d…）。clean 配对下 init1 布局预期相等。场景差传导至观测→动作：首块差 max 0.0716（预注册明确 paper 臂不设阈值，此为归因记录）",
+    "success": "cpu@161 / npu@127",
+    "divergence_step": 49
+   },
+   "success_equality": "3/3 对相等，翻转案例 0；movables 指纹逐对相等",
+   "throughput": "NPU 稳态 0.52–0.56s/chunk（与 robodojo 服务 661ms 同量级）；CPU 230s/chunk（aarch64 bf16 参考内核单线程）。LP-A0 的 cpu 76.6s/npu 25.7s per-draw 与本轮回实测差异大，记为 ops 观察（邻居负载/编译状态），不影响两轮的等价性判定口径"
+  },
+  "ops": "NPU 臂 ASCEND_RT_VISIBLE_DEVICES=1；pi05 服务暂停窗口约 14 分钟（14:19:17–14:33:46），恢复后 /health ok（device npu）",
+  "harness_bugs_fixed_en_route": [
+   "噪声形状 (10,7)→(10,32)（pi05 内部动作维 32；首跑即失败无结果，勘误入 prereg）",
+   "客户端请求非原子写→server 抢读半写 zip（init1 r7 崩溃，init0 结果不受影响）",
+   "np.savez 路径自动加 .npz 后缀陷阱（两处变体）",
+   "npu 驱动 v1 的 grep|head 管道退出码恒 0→提前退出且未恢复服务；v2 接管并保证任何失败路径恢复服务"
+  ],
+  "evidence": {
+   "episodes": "docs/acceptance/lp-a2-episodes/（6 集 json+npz、pin_ref.json、server/driver 日志；与服务器逐文件 md5 全等，2026-09-19 对账）",
+   "compare": "docs/acceptance/lp-a2-compare.json（schema gap_repro.lp_a2_compare.v1）"
+  },
+  "scripts": [
+   "scripts/lp_a2_policy_server.py",
+   "scripts/lp_a2_closed_loop.py",
+   "scripts/lp_a2_compare.py",
+   "scripts/lp_a2_make_pin.py",
+   "scripts/lp_a2_pin_selftest.py",
+   "scripts/lp_a2_cpu_driver.sh",
+   "scripts/lp_a2_npu_driver_v2.sh"
+  ],
+  "date": "2026-09-19",
+  "review": "2026-09-19-LP-A2对抗性审查.md：PASS−（结论成立）；P2×2（init1 归因改写、E1 偏差登记）与 P3 择要已修，无需重跑实验",
+  "env_deviations_undeclared": "env 渲染 224（E1 为 256+resize224）、seed 0（E1 为 7）——审查 P2-2 登记，对设备配对零影响（两臂同管线）"
+ },
+ "lp_a1": {
+  "status": "pass (P1 fixed: scene digest in fingerprint + attribution-isolated; gap-sim 9/9)",
+  "session_adapter": "src/gap_repro/sim/libero_session.py（suite 名→原生 env；配对初态原样使用；成功判定走 env.env._check_success 原生）",
+  "fingerprint_protocol": "movables 硬门（robot0_joint_pos/eef_pos/gripper_qpos/object-state，逐位）+ fixture_pose_digest（场景布局）+ fingerprint_full（两者拼接，LP-A2 配对身份）。硬门恰在 set_init_state 恢复集上成立；fixture 是模型场、不被恢复",
+  "render_discovery": {
+   "attribution_isolated": "同状态双渲染（真同物理状态、无穿插步）vs 跨 reset diff：渲染器地板 agentview mean_abs 0.0019（frac_gt0 量级 1e-3）、腕部 0.04–0.09——预注册判据（≤1.0/≤0.01）双相机通过，渲染器逐位稳定成立；跨 reset diff（agentview 2.88–2.91、腕部 4.99–5.56）= 渲染器地板的 1500×/60×+，fixture 重采样主导。v1 归因『OSMesa 非确定性 mean≈3』撤回。注意：3 个穿插 dummy 步本身在腕部视野产生 ~1.0 的真实视觉变化（首版探针曾误归因渲染器，已修正捕获顺序）",
+   "cross_reset_image_tolerance": "mean_abs≤5.0（=v1 观测极值 3.41×1.5）、frac_gt30≤0.10（=观测极值 6.98%×1.4）；n=4 开发诊断样本，非正式统计门；正式样本量按 LP5 精度反推",
+   "wrist_camera": "robot0_eye_in_hand_image（策略实际输入）自 P1 修复起纳入监控（审查 P2-1 关闭）；其对臂/夹爪微小状态变化敏感（3 dummy 步 ~1.0 灰度），须计入 LP-A2 噪声模型"
+  },
+  "fixture_drift": {
+   "status": "证实并入档（P1 关闭）：每 reset 在 BDDL region 内重采样、set_init_state 不恢复；scene 指纹每 init 3 次 reset 全不同",
+   "measured_max_abs_delta_pos_vs_rep0": {
+    "flat_stove_1": [
+     0.008,
+     0.0119,
+     0.0
+    ],
+    "wine_rack_1": [
+     0.0149,
+     0.0098,
+     0.0
+    ],
+    "wooden_cabinet_1": [
+     0.0089,
+     0.0055,
+     0.0
+    ]
+   },
+   "region_envelope": "libero_goal task0 各 fixture region 2cm×2cm（z 固定，实测 z 漂移=0）；测试门=逐轴 ≤ region 最大边长+2e-3",
+   "protocol_declaration": "场景布局 reset 间协议内在扰动 ±region/2，与 openpi/LIBERO-PRO 论文协议同构（reset→set_init_state，无 fixture 恢复）——不修复、显式入档；LP-A2 配对差值分析必须把 fixture 抖动+腕部渲染噪声计入协变量",
+   "evidence": "docs/acceptance/lp-a1-fixture-drift-evidence.json（schema gap_repro.lp_a1_fixture_drift.v1，md5 76d40dd7…，与服务器双侧一致；含首版捕获顺序混淆的修正记录，重跑确定性交叉通过：scene 指纹/漂移数值两跑逐位一致）"
+  },
+  "fingerprint_evidence": {
+   "init0_3resets_consistent": true,
+   "init1_3resets_consistent": true,
+   "pairing_discriminates": true,
+   "render_image_tolerance_ok": true,
+   "file": "docs/acceptance/lp-a1-fingerprint-evidence.json",
+   "v1_cross_anchor": "P1 修复后探针复现 v1 movables 指纹逐位一致（init0=7013dce1…、init1=9fe5fae0…）——指纹算法未变、协议未扰"
+  },
+  "tests": "tests/test_libero_session.py 9/9 于 gap-sim 实测通过（2026-09-19，含 fixture 平移+旋转微扰反盲回归、per-fixture 采样器精确包络门、同状态双渲染归因哨兵）；日志 docs/acceptance/lp-a1-tests-gap-sim.log（md5 21933f09…，双侧一致）；Mac 无 libero 时整组 skip",
+  "review_p1_fix": "2026-09-19-LP-A1-P1修复对抗性审查.md：PASS 无 P1/P2；P3 择要已修（包络门收紧至 per-fixture 采样器跨度、body_quat 敏感性入回归、空 fixtures_dict 与内部关节覆盖范围注记、交接文档残留口径）",
+  "date": "2026-09-19"
+ },
+ "lp3_progress": {
+  "status": "契约层移植完成（模型无关部分）；模型接入待用户提供",
+  "done": "schema/工具表/gate prompt/takeover 真值/动作界（决策 5cm·0.35rad、DLS 2cm·0.1rad·0.05rad/关节）/观测白名单/路线 A·B 传输接口（connect() 报缺失清单）；12 契约测试含与钉定上游的逐字节对等",
+  "blocked_on_user": "路线 A：app-server 启动命令+model+provider+effort(xhigh)+工作区；路线 B：endpoint+api_key_env(环境变量名)+model+effort+限流策略",
+  "date": "2026-09-19"
+ },
+ "pi05_table": {
+  "source": "arXiv 2510.03827v1 Tables 2-5, pi0.5 row (paper-anchor; transcribed in 2026-09-19-LP5冻结提案.md §2)",
+  "registered": "2026-09-20 (L5 recompute found the key missing; proposal had cited a non-existent lock key)",
+  "values": {
+   "libero_goal": {
+    "Ori": 0.97,
+    "Obj": 0.97,
+    "Pos": 0.38,
+    "Sem": 0.97,
+    "Task": 0.0,
+    "Env": 0.46
+   },
+   "libero_spatial": {
+    "Ori": 0.98,
+    "Obj": 0.97,
+    "Pos": 0.2,
+    "Sem": 0.97,
+    "Task": 0.01,
+    "Env": 0.46
+   },
+   "libero_10": {
+    "Ori": 0.93,
+    "Obj": 0.92,
+    "Pos": 0.08,
+    "Sem": 0.93,
+    "Task": 0.01,
+    "Env": 0.46
+   },
+   "libero_object": {
+    "Ori": 0.98,
+    "Obj": 0.98,
+    "Pos": 0.17,
+    "Sem": 0.96,
+    "Task": 0.01,
+    "Env": 0.73
+   }
+  }
+ }
+}

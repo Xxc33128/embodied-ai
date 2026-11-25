@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.06, \"y\": 0.02, \"z\": 0.8}, \"note\": \"Side view: my fingertips are ~25 px left of the red block and the block is ~12 px left of the hand in the front view, so the block sits a little toward +x/-y of the hand. I have overshot in y and am now 11 cm above the table. Commanding past the block laterally and to the z limit so the descent actually progresses; I will re-check the wrist view for final alignment.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0471, \"y\": 0.0, \"z\": 0.89, \"yaw\": 0.0798, \"gripper\": 0.5}, \"note\": \"Close grabbed air: in the front view the block is ~2 cm beyond the fingers in +x, and in the side view ~2.3 cm off in the other horizontal axis. I rise 2 cm for clearance and translate toward the block (+x, -y), keeping the closed latch via intermediate gripper 0.5 for ~39 steps.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.022, \"y\": -0.017, \"z\": 0.845, \"gripper\": 1}, \"note\": \"Continuing the descent to grasp depth: eef at (-0.068,-0.019,0.921) still short of the block-centered hover, so I command the final target z=0.845 (documented closure height 0.835-0.85) with fingers open, straddling the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

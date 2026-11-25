@@ -1,0 +1,165 @@
+{
+  "complete": true,
+  "paired_initial_states": {
+    "('libero_10', 0, 0)": {
+      "state": true,
+      "full": true,
+      "init_state_sha256": true
+    },
+    "('libero_10', 9, 0)": {
+      "state": true,
+      "full": true,
+      "init_state_sha256": true
+    },
+    "('libero_goal_task', 0, 0)": {
+      "state": true,
+      "full": true,
+      "init_state_sha256": true
+    }
+  },
+  "checks": [
+    {
+      "episode_id": "libero_10-task0-init0-direct",
+      "method": "direct",
+      "status": "valid_success",
+      "decisions": 97,
+      "control_steps": 476,
+      "sha256_files_verified": 1929,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "477"
+      }
+    },
+    {
+      "episode_id": "libero_10-task0-init0-hybrid",
+      "method": "hybrid",
+      "status": "valid_success",
+      "decisions": 51,
+      "control_steps": 253,
+      "sha256_files_verified": 1088,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "254"
+      }
+    },
+    {
+      "episode_id": "libero_10-task0-init0-student",
+      "method": "student",
+      "status": "valid_success",
+      "decisions": 52,
+      "control_steps": 260,
+      "sha256_files_verified": 1112,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "261"
+      }
+    },
+    {
+      "episode_id": "libero_10-task9-init0-direct",
+      "method": "direct",
+      "status": "valid_failure",
+      "decisions": 105,
+      "control_steps": 520,
+      "sha256_files_verified": 2105,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "521"
+      }
+    },
+    {
+      "episode_id": "libero_10-task9-init0-student",
+      "method": "student",
+      "status": "valid_success",
+      "decisions": 70,
+      "control_steps": 348,
+      "sha256_files_verified": 1482,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "349"
+      }
+    },
+    {
+      "episode_id": "libero_goal_task-task0-init0-direct",
+      "method": "direct",
+      "status": "valid_failure",
+      "decisions": 64,
+      "control_steps": 300,
+      "sha256_files_verified": 1225,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "301"
+      }
+    },
+    {
+      "episode_id": "libero_goal_task-task0-init0-hybrid",
+      "method": "hybrid",
+      "status": "valid_failure",
+      "decisions": 60,
+      "control_steps": 300,
+      "sha256_files_verified": 1285,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "301"
+      }
+    },
+    {
+      "episode_id": "libero_goal_task-task0-init0-student",
+      "method": "student",
+      "status": "valid_failure",
+      "decisions": 60,
+      "control_steps": 300,
+      "sha256_files_verified": 1280,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "301"
+      }
+    },
+    {
+      "episode_id": "libero_10-task9-init0-hybrid",
+      "method": "hybrid",
+      "status": "valid_success",
+      "decisions": 51,
+      "control_steps": 251,
+      "sha256_files_verified": 1080,
+      "video": {
+        "codec_name": "h264",
+        "width": 448,
+        "height": 224,
+        "pix_fmt": "yuv420p",
+        "nb_frames": "252"
+      }
+    }
+  ],
+  "ui": {
+    "method_count": 9,
+    "decision_selections": 610,
+    "script_syntax_and_dom_logic": "passed",
+    "browser_rendering": "not_performed"
+  },
+  "html_sha256": "9ec6832c5ddbf1f946191f7d823bee0e49f9addf85aa3b1ba2f9e8dbc5469be7",
+  "html_bytes": 154582833
+}

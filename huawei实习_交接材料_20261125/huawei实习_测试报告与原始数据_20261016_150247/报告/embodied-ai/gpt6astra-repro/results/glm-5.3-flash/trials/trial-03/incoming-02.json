@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.13, \"y\": 0.074, \"z\": 0.9}, \"note\": \"Side view shows the block left of the gripper (right=+x) and the bowl farther left, so the block is at smaller x. Making a calibration move (-0.06 in x, +0.08 in y, down to z=0.90) and will read how the block and bowl shift in the wrist view to fix the image-to-world axes before the final descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"z\": 0.815, \"gripper\": 0}, \"note\": \"The wrist view still shows the block up-image (more -x) of the open fingers and the side view puts the fingers ~2 cm short of the block. I close while dropping to z=0.815 and sliding another 2 cm in -x, timing the squeeze onto the block sides.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

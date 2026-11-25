@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.135, \"y\": 0.02, \"z\": 0.855, \"gripper\": 0.5}, \"note\": \"Touch bounds put the block near y=0.115-0.13, and translating the open jaw along y would sweep a finger into it. I reposition sideways to (-0.135, 0.02) at grasp height first - both fingers move away from the block on this diagonal, so it stays undisturbed - before sliding into a straddle approach.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

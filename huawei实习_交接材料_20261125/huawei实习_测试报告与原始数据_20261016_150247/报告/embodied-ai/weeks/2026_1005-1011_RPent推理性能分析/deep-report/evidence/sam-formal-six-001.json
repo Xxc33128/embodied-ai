@@ -1,0 +1,323 @@
+{
+  "episode_identity": {
+    "model": "gpt-6-astra",
+    "suite": "libero_10_swap",
+    "task": 9,
+    "seed": 0,
+    "attempt": "attempt-001"
+  },
+  "sam_attribution": {
+    "matches": [
+      {
+        "client_span_id": "836085:2615446667409437:1888",
+        "server_span_id": "178356:2615446684658816:9"
+      }
+    ],
+    "unassigned_client_count": 0,
+    "shared_handler_count_not_assigned": 1,
+    "selected_source_audit": {
+      "issues": [],
+      "selected_start_count": 8,
+      "selected_end_count": 8,
+      "file_sha256": {
+        "spans-178356.jsonl": "7a20b5843cd48ea20a18a894e5fe94021bf2266fb64f99dde26a382e632558b1",
+        "starts-178356.jsonl": "cab0994eb2a1133fe4420539df7579179defcdd36e0c30bb1c6ca0a83d66ef94"
+      }
+    }
+  },
+  "observed_io": {
+    "sam.client.total": [
+      {
+        "count": 1,
+        "metadata": {
+          "input_meta": {
+            "image_bytes": 430025,
+            "image_hw": [
+              1024,
+              1024
+            ],
+            "image_sha256": "04acec8a652219b9a83f62688affd630e3229956d75dc67e887aade2bb08dc4c",
+            "request_fingerprint": "d8208a23558a85b7ab7fc58f5d4026866751cbecb63f4172568235bdd6c88cb6",
+            "text_prompt": {
+              "chars": 24,
+              "sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+              "utf8_bytes": 24
+            }
+          }
+        }
+      }
+    ],
+    "sam.handler": [
+      {
+        "count": 1,
+        "metadata": {
+          "input_meta": {
+            "image_base64_chars": 573368,
+            "image_bytes": 430025,
+            "image_hw": [
+              1024,
+              1024
+            ],
+            "image_sha256": "04acec8a652219b9a83f62688affd630e3229956d75dc67e887aade2bb08dc4c",
+            "request_fingerprint": "d8208a23558a85b7ab7fc58f5d4026866751cbecb63f4172568235bdd6c88cb6",
+            "text_prompt": {
+              "chars": 24,
+              "sha256": "2f0905c293497e83cafbbedff17363c596829b2349b44a35a759623e7bcec739",
+              "utf8_bytes": 24
+            }
+          },
+          "output_meta": {
+            "found": false,
+            "keys": [
+              "box",
+              "found",
+              "reason",
+              "score"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "span_chain": [
+    {
+      "name": "rpc.http.client_rtt",
+      "span_id": "836085:2615446673718695:1889",
+      "parent_span_id": "836085:2615446667409437:1888",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446673793735,
+      "end_ns": 2615457110969256,
+      "duration_ns": 10437175521,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    },
+    {
+      "name": "sam.client.decode",
+      "span_id": "836085:2615457113984265:1890",
+      "parent_span_id": "836085:2615446667409437:1888",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615457114033815,
+      "end_ns": 2615457116576263,
+      "duration_ns": 2542448,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    },
+    {
+      "name": "sam.client.total",
+      "span_id": "836085:2615446667409437:1888",
+      "parent_span_id": null,
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446667463577,
+      "end_ns": 2615457116635733,
+      "duration_ns": 10449172156,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    },
+    {
+      "name": "sam.processor.set_image",
+      "span_id": "178356:2615446730384287:12",
+      "parent_span_id": "178356:2615446699482849:11",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446730424278,
+      "end_ns": 2615455493225536,
+      "duration_ns": 8762801258,
+      "pre_sync_ns": 82810,
+      "post_sync_ns": 2938840840,
+      "measurement_mode": "stages",
+      "sync_requested": true,
+      "status": "ok"
+    },
+    {
+      "name": "sam.image_cache_lookup_or_encode",
+      "span_id": "178356:2615446699482849:11",
+      "parent_span_id": "178356:2615446699370068:10",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446699503699,
+      "end_ns": 2615455498399860,
+      "duration_ns": 8798896161,
+      "pre_sync_ns": 533961,
+      "post_sync_ns": 102870,
+      "measurement_mode": "stages",
+      "sync_requested": true,
+      "status": "ok"
+    },
+    {
+      "name": "sam.processor._forward_grounding",
+      "span_id": "178356:2615455592242270:15",
+      "parent_span_id": "178356:2615455501661580:14",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615455592298110,
+      "end_ns": 2615456970810724,
+      "duration_ns": 1378512614,
+      "pre_sync_ns": 10979362,
+      "post_sync_ns": 74159292,
+      "measurement_mode": "stages",
+      "sync_requested": true,
+      "status": "ok"
+    },
+    {
+      "name": "sam.processor.set_text_prompt",
+      "span_id": "178356:2615455501661580:14",
+      "parent_span_id": "178356:2615455498494841:13",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615455501687970,
+      "end_ns": 2615456971335656,
+      "duration_ns": 1469647686,
+      "pre_sync_ns": 47670,
+      "post_sync_ns": 185541,
+      "measurement_mode": "stages",
+      "sync_requested": true,
+      "status": "ok"
+    },
+    {
+      "name": "sam.select_transfer_encode",
+      "span_id": "178356:2615456972698640:16",
+      "parent_span_id": "178356:2615455498494841:13",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615456972791010,
+      "end_ns": 2615457109066571,
+      "duration_ns": 136275561,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    },
+    {
+      "name": "sam.text_predict",
+      "span_id": "178356:2615455498494841:13",
+      "parent_span_id": "178356:2615446699370068:10",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615455498551891,
+      "end_ns": 2615457109439822,
+      "duration_ns": 1610887931,
+      "pre_sync_ns": 57880,
+      "post_sync_ns": 149980,
+      "measurement_mode": "stages",
+      "sync_requested": true,
+      "status": "ok"
+    },
+    {
+      "name": "sam.locked_request",
+      "span_id": "178356:2615446699370068:10",
+      "parent_span_id": "178356:2615446684658816:9",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446699406709,
+      "end_ns": 2615457109543512,
+      "duration_ns": 10410136803,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    },
+    {
+      "name": "sam.handler",
+      "span_id": "178356:2615446684658816:9",
+      "parent_span_id": "178356:2615446681184416:8",
+      "clock_domain": "93f54787d507e11c1826947568b69f0e35a4377950ab5877526a9e7151f14867",
+      "start_ns": 2615446684685046,
+      "end_ns": 2615457109674573,
+      "duration_ns": 10424989527,
+      "measurement_mode": "stages",
+      "sync_requested": false,
+      "status": "ok"
+    }
+  ],
+  "source_sha256": {
+    "episode/spans-836085.jsonl": "ade3d038fd32dffa0d4e3242ae8d4d456ee36d4bf7f1d3a7c892ca51907a923a",
+    "shared/spans-178356.jsonl": "6431fb0790bc3cc5f6ca24377a6bddb4fed4caba9911c52b1cc2c50a2fe29d02"
+  },
+  "mcp": {
+    "line": 831,
+    "arguments_types": {
+      "prompt": "str",
+      "camera": "str"
+    },
+    "response_fields": [
+      {
+        "found": {
+          "type": "bool",
+          "length": null,
+          "value": false
+        },
+        "score": {
+          "type": "float",
+          "length": null,
+          "value": 0.078
+        },
+        "box": {
+          "type": "list",
+          "length": 4,
+          "value": null
+        }
+      }
+    ]
+  },
+  "stream_sha256": "ecea7b28acf60c12af8fe29f54d153d2434d7e6314ec55987c05c74fd5473d4d",
+  "schema_version": 1,
+  "level": "E2",
+  "request_mode": "text",
+  "formal_not_probe": {
+    "proof": "Matched formal episode client to shared server using identical image/text fingerprint, same kernel clock and unique full time containment;8 selected server starts/completions verified.",
+    "unassigned_other_shared_handlers": 1,
+    "excluded": "Unmatched shared handlers and model initialization; no probe measurements reused."
+  },
+  "field_contract": {
+    "client_image": "bytes,430025 encoded image bytes; image header1024x1024",
+    "wire_image": "base64 string573368 characters;decoded image SHA agrees with client",
+    "text_prompt": "str24 characters/24 UTF8 bytes; hash recorded, text not exported",
+    "point": "not used; text path evidenced by sam.text_predict and sam.processor.set_text_prompt spans",
+    "min_score": "MCP argument omitted; source default float0.2. Not a separately captured dynamic server field.",
+    "server_response_keys": [
+      "box",
+      "found",
+      "reason",
+      "score"
+    ],
+    "observed_mcp_response": {
+      "found": "bool false",
+      "score": "float0.078 (rounded to3 decimal places by tool)",
+      "box": "list length4; coordinates not exported"
+    },
+    "reason_value_type": "not captured dynamically; source Sam3Result annotation is str|None; no raw reason exported",
+    "output_mask_shape": null,
+    "mask_note": "No mask_png_base64/mask_shape key in observed server output; found=false, so cannot claim a successful HxW mask measurement."
+  },
+  "source_references": [
+    {
+      "level": "E1",
+      "source": "robots/libero/tools.py",
+      "lines": [
+        692,
+        794
+      ],
+      "claim": "default min_score0.2, passes image/text to client, rounds returned score to3 decimals."
+    },
+    {
+      "level": "E1",
+      "source": "sam3_server.py",
+      "lines": [
+        95,
+        106
+      ],
+      "claim": "Sam3Result optional score/box/reason declarations."
+    },
+    {
+      "level": "E1",
+      "source": "sam3_server.py",
+      "lines": [
+        255,
+        317
+      ],
+      "claim": "Select top candidate then threshold; below min_score returns found=false without mask."
+    }
+  ],
+  "q3_replacement_guidance": [
+    "Replace probe-only SAM input-size illustration with this formal text request:1024x1024,430025 bytes,573368 base64 chars,text24chars; keep hashes as evidence.",
+    "Replace SAM formal timing unknown with measured client10.449172156s/server10.424989527s for this single request.",
+    "Formal found=false and rounded score0.078; source default threshold0.2 with omitted argument supports below-threshold explanation (E1+E2). No successful output mask measured.",
+    "Point-mode fields and successful mask shape remain source/probe-only unless another formal request measures them.",
+    "One request does not establish typical latency or cache hit rate. This request invokes set_image; shared service already initialized, exclude init."
+  ],
+  "timing_boundary": "Nested spans: client total contains server interval; server includes image encode/cache and text prediction. Never add client+server or parent+children. Stage-sync mode may perturb measurements."
+}

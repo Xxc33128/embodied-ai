@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.02, \"y\": 0.2, \"z\": 0.884}, \"note\": \"Gripper is open and the block was missed to my -y side. Long lateral sweeps move reliably while pure vertical moves crawl, so I sweep out to +y at constant height to set up a straight low approach lane back to the block, staying clear of block and bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

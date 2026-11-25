@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.095, \"y\": 0.0675, \"z\": 0.87, \"yaw\": -0.785, \"gripper\": 1}, \"note\": \"The previous close missed because the jaw axis sat diagonally to the block faces. Rotating yaw by -45 degrees so the jaws align with a block axis, hovering at (-0.095, 0.0675, 0.87) with jaws open; next look tells me the rotated finger direction so I can set the correct lead offset before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

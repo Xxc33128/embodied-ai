@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.07, \"y\": -0.06, \"z\": 0.885, \"gripper\": 1}, \"note\": \"State now x=-0.0775 y=-0.0207 z=0.9425: the wrist image shows the red block enlarged and 29 px right of the finger-gap center, meaning about 3.5 cm of -y and 5.7 cm of -z remain. Holding the same pre-grasp command with the gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.138, \"y\": -0.022, \"z\": 0.82, \"gripper\": 1}, \"note\": \"Wrist view shows the block a few mm left and slightly above center while descending (measured z=0.867), so I am trimming the hover to (-0.138, -0.022) and continuing to grasp depth z=0.82 with the gripper open.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

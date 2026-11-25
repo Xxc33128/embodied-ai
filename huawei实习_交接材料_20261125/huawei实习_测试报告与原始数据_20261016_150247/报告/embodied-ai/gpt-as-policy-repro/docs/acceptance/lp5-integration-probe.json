@@ -1,0 +1,45 @@
+{
+ "schema": "gap_repro.lp5_integration_probe.v1",
+ "request_id": "integration|r0",
+ "identity": {
+  "request_id": "integration|r0",
+  "actions_sha256": "80c73c6dce5f38d3d791cce09ae9de98be76955ed3c239870e2b83779fe08d61",
+  "full_steps": 10,
+  "state_sha256": "7a83dcba05563e9b86872ff117294a23a22d244539f73919c062f4861188a8c5",
+  "prompt_sha256": "ad9355012a4d4341ea1c0bb4ad9cacc9b69009e9afd2e8861ac34fd996565889",
+  "agentview_shape": [
+   224,
+   224,
+   3
+  ],
+  "wrist_shape": [
+   224,
+   224,
+   3
+  ],
+  "replan_steps": 5,
+  "meta": {
+   "device": "cpu",
+   "infer_s": 213.18,
+   "actions_sha": "4f00e6408a3d78cd",
+   "noise_mode": "internal"
+  },
+  "noise": null
+ },
+ "infer_wall_s": 533.0,
+ "chunk_shape": [
+  5,
+  7
+ ],
+ "chunk_finite": true,
+ "chunk_absmax": 1.0015,
+ "gripper_values": [
+  -1.002,
+  -0.999,
+  -0.997
+ ],
+ "steps_executed": 5,
+ "done": false,
+ "fingerprint_changed": true,
+ "is_success_after_chunk": false
+}

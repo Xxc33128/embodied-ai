@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": -0.03, \"z\": 0.862, \"gripper\": 0}, \"note\": \"The wrist view shows the bowl nearby with a small red object in the same direction, so the cube lies back toward -x near its original spot. I travel -x with the pads closed at a safe height (long toggle call for convergence), then will open around the cube and close to grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

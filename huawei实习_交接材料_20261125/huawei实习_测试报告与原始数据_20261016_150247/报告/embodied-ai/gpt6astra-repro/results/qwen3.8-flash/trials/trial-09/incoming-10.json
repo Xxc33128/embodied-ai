@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.3, \"z\": 0.97}, \"note\": \"Bowl is centred under the hand at x=+0.073, so the bowl sits near x=+0.09 and the block must be back on the -x side (it was last visible in the wrist frame while the hand was between x=-0.108 and -0.05). Keep sweeping -x at pad-clear height to bring the block back into the wrist frame.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

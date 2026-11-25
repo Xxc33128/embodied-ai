@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.076, \"y\": 0.002, \"z\": 0.885, \"yaw\": 1.2, \"gripper\": 1}, \"note\": \"The yaw rotation transiently swings the gripper sideways, so I will let the yaw finish settling while holding a safe height (z=0.885, still ~4cm above the block) and re-center over the block at (-0.076, 0.002); the actual grasp descent comes next once the swing has stopped.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

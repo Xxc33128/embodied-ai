@@ -1,0 +1,7 @@
+{
+  "stage_max": 2,
+  "basis": "Grasped from step 626 with sustained lift (bottom_z to 0.877) but never carried within 0.196m of bowl axis; released back on table.",
+  "reviewers": "reviewer-B",
+  "second_review": false,
+  "blind": true
+}

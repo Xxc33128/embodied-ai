@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact is false for all 900 steps and the block's x/y stayed at its settled spawn position; the closest eef-to-block approach was ~5.2 cm at step 890 with the gripper still open (~0.77). No actual contact ever occurred.",
+  "reviewers": "blind-pass1-A",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

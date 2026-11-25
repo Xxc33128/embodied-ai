@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.16, \"y\": 0.012, \"z\": 0.8, \"gripper\": 1}, \"note\": \"Measured z=0.8775, block mid-height is about 0.823. Commanding the deepest allowed target to keep the descent pulses long; I will stop the descent once the measured height reaches block mid-height and then close the gripper.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

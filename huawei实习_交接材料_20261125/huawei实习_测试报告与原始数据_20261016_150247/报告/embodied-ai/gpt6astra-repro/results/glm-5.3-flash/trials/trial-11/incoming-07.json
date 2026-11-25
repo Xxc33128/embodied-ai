@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.014, \"y\": -0.015, \"z\": 0.887, \"gripper\": 0}, \"note\": \"Wrist view shows the red block top between both open fingers, slightly right of frame center, and the fixed views confirm it has not been pushed. I lower the last 1.4cm so the pads reach the block mid-height and command gripper 0 to close; the close also extends the interpolation window so the descent completes before the jaws engage.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

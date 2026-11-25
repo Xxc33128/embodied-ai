@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.004, \"y\": 0.002, \"z\": 0.85, \"gripper\": 0}, \"note\": \"Combined grasp: descend to z=0.85 at the block center (-0.004,0.002) while closing. The pads start 7.6cm open so they straddle past the block sides during the short descent, then the long gripper servo closure squeezes onto the block faces.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

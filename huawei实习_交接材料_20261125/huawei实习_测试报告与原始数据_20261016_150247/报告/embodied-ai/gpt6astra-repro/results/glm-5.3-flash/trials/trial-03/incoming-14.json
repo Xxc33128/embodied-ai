@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.06, \"y\": 0.002, \"z\": 0.92, \"gripper\": 0}, \"note\": \"Block is held (gripper 0.551) at z=0.908. Carrying it horizontally toward the estimated bowl location near (0.06, 0.0) at transport height z=0.92 so the block clears the table and bowl rim; grip stays latched closed.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

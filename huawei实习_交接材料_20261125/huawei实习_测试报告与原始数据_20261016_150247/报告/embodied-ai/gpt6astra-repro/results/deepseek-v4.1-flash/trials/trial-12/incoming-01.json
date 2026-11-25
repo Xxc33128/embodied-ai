@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.039, \"y\": 0.0199, \"z\": 1.0213, \"gripper\": 1}, \"note\": \"At rest I see the red block slightly right of and below the wrist-camera center, with the blue bowl farther away. I translate 5 cm in +x at safe height with the gripper opened to calibrate how world motion maps to the wrist image, before adjusting over the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.066, \"y\": 0.044, \"z\": 0.92, \"gripper\": 1}, \"note\": \"The wrist view now shows the bowl up close; scaling the bowl-dot offset by the current height puts the cube about 2.3cm in +x and 0.7cm in +y from the last close. I shift there, rising and reopening the fingers.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

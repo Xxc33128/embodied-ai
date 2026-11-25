@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "completed_at": "2026-10-16T17:09:54+0800",
+  "folder": "/Volumes/Extreme SSD/huawei实习_测试报告与原始数据_20261016_150247",
+  "scope": "报告、统计记录与必要原始样例；其余图像载荷省去",
+  "report_files": 7088,
+  "data_files_inside_archives": 33880,
+  "verified_report_and_data_files": 40968,
+  "data_packages": 8,
+  "necessary_complete_original_replay_bodies": 9,
+  "file_content_bytes_approx": 3028103115,
+  "sha256_passed": true,
+  "statistical_coverage_passed": true,
+  "source_experiment_files_unchanged": true,
+  "uncompressed_byte_count_note": "校验结果中未压缩字节数指省去额外图像载荷后的统计记录快照，不是整个原始实验目录大小。",
+  "readme_update": {
+    "version": "v1.3",
+    "updated_at": "2026-10-16T17:34:33+08:00",
+    "source_document_commit": "9e669de1e206a2ad5e9081069e2619323362abde",
+    "content": "实验汇总改作数据总README；按外接盘归档定位8个数据包与包内路径，补充保留范围、解包及校验说明",
+    "source_and_archive_document_identical": true,
+    "original_data_packages_unchanged": true,
+    "integrity_reverified_at": "2026-10-16T17:34:05+0800"
+  }
+}

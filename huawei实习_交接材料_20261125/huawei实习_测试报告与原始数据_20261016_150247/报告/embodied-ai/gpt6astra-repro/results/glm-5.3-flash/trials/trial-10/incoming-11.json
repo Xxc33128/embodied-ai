@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1, \"y\": -0.059, \"z\": 0.808, \"gripper\": 1}, \"note\": \"The previous close at z=0.84 closed empty just above the block top (gripper 0.016, no resistance), so the block top is lower than assumed. Reopening the gripper and descending ~3cm lower, re-centered on the block, so the pads straddle the block body before closing again.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+ "schema": "gap_repro.lp_a2_compare.v1",
+ "pairs": [
+  {
+   "arm": "scene_pinned",
+   "init": 0,
+   "success_cpu": true,
+   "success_npu": true,
+   "done_step_cpu": 127,
+   "done_step_npu": 126,
+   "success_equal": true,
+   "first_chunk_diff": {
+    "max_abs": 0.002152,
+    "mean_abs": 0.000533
+   },
+   "chunk_sha_equal_count": 0,
+   "chunk_count_cpu": 26,
+   "chunk_count_npu": 26,
+   "divergence_step": 82,
+   "scene_fingerprint_cpu": "cd7a1f9ad9e7f62e07a793e303994848f5fb7cdc638561243e227617d7682015",
+   "scene_fingerprint_npu": "cd7a1f9ad9e7f62e07a793e303994848f5fb7cdc638561243e227617d7682015",
+   "movables_fingerprint_equal": true,
+   "threshold_verdict": "PASS"
+  },
+  {
+   "arm": "paper_faithful",
+   "init": 0,
+   "success_cpu": true,
+   "success_npu": true,
+   "done_step_cpu": 125,
+   "done_step_npu": 130,
+   "success_equal": true,
+   "first_chunk_diff": {
+    "max_abs": 0.002427,
+    "mean_abs": 0.000454
+   },
+   "chunk_sha_equal_count": 0,
+   "chunk_count_cpu": 25,
+   "chunk_count_npu": 26,
+   "divergence_step": 90,
+   "scene_fingerprint_cpu": "cd7a1f9ad9e7f62e07a793e303994848f5fb7cdc638561243e227617d7682015",
+   "scene_fingerprint_npu": "cd7a1f9ad9e7f62e07a793e303994848f5fb7cdc638561243e227617d7682015",
+   "movables_fingerprint_equal": true
+  },
+  {
+   "arm": "paper_faithful",
+   "init": 1,
+   "success_cpu": true,
+   "success_npu": true,
+   "done_step_cpu": 161,
+   "done_step_npu": 127,
+   "success_equal": true,
+   "first_chunk_diff": {
+    "max_abs": 0.071577,
+    "mean_abs": 0.013567
+   },
+   "chunk_sha_equal_count": 0,
+   "chunk_count_cpu": 33,
+   "chunk_count_npu": 26,
+   "divergence_step": 49,
+   "scene_fingerprint_cpu": "984307d5ed64be59b5998dee8e3a1b72513fef546bc20dd68fdd0baadfcdcc67",
+   "scene_fingerprint_npu": "1495f98c7cc831c36cc0151f921ebf01830531d0ff582b7fb5606d50c6b82e42",
+   "movables_fingerprint_equal": true
+  }
+ ],
+ "thresholds": {
+  "scene_pinned_first_chunk": {
+   "max_abs": 0.03,
+   "mean_abs": 0.005
+  },
+  "divergence_tol_inf": 0.1
+ },
+ "verdict": {
+  "pinned_first_chunks": true,
+  "success_flip_cases": []
+ }
+}

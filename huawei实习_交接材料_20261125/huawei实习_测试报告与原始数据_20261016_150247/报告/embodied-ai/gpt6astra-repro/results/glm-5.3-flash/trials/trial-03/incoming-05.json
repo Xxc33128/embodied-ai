@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.0, \"z\": 0.855, \"gripper\": 1}, \"note\": \"Wrist view: block slightly below center and aligned with the pad gap, so it is roughly below me but a bit further -x. Descending to just above the block top at (-0.105, 0.0, 0.855), holding the gripper open; will verify alignment in the wrist view before closing.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

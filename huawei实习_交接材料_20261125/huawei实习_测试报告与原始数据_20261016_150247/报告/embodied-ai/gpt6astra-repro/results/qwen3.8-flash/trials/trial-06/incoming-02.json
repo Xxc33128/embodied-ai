@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.052, \"y\": 0.012, \"z\": 0.93, \"gripper\": 1.0}, \"note\": \"At z=0.948 the wrist view shows the red block ~45px wide, offset right and slightly below the image centre, and the blue bowl far above; front view puts the block left of the gripper. I will slide +x by 5 cm as a deliberate parallax calibration to learn which image direction corresponds to world +x before committing to a grasp approach.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

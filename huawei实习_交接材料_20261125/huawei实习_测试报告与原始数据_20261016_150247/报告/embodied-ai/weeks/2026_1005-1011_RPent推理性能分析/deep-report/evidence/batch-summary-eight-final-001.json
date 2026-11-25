@@ -1,0 +1,1022 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-08T17:19:51.526783+00:00",
+  "evidence_level": "E2",
+  "status": "complete",
+  "state_sha256": "edb8a7cc40666f4155e44e7ff0d45bec454851640e210f66af282d402f407c51",
+  "batch_timing": {
+    "wall_s": null,
+    "gate_envelope_wall_s": 11627.36181473732,
+    "start_utc": "2026-10-08T13:58:13.019141+00:00",
+    "end_utc": "2026-10-08T17:12:00.380956+00:00",
+    "boundary": "first before_pair gate to final after_pair gate; excludes pre-gate launcher/check and post-gate teardown",
+    "model_load_work_s": 1648.971401772,
+    "model_load_work_scope": "all observed actual attempts, closed model-init host intervals; includes historical retries; lower bound if incomplete",
+    "model_load_episodes": 8,
+    "model_load_actual_attempts": 10,
+    "model_load_closed_attempts": 10,
+    "model_load_all_attempts_observed_work_s": 1648.971401772,
+    "model_load_all_attempts_evidence_complete": true,
+    "model_load_admitted_episodes_observed_work_s": 1322.7619682939999,
+    "model_load_admitted_episode_count": 8,
+    "model_load_final_8_admitted_work_s": 1322.7619682939999,
+    "pair_wait_union_s": null,
+    "review_pause_union_s": null,
+    "observed_inter_pair_gap_s": 2009.3445312976837
+  },
+  "pairs": [
+    {
+      "start_utc": "2026-10-08T13:58:13.019141+00:00",
+      "end_utc": "2026-10-08T14:21:38.219288+00:00",
+      "gate_envelope_s": 1405.2001466751099,
+      "critical_path_pair_wait_s": null
+    },
+    {
+      "start_utc": "2026-10-08T14:24:10.078257+00:00",
+      "end_utc": "2026-10-08T15:04:44.756108+00:00",
+      "gate_envelope_s": 2434.6778512001038,
+      "critical_path_pair_wait_s": null
+    },
+    {
+      "start_utc": "2026-10-08T15:06:44.045596+00:00",
+      "end_utc": "2026-10-08T15:39:42.124051+00:00",
+      "gate_envelope_s": 1978.0784549713135,
+      "critical_path_pair_wait_s": null
+    },
+    {
+      "start_utc": "2026-10-08T15:44:52.334750+00:00",
+      "end_utc": "2026-10-08T16:22:12.948522+00:00",
+      "gate_envelope_s": 2240.613771915436,
+      "critical_path_pair_wait_s": null
+    },
+    {
+      "start_utc": "2026-10-08T16:46:00.933897+00:00",
+      "end_utc": "2026-10-08T17:12:00.380956+00:00",
+      "gate_envelope_s": 1559.4470586776733,
+      "critical_path_pair_wait_s": null
+    }
+  ],
+  "inter_pair_gaps": [
+    {
+      "start_utc": "2026-10-08T14:21:38.219288+00:00",
+      "end_utc": "2026-10-08T14:24:10.078257+00:00",
+      "seconds": 151.8589687347412
+    },
+    {
+      "start_utc": "2026-10-08T15:04:44.756108+00:00",
+      "end_utc": "2026-10-08T15:06:44.045596+00:00",
+      "seconds": 119.2894880771637
+    },
+    {
+      "start_utc": "2026-10-08T15:39:42.124051+00:00",
+      "end_utc": "2026-10-08T15:44:52.334750+00:00",
+      "seconds": 310.21069860458374
+    },
+    {
+      "start_utc": "2026-10-08T16:22:12.948522+00:00",
+      "end_utc": "2026-10-08T16:46:00.933897+00:00",
+      "seconds": 1427.985375881195
+    }
+  ],
+  "episodes": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 165.229429845,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-179854.jsonl": "c948a34edbbb010699e9869e628cd7018e602988db1103c5d04fbf30a168b6fa",
+        "spans-181032.jsonl": "a1180efdc23738d7c261edf63984f04ed0137bf6668beefb2f6d45c810fd76d0",
+        "spans-181237.jsonl": "54eeb9e759fbf474d49a3f01227389afd9a07d74e4f2a1c5259b398a64f9d2c2",
+        "spans-181967.jsonl": "ac9b9430fb9822bbb294cadd393202860e93ac3fa005e77a9ca9f102fcba8abc",
+        "starts-179854.jsonl": "c92bb5570e17a5f0dcb556e005b8b372304ed93487f0fccacd3a2e788d60782b",
+        "starts-181032.jsonl": "22ecfdd56d5f72d2ee40ecf2b8d1e36e70757584411268c3a05a9de9458a3809",
+        "starts-181237.jsonl": "332b0fa84e9422d7afbc2cac9a52d1d54b10c0f1d5a8f6e03775367a3ce9eb67",
+        "starts-181967.jsonl": "516d0bfcd5b42a47915b641977333990590e98031734679c2542d33dd4e54ff2"
+      },
+      "scheduler_elapsed_s": 1090.5,
+      "vla_model_init_s": 165.229429845
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 165.043068291,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-179914.jsonl": "29d0538eb37a7b475bb6fc4d832f2f4fe86fe2703d6d0cc6b68e73670233ab1f",
+        "spans-180958.jsonl": "6d2a09dc9dfa7a2c81c4a8a38b0c087caf4c88e3ddbef7452d5f547169d0b996",
+        "spans-181238.jsonl": "a14f698c889b2f439a59f84940508da08af3589e840be38a2eca66efdcf6f58b",
+        "spans-181966.jsonl": "3225ff79b13da2f4098ca6fac8c316d9316a792d41836fb66b560e87849bc6a3",
+        "starts-179914.jsonl": "65c41aeb2755e1dda629437f1108f7b2425795520434d81a244b9e59c7e6392d",
+        "starts-180958.jsonl": "21deba052e9c9386ccc5f2cb04ab252e275c1d5c1ccffcbb3ed0a3de65b19f0f",
+        "starts-181238.jsonl": "c141dce9b4c5dac47b8e383c60809e7c8b0df7b779f18f94b222a080613eb34f",
+        "starts-181966.jsonl": "e23bc02e50c161f674f84cfb6432525da1789a0a088b0d16778fc32b00cae6aa"
+      },
+      "scheduler_elapsed_s": 1153.1,
+      "vla_model_init_s": 165.043068291
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 166.437466018,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-466458.jsonl": "d5a4a6724f493eebfc1716ec7810c96e838d5a9082289a826dd5dd3ff86ab305",
+        "spans-467823.jsonl": "651d723b14e011af2905dfef479b3e3ebced2e92321493fcfc20495a3f50825f",
+        "spans-467959.jsonl": "c71074213dfe2bab05c2c67bd44d030e70d1425487be9c97acd9685b765533b3",
+        "spans-468427.jsonl": "c295a1edef011e78cff76ebc9c9901050b16428f68b9fbb2d838929292b58590",
+        "starts-466458.jsonl": "0ffb316e0764e3dbfc08d4181d35d52b8f885ca42dc459cd6879353a92b43500",
+        "starts-467823.jsonl": "03fd5754fbd0f83d0421de47862d04984086d5647fc1c264268e5e7bd51ea5bd",
+        "starts-467959.jsonl": "207a44e0d9ec7c35f5e01d0ccd72972e62e8d82503a28d90b361eb1a66570ebb",
+        "starts-468427.jsonl": "eed39f023553c7eb55f17ef43c1acf5303aa05e9c0b1828af8b22f5b6a7fbdb2"
+      },
+      "scheduler_elapsed_s": 1049.1,
+      "vla_model_init_s": 166.437466018
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 163.272251608,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-466516.jsonl": "b94c65a04f79fec864ce637d1cb87e476cbeabbba0e42b7e617f0700ac3a5ebb",
+        "spans-467619.jsonl": "b3d2509436821ea85445e176708c8ba70b57f3ccd9cb9a0b6dfc050e719aeb9f",
+        "spans-467758.jsonl": "e235438b96729cd230aa5a6ef4b4c33b6c69aed2d7ea821c75f9e4c507fb4661",
+        "spans-468250.jsonl": "d90071f47c756045fa9028fc338a1c4971c64c5b17534d71bdbfa6447fb2739d",
+        "starts-466516.jsonl": "07b5ca498919727163a44c4529bb841ec28491ad778a8b46a6ee2cf4ebdd5c51",
+        "starts-467619.jsonl": "e32651d27c430bf774b434d33b494cb168bb1b0d8e8981423dc0bd85885d0e3f",
+        "starts-467758.jsonl": "87d54ac753a29737dc06c25fbb63d568c66f8e059ff162fc7c04d399455052a9",
+        "starts-468250.jsonl": "8b995dfef551bebd280a38f074ee6809302908f93e2b10c201ade37c50c9bc91"
+      },
+      "scheduler_elapsed_s": 2176.5,
+      "vla_model_init_s": 163.272251608
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 165.065232568,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-834721.jsonl": "fb9faaf31ef946820a0d78f785b443139a1fcf302a285a83fe3d93e6524c08fa",
+        "spans-836085.jsonl": "ade3d038fd32dffa0d4e3242ae8d4d456ee36d4bf7f1d3a7c892ca51907a923a",
+        "spans-836285.jsonl": "c3f17ac4a5c29b44bae52da14626aec8d258369917c4f0c314fa53c7fa4164e5",
+        "spans-836828.jsonl": "743aea5660c1f8ec4c0e12f8ea1836283a8b3b848b0e6ab2c0ea651c561e7fd9",
+        "starts-834721.jsonl": "5a8b90cbeb5927f7f2b7987f938af7ebbe4294a3de326ac80f03858d9756009f",
+        "starts-836085.jsonl": "e84f98c837775b35e8246600f7359eb483d03760e10889fa162116077b5bcaf8",
+        "starts-836285.jsonl": "838f2c262d12206c437a8e9119af7106f4333c358784ffde30323f4a68e61c28",
+        "starts-836828.jsonl": "e62773da01a221848c139dbcd7c500e2af33bf28820b08486393170a0041eaba"
+      },
+      "scheduler_elapsed_s": 1711.6,
+      "vla_model_init_s": 165.065232568
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 164.341578948,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-834784.jsonl": "e1d1c433d44548f374017aca650de207242c6619c126141b7600a4b4ddc36ce9",
+        "spans-836011.jsonl": "5b0c445ce9f11cd9984d3b336b2a412db46fc071ee2e796f7df9afb1a90f4011",
+        "spans-836284.jsonl": "8056972d5cf3dc9163d274c1a87449606abba58cdab0174e4c692c13532de12e",
+        "spans-836827.jsonl": "e5bdaa391ca916274614a73b1dc25f23c01d54282cf70e7b02154a2a60dd9220",
+        "starts-834784.jsonl": "264ddbb9b5b173e0aa1f5b18dba2e8df48c08beee3946547aae9680b2f33b518",
+        "starts-836011.jsonl": "2588b2498a6b46cbab25376c5ce78db0cd1cd9caa603568de66c9ed264caecef",
+        "starts-836284.jsonl": "574d0c050e9646645409a0a1d014e838fdd11588f681759619ff4f4db61db187",
+        "starts-836827.jsonl": "5dcace2d6dd4dc8d974ecac814fd302283ac36a085fdb92a56cca9798f834430"
+      },
+      "scheduler_elapsed_s": 1409.8,
+      "vla_model_init_s": 164.341578948
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 168.647858005,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-2050434.jsonl": "0d250b519474d4114e65a9c049c368c0a67165a46c865d0651af92c740d583ee",
+        "spans-2051728.jsonl": "76c87845911d9cd5cdf1da5cc11968a15496ada0a717e0565a4376f2cf1dda6f",
+        "spans-2051928.jsonl": "394f68eb33db20e1d2402fb75778bd5f3d4084ed6bb42803db231df00d9b5fff",
+        "spans-2052437.jsonl": "a786a9ab16effacfc7d479a3d27b8c8fb6512f6aaeee9d7c2c226fac665eda05",
+        "starts-2050434.jsonl": "fe5cd2594381eac4fc5b0434a52d8cbde4afaacfe1338dff9064f865cb3f419c",
+        "starts-2051728.jsonl": "4aaa2e4a166bb6749ce8d5c6662bc215393b94126a0e2c2e34e6f6ed43564f30",
+        "starts-2051928.jsonl": "f4c636f384755928fb18451969f40bd33037f91229a4efcb33f365de266669fc",
+        "starts-2052437.jsonl": "c9753537018276a1a6c468591991980e78f091b81c65e5a6636d6d825a3ec84f"
+      },
+      "scheduler_elapsed_s": 1076.7,
+      "vla_model_init_s": 168.647858005
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 164.725083011,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-2050504.jsonl": "39abf658fd17706b9b0b865f7aa45e60478cecf14a0245fee3ca165bd83c237e",
+        "spans-2051589.jsonl": "41ce843b06eb9515138c56cd5cdf26bda77256af6c7754ff30a361c62d8012d3",
+        "spans-2051864.jsonl": "a0f5c77c45ceef9418b70daafab11f52937ab0f38f45a93e14b457ca4ebe112a",
+        "spans-2052262.jsonl": "9aa0c0fe54932cea3f1479807592c117fd8f0ad075ab550beb4664467e19e502",
+        "starts-2050504.jsonl": "1572cfb7aad2838d8115689b71b96ead25a95a1acc182ba25e31488d825f5529",
+        "starts-2051589.jsonl": "1be9dd8f931b6dc3e8e20fc4d3879d8f6a3c711c0cb2686c7b3ee4c29a60d342",
+        "starts-2051864.jsonl": "784b35707507121561060f8afc941563fde8974b113aaf6d3a2ee7d0f3b2ca11",
+        "starts-2052262.jsonl": "087b31aac9995919212ae412684c2ac2710e60aeb39c8c6c9c382c303584ada1"
+      },
+      "scheduler_elapsed_s": 1298.0,
+      "vla_model_init_s": 164.725083011
+    }
+  ],
+  "actual_attempt_loads": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 165.229429845,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-179854.jsonl": "c948a34edbbb010699e9869e628cd7018e602988db1103c5d04fbf30a168b6fa",
+        "spans-181032.jsonl": "a1180efdc23738d7c261edf63984f04ed0137bf6668beefb2f6d45c810fd76d0",
+        "spans-181237.jsonl": "54eeb9e759fbf474d49a3f01227389afd9a07d74e4f2a1c5259b398a64f9d2c2",
+        "spans-181967.jsonl": "ac9b9430fb9822bbb294cadd393202860e93ac3fa005e77a9ca9f102fcba8abc",
+        "starts-179854.jsonl": "c92bb5570e17a5f0dcb556e005b8b372304ed93487f0fccacd3a2e788d60782b",
+        "starts-181032.jsonl": "22ecfdd56d5f72d2ee40ecf2b8d1e36e70757584411268c3a05a9de9458a3809",
+        "starts-181237.jsonl": "332b0fa84e9422d7afbc2cac9a52d1d54b10c0f1d5a8f6e03775367a3ce9eb67",
+        "starts-181967.jsonl": "516d0bfcd5b42a47915b641977333990590e98031734679c2542d33dd4e54ff2"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 165.043068291,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-179914.jsonl": "29d0538eb37a7b475bb6fc4d832f2f4fe86fe2703d6d0cc6b68e73670233ab1f",
+        "spans-180958.jsonl": "6d2a09dc9dfa7a2c81c4a8a38b0c087caf4c88e3ddbef7452d5f547169d0b996",
+        "spans-181238.jsonl": "a14f698c889b2f439a59f84940508da08af3589e840be38a2eca66efdcf6f58b",
+        "spans-181966.jsonl": "3225ff79b13da2f4098ca6fac8c316d9316a792d41836fb66b560e87849bc6a3",
+        "starts-179914.jsonl": "65c41aeb2755e1dda629437f1108f7b2425795520434d81a244b9e59c7e6392d",
+        "starts-180958.jsonl": "21deba052e9c9386ccc5f2cb04ab252e275c1d5c1ccffcbb3ed0a3de65b19f0f",
+        "starts-181238.jsonl": "c141dce9b4c5dac47b8e383c60809e7c8b0df7b779f18f94b222a080613eb34f",
+        "starts-181966.jsonl": "e23bc02e50c161f674f84cfb6432525da1789a0a088b0d16778fc32b00cae6aa"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "success",
+      "vla_model_init_observed_work_s": 166.437466018,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-466458.jsonl": "d5a4a6724f493eebfc1716ec7810c96e838d5a9082289a826dd5dd3ff86ab305",
+        "spans-467823.jsonl": "651d723b14e011af2905dfef479b3e3ebced2e92321493fcfc20495a3f50825f",
+        "spans-467959.jsonl": "c71074213dfe2bab05c2c67bd44d030e70d1425487be9c97acd9685b765533b3",
+        "spans-468427.jsonl": "c295a1edef011e78cff76ebc9c9901050b16428f68b9fbb2d838929292b58590",
+        "starts-466458.jsonl": "0ffb316e0764e3dbfc08d4181d35d52b8f885ca42dc459cd6879353a92b43500",
+        "starts-467823.jsonl": "03fd5754fbd0f83d0421de47862d04984086d5647fc1c264268e5e7bd51ea5bd",
+        "starts-467959.jsonl": "207a44e0d9ec7c35f5e01d0ccd72972e62e8d82503a28d90b361eb1a66570ebb",
+        "starts-468427.jsonl": "eed39f023553c7eb55f17ef43c1acf5303aa05e9c0b1828af8b22f5b6a7fbdb2"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 163.272251608,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-466516.jsonl": "b94c65a04f79fec864ce637d1cb87e476cbeabbba0e42b7e617f0700ac3a5ebb",
+        "spans-467619.jsonl": "b3d2509436821ea85445e176708c8ba70b57f3ccd9cb9a0b6dfc050e719aeb9f",
+        "spans-467758.jsonl": "e235438b96729cd230aa5a6ef4b4c33b6c69aed2d7ea821c75f9e4c507fb4661",
+        "spans-468250.jsonl": "d90071f47c756045fa9028fc338a1c4971c64c5b17534d71bdbfa6447fb2739d",
+        "starts-466516.jsonl": "07b5ca498919727163a44c4529bb841ec28491ad778a8b46a6ee2cf4ebdd5c51",
+        "starts-467619.jsonl": "e32651d27c430bf774b434d33b494cb168bb1b0d8e8981423dc0bd85885d0e3f",
+        "starts-467758.jsonl": "87d54ac753a29737dc06c25fbb63d568c66f8e059ff162fc7c04d399455052a9",
+        "starts-468250.jsonl": "8b995dfef551bebd280a38f074ee6809302908f93e2b10c201ade37c50c9bc91"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 165.065232568,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-834721.jsonl": "fb9faaf31ef946820a0d78f785b443139a1fcf302a285a83fe3d93e6524c08fa",
+        "spans-836085.jsonl": "ade3d038fd32dffa0d4e3242ae8d4d456ee36d4bf7f1d3a7c892ca51907a923a",
+        "spans-836285.jsonl": "c3f17ac4a5c29b44bae52da14626aec8d258369917c4f0c314fa53c7fa4164e5",
+        "spans-836828.jsonl": "743aea5660c1f8ec4c0e12f8ea1836283a8b3b848b0e6ab2c0ea651c561e7fd9",
+        "starts-834721.jsonl": "5a8b90cbeb5927f7f2b7987f938af7ebbe4294a3de326ac80f03858d9756009f",
+        "starts-836085.jsonl": "e84f98c837775b35e8246600f7359eb483d03760e10889fa162116077b5bcaf8",
+        "starts-836285.jsonl": "838f2c262d12206c437a8e9119af7106f4333c358784ffde30323f4a68e61c28",
+        "starts-836828.jsonl": "e62773da01a221848c139dbcd7c500e2af33bf28820b08486393170a0041eaba"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 164.341578948,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-834784.jsonl": "e1d1c433d44548f374017aca650de207242c6619c126141b7600a4b4ddc36ce9",
+        "spans-836011.jsonl": "5b0c445ce9f11cd9984d3b336b2a412db46fc071ee2e796f7df9afb1a90f4011",
+        "spans-836284.jsonl": "8056972d5cf3dc9163d274c1a87449606abba58cdab0174e4c692c13532de12e",
+        "spans-836827.jsonl": "e5bdaa391ca916274614a73b1dc25f23c01d54282cf70e7b02154a2a60dd9220",
+        "starts-834784.jsonl": "264ddbb9b5b173e0aa1f5b18dba2e8df48c08beee3946547aae9680b2f33b518",
+        "starts-836011.jsonl": "2588b2498a6b46cbab25376c5ce78db0cd1cd9caa603568de66c9ed264caecef",
+        "starts-836284.jsonl": "574d0c050e9646645409a0a1d014e838fdd11588f681759619ff4f4db61db187",
+        "starts-836827.jsonl": "5dcace2d6dd4dc8d974ecac814fd302283ac36a085fdb92a56cca9798f834430"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": false,
+      "admitted_episode_attempt": false,
+      "state": "historical_attempt_not_reclassified",
+      "vla_model_init_observed_work_s": 163.405656049,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-1458712.jsonl": "77bc8b56f6c9728bec5256e3d2786ed3b84b208050ad544e2c270809f203e1b8",
+        "spans-1459864.jsonl": "1af8273f050c60e025548d1f3819125e6a93abdea48a2ce936ab06190c5f151e",
+        "spans-1460149.jsonl": "c7a48251ef33477cd50fec273cab1866125e647bb9d81689410704c880184bb2",
+        "spans-1460544.jsonl": "546e38e2f908a3b60e9cc9e2b3b4697533c05a12d573cab96fa4365fc8ce8c4e",
+        "starts-1458712.jsonl": "78d64d2a41a4d5e7a8662e26734eea12e69aa28f19de71e7940e5a4024dfc520",
+        "starts-1459864.jsonl": "8adc280cb65e9c6f26c197d6eff9b7adff498fa7e9caeafadf78bf3c08fa35c5",
+        "starts-1460149.jsonl": "fd63c2888448e136df281b76271c01732bf9f4cddbd6cda7c97912fa095f5605",
+        "starts-1460544.jsonl": "eed56b2676630ead4a8dfa06d7524e4f618a2f19307abb7f95e2c6e617cdfb50"
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 168.647858005,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-2050434.jsonl": "0d250b519474d4114e65a9c049c368c0a67165a46c865d0651af92c740d583ee",
+        "spans-2051728.jsonl": "76c87845911d9cd5cdf1da5cc11968a15496ada0a717e0565a4376f2cf1dda6f",
+        "spans-2051928.jsonl": "394f68eb33db20e1d2402fb75778bd5f3d4084ed6bb42803db231df00d9b5fff",
+        "spans-2052437.jsonl": "a786a9ab16effacfc7d479a3d27b8c8fb6512f6aaeee9d7c2c226fac665eda05",
+        "starts-2050434.jsonl": "fe5cd2594381eac4fc5b0434a52d8cbde4afaacfe1338dff9064f865cb3f419c",
+        "starts-2051728.jsonl": "4aaa2e4a166bb6749ce8d5c6662bc215393b94126a0e2c2e34e6f6ed43564f30",
+        "starts-2051928.jsonl": "f4c636f384755928fb18451969f40bd33037f91229a4efcb33f365de266669fc",
+        "starts-2052437.jsonl": "c9753537018276a1a6c468591991980e78f091b81c65e5a6636d6d825a3ec84f"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "is_current_selected_attempt": false,
+      "admitted_episode_attempt": false,
+      "state": "historical_attempt_not_reclassified",
+      "vla_model_init_observed_work_s": 162.803777429,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-1458780.jsonl": "d86567e9344df40b048a781eda6713f55c60437b8d8abde16ea2d8fd029f3e15",
+        "spans-1459938.jsonl": "441f45396fd3d45c85905140d726b8edc0b5f547397c9bbd49b5ccf3083ff64c",
+        "spans-1460148.jsonl": "9d23b5edf8b43cbf4c27df0bcf58c67f15e451a0e6d6d5a82557f3b4be5056e4",
+        "spans-1460728.jsonl": "2a24a35fb119f53d6423b622a1b164e8a5a4933c4aca6aae26724dbb6dbc96f0",
+        "starts-1458780.jsonl": "5b2edb560aafb61fc20d63afd398da1be1af3220e1e463350c9685d3ffbb350e",
+        "starts-1459938.jsonl": "56d1489366b9e3a0e97c78efe1dcdfbbf85877affa0b2698ba314c5213171a32",
+        "starts-1460148.jsonl": "956e501a486f92a144907bcd5d16b4f1945a448d18fd0adfd6d4e78b4b47916f",
+        "starts-1460728.jsonl": "c9ab1d291767f0011d9a353bbb8a96c6ba2be80353122f7945e776ee0c5d4566"
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 9,
+      "seed": 1,
+      "attempt": "attempt-002",
+      "is_current_selected_attempt": true,
+      "admitted_episode_attempt": true,
+      "state": "task_failure",
+      "vla_model_init_observed_work_s": 164.725083011,
+      "model_init_span_count": 1,
+      "failed_model_init_span_count": 0,
+      "unclosed_model_init_span_count": 0,
+      "missing_start_count": 0,
+      "load_evidence_complete": true,
+      "issues": [],
+      "measurement_file_sha256": {
+        "spans-2050504.jsonl": "39abf658fd17706b9b0b865f7aa45e60478cecf14a0245fee3ca165bd83c237e",
+        "spans-2051589.jsonl": "41ce843b06eb9515138c56cd5cdf26bda77256af6c7754ff30a361c62d8012d3",
+        "spans-2051864.jsonl": "a0f5c77c45ceef9418b70daafab11f52937ab0f38f45a93e14b457ca4ebe112a",
+        "spans-2052262.jsonl": "9aa0c0fe54932cea3f1479807592c117fd8f0ad075ab550beb4664467e19e502",
+        "starts-2050504.jsonl": "1572cfb7aad2838d8115689b71b96ead25a95a1acc182ba25e31488d825f5529",
+        "starts-2051589.jsonl": "1be9dd8f931b6dc3e8e20fc4d3879d8f6a3c711c0cb2686c7b3ee4c29a60d342",
+        "starts-2051864.jsonl": "784b35707507121561060f8afc941563fde8974b113aaf6d3a2ee7d0f3b2ca11",
+        "starts-2052262.jsonl": "087b31aac9995919212ae412684c2ac2710e60aeb39c8c6c9c382c303584ada1"
+      }
+    }
+  ],
+  "scheduler_logs": [
+    {
+      "file": "scheduler-resume-001.log",
+      "sha256": "84618c53451a98785cb7b3e0c96c2b85d6854b9d3cb6a258b47535d84e07b22d",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    },
+    {
+      "file": "scheduler-resume-002.log",
+      "sha256": "84618c53451a98785cb7b3e0c96c2b85d6854b9d3cb6a258b47535d84e07b22d",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    },
+    {
+      "file": "scheduler-resume-003.log",
+      "sha256": "84618c53451a98785cb7b3e0c96c2b85d6854b9d3cb6a258b47535d84e07b22d",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    },
+    {
+      "file": "scheduler-retry-001.log",
+      "sha256": "f4c086847491f4a6b239283be32eda8618b3560eca7ff1f485146722a5edae19",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    },
+    {
+      "file": "scheduler.log",
+      "sha256": "ee48d8f03315edb28061a2a90e1f5c7b489ee47caa72781d1bfabc31f517ca8c",
+      "bytes": 575,
+      "traceback_count": 1,
+      "measurement_gate_stop_count": 2
+    }
+  ],
+  "resources": {
+    "sampling_nominal_interval_s": 30,
+    "sample_count": 304,
+    "leading_unsampled_s": 234.82281970977783,
+    "start_utc": "2026-10-08T14:02:07.841961+00:00",
+    "end_utc": "2026-10-08T17:11:49.603691+00:00",
+    "interval_s": {
+      "count": 303,
+      "min": 31.048918962478638,
+      "median": 31.08313775062561,
+      "max": 1427.0250651836395,
+      "mean": 37.563570065860304
+    },
+    "gaps_over_60s": [
+      {
+        "start_utc": "2026-10-08T14:21:17.979516+00:00",
+        "end_utc": "2026-10-08T14:24:31.953264+00:00",
+        "seconds": 193.97374820709229
+      },
+      {
+        "start_utc": "2026-10-08T15:04:25.732353+00:00",
+        "end_utc": "2026-10-08T15:06:40.484911+00:00",
+        "seconds": 134.75255823135376
+      },
+      {
+        "start_utc": "2026-10-08T15:39:18.949273+00:00",
+        "end_utc": "2026-10-08T15:44:49.430621+00:00",
+        "seconds": 330.4813485145569
+      },
+      {
+        "start_utc": "2026-10-08T16:22:07.470047+00:00",
+        "end_utc": "2026-10-08T16:45:54.495112+00:00",
+        "seconds": 1427.0250651836395
+      }
+    ],
+    "partial_or_invalid_rows": 0,
+    "npu_timeout_count": 0,
+    "npu_nonzero_return_count": 0,
+    "host_loadavg": [
+      {
+        "count": 304,
+        "min": 8.9697265625,
+        "median": 12.72119140625,
+        "max": 35.849609375,
+        "mean": 13.80497179533306
+      },
+      {
+        "count": 304,
+        "min": 9.5380859375,
+        "median": 13.740478515625,
+        "max": 19.41064453125,
+        "mean": 13.709313643606086
+      },
+      {
+        "count": 304,
+        "min": 10.31787109375,
+        "median": 13.4482421875,
+        "max": 15.99951171875,
+        "mean": 13.398353978207236
+      }
+    ],
+    "host_memory_total_kb": {
+      "count": 304,
+      "min": 1582638912.0,
+      "median": 1582638912.0,
+      "max": 1582638912.0,
+      "mean": 1582638912.0
+    },
+    "host_memory_available_kb": {
+      "count": 304,
+      "min": 1471462852.0,
+      "median": 1481019942.0,
+      "max": 1506721844.0,
+      "mean": 1484131632.6447368
+    },
+    "devices": [
+      {
+        "device_id": 0,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 11301.0,
+          "median": 11301.0,
+          "max": 11303.0,
+          "mean": 11301.217105263158
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 1,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 11296.0,
+          "median": 11296.0,
+          "max": 11297.0,
+          "mean": 11296.46052631579
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 2,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 11296.0,
+          "median": 11296.0,
+          "max": 11298.0,
+          "mean": 11296.180921052632
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 3,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 3404.0,
+          "median": 3405.0,
+          "max": 38508.0,
+          "mean": 8668.407894736842
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 4,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 21692.0,
+          "median": 21693.0,
+          "max": 21693.0,
+          "mean": 21692.69407894737
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 5,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 11304.0,
+          "median": 11305.0,
+          "max": 11305.0,
+          "mean": 11304.697368421053
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 6,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 38517.0,
+          "median": 42466.0,
+          "max": 64878.0,
+          "mean": 47983.03618421053
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      },
+      {
+        "device_id": 7,
+        "utilization_pct": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 57.0,
+          "mean": 0.7006578947368421
+        },
+        "memory_used_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "memory_total_mb": {
+          "count": 304,
+          "min": 0.0,
+          "median": 0.0,
+          "max": 0.0,
+          "mean": 0.0
+        },
+        "hbm_used_mb": {
+          "count": 304,
+          "min": 3404.0,
+          "median": 18752.0,
+          "max": 19196.0,
+          "mean": 15509.651315789473
+        },
+        "hbm_total_mb": {
+          "count": 304,
+          "min": 65536.0,
+          "median": 65536.0,
+          "max": 65536.0,
+          "mean": 65536.0
+        }
+      }
+    ],
+    "sources": [
+      {
+        "file": "resource-samples-1458697.jsonl",
+        "sha256": "363cbb2f4e92ac981e99f22bc9d609d470f70c0d14fc9eac00c00fdb00b20290",
+        "rows": 73
+      },
+      {
+        "file": "resource-samples-2050419.jsonl",
+        "sha256": "52e167405b0de3afbed4023fe98323b4431097a8e44f19fa2fe4fc9fcc8221ba",
+        "rows": 51
+      },
+      {
+        "file": "resource-samples-466454.jsonl",
+        "sha256": "bd4c08b177ebd1895ef727a7be7a6ae35f77a1fe486a6aee02714520130995c6",
+        "rows": 78
+      },
+      {
+        "file": "resource-samples-834706.jsonl",
+        "sha256": "7bcec2262b8e1e01b91348a470bf883cb0a39ac3b2fc5015156fa02cf2cee445",
+        "rows": 64
+      },
+      {
+        "file": "resource-samples.jsonl",
+        "sha256": "d7b23877337ef4460c5b2c2485710b3e92228fe73f4814487b13cf5a5d419182",
+        "rows": 38
+      }
+    ]
+  },
+  "limitations": [
+    "VLA coldload is observed closed pi.model_init host-span duration across all discovered planned-identity attempts, including historical retries and failed init intervals; incomplete spans imply missing work. Nested construct is not added. This is neither device-only time nor full readiness wait. Final admitted-eight work is separately null until eight admitted attempts have complete load evidence.",
+    "Pair gate envelope includes both lanes and admission/cleanup overhead; completed lane timestamps are not retained reliably, so critical-path lane wait remains null.",
+    "Inter-pair gaps include review, quota probes and restart; they are not pure review duration. No review-start evidence: review pause remains null.",
+    "Batch final wall remains null while not complete. Gate-envelope wall is scoped; launch-to-process-exit wall is unavailable.",
+    "Resource samples cover the entire host/all visible NPU devices, including other workloads; sampled utilization cannot establish a bottleneck or per-episode attribution. Interval gaps and missing edges are not interpolated."
+  ]
+}

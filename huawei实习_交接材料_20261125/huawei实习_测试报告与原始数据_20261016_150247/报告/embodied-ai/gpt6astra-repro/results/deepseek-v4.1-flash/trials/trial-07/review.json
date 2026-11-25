@@ -1,0 +1,9 @@
+{
+  "stage_max": 1,
+  "basis": "any_gripper_contact=true for steps 574-766 and the block was visibly pushed/tilted and slid ~4 cm in that interval (cube xy displacement up to 0.041 m by step 767; frames 749/766 show the fingers against the block), which is genuine contact; grasped stayed false and cube_bottom_z never rose above 0.7998, so it was never grasped or lifted.",
+  "reviewers": "blind-pass1-B",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "Contact is flagged from step 574 (gripper closed to ~0.18-0.2) and the block was pushed ~3.7 cm (cube y 0.043->0.006 m during steps 744-750, frames 744-749 confirm gripper at block). grasped was never true and the block never left the table (bottom-z stayed ~0.79-0.80 m)."
+}

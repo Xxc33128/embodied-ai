@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.168, \"y\": -0.0086, \"z\": 0.9466, \"gripper\": 1}, \"note\": \"Block is over the bowl: in the wrist view the red block sits at the centre of the blue rim (block 106,157 vs rim centre 105,150) and the side view shows only 5 px of residual offset, so the block is inside the opening footprint. Releasing the grip (open) while creeping 1 cm further toward the bowl centre so the drop is centred.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

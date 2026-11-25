@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.11, \"y\": 0.112, \"z\": 0.9, \"gripper\": 0}, \"note\": \"Front view shows the block sitting between my two open jaws in y, and the side view puts my fingertips about at the block top level, so I now close the gripper while easing 14mm toward +x and 13mm down to straddle the block either way my two conflicting x estimates say it lies. Closing takes ~80 control steps, so the jaws will come around the block as the hand settles.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

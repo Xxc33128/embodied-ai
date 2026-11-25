@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.14, \"y\": 0.0035, \"z\": 1.0}, \"note\": \"Small lateral commands only advance ~2mm per call, so I bundle the 5 cm lateral shift toward the front-view indicated block position with a rise to z=1.0 to force multi-step interpolation. The large displacement will also confirm the image-to-world x sign.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

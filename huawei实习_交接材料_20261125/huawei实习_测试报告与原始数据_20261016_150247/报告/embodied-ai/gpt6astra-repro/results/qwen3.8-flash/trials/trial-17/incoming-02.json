@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"z\": 0.9}, \"note\": \"Measured eef is now (-0.073, 0.0, 0.961) with gripper open at 0.99. The wrist view shows the red block just ahead of the fingertips and the blue bowl beyond it. Descending straight to 0.90 to make the block appear larger in the wrist view so I can read the remaining lateral offset.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

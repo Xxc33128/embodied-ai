@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.02, \"y\": 0.0, \"z\": 0.95}, \"note\": \"After the +x step the wrist view shows the red block much larger and near the bottom edge by the right finger, so the hand is now only a few cm from it; the fixed front view shows the gripper nearly aligned with the block. I creep slightly forward/left toward the block and drop from 1.02 to 0.95 m for a tighter parallax reading before the final descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

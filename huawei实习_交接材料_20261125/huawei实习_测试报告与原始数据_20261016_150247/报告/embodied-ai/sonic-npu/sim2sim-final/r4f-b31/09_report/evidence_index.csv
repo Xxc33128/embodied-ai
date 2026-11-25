@@ -1,0 +1,15 @@
+claim_id,project,claim,evidence_grade,evidence_path,evidence_type,hash_or_manifest,verification_method,status,limitation
+C01,Lab,Isaac 10s dance_9 runs 500 cycles fall=false,A,02_lab_dance9/isaac_10s/policy_trace.npz,trace,be64b024e206b0221d17a6135e3d2e5a75ab583db98e827d98c6c965dcb2e79d,"recomputed cycles 500 no NaN, sha256 full 64",verified,single motion
+C02,Lab,MuJoCo 10s dance_9 runs 500 cycles fall=false,A,02_lab_dance9/mj_10s/policy_trace.npz,trace,56eb572bbe4e0053a948711a6b83179b0a519e3827a3ad567eb2d2e543b38a82,"recomputed cycles 500 no NaN, sha256 full 64",verified,single motion
+C03,Lab,Isaac-MuJoCo q RMSE 0.0623 10s,A,02_lab_dance9/isaac_10s+mj_10s/policy_trace.npz,metric,recomputed from trace,python interp,verified,simultaneous descriptive
+C04,Lab,G0 elbow/hip asset equivalence PASS (COM 5e-8 Ieff 0.075),A,04_G0/asset_equivalence_*.json,gate,见根 SHA256.txt (full 64),independent FK,verified,1-DOF isolated
+C05,Lab,Elbow armature MAE 0.006752->0.001704 74.8% t50 0.177->0.163,A,04_isolation_N5R2/elbow_gates.json,metric,SHA256 from elbow_gates.json + elbow_G6.json (full 64),python n5_r_summarize.py --evaluation-mode final + compare_repeats.py,verified (validity true all_pass true),0.1 rad clean isolated only
+C06,Lab,Hip no-op 0.0 MAE 0.000494,A,04_isolation_N5R2/hip_gates.json,metric,逐点差 0,python,verified,negative control
+C07,Lab,Smoke 6x1 R20 0.94/0.91 G1/G2/G3 PASS,B,04_isolation_smoke/elbow_gates.json,gate,R20,python,verified,single repeat G6 NOT_EVALUATED
+C08,Lab,N5-R2 G6 3 repeats 0.0 diff hash ok,A,04_isolation_N5R2/elbow_G6.json + hip_G6.json,gate,"见根 SHA256.txt (elbow_G6 + hip_G6 full 64, n_repeats 3)",compare_repeats,verified,deterministic not statistical
+C09,Gym,Historical xbot_walk.mp4 exists,C,05_gym/xbot_walk_existing.mp4,video,见根 SHA256.txt,file exists,verified,not Lab-comparable
+C10,Gym,100Hz 10s 1000 steps x3.73 y-0.78,B,05_gym/mj_100hz/trace.npz,trace,c194fe7fa12ee7c9eecc98eff5dc4482b6dc1af7f37dd738bc5121c8c2dcbc6f,"recomputed 1000 steps, sha256 full 64",verified,free joint pos semantics
+C11,SONIC,II Isaac official weights in Isaac,C,06_sonic/sonic_II_IM_MM_MI_ledger.csv (unavailable marked),report,unavailable,"source not found, marked unavailable",source_not_found,"no log, only report reference"
+C12,SONIC,IM Isaac->MuJoCo action space fix required,D,06_sonic/sonic_II_IM_MM_MI_ledger.csv (unavailable marked),report,unavailable,"source not found, marked unavailable",source_not_found,no NPZ
+C13,SONIC,MM MuJoCo fine-tuned walks in MuJoCo,C,06_sonic/sonic_II_IM_MM_MI_ledger.csv (unavailable marked),video,unavailable,"source not found, marked unavailable",source_not_found,"no log, only report"
+C14,SONIC,"MuJoCo->Isaac backtransfer shows failure (video/report only, no precise time)",C,06_sonic/sonic_II_IM_MM_MI_ledger.csv (unavailable marked),video,unavailable,"source not found, marked unavailable",video_only,"single checkpoint, no precise fall time"

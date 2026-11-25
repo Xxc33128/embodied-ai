@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.118, \"y\": -0.024, \"z\": 0.9, \"gripper\": 0}, \"note\": \"Wrist view: the block is centred in the finger gap laterally (u=106 vs gap 112, ~5 mm) and only ~11 mm off along the jaw axis, at z=0.9025 which should put the fingertips at the block mid-height. Committing: latching the gripper closed while nudging 7 mm in -x onto the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

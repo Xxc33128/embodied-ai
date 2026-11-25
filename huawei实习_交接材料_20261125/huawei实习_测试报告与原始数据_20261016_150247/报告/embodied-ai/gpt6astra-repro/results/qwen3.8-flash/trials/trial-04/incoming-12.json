@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.058, \"y\": 0.041, \"z\": 0.848, \"gripper\": 0}, \"note\": \"Pads are now flanking the upper part of the block (fingertip ~1.5 cm below the block top, block centred in the pad gap) and the arm is settled, so closing the gripper while holding the same Cartesian target.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

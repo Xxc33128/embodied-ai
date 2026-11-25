@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-7",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-7",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.1175, \"y\": 0.054, \"z\": 0.92, \"gripper\": 0}, \"note\": \"The block still sits about 2.5 cm left of the finger gap in the wrist view, so I shift y further toward it while rising to 0.92; closing the fingers there is well above the block and gives the long execution window so the shift completes.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.13, \"z\": 0.8}, \"note\": \"The hand is now behind the block with the closed fingers just above its rear edge. On this final decision I sweep the hand toward the bowl side in -y while pressing down to table level, trying to catch the block rear face and shove it toward the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

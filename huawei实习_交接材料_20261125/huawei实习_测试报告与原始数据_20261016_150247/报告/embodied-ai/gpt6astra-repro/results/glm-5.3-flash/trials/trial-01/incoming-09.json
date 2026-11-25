@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.095, \"y\": 0.07, \"z\": 0.93, \"gripper\": 1}, \"note\": \"Jaws closed on air just short of the block (gripper read 0.016) and the block is still visible beyond the fingertips. Reopening, lifting clear, and probing +1.5cm in +x so the block shift in the wrist view tells me which world axis the fingers point along; then I can re-approach with the correct fingertip offset.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-9",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-9",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.054, \"z\": 0.92, \"gripper\": 1}, \"note\": \"The pads were wedged against the table which stalled the open after 3 steps; the TCP has now risen 1 cm clear. Re-commanding the open with the rise to z=0.92 and the calibration shift to hover over the block spot at y=0.054.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

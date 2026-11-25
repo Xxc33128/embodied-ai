@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.025, \"y\": 0.075, \"z\": 0.92}, \"note\": \"Axis test: a pure +y shift moved the wrist view content downward, so the wrist camera looks down-and-forward along +y with image right along +x. Combining that with the fixed views puts the red block a little to +x and +y of the hand and about 3 cm wide. I will move above it and start descending to 0.92 m so parallax shrinks and I can refine.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

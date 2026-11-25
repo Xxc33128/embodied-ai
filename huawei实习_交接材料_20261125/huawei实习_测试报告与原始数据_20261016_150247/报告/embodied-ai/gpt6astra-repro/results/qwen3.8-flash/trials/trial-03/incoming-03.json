@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": -0.01, \"z\": 0.82}, \"note\": \"Side view puts the block just forward of the hand (hand x=-0.082, block near x=-0.05) and the wrist view still shows it ~3 cm ahead, so the block is farther ahead than my last short step covered. Each call only advances the servo a centimetre or two, so I command a long downward target past the grasp height to get more motion per call and will stop when the wrist view shows the fingers straddling the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

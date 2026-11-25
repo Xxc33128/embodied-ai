@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.129, \"z\": 0.885, \"gripper\": 1}, \"note\": \"Wrist view shows the block dropping back toward the jaws as x returns toward the block; side view still puts the fingers ~2-3 cm in +x of the block. I open the jaws (80-step swing) while descending to z=0.885 and moving +3 cm x, so the open pads straddle the block for a side grasp next.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0205, \"y\": -0.0335, \"z\": 0.851, \"gripper\": 0}, \"note\": \"The regrasp closed empty because I stopped 6mm higher and 3mm short of the proven stall pose. I repeat the successful recipe: bundle a 1cm descent and 3mm shift with the close command, whose 80-step window lets the arm track fully before the jaws engage the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

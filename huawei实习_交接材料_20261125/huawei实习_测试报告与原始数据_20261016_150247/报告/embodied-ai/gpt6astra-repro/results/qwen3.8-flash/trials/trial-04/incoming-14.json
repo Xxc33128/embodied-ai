@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.056, \"y\": 0.024, \"z\": 0.83, \"gripper\": 0}, \"note\": \"Wrist view now shows the block between the open pads but 13 px off-centre toward the -y side (the block was nudged during the last descent), so I slide y onto the block centre and then close; the latched gripper only starts closing near the end of the chunk, after the shift is done.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

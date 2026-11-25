@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.065, \"y\": 0.05, \"z\": 0.85, \"gripper\": 0}, \"note\": \"Alignment is good: side view shows the pads level with the block top and directly over it, wrist view shows the block centred between the pads (within a few mm). Close the gripper while sinking another ~2 cm so the pads end up straddling the block sides and squeeze it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

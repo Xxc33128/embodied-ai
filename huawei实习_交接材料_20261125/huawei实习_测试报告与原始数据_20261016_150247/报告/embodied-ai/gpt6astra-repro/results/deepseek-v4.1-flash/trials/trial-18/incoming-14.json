@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.139, \"y\": 0.006, \"z\": 0.875, \"gripper\": 1}, \"note\": \"The wrist view is a back-looking view: the block rises toward the horizon when the tool goes past it, so the tool is slightly ahead of the block. I open the jaws and move back +1.6 cm x to place the jaws over the block, small +4 mm y nudge, descending to 0.875 for a final close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.095, \"y\": 0.07, \"z\": 0.9, \"gripper\": 1}, \"note\": \"The block disappeared from the wrist view because it is tucked just +x of the frame, about (-0.095, 0.07); the third pad line at x=-0.118 missed its near face. Reopening and hovering exactly there so the pad line crosses the block center for the close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

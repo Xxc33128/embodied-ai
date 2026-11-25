@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0525, \"y\": 0.06, \"z\": 0.8766, \"gripper\": 0}, \"note\": \"Wrist view now shows the red block dead centre between my two open jaws with its lower edge level with the fingertips, and both fixed views show the hand overlapping the block instead of standing beside it. I hold this pose exactly and close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

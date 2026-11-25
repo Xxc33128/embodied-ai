@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.2, \"y\": -0.1, \"z\": 0.8}, \"note\": \"Wrist measurements put the block at world y ~0.016 (18 mm below my y) and its image position shows it is at higher world x than my eef, so I command a large diagonal step to x=0.20, y=-0.10, z=0.80 expecting only a fraction of it to execute, to close both offsets and start the descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

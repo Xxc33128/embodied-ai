@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.19, \"y\": -0.02, \"z\": 0.93, \"gripper\": 0.5}, \"note\": \"Measured eef barely advances per call (2-3 control steps) unless the command also carries a large gripper delta: the first call, which opened the gripper from 0.52 to 1.0, got 39 steps. Testing that: same hover target over the block (-0.19,-0.02,0.93) but with an intermediate gripper target 0.5, which per the docs retains the previous (open) command while giving the interpolator something to chew on.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

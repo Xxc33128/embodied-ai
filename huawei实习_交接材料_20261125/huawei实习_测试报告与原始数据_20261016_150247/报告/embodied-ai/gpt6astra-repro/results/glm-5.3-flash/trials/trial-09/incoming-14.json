@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.043, \"y\": 0.032, \"z\": 0.806, \"gripper\": 0}, \"note\": \"Gripper is now open at grasp height beside the candidate zone. Running the closing sweep: the TCP translates ~4.5 cm toward +y (the direction the latest front-view differential points to) while the fingers close over several seconds, funneling the red block into the gap if it is in the strip.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+LP_A2_SERVER_READY device=cpu
+[cpu] served paper_faithful_torch_cpu_init0_r0_1789755611105.npz 232.45s sha=5cb5fc4e87c64276
+[cpu] served paper_faithful_torch_cpu_init0_r1_1789755846882.npz 243.04s sha=49efeadde51e8475
+[cpu] served paper_faithful_torch_cpu_init0_r2_1789756093246.npz 237.15s sha=26f74876568470d8
+[cpu] served paper_faithful_torch_cpu_init0_r3_1789756334135.npz 219.01s sha=bc4b3f0881b6e05f
+[cpu] served paper_faithful_torch_cpu_init0_r4_1789756556729.npz 237.93s sha=06976fed1771fd44
+[cpu] served paper_faithful_torch_cpu_init0_r5_1789756797984.npz 237.79s sha=d3121b255c504cf9
+[cpu] served paper_faithful_torch_cpu_init0_r6_1789757039214.npz 225.46s sha=6b008acf462ff68e
+[cpu] served paper_faithful_torch_cpu_init0_r7_1789757268071.npz 227.54s sha=617fd251ef8fcb17
+[cpu] served paper_faithful_torch_cpu_init0_r8_1789757498952.npz 236.94s sha=2fe842041781b6a2
+[cpu] served paper_faithful_torch_cpu_init0_r9_1789757739570.npz 238.17s sha=97d912f115249088
+[cpu] served paper_faithful_torch_cpu_init0_r10_1789757981051.npz 227.79s sha=c0556ddfe7c2b8a3
+[cpu] served paper_faithful_torch_cpu_init0_r11_1789758212087.npz 225.89s sha=239349dce87ab80e
+[cpu] served paper_faithful_torch_cpu_init0_r12_1789758441254.npz 233.77s sha=5afc85f8af4fc045
+[cpu] served paper_faithful_torch_cpu_init0_r13_1789758678285.npz 230.22s sha=8f2830d6fe1f22fe
+[cpu] served paper_faithful_torch_cpu_init0_r14_1789758911595.npz 228.66s sha=348e1de2ae7a156f
+[cpu] served paper_faithful_torch_cpu_init0_r15_1789759143206.npz 238.91s sha=6cb8f7d1cf4eba5e
+[cpu] served paper_faithful_torch_cpu_init0_r16_1789759385111.npz 233.76s sha=7822934d1e651cd8
+[cpu] served paper_faithful_torch_cpu_init0_r17_1789759621910.npz 229.28s sha=6b7e2476f8cf851e
+[cpu] served paper_faithful_torch_cpu_init0_r18_1789759854405.npz 226.92s sha=25b5fb5875ae74ef
+[cpu] served paper_faithful_torch_cpu_init0_r19_1789760084368.npz 243.47s sha=bd678646337b0b7b
+[cpu] served paper_faithful_torch_cpu_init0_r20_1789760331017.npz 239.53s sha=4b9df6131f233739
+[cpu] served paper_faithful_torch_cpu_init0_r21_1789760573585.npz 230.53s sha=4961fb9c4d19d0f2
+[cpu] served paper_faithful_torch_cpu_init0_r22_1789760807105.npz 234.1s sha=4d9820a3fcc20e56
+[cpu] served paper_faithful_torch_cpu_init0_r23_1789761044275.npz 235.29s sha=c6a196e66ec7943d
+[cpu] served paper_faithful_torch_cpu_init0_r24_1789761282647.npz 237.17s sha=6b2a301e59519da8
+[cpu] served paper_faithful_torch_cpu_init1_r0_1789761535990.npz 229.98s sha=f59d0526b8d2b875
+[cpu] served paper_faithful_torch_cpu_init1_r1_1789761769553.npz 236.74s sha=2be2e50ba5b74d86
+[cpu] served paper_faithful_torch_cpu_init1_r2_1789762009689.npz 228.0s sha=a14552af3c955a51
+[cpu] served paper_faithful_torch_cpu_init1_r3_1789762241214.npz 230.08s sha=546e1a63107a7283
+[cpu] served paper_faithful_torch_cpu_init1_r4_1789762474728.npz 233.71s sha=c4ede40e8ddb5147
+[cpu] served paper_faithful_torch_cpu_init1_r5_1789762711649.npz 236.3s sha=cbc77aacf7e28a34
+[cpu] served paper_faithful_torch_cpu_init1_r6_1789762951528.npz 235.4s sha=62527660da577d9d
+Traceback (most recent call last):
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 77, in main
+    serve_one(policy, r)
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 39, in serve_one
+    d = np.load(req_path, allow_pickle=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py", line 471, in load
+    ret = NpzFile(fid, own_fid=own_fid, allow_pickle=allow_pickle,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py", line 197, in __init__
+    _zip = zipfile_factory(fid)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/site-packages/numpy/lib/_npyio_impl.py", line 112, in zipfile_factory
+    return zipfile.ZipFile(file, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python3.11.15/lib/python3.11/zipfile.py", line 1329, in __init__
+    self._RealGetContents()
+  File "/usr/local/python3.11.15/lib/python3.11/zipfile.py", line 1396, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+[cpu] served paper_faithful_torch_cpu_init1_r0_1789784052057.npz.tmp.npz 233.32s sha=2e9ec50d84e761cc
+[cpu] served paper_faithful_torch_cpu_init1_r0_1789784612466.npz 237.79s sha=2e9ec50d84e761cc
+[cpu] served paper_faithful_torch_cpu_init1_r1_1789784853651.npz 238.59s sha=a2d7ab8cf8996a30
+[cpu] served paper_faithful_torch_cpu_init1_r2_1789785095646.npz 235.02s sha=000a20f3399f07cb
+[cpu] served paper_faithful_torch_cpu_init1_r3_1789785334225.npz 241.45s sha=eba38d4152a88740
+[cpu] served paper_faithful_torch_cpu_init1_r4_1789785579016.npz 232.27s sha=fd5fcd148708484a
+[cpu] served paper_faithful_torch_cpu_init1_r5_1789785814561.npz 235.08s sha=c880020ed532126d
+[cpu] served paper_faithful_torch_cpu_init1_r6_1789786052875.npz 238.7s sha=5b55a3f9d9f43510
+[cpu] served paper_faithful_torch_cpu_init1_r7_1789786294791.npz 239.38s sha=938f15bb9f9e2e6e
+[cpu] served paper_faithful_torch_cpu_init1_r8_1789786537577.npz 233.98s sha=dad7adb77cc60b51
+[cpu] served paper_faithful_torch_cpu_init1_r9_1789786774745.npz 229.28s sha=508111b964f92f06
+[cpu] served paper_faithful_torch_cpu_init1_r10_1789787007203.npz 241.49s sha=74787a8ae050b08d
+[cpu] served paper_faithful_torch_cpu_init1_r11_1789787251833.npz 230.72s sha=6fdc55e06fe3f997
+[cpu] served paper_faithful_torch_cpu_init1_r12_1789787485570.npz 236.17s sha=e2efcab10e3d3358
+[cpu] served paper_faithful_torch_cpu_init1_r13_1789787724816.npz 233.38s sha=671be9cb4219ad51
+[cpu] served paper_faithful_torch_cpu_init1_r14_1789787961361.npz 229.62s sha=3f043d9e64500838
+[cpu] served paper_faithful_torch_cpu_init1_r15_1789788193892.npz 237.81s sha=84e5093912b8c12f
+[cpu] served paper_faithful_torch_cpu_init1_r16_1789788434689.npz 224.92s sha=2a7e86494a03e2e8
+[cpu] served paper_faithful_torch_cpu_init1_r17_1789788662528.npz 234.32s sha=87499ec2088cc96b
+[cpu] served paper_faithful_torch_cpu_init1_r18_1789788899909.npz 230.37s sha=e731cc9578674782
+[cpu] served paper_faithful_torch_cpu_init1_r19_1789789133239.npz 232.13s sha=24ea46a1efb75999
+[cpu] served paper_faithful_torch_cpu_init1_r20_1789789368345.npz 233.95s sha=1b8cb1476cdebd01
+[cpu] served paper_faithful_torch_cpu_init1_r21_1789789605271.npz 233.01s sha=230587412731dd6b
+[cpu] served paper_faithful_torch_cpu_init1_r22_1789789841236.npz 234.31s sha=438237c24e6832de
+[cpu] served paper_faithful_torch_cpu_init1_r23_1789790078543.npz 246.45s sha=b8197ecc75838756
+[cpu] served paper_faithful_torch_cpu_init1_r24_1789790327915.npz 233.61s sha=fe16c07c8c3ffe59
+[cpu] served paper_faithful_torch_cpu_init1_r25_1789790564486.npz 234.53s sha=23a8437fc1de5b59
+[cpu] served paper_faithful_torch_cpu_init1_r26_1789790801933.npz 232.75s sha=3e14575308dae5ef
+[cpu] served paper_faithful_torch_cpu_init1_r27_1789791037699.npz 231.81s sha=4964abca50e97268
+[cpu] served paper_faithful_torch_cpu_init1_r28_1789791272464.npz 236.09s sha=dd8c0f3e900e3039
+[cpu] served paper_faithful_torch_cpu_init1_r29_1789791511516.npz 233.92s sha=41b6aab8ba958c8a
+[cpu] served paper_faithful_torch_cpu_init1_r30_1789791748357.npz 234.97s sha=0781fa2486c2f903
+[cpu] served paper_faithful_torch_cpu_init1_r31_1789791986273.npz 236.08s sha=5c382be8591b345a
+[cpu] served paper_faithful_torch_cpu_init1_r32_1789792225256.npz 236.05s sha=74d9ed825fd248ba
+[cpu] served scene_pinned_torch_cpu_init0_r0_1789792492971.npz 237.3s sha=6b0de0f2e53e4400
+[cpu] served scene_pinned_torch_cpu_init0_r1_1789792733539.npz 235.51s sha=353daff7cb912f2a
+[cpu] served scene_pinned_torch_cpu_init0_r2_1789792972442.npz 229.6s sha=c3cee1d31dc1e933
+[cpu] served scene_pinned_torch_cpu_init0_r3_1789793205390.npz 230.04s sha=deeff15806d719a5
+[cpu] served scene_pinned_torch_cpu_init0_r4_1789793438979.npz 229.27s sha=86cae0a26e604781
+[cpu] served scene_pinned_torch_cpu_init0_r5_1789793671956.npz 236.61s sha=3493292b5f078dc8
+[cpu] served scene_pinned_torch_cpu_init0_r6_1789793911768.npz 235.83s sha=1ef12a13d55e9e4c
+[cpu] served scene_pinned_torch_cpu_init0_r7_1789794151109.npz 229.68s sha=c1ba926366155a27
+[cpu] served scene_pinned_torch_cpu_init0_r8_1789794384157.npz 235.4s sha=97d7324f79a755fb
+[cpu] served scene_pinned_torch_cpu_init0_r9_1789794622743.npz 235.06s sha=e3885342cc3eea92
+[cpu] served scene_pinned_torch_cpu_init0_r10_1789794861089.npz 236.0s sha=f384948640dddebc
+[cpu] served scene_pinned_torch_cpu_init0_r11_1789795100362.npz 233.91s sha=fac22f0480fa2740
+[cpu] served scene_pinned_torch_cpu_init0_r12_1789795337487.npz 233.85s sha=86863f0dff32248d
+[cpu] served scene_pinned_torch_cpu_init0_r13_1789795574384.npz 224.48s sha=86bc8679097897f9
+[cpu] served scene_pinned_torch_cpu_init0_r14_1789795801899.npz 236.0s sha=c436e4afd9e4fe05
+[cpu] served scene_pinned_torch_cpu_init0_r15_1789796040867.npz 229.3s sha=654b8f9e94b254f8
+[cpu] served scene_pinned_torch_cpu_init0_r16_1789796273189.npz 236.6s sha=afb7ed09d70f7478
+[cpu] served scene_pinned_torch_cpu_init0_r17_1789796512903.npz 229.72s sha=dceb575e1bcb32cd
+[cpu] served scene_pinned_torch_cpu_init0_r18_1789796745580.npz 235.73s sha=07c6d1e85d186b27
+[cpu] served scene_pinned_torch_cpu_init0_r19_1789796984327.npz 232.12s sha=e86e444e38145e22
+[cpu] served scene_pinned_torch_cpu_init0_r20_1789797219437.npz 234.01s sha=76c423bd40672cd0
+[cpu] served scene_pinned_torch_cpu_init0_r21_1789797456405.npz 233.26s sha=2f48d5a0fcdf3026
+[cpu] served scene_pinned_torch_cpu_init0_r22_1789797692668.npz 233.46s sha=279a7f6cd84b0061
+[cpu] served scene_pinned_torch_cpu_init0_r23_1789797929190.npz 232.34s sha=761dd04857c6474c
+[cpu] served scene_pinned_torch_cpu_init0_r24_1789798164504.npz 237.96s sha=850b7f3dc1b0c18e
+[cpu] served scene_pinned_torch_cpu_init0_r25_1789798405439.npz 240.16s sha=dc6d066c324e9cda
+Traceback (most recent call last):
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 77, in main
+    serve_one(policy, r)
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 57, in serve_one
+    req_path.unlink()
+  File "/usr/local/python3.11.15/lib/python3.11/pathlib.py", line 1147, in unlink
+    os.unlink(self)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/data/lp_a2/req/paper_faithful_torch_npu_init0_r0_1789798973741.npz'
+Traceback (most recent call last):
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 77, in main
+    serve_one(policy, r)
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 57, in serve_one
+    req_path.unlink()
+  File "/usr/local/python3.11.15/lib/python3.11/pathlib.py", line 1147, in unlink
+    os.unlink(self)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/data/lp_a2/req/paper_faithful_torch_npu_init0_r0_1789798973741.npz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 87, in <module>
+    main()
+  File "/workspace/repo/scripts/lp_a2_policy_server.py", line 82, in main
+    r.unlink()
+  File "/usr/local/python3.11.15/lib/python3.11/pathlib.py", line 1147, in unlink
+    os.unlink(self)
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/data/lp_a2/req/paper_faithful_torch_npu_init0_r0_1789798973741.npz'
+[ERROR] 2026-09-19-06:26:46 (PID:53162, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

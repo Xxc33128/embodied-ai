@@ -1,0 +1,72 @@
+[
+  {
+    "file": "experiments/20260920/pilot_object5_20260920/run_episode.py",
+    "sha256": "0821f7b3d3b4a056e8bdfd385f1e9f7802d1ab1b6af132deee3f406c232689ee",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pilot_object5_20260920/recorded_runtime.py",
+    "sha256": "bcd727743d564841e874f31ad8190795445aab092186d5ab804b3ba7128be023",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pilot_object5_20260920/finalize_pilot.py",
+    "sha256": "0415ef9af51209ea7084b36ddae5028c9233ba72a1d340a95d03fe75fc67c9bd",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_object5_20260920/run_episode.py",
+    "sha256": "a6671107832e5369933827696adb54c29ce9cc6ce136cee3920093ac839f5eb7",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_object5_20260920/recorded_runtime.py",
+    "sha256": "bcd727743d564841e874f31ad8190795445aab092186d5ab804b3ba7128be023",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_object5_20260920/finalize_pilot.py",
+    "sha256": "d698a3dbd2ff5cd234ce91583a668d50f4bb5d113758fe29f49d2321b0a853db",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_spatial0_600_20260920/run_episode.py",
+    "sha256": "876ed093fe09ed5ddd4e2f0d34b97338b233eb438449c36885d51cfaaa418324",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_spatial0_600_20260920/recorded_runtime.py",
+    "sha256": "bcd727743d564841e874f31ad8190795445aab092186d5ab804b3ba7128be023",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_spatial0_600_20260920/finalize_pilot.py",
+    "sha256": "828231fe068c80ad54b36bb12df919a74147239345a7e2703f7c0e2fa765d13a",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_goal0_600_20260920/run_episode.py",
+    "sha256": "d83c20f48b164a9823860f4f307d77a98b8b98b6456bb0ae1acc4b2789a8ab3a",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_goal0_600_20260920/recorded_runtime.py",
+    "sha256": "bcd727743d564841e874f31ad8190795445aab092186d5ab804b3ba7128be023",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pro_pos_goal0_600_20260920/finalize_pilot.py",
+    "sha256": "4d98fbfd6a34913c8a834d5f65ba0897db0db0c36613c0a138607fc1ceac73e6",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "experiments/20260920/pilot_object5_20260920/test_recorded_runtime.py",
+    "sha256": "fb299658a4872c666614f516cf37998e798d33ef6e568386812bdc7b01d2e571",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  },
+  {
+    "file": "tools/mac_bridge/stdio_socket.py",
+    "sha256": "2a559f3d468ed5a053f09c51d42a8d5d0b4fd041f53b09c65cfc2c656904669c",
+    "source": "NPU server experiment snapshot; retrieved 2026-09-21"
+  }
+]

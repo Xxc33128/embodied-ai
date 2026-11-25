@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0667, \"y\": 0.0021, \"z\": 0.864, \"gripper\": 0}, \"note\": \"The block is resting on the bowl inner slope near the rim. Performing a straight-down dive with the gripper closing into a fist so the closed fingers land on the block top and press it down the sloped wall to seat it fully inside the bowl, then I will end the trial.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

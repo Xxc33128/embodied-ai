@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.3, \"y\": 0.1, \"z\": 0.9}, \"note\": \"Calibration from the clean +5cm y move: the front view horizontal axis is y with the gripper shifting right, the side view horizontal axis is x, so the block sits about 5-8cm toward the robot base in -x and at y near 0.10. I drive the setpoint far in -x to buy travel steps and come down to 0.90 above my estimated block position.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-3",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-3",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.129, \"y\": 0.057, \"z\": 1.02}, \"note\": \"Using the block width (~45mm over ~22px) as scale, three wrist frames triangulate the red block at about x=-0.129, y=+0.057, with the bowl near x=+0.08. I move the open gripper directly over the block as a pre-grasp hover, keeping z high to stay clear of the scene.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

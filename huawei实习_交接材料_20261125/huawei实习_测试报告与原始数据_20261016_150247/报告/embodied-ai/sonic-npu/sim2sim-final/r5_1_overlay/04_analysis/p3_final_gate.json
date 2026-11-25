@@ -1,0 +1,33 @@
+{
+  "validity_pass": true,
+  "decision": "VALID_P3",
+  "errors": [],
+  "gates": {
+    "A_artifact_hash": "PASS",
+    "B_trace": "PASS",
+    "C_isaac_delay": "PASS",
+    "D_mj_delay": "PASS",
+    "E_baseline_pairing": "PASS",
+    "F_checkpoint": "PASS"
+  },
+  "measured": {
+    "isaac_delay_steps": 4,
+    "isaac_delay_ms": 20.0,
+    "isaac_shift_maxdiff": 0.0,
+    "isaac_second_best": 0.419131338596344,
+    "mujoco_delay_steps": 10,
+    "mujoco_delay_ms": 20.0,
+    "mj_shift_maxdiff": 0.0
+  },
+  "reset_observed": false,
+  "reset_evidence": "independent_trace_counters",
+  "survival": {
+    "isaac_d00": 500,
+    "isaac_d20": 500,
+    "mj_d00": 500,
+    "mj_d20": 500,
+    "fall": null,
+    "note": "recomputed from traces B-gate + summaries"
+  },
+  "delay_implementation": "P3 explicit per-physics-step position-target FIFO (collections.deque), prehistory=repeat-first-q-des, not native DelayBuffer validation"
+}

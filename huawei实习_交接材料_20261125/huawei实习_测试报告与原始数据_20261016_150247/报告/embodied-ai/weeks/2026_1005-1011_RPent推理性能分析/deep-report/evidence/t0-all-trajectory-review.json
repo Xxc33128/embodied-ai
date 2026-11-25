@@ -1,0 +1,2448 @@
+{
+  "schema_version": 1,
+  "scope": "new deep-timing-20261008 t0 seeds0/1 only; four finalized episodes",
+  "level": "E2",
+  "generic_scope_snapshot_sha256": "d958a8e52921a9653763c378ca1d5e130e756de84291b1885d08c55eb5957ce9",
+  "video_audit_reference": "final-artifacts-audit-002.json",
+  "episodes": [
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "status": "complete",
+      "source_sha256": {
+        "states.json": "ca4442fe6efc0465173656356af92721c5c4ed448f81f0d61d1f00e74c3f52db",
+        "stream.jsonl": "49ba558074e1b26fd13add4f0b0b43191645be52c89d31ff3e88586c0e89a303",
+        "transcript.json": "d3abbced1adaf308a0203c52550a64b0c22a8c225044135bb390f39ae3f82e12"
+      },
+      "measurement_admitted": true,
+      "five_bucket_support": {
+        "classification": "source_backed_step_association",
+        "all_step_ids_uniquely_matched": true,
+        "mcp_intervals_serial": true,
+        "states_elapsed_le_mcp": true,
+        "absolute_states_interval_available": false,
+        "duration_rounding_s": 0.01,
+        "source_reference": "rpent/tools/toolkit.py:274-304; robots/libero/tools.py:965-978",
+        "interpretation": "Synchronous handler runs inside uniquely associated MCP call, then its elapsed duration is stored in the returned step. Semantic containment supported by source plus step association; NOT an independently observed unified-clock partition."
+      },
+      "elapsed_s": 1090.5,
+      "official_task_verdict": "success",
+      "final_terminated": true,
+      "video_verified": true,
+      "primitive_count": 22,
+      "pi_pick_calls": 2,
+      "pi_chunks": 15,
+      "pi_pick_local_success_count": 1,
+      "pi_pick_elapsed_s": 53.58,
+      "primitive_total_s": 476.13,
+      "pick_evidence": [
+        {
+          "step": 6,
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": true,
+            "chunks_used": 7,
+            "max_chunks": 8,
+            "peak_lift_m": 0.06834083795547485,
+            "min_gripper_opening": 0.061522893607616425,
+            "final_gripper_opening": 0.061522893607616425,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 29.85,
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          }
+        },
+        {
+          "step": 17,
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 8,
+            "max_chunks": 8,
+            "peak_lift_m": 0.023364633321762085,
+            "min_gripper_opening": 0.06340498477220535,
+            "final_gripper_opening": 0.06349539756774902,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 23.73,
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          }
+        }
+      ],
+      "primitive_window_stages": {
+        "sim.env.step": {
+          "count": 815,
+          "inclusive_s": 427.608904258
+        },
+        "sim.render": {
+          "count": 1630,
+          "inclusive_s": 391.248745561
+        },
+        "render.render": {
+          "count": 1630,
+          "inclusive_s": 314.990007255
+        },
+        "render.read_pixels": {
+          "count": 1630,
+          "inclusive_s": 75.216879089
+        },
+        "sim.step1": {
+          "count": 20375,
+          "inclusive_s": 5.85810296
+        },
+        "sim.step2": {
+          "count": 20375,
+          "inclusive_s": 4.85283932
+        },
+        "pi.handler": {
+          "count": 15,
+          "inclusive_s": 12.799838216
+        },
+        "pi.prefix": {
+          "count": 15,
+          "inclusive_s": 8.182705537
+        },
+        "pi.denoise.core": {
+          "count": 75,
+          "inclusive_s": 3.552164676
+        }
+      },
+      "full_trajectory_reference": "t0-first-pair-trajectory.json#/episodes/0/trajectory",
+      "pick_prompt_hash_counts": {
+        "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889": 1,
+        "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef": 1
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 0,
+      "attempt": "attempt-001",
+      "status": "complete",
+      "source_sha256": {
+        "states.json": "88547163cb049d9731c2110f4f0a2385a18c75923cce19a91bed7066f46268f7",
+        "stream.jsonl": "b63465bfaa29f504706675d5b76d36e6e5e3f83b08bf76bffad1b27a1eef8076",
+        "transcript.json": "fe9b7d6836c52f2d6eed6de011c688ba2ddf13f43f2267222f55624af63da366"
+      },
+      "measurement_admitted": true,
+      "five_bucket_support": {
+        "classification": "source_backed_step_association",
+        "all_step_ids_uniquely_matched": true,
+        "mcp_intervals_serial": true,
+        "states_elapsed_le_mcp": true,
+        "absolute_states_interval_available": false,
+        "duration_rounding_s": 0.01,
+        "source_reference": "rpent/tools/toolkit.py:274-304; robots/libero/tools.py:965-978",
+        "interpretation": "Synchronous handler runs inside uniquely associated MCP call, then its elapsed duration is stored in the returned step. Semantic containment supported by source plus step association; NOT an independently observed unified-clock partition."
+      },
+      "elapsed_s": 1153.1,
+      "official_task_verdict": "success",
+      "final_terminated": true,
+      "video_verified": true,
+      "primitive_count": 21,
+      "pi_pick_calls": 2,
+      "pi_chunks": 28,
+      "pi_pick_local_success_count": 0,
+      "pi_pick_elapsed_s": 97.37,
+      "primitive_total_s": 497.4,
+      "pick_evidence": [
+        {
+          "step": 6,
+          "parameters": {
+            "max_chunks": 14,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.04
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.3139552175998688,
+            "min_gripper_opening": 0.06154190003871918,
+            "final_gripper_opening": 0.06154190003871918,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 52.19,
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          }
+        },
+        {
+          "step": 14,
+          "parameters": {
+            "max_chunks": 14,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.04
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.2146802544593811,
+            "min_gripper_opening": 0.05665554851293564,
+            "final_gripper_opening": 0.05665554851293564,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 45.18,
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          }
+        }
+      ],
+      "primitive_window_stages": {
+        "sim.env.step": {
+          "count": 813,
+          "inclusive_s": 443.719298225
+        },
+        "sim.render": {
+          "count": 1626,
+          "inclusive_s": 405.371639307
+        },
+        "render.render": {
+          "count": 1626,
+          "inclusive_s": 325.144608413
+        },
+        "render.read_pixels": {
+          "count": 1626,
+          "inclusive_s": 79.333920407
+        },
+        "sim.step1": {
+          "count": 20325,
+          "inclusive_s": 6.865740896
+        },
+        "sim.step2": {
+          "count": 20325,
+          "inclusive_s": 5.576195236
+        },
+        "pi.handler": {
+          "count": 28,
+          "inclusive_s": 18.638524432
+        },
+        "pi.prefix": {
+          "count": 28,
+          "inclusive_s": 10.411059384
+        },
+        "pi.denoise.core": {
+          "count": 140,
+          "inclusive_s": 6.756288999
+        }
+      },
+      "full_trajectory_reference": "t0-first-pair-trajectory.json#/episodes/1/trajectory",
+      "pick_prompt_hash_counts": {
+        "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889": 1,
+        "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef": 1
+      }
+    },
+    {
+      "model": "gpt-6-astra",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "status": "complete",
+      "source_sha256": {
+        "states.json": "4b0c9214d8f88f118be608a7328d8ae9b82d5ad6e9424c0a071c1abff937683e",
+        "stream.jsonl": "57fbf07b05b3621c61703264469d6ed0c12e8d129407fb269fff4b3b44ea6961",
+        "transcript.json": "6ad44a2235db8ed4794b63951d55f9d2b91b11a71650e96b953e182f31651dc5"
+      },
+      "measurement_admitted": true,
+      "five_bucket_support": {
+        "classification": "source_backed_step_association",
+        "all_step_ids_uniquely_matched": true,
+        "mcp_intervals_serial": true,
+        "states_elapsed_le_mcp": true,
+        "absolute_states_interval_available": false,
+        "duration_rounding_s": 0.01,
+        "source_reference": "rpent/tools/toolkit.py:274-304; robots/libero/tools.py:965-978",
+        "interpretation": "Synchronous handler runs inside uniquely associated MCP call, then its elapsed duration is stored in the returned step. Semantic containment supported by source plus step association; NOT an independently observed unified-clock partition."
+      },
+      "elapsed_s": 1049.1,
+      "official_task_verdict": "success",
+      "final_terminated": true,
+      "video_verified": true,
+      "primitive_count": 21,
+      "pi_pick_calls": 2,
+      "pi_chunks": 15,
+      "pi_pick_local_success_count": 1,
+      "pi_pick_elapsed_s": 54.98,
+      "primitive_total_s": 472.63,
+      "pick_evidence": [
+        {
+          "step": 6,
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": true,
+            "chunks_used": 7,
+            "max_chunks": 8,
+            "peak_lift_m": 0.07703065872192383,
+            "min_gripper_opening": 0.061509981751441956,
+            "final_gripper_opening": 0.061509981751441956,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 29.43,
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          }
+        },
+        {
+          "step": 16,
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 8,
+            "max_chunks": 8,
+            "peak_lift_m": 0.026359140872955322,
+            "min_gripper_opening": 0.06285203248262405,
+            "final_gripper_opening": 0.06285203248262405,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 25.55,
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          }
+        }
+      ],
+      "primitive_window_stages": {
+        "sim.env.step": {
+          "count": 777,
+          "inclusive_s": 425.647403527
+        },
+        "sim.render": {
+          "count": 1554,
+          "inclusive_s": 389.223818087
+        },
+        "render.render": {
+          "count": 1554,
+          "inclusive_s": 315.209827981
+        },
+        "render.read_pixels": {
+          "count": 1554,
+          "inclusive_s": 73.106170177
+        },
+        "sim.step1": {
+          "count": 19425,
+          "inclusive_s": 6.670858103
+        },
+        "sim.step2": {
+          "count": 19425,
+          "inclusive_s": 4.691220447
+        },
+        "pi.handler": {
+          "count": 15,
+          "inclusive_s": 12.512923669
+        },
+        "pi.prefix": {
+          "count": 15,
+          "inclusive_s": 8.158747722
+        },
+        "pi.denoise.core": {
+          "count": 75,
+          "inclusive_s": 3.298892644
+        }
+      },
+      "trajectory": [
+        {
+          "step": 1,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.059,
+              0.275,
+              0.72
+            ],
+            "gripper": -1,
+            "step_clip": 0.025
+          },
+          "result": {
+            "final_dist_m": 0.0088,
+            "steps_used": 43,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 22.79,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/1",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469762778,
+            "end_ms": 1791469791860,
+            "start_line": 288,
+            "end_line": 289
+          }
+        },
+        {
+          "step": 2,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.15,
+              0.065,
+              0.7
+            ],
+            "gripper": -1
+          },
+          "result": {
+            "final_dist_m": 0.0099,
+            "steps_used": 33,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 19.44,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/2",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469814291,
+            "end_ms": 1791469839292,
+            "start_line": 388,
+            "end_line": 389
+          }
+        },
+        {
+          "step": 3,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.241,
+              -0.14,
+              0.68
+            ],
+            "gripper": -1
+          },
+          "result": {
+            "final_dist_m": 0.0089,
+            "steps_used": 34,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 19.07,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/3",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469851563,
+            "end_ms": 1791469877046,
+            "start_line": 419,
+            "end_line": 420
+          }
+        },
+        {
+          "step": 4,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.006,
+              -0.253,
+              0.68
+            ],
+            "gripper": -1
+          },
+          "result": {
+            "final_dist_m": 0.0114,
+            "steps_used": 38,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 21.75,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/4",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469895958,
+            "end_ms": 1791469923433,
+            "start_line": 498,
+            "end_line": 499
+          }
+        },
+        {
+          "step": 5,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.004,
+              -0.244,
+              0.6
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0104,
+            "steps_used": 21,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 12.2,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/5",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469964521,
+            "end_ms": 1791469982292,
+            "start_line": 635,
+            "end_line": 636
+          }
+        },
+        {
+          "step": 6,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": true,
+            "chunks_used": 7,
+            "max_chunks": 8,
+            "peak_lift_m": 0.07703065872192383,
+            "min_gripper_opening": 0.061509981751441956,
+            "final_gripper_opening": 0.061509981751441956,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 29.43,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/6",
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791469996349,
+            "end_ms": 1791470031743,
+            "start_line": 670,
+            "end_line": 674
+          }
+        },
+        {
+          "step": 7,
+          "action": "set_gripper",
+          "parameters": {
+            "gripper": 1,
+            "steps": 5
+          },
+          "result": {
+            "gripper": 1.0,
+            "steps": 5,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 2.9,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/7",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "set_gripper",
+            "start_ms": 1791470041506,
+            "end_ms": 1791470050533,
+            "start_line": 718,
+            "end_line": 719
+          }
+        },
+        {
+          "step": 8,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              0.018,
+              -0.229,
+              0.7
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.01,
+            "steps_used": 33,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 18.32,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/8",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470061369,
+            "end_ms": 1791470086109,
+            "start_line": 750,
+            "end_line": 751
+          }
+        },
+        {
+          "step": 9,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.01,
+              0.02,
+              0.7
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0116,
+            "steps_used": 63,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 37.08,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/9",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470093533,
+            "end_ms": 1791470138054,
+            "start_line": 780,
+            "end_line": 785
+          }
+        },
+        {
+          "step": 10,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.01,
+              0.267,
+              0.69
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0114,
+            "steps_used": 65,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 38.46,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/10",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470146484,
+            "end_ms": 1791470191911,
+            "start_line": 811,
+            "end_line": 813
+          }
+        },
+        {
+          "step": 11,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.02,
+              0.271,
+              0.515
+            ],
+            "gripper": 1,
+            "step_clip": 0.015,
+            "max_steps": 65
+          },
+          "result": {
+            "final_dist_m": 0.0276,
+            "steps_used": 65,
+            "max_steps": 65,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 37.53,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/11",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470202286,
+            "end_ms": 1791470246061,
+            "start_line": 845,
+            "end_line": 847
+          }
+        },
+        {
+          "step": 12,
+          "action": "release",
+          "parameters": {
+            "max_steps": 15
+          },
+          "result": {
+            "steps_used": 15,
+            "start_gripper_opening": 0.0616,
+            "peak_gripper_opening": 0.0775,
+            "final_gripper_opening": 0.0775,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 8.96,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/12",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "release",
+            "start_ms": 1791470254932,
+            "end_ms": 1791470270222,
+            "start_line": 883,
+            "end_line": 884
+          }
+        },
+        {
+          "step": 13,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.016,
+              0.273,
+              0.7
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0106,
+            "steps_used": 40,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 24.02,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/13",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470280186,
+            "end_ms": 1791470311023,
+            "start_line": 912,
+            "end_line": 913
+          }
+        },
+        {
+          "step": 14,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.13,
+              0.06,
+              0.7
+            ],
+            "gripper": -1
+          },
+          "result": {
+            "final_dist_m": 0.0096,
+            "steps_used": 34,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 20.3,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/14",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470333654,
+            "end_ms": 1791470360165,
+            "start_line": 1012,
+            "end_line": 1013
+          }
+        },
+        {
+          "step": 15,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.231,
+              -0.141,
+              0.6
+            ],
+            "gripper": -1,
+            "step_clip": 0.025
+          },
+          "result": {
+            "final_dist_m": 0.0088,
+            "steps_used": 33,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 19.46,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/15",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470377013,
+            "end_ms": 1791470402597,
+            "start_line": 1042,
+            "end_line": 1043
+          }
+        },
+        {
+          "step": 16,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 8,
+            "lift_thresh": 0.05,
+            "gripper_closed_thresh": 0.07
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 8,
+            "max_chunks": 8,
+            "peak_lift_m": 0.026359140872955322,
+            "min_gripper_opening": 0.06285203248262405,
+            "final_gripper_opening": 0.06285203248262405,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 25.55,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/16",
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470411632,
+            "end_ms": 1791470443240,
+            "start_line": 1077,
+            "end_line": 1079
+          }
+        },
+        {
+          "step": 17,
+          "action": "set_gripper",
+          "parameters": {
+            "gripper": 1,
+            "steps": 5
+          },
+          "result": {
+            "gripper": 1.0,
+            "steps": 5,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 2.72,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/17",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "set_gripper",
+            "start_ms": 1791470458497,
+            "end_ms": 1791470467453,
+            "start_line": 1125,
+            "end_line": 1126
+          }
+        },
+        {
+          "step": 18,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.23,
+              -0.165,
+              0.7
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0111,
+            "steps_used": 33,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 18.73,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/18",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470475985,
+            "end_ms": 1791470501175,
+            "start_line": 1150,
+            "end_line": 1151
+          }
+        },
+        {
+          "step": 19,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.13,
+              0.055,
+              0.7
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0099,
+            "steps_used": 54,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 31.61,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/19",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470514086,
+            "end_ms": 1791470553579,
+            "start_line": 1191,
+            "end_line": 1193
+          }
+        },
+        {
+          "step": 20,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.025,
+              0.31,
+              0.7
+            ],
+            "gripper": 1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0106,
+            "steps_used": 67,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 41.19,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/20",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470566956,
+            "end_ms": 1791470614875,
+            "start_line": 1231,
+            "end_line": 1233
+          }
+        },
+        {
+          "step": 21,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.04,
+              0.312,
+              0.52
+            ],
+            "gripper": 1,
+            "step_clip": 0.012,
+            "max_steps": 65
+          },
+          "result": {
+            "final_dist_m": 0.0768,
+            "steps_used": 35,
+            "max_steps": 65,
+            "terminated": true,
+            "truncated": false
+          },
+          "elapsed_s": 21.12,
+          "terminated": true,
+          "source_pointer": "states.json#/steps/21",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470636332,
+            "end_ms": 1791470664217,
+            "start_line": 1328,
+            "end_line": 1329
+          }
+        }
+      ],
+      "pick_prompt_hash_counts": {
+        "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889": 1,
+        "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef": 1
+      }
+    },
+    {
+      "model": "gpt-6-sol",
+      "task": 0,
+      "seed": 1,
+      "attempt": "attempt-001",
+      "status": "complete",
+      "source_sha256": {
+        "states.json": "994aae987008fce4b1f96debe9af41a10c092c12c19a9bdf8a966ea6abae599c",
+        "stream.jsonl": "01e699e00737c66e2ce2a7e7291c0101b8e49ef6c354ce388a673388cffe43a3",
+        "transcript.json": "f4fdb54c40bf226377f476f844410fb8e1f7924224285c380847bf048fc83b9a"
+      },
+      "measurement_admitted": true,
+      "five_bucket_support": {
+        "classification": "source_backed_step_association",
+        "all_step_ids_uniquely_matched": true,
+        "mcp_intervals_serial": true,
+        "states_elapsed_le_mcp": true,
+        "absolute_states_interval_available": false,
+        "duration_rounding_s": 0.01,
+        "source_reference": "rpent/tools/toolkit.py:274-304; robots/libero/tools.py:965-978",
+        "interpretation": "Synchronous handler runs inside uniquely associated MCP call, then its elapsed duration is stored in the returned step. Semantic containment supported by source plus step association; NOT an independently observed unified-clock partition."
+      },
+      "elapsed_s": 2176.5,
+      "official_task_verdict": "task_failure",
+      "final_terminated": false,
+      "video_verified": true,
+      "primitive_count": 34,
+      "pi_pick_calls": 8,
+      "pi_chunks": 116,
+      "pi_pick_local_success_count": 1,
+      "pi_pick_elapsed_s": 357.55,
+      "primitive_total_s": 932.22,
+      "pick_evidence": [
+        {
+          "step": 7,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.3091534376144409,
+            "min_gripper_opening": 0.061568859964609146,
+            "final_gripper_opening": 0.061568859964609146,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 47.53,
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          }
+        },
+        {
+          "step": 15,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": true,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.2142278254032135,
+            "min_gripper_opening": 0.03502321243286133,
+            "final_gripper_opening": 0.03502321243286133,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 41.3,
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          }
+        },
+        {
+          "step": 19,
+          "parameters": {
+            "max_chunks": 12,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 12,
+            "max_chunks": 12,
+            "peak_lift_m": 0.001627802848815918,
+            "min_gripper_opening": 0.07077322900295258,
+            "final_gripper_opening": 0.07094057649374008,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 37.75,
+          "prompt": {
+            "chars": 23,
+            "sha256": "1c287f69cb6c990d1ba204ce30c098b4341a55073209710be93535d1ca306a3a"
+          }
+        },
+        {
+          "step": 21,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.031962037086486816,
+            "min_gripper_opening": 0.07405045628547668,
+            "final_gripper_opening": 0.07652080059051514,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.01,
+          "prompt": {
+            "chars": 47,
+            "sha256": "2377500804001540659d5d39afcf3fd3435d08eed690a6c258c232e542ba718d"
+          }
+        },
+        {
+          "step": 23,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.07557515799999237,
+            "final_gripper_opening": 0.08001361787319183,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.95,
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          }
+        },
+        {
+          "step": 25,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.06986658275127411,
+            "final_gripper_opening": 0.07984873652458191,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 42.02,
+          "prompt": {
+            "chars": 20,
+            "sha256": "11033d614a4d41938c52abfa9a278bdf7841799c17d3e217c1fa3ad443c89204"
+          }
+        },
+        {
+          "step": 29,
+          "parameters": {
+            "max_chunks": 20,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 20,
+            "max_chunks": 20,
+            "peak_lift_m": 0.02221667766571045,
+            "min_gripper_opening": 0.03009086474776268,
+            "final_gripper_opening": 0.03009086474776268,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 58.33,
+          "prompt": {
+            "chars": 61,
+            "sha256": "8405398832a6d730162b72e7768751f45e16ade5b47cfd3bb37f37632087c1e0"
+          }
+        },
+        {
+          "step": 34,
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.07984977960586548,
+            "final_gripper_opening": 0.07984977960586548,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.66,
+          "prompt": {
+            "chars": 44,
+            "sha256": "befeae11f5ddaf22ec6b58e6d2f240ba0ea58929ac9a31ac92762989ce25296c"
+          }
+        }
+      ],
+      "primitive_window_stages": {
+        "sim.env.step": {
+          "count": 1628,
+          "inclusive_s": 814.883769579
+        },
+        "sim.render": {
+          "count": 3256,
+          "inclusive_s": 741.084659109
+        },
+        "render.render": {
+          "count": 3256,
+          "inclusive_s": 588.344639474
+        },
+        "render.read_pixels": {
+          "count": 3256,
+          "inclusive_s": 151.067885621
+        },
+        "sim.step1": {
+          "count": 40700,
+          "inclusive_s": 12.396332579
+        },
+        "sim.step2": {
+          "count": 40700,
+          "inclusive_s": 10.648085438
+        },
+        "pi.handler": {
+          "count": 116,
+          "inclusive_s": 50.414941022
+        },
+        "pi.prefix": {
+          "count": 116,
+          "inclusive_s": 19.662424418
+        },
+        "pi.denoise.core": {
+          "count": 580,
+          "inclusive_s": 26.536305026
+        }
+      },
+      "trajectory": [
+        {
+          "step": 1,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.207,
+              -0.125,
+              0.67
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.0118,
+            "steps_used": 29,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 14.7,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/1",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469750113,
+            "end_ms": 1791469770848,
+            "start_line": 265,
+            "end_line": 266
+          }
+        },
+        {
+          "step": 2,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.12,
+              0.07,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.0099,
+            "steps_used": 36,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 18.42,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/2",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469781839,
+            "end_ms": 1791469805781,
+            "start_line": 279,
+            "end_line": 280
+          }
+        },
+        {
+          "step": 3,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.055,
+              0.265,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.008,
+            "steps_used": 39,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 19.58,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/3",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469811344,
+            "end_ms": 1791469836752,
+            "start_line": 282,
+            "end_line": 283
+          }
+        },
+        {
+          "step": 4,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.01,
+              0.02,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.008,
+            "steps_used": 47,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 23.77,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/4",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469849674,
+            "end_ms": 1791469879470,
+            "start_line": 378,
+            "end_line": 379
+          }
+        },
+        {
+          "step": 5,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              0.028,
+              -0.24,
+              0.64
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.0094,
+            "steps_used": 51,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 26.29,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/5",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469883917,
+            "end_ms": 1791469915973,
+            "start_line": 381,
+            "end_line": 383
+          }
+        },
+        {
+          "step": 6,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              0.001,
+              -0.242,
+              0.6
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0087,
+            "steps_used": 11,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 5.17,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/6",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791469930363,
+            "end_ms": 1791469941472,
+            "start_line": 473,
+            "end_line": 474
+          }
+        },
+        {
+          "step": 7,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.3091534376144409,
+            "min_gripper_opening": 0.061568859964609146,
+            "final_gripper_opening": 0.061568859964609146,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 47.53,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/7",
+          "prompt": {
+            "chars": 28,
+            "sha256": "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791469947215,
+            "end_ms": 1791470001139,
+            "start_line": 476,
+            "end_line": 479
+          }
+        },
+        {
+          "step": 8,
+          "action": "set_gripper",
+          "parameters": {
+            "gripper": 1,
+            "steps": 5
+          },
+          "result": {
+            "gripper": 1.0,
+            "steps": 5,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 2.73,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/8",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "set_gripper",
+            "start_ms": 1791470008964,
+            "end_ms": 1791470018276,
+            "start_line": 544,
+            "end_line": 545
+          }
+        },
+        {
+          "step": 9,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.045,
+              0.282,
+              0.65
+            ],
+            "gripper": 1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.0101,
+            "steps_used": 47,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 24.76,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/9",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470034238,
+            "end_ms": 1791470064345,
+            "start_line": 558,
+            "end_line": 559
+          }
+        },
+        {
+          "step": 10,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.045,
+              0.295,
+              0.51
+            ],
+            "gripper": 1,
+            "step_clip": 0.015,
+            "max_steps": 80
+          },
+          "result": {
+            "final_dist_m": 0.0317,
+            "steps_used": 80,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 42.65,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/10",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470086632,
+            "end_ms": 1791470135242,
+            "start_line": 645,
+            "end_line": 648
+          }
+        },
+        {
+          "step": 11,
+          "action": "release",
+          "parameters": {
+            "max_steps": 15
+          },
+          "result": {
+            "steps_used": 15,
+            "start_gripper_opening": 0.0615,
+            "peak_gripper_opening": 0.0735,
+            "final_gripper_opening": 0.0735,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 7.88,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/11",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "release",
+            "start_ms": 1791470142449,
+            "end_ms": 1791470156250,
+            "start_line": 652,
+            "end_line": 653
+          }
+        },
+        {
+          "step": 12,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.039,
+              0.287,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.0091,
+            "steps_used": 27,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 14.34,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/12",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470168278,
+            "end_ms": 1791470188983,
+            "start_line": 657,
+            "end_line": 658
+          }
+        },
+        {
+          "step": 13,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.13,
+              0.07,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.02
+          },
+          "result": {
+            "final_dist_m": 0.011,
+            "steps_used": 42,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 23.2,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/13",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470207771,
+            "end_ms": 1791470237043,
+            "start_line": 741,
+            "end_line": 742
+          }
+        },
+        {
+          "step": 14,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.231,
+              -0.138,
+              0.6
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0095,
+            "steps_used": 55,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 28.32,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/14",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470241185,
+            "end_ms": 1791470274598,
+            "start_line": 744,
+            "end_line": 746
+          }
+        },
+        {
+          "step": 15,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": true,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.2142278254032135,
+            "min_gripper_opening": 0.03502321243286133,
+            "final_gripper_opening": 0.03502321243286133,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 41.3,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/15",
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470283387,
+            "end_ms": 1791470329926,
+            "start_line": 750,
+            "end_line": 753
+          }
+        },
+        {
+          "step": 16,
+          "action": "set_gripper",
+          "parameters": {
+            "gripper": 1,
+            "steps": 5
+          },
+          "result": {
+            "gripper": 1.0,
+            "steps": 5,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 2.78,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/16",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "set_gripper",
+            "start_ms": 1791470339625,
+            "end_ms": 1791470348780,
+            "start_line": 757,
+            "end_line": 758
+          }
+        },
+        {
+          "step": 17,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.023,
+              0.307,
+              0.67
+            ],
+            "gripper": 1,
+            "step_clip": 0.015,
+            "max_steps": 80
+          },
+          "result": {
+            "final_dist_m": 0.0111,
+            "steps_used": 47,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 25.85,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/17",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470362031,
+            "end_ms": 1791470394359,
+            "start_line": 837,
+            "end_line": 839
+          }
+        },
+        {
+          "step": 18,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.052,
+              0.167,
+              0.61
+            ],
+            "gripper": -1,
+            "step_clip": 0.012
+          },
+          "result": {
+            "final_dist_m": 0.0096,
+            "steps_used": 43,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 23.51,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/18",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470410791,
+            "end_ms": 1791470440333,
+            "start_line": 902,
+            "end_line": 903
+          }
+        },
+        {
+          "step": 19,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 12,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 12,
+            "max_chunks": 12,
+            "peak_lift_m": 0.001627802848815918,
+            "min_gripper_opening": 0.07077322900295258,
+            "final_gripper_opening": 0.07094057649374008,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 37.75,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/19",
+          "prompt": {
+            "chars": 23,
+            "sha256": "1c287f69cb6c990d1ba204ce30c098b4341a55073209710be93535d1ca306a3a"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470449332,
+            "end_ms": 1791470493140,
+            "start_line": 907,
+            "end_line": 909
+          }
+        },
+        {
+          "step": 20,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.056,
+              0.155,
+              0.6
+            ],
+            "gripper": -1,
+            "step_clip": 0.01
+          },
+          "result": {
+            "final_dist_m": 0.0112,
+            "steps_used": 13,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 6.74,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/20",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470502767,
+            "end_ms": 1791470515337,
+            "start_line": 913,
+            "end_line": 914
+          }
+        },
+        {
+          "step": 21,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.031962037086486816,
+            "min_gripper_opening": 0.07405045628547668,
+            "final_gripper_opening": 0.07652080059051514,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.01,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/21",
+          "prompt": {
+            "chars": 47,
+            "sha256": "2377500804001540659d5d39afcf3fd3435d08eed690a6c258c232e542ba718d"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470523664,
+            "end_ms": 1791470573011,
+            "start_line": 918,
+            "end_line": 921
+          }
+        },
+        {
+          "step": 22,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.054,
+              0.14,
+              0.67
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0094,
+            "steps_used": 32,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 17.58,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/22",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470591082,
+            "end_ms": 1791470617706,
+            "start_line": 980,
+            "end_line": 981
+          }
+        },
+        {
+          "step": 23,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.07557515799999237,
+            "final_gripper_opening": 0.08001361787319183,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.95,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/23",
+          "prompt": {
+            "chars": 29,
+            "sha256": "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470624576,
+            "end_ms": 1791470673904,
+            "start_line": 985,
+            "end_line": 988
+          }
+        },
+        {
+          "step": 24,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.115,
+              0.155,
+              0.61
+            ],
+            "gripper": -1,
+            "step_clip": 0.012
+          },
+          "result": {
+            "final_dist_m": 0.0099,
+            "steps_used": 57,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 31.47,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/24",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470684767,
+            "end_ms": 1791470722153,
+            "start_line": 992,
+            "end_line": 994
+          }
+        },
+        {
+          "step": 25,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.06986658275127411,
+            "final_gripper_opening": 0.07984873652458191,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 42.02,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/25",
+          "prompt": {
+            "chars": 20,
+            "sha256": "11033d614a4d41938c52abfa9a278bdf7841799c17d3e217c1fa3ad443c89204"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791470728475,
+            "end_ms": 1791470777210,
+            "start_line": 998,
+            "end_line": 1001
+          }
+        },
+        {
+          "step": 26,
+          "action": "move_pose",
+          "parameters": {
+            "xyz": [
+              -0.06,
+              0.03,
+              0.68
+            ],
+            "gripper": -1,
+            "step_clip": 0.015,
+            "max_steps": 100
+          },
+          "result": {
+            "final_dist_m": 0.028,
+            "final_pitch": 0.0351,
+            "steps_used": 100,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 58.61,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/26",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_pose",
+            "start_ms": 1791470799985,
+            "end_ms": 1791470865660,
+            "start_line": 1061,
+            "end_line": 1065
+          }
+        },
+        {
+          "step": 27,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.052,
+              0.16,
+              0.62
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0106,
+            "steps_used": 31,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 16.68,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/27",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470875052,
+            "end_ms": 1791470897753,
+            "start_line": 1069,
+            "end_line": 1070
+          }
+        },
+        {
+          "step": 28,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.058,
+              0,
+              0.69
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0115,
+            "steps_used": 51,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 27.51,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/28",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791470914962,
+            "end_ms": 1791470948862,
+            "start_line": 1076,
+            "end_line": 1078
+          }
+        },
+        {
+          "step": 29,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 20,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 20,
+            "max_chunks": 20,
+            "peak_lift_m": 0.02221667766571045,
+            "min_gripper_opening": 0.03009086474776268,
+            "final_gripper_opening": 0.03009086474776268,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 58.33,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/29",
+          "prompt": {
+            "chars": 61,
+            "sha256": "8405398832a6d730162b72e7768751f45e16ade5b47cfd3bb37f37632087c1e0"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791471041753,
+            "end_ms": 1791471105058,
+            "start_line": 1087,
+            "end_line": 1089
+          }
+        },
+        {
+          "step": 30,
+          "action": "release",
+          "parameters": {
+            "max_steps": 8
+          },
+          "result": {
+            "steps_used": 8,
+            "start_gripper_opening": 0.0301,
+            "peak_gripper_opening": 0.0661,
+            "final_gripper_opening": 0.0661,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 4.4,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/30",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "release",
+            "start_ms": 1791471155047,
+            "end_ms": 1791471166951,
+            "start_line": 1145,
+            "end_line": 1146
+          }
+        },
+        {
+          "step": 31,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.052,
+              0.19,
+              0.58
+            ],
+            "gripper": -1,
+            "step_clip": 0.012
+          },
+          "result": {
+            "final_dist_m": 0.1118,
+            "steps_used": 80,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 42.95,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/31",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791471216048,
+            "end_ms": 1791471264623,
+            "start_line": 1211,
+            "end_line": 1213
+          }
+        },
+        {
+          "step": 32,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.055,
+              0.19,
+              0.69
+            ],
+            "gripper": -1,
+            "step_clip": 0.015
+          },
+          "result": {
+            "final_dist_m": 0.0104,
+            "steps_used": 35,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 19.51,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/32",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791471339323,
+            "end_ms": 1791471364985,
+            "start_line": 1217,
+            "end_line": 1218
+          }
+        },
+        {
+          "step": 33,
+          "action": "move_to",
+          "parameters": {
+            "xyz": [
+              -0.055,
+              0.19,
+              0.5
+            ],
+            "gripper": -1,
+            "step_clip": 0.01,
+            "max_steps": 80
+          },
+          "result": {
+            "final_dist_m": 0.0469,
+            "steps_used": 80,
+            "max_steps": 80,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 45.27,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/33",
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "move_to",
+            "start_ms": 1791471409440,
+            "end_ms": 1791471460150,
+            "start_line": 1222,
+            "end_line": 1224
+          }
+        },
+        {
+          "step": 34,
+          "action": "pi0_pick",
+          "parameters": {
+            "max_chunks": 14,
+            "gripper_closed_thresh": 0.04,
+            "lift_thresh": 0.05
+          },
+          "result": {
+            "success": false,
+            "chunks_used": 14,
+            "max_chunks": 14,
+            "peak_lift_m": 0.0,
+            "min_gripper_opening": 0.07984977960586548,
+            "final_gripper_opening": 0.07984977960586548,
+            "terminated": false,
+            "truncated": false
+          },
+          "elapsed_s": 43.66,
+          "terminated": false,
+          "source_pointer": "states.json#/steps/34",
+          "prompt": {
+            "chars": 44,
+            "sha256": "befeae11f5ddaf22ec6b58e6d2f240ba0ea58929ac9a31ac92762989ce25296c"
+          },
+          "mcp_match_count": 1,
+          "mcp": {
+            "action": "pi0_pick",
+            "start_ms": 1791471564979,
+            "end_ms": 1791471613973,
+            "start_line": 1289,
+            "end_line": 1291
+          }
+        }
+      ],
+      "pick_prompt_hash_counts": {
+        "b07690405f33dc02b8b3e679f922ef8e7c2e3063e2c0561ca823bf4cdb028889": 1,
+        "66f5e710e5677d1296e01000a57a83dde2d59a059dc5836a8b9a06cdc17373ef": 2,
+        "1c287f69cb6c990d1ba204ce30c098b4341a55073209710be93535d1ca306a3a": 1,
+        "2377500804001540659d5d39afcf3fd3435d08eed690a6c258c232e542ba718d": 1,
+        "11033d614a4d41938c52abfa9a278bdf7841799c17d3e217c1fa3ad443c89204": 1,
+        "8405398832a6d730162b72e7768751f45e16ade5b47cfd3bb37f37632087c1e0": 1,
+        "befeae11f5ddaf22ec6b58e6d2f240ba0ea58929ac9a31ac92762989ce25296c": 1
+      }
+    }
+  ],
+  "sol_seed1_failure_review": {
+    "level": "E1+E2",
+    "classification": "normal task_failure, preserved without retry",
+    "finish_status": "failure",
+    "environment_final_terminated": false,
+    "environment_any_terminated": false,
+    "why_official_failure": "Official conjunction of two In-basket goals never became true. Individual conjunct values were not recorded/replayed, so no independent claim identifying which object failed is made.",
+    "evidence_points": [
+      {
+        "steps": [
+          7
+        ],
+        "claim": "First pick exhausted 14 chunks; min opening 0.06157 exceeded chosen 0.04 threshold, so closed condition never held."
+      },
+      {
+        "steps": [
+          15
+        ],
+        "claim": "Second pick reported local success at chunk14, while environment remained false; local pick success does not imply dual-object task success."
+      },
+      {
+        "steps": [
+          19,
+          21,
+          23,
+          25,
+          29,
+          34
+        ],
+        "claim": "Six later pick recovery attempts all returned local false and consumed max_chunks, totaling88 chunks. Coordinates/prompts change: repeated recovery, not necessarily identical-parameter retries."
+      },
+      {
+        "steps": [
+          19,
+          21,
+          23,
+          25,
+          34
+        ],
+        "claim": "All five minimum openings exceed0.04; peak lift approximately0.00163/0.03196/0/0/0m."
+      },
+      {
+        "steps": [
+          29
+        ],
+        "claim": "Min opening0.03009 meets closing upper limit, but peak lift0.02222<0.05. Failure cannot be attributed solely to gripper threshold."
+      },
+      {
+        "steps": [
+          26,
+          31,
+          33
+        ],
+        "claim": "Pose/low approach also reached step budgets, final distances0.0280/0.1118/0.0469m; approach limitations coexist with failed grasp recoveries."
+      }
+    ],
+    "six_recovery_pick_s": 268.72,
+    "six_recovery_pick_chunks": 88,
+    "recovery_segment_steps": [
+      18,
+      34
+    ],
+    "recovery_segment_primitive_s": 562.95,
+    "counterfactual_limit": "Measured recovery costs are not proven removable savings; deleting failed recoveries does not create a successful trajectory."
+  },
+  "two_seed_comparison": {
+    "level": "E2",
+    "astra_successes": 2,
+    "sol_successes": 1,
+    "episodes_per_model": 2,
+    "astra_action_nodes": [
+      22,
+      21
+    ],
+    "sol_action_nodes": [
+      21,
+      34
+    ],
+    "astra_pi_chunks": [
+      15,
+      15
+    ],
+    "sol_pi_chunks": [
+      28,
+      116
+    ],
+    "claim": "Astra used two pick calls and15 chunks in each seed; Sol seed1 added six pick recoveries. Two seeds provide descriptive cases only, not significance or population-level ability claims.",
+    "interpretation_boundary": "Keep normal failure in timing/outcome analysis; no success-only filtering or replacement rerun."
+  },
+  "five_bucket_conclusion": {
+    "classification": "source_backed_step_association",
+    "passed_episodes": 4,
+    "interpretation": "All four episodes uniquely associate every primitive step with MCP result; primitive MCP intervals are serial and each stored duration fits within its MCP duration. Source shows synchronous handler timing before state capture: semantic containment, not unified-clock measured partition."
+  },
+  "scope_limits": [
+    "Only four new t0 episodes; running t9 excluded.",
+    "Stage summaries cover unique primitive windows only, excluding initialization/reset/post-primitive high-resolution artifact rendering.",
+    "render/render.read_pixels nest inside sim.render; pi.prefix/denoise nest inside pi.handler. Do not sum nested stages.",
+    "Only numerical arguments/results, fixed primitive names, lengths/hashes and source links; no raw conversations/images/video."
+  ]
+}

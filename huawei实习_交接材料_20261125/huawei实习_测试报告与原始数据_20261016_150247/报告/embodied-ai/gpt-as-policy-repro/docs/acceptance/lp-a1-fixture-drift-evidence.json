@@ -1,0 +1,843 @@
+{
+ "schema": "gap_repro.lp_a1_fixture_drift.v1",
+ "suite": "libero_goal",
+ "task_index": 0,
+ "seed": 0,
+ "preregistered_renderer_stable_threshold": {
+  "mean_abs": 1.0,
+  "frac_gt30": 0.01
+ },
+ "bddl_regions": {
+  "main_table_plate_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     0.04,
+     -0.03,
+     0.060000000000000005,
+     -0.01
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_akita_black_bowl_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.09999999999999999,
+     -0.01,
+     -0.08,
+     0.01
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_wine_bottle_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.21000000000000002,
+     -0.060000000000000005,
+     -0.19,
+     -0.04
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_cream_cheese_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.060000000000000005,
+     0.12000000000000001,
+     -0.04,
+     0.14
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_stove_front_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.09,
+     0.16999999999999998,
+     -0.010000000000000002,
+     0.25
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_cabinet_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     0.02,
+     -0.25,
+     0.04,
+     -0.23
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    3.141592653589793,
+    3.141592653589793
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_stove_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.42,
+     0.2,
+     -0.4,
+     0.22
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "main_table_wine_rack_region": {
+   "target": "main_table",
+   "ranges": [
+    [
+     -0.27,
+     -0.27,
+     -0.25,
+     -0.25
+    ]
+   ],
+   "extra": [],
+   "yaw_rotation": [
+    3.141592653589793,
+    3.141592653589793
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "wooden_cabinet_1_top_region": {
+   "target": "wooden_cabinet_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "wooden_cabinet_1_middle_region": {
+   "target": "wooden_cabinet_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "wooden_cabinet_1_bottom_region": {
+   "target": "wooden_cabinet_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "wooden_cabinet_1_top_side": {
+   "target": "wooden_cabinet_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "flat_stove_1_cook_region": {
+   "target": "flat_stove_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "bowl_drainer_1_right_region": {
+   "target": "bowl_drainer_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "bowl_drainer_1_left_region": {
+   "target": "bowl_drainer_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  },
+  "wine_rack_1_top_region": {
+   "target": "wine_rack_1",
+   "ranges": [],
+   "extra": [],
+   "yaw_rotation": [
+    0,
+    0
+   ],
+   "rgba": [
+    0,
+    0,
+    1,
+    0
+   ]
+  }
+ },
+ "verdicts": {
+  "movables_hard_gate_consistent": true,
+  "scene_fingerprint_distinct_per_reset": true,
+  "renderer_bit_stable_same_state": true,
+  "attribution": "scene_resampling_dominates"
+ },
+ "records": [
+  {
+   "init": 0,
+   "rep": 0,
+   "state_fingerprint": "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.40859606459164244,
+      0.2087720302692464,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.26795910378503945,
+      -0.26582246487810335,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.022578525953097065,
+      -0.24369143298151633,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "5019f1863f841dbcd8464b614ed7f2d5dd6089ac4cff429fac3aa8fc94f5c888",
+   "fingerprint_full": "cd7a1f9ad9e7f62e07a793e303994848f5fb7cdc638561243e227617d7682015",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0006,
+     "frac_gt30": 0.0001,
+     "max_sum": 81
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0365,
+     "frac_gt0": 0.0291,
+     "frac_gt30": 0.0007,
+     "max_sum": 136
+    }
+   }
+  },
+  {
+   "init": 0,
+   "rep": 1,
+   "state_fingerprint": "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.4117147401097066,
+      0.2012829499269757,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.2586679709158685,
+      -0.2646922101812111,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.0259228039504429,
+      -0.24762544562091512,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "2ad544668e94547f5a38c8b9346f08c7a2180c835d0908217065613d1f5e286c",
+   "fingerprint_full": "48a777a12bf3266a451e1f851667e09057f0914bcebdf248060ec9049292010e",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0006,
+     "frac_gt30": 0.0001,
+     "max_sum": 81
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0497,
+     "frac_gt0": 0.0323,
+     "frac_gt30": 0.0008,
+     "max_sum": 136
+    }
+   }
+  },
+  {
+   "init": 0,
+   "rep": 2,
+   "state_fingerprint": "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.41553836734718763,
+      0.2190549802303397,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.25307182655057747,
+      -0.2560104144936499,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.031523146688356735,
+      -0.23815916137456322,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "c8163e3a076a73add12174eed4ac2daec3bbefe943c11dc6f072670a56891c05",
+   "fingerprint_full": "b8abe72f06f3c6e66256924bf32fe7735901696848a4b2c004f4ca9b88187f2c",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0006,
+     "frac_gt30": 0.0001,
+     "max_sum": 81
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0413,
+     "frac_gt0": 0.031,
+     "frac_gt30": 0.001,
+     "max_sum": 136
+    }
+   }
+  },
+  {
+   "init": 1,
+   "rep": 0,
+   "state_fingerprint": "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.4069359836028573,
+      0.2130420654000338,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.25206906808297874,
+      -0.2626487625990421,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.0313992982140253,
+      -0.23818254477503653,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "a2778c079b3690e697c112db609652c39fea3504d8835d25a242a9b20f6192af",
+   "fingerprint_full": "89f14bb9dd780b178247a2efb40143fffacb41aa8481524a2b0f5f217a9b26f8",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0011,
+     "frac_gt30": 0.0,
+     "max_sum": 48
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0824,
+     "frac_gt0": 0.0449,
+     "frac_gt30": 0.0018,
+     "max_sum": 140
+    }
+   }
+  },
+  {
+   "init": 1,
+   "rep": 1,
+   "state_fingerprint": "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.40048956989994233,
+      0.21711606684785223,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.26280043871043274,
+      -0.2554001887515188,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.02907085365356138,
+      -0.23555888801059305,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "f988ae89e9f3f64fb4a6ddfef0989367c23ba31a4bf1e0b26be107f41f2bcb51",
+   "fingerprint_full": "1410fd561683b6b0dea81ba548ff4a5b9e114b8cf79f02861e82784a1b543ee7",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0011,
+     "frac_gt30": 0.0,
+     "max_sum": 48
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0661,
+     "frac_gt0": 0.044,
+     "frac_gt30": 0.0009,
+     "max_sum": 140
+    }
+   }
+  },
+  {
+   "init": 1,
+   "rep": 2,
+   "state_fingerprint": "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+   "fixture_poses": {
+    "flat_stove_1": {
+     "body_pos": [
+      -0.4149128703645921,
+      0.20116058320647753,
+      0.905
+     ],
+     "body_quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "wine_rack_1": {
+     "body_pos": [
+      -0.26376408236011795,
+      -0.2560731302236908,
+      0.9199999999999999
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    "wooden_cabinet_1": {
+     "body_pos": [
+      0.03479101590098575,
+      -0.24019082382764867,
+      0.905
+     ],
+     "body_quat": [
+      6.123233995736766e-17,
+      0.0,
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "scene_fingerprint": "c8673e36f82d2dad1df96896eb29f08c04cec7b5abe2ceca1f3a8b3bfb49f337",
+   "fingerprint_full": "68bfc3e5728c3976556b7a0b7d9d2a26018301787046d99fb7706e6cfe32c3dc",
+   "same_state_render_diff": {
+    "agentview_image": {
+     "mean_abs": 0.0019,
+     "frac_gt0": 0.0011,
+     "frac_gt30": 0.0,
+     "max_sum": 48
+    },
+    "robot0_eye_in_hand_image": {
+     "mean_abs": 0.0932,
+     "frac_gt0": 0.0455,
+     "frac_gt30": 0.0032,
+     "max_sum": 140
+    }
+   }
+  }
+ ],
+ "aggregates": {
+  "per_init": [
+   {
+    "init": 0,
+    "state_fingerprints_distinct": 1,
+    "movables_consistent": true,
+    "state_fingerprint": "7013dce110c500162803ba94684bf288f78b80ea24dcdd81327d394613470ced",
+    "scene_fingerprints_distinct": 3,
+    "scene_fingerprints": [
+     "2ad544668e94547f5a38c8b9346f08c7a2180c835d0908217065613d1f5e286c",
+     "5019f1863f841dbcd8464b614ed7f2d5dd6089ac4cff429fac3aa8fc94f5c888",
+     "c8163e3a076a73add12174eed4ac2daec3bbefe943c11dc6f072670a56891c05"
+    ],
+    "fixture_drift_vs_rep0": {
+     "flat_stove_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.006942,
+       0.010283,
+       0.0
+      ]
+     },
+     "wine_rack_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.014887,
+       0.009812,
+       0.0
+      ]
+     },
+     "wooden_cabinet_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.008945,
+       0.005532,
+       0.0
+      ]
+     }
+    },
+    "same_state_render_diff_agg": {
+     "agentview_image": {
+      "n": 3,
+      "mean_abs_max": 0.0019,
+      "frac_gt0_max": 0.0006,
+      "frac_gt30_max": 0.0001,
+      "mean_abs_mean": 0.0019,
+      "frac_gt0_mean": 0.0006,
+      "frac_gt30_mean": 0.0001
+     },
+     "robot0_eye_in_hand_image": {
+      "n": 3,
+      "mean_abs_max": 0.0497,
+      "frac_gt0_max": 0.0323,
+      "frac_gt30_max": 0.001,
+      "mean_abs_mean": 0.0425,
+      "frac_gt0_mean": 0.0308,
+      "frac_gt30_mean": 0.0008
+     }
+    },
+    "cross_reset_render_diff_agg": {
+     "agentview_image": {
+      "n": 2,
+      "mean_abs_max": 3.4074,
+      "frac_gt0_max": 0.197,
+      "frac_gt30_max": 0.0605,
+      "mean_abs_mean": 2.8757,
+      "frac_gt0_mean": 0.1854,
+      "frac_gt30_mean": 0.0593
+     },
+     "robot0_eye_in_hand_image": {
+      "n": 2,
+      "mean_abs_max": 6.7125,
+      "frac_gt0_max": 0.245,
+      "frac_gt30_max": 0.1096,
+      "mean_abs_mean": 5.5617,
+      "frac_gt0_mean": 0.234,
+      "frac_gt30_mean": 0.0983
+     }
+    }
+   },
+   {
+    "init": 1,
+    "state_fingerprints_distinct": 1,
+    "movables_consistent": true,
+    "state_fingerprint": "9fe5fae006f9c46aeb716288f17b7455c3a10c5e988d418f539e8fca34e64d9c",
+    "scene_fingerprints_distinct": 3,
+    "scene_fingerprints": [
+     "a2778c079b3690e697c112db609652c39fea3504d8835d25a242a9b20f6192af",
+     "c8673e36f82d2dad1df96896eb29f08c04cec7b5abe2ceca1f3a8b3bfb49f337",
+     "f988ae89e9f3f64fb4a6ddfef0989367c23ba31a4bf1e0b26be107f41f2bcb51"
+    ],
+    "fixture_drift_vs_rep0": {
+     "flat_stove_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.007977,
+       0.011881,
+       0.0
+      ]
+     },
+     "wine_rack_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.011695,
+       0.007249,
+       0.0
+      ]
+     },
+     "wooden_cabinet_1": {
+      "max_abs_delta_pos_per_axis": [
+       0.003392,
+       0.002624,
+       0.0
+      ]
+     }
+    },
+    "same_state_render_diff_agg": {
+     "agentview_image": {
+      "n": 3,
+      "mean_abs_max": 0.0019,
+      "frac_gt0_max": 0.0011,
+      "frac_gt30_max": 0.0,
+      "mean_abs_mean": 0.0019,
+      "frac_gt0_mean": 0.0011,
+      "frac_gt30_mean": 0.0
+     },
+     "robot0_eye_in_hand_image": {
+      "n": 3,
+      "mean_abs_max": 0.0932,
+      "frac_gt0_max": 0.0455,
+      "frac_gt30_max": 0.0032,
+      "mean_abs_mean": 0.0806,
+      "frac_gt0_mean": 0.0448,
+      "frac_gt30_mean": 0.002
+     }
+    },
+    "cross_reset_render_diff_agg": {
+     "agentview_image": {
+      "n": 2,
+      "mean_abs_max": 3.0848,
+      "frac_gt0_max": 0.1773,
+      "frac_gt30_max": 0.0698,
+      "mean_abs_mean": 2.908,
+      "frac_gt0_mean": 0.1723,
+      "frac_gt30_mean": 0.0585
+     },
+     "robot0_eye_in_hand_image": {
+      "n": 2,
+      "mean_abs_max": 5.0178,
+      "frac_gt0_max": 0.2403,
+      "frac_gt30_max": 0.0948,
+      "mean_abs_mean": 4.9854,
+      "frac_gt0_mean": 0.2339,
+      "frac_gt30_mean": 0.0872
+     }
+    }
+   }
+  ]
+ },
+ "note": "scene \u6307\u7eb9 reset \u95f4\u4e0d\u540c=\u534f\u8bae\u5185\u5728\u91cd\u91c7\u6837\uff08BDDL region \u5185\u5747\u5300\u91c7\u6837\uff0c\u5e45\u5ea6\u4e0a\u754c=region \u8fb9\u957f\uff09\uff1b\u56fe\u50cf\u5dee\u5f52\u56e0\u7531\u540c\u72b6\u6001\u53cc\u6e32\u67d3(\u7eaf\u6e32\u67d3\u5668)\u4e0e\u8de8 reset(\u6e32\u67d3\u5668+fixture) \u4e24\u7ec4 diff \u5206\u79bb"
+}

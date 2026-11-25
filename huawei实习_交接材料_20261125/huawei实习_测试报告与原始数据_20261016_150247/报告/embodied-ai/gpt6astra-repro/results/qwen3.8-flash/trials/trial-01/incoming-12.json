@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-12",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-12",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0187, \"y\": 0.0741, \"z\": 0.92, \"gripper\": 1, \"yaw\": 0.02}, \"note\": \"Grasp failed: measured opening went to 0.016, i.e. the jaws closed on nothing, and the side view still shows the block on the table at the same pixel. Reopening and lifting to z=0.92 to read the block position relative to the jaw plane again before a second attempt.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

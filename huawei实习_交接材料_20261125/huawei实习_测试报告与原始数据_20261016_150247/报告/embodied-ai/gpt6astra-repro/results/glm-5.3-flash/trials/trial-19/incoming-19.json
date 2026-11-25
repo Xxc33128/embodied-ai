@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.005, \"y\": 0.015, \"z\": 0.9, \"gripper\": 1}, \"note\": \"Wrist view shows the block occluded by the closed jaws, matching the earlier confirmed hold. Flying to the bowl while opening: the arm reaches the bowl in the first part of the jaw stroke and the block releases over the bowl interior, dropping gently inside.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

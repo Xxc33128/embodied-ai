@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"gripper\": 1}, \"note\": \"Front/side views show the blue bowl far from the base and the red block between my current eef (x=-0.108) and the arm base; wrist view puts the block slightly nearer than directly-below. I move +x toward the block and fully latch the gripper open (measured 0.52 = ambiguous) in preparation for a grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

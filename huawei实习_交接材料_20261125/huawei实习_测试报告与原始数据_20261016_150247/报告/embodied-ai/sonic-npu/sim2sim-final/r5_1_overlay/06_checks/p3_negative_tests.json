@@ -1,0 +1,85 @@
+{
+  "tests": [
+    {
+      "test": "T1_effective_tampered",
+      "expected": "INVALID_DELAY_IMPLEMENTATION",
+      "decision": "INVALID_DELAY_IMPLEMENTATION",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "FAIL\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"FAIL\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": 1,\n    \"isaac_delay_ms\": 5.0,\n    \"isaac_shift_maxdiff\": 0.5,\n    \"isaac_second_best\": 0.5,\n    \"mujoco_delay_steps\": 10,\n    \"mujoco_delay_ms\": 20.0,\n    \"mj_shift_maxdiff\": 0.0\n  },\n  \"errors\": [\n    \"unique physics shift not 4 (best 1 diff 5.00e-01 second 5.00e-01)\",\n    \"control shift-1 identity fail\",\n    \"checkpoint mismatch fields ['measured_shift', 'measured_diff']\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T2_missing_effective_substep",
+      "expected": "INVALID_TRACE",
+      "decision": "INVALID_TRACE",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "ID_TRACE\",\n  \"gates\": {\n    \"A_artifact_hash\": \"PASS\",\n    \"B_trace\": \"FAIL\",\n    \"C_isaac_delay\": \"PASS\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"PASS\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": null,\n    \"isaac_delay_ms\": null,\n    \"isaac_shift_maxdiff\": null,\n    \"isaac_second_best\": null,\n    \"mujoco_delay_steps\": null,\n    \"mujoco_delay_ms\": null,\n    \"mj_shift_maxdiff\": null\n  },\n  \"errors\": [\n    \"isaac_d20_10s_r2 missing required field q_des_effective_substep\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T3_requested_delay_15ms",
+      "expected": "INVALID_DELAY_IMPLEMENTATION",
+      "decision": "INVALID_DELAY_IMPLEMENTATION",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "VALID_DELAY_IMPLEMENTATION\",\n  \"gates\": {\n    \"A_artifact_hash\": \"PASS\",\n    \"B_trace\": \"PASS\",\n    \"C_isaac_delay\": \"FAIL\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"PASS\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": 4,\n    \"isaac_delay_ms\": 20.0,\n    \"isaac_shift_maxdiff\": 0.0,\n    \"isaac_second_best\": 0.419131338596344,\n    \"mujoco_delay_steps\": 10,\n    \"mujoco_delay_ms\": 20.0,\n    \"mj_shift_maxdiff\": 0.0\n  },\n  \"errors\": [\n    \"manifest requested delay 4/15.0 != 4/20\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T4_canonical_hash",
+      "expected": "INVALID_ARTIFACT_HASH",
+      "decision": "INVALID_ARTIFACT_HASH",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "   \"A_artifact_hash\": \"FAIL\",\n    \"B_trace\": \"PASS\",\n    \"C_isaac_delay\": \"PASS\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"FAIL\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": null,\n    \"isaac_delay_ms\": null,\n    \"isaac_shift_maxdiff\": null,\n    \"isaac_second_best\": null,\n    \"mujoco_delay_steps\": null,\n    \"mujoco_delay_ms\": null,\n    \"mj_shift_maxdiff\": null\n  },\n  \"errors\": [\n    \"isaac_d20_10s_r2 manifest canonical hash\",\n    \"checkpoint mismatch fields ['hashes_ok']\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T5_model_hash",
+      "expected": "INVALID_ARTIFACT_HASH",
+      "decision": "INVALID_ARTIFACT_HASH",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "_trace\": \"PASS\",\n    \"C_isaac_delay\": \"PASS\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"FAIL\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": null,\n    \"isaac_delay_ms\": null,\n    \"isaac_shift_maxdiff\": null,\n    \"isaac_second_best\": null,\n    \"mujoco_delay_steps\": null,\n    \"mujoco_delay_ms\": null,\n    \"mj_shift_maxdiff\": null\n  },\n  \"errors\": [\n    \"isaac_d20 manifest model_asset_sha256\",\n    \"isaac_d20 manifest hashes.model\",\n    \"checkpoint mismatch fields ['hashes_ok']\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T6_deleted_cycle",
+      "expected": "INVALID_TRACE",
+      "decision": "INVALID_TRACE",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": ") != (500,)\",\n    \"isaac_d20_10s_r2 t shape (499,) != (500,)\",\n    \"isaac_d20_10s_r2 policy_step shape (499,) != (500,)\",\n    \"isaac_d20_10s_r2 time_step shape (499,) != (500,)\",\n    \"isaac_d20_10s_r2 reference_body_pos_w(14,3) shape (499, 14, 3) != (500, 14, 3)\",\n    \"isaac_d20_10s_r2 reference_body_quat_w(14,4) shape (499, 14, 4) != (500, 14, 4)\",\n    \"isaac_d20_10s_r2 actual_body_pos_w(14,3) shape (499, 14, 3) != (500, 14, 3)\",\n    \"isaac_d20_10s_r2 actual_body_quat_w(14,4) shape (499, 14, 4) != (500, 14, 4)\"\n  ],\n  \"reset_observed\": true,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T7_phys_index_broken",
+      "expected": "INVALID_DELAY_IMPLEMENTATION",
+      "decision": "INVALID_DELAY_IMPLEMENTATION",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": ",\n    \"B_trace\": \"PASS\",\n    \"C_isaac_delay\": \"FAIL\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"PASS\",\n    \"F_checkpoint\": \"PASS\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": 4,\n    \"isaac_delay_ms\": 20.0,\n    \"isaac_shift_maxdiff\": 0.0,\n    \"isaac_second_best\": 0.419131338596344,\n    \"mujoco_delay_steps\": 10,\n    \"mujoco_delay_ms\": 20.0,\n    \"mj_shift_maxdiff\": 0.0\n  },\n  \"errors\": [\n    \"actuator physics-step index not continuous 1..2000\",\n    \"physics_time != actuator_compute_counter x physics_dt\"\n  ],\n  \"reset_observed\": true,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "T8_seed_parity",
+      "expected": "INVALID_BASELINE_PAIRING",
+      "decision": "INVALID_BASELINE_PAIRING",
+      "returncode": 1,
+      "pass": true,
+      "stdout_tail": "ecision\": \"INVALID_BASELINE_PAIRING\",\n  \"gates\": {\n    \"A_artifact_hash\": \"PASS\",\n    \"B_trace\": \"PASS\",\n    \"C_isaac_delay\": \"PASS\",\n    \"D_mj_delay\": \"PASS\",\n    \"E_baseline_pairing\": \"FAIL\",\n    \"F_checkpoint\": \"PASS\"\n  },\n  \"measured\": {\n    \"isaac_delay_steps\": 4,\n    \"isaac_delay_ms\": 20.0,\n    \"isaac_shift_maxdiff\": 0.0,\n    \"isaac_second_best\": 0.419131338596344,\n    \"mujoco_delay_steps\": 10,\n    \"mujoco_delay_ms\": 20.0,\n    \"mj_shift_maxdiff\": 0.0\n  },\n  \"errors\": [\n    \"mj_elbow_d00_10s seed=41 != 42\"\n  ],\n  \"reset_observed\": false,\n  \"reset_evidence\": \"independent_trace_counters\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "test": "CONTROL_untouched_VALID_P3",
+      "expected": "VALID_P3",
+      "returncode": 0,
+      "pass": true
+    }
+  ],
+  "overall_pass": true,
+  "validator": "04_analysis/p3_validate.py --root <temp> (real, no mocks)",
+  "note": "8 real tampers + untouched control; each tamper: non-zero exit AND expected decision"
+}

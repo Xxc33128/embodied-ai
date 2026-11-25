@@ -1,0 +1,23 @@
+{
+  "source": "2026-09-23-实验报告对话疑问与解答.md",
+  "version": "v1.9 · 日期：2026-09-29",
+  "files_sha256": {
+    "evidence/2026-09-28-prompt-action-interface-audit.json": "219b44f01d14c72ea5b5302fac4eec77ce7279cc25b3c8423c59cf5482f09a08",
+    "../../gpt-as-policy-repro/src/gap_repro/libero/actions.py": "86657edd811d2f9403f33038eed62f8b3301f25f8c0af345b90325e6c949b333",
+    "assets/token-timing/01-timing-definitions.png": "7e24935fec2ef765d8cefd89caaba5958c058844316ebeccc4557475b188251b",
+    "assets/token-timing/02-cache-and-latency.png": "a1154129e01ba2e1f89ce0ace4c970e43a33566515dfb008b2f43ea057e2fb24",
+    "assets/token-timing/03-cache-mechanism.png": "99f43e4e6ef01e7294d07055f694cc22ad37dcfcf9d294a0f6f92aec8fcb79e7",
+    "assets/token-timing/04-output-decode-correlation.png": "1794fd50fb27643a5498169f5bace9f31058592ff6c60e1be64ac69872ab2a78",
+    "evidence/2026-09-28-cache-ttft-decode-analysis.json": "656a293ede9fe946c3c9fc5f4aaf9e7a6a38dc88f050ab22c4b712442214950b",
+    "2026-09-23-推理效率与纠错效果深挖.md": "9e1ba0f1e108adae8bd484750f1c04103f872a0280ea27803648f2b00fe038e6",
+    "2026-09-21-init0-18格运行记录.md": "59274359d195d8f4cc37db0d2bac9284ef4f774c1a43a062b4f24cfc6f786428",
+    "2026-09-22-LIBERO10-task0-Ori-init0-逐轮决策实录.md": "428215395fba4ba8c641dc80fa2e052bbc1c497fb5292da96db193fb41253776",
+    "2026-09-22-GPT决策表现与推理性能分析.md": "840335ff56a65f47e11b4ba836a8088fd322e8dff0d01358e28ae9952486cf46",
+    "2026-09-22-GPT-Token与Prefill-Decoder规律分析.md": "11df6689bdb9603fcd587dab83a6061f923fb6e93c9a2bcf3120d0538108f506",
+    "2026-09-21-LIBERO三路线实验与全链路记录规范.md": "4073122848c9ec0f948a19a89c5eef4e5f601f07b517873e694f27c69c2cb248",
+    "2026-09-21-八卡并发推理探测.md": "aedea7e02f2ee67eca487b1afd44010c1039964cdda4efdbc7e3010154bab05b",
+    "evidence/2026-09-28-plot-token-timing.py": "ad6977dca6dca18daf55347589abaf278efdc1a5d8659a8d5efd3719e7d5f9d9",
+    "2026-09-23-实验报告对话疑问与解答.md": "ca45458a17a7b7304c98b9c847d57e6084a047f63e977ebfac2668289ccd204d"
+  },
+  "sections": 10
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-11",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-11",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.105, \"y\": 0.068, \"z\": 0.878}, \"note\": \"Arm is nearly at rest now. Commanding the full grasp approach: descending to fingertip-mid-block height while translating onto my best block estimate (front and wrist cameras both place it at larger y, side camera pins x within a cm). If the from-rest move recovers a long interpolation this completes the approach in one call.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

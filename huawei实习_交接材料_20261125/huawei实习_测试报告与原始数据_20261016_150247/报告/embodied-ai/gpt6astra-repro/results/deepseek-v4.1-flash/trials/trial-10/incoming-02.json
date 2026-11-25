@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.064, \"y\": 0.0075, \"z\": 0.9, \"yaw\": 0, \"gripper\": 1}, \"note\": \"After the +x probe the red block and blue bowl stay near the center of the wrist view; the gripper is still about 20cm above the table. I descend straight down to 0.90m, keeping the gripper open, to get a closer, low-parallax view of the block alignment with the finger pads.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

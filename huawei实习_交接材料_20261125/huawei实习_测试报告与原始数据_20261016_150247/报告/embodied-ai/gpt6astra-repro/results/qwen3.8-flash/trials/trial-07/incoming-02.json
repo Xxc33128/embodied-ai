@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.045, \"y\": 0.02, \"z\": 0.9}, \"note\": \"The block now sits at the very bottom edge of the wrist view, partly hidden by the fingers, and is left of the bowl in the side view, so it is slightly behind (-x) the current eef at x=0.0125. Backing up over the block and dropping to z=0.90 to centre it in the finger gap.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

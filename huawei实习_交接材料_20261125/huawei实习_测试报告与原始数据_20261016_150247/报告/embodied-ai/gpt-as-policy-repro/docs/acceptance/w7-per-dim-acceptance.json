@@ -1,0 +1,67 @@
+{
+ "date": "2026-09-18",
+ "anchor": "固定噪声三方 harness（scripts/w6_fixed_noise_harness.py，noise rng(20260918) (50,32)）",
+ "per_dim_acceptance": {
+  "device_torch_cpu_vs_npu": {
+   "per_dim_mean_absdiff": [
+    0.00058,
+    0.00209,
+    0.00083,
+    0.00335,
+    0.00238,
+    0.00216,
+    0.00023,
+    0.00237,
+    0.00125,
+    0.00159,
+    0.00142,
+    0.00151,
+    0.00155,
+    0.00013
+   ],
+   "max": 0.003353204379144139,
+   "within_frozen_band": true
+  },
+  "conversion_jax_vs_torch_cpu": {
+   "per_dim_mean_absdiff": [
+    0.00173,
+    0.0034,
+    0.00248,
+    0.00276,
+    0.00264,
+    0.00521,
+    0.00126,
+    0.00287,
+    0.0022,
+    0.00194,
+    0.00339,
+    0.00496,
+    0.00793,
+    0.00024
+   ],
+   "max": 0.007929233353374645,
+   "within_frozen_band": true
+  },
+  "conversion_jax_vs_torch_npu": {
+   "per_dim_mean_absdiff": [
+    0.00151,
+    0.00258,
+    0.00211,
+    0.00598,
+    0.00223,
+    0.00732,
+    0.00117,
+    0.00133,
+    0.00262,
+    0.00198,
+    0.00242,
+    0.00364,
+    0.00675,
+    0.00028
+   ],
+   "max": 0.007316024423824122,
+   "within_frozen_band": true
+  }
+ },
+ "note": "NPU-torch vs torch-cpu（设备效应）与 JAX vs torch-cpu（转换效应）按维逐项；全部在冻结带内（设备 mean≤0.01 / 转换 mean≤0.05，第六轮审查确认预注册成立）"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.118, \"y\": 0.002, \"z\": 0.818, \"yaw\": 0.65, \"gripper\": 1}, \"note\": \"The corner pinch slipped on lifting (opening fell to 0.029), so the block sits back at its spot and must be yaw-rotated roughly 35-40 degrees. Re-opening while re-positioning at the confirmed grasp spot and rotating the pads to yaw 0.65 to match the block faces for a solid grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

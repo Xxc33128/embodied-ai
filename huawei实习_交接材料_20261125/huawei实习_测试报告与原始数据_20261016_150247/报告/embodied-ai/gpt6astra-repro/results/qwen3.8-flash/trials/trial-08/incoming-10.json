@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"z\": 0.8}, \"note\": \"Block has not been knocked away (side view unchanged) and sits about 2 cm in +x of my fingers at x=-0.060, z=0.950. I keep the lowest legal z target to get the ~4 cm per call descent and nudge x to -0.04 so the open pads end up around the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

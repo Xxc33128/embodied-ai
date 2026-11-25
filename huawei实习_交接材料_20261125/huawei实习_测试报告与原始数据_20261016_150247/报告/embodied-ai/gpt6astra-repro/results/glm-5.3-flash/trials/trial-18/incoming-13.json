@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-13",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-13",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.135, \"y\": 0.12, \"z\": 0.92, \"gripper\": 0.5}, \"note\": \"Touch bounds say the block center is near y=0.12 (past 0.087 for sure). This staging move goes around the block: both fingers stay clear of its x-range on the diagonal, and I stay slightly above block-top so nothing grazes it. Next I slide +x so the block sits between the open jaws, then close.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

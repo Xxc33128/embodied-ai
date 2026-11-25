@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-19",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-19",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.175, \"z\": 0.815, \"gripper\": 0.5}, \"note\": \"The release landed the block on the table short of the bowl, which the side view still shows several cm toward -y. With the grasp budget spent I am bulldozing: lowering the open fingers to block-top height and pushing the block toward the bowl so it topples in. Gripper 0.5 keeps the open latch while stretching the move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

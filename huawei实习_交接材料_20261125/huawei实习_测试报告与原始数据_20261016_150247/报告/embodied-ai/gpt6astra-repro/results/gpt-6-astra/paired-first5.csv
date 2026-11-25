@@ -1,0 +1,21 @@
+model,seed,env_success,reported_reviewed_stage,policy_calls,wall_seconds
+GLM-5.3-Flash,2000,0.0,0,18,2599.89
+GLM-5.3-Flash,2001,0.0,0,20,2079.12
+GLM-5.3-Flash,2002,0.0,3,20,2877.98
+GLM-5.3-Flash,2003,0.0,0,16,1354.29
+GLM-5.3-Flash,2004,0.0,0,19,1794.07
+DeepSeek-v4.1-flash,2000,0.0,1,20,2108.4
+DeepSeek-v4.1-flash,2001,0.0,3,20,4248.68
+DeepSeek-v4.1-flash,2002,0.0,0,17,2252.59
+DeepSeek-v4.1-flash,2003,0.0,0,15,1658.11
+DeepSeek-v4.1-flash,2004,0.0,0,20,4074.29
+Qwen3.8-flash,2000,0.0,1,20,2831.8
+Qwen3.8-flash,2001,0.0,1,20,2527.83
+Qwen3.8-flash,2002,0.0,2,19,1505.84
+Qwen3.8-flash,2003,1.0,4,19,2350.12
+Qwen3.8-flash,2004,0.0,1,20,1903.48
+GPT-6 Astra,2000,1.0,3-4 boundary,10,271.63
+GPT-6 Astra,2001,1.0,3-4 boundary,11,369.9
+GPT-6 Astra,2002,1.0,not reviewed,13,353.13
+GPT-6 Astra,2003,1.0,not reviewed,14,411.74
+GPT-6 Astra,2004,1.0,not reviewed,13,348.61

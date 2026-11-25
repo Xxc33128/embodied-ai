@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"y\": -0.05, \"z\": 0.98}, \"note\": \"The wrist probe confirmed image-up is world -x and image axes align with world axes. The red block now sits slightly above center and clearly right of center in the wrist view, so most of its offset is along y. I will move 4 cm in -y to determine the horizontal axis sign and calibrate the pixel scale.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

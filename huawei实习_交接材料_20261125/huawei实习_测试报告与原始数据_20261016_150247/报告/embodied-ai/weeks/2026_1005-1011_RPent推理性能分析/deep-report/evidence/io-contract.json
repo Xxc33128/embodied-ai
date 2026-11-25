@@ -1,0 +1,1066 @@
+{
+  "schema_version": 1,
+  "scope": "source IO contracts + new independent probe only; no old-120 sample lengths",
+  "sources": {
+    "env_server.py": {
+      "sha256": "c8c46cb6e77a9052b5ee93c19d00082b54e53c8da171dc2ffe2e96a08c25c6bc",
+      "kind": "source_snapshot",
+      "filename": "env_server.py"
+    },
+    "pi05_vla_client.py": {
+      "sha256": "4d050ee6c8098bf864188dd89b5d6ebb6d4aed134709fe4d576d540612beee24",
+      "kind": "source_snapshot",
+      "filename": "pi05_vla_client.py"
+    },
+    "rlinf_models_embodiment_openpi_openpi_action_model.py": {
+      "sha256": "da8ac1bdd5341793422e3697f84f8e907a793e23c7f0c8748f9392e487335609",
+      "kind": "source_snapshot",
+      "filename": "rlinf_models_embodiment_openpi_openpi_action_model.py"
+    },
+    "pi05_vla_server.py": {
+      "sha256": "8d89a5160bfcd95841e90a014283c9da666190e63c4254bd5f3c8b4ad2a205f2",
+      "kind": "source_snapshot",
+      "filename": "pi05_vla_server.py"
+    },
+    "openpi_models_pi0_config.py": {
+      "sha256": "e15d71586f1a561b35c5651227607613fb16d2df411f3708b1c9d36b02544285",
+      "kind": "source_snapshot",
+      "filename": "openpi_models_pi0_config.py"
+    },
+    "openpi_models_tokenizer.py": {
+      "sha256": "965be8b3c393a6811875bbc32da9e01a5d01cc2f87802de801cf7293e049748c",
+      "kind": "source_snapshot",
+      "filename": "openpi_models_tokenizer.py"
+    },
+    "openpi_training_config.py": {
+      "sha256": "b54b77a123537bcb304ffe4ad3ed191ee065890f8d7d6a0973d13a0231b93cec",
+      "kind": "source_snapshot",
+      "filename": "openpi_training_config.py"
+    },
+    "rlinf_models_embodiment_openpi___init__.py": {
+      "sha256": "4dc635147841a83282b2e2e208569db01bab69438a60c0c68edf941be2db5fec",
+      "kind": "source_snapshot",
+      "filename": "rlinf_models_embodiment_openpi___init__.py"
+    },
+    "sam3_client.py": {
+      "sha256": "f8091dd9b3057567d936f98143e31c97c8556c6c40de8efad43683a225b97610",
+      "kind": "source_snapshot",
+      "filename": "sam3_client.py",
+      "runtime_installed_sha256_match": true
+    },
+    "sam3_server.py": {
+      "sha256": "606d744b49cf79f2453ccb35a19c9e0b38f20216b3b40d448249891cc38aafaf",
+      "kind": "source_snapshot",
+      "filename": "sam3_server.py",
+      "runtime_installed_sha256_match": true
+    },
+    "rpent_planner_codex.py": {
+      "sha256": "2bdcc3950dccceb3176153c57c772c63eee5e1fdb83fc7b641ed7a748c5271ed",
+      "kind": "source_snapshot",
+      "filename": "rpent_planner_codex.py"
+    },
+    "rpent_tools_toolkit.py": {
+      "sha256": "ce537451f3d01dbc25a65c40dab7abe794fa29fe803dbe1438d92fcdee1973ad",
+      "kind": "source_snapshot",
+      "filename": "rpent_tools_toolkit.py"
+    },
+    "runtime_rlinf_openpi_dataconfig": {
+      "filename": "rlinf/models/embodiment/openpi/dataconfig/__init__.py",
+      "kind": "read_only_runtime_source",
+      "sha256": "16a6558660483df7301de6096a15472af3e089e1f2301cb88202e830371cd244"
+    },
+    "runtime_openpi_transforms": {
+      "filename": "openpi/transforms.py",
+      "kind": "read_only_runtime_source",
+      "sha256": "a1b94e9e72849a18834778f229c6bb389a495eb7fbe0aa800edea728b9424ff4"
+    },
+    "rlinf_envs_libero_libero_env.py": {
+      "filename": "rlinf_envs_libero_libero_env.py",
+      "kind": "source_snapshot",
+      "sha256": "ecc3343cdd6336704af3596028939147cc1269fe38a9c55ae5e3b5b2efd7d8d2"
+    },
+    "tools.py": {
+      "filename": "tools.py",
+      "kind": "source_snapshot",
+      "sha256": "80341921c9a12a8e03c2ca213c46ab7b3de3551fe111b60a9a328760b3681336"
+    },
+    "robosuite/controllers/config/robots/default_panda.json": {
+      "filename": "robosuite/controllers/config/robots/default_panda.json",
+      "sha256": "796e66a9318b199676fd1602c5ecfa4372c296c5898776cabf3f9f50c53d48d8",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/models/grippers/panda_gripper.py": {
+      "filename": "robosuite/models/grippers/panda_gripper.py",
+      "sha256": "df0449a9b003e9a019fad4ef59b435ae2b9accd2705026da041165dd99faab8d",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/models/assets/grippers/panda_gripper.xml": {
+      "filename": "robosuite/models/assets/grippers/panda_gripper.xml",
+      "sha256": "066fd7ae45afb11e1844869360e587646e9768210ba5389aa3cd35292cde29c1",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/models/robots/manipulators/panda_robot.py": {
+      "filename": "robosuite/models/robots/manipulators/panda_robot.py",
+      "sha256": "326cf4f4fb8b06dcc8345139d0f21eb62128bd8ca18fb5fc80bdc852636c6e1e",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/robots/fixed_base_robot.py": {
+      "filename": "robosuite/robots/fixed_base_robot.py",
+      "sha256": "5bfbd5f1ba7d4afbe9626d87b9623dc64ef3b188aeb0a306158687e03423f20b",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/robots/robot.py": {
+      "filename": "robosuite/robots/robot.py",
+      "sha256": "dcb317e6d6b9eba54469f38d1c26ba44bafb1beb0dd4612ebc026ad0b25efda6",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/controllers/composite/composite_controller.py": {
+      "filename": "robosuite/controllers/composite/composite_controller.py",
+      "sha256": "28e1bd7d1f48d6f6d9799dd6ef748040fe2833d384f905bcdc6369a67cfab6d0",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/controllers/parts/gripper/simple_grip.py": {
+      "filename": "robosuite/controllers/parts/gripper/simple_grip.py",
+      "sha256": "2207911877d3416ae7dd247c948eeae9c684c511e92cb9dc5410668b40a90c4c",
+      "kind": "read_only_runtime_source"
+    },
+    "robosuite/controllers/parts/arm/osc.py": {
+      "filename": "robosuite/controllers/parts/arm/osc.py",
+      "sha256": "e406c0620b039156e4643fae68983a6ca19234632897b8a87bd6062b98869796",
+      "kind": "read_only_runtime_source"
+    },
+    "libero/libero/envs/env_wrapper.py": {
+      "filename": "libero/libero/envs/env_wrapper.py",
+      "sha256": "41fe00ccef0c48eeabb8aba3d022f5e099b2e7259cfed58365535ea38c2721eb",
+      "kind": "read_only_runtime_source"
+    },
+    "sam3/model/sam3_image_processor.py": {
+      "filename": "sam3/model/sam3_image_processor.py",
+      "sha256": "d8738a0efb6138b01c0dc5deceffd29de9e675860a9a1ed3822b08766373333b",
+      "kind": "read_only_runtime_source"
+    },
+    "sam3/model/sam3_image.py": {
+      "filename": "sam3/model/sam3_image.py",
+      "sha256": "2c20de90fb0b76b01dd437385eb7226f8c3cd4757a4c80cc8dec943dcf46a4a0",
+      "kind": "read_only_runtime_source"
+    },
+    "sam3/model/sam1_task_predictor.py": {
+      "filename": "sam3/model/sam1_task_predictor.py",
+      "sha256": "64346a8dcad8dfdb997e4cb0871e2d5c0658ab247ca2816f7f60aa0d0878ab9d",
+      "kind": "read_only_runtime_source"
+    }
+  },
+  "claims": [
+    {
+      "id": "env_boundary",
+      "level": "E1",
+      "claim": "单环境RPC去掉leading batch；动作调用再补batch维。",
+      "source": "env_server.py",
+      "lines": [
+        166,
+        186
+      ],
+      "fields": {
+        "raw_obs": "single environment",
+        "single_action": "[action_dim]",
+        "chunk": "[chunk_size,action_dim]"
+      }
+    },
+    {
+      "id": "pi_wire",
+      "level": "E1",
+      "claim": "LIBERO编码为单batch，保留图像尺寸；wire dtype为uint8与float32。",
+      "source": "pi05_vla_client.py",
+      "lines": [
+        38,
+        65
+      ],
+      "fields": {
+        "main_images": {
+          "shape": "[1,H,W,3]",
+          "dtype": "uint8"
+        },
+        "wrist_images": {
+          "shape": "[1,H,W,3] or null",
+          "dtype": "uint8"
+        },
+        "extra_view_images": {
+          "shape": "[1,H,W,3] or null",
+          "dtype": "uint8"
+        },
+        "states": {
+          "shape": "[1,state_dim]",
+          "dtype": "float32"
+        },
+        "task_descriptions": {
+          "type": "list[str]",
+          "shape": "[1]"
+        }
+      }
+    },
+    {
+      "id": "pi_mapping",
+      "level": "E1",
+      "claim": "obs_processor映射主视角、手腕图与状态，任务描述成为prompt。precision_processor迁移device并contiguous，不代表所有tensor转成同一浮点dtype。",
+      "source": "rlinf_models_embodiment_openpi_openpi_action_model.py",
+      "lines": [
+        499,
+        549
+      ],
+      "fields": {}
+    },
+    {
+      "id": "pi_config",
+      "level": "E1",
+      "claim": "LIBERO preset选择pi05_libero、两个输入图像、5步denoise与5个动作chunk，环境动作维7；不能将denoise轮数当LLM输出token数。",
+      "source": "pi05_vla_server.py",
+      "lines": [
+        79,
+        93
+      ],
+      "fields": {
+        "action_chunk": 5,
+        "action_env_dim": 7,
+        "num_steps": 5
+      }
+    },
+    {
+      "id": "pi_token_capacity",
+      "level": "E1",
+      "claim": "pi05在未指定max_token_len时设置200；它是张量长度上限，不是有效语言token数。",
+      "source": "openpi_models_pi0_config.py",
+      "lines": [
+        25,
+        39
+      ],
+      "fields": {
+        "default_pi05_max_token_len": 200
+      }
+    },
+    {
+      "id": "pi_token_mask",
+      "level": "E1",
+      "claim": "PaliGemma tokenizer短序列补零并mask=False，长序列截断；有效长度应统计mask为True的数量。可选state分支存在，但是否启用由配置决定。",
+      "source": "openpi_models_tokenizer.py",
+      "lines": [
+        22,
+        48
+      ],
+      "fields": {
+        "effective_length": "sum(tokenized_prompt_mask)",
+        "padded_length": "tokenized_prompt.shape[-1]",
+        "state_text_branch": "conditional; not automatically active for every pi05 run"
+      }
+    },
+    {
+      "id": "pi_transform",
+      "level": "E1",
+      "claim": "PI05 model transforms resize图像至224×224；discrete_state_input由model_config传入；state/action按action_dim补齐。",
+      "source": "openpi_training_config.py",
+      "lines": [
+        125,
+        136
+      ],
+      "fields": {
+        "image_transform_size": [
+          224,
+          224
+        ]
+      }
+    },
+    {
+      "id": "pi_reference_config",
+      "level": "E1",
+      "claim": "上游训练配置pi05_libero明确discrete_state_input=False；实际backend另需核验RLinf注册表，不能仅由通用pi05默认推断。",
+      "source": "openpi_training_config.py",
+      "lines": [
+        735,
+        736
+      ],
+      "fields": {}
+    },
+    {
+      "id": "pi_backend_selection",
+      "level": "E1",
+      "claim": "openpi_pytorch走rlinf.models.embodiment.openpi.get_model，不是openpi_rlinf分支。",
+      "source": "pi05_vla_server.py",
+      "lines": [
+        186,
+        195
+      ],
+      "fields": {}
+    },
+    {
+      "id": "pi_config_inheritance",
+      "level": "E1",
+      "claim": "loader从get_openpi_config取模型配置，以__dict__构造OpenPi0Config，再应用cfg.openpi逐项覆盖。",
+      "source": "rlinf_models_embodiment_openpi___init__.py",
+      "lines": [
+        30,
+        48
+      ],
+      "fields": {}
+    },
+    {
+      "id": "pi_output",
+      "level": "E1",
+      "claim": "output_transform按action_chunk截取时间维；server最终统一回传float32 ndarray。",
+      "source": "pi05_vla_server.py",
+      "lines": [
+        214,
+        231
+      ],
+      "fields": {
+        "server_dtype": "float32"
+      }
+    },
+    {
+      "id": "pi_output_chunk",
+      "level": "E1",
+      "claim": "output_transform批次重组后截取前action_chunk步。",
+      "source": "rlinf_models_embodiment_openpi_openpi_action_model.py",
+      "lines": [
+        305,
+        319
+      ],
+      "fields": {}
+    },
+    {
+      "id": "sam_input",
+      "level": "E1",
+      "claim": "SAM3输入为图像编码bytes/base64，加文本prompt或[row,col]点二选一及min_score。",
+      "source": "sam3_client.py",
+      "lines": [
+        49,
+        94
+      ],
+      "fields": {
+        "image": "encoded image bytes/base64, not language tokens",
+        "text_prompt": "str or absent",
+        "point": "[row,col] or absent",
+        "min_score": "float in [0,1]"
+      }
+    },
+    {
+      "id": "sam_output",
+      "level": "E1",
+      "claim": "SAM3输出选择单个二值mask，PNG压缩传输并提供mask_shape；不可把PNG字节长度当mask元素数。",
+      "source": "sam3_server.py",
+      "lines": [
+        258,
+        319
+      ],
+      "fields": {
+        "mask": "bool[H,W] internally; grayscale PNG on wire",
+        "mask_shape": "[H,W]",
+        "score": "scalar",
+        "box": "four scalar values when available"
+      }
+    },
+    {
+      "id": "planner_initial",
+      "level": "E1",
+      "claim": "RPent system_prompt与user_message拼接成SDK初始prompt；这里的字符数不是完整云端request token数。",
+      "source": "rpent_planner_codex.py",
+      "lines": [
+        128,
+        165
+      ],
+      "fields": {}
+    },
+    {
+      "id": "planner_multimodal",
+      "level": "E1",
+      "claim": "工具返回将JSON文本和PNG base64图像拆成独立多模态content blocks；tool text长度不涵盖image token预算。",
+      "source": "rpent_tools_toolkit.py",
+      "lines": [
+        116,
+        170
+      ],
+      "fields": {}
+    },
+    {
+      "id": "planner_usage",
+      "level": "E1",
+      "claim": "RPent读取total_token_usage的累计input/cached/output/reasoning字段；重复usage通知不能求和为独立请求用量。",
+      "source": "rpent_planner_codex.py",
+      "lines": [
+        730,
+        744
+      ],
+      "fields": {}
+    },
+    {
+      "id": "pi_runtime_no_discrete_state",
+      "level": "E1",
+      "claim": "实际运行容器的pi05_libero注册配置明确discrete_state_input=False，action_horizon=10；继承和覆盖路径见pi_config_inheritance，LIBERO preset没有重新打开该选项。不能套用通用pi05默认state token格式。",
+      "source": "runtime_rlinf_openpi_dataconfig",
+      "lines": [
+        85,
+        88
+      ],
+      "fields": {
+        "discrete_state_input": false,
+        "action_horizon": 10
+      }
+    },
+    {
+      "id": "pi_runtime_state_branch",
+      "level": "E1",
+      "claim": "实际TokenizePrompt在discrete_state_input=False时显式state=None，再调用tokenizer.tokenize(prompt,state)。",
+      "source": "runtime_openpi_transforms",
+      "lines": [
+        248,
+        266
+      ],
+      "fields": {
+        "tokenizer_state_argument": null
+      }
+    },
+    {
+      "id": "pi_state_padding",
+      "level": "E1",
+      "claim": "PadStatesAndActions沿最后一维尾部补零；8维状态保留在索引0–7，索引8–31为零padding。该transform未输出独立state mask，不能把tokenized_prompt_mask当state mask。",
+      "source": "runtime_openpi_transforms",
+      "lines": [
+        328,
+        337
+      ],
+      "fields": {
+        "state_prefix_dimensions": 8,
+        "zero_padding_dimensions": 24,
+        "state_mask": null,
+        "padding_implementation_lines": [
+          423,
+          430
+        ]
+      }
+    },
+    {
+      "id": "state8_semantics",
+      "level": "E1",
+      "claim": "状态按末端位置、四元数转axis-angle、两指关节位置顺序拼接；旋转不是原始4维四元数。",
+      "source": "rlinf_envs_libero_libero_env.py",
+      "lines": [
+        562,
+        573
+      ],
+      "fields": {
+        "0:3": "robot0_eef_pos xyz",
+        "3:6": "quat2axisangle(robot0_eef_quat)",
+        "6:8": "robot0_gripper_qpos two joint positions"
+      }
+    },
+    {
+      "id": "pi_instruction_override",
+      "level": "E1",
+      "claim": "正式primitive每个chunk临时将task_descriptions替换成当前instruction再predict；初始任务语言probe长度不等于正式动作指令长度。",
+      "source": "tools.py",
+      "lines": [
+        151,
+        169
+      ],
+      "fields": {
+        "formal_instruction_chars": null,
+        "formal_effective_tokens": null
+      }
+    },
+    {
+      "id": "five_actions_execution",
+      "level": "E1",
+      "claim": "chunk_step按chunk_actions.shape[1]循环逐次env.step；输出时间维5对应5次环境控制step，不代表5次LLM请求或5个physics substep。",
+      "source": "rlinf_envs_libero_libero_env.py",
+      "lines": [
+        720,
+        736
+      ],
+      "fields": {
+        "chunk_steps": 5,
+        "physics_substeps_per_control_step": null
+      }
+    },
+    {
+      "id": "sam_wire_decode",
+      "level": "E1",
+      "claim": "SAM返回found/score/box/mask_png_base64/mask_shape/reason；客户端解PNG后以>0恢复bool mask并严格核对shape。",
+      "source": "sam3_client.py",
+      "lines": [
+        97,
+        141
+      ],
+      "fields": {
+        "mask": "bool[H,W]",
+        "missing_mask": "allowed only when found=false",
+        "threshold_default": 0.2,
+        "point_coordinate_order": [
+          "row",
+          "col"
+        ]
+      }
+    },
+    {
+      "id": "sam_box_pixel_xyxy",
+      "level": "E1",
+      "claim": "文本分支processor将归一cxcywh框转换为[x0,y0,x1,y1]，再乘原图[W,H,W,H]；RPent按最高score取该框前4值，不再归一。输出box为原图像素坐标浮点xyxy。",
+      "source": "sam3/model/sam3_image_processor.py",
+      "lines": [
+        192,
+        222
+      ],
+      "fields": {
+        "order": [
+          "x0",
+          "y0",
+          "x1",
+          "y1"
+        ],
+        "units": "original-image pixels",
+        "dtype": "list[float] on RPC",
+        "normalized": false,
+        "availability": "text-prompt branch only when selected candidate box exists; point branch passes boxes=None and omits wire box"
+      },
+      "additional_sources": [
+        {
+          "source": "sam3_server.py",
+          "lines": [
+            215,
+            252
+          ]
+        },
+        {
+          "source": "sam3_server.py",
+          "lines": [
+            287,
+            297
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sam_point_transform",
+      "level": "E1",
+      "claim": "RPent point按[row,col]原图像素输入；server交换为[[col,row]] float32，label=[1] int64表示前景点。SAM predict_inst携带原图H/W，predict默认normalize_coords=True，内部按原图尺寸转换。调用者不应预先传归一坐标。",
+      "source": "sam3_server.py",
+      "lines": [
+        230,
+        246
+      ],
+      "fields": {
+        "rpc_point_order": [
+          "row",
+          "col"
+        ],
+        "rpc_point_units": "original-image integer pixels",
+        "model_point_order": [
+          "x",
+          "y"
+        ],
+        "model_point_shape": [
+          1,
+          2
+        ],
+        "model_point_dtype": "float32",
+        "point_label": [
+          1
+        ]
+      },
+      "additional_sources": [
+        {
+          "source": "sam3/model/sam3_image.py",
+          "lines": [
+            628,
+            665
+          ]
+        },
+        {
+          "source": "sam3/model/sam1_task_predictor.py",
+          "lines": [
+            240,
+            266
+          ]
+        },
+        {
+          "source": "sam3/model/sam1_task_predictor.py",
+          "lines": [
+            303,
+            315
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sam_two_thresholds",
+      "level": "E1",
+      "claim": "RPent构造processor时confidence_threshold=0.0，覆盖库默认0.5；processor先保留score>0，RPent再选最高分并在score<min_score时判found=false（默认min_score0.2）。文本分支mask概率二值阈值0.5属于另一个概念（不据此断言point分支阈值），不能与min_score混用。",
+      "source": "sam3_server.py",
+      "lines": [
+        161,
+        161
+      ],
+      "fields": {
+        "processor_confidence_threshold": 0.0,
+        "rpc_default_min_score": 0.2,
+        "rpc_reject_comparison": "top_score < min_score",
+        "text_mask_probability_threshold": 0.5
+      },
+      "additional_sources": [
+        {
+          "source": "sam3_client.py",
+          "lines": [
+            49,
+            68
+          ]
+        },
+        {
+          "source": "sam3_server.py",
+          "lines": [
+            287,
+            304
+          ]
+        },
+        {
+          "source": "sam3/model/sam3_image_processor.py",
+          "lines": [
+            199,
+            220
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sam_wire_failure_contract",
+      "level": "E1",
+      "claim": "server to_dict删除None字段。没有候选时仅found=false+reason；低分或空mask时另带score和可用box。found=false不发送mask_png_base64/mask_shape。reason是可选诊断描述，不是稳定枚举或图像内容。",
+      "source": "sam3_server.py",
+      "lines": [
+        94,
+        107
+      ],
+      "fields": {
+        "no_candidate": [
+          "found",
+          "reason"
+        ],
+        "low_score_or_empty_mask": [
+          "found",
+          "score",
+          "reason",
+          "box if available"
+        ],
+        "mask_fields_on_failure": "omitted",
+        "reason_categories": [
+          "no candidate",
+          "top score below threshold",
+          "empty mask"
+        ],
+        "reason_nullable": true
+      },
+      "additional_sources": [
+        {
+          "source": "sam3_server.py",
+          "lines": [
+            258,
+            319
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sam_wire_vs_client_result",
+      "level": "E1",
+      "claim": "RPC成功返回base64 PNG及list[int] mask_shape；客户端严格解base64与PNG、校验尺寸，以decoded>0转bool ndarray，并返回tuple[int,int] mask_shape。client结果对象不是RPC字典：不存在mask_png_base64字段，失败时mask/mask_shape为None，缺失reason时提供默认诊断。",
+      "source": "sam3_client.py",
+      "lines": [
+        95,
+        148
+      ],
+      "fields": {
+        "rpc_success_fields": [
+          "found",
+          "score",
+          "box if available",
+          "mask_png_base64",
+          "mask_shape"
+        ],
+        "rpc_mask_shape_type": "list[int] [H,W]",
+        "client_result_fields": [
+          "found",
+          "score",
+          "box",
+          "mask",
+          "mask_shape",
+          "reason"
+        ],
+        "client_mask_dtype": "bool",
+        "client_mask_shape": "[H,W]",
+        "client_mask_shape_type": "tuple[int,int]",
+        "client_failure_mask": null,
+        "client_failure_mask_shape": null,
+        "client_success_reason": null
+      },
+      "additional_sources": [
+        {
+          "source": "sam3_client.py",
+          "lines": [
+            31,
+            39
+          ]
+        },
+        {
+          "source": "sam3_server.py",
+          "lines": [
+            314,
+            320
+          ]
+        }
+      ]
+    }
+  ],
+  "new_probe": {
+    "level": "E2",
+    "kind": "new_probe_only",
+    "scope": "2026-10-08 LongSwap t0 seed0 initial task prompt; not formal-8 measurements",
+    "source": "new batch probes/vla-timing/spans-*.jsonl; safe metadata extracted by primary reviewer",
+    "input": {
+      "main_images": {
+        "shape": [
+          1,
+          256,
+          256,
+          3
+        ],
+        "dtype": "uint8"
+      },
+      "wrist_images": {
+        "shape": [
+          1,
+          256,
+          256,
+          3
+        ],
+        "dtype": "uint8"
+      },
+      "extra_view_images": null,
+      "states": {
+        "shape": [
+          1,
+          8
+        ],
+        "dtype": "float32"
+      },
+      "task_descriptions": {
+        "chars": 61,
+        "utf8_bytes": 61,
+        "sha256": "8405398832a6d730162b72e7768751f45e16ade5b47cfd3bb37f37632087c1e0"
+      }
+    },
+    "transformed": {
+      "tokenized_prompt": {
+        "shape": [
+          1,
+          200
+        ],
+        "dtype": "int64"
+      },
+      "tokenized_prompt_mask": {
+        "shape": [
+          1,
+          200
+        ],
+        "dtype": "bool",
+        "nonpadding_count": 14
+      },
+      "state": {
+        "shape": [
+          1,
+          32
+        ],
+        "dtype": "float64",
+        "device": "cpu"
+      }
+    },
+    "output": {
+      "shape": [
+        1,
+        5,
+        7
+      ],
+      "dtype": "float32"
+    }
+  },
+  "cloud_accounting": {
+    "basis_claims": [
+      "planner_initial",
+      "planner_multimodal",
+      "planner_usage"
+    ],
+    "request_input_tokens": "云端一次请求的总输入预算；不得标为任务指令长度。请求可带初始指令、系统/developer内容、工具定义、已保留的对话/工具历史及图像；各部分token分拆未实测，均保留null。",
+    "initial_prompt_chars": null,
+    "initial_prompt_token_count": null,
+    "system_developer_token_count": null,
+    "tool_schema_token_count": null,
+    "history_token_count": null,
+    "image_token_count": null,
+    "formal_request_measurements": null,
+    "boundary": "可程序统计各角色文本chars/UTF8 bytes/hash与图像数量；字符数、传输bytes、图像像素和模型tokens是不同单位，不相互替换。历史可能压缩/裁剪，不能假定每轮含完整历史。"
+  },
+  "formal_measurements": null,
+  "cloud_probe": {
+    "level": "E2",
+    "scope": "independent MCP probes only; not formal robot episodes",
+    "source_sha256s": [
+      "81988b0696c1b0030ebb973d0f9766cf26823b9a3bb08032d0f8481a75588694",
+      "c62733adb71b2614e533e6b47e8319e6168a23a4f09152b365fbfeac2d868a28",
+      "6ea9deee76bc910c269e69ef18c6baacb669f5b928055905069a0daa9b70c41e",
+      "29d1ed7992a98104fd8fe2839d90af5dbded1db0dcf1b1f2bdd6c595dd686fde"
+    ],
+    "response_completed_count": 6,
+    "nonwarmup_responses_with_ttft": [
+      {
+        "usage": {
+          "input_tokens": 10170.0,
+          "output_tokens": 106.0,
+          "cached_input_tokens": 8960.0,
+          "cache_write_tokens": 0.0,
+          "reasoning_output_tokens": 0.0
+        },
+        "request_ttft_ms": 4622.0,
+        "request_association": null
+      },
+      {
+        "usage": {
+          "input_tokens": 10312.0,
+          "output_tokens": 21.0,
+          "cached_input_tokens": 9984.0,
+          "cache_write_tokens": 0.0,
+          "reasoning_output_tokens": 0.0
+        },
+        "request_ttft_ms": 3001.0,
+        "request_association": null
+      },
+      {
+        "usage": {
+          "input_tokens": 9721.0,
+          "output_tokens": 151.0,
+          "cached_input_tokens": 0.0,
+          "cache_write_tokens": 0.0,
+          "reasoning_output_tokens": 26.0
+        },
+        "request_ttft_ms": 2283.0,
+        "request_association": null
+      },
+      {
+        "usage": {
+          "input_tokens": 9908.0,
+          "output_tokens": 21.0,
+          "cached_input_tokens": 9600.0,
+          "cache_write_tokens": 0.0,
+          "reasoning_output_tokens": 0.0
+        },
+        "request_ttft_ms": 1865.0,
+        "request_association": null
+      }
+    ],
+    "association_limitation": "response.completed lacks trace/span IDs; not matched to request by time/order/token fingerprint; prompt-component token decomposition unavailable"
+  },
+  "action_column_semantics": {
+    "status": "verified_installed_source_chain",
+    "level": "E1",
+    "indexing": "zero-based",
+    "shape": [
+      5,
+      7
+    ],
+    "columns": [
+      {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "meaning": "robot-base-frame translation delta x/y/z",
+        "normalized_input_range": [
+          -1,
+          1
+        ],
+        "scaled_range_per_axis_m": [
+          -0.05,
+          0.05
+        ]
+      },
+      {
+        "indices": [
+          3,
+          4,
+          5
+        ],
+        "meaning": "robot-base-frame axis-angle orientation delta components; not Euler-angle targets",
+        "normalized_input_range": [
+          -1,
+          1
+        ],
+        "scaled_range_per_axis_rad": [
+          -0.5,
+          0.5
+        ]
+      },
+      {
+        "indices": [
+          6
+        ],
+        "meaning": "PandaGripper signed incremental open/close command",
+        "positive": "close",
+        "negative": "open",
+        "zero": "leave accumulated gripper target unchanged; not a guarantee of zero physical motion",
+        "magnitude": "format_action uses sign(action), increment speed0.2, clip[-1,1]; magnitude is not jaw width"
+      }
+    ],
+    "gripper_equations": {
+      "format_action": "current_action = clip(current_action + [-1,+1] * 0.2 * sign(a6), -1, 1)",
+      "actuator_conversion": "target = bias + weight * current_action",
+      "bias": [
+        0.02,
+        -0.02
+      ],
+      "weight": [
+        0.02,
+        0.02
+      ],
+      "positive_saturation_normalized": [
+        -1,
+        1
+      ],
+      "positive_saturation_position_targets_m": [
+        0,
+        0
+      ],
+      "negative_saturation_normalized": [
+        1,
+        -1
+      ],
+      "negative_saturation_position_targets_m": [
+        0.04,
+        -0.04
+      ]
+    },
+    "source_chain": [
+      {
+        "source": "env_server.py",
+        "lines": [
+          208,
+          221
+        ],
+        "claim": "single-env chunk expands batch before RLinf chunk_step"
+      },
+      {
+        "source": "rlinf_envs_libero_libero_env.py",
+        "lines": [
+          687,
+          696
+        ],
+        "claim": "step forwards actions to vector env without sign inversion"
+      },
+      {
+        "source": "rlinf_envs_libero_libero_env.py",
+        "lines": [
+          720,
+          736
+        ],
+        "claim": "chunk temporal dimension iterated into individual actions"
+      },
+      {
+        "source": "libero/libero/envs/env_wrapper.py",
+        "lines": [
+          97,
+          98
+        ],
+        "claim": "ControlEnv.step forwards action unchanged"
+      },
+      {
+        "source": "robosuite/models/robots/manipulators/panda_robot.py",
+        "lines": [
+          28,
+          33
+        ],
+        "claim": "default PandaGripper and default_panda controller"
+      },
+      {
+        "source": "robosuite/controllers/config/robots/default_panda.json",
+        "lines": [
+          1,
+          25
+        ],
+        "claim": "BASIC, OSC_POSE fixed delta/base, right-arm then GRIP"
+      },
+      {
+        "source": "robosuite/controllers/composite/composite_controller.py",
+        "lines": [
+          86,
+          103
+        ],
+        "claim": "split arm control_dim then gripper dof1; call format_action then set_goal"
+      },
+      {
+        "source": "robosuite/controllers/parts/arm/osc.py",
+        "lines": [
+          252,
+          261
+        ],
+        "claim": "first3 translation, next3 orientation after scaling"
+      },
+      {
+        "source": "robosuite/controllers/parts/arm/osc.py",
+        "lines": [
+          351,
+          393
+        ],
+        "claim": "orientation delta converted axis-angle to rotation matrix in controller frame"
+      },
+      {
+        "source": "robosuite/models/grippers/panda_gripper.py",
+        "lines": [
+          43,
+          66
+        ],
+        "claim": "sign-based update; documented -1 open +1 closed; dof1"
+      },
+      {
+        "source": "robosuite/robots/robot.py",
+        "lines": [
+          954,
+          979
+        ],
+        "claim": "gripper action scaling defaults true; actuator ranges supplied"
+      },
+      {
+        "source": "robosuite/controllers/parts/gripper/simple_grip.py",
+        "lines": [
+          132,
+          186
+        ],
+        "claim": "normalized goals mapped via actuator bias and weight"
+      },
+      {
+        "source": "robosuite/models/assets/grippers/panda_gripper.xml",
+        "lines": [
+          9,
+          11
+        ],
+        "claim": "position actuator ctrlrange [0,.04] and [-.04,0]"
+      },
+      {
+        "source": "robosuite/robots/fixed_base_robot.py",
+        "lines": [
+          144,
+          153
+        ],
+        "claim": "controller output clipped then written to sim.data.ctrl"
+      }
+    ],
+    "limitations": [
+      "Source-contract verification only; no new simulation/action executed.",
+      "Command scale describes controller goal updates, not guaranteed achieved displacement.",
+      "Zero gripper command preserves accumulated target and may still result in physical convergence."
+    ]
+  }
+}

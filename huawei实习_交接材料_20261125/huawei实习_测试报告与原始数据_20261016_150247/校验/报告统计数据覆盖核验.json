@@ -1,0 +1,272 @@
+{
+  "passed": true,
+  "time": "2026-10-16T16:52:11+0800",
+  "package_count": 8,
+  "required_data_roots": [
+    {
+      "name": "bowl logs-glm-subagent20-20260915-120407",
+      "prefix": "gpt6astra-repro/logs-glm-subagent20-20260915-120407",
+      "files": 2189,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-deepseekv4.1-subagent20-20260915-1435",
+      "prefix": "gpt6astra-repro/logs-deepseekv4.1-subagent20-20260915-1435",
+      "files": 2207,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-qwen3.8flash-subagent20-20260915-1545",
+      "prefix": "gpt6astra-repro/logs-qwen3.8flash-subagent20-20260915-1545",
+      "files": 3038,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-persistent-subagent20-20260915-113640",
+      "prefix": "gpt6astra-repro/logs-persistent-subagent20-20260915-113640",
+      "files": 602,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-astra-five-20260923",
+      "prefix": "gpt6astra-repro/logs-astra-five-20260923",
+      "files": 743,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-sol-five-20260923",
+      "prefix": "gpt6astra-repro/logs-sol-five-20260923",
+      "files": 813,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-sol-ultra-five-20260923",
+      "prefix": "gpt6astra-repro/logs-sol-ultra-five-20260923",
+      "files": 826,
+      "passed": true
+    },
+    {
+      "name": "bowl logs-codex-luna-max-five-20260923",
+      "prefix": "gpt6astra-repro/logs-codex-luna-max-five-20260923",
+      "files": 817,
+      "passed": true
+    },
+    {
+      "name": "policy init0_20260921_141155",
+      "prefix": "GPT-as-Policy-repro/data/init0_20260921_141155",
+      "files": 2366,
+      "passed": true
+    },
+    {
+      "name": "policy goal8_hybrid_repeat_20260921_160205",
+      "prefix": "GPT-as-Policy-repro/data/goal8_hybrid_repeat_20260921_160205",
+      "files": 48,
+      "passed": true
+    },
+    {
+      "name": "policy decision_v2_20260922",
+      "prefix": "GPT-as-Policy-repro/data/decision_v2_20260922",
+      "files": 304,
+      "passed": true
+    },
+    {
+      "name": "policy decision_extra_20260922",
+      "prefix": "GPT-as-Policy-repro/data/decision_extra_20260922",
+      "files": 880,
+      "passed": true
+    },
+    {
+      "name": "policy decision_extra_retry1_20260922",
+      "prefix": "GPT-as-Policy-repro/data/decision_extra_retry1_20260922",
+      "files": 190,
+      "passed": true
+    },
+    {
+      "name": "policy decision_v2_probe",
+      "prefix": "GPT-as-Policy-repro/data/decision_v2_probe",
+      "files": 5,
+      "passed": true
+    },
+    {
+      "name": "policy parallel-probe-20260921",
+      "prefix": "GPT-as-Policy-repro/data/parallel-probe-20260921",
+      "files": 51,
+      "passed": true
+    },
+    {
+      "name": "policy codex_input_audit_20260929",
+      "prefix": "GPT-as-Policy-repro/data/codex_input_audit_20260929",
+      "files": 39,
+      "passed": true
+    },
+    {
+      "name": "RPent early eval20-npunew",
+      "prefix": "rpent-repo/eval20-npunew",
+      "files": 78,
+      "passed": true
+    },
+    {
+      "name": "RPent early goal20-npunew",
+      "prefix": "rpent-repo/goal20-npunew",
+      "files": 111,
+      "passed": true
+    },
+    {
+      "name": "RPent early flash20-npunew",
+      "prefix": "rpent-repo/flash20-npunew",
+      "files": 54,
+      "passed": true
+    },
+    {
+      "name": "RPent early retry-npunew",
+      "prefix": "rpent-repo/retry-npunew",
+      "files": 55,
+      "passed": true
+    },
+    {
+      "name": "RPent remote codex-eval-20260929/formal-results",
+      "prefix": "rpent2/codex-eval-20260929/formal-results",
+      "files": 5396,
+      "passed": true
+    },
+    {
+      "name": "RPent remote codex-eval-20260929/batch",
+      "prefix": "rpent2/codex-eval-20260929/batch",
+      "files": 286,
+      "passed": true
+    },
+    {
+      "name": "RPent remote deep-timing-20261008/formal-results",
+      "prefix": "rpent2/deep-timing-20261008/formal-results",
+      "files": 558,
+      "passed": true
+    },
+    {
+      "name": "RPent remote deep-timing-20261008/measurements",
+      "prefix": "rpent2/deep-timing-20261008/measurements",
+      "files": 86,
+      "passed": true
+    },
+    {
+      "name": "RPent remote ds-adapter-20261009/runs",
+      "prefix": "rpent2/ds-adapter-20261009/runs",
+      "files": 791,
+      "passed": true
+    },
+    {
+      "name": "RPent remote ds-adapter-20261009/measurements",
+      "prefix": "rpent2/ds-adapter-20261009/measurements",
+      "files": 143,
+      "passed": true
+    },
+    {
+      "name": "RPent remote ds-adapter-20261009/private/llm-bodies",
+      "prefix": "rpent2/ds-adapter-20261009/private/llm-bodies",
+      "files": 704,
+      "passed": true
+    }
+  ],
+  "source_hash_matches": [
+    {
+      "source": "runtime-ledger.json",
+      "field": "stream_sha256",
+      "expected": 120,
+      "matched": 120,
+      "missing": [],
+      "passed": true,
+      "fingerprint_scope": "original source fingerprint mapped to retained statistical record via provenance; image payloads may be intentionally omitted"
+    },
+    {
+      "source": "runtime-ledger.json",
+      "field": "state_sha256",
+      "expected": 120,
+      "matched": 120,
+      "missing": [],
+      "passed": true,
+      "fingerprint_scope": "original source fingerprint mapped to retained statistical record via provenance; image payloads may be intentionally omitted"
+    },
+    {
+      "source": "runtime-ledger.json",
+      "field": "transcript_sha256",
+      "expected": 120,
+      "matched": 120,
+      "missing": [],
+      "passed": true,
+      "fingerprint_scope": "original source fingerprint mapped to retained statistical record via provenance; image payloads may be intentionally omitted"
+    },
+    {
+      "source": "proxy-inventory.json",
+      "expected": 25,
+      "matched": 25,
+      "missing": [],
+      "passed": true,
+      "fingerprint_scope": "original source fingerprint mapped to retained statistical record via provenance; image payloads may be intentionally omitted"
+    }
+  ],
+  "policy_episode_counts": {
+    "init0_20260921_141155": {
+      "expected": 18,
+      "actual": 18,
+      "passed": true
+    },
+    "decision_v2_20260922": {
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    "decision_extra_20260922": {
+      "expected": 5,
+      "actual": 5,
+      "passed": true
+    },
+    "decision_extra_retry1_20260922": {
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    }
+  },
+  "provenance_checks": [
+    {
+      "package": "gpt6astra-repro_本机完整实验记录.source-provenance",
+      "retained_statistical_records": 14509,
+      "passed": true
+    },
+    {
+      "package": "GPT-as-Policy_实验批次与代码.source-provenance",
+      "retained_statistical_records": 4193,
+      "passed": true
+    },
+    {
+      "package": "RPent_本机实验现场.source-provenance",
+      "retained_statistical_records": 1535,
+      "passed": true
+    },
+    {
+      "package": "RPent_脱敏前分析原件.source-provenance",
+      "retained_statistical_records": 85,
+      "passed": true
+    },
+    {
+      "package": "deep-timing-20261008_远程原始记录.source-provenance",
+      "retained_statistical_records": 833,
+      "passed": true
+    },
+    {
+      "package": "ds-adapter-20261009_远程原始记录.source-provenance",
+      "retained_statistical_records": 1731,
+      "passed": true
+    },
+    {
+      "package": "codex-eval-20260929_远程原始记录.source-provenance",
+      "retained_statistical_records": 6174,
+      "passed": true
+    },
+    {
+      "package": "RPent_早期批次及代理原始记录.source-provenance",
+      "retained_statistical_records": 4755,
+      "passed": true
+    }
+  ],
+  "necessary_full_replay_body_count": 9,
+  "all_non_image_record_bytes_or_NPZ_array_bytes_verified_unchanged": true
+}

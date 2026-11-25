@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.09, \"y\": 0.0242, \"z\": 0.9941, \"yaw\": 0.0826, \"gripper\": 1}, \"note\": \"Gripper hovers ~19 cm above the table; red block and blue bowl visible on the table with the block slightly left of the gripper in the front view. I nudge +4 cm in x and open the gripper so I can calibrate the wrist view and confirm the block position before descending.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

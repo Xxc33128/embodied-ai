@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.077, \"y\": 0.002, \"z\": 0.86, \"gripper\": 1}, \"note\": \"Wrist view still shows the block below center, so it is ahead of me in +x; fitted its position to about (-0.075, 0.002). Moving over the block and down to z=0.86, about 2cm above its top, keeping the gripper open for the grasp.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

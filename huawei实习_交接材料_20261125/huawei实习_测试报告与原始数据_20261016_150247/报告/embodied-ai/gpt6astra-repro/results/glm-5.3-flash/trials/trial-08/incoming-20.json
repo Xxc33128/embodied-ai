@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-20",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-20",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.015, \"y\": -0.22, \"z\": 0.81, \"gripper\": 0.5}, \"note\": \"Final action: the block sits just outside the bowl rim after the first push. Continuing the bulldoze a few cm further toward -y with a slight +x correction so the block topples over the rim into the bowl.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

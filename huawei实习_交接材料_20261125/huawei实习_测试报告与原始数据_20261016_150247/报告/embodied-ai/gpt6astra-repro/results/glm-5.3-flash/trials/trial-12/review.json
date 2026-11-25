@@ -1,0 +1,7 @@
+{
+  "stage_max": 0,
+  "basis": "Zero contact steps; min eef-cube 13.2cm; block never moved.",
+  "reviewers": "reviewer-C",
+  "second_review": false,
+  "blind": true
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "scope": "Independent final evidence review; selected six001 plus two002 only; report data not modified.",
+  "status": "pass",
+  "blocking": [],
+  "nonblocking": [
+    {
+      "severity": "nonblocking",
+      "location": "questions.q3.evidence seed0 SAM paragraph",
+      "finding": "“没有成功mask可供本次shape实证” is scoped by the preceding seed0 call, but “本次” could be misread as the whole batch.",
+      "suggestion": "Replace 本次 with 该次seed0调用; next paragraph correctly records two attempt002 masks."
+    },
+    {
+      "severity": "nonblocking",
+      "location": "scenes[1].trajectory_findings second/third statements",
+      "finding": "14 budget-exhausted Astra motions and five Sol doubled calls are seed0-only. The preceding item establishes this, but standalone reading can blur seeds.",
+      "suggestion": "Prefix both statements with seed0."
+    }
+  ],
+  "checks": [
+    {
+      "check": "report_selection",
+      "passed": true,
+      "detail": "Exactly six attempt-001 and two t9/s1 attempt-002."
+    },
+    {
+      "check": "scope_selection",
+      "passed": true,
+      "detail": "Exactly six attempt-001 and two t9/s1 attempt-002."
+    },
+    {
+      "check": "cloud_selection",
+      "passed": true,
+      "detail": "Exactly six attempt-001 and two t9/s1 attempt-002."
+    },
+    {
+      "check": "map_selection",
+      "passed": true,
+      "detail": "Exactly six attempt-001 and two t9/s1 attempt-002."
+    },
+    {
+      "check": "measurement_admission",
+      "passed": true,
+      "detail": "All selected eight measurement-admitted; excluded OOM attempts absent."
+    },
+    {
+      "check": "mapping_exact_unique",
+      "passed": true,
+      "detail": "Exact thread mapping unique both directions."
+    },
+    {
+      "check": "episode_work_total",
+      "passed": true,
+      "detail": "10965.3 cumulative episode seconds, not parallel batch elapsed."
+    },
+    {
+      "check": "render_total",
+      "passed": true,
+      "detail": "4391.179045039s, unique primitive-window inclusion; nested not additive."
+    },
+    {
+      "check": "physics_total",
+      "passed": true,
+      "detail": "121.480580048s, unique primitive-window inclusion; nested not additive."
+    },
+    {
+      "check": "pi_handler_total",
+      "passed": true,
+      "detail": "198.652728636s, unique primitive-window inclusion; nested not additive."
+    },
+    {
+      "check": "cloud_counts",
+      "passed": true,
+      "detail": "448 logical calls, 473 sampling/transport attempts, not raw log count."
+    },
+    {
+      "check": "cloud_usage_reconciliation",
+      "passed": true,
+      "detail": "Official response-deduped usage reconciles with final transcript totals."
+    },
+    {
+      "check": "five_bucket_numeric_identity",
+      "passed": true,
+      "detail": "Arithmetic identity only; source-backed synchronous step containment supplies separate semantic support, not unified-clock partition."
+    },
+    {
+      "check": "scope_semantics",
+      "passed": true,
+      "detail": "No missing init/reset contamination in component totals."
+    },
+    {
+      "check": "video_official_goal",
+      "passed": true,
+      "detail": "All eight selected recordings decode; aggregate official termination agrees with task verdict, not independently replayed conjuncts."
+    },
+    {
+      "check": "scene_baselines",
+      "passed": true,
+      "detail": "t0 shortest observed successful episode1049.1; t9 no successful baseline."
+    },
+    {
+      "check": "q1_unknowns",
+      "passed": true,
+      "detail": "Cloud prefill/full hidden thinking remain unknown, no TTFT/token/residual substitution."
+    },
+    {
+      "check": "hash_extract-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_trajectory-scopes-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_cloud-contract-eight-final-002.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_cloud-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_map-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_batch-summary-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "hash_final-artifacts-eight-final-001.json",
+      "passed": true,
+      "detail": "Integration artifact matches cited hash."
+    },
+    {
+      "check": "evidence_links",
+      "passed": true,
+      "detail": "All linked evidence exists."
+    },
+    {
+      "check": "sam_final_threshold_and_mask",
+      "passed": true,
+      "detail": "Astra default.2, Sol explicit.05; two successful1024² masks and one normal no-detection. Scores rounded after raw comparison. Health probes excluded."
+    },
+    {
+      "check": "pi_shapes_and_padding",
+      "passed": true,
+      "detail": "Padded200 is not nonpadding language count; states8→32 and action[1,5,7] documented separately."
+    },
+    {
+      "check": "html_core_claims_present",
+      "passed": true,
+      "detail": "HTML contains reviewed principal values and SAM threshold distinction."
+    }
+  ],
+  "manual_review": {
+    "q1": "Local nested scopes versus unknown cloud phases clearly separated; initialization and synchronization caveats retained.",
+    "q2": "t0 recovery and t9 correction evidence respected; local false not treated as task failure, ideal10/12 primitives and12/14 sampling conditional/unexecuted, no measured optimal seconds.",
+    "q3": "Official input context distinct from prompt chars/cumulative usage; cached/input and reasoning/output subset rules retained. SAM thresholds and mask distinction source-backed; pi padding/state/action fields correct.",
+    "exclusions": "Excluded001 costs and resource epochs separately disclosed; old trajectories not selected for final counts."
+  },
+  "reviewed_artifacts_sha256": {
+    "report-data.json": "1c85b8822cd96360a351806c6e610a8109ff1de4a3c78bb55f589c9937524de9",
+    "RPent-两场景深度计时报告.html": "bb6a2e5482cdbc25042cbc55774fb92afb7ac854f008780b2fafed3c41fb11bd",
+    "cloud-contract-eight-final-002.json": "6c8763b679113affc3d042a84ce98b391a5fa98ff1547768f445f2af51d8cd69"
+  },
+  "resolution": {
+    "status": "all_nonblocking_clarifications_resolved",
+    "verification_scope": "Only the three requested wording locations rechecked in final data and HTML; numeric review not rerun.",
+    "previous_review_file_sha256": "89e88ca354a0a313fe8cc567706f4e12838351b61d05b19f559341ce4872887e",
+    "original_review_artifact_hashes_preserved": true,
+    "verified_texts": [
+      "正式SAM举证：Astra t9/seed0有1次text调用，图像1024×1024、编码430025 bytes、base64 573368字符、文本24字符；客户端10.4492秒，返回found=false、score=0.078、box长度4。该次seed0调用没有成功mask可供shape实证；point模式仍为源码/探针证据。〔E2〕",
+      "Astra seed0有14次移动耗满预算，累计原语672.90秒；可见多次几何/姿态调整，但尚无足够证据把原因归为碰撞。",
+      "Sol seed0的5次pi0_doubled共84个chunk；该技能success直接使用整任务terminated，因此false仅表示整目标未完成，不能断言5次门操作都无效。"
+    ],
+    "data_html_exact_match": true,
+    "final_artifacts_sha256": {
+      "report-data.json": "ae4b586b8c6a7dd2b13dcb319c83d7757e51b48232e2e8e63b9ca3ba2fb237e9",
+      "RPent-两场景深度计时报告.html": "e0c5eca0b0cd4c8b26e79728deadede9c32df0b8dbe330580f226563c98b83fc"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.114, \"y\": -0.04, \"z\": 0.83, \"gripper\": 0}, \"note\": \"Now at z=0.833 with the block filling the wrist view: its centre is 36 px right of the jaw axis (= 19 mm in -y) and 20 px up (= 11 mm in +x), so the block is at x=-0.114, y=-0.040. Sliding onto it and latching closed in the same 80-step chunk, jaws at block mid-height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

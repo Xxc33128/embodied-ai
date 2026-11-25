@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.067, \"y\": 0.3, \"z\": 0.952}, \"note\": \"Move commands insert only about one control step per 3.5cm of target delta, so the arm lags well behind the setpoint. I aim far past the block along +y to buy lateral travel and to see which way the static block shifts in the front view, which calibrates that camera horizontal axis.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

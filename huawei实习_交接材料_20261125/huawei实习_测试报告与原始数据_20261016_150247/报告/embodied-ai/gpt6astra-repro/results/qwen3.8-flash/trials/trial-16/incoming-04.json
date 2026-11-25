@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": -0.017, \"z\": 0.9, \"gripper\": 0.5}, \"note\": \"Side view still shows the block about 35 px (+x) ahead of the fingers, so I shift x toward -0.05 and lower to 0.90. I keep the gripper command in the 0.35-0.65 dead band so the jaws stay latched open while the tool layer spends more control steps on the move.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

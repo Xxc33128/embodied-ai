@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": 0.058, \"z\": 0.94, \"gripper\": 1.0}, \"note\": \"Wrist view shows the block centred between the open fingers along the grasp axis, but low in the frame, and the side view puts it about 3-4 cm closer to the base than the fingertips, so the block is near x=-0.042, y=0.055. Shift in -x and start descending toward it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

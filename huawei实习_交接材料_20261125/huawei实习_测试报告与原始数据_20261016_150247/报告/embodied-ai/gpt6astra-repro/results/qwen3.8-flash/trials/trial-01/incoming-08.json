@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-8",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-8",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.0, \"y\": 0.02, \"z\": 0.93, \"gripper\": 0.5}, \"note\": \"Wrist fit + the fixed side view now agree: the block is about 8 cm further +x and a few cm +y than the hand, and the side view confirms its horizontal axis is y (9.5 cm of x travel did not move the hand in that view). Moving to (0.00,+0.02) at the same safe height to put the block on the finger line before any descent.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

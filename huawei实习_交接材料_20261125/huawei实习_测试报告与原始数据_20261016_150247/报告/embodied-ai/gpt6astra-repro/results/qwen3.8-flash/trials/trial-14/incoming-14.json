@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.04, \"y\": -0.06, \"z\": 1.05, \"gripper\": 0.5}, \"note\": \"Wrist camera is the only view with a usable scale: right=+x, up=+y, ~1 mm/px. At step 39 the block sat at the bottom-centre of that frame, which puts it at x about -0.04, nowhere near my current x=+0.05. Going back to x=-0.04 and lifting to z=1.05 so the block is inside the wrist frame; the intermediate gripper target holds the open latch while giving a long motion chunk.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

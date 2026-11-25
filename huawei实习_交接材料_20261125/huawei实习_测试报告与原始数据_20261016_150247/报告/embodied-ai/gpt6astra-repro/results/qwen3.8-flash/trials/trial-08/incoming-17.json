@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-17",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-17",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"gripper\": 1, \"y\": -0.05, \"z\": 0.8}, \"note\": \"Lift test: the block stayed on the table, so all three closes really were on air. The wrist view now shows the block sitting off-centre toward the right pad in the jaw-separation direction, and the front view puts the block about 2 cm at -y of my TCP. So I reopen (which buys ~80 control steps) and use that motion to descend again while shifting y to -0.05 to centre the gap on the block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

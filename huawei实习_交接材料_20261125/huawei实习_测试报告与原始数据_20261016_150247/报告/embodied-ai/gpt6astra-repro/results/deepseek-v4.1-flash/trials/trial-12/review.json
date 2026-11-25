@@ -1,0 +1,9 @@
+{
+  "stage_max": 0,
+  "basis": "any_gripper_contact=false for all 464 steps and the cube pose never changed (max displacement 0.0000 m, quaternion delta ~1e-16, velocity nonzero only in steps 1-3 settling). Frames at step 463 show the closed gripper beside the cube with a visible gap - approach only, no contact.",
+  "reviewers": "blind-pass1-C",
+  "second_review": true,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades",
+  "second_basis": "any_gripper_contact is false for all 463 steps and the block position/velocity never change; the gripper closed to 0.016 (steps 434-463) while ~3.8 cm away from the block (eef x -0.099 vs block x -0.061), i.e. it closed on air beside the block. No actual contact at any time."
+}

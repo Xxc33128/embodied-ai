@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.05, \"y\": -0.18, \"z\": 0.855, \"gripper\": 1}, \"note\": \"Solving the two fixed views as a pair: the hand barely moves sideways in the side view for a 8 cm -y / 5 cm +x travel, so both cameras are diagonal. Front view horizontal = (x-y), side view horizontal = (x+y) with left = +. The block is aligned with the hand in front view but 23 px right in side view, which puts it near (x -0.02, y -0.145). Moving along -(x+y) toward it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+ "requests": 22,
+ "hook_in": 1001570,
+ "hook_out": 22169,
+ "reasoning_tokens": 16379,
+ "rpent_usage_line": "I [agent] usage: in=1001570 out=22169 tool_calls=43",
+ "ttft_ms": {
+  "n": 22,
+  "min": 1798.536,
+  "median": 10590.3475,
+  "max": 29783.88
+ },
+ "tpot_ms": {
+  "n": 22,
+  "min": 3.1375627705627718,
+  "median": 7.428756752473031,
+  "max": 22.043923317683884
+ }
+}

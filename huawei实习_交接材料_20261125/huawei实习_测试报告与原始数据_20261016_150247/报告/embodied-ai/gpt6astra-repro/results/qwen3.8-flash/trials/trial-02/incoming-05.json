@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-5",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-5",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.055, \"y\": 0.05, \"z\": 0.85}, \"note\": \"Side view: block centre is about 4 cm in -x from the fingertips and its top is at z~0.84 while my fingertips are still near z~0.93. Wrist view shows the block between the open pads. Continue -x and keep descending toward mid-block height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

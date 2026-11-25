@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-1",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-1",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": 0.05, \"y\": 0.0, \"z\": 0.92, \"gripper\": 1}, \"note\": \"Wrist view shows the red block ahead of the fingers and the blue bowl beyond it, so the block is at larger x than the current eef (-0.12). Moving forward and slightly down over the work area while latching the gripper open, to bring the hand into the fixed front/side views for triangulation.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

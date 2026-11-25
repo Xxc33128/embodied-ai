@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "metrics": {
+    "success_at_end": 1.0,
+    "episode_length": 429.0
+  },
+  "calls": 10,
+  "physics_steps": 429,
+  "frames": 430,
+  "wall_seconds": 271.6293511390686,
+  "trial_index": 0,
+  "source": "gpt-6-astra persistent trial subagent via LLMAgentPolicy transport",
+  "usage_tokens": null,
+  "cost": null,
+  "termination_reasons": [
+    "success"
+  ]
+}

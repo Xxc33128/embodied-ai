@@ -1,0 +1,8 @@
+{
+  "stage_max": 0,
+  "basis": "No contact flag in any of the 873 steps; cube xy/quaternion exactly constant and the block is visually stationary in all sheets. Gripper closes to 0.016 at step 873 while ~6.2cm from the block center, with no touch or nudge.",
+  "reviewers": "blind-pass1-D",
+  "second_review": false,
+  "blind": true,
+  "reviewer_model_class": "deepseek-v4.1-flash subagent; blinded to model identity, trial order, policy notes, and auto grades"
+}

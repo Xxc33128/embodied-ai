@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-6",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-6",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.24, \"y\": -0.08, \"z\": 0.9585}, \"note\": \"The wrist view shows the red block just right of and below image center; with image-up equal to world +x that puts the block near x=-0.12, y=-0.05. Motion per call is limited, so I command a farther point along the same line to keep the arm gliding toward the block while holding this height.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

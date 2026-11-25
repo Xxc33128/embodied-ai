@@ -1,0 +1,119 @@
+{
+  "generated_by": "04_analysis/p3_summarize_r2.py",
+  "revision": "R5.1",
+  "inputs": {
+    "isaac_d00_10s": "be64b024e206b0221d17a6135e3d2e5a75ab583db98e827d98c6c965dcb2e79d",
+    "isaac_d20_10s_r2": "d4714acc68caa669fdb27c30c5ee608238a57e455276b2e93076432d8f5920c3",
+    "mj_elbow_d00_10s": "ba9276f78b24759612441ec939ac0aefb287de6a2d9877d99224904e76474a84",
+    "mj_elbow_d20_10s": "df965d24dc47f38036de61d5563e6dfc754702ed308dbd23d7f14a7f0156ec09"
+  },
+  "definitions": {
+    "q_sensitivity": {
+      "formula": "sqrt(mean((q_D20-q_D00)^2)) over cycles*29",
+      "unit": "rad",
+      "coords": "joint space, policy order",
+      "primary": true,
+      "source": "q(29)"
+    },
+    "q_des_sensitivity": {
+      "formula": "sqrt(mean((q_des_requested_D20-q_des_D00)^2))",
+      "unit": "rad",
+      "primary": true,
+      "source": "q_des_requested(29) or q_des(29)"
+    },
+    "body_position_world_sensitivity": {
+      "formula": "RMS over (500,14,3) of actual_body_pos_w difference",
+      "unit": "m",
+      "coords": "world frame",
+      "primary": true
+    },
+    "body_position_pelvis_relative_sensitivity": {
+      "formula": "per-frame pos - pos_pelvis then RMS",
+      "unit": "m",
+      "coords": "pelvis-translated (not rotated)",
+      "primary": true
+    },
+    "body_orientation_sensitivity": {
+      "formula": "geodesic 2*acos(|dot(q1n,q2n)|) RMS",
+      "unit": "rad",
+      "primary": true
+    },
+    "requested_tracking_rms": {
+      "formula": "RMS(q_des_requested - q)",
+      "unit": "rad",
+      "primary": true
+    },
+    "effective_tracking_rms": {
+      "formula": "RMS(q_des_effective - q)",
+      "unit": "rad",
+      "primary": true
+    },
+    "q_des_effective_D00": {
+      "formula": "= actual_processed_q_target(29) == q_des(29) pointwise (validated <=1e-6)",
+      "unit": "rad"
+    },
+    "group_*": {
+      "formula": "q_sensitivity restricted to group indices",
+      "unit": "rad",
+      "groups": "LEGS12/WAIST3/ARMS14 from body_mapping.json",
+      "primary": true
+    },
+    "cross_engine_position_gaps": {
+      "formula": "RMS(isaac_field - mujoco_field) at same delay and policy_step pairing",
+      "unit": "m",
+      "fields": "body world/pelvis-relative/pelvis/anchor positions",
+      "primary": true
+    },
+    "cross_engine_orientation_gaps": {
+      "formula": "RMS geodesic between isaac and mujoco quaternions",
+      "unit": "rad",
+      "fields": "14-body, pelvis, feet/hands anchors",
+      "primary": true
+    },
+    "cross_engine_q_gap": {
+      "formula": "RMS(isaac q - mujoco q)",
+      "unit": "rad",
+      "primary": true
+    },
+    "cross_engine_velocity_gaps": {
+      "formula": "RMS difference of body lin/angular velocities",
+      "unit": "m/s and rad/s"
+    },
+    "mujoco applied_torque": {
+      "formula": "RMS/max|.| applied_policy(29) (post-actuator force, policy order)",
+      "unit": "N*m",
+      "note": "qfrc_actuator_policy reported separately; isaac torque UNAVAILABLE"
+    },
+    "torque_saturation_fraction": {
+      "formula": "mean(|tau_pd_raw_policy| > |applied_policy| + 1e-6)",
+      "unit": "1"
+    },
+    "root_height/xy_drift": {
+      "formula": "RMS difference of root_pos z / xy",
+      "unit": "m"
+    },
+    "root_roll/pitch": {
+      "formula": "RMS difference of euler roll/pitch from root_quat wxyz",
+      "unit": "rad"
+    },
+    "action_variation": {
+      "formula": "RMS(diff over cycles) of action(29)",
+      "unit": "policy_action_unit"
+    },
+    "q_des_variation": {
+      "formula": "RMS(diff over cycles) of q_des(29)",
+      "unit": "rad"
+    },
+    "survival": {
+      "formula": "cycles/time completed without fall or reset; derived from trace counters + summary + upstream gate",
+      "unit": "cycle / s",
+      "primary": true
+    },
+    "diagnostic_unaligned_*": {
+      "formula": "robot-vs-motion raw values",
+      "unit": "m or rad",
+      "primary": false,
+      "note": "MJ reference uses motion/COM-frame semantics without P0/P1 anchor alignment; diagnostic only, never a headline metric"
+    }
+  }
+}

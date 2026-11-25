@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-14",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-14",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0356, \"y\": 0.0887, \"z\": 0.8843, \"gripper\": 0}, \"note\": \"Now the wrist view shows the red block sitting right down between my two open jaws at fingertip level, and in the side view the finger blob and the block overlap instead of standing apart, so this looks like the first genuinely aligned position. I hold the pose and close the jaws.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

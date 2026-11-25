@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.027, \"y\": -0.039, \"z\": 0.85, \"gripper\": 0.65}, \"note\": \"Wrist view shows the block top just ahead between the fingers, so I am about 2.5cm short. I repeat the same 0.65 open-latch command, whose raw delta again extends the interpolation window, to finish the approach onto the proven grasp pose.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

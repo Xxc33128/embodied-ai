@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-2",
+  "object": "chat.completion",
+  "model": "deepseek-v4.1-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-2",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.0504, \"y\": 0.06, \"z\": 1.0213, \"gripper\": 1}, \"note\": \"My +x probe shifted the image content straight down about 23 px, so world x is the wrist image vertical axis. I now translate +4 cm in y at safe height, keeping the gripper open, to learn which way world y appears in the image before moving over the red block.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

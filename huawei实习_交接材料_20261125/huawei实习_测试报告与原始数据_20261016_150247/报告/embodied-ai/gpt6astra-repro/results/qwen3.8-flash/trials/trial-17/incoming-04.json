@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-4",
+  "object": "chat.completion",
+  "model": "qwen3.8-flash-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-4",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.03, \"y\": 0.0, \"z\": 0.9, \"gripper\": 0.5}, \"note\": \"Position-only calls are being interpolated in only 2 control steps, so the arm advances just 3-4 mm each time; the earlier call that included a gripper target got 39 steps. I keep gripper at an intermediate 0.5 (documented as retaining the current open command) so the same motion is given a long interpolation chunk, and move toward the block (which the wrist view shows slightly beyond the fingertips) at x about -0.03, z 0.90.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

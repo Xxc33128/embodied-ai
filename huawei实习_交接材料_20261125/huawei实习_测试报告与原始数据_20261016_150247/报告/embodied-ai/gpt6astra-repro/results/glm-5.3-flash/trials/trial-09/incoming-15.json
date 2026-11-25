@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-15",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-15",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.043, \"y\": -0.01, \"z\": 0.835, \"gripper\": 0}, \"note\": \"All closes at fingertip z~0.81 read nearly zero, suggesting the pad surfaces rode above the 2.5 cm block and the thin tips only hit the table. Retrying the same candidate spot with the TCP 2.5 cm higher so the pads align with the block body, closing over several seconds to capture it.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

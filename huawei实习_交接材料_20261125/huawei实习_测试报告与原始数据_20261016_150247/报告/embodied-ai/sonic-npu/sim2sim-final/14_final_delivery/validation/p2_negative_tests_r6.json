@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "test": "N1_packaged_elbow_xml_missing",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_P2",
+      "asset_detail": "asset error PACKAGED_ELBOW_XML_MISSING: 00_inputs/p1_elbow_only/l7_29dof_neck_fixed_elbow_matched.xml"
+    },
+    {
+      "test": "N2_packaged_elbow_xml_tampered_one_byte",
+      "pass": true,
+      "returncode": 1,
+      "decision": "INVALID_P2",
+      "asset_detail": "elbow hash binding fail recomputed=ef171c7e6d0d audit=ab1e1862367b expected=ab1e1862367b"
+    },
+    {
+      "test": "CONTROL_untouched",
+      "pass": true,
+      "returncode": 0,
+      "decision": "NO_INCREMENTAL_ARM_GROUP_EFFECT"
+    }
+  ],
+  "overall_pass": true,
+  "note": "R6-1: fail-closed packaged elbow XML; control keeps NO_INCREMENTAL_ARM_GROUP_EFFECT"
+}

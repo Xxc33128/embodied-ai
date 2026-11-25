@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-16",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-16",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.058, \"y\": 0.052, \"z\": 0.833, \"gripper\": 1}, \"note\": \"Four closes have all found the block sitting about 2-3cm further forward than aimed, so I shift the open-jaw axis 2.5cm forward onto the block center while keeping the y alignment, then will close in place.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}

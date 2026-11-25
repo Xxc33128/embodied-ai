@@ -1,0 +1,25 @@
+{
+  "id": "chatcmpl-subagent-10",
+  "object": "chat.completion",
+  "model": "glm-subagent",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "tool_calls": [
+          {
+            "id": "call-subagent-10",
+            "type": "function",
+            "function": {
+              "name": "move_to",
+              "arguments": "{\"targets\": {\"x\": -0.087, \"y\": 0.098, \"z\": 0.83, \"gripper\": 1}, \"note\": \"Wrist view shows the red block just ahead with the fingertips slightly above its top, so advancing to the grasp pose will straddle it without pushing it; re-issuing the same final grasp target to keep spending every control step on the true goal.\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ]
+}
