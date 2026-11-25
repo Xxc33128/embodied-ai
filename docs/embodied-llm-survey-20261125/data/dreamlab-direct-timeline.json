@@ -1,0 +1,1312 @@
+[
+  {
+    "call": 2,
+    "label": "调用2 · 执行动作",
+    "start_s": 0.0,
+    "end_s": 0.2,
+    "start_step": 0,
+    "end_step": 5,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.527952
+  },
+  {
+    "call": 3,
+    "label": "调用3 · 执行动作",
+    "start_s": 0.2,
+    "end_s": 0.4,
+    "start_step": 5,
+    "end_step": 10,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 40.300095
+  },
+  {
+    "call": 4,
+    "label": "调用4 · 执行动作",
+    "start_s": 0.4,
+    "end_s": 0.6,
+    "start_step": 10,
+    "end_step": 15,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 21.783221
+  },
+  {
+    "call": 5,
+    "label": "调用5 · 执行动作",
+    "start_s": 0.6,
+    "end_s": 0.8,
+    "start_step": 15,
+    "end_step": 20,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.83474
+  },
+  {
+    "call": 6,
+    "label": "调用6 · 执行动作",
+    "start_s": 0.8,
+    "end_s": 1.0,
+    "start_step": 20,
+    "end_step": 25,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.083654
+  },
+  {
+    "call": 7,
+    "label": "调用7 · 执行动作",
+    "start_s": 1.0,
+    "end_s": 1.2,
+    "start_step": 25,
+    "end_step": 30,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.699028
+  },
+  {
+    "call": 8,
+    "label": "调用8 · 执行动作",
+    "start_s": 1.2,
+    "end_s": 1.4,
+    "start_step": 30,
+    "end_step": 35,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.829923
+  },
+  {
+    "call": 9,
+    "label": "调用9 · 执行动作",
+    "start_s": 1.4,
+    "end_s": 1.6,
+    "start_step": 35,
+    "end_step": 40,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 18.014144
+  },
+  {
+    "call": 10,
+    "label": "调用10 · 执行动作",
+    "start_s": 1.6,
+    "end_s": 1.8,
+    "start_step": 40,
+    "end_step": 45,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.598272
+  },
+  {
+    "call": 11,
+    "label": "调用11 · 执行动作",
+    "start_s": 1.8,
+    "end_s": 2.0,
+    "start_step": 45,
+    "end_step": 50,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 22.169116
+  },
+  {
+    "call": 12,
+    "label": "调用12 · 执行动作",
+    "start_s": 2.0,
+    "end_s": 2.2,
+    "start_step": 50,
+    "end_step": 55,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.029433
+  },
+  {
+    "call": 13,
+    "label": "调用13 · 执行动作",
+    "start_s": 2.2,
+    "end_s": 2.4,
+    "start_step": 55,
+    "end_step": 60,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.352629
+  },
+  {
+    "call": 14,
+    "label": "调用14 · 执行动作",
+    "start_s": 2.4,
+    "end_s": 2.6,
+    "start_step": 60,
+    "end_step": 65,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.768403
+  },
+  {
+    "call": 15,
+    "label": "调用15 · 执行动作",
+    "start_s": 2.6,
+    "end_s": 2.8,
+    "start_step": 65,
+    "end_step": 70,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.871408
+  },
+  {
+    "call": 16,
+    "label": "调用16 · 执行动作",
+    "start_s": 2.8,
+    "end_s": 3.0,
+    "start_step": 70,
+    "end_step": 75,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.01384
+  },
+  {
+    "call": 17,
+    "label": "调用17 · 执行动作",
+    "start_s": 3.0,
+    "end_s": 3.2,
+    "start_step": 75,
+    "end_step": 80,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.554037
+  },
+  {
+    "call": 18,
+    "label": "调用18 · 执行动作",
+    "start_s": 3.2,
+    "end_s": 3.4,
+    "start_step": 80,
+    "end_step": 85,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 21.286276
+  },
+  {
+    "call": 19,
+    "label": "调用19 · 执行动作",
+    "start_s": 3.4,
+    "end_s": 3.6,
+    "start_step": 85,
+    "end_step": 90,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.777222
+  },
+  {
+    "call": 20,
+    "label": "调用20 · 执行动作",
+    "start_s": 3.6,
+    "end_s": 3.8,
+    "start_step": 90,
+    "end_step": 95,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.618827
+  },
+  {
+    "call": 21,
+    "label": "调用21 · 执行动作",
+    "start_s": 3.8,
+    "end_s": 4.0,
+    "start_step": 95,
+    "end_step": 100,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.296939
+  },
+  {
+    "call": 22,
+    "label": "调用22 · 执行动作",
+    "start_s": 4.0,
+    "end_s": 4.2,
+    "start_step": 100,
+    "end_step": 105,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.602665
+  },
+  {
+    "call": 23,
+    "label": "调用23 · 执行动作",
+    "start_s": 4.2,
+    "end_s": 4.4,
+    "start_step": 105,
+    "end_step": 110,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 7.176275
+  },
+  {
+    "call": 24,
+    "label": "调用24 · 执行动作",
+    "start_s": 4.4,
+    "end_s": 4.6,
+    "start_step": 110,
+    "end_step": 115,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.525125
+  },
+  {
+    "call": 25,
+    "label": "调用25 · 执行动作",
+    "start_s": 4.6,
+    "end_s": 4.8,
+    "start_step": 115,
+    "end_step": 120,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.296301
+  },
+  {
+    "call": 26,
+    "label": "调用26 · 执行动作",
+    "start_s": 4.8,
+    "end_s": 5.0,
+    "start_step": 120,
+    "end_step": 125,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.711998
+  },
+  {
+    "call": 27,
+    "label": "调用27 · 执行动作",
+    "start_s": 5.0,
+    "end_s": 5.2,
+    "start_step": 125,
+    "end_step": 130,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.869624
+  },
+  {
+    "call": 28,
+    "label": "调用28 · 执行动作",
+    "start_s": 5.2,
+    "end_s": 5.4,
+    "start_step": 130,
+    "end_step": 135,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.083531
+  },
+  {
+    "call": 29,
+    "label": "调用29 · 执行动作",
+    "start_s": 5.4,
+    "end_s": 5.6,
+    "start_step": 135,
+    "end_step": 140,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 26.493389
+  },
+  {
+    "call": 30,
+    "label": "调用30 · 执行动作",
+    "start_s": 5.6,
+    "end_s": 5.8,
+    "start_step": 140,
+    "end_step": 145,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.564876
+  },
+  {
+    "call": 31,
+    "label": "调用31 · 执行动作",
+    "start_s": 5.8,
+    "end_s": 6.0,
+    "start_step": 145,
+    "end_step": 150,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.567449
+  },
+  {
+    "call": 32,
+    "label": "调用32 · 执行动作",
+    "start_s": 6.0,
+    "end_s": 6.2,
+    "start_step": 150,
+    "end_step": 155,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.608509
+  },
+  {
+    "call": 33,
+    "label": "调用33 · 执行动作",
+    "start_s": 6.2,
+    "end_s": 6.4,
+    "start_step": 155,
+    "end_step": 160,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.984873
+  },
+  {
+    "call": 34,
+    "label": "调用34 · 执行动作",
+    "start_s": 6.4,
+    "end_s": 6.6,
+    "start_step": 160,
+    "end_step": 165,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.824258
+  },
+  {
+    "call": 35,
+    "label": "调用35 · 执行动作",
+    "start_s": 6.6,
+    "end_s": 6.8,
+    "start_step": 165,
+    "end_step": 170,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.499201
+  },
+  {
+    "call": 36,
+    "label": "调用36 · 执行动作",
+    "start_s": 6.8,
+    "end_s": 7.0,
+    "start_step": 170,
+    "end_step": 175,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.262601
+  },
+  {
+    "call": 37,
+    "label": "调用37 · 执行动作",
+    "start_s": 7.0,
+    "end_s": 7.2,
+    "start_step": 175,
+    "end_step": 180,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.701615
+  },
+  {
+    "call": 38,
+    "label": "调用38 · 执行动作",
+    "start_s": 7.2,
+    "end_s": 7.4,
+    "start_step": 180,
+    "end_step": 185,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.559924
+  },
+  {
+    "call": 39,
+    "label": "调用39 · 执行动作",
+    "start_s": 7.4,
+    "end_s": 7.6,
+    "start_step": 185,
+    "end_step": 190,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.813733
+  },
+  {
+    "call": 40,
+    "label": "调用40 · 执行动作",
+    "start_s": 7.6,
+    "end_s": 7.8,
+    "start_step": 190,
+    "end_step": 195,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 20.120216
+  },
+  {
+    "call": 41,
+    "label": "调用41 · 执行动作",
+    "start_s": 7.8,
+    "end_s": 8.0,
+    "start_step": 195,
+    "end_step": 200,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.36385
+  },
+  {
+    "call": 42,
+    "label": "调用42 · 执行动作",
+    "start_s": 8.0,
+    "end_s": 8.2,
+    "start_step": 200,
+    "end_step": 205,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.506632
+  },
+  {
+    "call": 43,
+    "label": "调用43 · 执行动作",
+    "start_s": 8.2,
+    "end_s": 8.4,
+    "start_step": 205,
+    "end_step": 210,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.060641
+  },
+  {
+    "call": 44,
+    "label": "调用44 · 执行动作",
+    "start_s": 8.4,
+    "end_s": 8.6,
+    "start_step": 210,
+    "end_step": 215,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.756002
+  },
+  {
+    "call": 45,
+    "label": "调用45 · 执行动作",
+    "start_s": 8.6,
+    "end_s": 8.8,
+    "start_step": 215,
+    "end_step": 220,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.570921
+  },
+  {
+    "call": 46,
+    "label": "调用46 · 执行动作",
+    "start_s": 8.8,
+    "end_s": 9.0,
+    "start_step": 220,
+    "end_step": 225,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.567356
+  },
+  {
+    "call": 47,
+    "label": "调用47 · 执行动作",
+    "start_s": 9.0,
+    "end_s": 9.2,
+    "start_step": 225,
+    "end_step": 230,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.180515
+  },
+  {
+    "call": 48,
+    "label": "调用48 · 执行动作",
+    "start_s": 9.2,
+    "end_s": 9.4,
+    "start_step": 230,
+    "end_step": 235,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.376617
+  },
+  {
+    "call": 49,
+    "label": "调用49 · 执行动作",
+    "start_s": 9.4,
+    "end_s": 9.6,
+    "start_step": 235,
+    "end_step": 240,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.278202
+  },
+  {
+    "call": 50,
+    "label": "调用50 · 执行动作",
+    "start_s": 9.6,
+    "end_s": 9.8,
+    "start_step": 240,
+    "end_step": 245,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.366269
+  },
+  {
+    "call": 51,
+    "label": "调用51 · 执行动作",
+    "start_s": 9.8,
+    "end_s": 10.0,
+    "start_step": 245,
+    "end_step": 250,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.23338
+  },
+  {
+    "call": 52,
+    "label": "调用52 · 执行动作",
+    "start_s": 10.0,
+    "end_s": 10.2,
+    "start_step": 250,
+    "end_step": 255,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.964518
+  },
+  {
+    "call": 53,
+    "label": "调用53 · 执行动作",
+    "start_s": 10.2,
+    "end_s": 10.4,
+    "start_step": 255,
+    "end_step": 260,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.054759
+  },
+  {
+    "call": 54,
+    "label": "调用54 · 执行动作",
+    "start_s": 10.4,
+    "end_s": 10.6,
+    "start_step": 260,
+    "end_step": 265,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.452161
+  },
+  {
+    "call": 55,
+    "label": "调用55 · 执行动作",
+    "start_s": 10.6,
+    "end_s": 10.8,
+    "start_step": 265,
+    "end_step": 270,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.916498
+  },
+  {
+    "call": 56,
+    "label": "调用56 · 执行动作",
+    "start_s": 10.8,
+    "end_s": 11.0,
+    "start_step": 270,
+    "end_step": 275,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.585659
+  },
+  {
+    "call": 57,
+    "label": "调用57 · 执行动作",
+    "start_s": 11.0,
+    "end_s": 11.2,
+    "start_step": 275,
+    "end_step": 280,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.371661
+  },
+  {
+    "call": 58,
+    "label": "调用58 · 执行动作",
+    "start_s": 11.2,
+    "end_s": 11.4,
+    "start_step": 280,
+    "end_step": 285,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.407014
+  },
+  {
+    "call": 59,
+    "label": "调用59 · 执行动作",
+    "start_s": 11.4,
+    "end_s": 11.6,
+    "start_step": 285,
+    "end_step": 290,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.474562
+  },
+  {
+    "call": 60,
+    "label": "调用60 · 执行动作",
+    "start_s": 11.6,
+    "end_s": 11.8,
+    "start_step": 290,
+    "end_step": 295,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.279518
+  },
+  {
+    "call": 61,
+    "label": "调用61 · 执行动作",
+    "start_s": 11.8,
+    "end_s": 12.0,
+    "start_step": 295,
+    "end_step": 300,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.607662
+  },
+  {
+    "call": 62,
+    "label": "调用62 · 执行动作",
+    "start_s": 12.0,
+    "end_s": 12.2,
+    "start_step": 300,
+    "end_step": 305,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 18.411689
+  },
+  {
+    "call": 63,
+    "label": "调用63 · 执行动作",
+    "start_s": 12.2,
+    "end_s": 12.4,
+    "start_step": 305,
+    "end_step": 310,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.130299
+  },
+  {
+    "call": 64,
+    "label": "调用64 · 执行动作",
+    "start_s": 12.4,
+    "end_s": 12.6,
+    "start_step": 310,
+    "end_step": 315,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.460681
+  },
+  {
+    "call": 65,
+    "label": "调用65 · 执行动作",
+    "start_s": 12.6,
+    "end_s": 12.8,
+    "start_step": 315,
+    "end_step": 320,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.166001
+  },
+  {
+    "call": 66,
+    "label": "调用66 · 执行动作",
+    "start_s": 12.8,
+    "end_s": 13.0,
+    "start_step": 320,
+    "end_step": 325,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.808016
+  },
+  {
+    "call": 67,
+    "label": "调用67 · 执行动作",
+    "start_s": 13.0,
+    "end_s": 13.2,
+    "start_step": 325,
+    "end_step": 330,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 19.949137
+  },
+  {
+    "call": 68,
+    "label": "调用68 · 执行动作",
+    "start_s": 13.2,
+    "end_s": 13.4,
+    "start_step": 330,
+    "end_step": 335,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 16.903663
+  },
+  {
+    "call": 69,
+    "label": "调用69 · 执行动作",
+    "start_s": 13.4,
+    "end_s": 13.6,
+    "start_step": 335,
+    "end_step": 340,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.860953
+  },
+  {
+    "call": 70,
+    "label": "调用70 · 执行动作",
+    "start_s": 13.6,
+    "end_s": 13.8,
+    "start_step": 340,
+    "end_step": 345,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.234407
+  },
+  {
+    "call": 71,
+    "label": "调用71 · 执行动作",
+    "start_s": 13.8,
+    "end_s": 14.0,
+    "start_step": 345,
+    "end_step": 350,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.788561
+  },
+  {
+    "call": 72,
+    "label": "调用72 · 执行动作",
+    "start_s": 14.0,
+    "end_s": 14.2,
+    "start_step": 350,
+    "end_step": 355,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.575515
+  },
+  {
+    "call": 73,
+    "label": "调用73 · 执行动作",
+    "start_s": 14.2,
+    "end_s": 14.4,
+    "start_step": 355,
+    "end_step": 360,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.03479
+  },
+  {
+    "call": 74,
+    "label": "调用74 · 执行动作",
+    "start_s": 14.4,
+    "end_s": 14.6,
+    "start_step": 360,
+    "end_step": 365,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 15.279605
+  },
+  {
+    "call": 75,
+    "label": "调用75 · 执行动作",
+    "start_s": 14.6,
+    "end_s": 14.8,
+    "start_step": 365,
+    "end_step": 370,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.455869
+  },
+  {
+    "call": 76,
+    "label": "调用76 · 执行动作",
+    "start_s": 14.8,
+    "end_s": 15.0,
+    "start_step": 370,
+    "end_step": 375,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.788241
+  },
+  {
+    "call": 77,
+    "label": "调用77 · 执行动作",
+    "start_s": 15.0,
+    "end_s": 15.2,
+    "start_step": 375,
+    "end_step": 380,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.701754
+  },
+  {
+    "call": 78,
+    "label": "调用78 · 执行动作",
+    "start_s": 15.2,
+    "end_s": 15.4,
+    "start_step": 380,
+    "end_step": 385,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.426192
+  },
+  {
+    "call": 79,
+    "label": "调用79 · 执行动作",
+    "start_s": 15.4,
+    "end_s": 15.6,
+    "start_step": 385,
+    "end_step": 390,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.537003
+  },
+  {
+    "call": 80,
+    "label": "调用80 · 执行动作",
+    "start_s": 15.6,
+    "end_s": 15.8,
+    "start_step": 390,
+    "end_step": 395,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.88874
+  },
+  {
+    "call": 81,
+    "label": "调用81 · 执行动作",
+    "start_s": 15.8,
+    "end_s": 16.0,
+    "start_step": 395,
+    "end_step": 400,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.162935
+  },
+  {
+    "call": 82,
+    "label": "调用82 · 执行动作",
+    "start_s": 16.0,
+    "end_s": 16.2,
+    "start_step": 400,
+    "end_step": 405,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.04805
+  },
+  {
+    "call": 83,
+    "label": "调用83 · 执行动作",
+    "start_s": 16.2,
+    "end_s": 16.4,
+    "start_step": 405,
+    "end_step": 410,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.196648
+  },
+  {
+    "call": 84,
+    "label": "调用84 · 执行动作",
+    "start_s": 16.4,
+    "end_s": 16.6,
+    "start_step": 410,
+    "end_step": 415,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.096784
+  },
+  {
+    "call": 85,
+    "label": "调用85 · 执行动作",
+    "start_s": 16.6,
+    "end_s": 16.8,
+    "start_step": 415,
+    "end_step": 420,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.622868
+  },
+  {
+    "call": 86,
+    "label": "调用86 · 执行动作",
+    "start_s": 16.8,
+    "end_s": 17.0,
+    "start_step": 420,
+    "end_step": 425,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.829832
+  },
+  {
+    "call": 87,
+    "label": "调用87 · 执行动作",
+    "start_s": 17.0,
+    "end_s": 17.2,
+    "start_step": 425,
+    "end_step": 430,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.070366
+  },
+  {
+    "call": 88,
+    "label": "调用88 · 执行动作",
+    "start_s": 17.2,
+    "end_s": 17.4,
+    "start_step": 430,
+    "end_step": 435,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.505897
+  },
+  {
+    "call": 89,
+    "label": "调用89 · 执行动作",
+    "start_s": 17.4,
+    "end_s": 17.6,
+    "start_step": 435,
+    "end_step": 440,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 31.503502
+  },
+  {
+    "call": 90,
+    "label": "调用90 · 执行动作",
+    "start_s": 17.6,
+    "end_s": 17.8,
+    "start_step": 440,
+    "end_step": 445,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.691547
+  },
+  {
+    "call": 91,
+    "label": "调用91 · 执行动作",
+    "start_s": 17.8,
+    "end_s": 18.0,
+    "start_step": 445,
+    "end_step": 450,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.658479
+  },
+  {
+    "call": 92,
+    "label": "调用92 · 执行动作",
+    "start_s": 18.0,
+    "end_s": 18.2,
+    "start_step": 450,
+    "end_step": 455,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.965792
+  },
+  {
+    "call": 93,
+    "label": "调用93 · 执行动作",
+    "start_s": 18.2,
+    "end_s": 18.4,
+    "start_step": 455,
+    "end_step": 460,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 20.217279
+  },
+  {
+    "call": 94,
+    "label": "调用94 · 执行动作",
+    "start_s": 18.4,
+    "end_s": 18.6,
+    "start_step": 460,
+    "end_step": 465,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.269718
+  },
+  {
+    "call": 95,
+    "label": "调用95 · 执行动作",
+    "start_s": 18.6,
+    "end_s": 18.8,
+    "start_step": 465,
+    "end_step": 470,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.698004
+  },
+  {
+    "call": 96,
+    "label": "调用96 · 执行动作",
+    "start_s": 18.8,
+    "end_s": 19.0,
+    "start_step": 470,
+    "end_step": 475,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.065778
+  },
+  {
+    "call": 97,
+    "label": "调用97 · 执行动作",
+    "start_s": 19.0,
+    "end_s": 19.2,
+    "start_step": 475,
+    "end_step": 480,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.329539
+  },
+  {
+    "call": 98,
+    "label": "调用98 · 执行动作",
+    "start_s": 19.2,
+    "end_s": 19.4,
+    "start_step": 480,
+    "end_step": 485,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.047587
+  },
+  {
+    "call": 99,
+    "label": "调用99 · 执行动作",
+    "start_s": 19.4,
+    "end_s": 19.6,
+    "start_step": 485,
+    "end_step": 490,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.261201
+  },
+  {
+    "call": 100,
+    "label": "调用100 · 执行动作",
+    "start_s": 19.6,
+    "end_s": 19.8,
+    "start_step": 490,
+    "end_step": 495,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.452329
+  },
+  {
+    "call": 101,
+    "label": "调用101 · 执行动作",
+    "start_s": 19.8,
+    "end_s": 20.0,
+    "start_step": 495,
+    "end_step": 500,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.845692
+  },
+  {
+    "call": 102,
+    "label": "调用102 · 执行动作",
+    "start_s": 20.0,
+    "end_s": 20.2,
+    "start_step": 500,
+    "end_step": 505,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.093993
+  },
+  {
+    "call": 103,
+    "label": "调用103 · 执行动作",
+    "start_s": 20.2,
+    "end_s": 20.4,
+    "start_step": 505,
+    "end_step": 510,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.323348
+  },
+  {
+    "call": 104,
+    "label": "调用104 · 执行动作",
+    "start_s": 20.4,
+    "end_s": 20.6,
+    "start_step": 510,
+    "end_step": 515,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 22.817987
+  },
+  {
+    "call": 105,
+    "label": "调用105 · 执行动作",
+    "start_s": 20.6,
+    "end_s": 20.8,
+    "start_step": 515,
+    "end_step": 520,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.053066
+  },
+  {
+    "call": 106,
+    "label": "调用106 · 执行动作",
+    "start_s": 20.8,
+    "end_s": 21.0,
+    "start_step": 520,
+    "end_step": 525,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.867917
+  },
+  {
+    "call": 107,
+    "label": "调用107 · 执行动作",
+    "start_s": 21.0,
+    "end_s": 21.2,
+    "start_step": 525,
+    "end_step": 530,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.155097
+  },
+  {
+    "call": 108,
+    "label": "调用108 · 执行动作",
+    "start_s": 21.2,
+    "end_s": 21.4,
+    "start_step": 530,
+    "end_step": 535,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.944723
+  },
+  {
+    "call": 109,
+    "label": "调用109 · 执行动作",
+    "start_s": 21.4,
+    "end_s": 21.6,
+    "start_step": 535,
+    "end_step": 540,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.732286
+  },
+  {
+    "call": 110,
+    "label": "调用110 · 执行动作",
+    "start_s": 21.6,
+    "end_s": 21.8,
+    "start_step": 540,
+    "end_step": 545,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 17.363305
+  },
+  {
+    "call": 111,
+    "label": "调用111 · 执行动作",
+    "start_s": 21.8,
+    "end_s": 22.0,
+    "start_step": 545,
+    "end_step": 550,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 7.96232
+  },
+  {
+    "call": 112,
+    "label": "调用112 · 执行动作",
+    "start_s": 22.0,
+    "end_s": 22.2,
+    "start_step": 550,
+    "end_step": 555,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.136637
+  },
+  {
+    "call": 113,
+    "label": "调用113 · 执行动作",
+    "start_s": 22.2,
+    "end_s": 22.4,
+    "start_step": 555,
+    "end_step": 560,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.209588
+  },
+  {
+    "call": 114,
+    "label": "调用114 · 执行动作",
+    "start_s": 22.4,
+    "end_s": 22.6,
+    "start_step": 560,
+    "end_step": 565,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.865134
+  },
+  {
+    "call": 115,
+    "label": "调用115 · 执行动作",
+    "start_s": 22.6,
+    "end_s": 22.8,
+    "start_step": 565,
+    "end_step": 570,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.847606
+  },
+  {
+    "call": 116,
+    "label": "调用116 · 执行动作",
+    "start_s": 22.8,
+    "end_s": 23.0,
+    "start_step": 570,
+    "end_step": 575,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.71873
+  },
+  {
+    "call": 117,
+    "label": "调用117 · 执行动作",
+    "start_s": 23.0,
+    "end_s": 23.2,
+    "start_step": 575,
+    "end_step": 580,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.862416
+  },
+  {
+    "call": 118,
+    "label": "调用118 · 执行动作",
+    "start_s": 23.2,
+    "end_s": 23.4,
+    "start_step": 580,
+    "end_step": 585,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 13.873652
+  },
+  {
+    "call": 119,
+    "label": "调用119 · 执行动作",
+    "start_s": 23.4,
+    "end_s": 23.6,
+    "start_step": 585,
+    "end_step": 590,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.934854
+  },
+  {
+    "call": 120,
+    "label": "调用120 · 执行动作",
+    "start_s": 23.6,
+    "end_s": 23.8,
+    "start_step": 590,
+    "end_step": 595,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 11.236488
+  },
+  {
+    "call": 121,
+    "label": "调用121 · 执行动作",
+    "start_s": 23.8,
+    "end_s": 24.0,
+    "start_step": 595,
+    "end_step": 600,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.774438
+  },
+  {
+    "call": 122,
+    "label": "调用122 · 执行动作",
+    "start_s": 24.0,
+    "end_s": 24.2,
+    "start_step": 600,
+    "end_step": 605,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.856424
+  },
+  {
+    "call": 123,
+    "label": "调用123 · 执行动作",
+    "start_s": 24.2,
+    "end_s": 24.4,
+    "start_step": 605,
+    "end_step": 610,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.33661
+  },
+  {
+    "call": 124,
+    "label": "调用124 · 执行动作",
+    "start_s": 24.4,
+    "end_s": 24.6,
+    "start_step": 610,
+    "end_step": 615,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.395376
+  },
+  {
+    "call": 125,
+    "label": "调用125 · 执行动作",
+    "start_s": 24.6,
+    "end_s": 24.8,
+    "start_step": 615,
+    "end_step": 620,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 9.530675
+  },
+  {
+    "call": 126,
+    "label": "调用126 · 执行动作",
+    "start_s": 24.8,
+    "end_s": 25.0,
+    "start_step": 620,
+    "end_step": 625,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 14.518846
+  },
+  {
+    "call": 127,
+    "label": "调用127 · 执行动作",
+    "start_s": 25.0,
+    "end_s": 25.2,
+    "start_step": 625,
+    "end_step": 630,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.837257
+  },
+  {
+    "call": 128,
+    "label": "调用128 · 执行动作",
+    "start_s": 25.2,
+    "end_s": 25.4,
+    "start_step": 630,
+    "end_step": 635,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.425777
+  },
+  {
+    "call": 129,
+    "label": "调用129 · 执行动作",
+    "start_s": 25.4,
+    "end_s": 25.6,
+    "start_step": 635,
+    "end_step": 640,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.018227
+  },
+  {
+    "call": 130,
+    "label": "调用130 · 执行动作",
+    "start_s": 25.6,
+    "end_s": 25.8,
+    "start_step": 640,
+    "end_step": 645,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 10.432485
+  },
+  {
+    "call": 131,
+    "label": "调用131 · 执行动作",
+    "start_s": 25.8,
+    "end_s": 26.0,
+    "start_step": 645,
+    "end_step": 650,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 12.414054
+  },
+  {
+    "call": 132,
+    "label": "调用132 · 执行动作",
+    "start_s": 26.0,
+    "end_s": 26.12,
+    "start_step": 650,
+    "end_step": 653,
+    "tool": "robodojo_act",
+    "decision_wait_seconds": 8.799799
+  }
+]

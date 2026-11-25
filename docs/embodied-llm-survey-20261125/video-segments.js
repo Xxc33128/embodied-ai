@@ -10,12 +10,12 @@ function setupVideoSegments(video, buttons, fullButton, speed, status, rounds, c
   }
   function describe() {
     if (selection) {
-      const state = selection.complete ? '本轮播放结束，已暂停' : video.paused ? '已暂停' : '正在播放';
-      status.textContent = `${state}：${selection.label} · ${rangeText(selection)}（原始完整视频中的动作段）`;
+      const state = selection.complete ? '片段播放结束，已暂停' : video.paused ? '已暂停' : '正在播放';
+      status.textContent = `${state}：${selection.label} · ${rangeText(selection)}（原始完整视频中的片段）`;
     } else {
       const row = rounds.find(r => video.currentTime >= r.start && video.currentTime < r.end);
-      const current = row ? `第${row.call}轮 · ${rangeText(row)}` : '初始／结束画面';
-      status.textContent = `完整视频模式 · 当前${current}；可选下方关键轮次，到该轮终点自动暂停。`;
+      const current = row ? `${row.label || `第${row.call}轮`} · ${rangeText(row)}` : '初始／结束画面';
+      status.textContent = `完整视频模式 · 当前${current}；可选下方片段，到区间终点自动暂停。`;
     }
   }
   function seek(time) {

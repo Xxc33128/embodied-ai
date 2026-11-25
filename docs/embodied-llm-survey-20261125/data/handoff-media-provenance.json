@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-25",
+  "sources": [
+    {
+      "path": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "sha256": "419f5e0ccf218e7cee87ddaff782d741ae9cd4afdb258d7dade09dcf2faf7856"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_v2_20260922/episodes/libero_10-hybrid/frame_index.json",
+      "sha256": "124d85249502934393262568ec29aa49c9b9bd1ca0e97bd995eba3f5d39aa6c2"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_v2_20260922/episodes/libero_10-hybrid/decisions.jsonl",
+      "sha256": "ad23e1cc085146bf85e63b6dc59a3502b0fc63510b154efd70e49d0f72166ac7"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_v2_20260922/episodes/libero_10-hybrid/result.json",
+      "sha256": "2b96cde78a213b4af40b77ab7f9abdf3905de717283e0b181acc15476ab1e7cf"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_v2_20260922/episodes/libero_10-hybrid/video/actions.mp4",
+      "sha256": "4d0b3bc908f8fa390891e217c9d29a3ff743086bc287f6613dca019fbf726e55"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_extra_20260922/episodes/libero_goal_task-task0-hybrid/frame_index.json",
+      "sha256": "ec1dcde02b01345bf4eaca9c6d17ad371b31fde5d672c57b033d94298ff17c3b"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_extra_20260922/episodes/libero_goal_task-task0-hybrid/decisions.jsonl",
+      "sha256": "dee193ebe7f5b80a42b6b36a0264fb05a5422371b7954be9b7aaceb3b87c82c2"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_extra_20260922/episodes/libero_goal_task-task0-hybrid/result.json",
+      "sha256": "ce4b21af69a48a161947a174cf07d1dd85800034167e38b7e99f974d68d564de"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+      "member": "GPT-as-Policy-repro/data/decision_extra_20260922/episodes/libero_goal_task-task0-hybrid/video/actions.mp4",
+      "sha256": "6ed3f924b073990de5390db461ffa7d5c17086fff1a2bf4b846e7cdcc951ef07"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/RPent_deep-timing独立8集_补充录像_节点原件/data/rpent2/deep-timing-20261008/formal-results/gpt-6-astra/libero_10_swap/t0_s1/attempt-001/episode.mp4",
+      "sha256": "d2717a70863290f999bdc7fd23ead28afd6e9748960b7af4d5faa6b01ee5689f"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/RPent_deep-timing独立8集_补充录像_节点原件/data/rpent2/deep-timing-20261008/formal-results/gpt-6-sol/libero_10_swap/t0_s1/attempt-001/episode.mp4",
+      "sha256": "30b1dde90275c57da00b0d9ce681c1ed0432d5fcc04ee6de95975d2dd9ee0b9b"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/homebody-repo/videos/cartons_to_corner_counter__fail.mp4",
+      "sha256": "45e91e6ca5d709a1bce0503bd183b96b03fc71ce6eaf7241cb1b3177ad718699"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/homebody-repo/videos/conditional_juice__fail.mp4",
+      "sha256": "e489535523c2c4733f52554cfb85d0497947e3f34f2ca24f57426832343d3385"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_qual02_ep10000_生成回放_20261119/data/halo/data/motion/qual02/episode_10000/meta.json",
+      "sha256": "4b609f12dee84b61f06c0426eb8ed66237f34da11d373c1d99fae251d631e4d9"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_qual02_ep10000_生成回放_20261119/data/halo/data/renders/qual02_mj/episodes/episode_10000/tpv.mp4",
+      "sha256": "837c37d3fe93a2df3dbfd8b2d5fbce08a862f6bd663e98f1f06efe432e0fb4a7"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/DreamLab-repo/bottle_experiment_report.zip",
+      "sha256": "7988d4e33ceb32b099c91e18d234ad5a65fcc51808ed8664f21ed3936cebd970"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/DreamLab-repo/bottle_experiment_report.zip",
+      "member": "bottle_experiment_report/result.json",
+      "sha256": "c0546739dbf684bb27c56dda772b6caaad2dddd67a2a975dcee4c2f2a4fc9b84"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/DreamLab-repo/bottle_experiment_report.zip",
+      "member": "bottle_experiment_report/gpt_decisions.csv",
+      "sha256": "6eb8df402976ab7f2810995146376fe298ca83656555e171935de2bf41cd343e"
+    },
+    {
+      "archive": "huawei实习_交接材料_20261125/DreamLab-repo/bottle_experiment_report.zip",
+      "member": "bottle_experiment_report/rollout.mp4",
+      "sha256": "508d3a8ea81f53b4d1251f1059ba76fb6556c126111b45b20e0497ebfbdd21d2"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_f0.json",
+      "sha256": "0fca514c7159f882740b909d95baeb80a0a399ced76fc05083abc0209380d75f"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p1.json",
+      "sha256": "b78e75d08419cb3ca8e0ca6101c10536bb6666cbe119513fca60ea309300c85a"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p2.json",
+      "sha256": "44518e1ec679c679bf2cde88f0cad291a20db2170a6e52257d0caa265d593efd"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p3.json",
+      "sha256": "c9d048815cb216110fa53ae849b68ae3f1ef383e9ce8a02df6e2ddd369066dd8"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_f0.json",
+      "sha256": "411994e9891e681496424300fa544de12ad4a11b2b7e422af12aef751a4da978"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p1.json",
+      "sha256": "ec5eb589f8c61eb418f246689ccac4e6f3f7635a8f6d98650f7d543722d96a71"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p2.json",
+      "sha256": "8d790a1f7ec57b405e1eca1b136884fc2c770de7c1b11888eb83dd5789f4c263"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p3.json",
+      "sha256": "26a099585317d08b19e25b827cacbeeb1323584acb97275ab55c80a3ba5f3388"
+    },
+    {
+      "path": "huawei实习_交接材料_20261125/README.md",
+      "sha256": "2b3f1a8fa179938a3fbedf145b1fe0646e3bc74ea1afba6c7cbae99b269789d5"
+    }
+  ],
+  "recording_note": "HomeBody 1fps; RPent navigation quarters are not semantic steps; HALO reference is not physical tracking."
+}

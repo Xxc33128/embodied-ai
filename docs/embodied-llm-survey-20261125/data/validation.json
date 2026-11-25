@@ -14,51 +14,116 @@
     "offline_assets": true,
     "no_external_scripts": true
   },
-  "html_bytes": 2924502,
-  "included_videos": 3,
+  "html_bytes": 19342048,
+  "included_videos": 11,
   "architecture_diagrams": 6,
   "timing_and_result_figures": 3,
   "browser_verification": {
-    "status": "passed",
     "date": "2026-11-25",
-    "timezone": "Asia/Shanghai",
-    "browser": "Google Chrome on macOS, refreshed existing local report tab",
-    "method": "Real native UI playback, observed accessibility state and screenshots; no screenshots retained",
-    "scope": "Representative round playback on all three videos; not exhaustive real-browser playback of all 42 rounds",
-    "report_sha256": "2d147dbda0226b9874b8abbc6832fbb6fb747f31c61d2af0959bafef49e1c9a1",
-    "checks": [
+    "browser": "Google Chrome on macOS",
+    "method": "Native browser UI through CUA; accessibility states and rendered screenshots; no simulated browser used.",
+    "report_sha256": "47d3fb93cc4a0a12a099e6cdffd798309d007cf3f2763d95f1ac4548fe0bcaea",
+    "status": "passed_sampled",
+    "scope": "本版11条视频均抽查播放入口，共13个区间；核对播放／段末暂停，另检查完整重启、HALO半速与表格重复入口。不是逐帧重判，也不是344个按钮的真实浏览器穷举。",
+    "cases": [
       {
-        "video": "direct-astra",
-        "rounds": [
-          7
-        ],
-        "observed": "6.50-second start, automatic pause at 7.10 seconds"
+        "video_id": "direct-astra",
+        "label": "第7轮",
+        "start_s": 6.5,
+        "end_s": 7.1,
+        "observation": "按钮播放及段末暂停；回归原有播放器"
       },
       {
-        "video": "direct-qwen",
-        "rounds": [
-          7,
-          13,
-          19,
-          2
-        ],
-        "observed": "Round 7 start 1.00/end 4.95; round 13 start 15.15/end 17.20; round 19 terminal pause at 31.05; expanded table round 2 displayed completion for 0.15–0.30. Native slider value for the short table segment lagged, so no precise seek timing claim for that case."
+        "video_id": "direct-qwen",
+        "label": "第9轮",
+        "start_s": 7.05,
+        "end_s": 9.1,
+        "observation": "按钮播放及段末暂停；回归Qwen独立时间线"
       },
       {
-        "video": "direct-boundary",
-        "rounds": [
-          7,
-          10
-        ],
-        "observed": "Round 7 start 14.10/end 16.25; round 10 at 0.5x start 20.55/end 21.45. Full playback restarted at 0 and continued into round 5, then manually paused at 7.25."
+        "video_id": "direct-boundary",
+        "label": "第10轮",
+        "start_s": 20.55,
+        "end_s": 21.45,
+        "observation": "按钮播放及段末暂停；截图可见三视角终帧"
+      },
+      {
+        "video_id": "hybrid-pass",
+        "label": "第51轮",
+        "start_s": 12.5,
+        "end_s": 12.65,
+        "observation": "按钮播放及段末暂停；对应本视频末轮"
+      },
+      {
+        "video_id": "hybrid-takeover",
+        "label": "第26轮eef接管",
+        "start_s": 6.25,
+        "end_s": 6.5,
+        "observation": "按钮播放、选中高亮、段末暂停；另测完整播放从0重启，随后手动暂停"
+      },
+      {
+        "video_id": "rpent-astra",
+        "label": "按时长第4/4段",
+        "start_s": 29.1375,
+        "end_s": 38.85,
+        "observation": "实际画面解码、进度推进、最终显示片段结束并暂停"
+      },
+      {
+        "video_id": "rpent-sol",
+        "label": "按时长第4/4段",
+        "start_s": 61.05,
+        "end_s": 81.4,
+        "observation": "实际画面解码、进度推进、最终显示片段结束并暂停"
+      },
+      {
+        "video_id": "homebody-corner",
+        "label": "按时长第4/4段",
+        "start_s": 126,
+        "end_s": 168,
+        "observation": "1fps采样画面正常解码，最终显示片段结束并暂停"
+      },
+      {
+        "video_id": "homebody-juice",
+        "label": "按时长第4/4段",
+        "start_s": 59.25,
+        "end_s": 79,
+        "observation": "1fps采样画面正常解码，最终显示片段结束并暂停"
+      },
+      {
+        "video_id": "halo-reference",
+        "label": "TURN",
+        "start_s": 3.2666666666666666,
+        "end_s": 4.933333333333334,
+        "observation": "0.5倍速；画面可见转向；段末暂停，AX进度值4.93333"
+      },
+      {
+        "video_id": "halo-reference",
+        "label": "SIT",
+        "start_s": 4.933333333333334,
+        "end_s": 6.6,
+        "observation": "0.5倍速；画面可见下降坐姿；整片终点暂停，AX进度值6.6"
+      },
+      {
+        "video_id": "halo-reference",
+        "label": "WALK",
+        "start_s": 0,
+        "end_s": 3.2666666666666666,
+        "observation": "从展开的阶段表播放；主按钮与表格入口同步高亮；段末暂停"
+      },
+      {
+        "video_id": "dreamlab-direct",
+        "label": "CSV调用132",
+        "start_s": 26,
+        "end_s": 26.12,
+        "observation": "段末暂停；截图可见源片Decision131／Simulation26.12s／Task success，CSV调用号与源片执行决策号分开标记"
       }
     ],
     "limitations": [
-      "Browser sampling does not cover every button or every speed on every video.",
-      "42-round mappings and pause behavior additionally covered by Node event simulation.",
-      "No other browser or mobile viewport tests."
-    ],
-    "prior_verification": "data/browser-verification-v01-prior.json"
+      "精确区间映射、全部按钮和加载竞态由源数据检查及Node事件模拟覆盖；浏览器抽样仅验证UI行为。",
+      "没有重跑机器人实验；视频可播放不改变原生结果或研究结论。",
+      "RPent和HomeBody按钮按时长等分，未验证为真实工具／模型轮次。",
+      "播放器初始加载时AX曾短暂显示“无法播放媒体”，实际点击后均能解码并播放；未出现持续加载错误。"
+    ]
   },
   "scope": "No robotics rerun; source statistics recomputed and local media metadata inspected.",
   "extended_checks": {
@@ -66,15 +131,24 @@
     "all_internal_anchors_resolve": true,
     "local_links_exist": true,
     "all_media_inline": true,
-    "nine_diagrams_three_videos": true,
+    "nine_diagrams_eleven_videos": true,
     "all_inline_media_decode": true,
     "twenty_four_local_sources": true,
     "ten_primary_references": true,
     "source_copies_match_hash": true,
     "video_bytes_match_hash": true,
+    "video_manifest_exact_coverage": true,
     "embedded_video_direct-astra": true,
     "embedded_video_direct-qwen": true,
     "embedded_video_direct-boundary": true,
+    "embedded_video_hybrid-pass": true,
+    "embedded_video_hybrid-takeover": true,
+    "embedded_video_rpent-astra": true,
+    "embedded_video_rpent-sol": true,
+    "embedded_video_homebody-corner": true,
+    "embedded_video_homebody-juice": true,
+    "embedded_video_halo-reference": true,
+    "embedded_video_dreamlab-direct": true,
     "javascript_syntax": true,
     "ten_numbered_chapters": true,
     "figures_numbered_in_order": true,
@@ -82,24 +156,7 @@
     "rsi_evidence_boundary": true,
     "motus_latest_not_best": true
   },
-  "media_playback_verification": "Representative round playback on all three videos; not exhaustive real-browser playback of all 42 rounds",
-  "report_version": "2.0",
-  "report_date": "2026-11-25",
-  "video_segment_validation": {
-    "status": "passed",
-    "method": "Node event simulation plus separate real browser sampling",
-    "rounds": 42,
-    "buttons": 57,
-    "cases": [
-      "all video timestamp mappings",
-      "end pause",
-      "duplicate highlights",
-      "independent players",
-      "full playback",
-      "manual seeking",
-      "half speed",
-      "metadata race",
-      "Qwen give_up terminal recording"
-    ]
-  }
+  "media_playback_verification": "本版11条视频均抽查播放入口，共13个区间；核对播放／段末暂停，另检查完整重启、HALO半速与表格重复入口。不是逐帧重判，也不是344个按钮的真实浏览器穷举。",
+  "report_version": "2.1",
+  "report_date": "2026-11-25"
 }

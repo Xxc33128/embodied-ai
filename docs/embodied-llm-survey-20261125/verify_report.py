@@ -23,7 +23,7 @@ checks['unique_html_ids']=len(h.ids)==len(set(h.ids))
 checks['all_internal_anchors_resolve']=all(x[1:] in h.ids for x in h.links if x.startswith('#'))
 checks['local_links_exist']=all((P/x).exists() for x in h.links if not x.startswith(('#','https:','http:')))
 checks['all_media_inline']=all(x.startswith('data:') for x in h.media)
-checks['nine_diagrams_three_videos']=len(h.media)==12
+checks['nine_diagrams_eleven_videos']=len(h.media)==20
 checks['all_inline_media_decode']=all(len(base64.b64decode(x.split(',',1)[1],validate=True))>0 for x in h.media)
 manifest=json.loads((P/'data/source-manifest.json').read_text())
 checks['twenty_four_local_sources']=len(manifest['sources'])==24
@@ -31,9 +31,10 @@ checks['ten_primary_references']=len(manifest['related_work'])==10
 checks['source_copies_match_hash']=all(hashlib.sha256((P/x['bundled']).read_bytes()).hexdigest()==x['sha256'] for x in manifest['sources'])
 media=json.loads((P/'data/media-manifest.json').read_text())['available']
 checks['video_bytes_match_hash']=all(hashlib.sha256((P/x['file']).read_bytes()).hexdigest()==x['sha256'] for x in media)
-for index,m in enumerate(media):
-    raw=base64.b64decode([x for x in h.media if x.startswith('data:video/')][index].split(',',1)[1])
-    checks['embedded_video_'+m['id']]=hashlib.sha256(raw).hexdigest()==m['sha256']
+embedded_hashes=[hashlib.sha256(base64.b64decode(x.split(',',1)[1])).hexdigest() for x in h.media if x.startswith('data:video/')]
+checks['video_manifest_exact_coverage']=sorted(embedded_hashes)==sorted(m['sha256'] for m in media)
+for m in media:
+    checks['embedded_video_'+m['id']]=m['sha256'] in embedded_hashes
 with tempfile.TemporaryDirectory(prefix='survey-js-') as tmp:
     js=Path(tmp)/'report.js';js.write_text('\n'.join(h.scripts))
     result=subprocess.run(['node','--check',str(js)],capture_output=True,text=True)
@@ -61,7 +62,7 @@ if browser_record.exists():
 else:
     validation['browser_verification']={'status':'not_performed','reason':'No real browser verification record for this HTML.'}
     validation['media_playback_verification']='Container metadata and byte hashes verified; browser playback not recorded.'
-validation['report_version']='2.0'
+validation['report_version']='2.1'
 validation['report_date']='2026-11-25'
 (P/'data/validation.json').write_text(json.dumps(validation,ensure_ascii=False,indent=2)+'\n')
 assert all(checks.values()),{k:v for k,v in checks.items() if not v}

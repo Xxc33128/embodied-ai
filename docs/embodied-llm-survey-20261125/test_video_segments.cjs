@@ -56,7 +56,7 @@ for (const b of buttons) {
   video.advance(Number(b.dataset.end) + 0.08);
   assert.equal(video.paused, true);
   assert.equal(video.currentTime, Number(b.dataset.end));
-  assert.ok(status.textContent.includes('本轮播放结束'));
+  assert.ok(status.textContent.includes('片段播放结束'));
 }
 video.play(); // Native play after a chapter end must not immediately stop again.
 video.advance(22.38);
@@ -106,3 +106,46 @@ assert.ok(players.slice(1).every(p => p.video.paused), 'Video controls must rema
 const qwen = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/direct-qwen-timeline.json')));
 assert.equal(qwen[18].tool, 'give_up'); assert.equal(qwen[18].start_step, 620); assert.equal(qwen[18].end_step, 621);
 console.log('PASS: all 42 rounds, 57 buttons, duplicate highlights, independent players, Qwen termination boundary.');
+
+// New media use heterogeneous clocks: 20/25/30/1 fps, plus nonsemantic navigation.
+const handoff = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/handoff-media.json')));
+let supplementaryRanges = 0;
+for (const media of handoff.available) {
+  const timeline = JSON.parse(fs.readFileSync(path.join(__dirname, media.timeline_file)));
+  const tags = [...html.matchAll(/<button[^>]*class="seek"[^>]*>/g)].map(x => x[0]).filter(t => t.includes(`data-video="video-${media.id}"`));
+  const buttons = tags.map(t => new Target(Object.fromEntries([...t.matchAll(/data-(start|end|label)="([^"]*)"/g)].map(x => [x[1], x[2]]))));
+  assert.equal(buttons.length, media.key_calls.length + (media.timeline_kind === 'navigation' ? 0 : timeline.length));
+  const video = new Video(), full = new Target(), speed = new Target(), status = new Target(); speed.value = '1';
+  context.setupVideoSegments(video, buttons, full, speed, status, timeline.map(r => ({call:r.call,label:r.label,start:r.start_s,end:r.end_s})), clock);
+  for (const row of timeline) {
+    const button = buttons.find(b => b.dataset.label === row.label);
+    assert.ok(button, `Missing range: ${media.id}/${row.label}`);
+    assert.ok(Math.abs(+button.dataset.start - row.start_s) < 1e-8);
+    assert.ok(Math.abs(+button.dataset.end - row.end_s) < 1e-8);
+    assert.ok(row.start_s >= 0 && row.end_s <= media.duration_s && row.end_s > row.start_s);
+    button.emit('click');
+    assert.equal(video.currentTime, +button.dataset.start);
+    assert.equal(video.paused, false);
+    video.advance(+button.dataset.end + .06);
+    assert.equal(video.currentTime, +button.dataset.end);
+    assert.equal(video.paused, true);
+    assert.ok(status.textContent.includes(row.label));
+    supplementaryRanges++;
+  }
+  full.emit('click'); assert.equal(video.currentTime, 0); assert.equal(video.paused, false);
+  speed.value = '0.5'; speed.emit('change'); assert.equal(video.playbackRate, .5);
+  video.pause();
+  players.push({video, buttons});
+}
+players.at(-1).buttons[0].emit('click');
+assert.ok(players.slice(1,-1).every(p => p.video.paused), 'Supplemental controls must address their own video');
+assert.equal(supplementaryRanges, 261);
+const takeover = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/hybrid-takeover-timeline.json')));
+assert.deepEqual(takeover.filter(r => r.tool === 'eef').map(r => r.call), [26,36,42,43,44,45,48,49,50,51,54,57,58]);
+const dream = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/dreamlab-direct-timeline.json')));
+assert.equal(dream[0].call, 2); assert.equal(dream.at(-1).call, 132);
+assert.equal(dream.at(-1).end_s, 653/25);
+const phases = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/halo-reference-timeline.json')));
+assert.deepEqual(phases.map(r => r.start_s), [0,98/30,148/30]);
+assert.equal(phases.at(-1).end_s, 198/30);
+console.log('PASS: 261 supplementary ranges; 303 total intervals / 344 buttons; 13 takeover rounds; mixed clocks, phase labels, navigation-only quarters, and independent players.');

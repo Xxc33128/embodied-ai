@@ -1,0 +1,602 @@
+[
+  {
+    "call": 1,
+    "label": "第1轮 · 放行π",
+    "start_step": 0,
+    "end_step": 5,
+    "start_s": 0.0,
+    "end_s": 0.25,
+    "tool": "student",
+    "decision_wait_seconds": 35.499042549
+  },
+  {
+    "call": 2,
+    "label": "第2轮 · 放行π",
+    "start_step": 5,
+    "end_step": 10,
+    "start_s": 0.25,
+    "end_s": 0.5,
+    "tool": "student",
+    "decision_wait_seconds": 19.920372973
+  },
+  {
+    "call": 3,
+    "label": "第3轮 · 放行π",
+    "start_step": 10,
+    "end_step": 15,
+    "start_s": 0.5,
+    "end_s": 0.75,
+    "tool": "student",
+    "decision_wait_seconds": 22.977663094
+  },
+  {
+    "call": 4,
+    "label": "第4轮 · 放行π",
+    "start_step": 15,
+    "end_step": 20,
+    "start_s": 0.75,
+    "end_s": 1.0,
+    "tool": "student",
+    "decision_wait_seconds": 15.682955918
+  },
+  {
+    "call": 5,
+    "label": "第5轮 · 放行π",
+    "start_step": 20,
+    "end_step": 25,
+    "start_s": 1.0,
+    "end_s": 1.25,
+    "tool": "student",
+    "decision_wait_seconds": 22.157086635
+  },
+  {
+    "call": 6,
+    "label": "第6轮 · 放行π",
+    "start_step": 25,
+    "end_step": 30,
+    "start_s": 1.25,
+    "end_s": 1.5,
+    "tool": "student",
+    "decision_wait_seconds": 14.511794859
+  },
+  {
+    "call": 7,
+    "label": "第7轮 · 放行π",
+    "start_step": 30,
+    "end_step": 35,
+    "start_s": 1.5,
+    "end_s": 1.75,
+    "tool": "student",
+    "decision_wait_seconds": 18.230694551
+  },
+  {
+    "call": 8,
+    "label": "第8轮 · 放行π",
+    "start_step": 35,
+    "end_step": 40,
+    "start_s": 1.75,
+    "end_s": 2.0,
+    "tool": "student",
+    "decision_wait_seconds": 15.964907193
+  },
+  {
+    "call": 9,
+    "label": "第9轮 · 放行π",
+    "start_step": 40,
+    "end_step": 45,
+    "start_s": 2.0,
+    "end_s": 2.25,
+    "tool": "student",
+    "decision_wait_seconds": 17.672376538
+  },
+  {
+    "call": 10,
+    "label": "第10轮 · 放行π",
+    "start_step": 45,
+    "end_step": 50,
+    "start_s": 2.25,
+    "end_s": 2.5,
+    "tool": "student",
+    "decision_wait_seconds": 16.190558719
+  },
+  {
+    "call": 11,
+    "label": "第11轮 · 放行π",
+    "start_step": 50,
+    "end_step": 55,
+    "start_s": 2.5,
+    "end_s": 2.75,
+    "tool": "student",
+    "decision_wait_seconds": 14.143715767
+  },
+  {
+    "call": 12,
+    "label": "第12轮 · 放行π",
+    "start_step": 55,
+    "end_step": 60,
+    "start_s": 2.75,
+    "end_s": 3.0,
+    "tool": "student",
+    "decision_wait_seconds": 17.328260827
+  },
+  {
+    "call": 13,
+    "label": "第13轮 · 放行π",
+    "start_step": 60,
+    "end_step": 65,
+    "start_s": 3.0,
+    "end_s": 3.25,
+    "tool": "student",
+    "decision_wait_seconds": 16.541949412
+  },
+  {
+    "call": 14,
+    "label": "第14轮 · 放行π",
+    "start_step": 65,
+    "end_step": 70,
+    "start_s": 3.25,
+    "end_s": 3.5,
+    "tool": "student",
+    "decision_wait_seconds": 16.431666111
+  },
+  {
+    "call": 15,
+    "label": "第15轮 · 放行π",
+    "start_step": 70,
+    "end_step": 75,
+    "start_s": 3.5,
+    "end_s": 3.75,
+    "tool": "student",
+    "decision_wait_seconds": 15.551805505
+  },
+  {
+    "call": 16,
+    "label": "第16轮 · 放行π",
+    "start_step": 75,
+    "end_step": 80,
+    "start_s": 3.75,
+    "end_s": 4.0,
+    "tool": "student",
+    "decision_wait_seconds": 15.481438895
+  },
+  {
+    "call": 17,
+    "label": "第17轮 · 放行π",
+    "start_step": 80,
+    "end_step": 85,
+    "start_s": 4.0,
+    "end_s": 4.25,
+    "tool": "student",
+    "decision_wait_seconds": 14.27505236
+  },
+  {
+    "call": 18,
+    "label": "第18轮 · 放行π",
+    "start_step": 85,
+    "end_step": 90,
+    "start_s": 4.25,
+    "end_s": 4.5,
+    "tool": "student",
+    "decision_wait_seconds": 18.763059346
+  },
+  {
+    "call": 19,
+    "label": "第19轮 · 放行π",
+    "start_step": 90,
+    "end_step": 95,
+    "start_s": 4.5,
+    "end_s": 4.75,
+    "tool": "student",
+    "decision_wait_seconds": 15.932147555
+  },
+  {
+    "call": 20,
+    "label": "第20轮 · 放行π",
+    "start_step": 95,
+    "end_step": 100,
+    "start_s": 4.75,
+    "end_s": 5.0,
+    "tool": "student",
+    "decision_wait_seconds": 18.070504691
+  },
+  {
+    "call": 21,
+    "label": "第21轮 · 放行π",
+    "start_step": 100,
+    "end_step": 105,
+    "start_s": 5.0,
+    "end_s": 5.25,
+    "tool": "student",
+    "decision_wait_seconds": 14.598414028
+  },
+  {
+    "call": 22,
+    "label": "第22轮 · 放行π",
+    "start_step": 105,
+    "end_step": 110,
+    "start_s": 5.25,
+    "end_s": 5.5,
+    "tool": "student",
+    "decision_wait_seconds": 15.259020978
+  },
+  {
+    "call": 23,
+    "label": "第23轮 · 放行π",
+    "start_step": 110,
+    "end_step": 115,
+    "start_s": 5.5,
+    "end_s": 5.75,
+    "tool": "student",
+    "decision_wait_seconds": 17.556454411
+  },
+  {
+    "call": 24,
+    "label": "第24轮 · 放行π",
+    "start_step": 115,
+    "end_step": 120,
+    "start_s": 5.75,
+    "end_s": 6.0,
+    "tool": "student",
+    "decision_wait_seconds": 16.718771981
+  },
+  {
+    "call": 25,
+    "label": "第25轮 · 放行π",
+    "start_step": 120,
+    "end_step": 125,
+    "start_s": 6.0,
+    "end_s": 6.25,
+    "tool": "student",
+    "decision_wait_seconds": 16.507160937
+  },
+  {
+    "call": 26,
+    "label": "第26轮 · eef接管",
+    "start_step": 125,
+    "end_step": 130,
+    "start_s": 6.25,
+    "end_s": 6.5,
+    "tool": "eef",
+    "decision_wait_seconds": 17.576686625
+  },
+  {
+    "call": 27,
+    "label": "第27轮 · 放行π",
+    "start_step": 130,
+    "end_step": 135,
+    "start_s": 6.5,
+    "end_s": 6.75,
+    "tool": "student",
+    "decision_wait_seconds": 16.244370932
+  },
+  {
+    "call": 28,
+    "label": "第28轮 · 放行π",
+    "start_step": 135,
+    "end_step": 140,
+    "start_s": 6.75,
+    "end_s": 7.0,
+    "tool": "student",
+    "decision_wait_seconds": 16.654914955
+  },
+  {
+    "call": 29,
+    "label": "第29轮 · 放行π",
+    "start_step": 140,
+    "end_step": 145,
+    "start_s": 7.0,
+    "end_s": 7.25,
+    "tool": "student",
+    "decision_wait_seconds": 17.770466701
+  },
+  {
+    "call": 30,
+    "label": "第30轮 · 放行π",
+    "start_step": 145,
+    "end_step": 150,
+    "start_s": 7.25,
+    "end_s": 7.5,
+    "tool": "student",
+    "decision_wait_seconds": 14.534099013
+  },
+  {
+    "call": 31,
+    "label": "第31轮 · 放行π",
+    "start_step": 150,
+    "end_step": 155,
+    "start_s": 7.5,
+    "end_s": 7.75,
+    "tool": "student",
+    "decision_wait_seconds": 16.163039745
+  },
+  {
+    "call": 32,
+    "label": "第32轮 · 放行π",
+    "start_step": 155,
+    "end_step": 160,
+    "start_s": 7.75,
+    "end_s": 8.0,
+    "tool": "student",
+    "decision_wait_seconds": 17.912405007
+  },
+  {
+    "call": 33,
+    "label": "第33轮 · 放行π",
+    "start_step": 160,
+    "end_step": 165,
+    "start_s": 8.0,
+    "end_s": 8.25,
+    "tool": "student",
+    "decision_wait_seconds": 17.424653881
+  },
+  {
+    "call": 34,
+    "label": "第34轮 · 放行π",
+    "start_step": 165,
+    "end_step": 170,
+    "start_s": 8.25,
+    "end_s": 8.5,
+    "tool": "student",
+    "decision_wait_seconds": 16.118173464
+  },
+  {
+    "call": 35,
+    "label": "第35轮 · 放行π",
+    "start_step": 170,
+    "end_step": 175,
+    "start_s": 8.5,
+    "end_s": 8.75,
+    "tool": "student",
+    "decision_wait_seconds": 16.991153745
+  },
+  {
+    "call": 36,
+    "label": "第36轮 · eef接管",
+    "start_step": 175,
+    "end_step": 180,
+    "start_s": 8.75,
+    "end_s": 9.0,
+    "tool": "eef",
+    "decision_wait_seconds": 15.550727176
+  },
+  {
+    "call": 37,
+    "label": "第37轮 · 放行π",
+    "start_step": 180,
+    "end_step": 185,
+    "start_s": 9.0,
+    "end_s": 9.25,
+    "tool": "student",
+    "decision_wait_seconds": 20.386970004
+  },
+  {
+    "call": 38,
+    "label": "第38轮 · 放行π",
+    "start_step": 185,
+    "end_step": 190,
+    "start_s": 9.25,
+    "end_s": 9.5,
+    "tool": "student",
+    "decision_wait_seconds": 15.253642991
+  },
+  {
+    "call": 39,
+    "label": "第39轮 · 放行π",
+    "start_step": 190,
+    "end_step": 195,
+    "start_s": 9.5,
+    "end_s": 9.75,
+    "tool": "student",
+    "decision_wait_seconds": 14.909576786
+  },
+  {
+    "call": 40,
+    "label": "第40轮 · 放行π",
+    "start_step": 195,
+    "end_step": 200,
+    "start_s": 9.75,
+    "end_s": 10.0,
+    "tool": "student",
+    "decision_wait_seconds": 15.712625666
+  },
+  {
+    "call": 41,
+    "label": "第41轮 · 放行π",
+    "start_step": 200,
+    "end_step": 205,
+    "start_s": 10.0,
+    "end_s": 10.25,
+    "tool": "student",
+    "decision_wait_seconds": 15.503482228
+  },
+  {
+    "call": 42,
+    "label": "第42轮 · eef接管",
+    "start_step": 205,
+    "end_step": 210,
+    "start_s": 10.25,
+    "end_s": 10.5,
+    "tool": "eef",
+    "decision_wait_seconds": 18.761034281
+  },
+  {
+    "call": 43,
+    "label": "第43轮 · eef接管",
+    "start_step": 210,
+    "end_step": 215,
+    "start_s": 10.5,
+    "end_s": 10.75,
+    "tool": "eef",
+    "decision_wait_seconds": 16.334943307
+  },
+  {
+    "call": 44,
+    "label": "第44轮 · eef接管",
+    "start_step": 215,
+    "end_step": 220,
+    "start_s": 10.75,
+    "end_s": 11.0,
+    "tool": "eef",
+    "decision_wait_seconds": 16.21214854
+  },
+  {
+    "call": 45,
+    "label": "第45轮 · eef接管",
+    "start_step": 220,
+    "end_step": 225,
+    "start_s": 11.0,
+    "end_s": 11.25,
+    "tool": "eef",
+    "decision_wait_seconds": 17.530169233
+  },
+  {
+    "call": 46,
+    "label": "第46轮 · 放行π",
+    "start_step": 225,
+    "end_step": 230,
+    "start_s": 11.25,
+    "end_s": 11.5,
+    "tool": "student",
+    "decision_wait_seconds": 17.229491386
+  },
+  {
+    "call": 47,
+    "label": "第47轮 · 放行π",
+    "start_step": 230,
+    "end_step": 235,
+    "start_s": 11.5,
+    "end_s": 11.75,
+    "tool": "student",
+    "decision_wait_seconds": 18.577609823
+  },
+  {
+    "call": 48,
+    "label": "第48轮 · eef接管",
+    "start_step": 235,
+    "end_step": 240,
+    "start_s": 11.75,
+    "end_s": 12.0,
+    "tool": "eef",
+    "decision_wait_seconds": 20.478535643
+  },
+  {
+    "call": 49,
+    "label": "第49轮 · eef接管",
+    "start_step": 240,
+    "end_step": 245,
+    "start_s": 12.0,
+    "end_s": 12.25,
+    "tool": "eef",
+    "decision_wait_seconds": 20.791515289
+  },
+  {
+    "call": 50,
+    "label": "第50轮 · eef接管",
+    "start_step": 245,
+    "end_step": 250,
+    "start_s": 12.25,
+    "end_s": 12.5,
+    "tool": "eef",
+    "decision_wait_seconds": 22.010086058
+  },
+  {
+    "call": 51,
+    "label": "第51轮 · eef接管",
+    "start_step": 250,
+    "end_step": 255,
+    "start_s": 12.5,
+    "end_s": 12.75,
+    "tool": "eef",
+    "decision_wait_seconds": 17.447552173
+  },
+  {
+    "call": 52,
+    "label": "第52轮 · 放行π",
+    "start_step": 255,
+    "end_step": 260,
+    "start_s": 12.75,
+    "end_s": 13.0,
+    "tool": "student",
+    "decision_wait_seconds": 21.337550789
+  },
+  {
+    "call": 53,
+    "label": "第53轮 · 放行π",
+    "start_step": 260,
+    "end_step": 265,
+    "start_s": 13.0,
+    "end_s": 13.25,
+    "tool": "student",
+    "decision_wait_seconds": 19.632776247
+  },
+  {
+    "call": 54,
+    "label": "第54轮 · eef接管",
+    "start_step": 265,
+    "end_step": 270,
+    "start_s": 13.25,
+    "end_s": 13.5,
+    "tool": "eef",
+    "decision_wait_seconds": 18.986597942
+  },
+  {
+    "call": 55,
+    "label": "第55轮 · 放行π",
+    "start_step": 270,
+    "end_step": 275,
+    "start_s": 13.5,
+    "end_s": 13.75,
+    "tool": "student",
+    "decision_wait_seconds": 16.585104506
+  },
+  {
+    "call": 56,
+    "label": "第56轮 · 放行π",
+    "start_step": 275,
+    "end_step": 280,
+    "start_s": 13.75,
+    "end_s": 14.0,
+    "tool": "student",
+    "decision_wait_seconds": 24.449936015
+  },
+  {
+    "call": 57,
+    "label": "第57轮 · eef接管",
+    "start_step": 280,
+    "end_step": 285,
+    "start_s": 14.0,
+    "end_s": 14.25,
+    "tool": "eef",
+    "decision_wait_seconds": 24.166691793
+  },
+  {
+    "call": 58,
+    "label": "第58轮 · eef接管",
+    "start_step": 285,
+    "end_step": 290,
+    "start_s": 14.25,
+    "end_s": 14.5,
+    "tool": "eef",
+    "decision_wait_seconds": 23.68957171
+  },
+  {
+    "call": 59,
+    "label": "第59轮 · 放行π",
+    "start_step": 290,
+    "end_step": 295,
+    "start_s": 14.5,
+    "end_s": 14.75,
+    "tool": "student",
+    "decision_wait_seconds": 20.639082009
+  },
+  {
+    "call": 60,
+    "label": "第60轮 · 放行π",
+    "start_step": 295,
+    "end_step": 300,
+    "start_s": 14.75,
+    "end_s": 15.0,
+    "tool": "student",
+    "decision_wait_seconds": 19.860659436
+  }
+]

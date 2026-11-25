@@ -220,24 +220,7 @@ MEDIA=[
  dict(id='direct-qwen',label='V02 · Qwen trial-03 · seed 2002',source='gpt6astra-repro/results/qwen3.8-flash/trials/trial-03/video.mp4',poster='gpt6astra-repro/results/qwen3.8-flash/initializations/trial-03/side.png',nframes=622,duration_s=31.1,steps=621,summary='自动失败；19次决策，归档阶段评分2。与V01初态相同；接入条件不同。',result='environment_failure'),
  dict(id='direct-boundary',label='V03 · Astra trial-01 · seed 2000',source='gpt6astra-repro/results/gpt-6-astra/trials/trial-01/video.mp4',poster='gpt6astra-repro/results/gpt-6-astra/trials/trial-01/initial-side.png',nframes=430,duration_s=21.5,steps=429,summary='自动入碗成功；10次决策。终帧在着底后反弹阶段，稳定放置尚未证实。',result='environment_success_stability_uncertain'),
 ]
-def mp4_metadata(p):
-    data=p.read_bytes(); found={}
-    def walk(start,end):
-        i=start
-        while i+8<=end:
-            sz,kind=struct.unpack_from('>I4s',data,i);hdr=8
-            if sz==1:sz=struct.unpack_from('>Q',data,i+8)[0];hdr=16
-            if sz==0:sz=end-i
-            if sz<hdr or i+sz>end:break
-            a=i+hdr
-            if kind==b'mdhd':
-                ver=data[a]; off=a+(20 if ver==1 else 12);scale=struct.unpack_from('>I',data,off)[0]
-                dur=struct.unpack_from('>Q' if ver==1 else '>I',data,off+4)[0];found['duration_s']=dur/scale
-            if kind==b'stsz':found['sample_count']=struct.unpack_from('>I',data,a+8)[0]
-            if kind==b'tkhd':found['width']=struct.unpack_from('>I',data,i+sz-8)[0]/65536;found['height']=struct.unpack_from('>I',data,i+sz-4)[0]/65536
-            if kind in [b'moov',b'trak',b'mdia',b'minf',b'stbl']:walk(a,i+sz)
-            i+=sz
-    walk(0,len(data));found['avc1_present']=b'avc1' in data;return found
+from media_utils import mp4_metadata
 for m in MEDIA:
     p=ROOT/m['source'];target=ASSETS/(m['id']+'.mp4');shutil.copy2(p,target)
     shutil.copy2(ROOT/m['poster'],ASSETS/(m['id']+'-poster.png'))
@@ -283,13 +266,13 @@ for media in MEDIA:
 # Bundle minimal derived records and provenance, not full request payloads.
 dump(DATA/'video-timeline-provenance.json',{'fps':20,'sources':[{'path':str(f.relative_to(ROOT)),'sha256':sha(f)} for f in [ROOT/'gpt6astra-repro/results/gpt-6-astra/decision-trace.csv',qwen_wire,qwen_result]],'qwen_mapping':'Latest camera step in each request to next request step; last endpoint from result.physics_steps. Round 19 is give_up; its final one-step interval is termination recording, not a new grasp action.'})
 shutil.copy2(ROOT/'gpt6astra-repro/results/summary-20260916/montage-gpt-trial03-sequence.png',ASSETS/'direct-trial03-sequence.png')
-GAPS={
- 'hybrid':dict(title='代表视频待补：全放行与目标抽屉接管',reason='当前仓库保留逐轮报告和核验结果，原始9段录像在离线归档。对应视频未在本工作区提供。',paths=['包B · GPT-as-Policy-repro/data/decision_v2_20260922/episodes/','包B · GPT-as-Policy-repro/data/decision_extra_20260922/episodes/'],source='S03',case='两罐 Hybrid全放行；底层抽屉 Hybrid 13次接管'),
- 'rpent':dict(title='代表视频待补：t0 seed1 的路径差异',reason='原始深测视频在远程归档包F，当前工作区仅有结果与计时。不能用120集中的同task/seed录像替代。',paths=['包F · rpent2/deep-timing-20261008/formal-results/','t0 seed1 · Astra / Sol · attempt-001'],source='S03',case='1049.1秒成功 vs 2176.5秒失败'),
- 'homebody':dict(title='代表视频待补：落点邻段与持物掉落',reason='归档文档明确注明12段精选MP4未上传，当前只提供现场文件名。',paths=['videos/cartons_to_corner_counter__fail.mp4','videos/conditional_juice__fail.mp4'],source='S11',case='Qwen角柜9步败局；条件成立后搬运掉落'),
- 'halo':dict(title='代表视频待补：生成参考与物理跟踪',reason='轨迹与回放产物在实验节点，当前报告为现场台账转引。两类视频须分别标记，不能把运动学参考当成物理执行。',paths=['ep10000 · qual02 · episodes/{fpv,oak,tpv}.mp4','R15 · frame0 / seed5 · 物理跟踪回放（确切文件名待取片核对）'],source='S13',case='198帧合格生成轨迹；站姿起步跟踪止于WALK'),
-}
-dump(DATA/'media-manifest.json',{'available':MEDIA,'missing':GAPS,'timeline_source':'gpt6astra-repro/results/gpt-6-astra/decision-trace.csv','media_verification':'container metadata and file hashes; playback verification separately recorded in validation.json'})
+handoff=json.loads((DATA/'handoff-media.json').read_text())
+MEDIA.extend(handoff['available'])
+for m in handoff['available']:
+    assert sha(OUT/m['file'])==m['sha256'],m['id']
+    assert mp4_metadata(OUT/m['file'])==m['metadata'],m['id']
+GAPS={}
+dump(DATA/'media-manifest.json',{'available':MEDIA,'missing':GAPS,'unrecorded':handoff['unrecorded'],'timeline_source':'data/video-timeline-provenance.json; data/handoff-media-provenance.json','media_verification':'container metadata and file hashes; playback verification separately recorded in validation.json'})
 extras=[source('weeks/2026_1005*/deep-report/evidence/quantitative-conclusion.json'),ROOT/'gpt6astra-repro/results/gpt-6-astra/decision-trace.csv',ROOT/'gpt6astra-repro/results/qwen3.8-flash/summary.csv']
 dump(DATA/'source-manifest.json',{'sources':SOURCES,'related_work':RELATED,'supplemental':[{'path':str(p.relative_to(ROOT)),'sha256':sha(p)} for p in extras]})
 
@@ -297,7 +280,7 @@ def data_uri(p):
     ext=p.suffix.lower();mime={'.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.mp4':'video/mp4'}.get(ext,'application/octet-stream')
     return 'data:'+mime+';base64,'+base64.b64encode(p.read_bytes()).decode()
 
-def video_markup(mid):
+def legacy_video_markup(mid):
     m=next(m for m in MEDIA if m['id']==mid)
     timeline=TIMELINES[mid]
     rounds=ESC(json.dumps([dict(call=r['call'],start=r['start_step']/20,end=r['end_step']/20) for r in timeline]),quote=True)
@@ -317,6 +300,31 @@ def video_markup(mid):
     out+='</tbody></table></div><p class="fine">跳转位置由本视频逐轮控制步÷20计算；视频有初始帧，片段终点为相应动作后的帧。等待期间仿真不推进，因此等待不占视频长度。</p></details>'
     return out+'</figure>'
 
+def video_markup(mid):
+    if mid in TIMELINES:
+        return legacy_video_markup(mid)
+    m=next(m for m in MEDIA if m['id']==mid)
+    timeline=json.loads((OUT/m['timeline_file']).read_text())
+    rounds=ESC(json.dumps([dict(call=r['call'],label=r['label'],start=r['start_s'],end=r['end_s']) for r in timeline]),quote=True)
+    def button(r):
+        start=r['start_s'];end=r['end_s'];label=ESC(r['label'],quote=True)
+        return f'<button type="button" class="seek" data-video="video-{mid}" data-start="{start:.9f}" data-end="{end:.9f}" data-label="{label}" aria-pressed="false" disabled>播放{label}<span class="segment-time">{start:.2f}–{end:.2f}秒</span></button>'
+    out=f'<figure class="video-card" id="case-{mid}"><div class="figure-heading">{ESC(m["label"])}</div><video id="video-{mid}" data-rounds="{rounds}" data-fallback="{m["file"]}" controls playsinline preload="metadata"><source src="{data_uri(OUT/m["file"])}" type="video/mp4"/>浏览器无法播放，请使用报告包内MP4。</video><figcaption>{ESC(m["summary"])}</figcaption>'
+    out+=f'<p class="fine">{ESC(m["playback_note"])} 每个按钮播放上方同一条完整视频的指定区间，到终点自动暂停；可选半速。</p>'
+    out+=f'<p id="segment-status-{mid}" class="segment-status" role="status" aria-live="polite">分段控制尚未启用；可用原生进度条查看。</p><div class="video-controls"><button type="button" class="play-full" data-video="video-{mid}" disabled>播放完整视频 · 0.00–{m["duration_s"]:.2f}秒</button>'
+    for row in timeline:
+        if row['call'] in m['key_calls']:out+=button(row)
+    out+=f'</div><label class="fine" for="speed-{mid}">播放速度 </label><select id="speed-{mid}" disabled><option value="1">1× 正常速度</option><option value="0.5">0.5× 半速观察</option></select>'
+    if m['timeline_kind']!='navigation':
+        kind={'round':'轮决策','phase':'个生成阶段','call':'次推进物理的调用'}[m['timeline_kind']]
+        out+=f'<details><summary>展开全部{len(timeline)}{kind}与时间映射</summary><div class="table-wrap"><table><thead><tr><th>片段播放</th><th>执行类型</th><th>步／帧区间</th><th>决策等待 / s</th></tr></thead><tbody>'
+        for row in timeline:
+            wait=f'{row["decision_wait_seconds"]:.2f}' if 'decision_wait_seconds' in row else '不适用'
+            out+=f'<tr><td>{button(row)}</td><td>{ESC(row["tool"])}</td><td>{row["start_step"]}–{row["end_step"]}</td><td>{wait}</td></tr>'
+        out+='</tbody></table></div></details>'
+    out+=f'<details><summary>查看录像来源与核验信息</summary><p class="fine">原文件SHA256：<code>{m["sha256"]}</code>；{m["nframes"]}帧，{m["fps"]:g} fps。时间线：<a href="{m["timeline_file"]}">{m["timeline_file"]}</a>；完整路径与来源指纹见 <a href="data/handoff-media-provenance.json">交接媒体来源清单</a>。</p></details>'
+    return out+'</figure>'
+
 def gap_markup(key):
     d=GAPS[key]
     return '<aside class="media-gap"><span class="status">媒体未取得</span><h4>'+ESC(d['title'])+'</h4><p>'+ESC(d['reason'])+'</p><ul>'+''.join('<li><code>'+ESC(x)+'</code></li>' for x in d['paths'])+'</ul><p class="fine">案例：'+ESC(d['case'])+' · <a href="#ref-'+d['source']+'">来源 '+d['source']+'</a></p></aside>'
@@ -334,7 +342,7 @@ def references_markup():
     for s in SOURCES:
         out+=f'<li id="ref-{s["id"]}"><strong>[{s["id"]}] {ESC(s["title"])}</strong><p><a href="{ESC(s["bundled"],quote=True)}">包内来源副本</a> · <a href="../../{ESC(s["path"],quote=True)}">项目原件</a> · <code>{ESC(s["path"])}</code></p><small>SHA256 {s["sha256"]}</small></li>'
     for s in RELATED:out+=f'<li id="ref-{s["id"]}"><strong>[{s["id"]}] <a href="{s["url"]}" target="_blank" rel="noopener">{ESC(s["title"])}</a></strong><p>{ESC(s["usage"])}；访问日期 {s["accessed"]}。</p></li>'
-    return out+'</ol><p class="fine">包内来源副本链接需保留evidence目录，项目原件链接需保持原目录结构；单文件HTML的正文、图表、3段视频和内嵌统计可离线阅读。详细统计与来源指纹亦包含在完整报告包中。</p>'
+    return out+'</ol><p class="fine">包内来源副本链接需保留evidence目录，项目原件链接需保持原目录结构；单文件HTML的正文、图表、11段视频和内嵌统计可离线阅读。详细统计与来源指纹亦包含在完整报告包中。</p>'
 
 # Narrow Markdown renderer for this report's headings, paragraphs, tables and lists.
 def inline(s):
@@ -389,7 +397,7 @@ nav='<nav aria-label="报告目录"><a class="brand" href="#section-0">EMBODIED 
 for level,title,hid in headings:
     if level==2 and not title.startswith('基于'):
         nav+=f'<a href="#{hid}">{ESC(title)}</a>'
-nav+='<div class="nav-note">6条研究路线 · 9张图<br>3段内嵌视频<br>统计截止 2026-11-23</div></nav>'
+nav+='<div class="nav-note">6条研究路线 · 9张图<br>11段内嵌视频<br>统计截止 2026-11-23</div></nav>'
 css='''
 :root{--ink:#203642;--muted:#617584;--teal:#205f71;--line:#d9e2e5;--paper:#fff;--bg:#edf1f2}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;font-size:16px;line-height:1.85}a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}nav{position:fixed;inset:0 auto 0 0;width:250px;padding:33px 22px;overflow-y:auto;background:#e5ebed;border-right:1px solid var(--line)}nav a{display:block;font-size:13px;line-height:1.55;padding:9px 10px;border-radius:5px;margin:4px 0}.brand{font-size:20px;letter-spacing:2px;font-weight:750;margin-bottom:28px;color:#163a48}.brand span{font-size:11px;font-weight:400;letter-spacing:1px}.nav-note{font-size:11px;color:var(--muted);margin:30px 10px;border-top:1px solid #c9d6db;padding-top:20px}main{margin:32px 36px 70px 282px;max-width:1120px;background:white;padding:56px 64px 70px;border:1px solid var(--line);box-shadow:0 8px 35px #20364208}.eyebrow{color:#62808b;font-size:12px;letter-spacing:3px;font-weight:650}h1{font-size:42px;letter-spacing:-1.4px;line-height:1.3;margin:15px 0 20px;max-width:850px}h2{font-size:27px;line-height:1.5;margin:65px 0 25px;padding-top:20px;border-top:2px solid #a8c5cb;letter-spacing:-.3px}h2:first-of-type{font-size:20px;color:#617584;border:0;margin:0 0 28px;padding:0;font-weight:500}h3{font-size:19px;line-height:1.5;margin:34px 0 15px}h4{font-size:16px;margin:8px 0}p{margin:14px 0;text-align:justify}strong{font-weight:650}.cite{font-size:11px;margin:0 3px;white-space:nowrap;border-bottom:1px solid #b9ccd1}.table-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:7px}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.65}th,td{text-align:left;vertical-align:top;padding:12px 13px;border-bottom:1px solid #e3eaed;min-width:70px}th{background:#eaf1f2;color:#244754;font-weight:650}tr:nth-child(even) td{background:#f8fafb}tr:last-child td{border-bottom:0}td code{font-size:11px}figure{margin:28px 0}figure img{display:block;width:100%;height:auto}.diagram{background:#f5f8f8;border-radius:10px;overflow:hidden}.diagram img{padding:8px}figcaption{font-size:12px;line-height:1.7;color:#687b87;padding:12px 16px}.figure-heading{font-size:15px;line-height:1.5;font-weight:650;margin-bottom:14px}.video-card{border:1px solid var(--line);border-radius:10px;padding:18px;background:#f8fafb}video{display:block;width:100%;min-height:170px;max-height:430px;background:#18252c;border-radius:6px}.video-card figcaption{padding:12px 0}button,select{font:inherit;font-size:12px;line-height:1.4;border:1px solid #b7cbd1;border-radius:6px;padding:9px 13px;background:#fff;color:#205f71;cursor:pointer}button:hover{background:#e8f1f2}.video-controls{display:flex;gap:8px;flex-wrap:wrap}details{border-top:1px solid var(--line);margin-top:15px;padding-top:12px}summary{cursor:pointer;font-size:13px;color:#205f71}.fine{font-size:12px;line-height:1.7;color:var(--muted)}.media-gap{margin:25px 0;padding:22px;border:1px dashed #c8b89e;background:#fcfaf6;border-radius:8px;font-size:13px}.status{font-size:11px;color:#836841;border:1px solid #d7c8af;border-radius:20px;padding:3px 9px;display:inline-block}.media-gap ul{padding-left:20px}.media-gap code{overflow-wrap:anywhere}.interactive{padding:24px;border:1px solid #a9c5ca;background:#f3f8f8;border-radius:10px;margin:25px 0}.interactive select{max-width:100%;margin:8px 0 20px;font-size:13px}.interactive label{font-size:13px}.episode-stats{display:flex;gap:22px;flex-wrap:wrap;padding:4px 0 20px;font-size:13px}.episode-stats b{font-size:22px;display:block;color:#205f71}.barrow{display:grid;grid-template-columns:130px 1fr 95px;gap:12px;align-items:center;font-size:12px;margin:11px 0}.bartrack{height:23px;background:#e5ecee;border-radius:3px;overflow:hidden}.barfill{height:100%;border-radius:3px;min-width:1px}.barvalue{text-align:right;font-variant-numeric:tabular-nums}.references{padding-left:24px;font-size:13px}.references li{margin:20px 0;scroll-margin-top:25px}.references p{margin:5px 0}.references code,.references small{font-size:11px;overflow-wrap:anywhere;color:#617584}.toolbar{display:flex;justify-content:flex-end;gap:10px;margin-bottom:20px}.toolbar a,.toolbar button{font-size:12px}.cover-summary{padding:20px 24px;background:#eff5f5;border-left:4px solid #2a6371;margin:30px 0;font-size:14px}.footer{font-size:12px;color:#6e818a;border-top:1px solid var(--line);padding-top:25px;margin-top:45px}.progress{position:fixed;top:0;left:0;height:3px;background:#2a6371;width:0;z-index:9}code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.9em;overflow-wrap:anywhere}ol{padding-left:25px}li{margin:8px 0}.mobile-nav{display:none}a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #c79553;outline-offset:3px}
 @media(min-width:1600px){main{margin-left:calc(250px + (100vw - 1450px)/2)}}
@@ -436,12 +444,12 @@ checks={
  'rpent8_total':abs(totals['elapsed_s']-10965.3)<.01,
  'trial03_steps':trace[-1]['end_step']==447 and len(trace)==13,
  'trial03_wait':abs(sum(r['decision_wait_seconds'] for r in trace)-337.93)<.01,
- 'videos_sample_counts':all(m['metadata']['sample_count']==m['steps']+1 for m in MEDIA),
+ 'videos_sample_counts':all(m['metadata']['sample_count']==m['nframes'] for m in MEDIA),
  'source_citations_resolved':set(re.findall(r'\[([SR]\d{2})\]',(OUT/'report.md').read_text())).issubset({x['id'] for x in SOURCES+RELATED}),
  'unexpanded_html_markers':not bool(re.search(r'<!-- (VIDEO|MEDIA_GAP|INTERACTIVE|REFERENCES)',page)),
  'offline_assets':len(re.findall(r'<(?:img|source)\b[^>]*src="(?!data:)',page))==0,
  'no_external_scripts':'<script src=' not in page,
 }
 assert all(checks.values()), checks
-dump(DATA/'validation.json',{'checks':checks,'html_bytes':(OUT/'report.html').stat().st_size,'included_videos':3,'architecture_diagrams':6,'timing_and_result_figures':3,'browser_verification':'pending','scope':'No robotics rerun; source statistics recomputed and local media metadata inspected.'})
+dump(DATA/'validation.json',{'checks':checks,'html_bytes':(OUT/'report.html').stat().st_size,'included_videos':len(MEDIA),'architecture_diagrams':6,'timing_and_result_figures':3,'browser_verification':'pending','scope':'No robotics rerun; source statistics recomputed and local media metadata inspected.'})
 print(json.dumps({'html':str(OUT/'report.html'),'bytes':(OUT/'report.html').stat().st_size,'checks':checks},ensure_ascii=False))

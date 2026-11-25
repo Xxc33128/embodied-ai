@@ -1,0 +1,526 @@
+{
+  "video_status": "not_recorded",
+  "notes": "交接README明确说明这八次配对回放未录制视频；保留首末记录供核对，不据此重判成功。",
+  "runs": [
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_f0.json",
+        "sha256": "0fca514c7159f882740b909d95baeb80a0a399ced76fc05083abc0209380d75f"
+      },
+      "record_count": 61,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 0,
+        "root_xyz": [
+          1.6558,
+          -0.0146,
+          0.7774
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.5296,
+            -0.123
+          ],
+          "R": [
+            1.8147,
+            -0.0397
+          ]
+        },
+        "rew": 0.07881756871938705
+      },
+      "last_record": {
+        "t": 61,
+        "ep_buf": 60,
+        "ref_frame": 60,
+        "root_xyz": [
+          1.4154,
+          0.586,
+          0.4319
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 92.1,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 70.9,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.5002,
+            -0.0937
+          ],
+          "R": [
+            1.7749,
+            0.0604
+          ]
+        },
+        "rew": 0.006079385057091713
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p1.json",
+        "sha256": "b78e75d08419cb3ca8e0ca6101c10536bb6666cbe119513fca60ea309300c85a"
+      },
+      "record_count": 45,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 86,
+        "root_xyz": [
+          1.346,
+          0.7684,
+          0.7666
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.3373,
+            0.5282
+          ],
+          "R": [
+            1.4139,
+            0.8646
+          ]
+        },
+        "rew": 0.043263990432024
+      },
+      "last_record": {
+        "t": 45,
+        "ep_buf": 44,
+        "ref_frame": 130,
+        "root_xyz": [
+          0.9649,
+          1.5006,
+          0.4383
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 45.8,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.2357,
+            0.873
+          ],
+          "R": [
+            1.3589,
+            1.0143
+          ]
+        },
+        "rew": -0.00010774238035082817
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p2.json",
+        "sha256": "44518e1ec679c679bf2cde88f0cad291a20db2170a6e52257d0caa265d593efd"
+      },
+      "record_count": 81,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 252,
+        "root_xyz": [
+          1.051,
+          1.4855,
+          0.7792
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.2231,
+            1.4733
+          ],
+          "R": [
+            0.951,
+            1.5918
+          ]
+        },
+        "rew": 0.07864735275506973
+      },
+      "last_record": {
+        "t": 81,
+        "ep_buf": 80,
+        "ref_frame": 332,
+        "root_xyz": [
+          0.833,
+          0.6429,
+          0.2481
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.1121,
+            1.2693
+          ],
+          "R": [
+            0.7747,
+            1.3138
+          ]
+        },
+        "rew": -0.005353676155209541
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r14_ctrl_p3.json",
+        "sha256": "c9d048815cb216110fa53ae849b68ae3f1ef383e9ce8a02df6e2ddd369066dd8"
+      },
+      "record_count": 89,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 175,
+        "root_xyz": [
+          0.9487,
+          1.2851,
+          0.7738
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            0.8914,
+            1.1608
+          ],
+          "R": [
+            1.1087,
+            1.3437
+          ]
+        },
+        "rew": 0.08187288045883179
+      },
+      "last_record": {
+        "t": 89,
+        "ep_buf": 88,
+        "ref_frame": 263,
+        "root_xyz": [
+          0.4835,
+          1.7585,
+          0.4361
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 122.2,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            0.7873,
+            1.2215
+          ],
+          "R": [
+            1.0367,
+            1.3001
+          ]
+        },
+        "rew": -0.0008061577100306749
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_f0.json",
+        "sha256": "411994e9891e681496424300fa544de12ad4a11b2b7e422af12aef751a4da978"
+      },
+      "record_count": 55,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 0,
+        "root_xyz": [
+          1.6558,
+          -0.0146,
+          0.7774
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.5296,
+            -0.123
+          ],
+          "R": [
+            1.8147,
+            -0.0397
+          ]
+        },
+        "rew": 0.07918499410152435
+      },
+      "last_record": {
+        "t": 55,
+        "ep_buf": 54,
+        "ref_frame": 54,
+        "root_xyz": [
+          1.5366,
+          0.6162,
+          0.4541
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 29.9,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.4796,
+            -0.0485
+          ],
+          "R": [
+            1.7206,
+            0.0654
+          ]
+        },
+        "rew": 0.005686245858669281
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p1.json",
+        "sha256": "ec5eb589f8c61eb418f246689ccac4e6f3f7635a8f6d98650f7d543722d96a71"
+      },
+      "record_count": 39,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 86,
+        "root_xyz": [
+          1.346,
+          0.7684,
+          0.7666
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.3373,
+            0.5282
+          ],
+          "R": [
+            1.4139,
+            0.8646
+          ]
+        },
+        "rew": 0.05169176310300827
+      },
+      "last_record": {
+        "t": 39,
+        "ep_buf": 38,
+        "ref_frame": 124,
+        "root_xyz": [
+          0.9963,
+          1.2682,
+          0.4819
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 144.1,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.4967,
+            0.761
+          ],
+          "R": [
+            1.3718,
+            0.8818
+          ]
+        },
+        "rew": -0.0026214702520519495
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p2.json",
+        "sha256": "8d790a1f7ec57b405e1eca1b136884fc2c770de7c1b11888eb83dd5789f4c263"
+      },
+      "record_count": 64,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 252,
+        "root_xyz": [
+          1.051,
+          1.4855,
+          0.7792
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.2231,
+            1.4733
+          ],
+          "R": [
+            0.951,
+            1.5918
+          ]
+        },
+        "rew": 0.0808081328868866
+      },
+      "last_record": {
+        "t": 64,
+        "ep_buf": 63,
+        "ref_frame": 315,
+        "root_xyz": [
+          0.5173,
+          0.8531,
+          0.2207
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            1.0074,
+            1.3253
+          ],
+          "R": [
+            0.8888,
+            1.4156
+          ]
+        },
+        "rew": -0.006476443260908127
+      }
+    },
+    {
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_R15_物理跟踪回放_20261123/data/halo/diag/play_ab/r15_exp_p3.json",
+        "sha256": "26a099585317d08b19e25b827cacbeeb1323584acb97275ab55c80a3ba5f3388"
+      },
+      "record_count": 133,
+      "first_record": {
+        "t": 1,
+        "ep_buf": 0,
+        "ref_frame": 175,
+        "root_xyz": [
+          0.9487,
+          1.2851,
+          0.7738
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 123.3,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 295.3,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            0.8914,
+            1.1608
+          ],
+          "R": [
+            1.1087,
+            1.3437
+          ]
+        },
+        "rew": 0.08222416788339615
+      },
+      "last_record": {
+        "t": 133,
+        "ep_buf": 132,
+        "ref_frame": 307,
+        "root_xyz": [
+          0.3707,
+          1.6501,
+          0.244
+        ],
+        "foot_fz": {
+          "left_ankle_pitch_link": 0.0,
+          "left_ankle_roll_link": 0.0,
+          "left_foot_contact_point": 0.0,
+          "right_ankle_pitch_link": 0.0,
+          "right_ankle_roll_link": 0.0,
+          "right_foot_contact_point": 0.0
+        },
+        "ankle_xy": {
+          "L": [
+            0.7739,
+            1.1306
+          ],
+          "R": [
+            0.9151,
+            1.3218
+          ]
+        },
+        "rew": -0.10362738370895386
+      }
+    }
+  ]
+}

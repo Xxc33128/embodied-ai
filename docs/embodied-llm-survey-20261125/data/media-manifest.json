@@ -18,8 +18,19 @@
         "width": 672.0,
         "height": 224.0,
         "duration_s": 22.4,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            448,
+            512
+          ]
+        ],
         "sample_count": 448,
-        "avc1_present": true
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
       },
       "timeline_file": "data/direct-astra-timeline.json"
     },
@@ -41,8 +52,19 @@
         "width": 672.0,
         "height": 224.0,
         "duration_s": 31.1,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            622,
+            512
+          ]
+        ],
         "sample_count": 622,
-        "avc1_present": true
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
       },
       "timeline_file": "data/direct-qwen-timeline.json"
     },
@@ -64,54 +86,388 @@
         "width": 672.0,
         "height": 224.0,
         "duration_s": 21.5,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            430,
+            512
+          ]
+        ],
         "sample_count": 430,
-        "avc1_present": true
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
       },
       "timeline_file": "data/direct-boundary-timeline.json"
+    },
+    {
+      "id": "hybrid-pass",
+      "label": "V04 · Hybrid · 两罐入篮 · init0",
+      "file": "assets/hybrid-pass.mp4",
+      "source": {
+        "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+        "member": "GPT-as-Policy-repro/data/decision_v2_20260922/episodes/libero_10-hybrid/video/actions.mp4"
+      },
+      "sha256": "4d0b3bc908f8fa390891e217c9d29a3ff743086bc287f6613dca019fbf726e55",
+      "size": 358731,
+      "metadata": {
+        "width": 448.0,
+        "height": 224.0,
+        "duration_s": 12.7,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            254,
+            512
+          ]
+        ],
+        "sample_count": 254,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
+      },
+      "nframes": 254,
+      "duration_s": 12.7,
+      "fps": 20.0,
+      "status": "included",
+      "summary": "51轮全部放行π；原生任务成功，253控制步。",
+      "playback_note": "原始双视角录像，20 fps。按钮时间直接取frame_index.json的action_video_time_s；模型等待不占视频长度。下表等待为请求发出至轮次返回的墙钟时间。",
+      "timeline_kind": "round",
+      "key_calls": [
+        1,
+        13,
+        26,
+        39,
+        51
+      ],
+      "timeline_file": "data/hybrid-pass-timeline.json",
+      "result": "valid_success"
+    },
+    {
+      "id": "hybrid-takeover",
+      "label": "V05 · Hybrid · 底层抽屉目标 · init0",
+      "file": "assets/hybrid-takeover.mp4",
+      "source": {
+        "archive": "huawei实习_交接材料_20261125/huawei实习_测试报告与原始数据_20261016_150247/原始数据/本机/GPT-as-Policy_实验批次与代码.tar.gz",
+        "member": "GPT-as-Policy-repro/data/decision_extra_20260922/episodes/libero_goal_task-task0-hybrid/video/actions.mp4"
+      },
+      "sha256": "6ed3f924b073990de5390db461ffa7d5c17086fff1a2bf4b846e7cdcc951ef07",
+      "size": 468770,
+      "metadata": {
+        "width": 448.0,
+        "height": 224.0,
+        "duration_s": 15.05,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            301,
+            512
+          ]
+        ],
+        "sample_count": 301,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
+      },
+      "nframes": 301,
+      "duration_s": 15.05,
+      "fps": 20.0,
+      "status": "included",
+      "summary": "60轮中13轮eef接管、47轮放行π；300步预算耗尽，原生任务失败。接管次数不等于目标纠正成功。",
+      "playback_note": "原始双视角录像，20 fps。按钮时间直接取frame_index.json的action_video_time_s；模型等待不占视频长度。下表等待为请求发出至轮次返回的墙钟时间。",
+      "timeline_kind": "round",
+      "key_calls": [
+        26,
+        36,
+        42,
+        43,
+        44,
+        45,
+        48,
+        49,
+        50,
+        51,
+        54,
+        57,
+        58
+      ],
+      "timeline_file": "data/hybrid-takeover-timeline.json",
+      "result": "valid_failure"
+    },
+    {
+      "id": "rpent-astra",
+      "label": "V06 · RPent Astra · t0 / seed 1 / attempt-001",
+      "file": "assets/rpent-astra.mp4",
+      "source": {
+        "path": "huawei实习_交接材料_20261125/RPent_deep-timing独立8集_补充录像_节点原件/data/rpent2/deep-timing-20261008/formal-results/gpt-6-astra/libero_10_swap/t0_s1/attempt-001/episode.mp4",
+        "sha256": "d2717a70863290f999bdc7fd23ead28afd6e9748960b7af4d5faa6b01ee5689f"
+      },
+      "sha256": "d2717a70863290f999bdc7fd23ead28afd6e9748960b7af4d5faa6b01ee5689f",
+      "size": 343021,
+      "metadata": {
+        "width": 256.0,
+        "height": 256.0,
+        "duration_s": 38.85,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            777,
+            512
+          ]
+        ],
+        "sample_count": 777,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
+      },
+      "nframes": 777,
+      "duration_s": 38.85,
+      "fps": 20.0,
+      "status": "included",
+      "summary": "独立8集深测：原生成功，episode墙钟1049.1秒。",
+      "playback_note": "原始录像20 fps；视频秒数不等于episode墙钟。归档有工具记录，但未建立工具步至视频帧的可靠逐项映射。下方仅按视频时长四等分导航，不表示模型轮次或任务阶段。",
+      "timeline_kind": "navigation",
+      "key_calls": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "timeline_file": "data/rpent-astra-timeline.json"
+    },
+    {
+      "id": "rpent-sol",
+      "label": "V07 · RPent Sol · t0 / seed 1 / attempt-001",
+      "file": "assets/rpent-sol.mp4",
+      "source": {
+        "path": "huawei实习_交接材料_20261125/RPent_deep-timing独立8集_补充录像_节点原件/data/rpent2/deep-timing-20261008/formal-results/gpt-6-sol/libero_10_swap/t0_s1/attempt-001/episode.mp4",
+        "sha256": "30b1dde90275c57da00b0d9ce681c1ed0432d5fcc04ee6de95975d2dd9ee0b9b"
+      },
+      "sha256": "30b1dde90275c57da00b0d9ce681c1ed0432d5fcc04ee6de95975d2dd9ee0b9b",
+      "size": 955300,
+      "metadata": {
+        "width": 256.0,
+        "height": 256.0,
+        "duration_s": 81.4,
+        "timescale": 10240,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            1628,
+            512
+          ]
+        ],
+        "sample_count": 1628,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 20.0
+      },
+      "nframes": 1628,
+      "duration_s": 81.4,
+      "fps": 20.0,
+      "status": "included",
+      "summary": "独立8集深测：原生失败，episode墙钟2176.5秒。",
+      "playback_note": "原始录像20 fps；视频秒数不等于episode墙钟。归档有工具记录，但未建立工具步至视频帧的可靠逐项映射。下方仅按视频时长四等分导航，不表示模型轮次或任务阶段。",
+      "timeline_kind": "navigation",
+      "key_calls": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "timeline_file": "data/rpent-sol-timeline.json"
+    },
+    {
+      "id": "homebody-corner",
+      "label": "V08 · HomeBody · cartons_to_corner_counter__fail",
+      "file": "assets/homebody-corner.mp4",
+      "source": {
+        "path": "huawei实习_交接材料_20261125/homebody-repo/videos/cartons_to_corner_counter__fail.mp4",
+        "sha256": "45e91e6ca5d709a1bce0503bd183b96b03fc71ce6eaf7241cb1b3177ad718699"
+      },
+      "sha256": "45e91e6ca5d709a1bce0503bd183b96b03fc71ce6eaf7241cb1b3177ad718699",
+      "size": 3979939,
+      "metadata": {
+        "width": 960.0,
+        "height": 540.0,
+        "duration_s": 168.0,
+        "timescale": 16384,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            168,
+            16384
+          ]
+        ],
+        "sample_count": 168,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 1.0
+      },
+      "nframes": 168,
+      "duration_s": 168.0,
+      "fps": 1.0,
+      "status": "included",
+      "summary": "Qwen角柜任务失败案例：目标落点邻段偏差，原报告记录9步；仍沿用原批次判分。",
+      "playback_note": "交接原片为1 fps第三人称采样回放，逐秒换帧是原文件特征。没有配套逐轮时间线；按钮仅按视频时长四等分导航，不代表第几步。视频时长不用于重算控制周期或模型等待。",
+      "timeline_kind": "navigation",
+      "key_calls": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "timeline_file": "data/homebody-corner-timeline.json"
+    },
+    {
+      "id": "homebody-juice",
+      "label": "V09 · HomeBody · conditional_juice__fail",
+      "file": "assets/homebody-juice.mp4",
+      "source": {
+        "path": "huawei实习_交接材料_20261125/homebody-repo/videos/conditional_juice__fail.mp4",
+        "sha256": "e489535523c2c4733f52554cfb85d0497947e3f34f2ca24f57426832343d3385"
+      },
+      "sha256": "e489535523c2c4733f52554cfb85d0497947e3f34f2ca24f57426832343d3385",
+      "size": 1856298,
+      "metadata": {
+        "width": 960.0,
+        "height": 540.0,
+        "duration_s": 79.0,
+        "timescale": 16384,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            79,
+            16384
+          ]
+        ],
+        "sample_count": 79,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 1.0
+      },
+      "nframes": 79,
+      "duration_s": 79.0,
+      "fps": 1.0,
+      "status": "included",
+      "summary": "Qwen条件指令失败案例：条件成立后搬运掉落；仍沿用原批次判分。",
+      "playback_note": "交接原片为1 fps第三人称采样回放，逐秒换帧是原文件特征。没有配套逐轮时间线；按钮仅按视频时长四等分导航，不代表第几步。视频时长不用于重算控制周期或模型等待。",
+      "timeline_kind": "navigation",
+      "key_calls": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "timeline_file": "data/homebody-juice-timeline.json"
+    },
+    {
+      "id": "halo-reference",
+      "label": "V10 · HALO · qual02 / ep10000 · 生成参考",
+      "file": "assets/halo-reference.mp4",
+      "source": {
+        "path": "huawei实习_交接材料_20261125/HALO_qual02_ep10000_生成回放_20261119/data/halo/data/renders/qual02_mj/episodes/episode_10000/tpv.mp4",
+        "sha256": "837c37d3fe93a2df3dbfd8b2d5fbce08a862f6bd663e98f1f06efe432e0fb4a7"
+      },
+      "sha256": "837c37d3fe93a2df3dbfd8b2d5fbce08a862f6bd663e98f1f06efe432e0fb4a7",
+      "size": 81804,
+      "metadata": {
+        "width": 848.0,
+        "height": 480.0,
+        "duration_s": 6.6,
+        "timescale": 15360,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            198,
+            512
+          ]
+        ],
+        "sample_count": 198,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 30.0
+      },
+      "nframes": 198,
+      "duration_s": 6.6,
+      "fps": 30.0,
+      "status": "included",
+      "summary": "198帧合格生成轨迹的第三人称渲染；用于查看WALK → TURN → SIT拼接，不是Tracker物理执行或承重坐稳证据。",
+      "playback_note": "30 fps；按生成meta.json中的阶段帧区间映射。各区间左闭右开；SIT片段在整片结束时停止。",
+      "timeline_kind": "phase",
+      "key_calls": [
+        1,
+        2,
+        3
+      ],
+      "timeline_file": "data/halo-reference-timeline.json"
+    },
+    {
+      "id": "dreamlab-direct",
+      "label": "V11 · DreamLab · Astra×Codex · 四瓶入桶",
+      "file": "assets/dreamlab-direct.mp4",
+      "source": {
+        "archive": "huawei实习_交接材料_20261125/DreamLab-repo/bottle_experiment_report.zip",
+        "member": "bottle_experiment_report/rollout.mp4"
+      },
+      "sha256": "508d3a8ea81f53b4d1251f1059ba76fb6556c126111b45b20e0497ebfbdd21d2",
+      "size": 4158372,
+      "metadata": {
+        "width": 1280.0,
+        "height": 680.0,
+        "duration_s": 26.16,
+        "timescale": 12800,
+        "handler": "vide",
+        "codec": "avc1",
+        "sample_timing": [
+          [
+            654,
+            512
+          ]
+        ],
+        "sample_count": 654,
+        "avc1_present": true,
+        "constant_frame_rate": true,
+        "fps": 25.0
+      },
+      "nframes": 654,
+      "duration_s": 26.16,
+      "fps": 25.0,
+      "status": "included",
+      "summary": "原生成功；653/700控制步，654帧。132次动作请求中131次推进物理，另有1次启动调用。",
+      "playback_note": "25 fps，与control_dt=0.04秒一致。按钮沿用CSV调用编号，不重新编号；调用1未推进物理，不生成零长度片段。等待为decision_wall_seconds。",
+      "timeline_kind": "call",
+      "key_calls": [
+        2,
+        34,
+        67,
+        100,
+        132
+      ],
+      "timeline_file": "data/dreamlab-direct-timeline.json"
     }
   ],
-  "missing": {
-    "hybrid": {
-      "title": "代表视频待补：全放行与目标抽屉接管",
-      "reason": "当前仓库保留逐轮报告和核验结果，原始9段录像在离线归档。对应视频未在本工作区提供。",
-      "paths": [
-        "包B · GPT-as-Policy-repro/data/decision_v2_20260922/episodes/",
-        "包B · GPT-as-Policy-repro/data/decision_extra_20260922/episodes/"
-      ],
-      "source": "S03",
-      "case": "两罐 Hybrid全放行；底层抽屉 Hybrid 13次接管"
-    },
-    "rpent": {
-      "title": "代表视频待补：t0 seed1 的路径差异",
-      "reason": "原始深测视频在远程归档包F，当前工作区仅有结果与计时。不能用120集中的同task/seed录像替代。",
-      "paths": [
-        "包F · rpent2/deep-timing-20261008/formal-results/",
-        "t0 seed1 · Astra / Sol · attempt-001"
-      ],
-      "source": "S03",
-      "case": "1049.1秒成功 vs 2176.5秒失败"
-    },
-    "homebody": {
-      "title": "代表视频待补：落点邻段与持物掉落",
-      "reason": "归档文档明确注明12段精选MP4未上传，当前只提供现场文件名。",
-      "paths": [
-        "videos/cartons_to_corner_counter__fail.mp4",
-        "videos/conditional_juice__fail.mp4"
-      ],
-      "source": "S11",
-      "case": "Qwen角柜9步败局；条件成立后搬运掉落"
-    },
-    "halo": {
-      "title": "代表视频待补：生成参考与物理跟踪",
-      "reason": "轨迹与回放产物在实验节点，当前报告为现场台账转引。两类视频须分别标记，不能把运动学参考当成物理执行。",
-      "paths": [
-        "ep10000 · qual02 · episodes/{fpv,oak,tpv}.mp4",
-        "R15 · frame0 / seed5 · 物理跟踪回放（确切文件名待取片核对）"
-      ],
-      "source": "S13",
-      "case": "198帧合格生成轨迹；站姿起步跟踪止于WALK"
+  "missing": {},
+  "unrecorded": [
+    {
+      "id": "halo-r15",
+      "status": "not_recorded",
+      "source": "huawei实习_交接材料_20261125/README.md",
+      "evidence": "data/halo-tracker-record-summary.json"
     }
-  },
-  "timeline_source": "gpt6astra-repro/results/gpt-6-astra/decision-trace.csv",
+  ],
+  "timeline_source": "data/video-timeline-provenance.json; data/handoff-media-provenance.json",
   "media_verification": "container metadata and file hashes; playback verification separately recorded in validation.json"
 }

@@ -1,0 +1,29 @@
+[
+  {
+    "call": 1,
+    "label": "WALK",
+    "start_s": 0.0,
+    "end_s": 3.2666666666666666,
+    "start_step": 0,
+    "end_step": 98,
+    "tool": "生成参考阶段"
+  },
+  {
+    "call": 2,
+    "label": "TURN",
+    "start_s": 3.2666666666666666,
+    "end_s": 4.933333333333334,
+    "start_step": 98,
+    "end_step": 148,
+    "tool": "生成参考阶段"
+  },
+  {
+    "call": 3,
+    "label": "SIT",
+    "start_s": 4.933333333333334,
+    "end_s": 6.6,
+    "start_step": 148,
+    "end_step": 198,
+    "tool": "生成参考阶段"
+  }
+]
