@@ -1,0 +1,890 @@
+{
+  "format": 1,
+  "name": "RPent_脱敏前分析原件",
+  "snapshot_time": "2026-10-16T15:52:50+0800",
+  "entries": [
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/_SOURCE_PROVENANCE.json",
+      "path": "_SOURCE_PROVENANCE.json",
+      "type": "file",
+      "size": 64176,
+      "mtime_ns": 1792137170538247700,
+      "mode": 420,
+      "sha256": "eff25e7b27b47692cd280c08e9974ebf43d8c7bb42c51bf8ccd6f4950ef29f42"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local",
+      "path": "embodied-ai-local",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170201997340,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks",
+      "path": "embodied-ai-local/weeks",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170536299369,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170536155744,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/2026-10-09-RPent-DeepSeek-V4.1-Flash-接入与关思考对照.md",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/2026-10-09-RPent-DeepSeek-V4.1-Flash-接入与关思考对照.md",
+      "type": "file",
+      "size": 18980,
+      "mtime_ns": 1791613183161230349,
+      "mode": 420,
+      "sha256": "dab9375bcac75ab51d2f27bd9bc977fbde1006a3c18f0db5617bcfdceff9baec"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/2026-10-09-RPent更换LLM与启动测试指南.md",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/2026-10-09-RPent更换LLM与启动测试指南.md",
+      "type": "file",
+      "size": 16264,
+      "mtime_ns": 1791532455286547259,
+      "mode": 420,
+      "sha256": "ab6a9ce3d9262fde9cfd096c5d12c03b3f3c7ea8cdc441289dff27a6b02b86d6"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/context-private.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/context-private.json",
+      "type": "file",
+      "size": 1205943,
+      "mtime_ns": 1791459628667100573,
+      "mode": 420,
+      "sha256": "474cb2b745069c4fee254463e4f7152feec0390985acd53d622b06ba1ba4870b"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170259298371,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/asset-manifest.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/asset-manifest.json",
+      "type": "file",
+      "size": 586194,
+      "mtime_ns": 1791593035155027955,
+      "mode": 416,
+      "sha256": "906a9fa4e859194d7cbbedf1e91e854f2bacdb8ff8fc40e2a1837a5a291aa3ff"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/metrics-shim.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/metrics-shim.json",
+      "type": "file",
+      "size": 233578,
+      "mtime_ns": 1791610879556123238,
+      "mode": 420,
+      "sha256": "e41476976edaa8471281a1fe93a67441150c2e17815c6fa763c63f14f8a973ce"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/metrics.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/evidence-ds-20261009/metrics.json",
+      "type": "file",
+      "size": 204899,
+      "mtime_ns": 1791593035153000740,
+      "mode": 420,
+      "sha256": "bfa20b737e97a742ef4f8d9853c8e57079f1d4b9078215feb03de9d78bbcbf95"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/extract_remote.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/extract_remote.py",
+      "type": "file",
+      "size": 4418,
+      "mtime_ns": 1791459519625855385,
+      "mode": 420,
+      "sha256": "eb3dc088a4911672a88528472cbbc9adc535348313ccd1e48d49d8924ec45740"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/extracted-private.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/extracted-private.json",
+      "type": "file",
+      "size": 6360288,
+      "mtime_ns": 1791459563155716006,
+      "mode": 420,
+      "sha256": "6555037b80985a860106702bc2a348435efe4cc63d1bdf60318c945573c7c0d7"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/hash-check.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/hash-check.json",
+      "type": "file",
+      "size": 35,
+      "mtime_ns": 1791459664117121171,
+      "mode": 420,
+      "sha256": "72d2438f8bf542ff3527df031ba9e62d052182e3a3ff454087ccbc40a24ec24a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170427957217,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170413706564,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/export.csv",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/export.csv",
+      "type": "file",
+      "size": 1436,
+      "mtime_ns": 1791480486510250009,
+      "mode": 420,
+      "sha256": "b8135c3542145a321e4215132c34589c644b31c4cbbfa48f78f41b099372c9da"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-1280.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-1280.png",
+      "type": "file",
+      "size": 184421,
+      "mtime_ns": 1791480472195360694,
+      "mode": 420,
+      "sha256": "4de53653e52eaf19abeb65b938365a61f7e56510936d4ff7b762a79c0b2aada7"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-320.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-320.png",
+      "type": "file",
+      "size": 77969,
+      "mtime_ns": 1791480472411474335,
+      "mode": 420,
+      "sha256": "273a93e52b03d1656c3877091c3c97af80220090d44d3f3692fafce60cb96bd1"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-390.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/formula-390.png",
+      "type": "file",
+      "size": 97940,
+      "mtime_ns": 1791480472231762259,
+      "mode": 420,
+      "sha256": "45f2d815c550bd6072302e79ec5dc2bbc8446469d1542b8f914c90dc91b61973"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/report.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/final-ui/report.pdf",
+      "type": "file",
+      "size": 1474915,
+      "mtime_ns": 1791480505511472348,
+      "mode": 420,
+      "sha256": "03028f3fd51e2b652fc63f0d37223a8f703eb5915e4cf31047595b35a71f00d5"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170427726551,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170424774720,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/deep-print-verified.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/deep-print-verified.pdf",
+      "type": "file",
+      "size": 888495,
+      "mtime_ns": 1791468259479764842,
+      "mode": 420,
+      "sha256": "6479e12f2d1953702abb899b45db5e63f1eb1e47c901038d2564389e195373a2"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/deep-print-verified.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/deep-print-verified.png",
+      "type": "file",
+      "size": 86628,
+      "mtime_ns": 1791468260157254138,
+      "mode": 420,
+      "sha256": "b7533ac0dcc95d54c432590b26b3b61377c31e954c1da5f8f8072f71ff6fb1d3"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T13-59-34-817Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T13-59-34-817Z.yml",
+      "type": "file",
+      "size": 12778,
+      "mtime_ns": 1791467974818635128,
+      "mode": 420,
+      "sha256": "71a6e57c5e45ed641e73ae1bc34c892851399918cec2d8fd1c91d3f992827555"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T13-59-47-339Z.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T13-59-47-339Z.png",
+      "type": "file",
+      "size": 130848,
+      "mtime_ns": 1791467987339663438,
+      "mode": 420,
+      "sha256": "7ac59651e60d89dbeea2562efe32fb4f92368ba786be168a5a0a5da53957558f"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-00-10-213Z.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-00-10-213Z.png",
+      "type": "file",
+      "size": 84688,
+      "mtime_ns": 1791468010213951468,
+      "mode": 420,
+      "sha256": "bee645733b3136068ca023a3e9a1d4c9b455fb86b3ae1509a7dc77b5e988483d"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-06-052Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-06-052Z.yml",
+      "type": "file",
+      "size": 13464,
+      "mtime_ns": 1791468066053328479,
+      "mode": 420,
+      "sha256": "a47bc173e719612f8e6db752ae76fcb8292118cb6171dbbecb725e6ce15bb18a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-33-606Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-33-606Z.yml",
+      "type": "file",
+      "size": 13464,
+      "mtime_ns": 1791468093607626130,
+      "mode": 420,
+      "sha256": "a47bc173e719612f8e6db752ae76fcb8292118cb6171dbbecb725e6ce15bb18a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-36-117Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-36-117Z.yml",
+      "type": "file",
+      "size": 13464,
+      "mtime_ns": 1791468096118380267,
+      "mode": 420,
+      "sha256": "a47bc173e719612f8e6db752ae76fcb8292118cb6171dbbecb725e6ce15bb18a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-52-083Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-52-083Z.yml",
+      "type": "file",
+      "size": 13020,
+      "mtime_ns": 1791468112083870536,
+      "mode": 420,
+      "sha256": "6df5429ab7c8f11a637a54555d893402ad6c942d54ac0515ba35671ef2fa91fd"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-55-596Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-55-596Z.yml",
+      "type": "file",
+      "size": 14721,
+      "mtime_ns": 1791468115597376640,
+      "mode": 420,
+      "sha256": "f2b3e29a9e985f64de965065c3803bf4ecdc079e07b4d3d2194054e7fcb14d15"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-57-165Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-01-57-165Z.yml",
+      "type": "file",
+      "size": 14721,
+      "mtime_ns": 1791468117166330525,
+      "mode": 420,
+      "sha256": "61024d9a20d8cc28ddd96f2a6bd635dc1dba097a614199918e70affe75f0a8b4"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-02-24-174Z.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-02-24-174Z.pdf",
+      "type": "file",
+      "size": 934629,
+      "mtime_ns": 1791468144175256798,
+      "mode": 420,
+      "sha256": "6de0161783ea753398c01f9da5bc398c835a08914045e1570447b6212cb923c9"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-03-25-483Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-03-25-483Z.yml",
+      "type": "file",
+      "size": 11018,
+      "mtime_ns": 1791468205483966005,
+      "mode": 420,
+      "sha256": "1cd4dd539216596054bf855ba3f92289afcb2ca3e894e1a1a8f42d53d45477e2"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-03-30-742Z.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-03-30-742Z.pdf",
+      "type": "file",
+      "size": 971855,
+      "mtime_ns": 1791468210743429190,
+      "mode": 420,
+      "sha256": "3fd20f6d44081bae6a8dfdaa3c152828d165c72380edf16c89aebb77a4d9228a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-04-17-737Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/page-2026-10-08T14-04-17-737Z.yml",
+      "type": "file",
+      "size": 13464,
+      "mtime_ns": 1791468257737736664,
+      "mode": 420,
+      "sha256": "be7fff0fa3e15ad9c65e21b34bc06deed57212461c592da4d5fb8494787a9f3b"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/rpent-deep-timing.csv",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/.playwright-cli/rpent-deep-timing.csv",
+      "type": "file",
+      "size": 698,
+      "mtime_ns": 1791468116655122368,
+      "mode": 420,
+      "sha256": "49b6fcceefd9378c33568bd721f674a504508a1ecdce2f98431a897b3e488a06"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/deep-report-scaffold-qa.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/deep-report-scaffold-qa.json",
+      "type": "file",
+      "size": 825,
+      "mtime_ns": 1791468287542227873,
+      "mode": 420,
+      "sha256": "0ffd66fca35f7af795cb48744cfb92fc5f30ac7d2cc6ec5debba7e8ff90463ac"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/formula-terms-mobile.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/formula-terms-mobile.png",
+      "type": "file",
+      "size": 168008,
+      "mtime_ns": 1791529516015431637,
+      "mode": 420,
+      "sha256": "e1eed92a9059930891303e2b15a9e74f7ebc5a1e400587778fe09cfd9d6e9266"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/formula-terms.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/formula-terms.png",
+      "type": "file",
+      "size": 355750,
+      "mtime_ns": 1791529516100494547,
+      "mode": 420,
+      "sha256": "d90e0ee972d6d13ece87aa1bfec44d9bd2498be0721d8629925f2d900757685b"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/front-answers.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/playwright/front-answers.png",
+      "type": "file",
+      "size": 243631,
+      "mtime_ns": 1791521617278791756,
+      "mode": 420,
+      "sha256": "da54f5cad65ae8ecc95e7e1e0ae05ab27f4f6dfdee4d8224bca29d6bf110790d"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170528214376,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170431124964,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T15-03-31-536Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T15-03-31-536Z.yml",
+      "type": "file",
+      "size": 17579,
+      "mtime_ns": 1791471811537342558,
+      "mode": 420,
+      "sha256": "d389e55bbe39792bcabbe6882b9a4462923f06b23eb8736e051d84b35dbec50b"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T15-57-47-487Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T15-57-47-487Z.yml",
+      "type": "file",
+      "size": 24499,
+      "mtime_ns": 1791475067488121149,
+      "mode": 420,
+      "sha256": "8d4c1eb183998ee40416cd00b7e33aa7cf34c56b5ee114548f551e7cb7e61189"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T16-56-35-366Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T16-56-35-366Z.yml",
+      "type": "file",
+      "size": 26773,
+      "mtime_ns": 1791478595366950176,
+      "mode": 420,
+      "sha256": "b578afa3264336a3ac023a39b842caac19b19729d9879836f4bc8ee159589171"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T16-57-48-271Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T16-57-48-271Z.yml",
+      "type": "file",
+      "size": 26773,
+      "mtime_ns": 1791478668271642560,
+      "mode": 420,
+      "sha256": "d6eb20ba5aa148550c03f095302feeabe857eb8d9d8bc0c9dd38d705ff0b1e98"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T17-27-36-885Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T17-27-36-885Z.yml",
+      "type": "file",
+      "size": 29691,
+      "mtime_ns": 1791480456887131072,
+      "mode": 420,
+      "sha256": "5bc95cb15f3147206d0ec5ac4709f6b72a14ac4ee24e9d207bd93a78f751ce7f"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T17-29-51-202Z.yml",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/page-2026-10-08T17-29-51-202Z.yml",
+      "type": "file",
+      "size": 29703,
+      "mtime_ns": 1791480591203269200,
+      "mode": 420,
+      "sha256": "e132792b7f6010882aeffb076e950fccf5b541ed2e5ae23ac57b44d34811419e"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/rpent-deep-timing.csv",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/.playwright-cli/rpent-deep-timing.csv",
+      "type": "file",
+      "size": 1436,
+      "mtime_ns": 1791480486509997968,
+      "mode": 420,
+      "sha256": "b8135c3542145a321e4215132c34589c644b31c4cbbfa48f78f41b099372c9da"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-001.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-001.json",
+      "type": "file",
+      "size": 200753,
+      "mtime_ns": 1791472502436371606,
+      "mode": 420,
+      "sha256": "4e1cdd028bb23e0f4fcb2959b55d848386fd9cedf9ad1de4ccb623ef97753c19"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-002.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-002.json",
+      "type": "file",
+      "size": 268893,
+      "mtime_ns": 1791472565216914197,
+      "mode": 420,
+      "sha256": "67ac679be6f1b79667066144f5834c035bdc77600e26b5bb0a3f78e40a458344"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-003.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-003.html",
+      "type": "file",
+      "size": 338549,
+      "mtime_ns": 1791472703377144690,
+      "mode": 420,
+      "sha256": "f3ff8d2893ae9a9b9a17158970de14473314bb499a264c62d450090df29e890d"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-003.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-003.json",
+      "type": "file",
+      "size": 269773,
+      "mtime_ns": 1791472703331081709,
+      "mode": 420,
+      "sha256": "af33b628ef6e66c69eb412bcd2c761c17e3d7b43c90c82d655c9947952470864"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-004.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-four-004.json",
+      "type": "file",
+      "size": 269773,
+      "mtime_ns": 1791473516887738390,
+      "mode": 420,
+      "sha256": "af33b628ef6e66c69eb412bcd2c761c17e3d7b43c90c82d655c9947952470864"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-001.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-001.html",
+      "type": "file",
+      "size": 532977,
+      "mtime_ns": 1791474484575374828,
+      "mode": 420,
+      "sha256": "463cdf26532f04a95dc027936a1371fd8ddbd5f1257864d5677b8ae0a6dc9d75"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-001.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-001.json",
+      "type": "file",
+      "size": 450607,
+      "mtime_ns": 1791474484522313833,
+      "mode": 420,
+      "sha256": "7b77180da98b5d315876fd81b3d6e0f82d697751b23ba5df6e9b676b05e2bcfc"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-enriched-002.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-enriched-002.html",
+      "type": "file",
+      "size": 538195,
+      "mtime_ns": 1791475130484103370,
+      "mode": 420,
+      "sha256": "3dd71913bf2ca0a5b00e24cc8843ec9603d70e1af43732071403422188210f0c"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-enriched-002.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-enriched-002.json",
+      "type": "file",
+      "size": 455966,
+      "mtime_ns": 1791475056882844967,
+      "mode": 420,
+      "sha256": "6e50c36005bf66129c5f25f57dbc4c6195128148341042cfb60b7577acf5b604"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-001.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-001.html",
+      "type": "file",
+      "size": 540551,
+      "mtime_ns": 1791478594088014026,
+      "mode": 420,
+      "sha256": "2e4a14161ccac2e75ad854c290017066c65f981e90149661c90df56f1a75b1b8"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-001.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-001.json",
+      "type": "file",
+      "size": 461391,
+      "mtime_ns": 1791478594078452813,
+      "mode": 420,
+      "sha256": "f301d9fe558458b8f65c91a9febb000a89daaab50d3f85d466b8e8622d5674f3"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-002.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-ledger-preview-002.html",
+      "type": "file",
+      "size": 540572,
+      "mtime_ns": 1791478667368166003,
+      "mode": 420,
+      "sha256": "5b55cf34a890df9934119933b133c568d122b19e8cdea3f0455928a4e8708f52"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-measured-001.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-measured-001.json",
+      "type": "file",
+      "size": 453264,
+      "mtime_ns": 1791474794170198420,
+      "mode": 420,
+      "sha256": "66df3f487eba2dc1d99a0765270cf4ea08cca1d6d76d8f7f3ae7fe9c99492044"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-narrative-002.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/assembled-six-narrative-002.json",
+      "type": "file",
+      "size": 453309,
+      "mtime_ns": 1791475056830097367,
+      "mode": 420,
+      "sha256": "53a98b5405fe7abf8b966e65b4a402fc1ac15ad57642e8a6b3077d18fe8ab10e"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop-first-final.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop-first-final.png",
+      "type": "file",
+      "size": 163809,
+      "mtime_ns": 1791472030785186400,
+      "mode": 420,
+      "sha256": "96b3a9722ad37f0c4ca906a1923421375b0a5f1fc10fafbe0e286ceeb634b3b6"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop-first.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop-first.png",
+      "type": "file",
+      "size": 184300,
+      "mtime_ns": 1791471901263892031,
+      "mode": 420,
+      "sha256": "36bab056c8ff454fe61d0a51f431ade7d9d1876d2261273ae3e20759e760b71b"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop.png",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/desktop.png",
+      "type": "file",
+      "size": 1091135,
+      "mtime_ns": 1791471865070392279,
+      "mode": 420,
+      "sha256": "942d0ce2b1c0e170db0146258ba85f6d29eee455d45eaf81d7b8d8e3e786aa26"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/index.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/index.html",
+      "type": "file",
+      "size": 126266,
+      "mtime_ns": 1791472010330182009,
+      "mode": 420,
+      "sha256": "32b8ffa72c09426b5f9c5fb6615a91cebddf29cc4e4012068fc94fb58ea13627"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/narrative-four-001.html",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/narrative-four-001.html",
+      "type": "file",
+      "size": 350151,
+      "mtime_ns": 1791473145011623758,
+      "mode": 420,
+      "sha256": "659026ebdb9540787ac168c8521d63b7b3c79ac6d79245498f26c961b8ae82a5"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/narrative-four-001.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/narrative-four-001.json",
+      "type": "file",
+      "size": 284000,
+      "mtime_ns": 1791473144898839537,
+      "mode": 420,
+      "sha256": "cb631c7bfe6dacda869491c0dc281ec0b144fd228d4c67d1861e44c2df309b4e"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/preview-data.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/preview-data.json",
+      "type": "file",
+      "size": 65445,
+      "mtime_ns": 1791472010328920101,
+      "mode": 420,
+      "sha256": "1419e90952b6c48aa595c2159e7c893e43dd16131d42efd0e0082d1fcdd8621c"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/print-final.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/print-final.pdf",
+      "type": "file",
+      "size": 1236207,
+      "mtime_ns": 1791472031255816439,
+      "mode": 420,
+      "sha256": "11a44d4e4b253dcb51b5385da1d08d205e3e2fef992c23f682c840b252438493"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/print.pdf",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/output/preview-first-pair/print.pdf",
+      "type": "file",
+      "size": 1221656,
+      "mtime_ns": 1791471865768395104,
+      "mode": 420,
+      "sha256": "590a5cbc784c157cf57c83fd52212c635478c2d03f119ea1d471b1a7e0b9996f"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170535720078,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/env_server.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/env_server.py",
+      "type": "file",
+      "size": 12703,
+      "mtime_ns": 1791459342738420966,
+      "mode": 420,
+      "sha256": "c8c46cb6e77a9052b5ee93c19d00082b54e53c8da171dc2ffe2e96a08c25c6bc"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_models_pi0_config.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_models_pi0_config.py",
+      "type": "file",
+      "size": 4126,
+      "mtime_ns": 1791459729777876762,
+      "mode": 420,
+      "sha256": "e15d71586f1a561b35c5651227607613fb16d2df411f3708b1c9d36b02544285"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_models_tokenizer.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_models_tokenizer.py",
+      "type": "file",
+      "size": 17517,
+      "mtime_ns": 1791459730265849530,
+      "mode": 420,
+      "sha256": "965be8b3c393a6811875bbc32da9e01a5d01cc2f87802de801cf7293e049748c"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_policies_libero_policy.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_policies_libero_policy.py",
+      "type": "file",
+      "size": 4320,
+      "mtime_ns": 1791459731287703276,
+      "mode": 420,
+      "sha256": "ad01e5be74516d9ec9aeb1f76294d5c9f7f7179a60f1f7fbbb35e7646534f81a"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_training_config.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/openpi_training_config.py",
+      "type": "file",
+      "size": 44203,
+      "mtime_ns": 1791459730811312570,
+      "mode": 420,
+      "sha256": "b54b77a123537bcb304ffe4ad3ed191ee065890f8d7d6a0973d13a0231b93cec"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/pi05_vla_client.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/pi05_vla_client.py",
+      "type": "file",
+      "size": 6730,
+      "mtime_ns": 1791459432974076345,
+      "mode": 420,
+      "sha256": "4d050ee6c8098bf864188dd89b5d6ebb6d4aed134709fe4d576d540612beee24"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/pi05_vla_server.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/pi05_vla_server.py",
+      "type": "file",
+      "size": 10818,
+      "mtime_ns": 1791459341777328974,
+      "mode": 420,
+      "sha256": "8d89a5160bfcd95841e90a014283c9da666190e63c4254bd5f3c8b4ad2a205f2"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_envs_libero_libero_env.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_envs_libero_libero_env.py",
+      "type": "file",
+      "size": 31348,
+      "mtime_ns": 1791459731776718747,
+      "mode": 420,
+      "sha256": "ecc3343cdd6336704af3596028939147cc1269fe38a9c55ae5e3b5b2efd7d8d2"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi___init__.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi___init__.py",
+      "type": "file",
+      "size": 5012,
+      "mtime_ns": 1791459732265447261,
+      "mode": 420,
+      "sha256": "4dc635147841a83282b2e2e208569db01bab69438a60c0c68edf941be2db5fec"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_dataconfig_libero_dataconfig.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_dataconfig_libero_dataconfig.py",
+      "type": "file",
+      "size": 5294,
+      "mtime_ns": 1791459784376308725,
+      "mode": 420,
+      "sha256": "80f5157a5d8c946f343c07bf1e31f782639203d86c91ede4a1b8af210c29e6a3"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_openpi_action_model.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_openpi_action_model.py",
+      "type": "file",
+      "size": 56892,
+      "mtime_ns": 1791459784894316455,
+      "mode": 420,
+      "sha256": "da8ac1bdd5341793422e3697f84f8e907a793e23c7f0c8748f9392e487335609"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_policies_libero_policy.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rlinf_models_embodiment_openpi_policies_libero_policy.py",
+      "type": "file",
+      "size": 4976,
+      "mtime_ns": 1791459785407208047,
+      "mode": 420,
+      "sha256": "e060c68094f02bf90a456d1bfb7ab8cb5767aec620115770d519aadb3e7d2975"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_planner_codex.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_planner_codex.py",
+      "type": "file",
+      "size": 40306,
+      "mtime_ns": 1791459509359978310,
+      "mode": 420,
+      "sha256": "2bdcc3950dccceb3176153c57c772c63eee5e1fdb83fc7b641ed7a748c5271ed"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_session_base.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_session_base.py",
+      "type": "file",
+      "size": 14165,
+      "mtime_ns": 1791459508246568061,
+      "mode": 420,
+      "sha256": "af1490b1b9171a291de2f209b2a947e173244021e17af021b9c8453fe2f50d08"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_tools_toolkit.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/rpent_tools_toolkit.py",
+      "type": "file",
+      "size": 13655,
+      "mtime_ns": 1791459508904758197,
+      "mode": 420,
+      "sha256": "ce537451f3d01dbc25a65c40dab7abe794fa29fe803dbe1438d92fcdee1973ad"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/sam3_client.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/sam3_client.py",
+      "type": "file",
+      "size": 5096,
+      "mtime_ns": 1791459433381332552,
+      "mode": 420,
+      "sha256": "f8091dd9b3057567d936f98143e31c97c8556c6c40de8efad43683a225b97610"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/sam3_server.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/sam3_server.py",
+      "type": "file",
+      "size": 14105,
+      "mtime_ns": 1791459342284983927,
+      "mode": 420,
+      "sha256": "606d744b49cf79f2453ccb35a19c9e0b38f20216b3b40d448249891cc38aafaf"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/tools.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/tools.py",
+      "type": "file",
+      "size": 74463,
+      "mtime_ns": 1791459434350064377,
+      "mode": 420,
+      "sha256": "80341921c9a12a8e03c2ca213c46ab7b3de3551fe111b60a9a328760b3681336"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/vla_facade_base.py",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/source/vla_facade_base.py",
+      "type": "file",
+      "size": 2169,
+      "mtime_ns": 1791459433905629706,
+      "mode": 420,
+      "sha256": "5fcb5a065b253859a9a1f967c8a8f4ea3ff224ce79c786442447d51a439c3be3"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/vla-loads.json",
+      "path": "embodied-ai-local/weeks/2026_1005-1011_RPent推理性能分析/vla-loads.json",
+      "type": "file",
+      "size": 9099,
+      "mtime_ns": 1791459623842419884,
+      "mode": 420,
+      "sha256": "15154820cb4eaea1b27b724b8205053e2bbae8382fc612ec138378d7d15b6ec5"
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析",
+      "path": "embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170536333952,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report",
+      "path": "embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report",
+      "type": "dir",
+      "mode": 493,
+      "mtime_ns": 1792137170536518244,
+      "size": 0
+    },
+    {
+      "source": "/tmp/huawei-test-backup-20261016/stat-snapshots/RPent_脱敏前分析原件/embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report/proxy-source-audit.md",
+      "path": "embodied-ai-local/weeks/2026_1012-1018_RPent多模型性能分析/ds-report/proxy-source-audit.md",
+      "type": "file",
+      "size": 7822,
+      "mtime_ns": 1791770540981573547,
+      "mode": 420,
+      "sha256": "b702f41be1a339d278c143d00a1fda538d804ba5f7bf53a137ffa14893de8ef1"
+    }
+  ],
+  "excluded": [],
+  "scope_notes": [
+    "User chose statistical originals and necessary samples; other image payloads intentionally omitted.",
+    "All bytes outside omitted image payloads retained exactly; original fingerprints in _SOURCE_PROVENANCE.json."
+  ]
+}
